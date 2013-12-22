@@ -1,75 +1,309 @@
-set guifont=Ricty\ 9
+if has('vim_starting')
+   set nocompatible
+   set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
+
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'w0ng/vim-hybrid'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'vim-scripts/TaskList.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'vim-scripts/ruby-matchit'
+NeoBundle 'tpope/vim-rails'
+NeoBundle "sudar/vim-arduino-syntax"
+NeoBundle 'thinca/vim-quickrun'
 
 set encoding=utf-8
 
-syntax on
-
-set number				" 行番号
-set ruler
-set showmatch				" 対応する括弧を表示
-set whichwrap=b,s,h,l,<,>,[,]		" カーソルのワープ
-set showcmd				" 入力中のコマンド表示
-set cursorline				" カーソルのある行のハイライト
-set hlsearch                " 検索のハイライト
-nmap <Esc><Esc> :nohlsearch<CR><Esc>    " Esc連打でハイライト消す
-
-set autoindent				" インデントの継承
-set smartindent				" スマートなインデント
-set expandtab				" インデントにスペース
-set tabstop=4				" タブ幅4
-set shiftwidth=4            " インデント幅4
-set list				" 空白文字の可視化
-set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
-
-set splitbelow				" 新しいウィンドウを下に開く
-set splitright				" 新しいウィンドウを右に開く
-
-function! GetStatusEx()
-  let str = ''
-  if &ft != ''
-    let str = str . '[' . &ft . ']'
-  endif
-  if has('multi_byte')
-    if &fenc != ''
-      let str = str . '[' . &fenc . ']'
-    elseif &enc != ''
-      let str = str . '[' . &enc . ']'
-    endif
-  endif
-  if &ff != ''
-    let str = str . '[' . &ff . ']'
-  endif
-  return str
-endfunction
-set statusline=%<%f\ %m%r%h%w%=%{GetStatusEx()}\ \ %l,%c%V%8P
-
-"===============================================================
-"	plugin
-"===============================================================
-
-set nocompatible
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-Bundle 'gmarik/vundle'
-
-Bundle "The-NERD-Commenter"
-Bundle "neocomplcache"
-Bundle "ZenCoding.vim"
-Bundle "quickrun"
-Bundle "Wombat"
-
 filetype plugin indent on
 
-colorscheme wombat
-highlight SpecialKey ctermfg=DarkGray ctermbg=NONE
-highlight SpecialKey guifg=#333333 guibg=NONE
+"================================================================
+" search
+"================================================================
 
-" neocomplcache
-let g:neocomplcache_enable_at_startup=1	" 起動時に有効化
+" 検索時に大文字小文字の区別しない
+set ignorecase
+" 大文字小文字がどちらも含まれている場合は区別
+set smartcase
 
-" NERD Commenter
-let NERDSpaceDelims=1			" スペース数
+" インクリメンタルサーチON
+set incsearch
+
+" 検索結果のハイライト
+set hlsearch
+
+" ファイル末尾まで検索したら先頭に戻る
+set wrapscan
+
+" Esc連打でハイライトを消す
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+"================================================================
+" appearance
+"================================================================
+
+syntax on
+set guifont=Ricty:h12
+colorscheme hybrid
+
+" 行番号を表示
+set number
+
+" カーソル位置表示
+set ruler
+
+" 折り返し禁止
+set nowrap
+
+" 対応するカッコをハイライト
+set showmatch
+" カッコをハイライトする時間(sec)
+set matchtime=3
+" <hoge></hoge>みたいなのも%で移動できる
+set matchpairs+=<:>
+" matchitを有効化（rubyのコードブロックに対応させる）
+if !exists('loaded_matchit')
+  " matchitを有効化
+  runtime macros/matchit.vim
+endif
+
+" 行を跨いで移動できるアレ
+set whichwrap=b,s,h,l,<,>,[,]
+
+" カーソル行をハイライト
+set cursorline
+" カーソル位置のカラムのハイライト
+set cursorcolumn
+
+" コマンド非表示
+set noshowcmd
+
+" 空白文字の可視化
+set list
+set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
+
+" ステータスラインを常に表示
+set laststatus=2
+
+" コマンドラインの高さ
+set cmdheight=2
+
+" タイトル表示
+set title
+
+" タブエリアを常に表示
+set showtabline=2
+
+"================================================================
+" edit
+"================================================================
+
+" スマートインデントON
+set autoindent
+set smartindent
+
+" タブをスペースに展開
+set expandtab
+
+" インデント幅を4に
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+autocmd FileType ruby,html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+
+" インデントをshiftwidthの倍数に丸める
+set shiftround
+
+" backspaceで改行とかインデントとかを消せるようにする
+set backspace=indent,eol,start
+
+" 単語を補完する時の大文字小文字の無視
+set infercase
+
+" スワップファイルを作らない
+set noswapfile
+
+" 折りたたみON
+set foldenable
+set foldmethod=syntax
+set foldcolumn=3
+
+" 新しいウィンドウを下（右）に開く
+set splitbelow
+set splitright
+
+" カッコを自動補完
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
+"===============================================================
+" plugin
+"===============================================================
+
+"---------------------------------------------------------------
+" vim-indent-guides
+"---------------------------------------------------------------
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+"---------------------------------------------------------------
+" vim-over
+"---------------------------------------------------------------
+
+nnoremap <Leader>o :OverCommandLine<CR>
+
+"---------------------------------------------------------------
+" lightline.vim
+"---------------------------------------------------------------
+
+let g:lightline = {
+    \ 'colorscheme': 'jellybeans',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+    \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+    \ },
+    \ 'component': {
+    \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+    \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+    \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+    \ },
+    \ 'component_visible_condition': {
+    \   'readonly': '(&filetype!="help"&& &readonly)',
+    \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+    \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+    \ },
+    \ }
+
+"---------------------------------------------------------------
+" TaskList.vim
+"---------------------------------------------------------------
+
+nmap <C-T> <plug>TaskList
+
+"---------------------------------------------------------------
+" neocomplete
+"---------------------------------------------------------------
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+
+"---------------------------------------------------------------
+" switch.vim
+"---------------------------------------------------------------
+
+nnoremap ! :Switch<CR>
+
+autocmd FileType ruby let b:switch_custom_definitions = [
+    \       ['if', 'unless'],
+    \       ['while', 'until'],
+    \       ['.blank?', '.present?'],
+    \       ['include', 'extend'],
+    \       ['class', 'module'],
+    \       ['.inject', '.delete_if'],
+    \       ['.map', '.map!'],
+    \       ['attr_accessor', 'attr_reader', 'attr_writer'],
+    \       [100, ':continue', ':information'],
+    \       [101, ':switching_protocols'],
+    \       [102, ':processing'],
+    \       [200, ':ok', ':success'],
+    \       [201, ':created'],
+    \       [202, ':accepted'],
+    \       [203, ':non_authoritative_information'],
+    \       [204, ':no_content'],
+    \       [205, ':reset_content'],
+    \       [206, ':partial_content'],
+    \       [207, ':multi_status'],
+    \       [208, ':already_reported'],
+    \       [226, ':im_used'],
+    \       [300, ':multiple_choices'],
+    \       [301, ':moved_permanently'],
+    \       [302, ':found'],
+    \       [303, ':see_other'],
+    \       [304, ':not_modified'],
+    \       [305, ':use_proxy'],
+    \       [306, ':reserved'],
+    \       [307, ':temporary_redirect'],
+    \       [308, ':permanent_redirect'],
+    \       [400, ':bad_request'],
+    \       [401, ':unauthorized'],
+    \       [402, ':payment_required'],
+    \       [403, ':forbidden'],
+    \       [404, ':not_found'],
+    \       [405, ':method_not_allowed'],
+    \       [406, ':not_acceptable'],
+    \       [407, ':proxy_authentication_required'],
+    \       [408, ':request_timeout'],
+    \       [409, ':conflict'],
+    \       [410, ':gone'],
+    \       [411, ':length_required'],
+    \       [412, ':precondition_failed'],
+    \       [413, ':request_entity_too_large'],
+    \       [414, ':request_uri_too_long'],
+    \       [415, ':unsupported_media_type'],
+    \       [416, ':requested_range_not_satisfiable'],
+    \       [417, ':expectation_failed'],
+    \       [422, ':unprocessable_entity'],
+    \       [423, ':precondition_required'],
+    \       [424, ':too_many_requests'],
+    \       [426, ':request_header_fields_too_large'],
+    \       [500, ':internal_server_error'],
+    \       [501, ':not_implemented'],
+    \       [502, ':bad_gateway'],
+    \       [503, ':service_unavailable'],
+    \       [504, ':gateway_timeout'],
+    \       [505, ':http_version_not_supported'],
+    \       [506, ':variant_also_negotiates'],
+    \       [507, ':insufficient_storage'],
+    \       [508, ':loop_detected'],
+    \       [510, ':not_extended'],
+    \       [511, ':network_authentication_required'],
+    \ ]
 

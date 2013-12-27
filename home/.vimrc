@@ -25,6 +25,7 @@ NeoBundle 'tpope/vim-rails'
 NeoBundle "sudar/vim-arduino-syntax"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'kchmck/vim-coffee-script'
 
 set encoding=utf-8
 
@@ -123,7 +124,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType ruby,html,html.eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby,html,html.eruby,coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 " インデントをshiftwidthの倍数に丸める

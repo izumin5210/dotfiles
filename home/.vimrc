@@ -27,6 +27,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kchmck/vim-coffee-script'
 
+set fenc=utf-8
 set encoding=utf-8
 
 filetype plugin indent on

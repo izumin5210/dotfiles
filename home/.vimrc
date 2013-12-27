@@ -123,7 +123,8 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType ruby,html setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby,html,html.eruby setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 " インデントをshiftwidthの倍数に丸める
 set shiftround
@@ -140,7 +141,9 @@ set noswapfile
 " 折りたたみON
 set foldenable
 set foldmethod=syntax
-set foldcolumn=3
+set foldcolumn=4
+" 起動時は全開にする
+set foldlevel=99
 
 " 新しいウィンドウを下（右）に開く
 set splitbelow

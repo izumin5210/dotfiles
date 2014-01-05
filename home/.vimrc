@@ -241,6 +241,19 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
+"---------------------------------------------------------------
+" unite.vim
+"---------------------------------------------------------------
+
+let g:unite_enable_start_insert = 1
+let g:unite_enable_split_vertically = 1
+let g:unite_winwidth = 48
+let g:unite_enable_short_source_names = 1
+let g:unite_source_history_yank_enable = 1
+noremap <silent> ,ub :<C-u>Unite buffer<CR>
+noremap <silent> ,uf :<C-u>Unite file<CR>
+noremap <silent> ,uh :<C-u>Unite file_mru<CR>
+noremap <silent> ,uy :<C-u>Unite history/yank<CR>
 
 "---------------------------------------------------------------
 " switch.vim
@@ -364,4 +377,5 @@ let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
 let g:BufferListWidth = 32
 let g:BufferListMaxWidth = 64
 let g:BufferListSplit = 'vertical topleft'
-map <silent> <Leader>b :call BufferList()<CR>
+"map <silent> <Leader>b :call BufferList()<CR>
+

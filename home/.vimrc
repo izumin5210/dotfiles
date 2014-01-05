@@ -26,6 +26,7 @@ NeoBundle "sudar/vim-arduino-syntax"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'izumin5210/vim-bufferlist'
 
 set fenc=utf-8
 set encoding=utf-8
@@ -355,3 +356,12 @@ let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXworks.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a Firefox.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a "Adobe Reader.app"'
+
+"---------------------------------------------------------------
+" BufferList
+"---------------------------------------------------------------
+
+let g:BufferListWidth = 32
+let g:BufferListMaxWidth = 64
+let g:BufferListSplit = 'vertical topleft'
+map <silent> <Leader>b :call BufferList()<CR>

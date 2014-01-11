@@ -27,6 +27,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kchmck/vim-coffee-script'
 
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8
 set encoding=utf-8
 
@@ -125,7 +126,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType ruby,html,html.eruby,coffee setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby,html,html.eruby,coffee,sass,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 " インデントをshiftwidthの倍数に丸める
@@ -150,6 +151,9 @@ set foldlevel=99
 " 新しいウィンドウを下（右）に開く
 set splitbelow
 set splitright
+
+" 3行分だけ余裕をもたせてスクロール
+set scrolloff=3
 
 " カッコを自動補完
 inoremap { {}<LEFT>

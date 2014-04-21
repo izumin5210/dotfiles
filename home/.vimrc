@@ -60,6 +60,7 @@ nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 syntax on
 set guifont=Ricty:h12
+set t_Co=256
 colorscheme hybrid
 
 " 行番号を表示

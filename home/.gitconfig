@@ -12,4 +12,7 @@
     st = status --branch --short
     co = checkout
     cb = checkout -b
+    sta = git-sta
+    std = git-std
+    ste = git-ste
 

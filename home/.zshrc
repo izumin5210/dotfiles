@@ -5,6 +5,8 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
+export PATH=$PATH:~/bin
+
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - zsh)"

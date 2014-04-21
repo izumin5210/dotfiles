@@ -1,7 +1,9 @@
 *.swp
 
+
 .DS_Store
 
 home/.vim/bundle/*
 home/.vim/.netrwhist
+home/.config/hub
 !home/.vim/bundle/neobundle.vim

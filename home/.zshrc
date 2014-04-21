@@ -185,7 +185,7 @@ add-zsh-hook precmd _update_vcs_info_msg
 # ================================================================
 
 # Viなキーバインド
-bindkey -v
+bindkey -e
 
 #### complement ####
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)    # gitのbranch名補完

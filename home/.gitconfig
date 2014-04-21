@@ -15,4 +15,5 @@
     sta = git-sta
     std = git-std
     ste = git-ste
+    logg = log --stat --pretty=format:'%C(yellow)%h %C(cyan)%ar %C(magenta)%an%n%C(white)%s %Cred%d'
 

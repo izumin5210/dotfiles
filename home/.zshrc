@@ -13,11 +13,10 @@ eval "$(rbenv init - zsh)"
 
 # android
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-export ANDROID_SDK_TOOLS=/usr/local/Cellar/android-sdk/22.3/tools
-export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/Cellar/android-sdk/22.3/platform-tools
+export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools
+export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH=$PATH:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS
-
 
 # ================================================================
 # エイリアス

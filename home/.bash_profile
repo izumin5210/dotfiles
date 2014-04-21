@@ -10,8 +10,8 @@ export LC_CTYPE='ja_JP.UTF-8'
 eval "$(rbenv init -)"
 export PATH="$HOME/.rbenv/shims:/usr/local/bin:$PATH:/usr/local/sbin:~/bin:/usr/local/share/npm/bin"
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-export ANDROID_SDK_TOOLS=/usr/local/Cellar/android-sdk/22.3/tools
-export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/Cellar/android-sdk/22.3/platform-tools
+export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools
+export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH=$PATH:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS
 alias ssaver='open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app'

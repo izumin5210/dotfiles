@@ -1,0 +1,15 @@
+[user]
+	name = izumin5210
+	email = masayuki@izumin.info
+[core]
+	autocrlf = input
+	editor = vim
+[color]
+	ui = true
+[github]
+	user = izumin5210
+[alias]
+    st = status --branch --short
+    co = checkout
+    cb = checkout -b
+

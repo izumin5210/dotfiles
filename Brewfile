@@ -9,8 +9,8 @@ tap phinze/cask
 tap homebrew/science
 
 install zsh
-install vim
-install macvim
+install vim --with-lua
+install macvim --with-lua
 
 install rbenv
 install ruby-build

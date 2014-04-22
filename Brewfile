@@ -26,6 +26,10 @@ install imagemagick
 install pngquant
 install gnuplot
 
+install gfortran
+tap homebrew/science
+install R
+
 tap 'phinze/cask'
 install brew-cask
 
@@ -70,7 +74,7 @@ cask install hyperswitch
 cask install tinkertool
 cask install bettertouchtool
 cask install monolingual
-cask install xquartz
+# cask install xquartz
 cask install lyrics-master
 cask install the-unarchiver
 cask install android-file-transfer

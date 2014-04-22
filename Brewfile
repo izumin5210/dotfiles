@@ -5,18 +5,19 @@
 update
 upgrade
 
+tap phinze/cask
+tap homebrew/science
+
 install zsh
 install vim
 install macvim
 
 install rbenv
 install ruby-build
-
 install android-sdk
 install android-ndk
 install gradle
 install groovy
-
 install node
 install lua
 
@@ -25,12 +26,14 @@ install heroku-toolbelt
 install imagemagick
 install pngquant
 install gnuplot
-
 install gfortran
-tap homebrew/science
+install jq
+install curl
+
+# ==== science ====
 install R
 
-tap 'phinze/cask'
+# ==== cask ====
 install brew-cask
 
 cleanup
@@ -64,6 +67,8 @@ cask install filezilla
 cask install skype
 cask install kobito
 cask install yorufukurou
+cask install dash
+cask install sequel-pro
 
 cask install caffeine
 cask install clipmenu

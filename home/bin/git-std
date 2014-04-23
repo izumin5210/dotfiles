@@ -1,6 +1,13 @@
 #!/bin/sh
-if [ $# -eq 1 ]; then
-    git diff `git status --porcelain | awk '{ print $2 }' | head -n $1 | tail -n 1`
+if [ $# -gt 0 ]; then
+    args=()
+    while [ "$1" != "" ]
+    do
+        args+=($(git status --porcelain | awk '{ print $2 }' | head -n $1 | tail -n 1))
+        shift
+    done
+
+    git diff ${args[@]}
 else
     exit 1
 fi

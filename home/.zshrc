@@ -11,6 +11,9 @@ export PATH=$PATH:~/bin
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init - zsh)"
 
+# npm
+export PATH=/usr/local/share/npm/bin:$PATH
+
 # android
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools

@@ -83,6 +83,7 @@ cask install monolingual
 cask install lyrics-master
 cask install the-unarchiver
 cask install android-file-transfer
+cask install pandoc
 
 # PDF to Keynote
 # Degrees

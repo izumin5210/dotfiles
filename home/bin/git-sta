@@ -7,7 +7,7 @@ if [ $# -gt 0 ]; then
         shift
     done
 
-    git add ${args[@]}
+    git add --all ${args[@]}
     git status --branch --short
 else
     exit 1

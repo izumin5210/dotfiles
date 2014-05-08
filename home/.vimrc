@@ -26,6 +26,10 @@ NeoBundle "sudar/vim-arduino-syntax"
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+NeoBundle 'tpope/vim-markdown'
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8
@@ -171,6 +175,17 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 "===============================================================
 " plugin
 "===============================================================
+
+"---------------------------------------------------------------
+" vim-quickrun
+"---------------------------------------------------------------
+
+let g:quickrun_config = {
+    \   'markdown': {
+    \     'type': 'markdown/gfm',
+    \     'outputter': 'browser'
+    \   }
+    \ }
 
 "---------------------------------------------------------------
 " vim-indent-guides

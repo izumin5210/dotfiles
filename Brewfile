@@ -29,6 +29,7 @@ install gnuplot
 install gfortran
 install jq
 install curl
+install highlight
 
 # ==== science ====
 install R

@@ -37,6 +37,7 @@ install R
 # ==== cask ====
 install brew-cask
 
+linkapps
 cleanup
 
 # ================================================================
@@ -85,6 +86,7 @@ cask install lyrics-master
 cask install the-unarchiver
 cask install android-file-transfer
 cask install pandoc
+cask install selfcontrol
 
 # PDF to Keynote
 # Degrees

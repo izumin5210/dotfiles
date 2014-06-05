@@ -5,7 +5,7 @@
 update
 upgrade
 
-tap phinze/cask
+tap caskroom/cask
 tap homebrew/science
 
 install zsh
@@ -18,7 +18,6 @@ install android-sdk
 install android-ndk
 install gradle
 install groovy
-install node
 install lua
 
 install hub
@@ -26,7 +25,7 @@ install heroku-toolbelt
 install imagemagick
 install pngquant
 install gnuplot
-install gfortran
+install gcc
 install jq
 install curl
 install highlight
@@ -54,11 +53,12 @@ cask install arduino
 cask install fritzing
 # cask install leap-motion
 # cask install mactex
+cask install titanium-studio
+cask install virtualbox
+cask install vagrant
 
 # cask install google-chrome
 # cask install google-japanese-ime
-# cask install google-drive
-cask install google-hangouts
 cask install firefox
 cask install evernote
 cask install skitch
@@ -68,12 +68,11 @@ cask install airserver
 cask install filezilla
 cask install skype
 cask install kobito
-cask install yorufukurou
+# cask install yorufukurou
 cask install dash
 cask install sequel-pro
 
 cask install caffeine
-cask install clipmenu
 cask install appcleaner
 cask install day-o
 cask install tuneinstructor
@@ -81,16 +80,18 @@ cask install hyperswitch
 cask install tinkertool
 cask install bettertouchtool
 cask install monolingual
-# cask install xquartz
+cask install xquartz
 cask install lyrics-master
 cask install the-unarchiver
 cask install android-file-transfer
 cask install pandoc
 cask install selfcontrol
+cask install shortcat
 
 # PDF to Keynote
 # Degrees
 # Simplenote
+# FlashLight
 
 cask cleanup
 

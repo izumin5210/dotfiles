@@ -24,7 +24,7 @@ install hub
 install heroku-toolbelt
 install imagemagick
 install pngquant
-install gnuplot
+install gnuplot --with-x
 install gcc
 install jq
 install curl

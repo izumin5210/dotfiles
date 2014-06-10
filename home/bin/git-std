@@ -7,7 +7,7 @@ if [ $# -gt 0 ]; then
         shift
     done
 
-    git diff ${args[@]}
+    git diff --color-words ${args[@]}
 else
     exit 1
 fi

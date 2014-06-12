@@ -1,0 +1,2 @@
+#!/bin/sh
+GIT_PAGER_IN_USE=true git status --short --branch | nl -bp'^[^\#]'

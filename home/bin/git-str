@@ -8,7 +8,7 @@ if [ $# -gt 0 ]; then
     done
 
     git reset HEAD --quiet ${args[@]}
-    git status --branch --short
+    git-st
 else
     exit 1
 fi

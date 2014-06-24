@@ -7,7 +7,9 @@ upgrade
 
 tap caskroom/cask
 tap homebrew/science
+tap sanemat/font
 
+install git
 install zsh
 install vim --with-lua
 install macvim --with-lua
@@ -33,6 +35,9 @@ install highlight
 # ==== science ====
 install R
 
+# ==== sanemat/font ====
+install ricty
+
 # ==== cask ====
 install brew-cask
 
@@ -52,30 +57,32 @@ cask install iterm2
 cask install arduino
 cask install fritzing
 # cask install leap-motion
-# cask install mactex
+cask install mactex
 cask install titanium-studio
 cask install virtualbox
 cask install vagrant
 
-# cask install google-chrome
-# cask install google-japanese-ime
+cask install google-chrome
+cask install google-japanese-ime
 cask install firefox
 cask install evernote
 cask install skitch
-# cask install dropbox
+cask install dropbox
+cask install copy
 cask install airserver
-# cask install flash-player
+cask install flash-player
 cask install filezilla
 cask install skype
 cask install kobito
 # cask install yorufukurou
 cask install dash
 cask install sequel-pro
+cask install adobe-creative-cloud
 
 cask install caffeine
 cask install appcleaner
 cask install day-o
-cask install tuneinstructor
+# cask install tuneinstructor
 cask install hyperswitch
 cask install tinkertool
 cask install bettertouchtool

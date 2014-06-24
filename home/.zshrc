@@ -22,6 +22,9 @@ export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH=$PATH:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS
 
+# MacTeX by homebrew
+eval `/usr/libexec/path_helper -s`
+
 # ================================================================
 # エイリアス
 # ================================================================

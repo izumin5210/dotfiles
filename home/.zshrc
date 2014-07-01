@@ -1,11 +1,17 @@
 # ================================================================
-# 環境変数
+# 環境変数とかそんなん
 # ================================================================
 
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
 export PATH=$PATH:~/bin
+
+# MacTeX by homebrew
+eval `/usr/libexec/path_helper -s`
+
+# gvm
+[[ -s "/Users/izumin/.gvm/bin/gvm-init.sh" ]] && source "/Users/izumin/.gvm/bin/gvm-init.sh"
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
@@ -22,8 +28,6 @@ export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH=$PATH:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS
 
-# MacTeX by homebrew
-eval `/usr/libexec/path_helper -s`
 
 # ================================================================
 # エイリアス
@@ -243,3 +247,4 @@ setopt interactive_comments
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
+

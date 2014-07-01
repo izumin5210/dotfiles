@@ -7,6 +7,7 @@ upgrade
 
 tap caskroom/cask
 tap homebrew/science
+tap caskroom/fonts
 tap sanemat/font
 
 install git
@@ -18,8 +19,6 @@ install rbenv
 install ruby-build
 install android-sdk
 install android-ndk
-install gradle
-install groovy
 install lua
 
 install hub
@@ -99,6 +98,8 @@ cask install shortcat
 # Degrees
 # Simplenote
 # FlashLight
+
+# cask install font-fontawesome
 
 cask cleanup
 

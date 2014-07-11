@@ -5,8 +5,6 @@
 export LANG=ja_JP.UTF-8
 export EDITOR=vim
 
-export PATH=$PATH:~/bin
-
 # MacTeX by homebrew
 eval `/usr/libexec/path_helper -s`
 
@@ -28,6 +26,10 @@ export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 export PATH=$PATH:$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS
 
+# homebrew
+export PATH=/usr/local/bin:$PATH
+
+export PATH=$HOME/bin:$PATH
 
 # ================================================================
 # エイリアス

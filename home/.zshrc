@@ -199,6 +199,8 @@ add-zsh-hook precmd _update_vcs_info_msg
 # オプション
 # ================================================================
 
+REPORTTIME=3
+
 # Viなキーバインド
 bindkey -e
 

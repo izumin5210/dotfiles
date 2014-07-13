@@ -13,7 +13,7 @@ eval `/usr/libexec/path_helper -s`
 
 # rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
-eval "$(rbenv init - zsh)"
+eval "$(rbenv init - --no-rehash)"
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -249,4 +249,3 @@ setopt interactive_comments
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
-

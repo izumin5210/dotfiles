@@ -70,6 +70,7 @@ cask install dropbox
 cask install copy
 cask install airserver
 cask install flash-player
+cask install unity-web-player
 cask install filezilla
 cask install skype
 cask install kobito

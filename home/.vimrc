@@ -17,6 +17,14 @@ NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc.vim', {
+      \ 'build' : {
+      \     'windows' : 'tools\\update-dll-mingw',
+      \     'cygwin' : 'make -f make_cygwin.mak',
+      \     'mac' : 'make -f make_mac.mak',
+      \     'unix' : 'make -f make_unix.mak',
+      \    },
+      \ }
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'AndrewRadev/switch.vim'
@@ -276,9 +284,19 @@ let g:unite_winwidth = 48
 let g:unite_enable_short_source_names = 1
 let g:unite_source_history_yank_enable = 1
 noremap <silent> ,ub :<C-u>Unite buffer<CR>
-noremap <silent> ,uf :<C-u>Unite file<CR>
 noremap <silent> ,uh :<C-u>Unite file_mru<CR>
 noremap <silent> ,uy :<C-u>Unite history/yank<CR>
+
+" ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
+function! DispatchUniteFileRecAsyncOrGit()
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git
+  else
+    Unite file_rec/async
+  endif
+endfunction
+
+nnoremap <silent> ,uf :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
 "---------------------------------------------------------------
 " switch.vim

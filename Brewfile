@@ -78,6 +78,7 @@ cask install kobito
 cask install dash
 cask install sequel-pro
 cask install adobe-creative-cloud
+cask install soundflower
 
 cask install caffeine
 cask install appcleaner

@@ -174,7 +174,7 @@ bindkey -e
 
 #### complement ####
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)    # gitのbranch名補完
-autoload -Uz compinit; compinit -u      # 補完機能を有効にする
+autoload -Uz compinit; compinit -C      # 補完機能を有効にする
 setopt auto_menu                        # 補完候補が複数あるときに自動的に一覧表示
 bindkey "^[[Z" reverse-menu-complete    # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
@@ -219,3 +219,12 @@ setopt interactive_comments
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
+
+
+# ================================================================
+# プロファイリング結果出力
+# ================================================================
+
+# if (which zprof > /dev/null) ;then
+  # zprof | less
+# fi

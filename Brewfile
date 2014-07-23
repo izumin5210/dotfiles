@@ -21,6 +21,7 @@ install ruby-build
 install android-sdk
 install android-ndk
 install lua
+install nodebrew
 
 install hub
 install heroku-toolbelt

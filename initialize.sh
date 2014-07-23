@@ -9,11 +9,6 @@ if ! is_exists "brew"; then
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
 fi
 
-if ! is_exists "nodebrew"; then
-    # install Nodebrew
-    curl -L git.io/nodebrew | perl - setup
-fi
-
 if [ ! -e ~/.gvm ]; then
     # install GVM(Groovy enVironment Manager)
     curl -s get.gvmtool.net | bash

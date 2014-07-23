@@ -11,7 +11,8 @@ tap caskroom/fonts
 tap sanemat/font
 
 install git
-install zsh
+install zsh --disable-etc-dir
+install zsh-completions
 install vim --with-lua
 install macvim --with-lua
 
@@ -57,9 +58,10 @@ cask install arduino
 cask install fritzing
 # cask install leap-motion
 cask install mactex
-cask install titanium-studio
+# cask install titanium-studio
 cask install virtualbox
 cask install vagrant
+cask install java
 
 cask install google-chrome
 cask install google-japanese-ime

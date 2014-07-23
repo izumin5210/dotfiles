@@ -180,6 +180,9 @@ bindkey "^[[Z" reverse-menu-complete    # Shift-Tabで補完候補を逆順す�
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin    # sudo の後ろでコマンド名を補完
+if [ -e /usr/local/share/zsh-completions ]; then
+  fpath=(/usr/local/share/zsh-completions $fpath)   # zsh-completions有効化
+fi
 
 
 #### history ####
@@ -228,3 +231,6 @@ bindkey '^R' history-incremental-pattern-search-backward
 # if (which zprof > /dev/null) ;then
   # zprof | less
 # fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/Users/izumin/.gvm/bin/gvm-init.sh" ]] && source "/Users/izumin/.gvm/bin/gvm-init.sh"

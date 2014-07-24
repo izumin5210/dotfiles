@@ -15,6 +15,7 @@ install zsh --disable-etc-dir
 install zsh-completions
 install vim --with-lua
 install macvim --with-lua
+install tmux
 
 install rbenv
 install ruby-build

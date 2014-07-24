@@ -37,7 +37,7 @@ install highlight
 install R
 
 # ==== sanemat/font ====
-install ricty
+install ricty --powerline --vim-powerline
 
 # ==== cask ====
 install brew-cask

@@ -4,6 +4,18 @@ function is_exists() {
     return `type $1 > /dev/null 2>&1`
 }
 
+function is_installed() {
+    return `brew info $1 | grep -vq "Not installed"`
+}
+
+
+if is_installed "ricty" && [ `find ~/Library/Fonts -name "Ricty*.ttf" | wc -l` -eq 0 ]; then
+    # もっとスマートに生きていきたい
+    args=$(brew info ricty | grep "Ricty\*.ttf" | sed -e "s/.*cp -f \(.*\) \(.*\)/\1 \2/")
+    eval "cp -f $args"
+    fc-cache -vf
+fi
+
 if ! is_exists "brew"; then
     # install Homebrew
     ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"

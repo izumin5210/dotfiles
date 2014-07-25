@@ -38,6 +38,7 @@ NeoBundle 'mattn/webapi-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 'tpope/vim-markdown'
+NeoBundle 'Lokaltog/vim-easymotion'
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8
@@ -188,15 +189,21 @@ vnoremap ' "zdi'<C-R>z'<ESC>
 "===============================================================
 
 "---------------------------------------------------------------
+" vim-easymotion
+"---------------------------------------------------------------
+
+map <Leader> <Plug>(easymotion-prefix)
+
+"---------------------------------------------------------------
 " vim-quickrun
 "---------------------------------------------------------------
 
 let g:quickrun_config = {
-    \   'markdown': {
-    \     'type': 'markdown/gfm',
-    \     'outputter': 'browser'
-    \   }
-    \ }
+\   'markdown': {
+\     'type': 'markdown/gfm',
+\     'outputter': 'browser'
+\   }
+\ }
 
 "---------------------------------------------------------------
 " vim-indent-guides
@@ -217,9 +224,9 @@ nnoremap <Leader>o :OverCommandLine<CR>
 "---------------------------------------------------------------
 
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component': {

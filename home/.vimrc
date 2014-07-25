@@ -168,6 +168,9 @@ set splitright
 " 3行分だけ余裕をもたせてスクロール
 set scrolloff=3
 
+" クリップボード有効化
+set clipboard+=unnamed
+
 " カッコを自動補完
 inoremap { {}<LEFT>
 inoremap [ []<LEFT>

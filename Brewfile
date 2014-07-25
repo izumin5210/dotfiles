@@ -16,6 +16,7 @@ install zsh-completions
 install vim --with-lua
 install macvim --with-lua
 install tmux
+install reattach-to-user-namespace
 
 install rbenv
 install ruby-build

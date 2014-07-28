@@ -125,6 +125,22 @@ set title
 set showtabline=2
 
 "================================================================
+" tab
+"================================================================
+
+nnoremap [tab] <Nop>
+nmap t [tab]
+
+for n in range(1, 9)
+    execute 'nnoremap <silent> [tab]'.n ':<C-u>tabnext'.n.'<CR>'
+endfor
+
+map <silent> [tab]t :tablast <bar> tabnew<CR>
+map <silent> [tab]w :tabclose<CR>
+map <silent> [tab]n :tabnext<CR>
+map <silent> [tab]p :tabprevious<CR>
+
+"================================================================
 " edit
 "================================================================
 

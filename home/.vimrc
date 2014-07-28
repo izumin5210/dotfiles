@@ -140,7 +140,7 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType ruby,html,html.eruby,coffee,sass,scss setlocal tabstop=2 shiftwidth=2 softtabstop=2
+autocmd FileType ruby,html,html.eruby,coffee,sass,scss,markdown,tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
 
 " インデントをshiftwidthの倍数に丸める
@@ -283,9 +283,13 @@ let g:unite_enable_split_vertically = 1
 let g:unite_winwidth = 48
 let g:unite_enable_short_source_names = 1
 let g:unite_source_history_yank_enable = 1
-noremap <silent> ,ub :<C-u>Unite buffer<CR>
-noremap <silent> ,uh :<C-u>Unite file_mru<CR>
-noremap <silent> ,uy :<C-u>Unite history/yank<CR>
+
+nnoremap [unite] <Nop>
+nmap ,u [unite]
+noremap <silent> [unite]l :<C-u>Unite file<CR>
+noremap <silent> [unite]b :<C-u>Unite buffer<CR>
+noremap <silent> [unite]h :<C-u>Unite file_mru<CR>
+noremap <silent> [unite]y :<C-u>Unite history/yank<CR>
 
 " ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
 function! DispatchUniteFileRecAsyncOrGit()
@@ -296,7 +300,7 @@ function! DispatchUniteFileRecAsyncOrGit()
   endif
 endfunction
 
-nnoremap <silent> ,uf :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
 "---------------------------------------------------------------
 " switch.vim

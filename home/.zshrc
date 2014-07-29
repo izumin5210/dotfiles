@@ -223,6 +223,10 @@ setopt interactive_comments
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' history-incremental-pattern-search-backward
 
+# iTerm2のタブ名を変更する
+function title {
+    echo -ne "\033]0;"$*"\007"
+}
 
 # ================================================================
 # プロファイリング結果出力

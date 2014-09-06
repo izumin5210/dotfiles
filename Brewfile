@@ -34,6 +34,8 @@ install gcc
 install jq
 install curl
 install highlight
+install tree
+install tig
 
 # ==== science ====
 install R
@@ -100,6 +102,7 @@ cask install android-file-transfer
 cask install pandoc
 cask install selfcontrol
 cask install shortcat
+cask install jawbone-updater
 
 # PDF to Keynote
 # Degrees

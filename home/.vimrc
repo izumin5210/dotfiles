@@ -39,6 +39,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8

@@ -37,6 +37,7 @@ install curl
 install highlight
 install tree
 install tig
+install git-flow
 
 install mysql
 install redis

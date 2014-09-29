@@ -20,6 +20,7 @@ install reattach-to-user-namespace
 
 install rbenv
 install ruby-build
+install rbenv-gem-rehash
 install android-sdk
 install android-ndk
 install lua
@@ -36,6 +37,9 @@ install curl
 install highlight
 install tree
 install tig
+
+install mysql
+install redis
 
 # ==== science ====
 install R

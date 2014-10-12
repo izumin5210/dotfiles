@@ -38,6 +38,7 @@ install highlight
 install tree
 install tig
 install git-flow
+install ino
 
 install mysql
 install redis

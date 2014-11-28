@@ -301,7 +301,7 @@ nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
 nnoremap ! :Switch<CR>
 
-autocmd FileType ruby let b:switch_custom_definitions = [
+autocmd FileType ruby,eruby,haml let b:switch_custom_definitions = [
     \       ['if', 'unless'],
     \       ['while', 'until'],
     \       ['.blank?', '.present?'],

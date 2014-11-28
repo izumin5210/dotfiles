@@ -1,10 +1,9 @@
 source $HOME/.vim/.vimrc.bundle
+source $HOME/.vim/.vimrc.indent
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8
 set encoding=utf-8
-
-filetype plugin indent on
 
 "================================================================
 " search
@@ -103,21 +102,6 @@ map <silent> [tab]p :tabprevious<CR>
 "================================================================
 " edit
 "================================================================
-
-" スマートインデントON
-set autoindent
-set smartindent
-
-" タブをスペースに展開
-set expandtab
-
-" インデント幅を4に
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-
-" インデントをshiftwidthの倍数に丸める
-set shiftround
 
 " backspaceで改行とかインデントとかを消せるようにする
 set backspace=indent,eol,start

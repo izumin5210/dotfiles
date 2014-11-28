@@ -1,0 +1,22 @@
+"================================================================
+" indent
+"================================================================
+
+" スマートインデントON
+set autoindent
+set smartindent
+
+" タブをスペースに展開
+set expandtab
+
+" インデント幅を4に
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+
+" インデントをshiftwidthの倍数に丸める
+set shiftround
+
+" 連続でインデント
+vnoremap < <gv
+vnoremap > >gv

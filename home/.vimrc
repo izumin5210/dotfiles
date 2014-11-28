@@ -157,9 +157,6 @@ set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
-autocmd FileType ruby,html,html.eruby,coffee,sass,scss,markdown,tex setlocal tabstop=2 shiftwidth=2 softtabstop=2
-autocmd BufNewFile,BufRead *.html.erb set filetype=html.eruby
-
 " インデントをshiftwidthの倍数に丸める
 set shiftround
 

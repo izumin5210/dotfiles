@@ -291,6 +291,18 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 inoremap <expr><C-g>     neocomplete#undo_completion()
 inoremap <expr><C-l>     neocomplete#complete_common_string()
 
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
 "---------------------------------------------------------------
 " unite.vim
 "---------------------------------------------------------------
@@ -307,6 +319,13 @@ noremap <silent> [unite]l :<C-u>Unite file<CR>
 noremap <silent> [unite]b :<C-u>Unite buffer<CR>
 noremap <silent> [unite]h :<C-u>Unite file_mru<CR>
 noremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+" unite-rails.vim
+noremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
+noremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
+noremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+noremap <silent> [unite]ra :<C-u>Unite rails/asset<CR>
+noremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
+noremap <silent> [unite]rb :<C-u>Unite rails/bundle<CR>
 
 " ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
 function! DispatchUniteFileRecAsyncOrGit()

@@ -1,45 +1,4 @@
-if has('vim_starting')
-   set nocompatible
-   set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
-
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/vimproc.vim', {
-      \ 'build' : {
-      \     'windows' : 'tools\\update-dll-mingw',
-      \     'cygwin' : 'make -f make_cygwin.mak',
-      \     'mac' : 'make -f make_mac.mak',
-      \     'unix' : 'make -f make_unix.mak',
-      \    },
-      \ }
-NeoBundle 'basyura/unite-rails'
-NeoBundle 'mattn/emmet-vim'
-NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'vim-scripts/ruby-matchit'
-NeoBundle 'tpope/vim-rails'
-NeoBundle "sudar/vim-arduino-syntax"
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
-NeoBundle 'kchmck/vim-coffee-script'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'christoomey/vim-tmux-navigator'
+source $HOME/.vim/.vimrc.bundle
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8

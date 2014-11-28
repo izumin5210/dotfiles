@@ -1,0 +1,44 @@
+"================================================================
+" appearance
+"================================================================
+
+syntax on
+set guifont=Ricty:h12
+set t_Co=256
+colorscheme hybrid
+
+" 行番号を表示
+set number
+" カーソル位置表示
+set ruler
+" 折り返し禁止
+set nowrap
+
+" カーソル行をハイライト
+set cursorline
+" カーソル位置のカラムのハイライト
+set cursorcolumn
+
+" 対応するカッコをハイライト
+set showmatch
+" カッコをハイライトする時間(sec)
+set matchtime=3
+
+" コマンド非表示
+set noshowcmd
+
+" 空白文字の可視化
+set list
+set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
+
+" ステータスラインを常に表示
+set laststatus=2
+
+" コマンドラインの高さ
+set cmdheight=2
+
+" タイトル表示
+set title
+
+" タブエリアを常に表示
+set showtabline=2

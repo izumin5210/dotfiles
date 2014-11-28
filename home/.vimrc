@@ -1,5 +1,6 @@
 source $HOME/.vim/.vimrc.bundle
 source $HOME/.vim/.vimrc.indent
+source $HOME/.vim/.vimrc.appearance
 
 set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
 set fenc=utf-8
@@ -27,27 +28,9 @@ set wrapscan
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 
 "================================================================
-" appearance
+" moving
 "================================================================
 
-syntax on
-set guifont=Ricty:h12
-set t_Co=256
-colorscheme hybrid
-
-" 行番号を表示
-set number
-
-" カーソル位置表示
-set ruler
-
-" 折り返し禁止
-set nowrap
-
-" 対応するカッコをハイライト
-set showmatch
-" カッコをハイライトする時間(sec)
-set matchtime=3
 " <hoge></hoge>みたいなのも%で移動できる
 set matchpairs+=<:>
 " matchitを有効化（rubyのコードブロックに対応させる）
@@ -58,30 +41,6 @@ endif
 
 " 行を跨いで移動できるアレ
 set whichwrap=b,s,h,l,<,>,[,]
-
-" カーソル行をハイライト
-set cursorline
-" カーソル位置のカラムのハイライト
-set cursorcolumn
-
-" コマンド非表示
-set noshowcmd
-
-" 空白文字の可視化
-set list
-set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
-
-" ステータスラインを常に表示
-set laststatus=2
-
-" コマンドラインの高さ
-set cmdheight=2
-
-" タイトル表示
-set title
-
-" タブエリアを常に表示
-set showtabline=2
 
 "================================================================
 " tab

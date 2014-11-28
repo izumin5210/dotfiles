@@ -137,7 +137,7 @@ for n in range(1, 9)
 endfor
 
 map <silent> [tab]t :tablast <bar> tabnew<CR>
-map <silent> [tab]w :tabclose<CR>
+map <silent> [tab]x :tabclose<CR>
 map <silent> [tab]n :tabnext<CR>
 map <silent> [tab]p :tabprevious<CR>
 
@@ -316,6 +316,7 @@ noremap <silent> [unite]l :<C-u>Unite file<CR>
 noremap <silent> [unite]b :<C-u>Unite buffer<CR>
 noremap <silent> [unite]h :<C-u>Unite file_mru<CR>
 noremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+noremap <silent> [unite]t :<C-u>Unite tab<CR>
 " unite-rails.vim
 noremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
 noremap <silent> [unite]rm :<C-u>Unite rails/model<CR>

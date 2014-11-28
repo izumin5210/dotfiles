@@ -18,27 +18,35 @@ NeoBundle 'Shougo/vimproc.vim', {
       \     'unix' : 'make -f make_unix.mak',
       \    },
       \ }
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'osyo-manga/vim-over'
+
+" appearance
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/nerdcommenter'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'basyura/unite-rails'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+
+" move
+NeoBundle 'Lokaltog/vim-easymotion'
+
+" edit
 NeoBundle 'mattn/emmet-vim'
+NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
-NeoBundle 'vim-scripts/ruby-matchit'
-NeoBundle 'tpope/vim-rails'
+
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'osyo-manga/vim-over'
+NeoBundle 'vim-scripts/TaskList.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 NeoBundle 'mattn/webapi-vim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
-NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+
+NeoBundle 'basyura/unite-rails'
+NeoBundle 'tpope/vim-rails'
+NeoBundle 'tpope/vim-endwise'           " if...end, def...end補完
+
+" syntax
 NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'kchmck/vim-coffee-script'

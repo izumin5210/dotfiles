@@ -115,7 +115,9 @@ cask install jawbone-updater
 # Simplenote
 # FlashLight
 
-# cask install font-fontawesome
+cask install font-inconsolata
+cask install font-fontawesome
+cask install font-m-plus
 
 cask cleanup
 

@@ -1,3 +1,7 @@
+"================================================================
+" neobundle
+"================================================================
+
 filetype plugin indent off
 
 if has('vim_starting')
@@ -57,3 +61,269 @@ NeoBundle "sudar/vim-arduino-syntax"
 NeoBundle 'w0ng/vim-hybrid'
 
 filetype plugin indent on
+
+"===============================================================
+" plugin
+"===============================================================
+
+"---------------------------------------------------------------
+" vim-easymotion
+"---------------------------------------------------------------
+
+map <Leader> <Plug>(easymotion-prefix)
+
+"---------------------------------------------------------------
+" vim-quickrun
+"---------------------------------------------------------------
+
+let g:quickrun_config = {
+\   'markdown': {
+\     'type': 'markdown/gfm',
+\     'outputter': 'browser'
+\   }
+\ }
+
+"---------------------------------------------------------------
+" vim-indent-guides
+"---------------------------------------------------------------
+
+let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_start_level=2
+let g:indent_guides_guide_size=1
+
+"---------------------------------------------------------------
+" vim-over
+"---------------------------------------------------------------
+
+nnoremap <Leader>o :OverCommandLine<CR>
+
+"---------------------------------------------------------------
+" lightline.vim
+"---------------------------------------------------------------
+
+let g:lightline = {
+    \ 'colorscheme': 'wombat',
+    \ 'active': {
+    \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \   'fugitive': '(exists("*fugitive#head") && ""!=fugitive#head())'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+"---------------------------------------------------------------
+" NERD_commenter.vim
+"---------------------------------------------------------------
+
+let g:NERDSpaceDelims = 1
+
+"---------------------------------------------------------------
+" TaskList.vim
+"---------------------------------------------------------------
+
+nmap <C-T> <plug>TaskList
+
+"---------------------------------------------------------------
+" neocomplete
+"---------------------------------------------------------------
+
+" Disable AutoComplPop.
+let g:acp_enableAtStartup = 0
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell_hist',
+    \ 'scheme' : $HOME.'/.gosh_completions'
+    \ }
+
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Plugin key-mappings.
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+" Enable heavy omni completion.
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+
+"---------------------------------------------------------------
+" unite.vim
+"---------------------------------------------------------------
+
+let g:unite_enable_start_insert = 1
+let g:unite_enable_split_vertically = 1
+let g:unite_winwidth = 48
+let g:unite_enable_short_source_names = 1
+let g:unite_source_history_yank_enable = 1
+
+nnoremap [unite] <Nop>
+nmap ,u [unite]
+noremap <silent> [unite]l :<C-u>Unite file<CR>
+noremap <silent> [unite]b :<C-u>Unite buffer<CR>
+noremap <silent> [unite]h :<C-u>Unite file_mru<CR>
+noremap <silent> [unite]y :<C-u>Unite history/yank<CR>
+noremap <silent> [unite]t :<C-u>Unite tab<CR>
+" unite-rails.vim
+noremap <silent> [unite]rc :<C-u>Unite rails/controller<CR>
+noremap <silent> [unite]rm :<C-u>Unite rails/model<CR>
+noremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
+noremap <silent> [unite]ra :<C-u>Unite rails/asset<CR>
+noremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
+noremap <silent> [unite]rb :<C-u>Unite rails/bundle<CR>
+
+" ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
+function! DispatchUniteFileRecAsyncOrGit()
+  if isdirectory(getcwd()."/.git")
+    Unite file_rec/git
+  else
+    Unite file_rec/async
+  endif
+endfunction
+
+nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+
+"---------------------------------------------------------------
+" switch.vim
+"---------------------------------------------------------------
+
+nnoremap ! :Switch<CR>
+
+autocmd FileType ruby,eruby,haml let b:switch_custom_definitions = [
+    \       ['if', 'unless'],
+    \       ['while', 'until'],
+    \       ['.blank?', '.present?'],
+    \       ['include', 'extend'],
+    \       ['class', 'module'],
+    \       ['.inject', '.delete_if'],
+    \       ['.map', '.map!'],
+    \       ['attr_accessor', 'attr_reader', 'attr_writer'],
+    \       [100, ':continue', ':information'],
+    \       [101, ':switching_protocols'],
+    \       [102, ':processing'],
+    \       [200, ':ok', ':success'],
+    \       [201, ':created'],
+    \       [202, ':accepted'],
+    \       [203, ':non_authoritative_information'],
+    \       [204, ':no_content'],
+    \       [205, ':reset_content'],
+    \       [206, ':partial_content'],
+    \       [207, ':multi_status'],
+    \       [208, ':already_reported'],
+    \       [226, ':im_used'],
+    \       [300, ':multiple_choices'],
+    \       [301, ':moved_permanently'],
+    \       [302, ':found'],
+    \       [303, ':see_other'],
+    \       [304, ':not_modified'],
+    \       [305, ':use_proxy'],
+    \       [306, ':reserved'],
+    \       [307, ':temporary_redirect'],
+    \       [308, ':permanent_redirect'],
+    \       [400, ':bad_request'],
+    \       [401, ':unauthorized'],
+    \       [402, ':payment_required'],
+    \       [403, ':forbidden'],
+    \       [404, ':not_found'],
+    \       [405, ':method_not_allowed'],
+    \       [406, ':not_acceptable'],
+    \       [407, ':proxy_authentication_required'],
+    \       [408, ':request_timeout'],
+    \       [409, ':conflict'],
+    \       [410, ':gone'],
+    \       [411, ':length_required'],
+    \       [412, ':precondition_failed'],
+    \       [413, ':request_entity_too_large'],
+    \       [414, ':request_uri_too_long'],
+    \       [415, ':unsupported_media_type'],
+    \       [416, ':requested_range_not_satisfiable'],
+    \       [417, ':expectation_failed'],
+    \       [422, ':unprocessable_entity'],
+    \       [423, ':precondition_required'],
+    \       [424, ':too_many_requests'],
+    \       [426, ':request_header_fields_too_large'],
+    \       [500, ':internal_server_error'],
+    \       [501, ':not_implemented'],
+    \       [502, ':bad_gateway'],
+    \       [503, ':service_unavailable'],
+    \       [504, ':gateway_timeout'],
+    \       [505, ':http_version_not_supported'],
+    \       [506, ':variant_also_negotiates'],
+    \       [507, ':insufficient_storage'],
+    \       [508, ':loop_detected'],
+    \       [510, ':not_extended'],
+    \       [511, ':network_authentication_required'],
+    \ ]
+
+"---------------------------------------------------------------
+" Vim-LaTeX
+"---------------------------------------------------------------
+
+set shellslash
+set grepprg=grep\ -nH\ $*
+let g:Tex_AutoFolding = 0
+let g:tex_flavor='latex'
+let g:Imap_UsePlaceHolders = 1
+let g:Imap_DeleteEmptyPlaceHolders = 1
+let g:Imap_StickyPlaceHolders = 0
+let g:Tex_DefaultTargetFormat = 'pdf'
+"let g:Tex_FormatDependency_pdf = 'pdf'
+let g:Tex_FormatDependency_pdf = 'dvi,pdf'
+"let g:Tex_FormatDependency_pdf = 'dvi,ps,pdf'
+let g:Tex_FormatDependency_ps = 'dvi,ps'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/ptex2pdf -l -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/ptex2pdf -l -u -ot "-synctex=1 -interaction=nonstopmode -file-line-error-style" $*'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/pdflatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/lualatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/luajitlatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_pdf = '/usr/texbin/xelatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_CompileRule_pdf = '/usr/texbin/dvipdfmx $*.dvi'
+"let g:Tex_CompileRule_pdf = '/usr/local/bin/ps2pdf $*.ps'
+let g:Tex_CompileRule_ps = '/usr/texbin/dvips -Ppdf -o $*.ps $*.dvi'
+let g:Tex_CompileRule_dvi = '/usr/texbin/platex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+"let g:Tex_CompileRule_dvi = '/usr/texbin/uplatex -synctex=1 -interaction=nonstopmode -file-line-error-style $*'
+let g:Tex_BibtexFlavor = '/usr/texbin/pbibtex'
+"let g:Tex_BibtexFlavor = '/usr/texbin/upbibtex'
+"let g:Tex_BibtexFlavor = '/usr/texbin/bibtex'
+"let g:Tex_BibtexFlavor = '/usr/texbin/bibtexu'
+let g:Tex_MakeIndexFlavor = '/usr/texbin/mendex $*.idx'
+"let g:Tex_MakeIndexFlavor = '/usr/texbin/makeindex $*.idx'
+"let g:Tex_MakeIndexFlavor = '/usr/texbin/texindy $*.idx'
+let g:Tex_UseEditorSettingInDVIViewer = 1
+"let g:Tex_ViewRule_pdf = '/usr/bin/open'
+"let g:Tex_ViewRule_pdf = '/usr/bin/open -a Preview.app'
+"let g:Tex_ViewRule_pdf = '/usr/bin/open -a Skim.app'
+let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
+"let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXworks.app'
+"let g:Tex_ViewRule_pdf = '/usr/bin/open -a Firefox.app'
+"let g:Tex_ViewRule_pdf = '/usr/bin/open -a "Adobe Reader.app"'
+

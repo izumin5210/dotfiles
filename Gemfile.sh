@@ -1,8 +1,17 @@
-gem install rubygems-update
 
-gem install bundler
+function gem_install() {
+    if `gem specification $1 > /dev/null 2>&1`; then
+        echo $1 has already installed.
+    else
+        gem install $1
+    fi
+}
 
-gem install pry
-gem install pry-doc
+gem_install "rubygems-update"
 
-gem install homesick
+gem_install "bundler"
+
+gem_install "pry"
+gem_install "pry-doc"
+
+gem_install "homesick"

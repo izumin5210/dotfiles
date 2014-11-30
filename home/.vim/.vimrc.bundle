@@ -10,12 +10,14 @@ if has('vim_starting')
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-NeoBundleFetch 'Shougo/neobundle.vim'
+  NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
+
 filetype plugin indent on
+
 NeoBundleCheck
 
-" NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimproc.vim', {
       \ 'build' : {
@@ -31,23 +33,24 @@ NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 
 " move
-NeoBundle 'Lokaltog/vim-easymotion'
+" NeoBundle 'Lokaltog/vim-easymotion'
 
 " edit
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'scrooloose/nerdcommenter'
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
-NeoBundle 'vim-scripts/TaskList.vim'
-NeoBundle 'thinca/vim-quickrun'
-NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
-NeoBundle 'mattn/webapi-vim'
+" NeoBundle 'vim-scripts/TaskList.vim'
+" NeoBundle 'thinca/vim-quickrun'
+" NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+" NeoBundle 'mattn/webapi-vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
+" NeoBundle 'tyru/open-browser.vim'
+" NeoBundle 'superbrothers/vim-quickrun-markdown-gfm'
 
 NeoBundle 'basyura/unite-rails'
 NeoBundle 'tpope/vim-rails'
@@ -58,7 +61,7 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-markdown'
-NeoBundle "sudar/vim-arduino-syntax"
+NeoBundle 'sudar/vim-arduino-syntax'
 
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
@@ -126,7 +129,9 @@ let g:lightline = {
 " NERD_commenter.vim
 "---------------------------------------------------------------
 
-let g:NERDSpaceDelims = 1
+let g:NERDSpaceDelims=1
+nmap ,, <plug>NERDCommenterToggle
+vmap ,, <plug>NERDCommenterSexy
 
 "---------------------------------------------------------------
 " TaskList.vim

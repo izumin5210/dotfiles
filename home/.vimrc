@@ -78,6 +78,16 @@ set foldcolumn=4
 " 起動時は全開にする
 set foldlevel=99
 
+" Insert mode時にVimが暴走する対策
+autocmd InsertEnter * if !exists('w:last_fdm')
+            \| let w:last_fdm=&foldmethod
+            \| setlocal foldmethod=manual
+            \| endif
+autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
+            \| let &l:foldmethod=w:last_fdm
+            \| unlet w:last_fdm
+            \| endif
+
 " 新しいウィンドウを下（右）に開く
 set splitbelow
 set splitright

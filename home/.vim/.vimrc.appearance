@@ -15,9 +15,9 @@ set ruler
 set nowrap
 
 " カーソル行をハイライト
-set cursorline
+" set cursorline
 " カーソル位置のカラムのハイライト
-set cursorcolumn
+" set cursorcolumn
 
 " 対応するカッコをハイライト
 set showmatch

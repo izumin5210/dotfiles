@@ -100,6 +100,7 @@ brew cask install dash
 brew cask install sequel-pro
 brew cask install adobe-creative-cloud
 # brew cask install soundflower
+brew cask install slack
 
 brew cask install caffeine
 brew cask install appcleaner

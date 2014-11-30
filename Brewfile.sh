@@ -53,7 +53,11 @@ brew install redis
 brew install R
 
 # ==== sanemat/font ====
-brew install ricty --powerline --vim-powerline
+# > Error: /usr/local/opt/automake not present or broken
+# > Please reinstall automake. Sorry :(
+brew install automake
+
+brew install ricty --vim-powerline
 
 # ==== after brew brew install ====
 brew linkapps
@@ -65,12 +69,12 @@ brew cleanup
 
 brew cask update
 
-brew cask brew install alfred && brew cask alfred link
+brew cask install alfred && brew cask alfred link
 
 brew cask install android-studio
 brew cask install iterm2
 brew cask install arduino
-brew cask install fritzing
+# brew cask install fritzing
 # brew cask install leap-motion
 brew cask install mactex
 # brew cask install titanium-studio

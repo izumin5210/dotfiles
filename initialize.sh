@@ -5,9 +5,14 @@ function is_exists() {
 }
 
 function is_installed() {
-    return `brew info $1 | grep -vq "Not installed"`
+    return $(brew info $1 | grep -c "Not installed")
 }
 
+
+if ! is_exists "brew"; then
+    # install Homebrew
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
 
 if is_installed "ricty" && [ `find ~/Library/Fonts -name "Ricty*.ttf" | wc -l` -eq 0 ]; then
     # もっとスマートに生きていきたい
@@ -16,9 +21,11 @@ if is_installed "ricty" && [ `find ~/Library/Fonts -name "Ricty*.ttf" | wc -l` -
     fc-cache -vf
 fi
 
-if ! is_exists "brew"; then
-    # install Homebrew
-    ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"
+if is_installed "zsh" && [ $SHELL != `which zsh` ]; then
+    echo current shell: $SHELL
+    echo Please exec
+    echo "\t$ sudo sh -c \"echo `which zsh` >> /etc/shells\""
+    echo "\t$ chsh -s `which zsh`"
 fi
 
 if [ ! -e ~/.gvm ]; then

@@ -40,6 +40,7 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'scrooloose/syntastic'
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
@@ -217,6 +218,14 @@ function! DispatchUniteFileRecAsyncOrGit()
 endfunction
 
 nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
+
+"---------------------------------------------------------------
+" syntastic
+"---------------------------------------------------------------
+
+let g:syntastic_mode_map = { 'mode': 'passive',
+    \ 'active_filetypes': ['ruby'] }
+let g:syntastic_ruby_checkers = ['rubocop']
 
 "---------------------------------------------------------------
 " switch.vim

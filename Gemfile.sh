@@ -14,4 +14,6 @@ gem_install "bundler"
 gem_install "pry"
 gem_install "pry-doc"
 
+gem_install "rubocop"
+
 gem_install "homesick"

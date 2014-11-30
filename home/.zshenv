@@ -36,3 +36,6 @@ export PATH=/usr/local/bin:$PATH
 
 export PATH=$HOME/bin:$PATH
 
+# homebrew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/usr/local/Caskroom"
+

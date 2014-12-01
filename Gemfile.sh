@@ -10,6 +10,7 @@ function gem_install() {
 gem_install "rubygems-update"
 
 gem_install "bundler"
+gem_install "libv8"
 
 gem_install "pry"
 gem_install "pry-doc"

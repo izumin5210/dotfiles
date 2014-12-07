@@ -207,6 +207,7 @@ noremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
 noremap <silent> [unite]ra :<C-u>Unite rails/asset<CR>
 noremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
 noremap <silent> [unite]rb :<C-u>Unite rails/bundle<CR>
+noremap <silent> [unite]rs :<C-u>Unite rails/spec<CR>
 
 " ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
 function! DispatchUniteFileRecAsyncOrGit()

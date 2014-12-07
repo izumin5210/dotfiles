@@ -48,6 +48,7 @@ brew install ino
 
 brew install mysql
 brew install redis
+brew install postgresql
 
 # ==== science ====
 brew install R

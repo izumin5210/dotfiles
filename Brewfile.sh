@@ -1,10 +1,11 @@
 brew update
 brew upgrade
 
-brew tap caskroom/cask
 brew tap homebrew/science
-brew tap caskroom/fonts
 brew tap sanemat/font
+brew tap caskroom/cask
+brew tap caskroom/fonts
+brew tap caskroom/versions
 
 # ==== cask ====
 brew install brew-cask
@@ -81,7 +82,7 @@ brew cask install mactex
 # brew cask install titanium-studio
 brew cask install virtualbox
 brew cask install vagrant
-brew cask install java
+# brew cask install java
 
 brew cask install google-chrome
 brew cask install google-japanese-ime
@@ -123,6 +124,15 @@ brew cask install pandoc
 # Degrees
 # Simplenote
 # FlashLight
+
+# ================================================================
+# versions
+# ================================================================
+
+
+# ================================================================
+# fonts
+# ================================================================
 
 brew cask install font-inconsolata
 brew cask install font-fontawesome

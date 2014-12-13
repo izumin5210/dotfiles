@@ -24,7 +24,6 @@ fi
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 # android
-export STUDIO_JDK=/Library/Java/JavaVirtualMachines/jdk1.8.0_25.jdk
 export ANDROID_HOME=/usr/local/opt/android-sdk
 export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools

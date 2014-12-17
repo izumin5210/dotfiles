@@ -46,6 +46,7 @@ brew install tree
 brew install tig
 brew install git-flow
 brew install ino
+brew install fig
 
 brew install mysql
 brew install redis
@@ -119,6 +120,7 @@ brew cask install android-file-transfer
 brew cask install pandoc
 # brew cask install selfcontrol
 # brew cask install shortcat
+brew cask install boot2docker
 
 # PDF to Keynote
 # Degrees

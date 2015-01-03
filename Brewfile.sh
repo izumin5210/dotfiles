@@ -51,6 +51,7 @@ brew install fig
 brew install mysql
 brew install redis
 brew install postgresql
+brew install chromedriver
 
 # ==== science ====
 brew install R

@@ -13,8 +13,6 @@ call neobundle#begin(expand('~/.vim/bundle/'))
   NeoBundleFetch 'Shougo/neobundle.vim'
 call neobundle#end()
 
-filetype plugin indent on
-
 NeoBundleCheck
 
 NeoBundle 'Shougo/neocomplete.vim'
@@ -67,6 +65,8 @@ NeoBundle 'sudar/vim-arduino-syntax'
 
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
+
+filetype plugin indent on
 
 "===============================================================
 " plugin

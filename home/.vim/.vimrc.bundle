@@ -62,6 +62,9 @@ NeoBundle 'slim-template/vim-slim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sudar/vim-arduino-syntax'
+NeoBundle 'leafgarland/typescript-vim'
+NeoBundle 'jason0x43/vim-js-indent'
+NeoBundle 'clausreinke/typescript-tools'
 
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
@@ -178,6 +181,7 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -226,8 +230,9 @@ nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 "---------------------------------------------------------------
 
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['ruby'] }
+    \ 'active_filetypes': ['ruby', 'typescript'] }
 let g:syntastic_ruby_checkers = ['rubocop']
+let g:syntastic_typescript_checkers = ['tslint']
 
 "---------------------------------------------------------------
 " switch.vim

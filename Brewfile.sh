@@ -52,6 +52,7 @@ brew install mysql
 brew install redis
 brew install postgresql
 brew install chromedriver
+brew install terminal-notifier
 
 # ==== science ====
 brew install R
@@ -85,6 +86,7 @@ brew cask install mactex
 brew cask install virtualbox
 brew cask install vagrant
 # brew cask install java
+brew cask install skim
 
 brew cask install google-chrome
 brew cask install google-japanese-ime

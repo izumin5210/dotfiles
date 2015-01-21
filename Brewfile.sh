@@ -124,6 +124,7 @@ brew cask install pandoc
 # brew cask install selfcontrol
 # brew cask install shortcat
 brew cask install boot2docker
+brew cask install licecap
 
 # PDF to Keynote
 # Degrees

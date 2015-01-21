@@ -37,7 +37,7 @@ brew install hub
 brew install heroku-toolbelt
 brew install imagemagick
 brew install pngquant
-brew install gnuplot --with-x
+brew install gnuplot --with-x --latex
 brew install gcc
 brew install jq
 brew install curl

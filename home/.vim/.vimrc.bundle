@@ -39,6 +39,7 @@ NeoBundle 'tpope/vim-surround'
 NeoBundle 'AndrewRadev/switch.vim'
 NeoBundle 'scrooloose/nerdcommenter'
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'tpope/vim-obsession'
 
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'

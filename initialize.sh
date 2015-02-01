@@ -8,7 +8,6 @@ function is_installed() {
     return $(brew info $1 | grep -c "Not installed")
 }
 
-
 if ! is_exists "brew"; then
     # install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -33,6 +32,10 @@ if [ ! -e ~/.gvm ]; then
     curl -s get.gvmtool.net | bash
 fi
 
+if ! is_exists "~/.tmux/plugins/tpm/tpm"; then
+    # install tpm(Tmux Plugin Manager)
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 if is_exists "node" && `which node | grep -qF .nodebrew`; then
     echo "- [o] node"

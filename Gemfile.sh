@@ -17,3 +17,5 @@ gem_install "pry-doc"
 gem_install "rubocop"
 
 gem_install "homesick"
+
+gem_install "travis"

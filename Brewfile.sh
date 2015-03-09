@@ -50,7 +50,7 @@ brew install fig
 
 brew install mysql
 brew install redis
-brew install postgresql
+# brew install postgresql
 brew install chromedriver
 brew install terminal-notifier
 
@@ -87,6 +87,7 @@ brew cask install virtualbox
 brew cask install vagrant
 # brew cask install java
 brew cask install skim
+brew cask install postgres
 
 brew cask install google-chrome
 brew cask install google-japanese-ime

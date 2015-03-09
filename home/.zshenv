@@ -43,3 +43,6 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/izumin/.boot2docker/certs/boot2docker-vm
 export DOCKER_TLS_VERIFY=1
+
+# Postgres.app
+export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin

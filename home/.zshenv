@@ -51,3 +51,10 @@ export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
 export GOROOT=/usr/local/opt/go/libexec
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+
+# pyenv
+if which pyenv > /dev/null; then
+  export PYENV_ROOT=$HOME/.pyenv
+  export PATH=$PYENV_ROOT/bin:$PATH
+  eval "$(pyenv init -)";
+fi

@@ -234,9 +234,10 @@ nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 "---------------------------------------------------------------
 
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['ruby', 'typescript'] }
+    \ 'active_filetypes': ['ruby', 'typescript', 'go'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_typescript_checkers = ['tslint']
+let g:syntastic_go_checkers = ['go', 'golint']
 
 "---------------------------------------------------------------
 " switch.vim

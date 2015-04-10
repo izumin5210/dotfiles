@@ -98,3 +98,6 @@ set scrolloff=3
 " クリップボード有効化
 set clipboard+=unnamed
 
+" 補完のプレビューを消す
+set completeopt=menuone
+

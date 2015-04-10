@@ -28,6 +28,7 @@ brew install reattach-to-user-namespace
 brew install rbenv
 brew install ruby-build
 brew install rbenv-gem-rehash
+brew install rbenv-default-gems
 brew install android-sdk
 brew install android-ndk
 brew install lua

@@ -67,6 +67,9 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'jason0x43/vim-js-indent'
 NeoBundle 'clausreinke/typescript-tools'
 
+" go
+NeoBundle 'vim-jp/vim-go-extra'
+
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
 

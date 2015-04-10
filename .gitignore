@@ -7,3 +7,6 @@ home/.vim/bundle/*
 home/.vim/.netrwhist
 home/.config/hub
 !home/.vim/bundle/neobundle.vim
+
+home/.rbenv/shims
+home/.rbenv/versions

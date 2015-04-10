@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
 
- echo 'Installing golang packages...'
- go get github.com/nsf/gocode
+echo 'Installing golang packages...'
+go get -u github.com/nsf/gocode
+go get -u github.com/golang/lint/golint

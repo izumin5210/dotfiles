@@ -32,6 +32,7 @@ brew install android-sdk
 brew install android-ndk
 brew install lua
 brew install nodebrew
+brew install go
 
 brew install hub
 brew install heroku-toolbelt

@@ -46,3 +46,8 @@ export DOCKER_TLS_VERIFY=1
 
 # Postgres.app
 export PATH=$PATH:/Applications/Postgres.app/Contents/Versions/9.4/bin
+
+# Go
+export GOROOT=/usr/local/opt/go/libexec
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH

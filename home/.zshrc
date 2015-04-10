@@ -243,3 +243,6 @@ function tmux-new() {
 
 #THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
 [[ -s "/Users/izumin/.gvm/bin/gvm-init.sh" ]] && source "/Users/izumin/.gvm/bin/gvm-init.sh"
+
+# added by travis gem
+[ -f /Users/izumin/.travis/travis.sh ] && source /Users/izumin/.travis/travis.sh

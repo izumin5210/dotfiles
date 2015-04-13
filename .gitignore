@@ -6,4 +6,5 @@ home/.vim/.netrwhist
 !home/.vim/bundle/neobundle.vim
 
 home/.rbenv/shims
+home/.rbenv/version
 home/.rbenv/versions

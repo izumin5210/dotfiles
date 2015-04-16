@@ -26,6 +26,8 @@ NeoBundle 'Shougo/vimproc.vim', {
       \    },
       \ }
 
+NeoBundle 'lambdalisue/unite-grep-vcs'
+
 " appearance
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'

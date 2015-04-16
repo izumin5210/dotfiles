@@ -231,6 +231,16 @@ endfunction
 
 nnoremap <silent> [unite]f :<C-u>call DispatchUniteFileRecAsyncOrGit()<CR>
 
+function! DispatchUniteGrep()
+  if isdirectory(getcwd()."/.git")
+    Unite grep/git:.
+  else
+    Unite grep:.
+  endif
+endfunction
+
+nnoremap <silent> [unite]g :<C-u>call DispatchUniteGrep()<CR>
+
 "---------------------------------------------------------------
 " syntastic
 "---------------------------------------------------------------

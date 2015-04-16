@@ -218,7 +218,11 @@ noremap <silent> [unite]rv :<C-u>Unite rails/view<CR>
 noremap <silent> [unite]ra :<C-u>Unite rails/asset<CR>
 noremap <silent> [unite]rd :<C-u>Unite rails/db<CR>
 noremap <silent> [unite]rb :<C-u>Unite rails/bundle<CR>
-noremap <silent> [unite]rs :<C-u>Unite rails/spec<CR>
+noremap <silent> [unite]rg :<C-u>Unite rails/bundled_gem<CR>
+noremap <silent> [unite]rsp :<C-u>Unite rails/spec<CR>
+noremap <silent> [unite]rj :<C-u>Unite rails/javascript<CR>
+noremap <silent> [unite]rst :<C-u>Unite rails/stylesheet<CR>
+noremap <silent> [unite]rco :<C-u>Unite rails/config<CR>
 
 " ref: http://qiita.com/yuku_t/items/9263e6d9105ba972aea8
 function! DispatchUniteFileRecAsyncOrGit()

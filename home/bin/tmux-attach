@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+session=$(tmux list-sessions | peco | awk -F: '{ print $1 }')
+title $session
+tmux attach -t $session

@@ -47,7 +47,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'osyo-manga/vim-over'
 " NeoBundle 'vim-scripts/TaskList.vim'
 " NeoBundle 'thinca/vim-quickrun'
-" NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
+NeoBundle 'git://git.code.sf.net/p/vim-latex/vim-latex'
 " NeoBundle 'mattn/webapi-vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
 
@@ -364,9 +364,11 @@ let g:Tex_MakeIndexFlavor = '/usr/texbin/mendex $*.idx'
 let g:Tex_UseEditorSettingInDVIViewer = 1
 "let g:Tex_ViewRule_pdf = '/usr/bin/open'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a Preview.app'
-"let g:Tex_ViewRule_pdf = '/usr/bin/open -a Skim.app'
-let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
+let g:Tex_ViewRule_pdf = '/usr/bin/open -a Skim.app'
+" let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXShop.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a TeXworks.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a Firefox.app'
 "let g:Tex_ViewRule_pdf = '/usr/bin/open -a "Adobe Reader.app"'
 
+" for bibtex
+let g:Tex_MultipleCompileFormats = 'pdf'

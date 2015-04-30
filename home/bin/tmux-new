@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+session=${1:-$(pwd | awk -F/ '{ print $NF}')}
+title $session
+tmux new -s $session

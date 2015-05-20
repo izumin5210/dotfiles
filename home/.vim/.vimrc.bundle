@@ -67,7 +67,7 @@ NeoBundle 'tpope/vim-markdown'
 NeoBundle 'sudar/vim-arduino-syntax'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'jason0x43/vim-js-indent'
-NeoBundle 'clausreinke/typescript-tools'
+NeoBundle 'Quramy/tsuquyomi'
 
 " go
 NeoBundle 'vim-jp/vim-go-extra'
@@ -187,7 +187,6 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-autocmd FileType typescript setlocal omnifunc=TSScompleteFunc
 
 " Enable heavy omni completion.
 if !exists('g:neocomplete#sources#omni#input_patterns')

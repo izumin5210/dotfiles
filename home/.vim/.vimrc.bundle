@@ -250,10 +250,11 @@ nnoremap <silent> [unite]g :<C-u>call DispatchUniteGrep()<CR>
 "---------------------------------------------------------------
 
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['ruby', 'typescript', 'go'] }
+    \ 'active_filetypes': ['ruby', 'typescript', 'go', 'python'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_go_checkers = ['go', 'golint']
+let g:syntastic_go_checkers = ['pylint', 'pyflakes', 'pep8']
 
 "---------------------------------------------------------------
 " switch.vim

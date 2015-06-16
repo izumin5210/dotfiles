@@ -58,8 +58,8 @@ if is-at-least 4.3.10; then
     # - %c: stagedstr
     # - %u: unstagedstr
     # - %m: others
-    zstyle ':vcs_info:git:*' formats '(%F{4}%b%f|%F{2}%c%f%F{1}%u%f%m)'
-    zstyle ':vcs_info:git:*' actionformats '(%F{13}%b-%a%f|%F{2}%c%f%F{1}%u%f%m)'
+    zstyle ':vcs_info:git:*' formats '%F{4}%b%f %F{2}%c%f%F{1}%u%f%m'
+    zstyle ':vcs_info:git:*' actionformats '%F{13}%b-%a%f %F{2}%c%f%F{1}%u%f%m'
     # zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
     zstyle ':vcs_info:git:*' check-for-changes true     # リポジトリの変更通知
 fi
@@ -150,7 +150,7 @@ function _update_vcs_info_msg() {
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
         RPROMPT=""
     else
-        RPROMPT="${vcs_info_msg_0_} %*"
+        RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 

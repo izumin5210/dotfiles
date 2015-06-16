@@ -58,8 +58,8 @@ if is-at-least 4.3.10; then
     # - %c: stagedstr
     # - %u: unstagedstr
     # - %m: others
-    zstyle ':vcs_info:git:*' formats '(%b|%c%u)' '%m'
-    zstyle ':vcs_info:git:*' actionformats '(%b-%a|%c%u)' '%m'
+    zstyle ':vcs_info:git:*' formats '(%F{4}%b%f|%F{2}%c%f%F{1}%u%f%m)'
+    zstyle ':vcs_info:git:*' actionformats '(%F{13}%b-%a%f|%F{2}%c%f%F{1}%u%f%m)'
     # zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
     zstyle ':vcs_info:git:*' check-for-changes true     # リポジトリの変更通知
 fi
@@ -93,7 +93,6 @@ if is-at-least 4.3.11; then
         # - `tr`: 文字の置換（`tr -d arg1`: arg1を消去）
         if [[ $(command git status --porcelain 2> /dev/null | wc -l | tr -d ' ') == "0" ]]; then
             hook_com[staged]+="✔ "
-            hook_com[misc]='green'
             return 0
         fi
 
@@ -106,7 +105,6 @@ if is-at-least 4.3.11; then
 
         if [[ "$unstaged" -gt 0 ]]; then
             hook_com[unstaged]+="u${unstaged}"
-            hook_com[misc]='magenta'
         fi
 
         # ステージング済みのファイル数を取得
@@ -125,7 +123,7 @@ if is-at-least 4.3.11; then
             | awk '{print $1}' | grep -F '??' | wc -l | tr -d ' ')
 
         if [[ "$untracked" -gt 0 ]]; then
-            hook_com[unstaged]+="?${untracked}"
+            hook_com[misc]+="%F{3}?${untracked}%f"
         fi
 
         # コンフリクトしてるファイル数を取得（プロンプトをマゼンタに決定）
@@ -134,18 +132,13 @@ if is-at-least 4.3.11; then
             | awk '{print $1}' | grep -F 'UU' | wc -l | tr -d ' ')
 
         if [[ "$unmerged" -gt 0 ]]; then
-            hook_com[unstaged]+="c${unmerged}"
-            hook_com[misc]='magenta'
+            hook_com[misc]+="%F{13}c${unmerged}%f"
         fi
 
-        # トラッキングされていないファイルが有る場合→黄色
-        # トラッキングされていないファイルがない場合→シアン
-        if [[ -z ${hook_com[misc]} ]]; then
-            if [[ "$untracked" -gt 0 ]]; then
-                hook_com[misc]='yellow'
-            else
-                hook_com[misc]='cyan'
-            fi
+        local stashed
+        stashed=$(command git stash list 2> /dev/null | wc -l | tr -d ' ')
+        if [[ "$stashed" -gt 0 ]]; then
+            hook_com[misc]+="%F{6}s${stashed}%f"
         fi
     }
 fi
@@ -157,7 +150,7 @@ function _update_vcs_info_msg() {
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
         RPROMPT=""
     else
-        RPROMPT="%F{${vcs_info_msg_1_}}${vcs_info_msg_0_}%f"
+        RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 

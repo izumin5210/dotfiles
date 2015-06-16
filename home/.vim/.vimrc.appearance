@@ -5,7 +5,9 @@
 syntax on
 set guifont=Ricty:h12
 set t_Co=256
-colorscheme hybrid
+let g:getafe_use_Xresources = 1
+colorscheme getafe
+set background=dark
 
 " 行番号を表示
 set number

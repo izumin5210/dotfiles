@@ -25,9 +25,9 @@ autoload -Uz colors; colors             # プロンプトに色を付ける
 # export LSCOLORS=gxfxcxdxbxegedabagacad
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-local p_cdir="%{$fg[red]%}[%* %~]%{$reset_color%}"
-local p_user="%{$fg[green]%}%#%{$reset_color%} "
-PROMPT=$p_cdir$'\n'$p_user
+local p_cdir="%F{13}%n%f at %F{1}%m%f in %F{2}%~%f"
+local p_user="%F{3}%*%f %# "
+PROMPT=$'\n'$p_cdir$'\n'$p_user
 
 #### vcs_info ###
 # ref: http://mollifier.hatenablog.com/entry/20090814/p1
@@ -150,7 +150,7 @@ function _update_vcs_info_msg() {
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
         RPROMPT=""
     else
-        RPROMPT="${vcs_info_msg_0_}"
+        RPROMPT="${vcs_info_msg_0_} %*"
     fi
 }
 

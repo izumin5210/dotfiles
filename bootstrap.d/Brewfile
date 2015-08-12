@@ -52,6 +52,8 @@ brew install tig
 brew install git-flow
 brew install ino
 brew install fig
+brew install peco
+brew install ghq
 
 brew install mysql
 brew install redis

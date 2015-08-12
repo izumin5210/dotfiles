@@ -68,6 +68,7 @@ NeoBundle 'sudar/vim-arduino-syntax'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'jason0x43/vim-js-indent'
 NeoBundle 'Quramy/tsuquyomi'
+NeoBundle 'digitaltoad/vim-jade'
 
 " go
 NeoBundle 'vim-jp/vim-go-extra'

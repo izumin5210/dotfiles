@@ -18,6 +18,7 @@
     ste = git-ste
     logg = log --stat --pretty=format:'%C(yellow)%h %C(cyan)%ar %C(magenta)%an%n%C(white)%s %Cred%d'
     graph = log --graph --decorate --oneline
+    cv = commit -v
 
 [push]
 	default = simple

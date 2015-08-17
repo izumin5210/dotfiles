@@ -204,11 +204,19 @@ let g:neocomplete#force_omni_input_patterns.typescript = '\h\w*\|[^. \t]\.\w*'
 " unite.vim
 "---------------------------------------------------------------
 
-let g:unite_enable_start_insert = 1
-let g:unite_enable_split_vertically = 1
-let g:unite_winwidth = 48
-let g:unite_enable_short_source_names = 1
 let g:unite_source_history_yank_enable = 1
+
+call unite#custom#profile('default', 'context', {
+            \ 'start_insert': 1,
+            \ 'winheight': 100,
+            \ 'short_source_name': 1
+            \ })
+
+call unite#custom#source('file_rec,file_rec/async,file_rec/git', 'matchers', [
+            \ 'matcher_hide_hidden_files',
+            \ 'converter_relative_word',
+            \ 'converter_file_directory'
+            \ ])
 
 nnoremap [unite] <Nop>
 nmap ,u [unite]

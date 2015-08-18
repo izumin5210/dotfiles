@@ -7,7 +7,7 @@ function _peco_project() {
   fi
   zle clear-screen
 }
-zle -N peco_project _peco_project
+zle -N _peco_project
 bindkey '^]' peco_project
 
 
@@ -19,7 +19,7 @@ function _git_status() {
     fi
     zle reset-prompt
 }
-zle -N git_status _git_status
+zle -N _git_status
 bindkey '^gs' git_status
 
 
@@ -36,5 +36,5 @@ function _git_patch() {
         zle reset-prompt
     fi
 }
-zle -N git_patch _git_patch
+zle -N _git_patch
 bindkey '^gp' git_patch

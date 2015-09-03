@@ -3,6 +3,7 @@ bundler
 homesick
 pry
 pry-doc
+pry-coolline
 rubocop
 rubygems-update
 travis

@@ -1,5 +1,5 @@
 # ==== peco project ================================================================
-function _peco_project() {
+peco_ghq_list() {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
   if [ -n "$selected_dir" ]; then
     BUFFER="cd ${selected_dir}"
@@ -7,24 +7,24 @@ function _peco_project() {
   fi
   zle clear-screen
 }
-zle -N _peco_project
-bindkey '^]' peco_project
+zle -N peco_ghq_list
+bindkey '^gs' peco_ghq_list
 
 
 # ==== git status ===============================================================
-function _git_status() {
+git_status() {
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         echo git status -sb
         git status -sb
     fi
     zle reset-prompt
 }
-zle -N _git_status
+zle -N git_status
 bindkey '^gs' git_status
 
 
 # ==== git patch ================================================================
-function _git_patch() {
+git_patch() {
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
         local selected_file='$(git status --porcelain | peco --query "$LBUFFER")'
         if [ -n "$selected_file" ]; then
@@ -36,5 +36,5 @@ function _git_patch() {
         zle reset-prompt
     fi
 }
-zle -N _git_patch
+zle -N git_patch
 bindkey '^gp' git_patch

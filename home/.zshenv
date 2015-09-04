@@ -1,7 +1,7 @@
 
 # zmodload zsh/zprof && zprof
 
-source $HOME/.zsh/peco-functions.zsh
+source $HOME/.zsh/functions.zsh
 
 # ================================================================
 # 環境変数とかそんなん

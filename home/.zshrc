@@ -1,3 +1,7 @@
+
+bindkey -e
+source $HOME/.zsh/functions.zsh
+
 # ================================================================
 # Appearance
 # ================================================================
@@ -145,8 +149,6 @@ add-zsh-hook precmd _update_vcs_info_msg
 
 REPORTTIME=3
 
-# Viなキーバインド
-bindkey -e
 
 #### complement ####
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)    # gitのbranch名補完

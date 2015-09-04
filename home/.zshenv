@@ -3,7 +3,6 @@
 
 source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/aliases.zsh
-source $HOME/.zsh/functions.zsh
 
 # MacTeX by homebrew
 eval `/usr/libexec/path_helper -s`

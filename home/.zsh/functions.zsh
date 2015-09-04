@@ -1,3 +1,8 @@
+_register_keycommand() {
+  zle -N $2
+  bindkey "$1" $2
+}
+
 # ==== peco project ================================================================
 peco_ghq_list() {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
@@ -7,8 +12,8 @@ peco_ghq_list() {
   fi
   zle clear-screen
 }
-zle -N peco_ghq_list
-bindkey '^gs' peco_ghq_list
+
+_register_keycommand '^]' peco_ghq_list
 
 
 # ==== git status ===============================================================
@@ -19,8 +24,8 @@ git_status() {
     fi
     zle reset-prompt
 }
-zle -N git_status
-bindkey '^gs' git_status
+
+_register_keycommand '^gs' git_status
 
 
 # ==== git patch ================================================================
@@ -36,5 +41,5 @@ git_patch() {
         zle reset-prompt
     fi
 }
-zle -N git_patch
-bindkey '^gp' git_patch
+
+_register_keycommand '^gp' git_patch

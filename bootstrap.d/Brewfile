@@ -130,7 +130,6 @@ brew cask install android-file-transfer
 brew cask install pandoc
 # brew cask install selfcontrol
 # brew cask install shortcat
-brew cask install boot2docker
 brew cask install licecap
 brew cask install aluxian-messenger
 

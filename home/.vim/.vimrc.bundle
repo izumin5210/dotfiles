@@ -212,6 +212,17 @@ call unite#custom#profile('default', 'context', {
             \ 'short_source_name': 1
             \ })
 
+let s:unite_ignore_file_rec_patterns=
+      \ ''
+      \ .'vendor/bundle\|.bundle/\|\.sass-cache/\|'
+      \ .'node_modules/\|bower_components/\|'
+      \ .'\.\(bmp\|gif\|jpe\?g\|png\|webp\|ai\|psd\)"\?$'
+
+call unite#custom#source(
+      \ 'file_rec/async,file_rec/git',
+      \ 'ignore_pattern',
+      \ s:unite_ignore_file_rec_patterns)
+
 nnoremap [unite] <Nop>
 nmap ,u [unite]
 noremap <silent> [unite]l :<C-u>Unite file<CR>

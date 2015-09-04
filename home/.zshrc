@@ -1,22 +1,3 @@
-
-# ================================================================
-# エイリアス
-# ================================================================
-
-alias ssaver='open /System/Library/Frameworks/ScreenSaver.framework/Resources/ScreenSaverEngine.app'
-
-# lsに色を付ける
-alias ls='ls -G'
-
-# historyに時刻表示
-alias history='history -E'
-
-alias cd='cdr'
-alias mkdir='mkdir -p'
-alias be='bundle exec'
-
-alias vim='vim -c Obsession'
-
 # ================================================================
 # Appearance
 # ================================================================

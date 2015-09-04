@@ -212,12 +212,6 @@ call unite#custom#profile('default', 'context', {
             \ 'short_source_name': 1
             \ })
 
-call unite#custom#source('file_rec,file_rec/async,file_rec/git', 'matchers', [
-            \ 'matcher_hide_hidden_files',
-            \ 'converter_relative_word',
-            \ 'converter_file_directory'
-            \ ])
-
 nnoremap [unite] <Nop>
 nmap ,u [unite]
 noremap <silent> [unite]l :<C-u>Unite file<CR>
@@ -264,7 +258,7 @@ nnoremap <silent> [unite]g :<C-u>call DispatchUniteGrep()<CR>
 "---------------------------------------------------------------
 
 let g:syntastic_mode_map = { 'mode': 'passive',
-    \ 'active_filetypes': ['ruby', 'typescript', 'go', 'python'] }
+    \ 'active_filetypes': ['typescript', 'go', 'python'] }
 let g:syntastic_ruby_checkers = ['rubocop']
 let g:syntastic_typescript_checkers = ['tslint']
 let g:syntastic_go_checkers = ['go', 'golint']

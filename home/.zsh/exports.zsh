@@ -23,6 +23,9 @@ export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools
 export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 
+# java
+export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+
 # groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
 

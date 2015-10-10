@@ -16,6 +16,20 @@ peco_ghq_list() {
 _register_keycommand '^]' peco_ghq_list
 
 
+# ==== tmux attach ================================================================
+tmux_attach() {
+    local selected_session=$(tmux list-sessions | peco | awk -F: '{ print $1 }')
+    if [ -n "$selected_session" ]; then
+        title $selected_session
+        BUFFER="tmux attach -t ${selected_session}"
+        zle accept-line
+    fi
+    zle clear-screen
+}
+
+_register_keycommand '^[' tmux_attach
+
+
 # ==== git status ===============================================================
 git_status() {
     if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then

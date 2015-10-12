@@ -3,6 +3,42 @@ _register_keycommand() {
   bindkey "$1" $2
 }
 
+_buffer_insert() {
+  local rbuf="$RBUFFER"
+  BUFFER="$LBUFFER$(cat)"
+  CURSOR=$#BUFFER
+  BUFFER="$BUFFER$rbuf"
+}
+
+_buffer_replace() {
+  BUFFER="$(cat)"
+  CURSOR=$#BUFFER
+}
+
+_peco_select() {
+  local tx="$(cat)"
+  local query="$1"
+
+  if [ "$tx" = '' ]; then
+    tx=' '
+    query='(nothing)'
+  fi
+
+  peco --query "$query" <<< "$tx"
+}
+
+_reverse() {
+    if which tac > /dev/null; then
+        tac <<< $(cat)
+    else
+        tail -r <<< $(cat)
+    fi
+}
+
+_is_git_repo() {
+    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+}
+
 # ==== peco project ================================================================
 peco_ghq_list() {
   local selected_dir=$(ghq list -p | peco --query "$LBUFFER")

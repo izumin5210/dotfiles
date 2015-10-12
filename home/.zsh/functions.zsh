@@ -41,12 +41,15 @@ _is_git_repo() {
 
 # ==== peco project ================================================================
 peco_ghq_list() {
-  local selected_dir=$(ghq list -p | peco --query "$LBUFFER")
-  if [ -n "$selected_dir" ]; then
-    BUFFER="cd ${selected_dir}"
-    zle accept-line
-  fi
-  zle clear-screen
+    ghq list -p \
+        | _peco_select \
+        | {
+            local repo=$(cat)
+            if [ -n "$repo" ]; then
+                _buffer_replace <<< "cd $repo"
+                zle accept-line
+            fi
+        }
 }
 
 _register_keycommand '^]' peco_ghq_list
@@ -54,13 +57,17 @@ _register_keycommand '^]' peco_ghq_list
 
 # ==== tmux attach ================================================================
 tmux_attach() {
-    local selected_session=$(tmux list-sessions | peco | awk -F: '{ print $1 }')
-    if [ -n "$selected_session" ]; then
-        title $selected_session
-        BUFFER="tmux attach -t ${selected_session}"
-        zle accept-line
-    fi
-    zle clear-screen
+    tmux list-sessions \
+        | _peco_select \
+        | awk -F: '{ print $1 }' \
+        | {
+            local session=$(cat)
+            if [ -n "$session" ]; then
+                title $session
+                _buffer_replace <<< "tmux attach -t $session"
+                zle accept-line
+            fi
+        }
 }
 
 _register_keycommand '^@' tmux_attach
@@ -68,7 +75,7 @@ _register_keycommand '^@' tmux_attach
 
 # ==== git status ===============================================================
 git_status() {
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
+    if _is_git_repo; then
         echo git status -sb
         git status -sb
     fi
@@ -80,16 +87,18 @@ _register_keycommand '^gs' git_status
 
 # ==== git patch ================================================================
 git_patch() {
-    if [ "$(git rev-parse --is-inside-work-tree 2> /dev/null)" = 'true' ]; then
-        local selected_file='$(git status --porcelain | peco --query "$LBUFFER")'
-        if [ -n "$selected_file" ]; then
-            BUFFER="git add -p ${selected_file}"
-            zle accept-line
-        fi
-        zle clear-screen
-    else
-        zle reset-prompt
-    fi
+    _is_git_repo \
+        && git status --porcelain \
+        | _peco_select \
+        | awk '{ print $2 }' \
+        | {
+            local target="$(cat)"
+            if [ -n "$target" ]; then
+                _buffer_replace <<< "git add -p $target"
+                zle accept-line
+            fi
+            zle clear-screen
+        }
 }
 
 _register_keycommand '^gp' git_patch
@@ -97,17 +106,10 @@ _register_keycommand '^gp' git_patch
 
 # ==== peco history ===============================================================
 peco_history() {
-    local tac
-    if which tac > /dev/null; then
-        tac="tac"
-    else
-        tac="tail -r"
-    fi
-    BUFFER=$(\history -n 1 | eval $tac | peco --query "$LBUFFER")
-    CURSOR=$#BUFFER
-    zle clear-screen
+    \history -n 1 \
+        | _reverse \
+        | _peco_select "$LBUFFER" \
+        | _buffer_replace
 }
 
-
 _register_keycommand '^r' peco_history
-

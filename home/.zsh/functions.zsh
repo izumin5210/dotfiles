@@ -27,7 +27,7 @@ tmux_attach() {
     zle clear-screen
 }
 
-_register_keycommand '^[' tmux_attach
+_register_keycommand '^@' tmux_attach
 
 
 # ==== git status ===============================================================

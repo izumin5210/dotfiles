@@ -149,7 +149,6 @@ add-zsh-hook precmd _update_vcs_info_msg
 
 REPORTTIME=3
 
-
 #### complement ####
 fpath=($(brew --prefix)/share/zsh/site-functions $fpath)    # gitのbranch名補完
 autoload -Uz compinit; compinit -C      # 補完機能を有効にする
@@ -199,7 +198,7 @@ setopt correct
 setopt interactive_comments
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-bindkey '^R' history-incremental-pattern-search-backward
+# bindkey '^R' history-incremental-pattern-search-backward
 
 # ================================================================
 # プロファイリング結果出力

@@ -57,3 +57,21 @@ git_patch() {
 }
 
 _register_keycommand '^gp' git_patch
+
+
+# ==== peco history ===============================================================
+peco_history() {
+    local tac
+    if which tac > /dev/null; then
+        tac="tac"
+    else
+        tac="tail -r"
+    fi
+    BUFFER=$(\history -n 1 | eval $tac | peco --query "$LBUFFER")
+    CURSOR=$#BUFFER
+    zle clear-screen
+}
+
+
+_register_keycommand '^r' peco_history
+

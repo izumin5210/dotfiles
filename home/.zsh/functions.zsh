@@ -39,6 +39,22 @@ _is_git_repo() {
   git rev-parse --is-inside-work-tree > /dev/null 2>&1
 }
 
+_git_status_select() {
+  _is_git_repo \
+    && git status --short \
+    | _peco_select \
+    | cut -c 4- \
+    | tr '\n' ' '
+}
+
+_git_branch_select() {
+  _is_git_repo \
+    && git branch \
+    | _peco_select \
+    | cut -c 3- \
+    | tr '\n' ' '
+}
+
 # ==== peco project ================================================================
 peco_ghq_list() {
   ghq list -p \
@@ -87,10 +103,7 @@ _register_keycommand '^gs' git_status
 
 # ==== git patch ================================================================
 git_patch() {
-  _is_git_repo \
-    && git status --porcelain \
-    | _peco_select \
-    | awk '{ print $2 }' \
+  _git_status_select \
     | {
         local target="$(cat)"
         if [ -n "$target" ]; then

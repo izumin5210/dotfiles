@@ -117,6 +117,38 @@ git_patch() {
 _register_keycommand '^gp' git_patch
 
 
+# ==== git add ================================================================
+git_add() {
+  _git_status_select \
+    | {
+        local target="$(cat)"
+        if [ -n "$target" ]; then
+          _buffer_replace <<< "git add $target"
+          zle accept-line
+        fi
+        zle clear-screen
+      }
+}
+
+_register_keycommand '^ga' git_add
+
+
+# ==== git reset ================================================================
+git_reset() {
+  _git_status_select \
+    | {
+        local target="$(cat)"
+        if [ -n "$target" ]; then
+          _buffer_replace <<< "git reset HEAD --quiet $target"
+          zle accept-line
+        fi
+        zle clear-screen
+      }
+}
+
+_register_keycommand '^gr' git_reset
+
+
 # ==== peco history ===============================================================
 peco_history() {
   \history -n 1 \

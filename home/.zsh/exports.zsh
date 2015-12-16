@@ -25,6 +25,7 @@ export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
 
 # java
 export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
+export JAVA8_HOME=`/usr/libexec/java_home -v 1.8`
 
 # groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec

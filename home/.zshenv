@@ -8,7 +8,7 @@ source $HOME/.zsh/aliases.zsh
 eval `/usr/libexec/path_helper -s`
 
 # gvm
-[[ -s "/Users/izumin/.gvm/bin/gvm-init.sh" ]] && source "/Users/izumin/.gvm/bin/gvm-init.sh"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
 # rbenv
 if [ -d ${HOME}/.rbenv ]; then

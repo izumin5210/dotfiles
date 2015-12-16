@@ -29,6 +29,8 @@ export JAVA8_HOME=`/usr/libexec/java_home -v 1.8`
 
 # groovy
 export GROOVY_HOME=/usr/local/opt/groovy/libexec
+# sdkman
+export SDKMAN_DIR="/Users/izumin/.sdkman"
 
 # postgres
 export POSTGRESAPP_ROOT=/Applications/Postgres.app/Contents/Versions/9.4

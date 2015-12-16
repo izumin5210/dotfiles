@@ -32,9 +32,9 @@ if is_installed "zsh" && [ $SHELL != `which zsh` ]; then
     echo "\t$ chsh -s `which zsh`"
 fi
 
-if [ ! -e ~/.gvm ]; then
-    # install GVM(Groovy enVironment Manager)
-    curl -s get.gvmtool.net | bash
+if [ ! -e ~/.sdkman ]; then
+    # install sdkman(Software Development Kit Manager)
+    curl -s http://get.sdkman.io | bash
 fi
 
 if ! is_exists "~/.tmux/plugins/tpm/tpm"; then

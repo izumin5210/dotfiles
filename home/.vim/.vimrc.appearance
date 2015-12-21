@@ -2,12 +2,16 @@
 " appearance
 "================================================================
 
+autocmd ColorScheme * highlight Visual ctermfg=231 ctermbg=212
+
+
 syntax on
 set guifont=Ricty:h12
 set t_Co=256
-let g:getafe_use_Xresources = 1
-colorscheme getafe
+let g:hybrid_use_Xresources = 1
+colorscheme hybrid
 set background=dark
+
 
 " 行番号を表示
 set number

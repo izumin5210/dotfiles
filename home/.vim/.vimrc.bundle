@@ -75,7 +75,6 @@ NeoBundle 'vim-jp/vim-go-extra'
 
 " colorscheme
 NeoBundle 'w0ng/vim-hybrid'
-NeoBundle 'izumin5210/vim-getafe'
 
 filetype plugin indent on
 

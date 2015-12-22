@@ -12,7 +12,7 @@ autoload -Uz colors; colors             # プロンプトに色を付ける
 # export LSCOLORS=gxfxcxdxbxegedabagacad
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-local p_cdir="%F{13}%n%f at %F{1}%m%f in %F{2}%~%f"
+local p_cdir="%F{13}%n%f at %F{9}%m%f in %F{14}%~%f"
 local p_user="%F{3}%*%f %# "
 PROMPT=$'\n'$p_cdir$'\n'$p_user
 

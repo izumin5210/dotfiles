@@ -87,10 +87,10 @@ brew cask install iterm2
 brew cask install arduino
 brew cask install fritzing
 brew cask install mactex
-brew cask install virtualbox
 brew cask install vagrant
 brew cask install skim
 brew cask install postgres
+brew cask install dockertoolbox
 
 brew cask install google-chrome
 brew cask install google-japanese-ime

@@ -85,13 +85,10 @@ brew cask install alfred && brew cask alfred link
 brew cask install android-studio
 brew cask install iterm2
 brew cask install arduino
-# brew cask install fritzing
-# brew cask install leap-motion
+brew cask install fritzing
 brew cask install mactex
-# brew cask install titanium-studio
 brew cask install virtualbox
 brew cask install vagrant
-# brew cask install java
 brew cask install skim
 brew cask install postgres
 
@@ -105,14 +102,10 @@ brew cask install copy
 brew cask install airserver
 brew cask install flash-player
 brew cask install unity-web-player
-# cask brew install filezilla
 brew cask install skype
-brew cask install kobito
-# brew cask install yorufukurou
 brew cask install dash
 brew cask install sequel-pro
 brew cask install adobe-creative-cloud
-# brew cask install soundflower
 brew cask install slack
 brew cask install karabiner
 brew cask install 1password
@@ -120,7 +113,6 @@ brew cask install 1password
 brew cask install caffeine
 brew cask install appcleaner
 brew cask install day-o
-# brew cask install tuneinstructor
 brew cask install hyperswitch
 brew cask install tinkertool
 brew cask install bettertouchtool
@@ -129,8 +121,6 @@ brew cask install lyrics-master
 brew cask install the-unarchiver
 brew cask install android-file-transfer
 brew cask install pandoc
-# brew cask install selfcontrol
-# brew cask install shortcat
 brew cask install licecap
 brew cask install aluxian-messenger
 

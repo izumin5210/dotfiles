@@ -1,28 +1,74 @@
 require 'spec_helper'
 
-describe package('httpd'), :if => os[:family] == 'redhat' do
-  it { should be_installed }
+home = ENV['HOME']
+
+describe file("#{home}/bin") do
+  it { should be_directory }
+  it { should be_symlink }
 end
 
-describe package('apache2'), :if => os[:family] == 'ubuntu' do
-  it { should be_installed }
+describe file("#{home}/.zshrc") do
+  it { should be_file }
+  it { should be_symlink }
 end
 
-describe service('httpd'), :if => os[:family] == 'redhat' do
-  it { should be_enabled }
-  it { should be_running }
+describe file("#{home}/.zshenv") do
+  it { should be_file }
+  it { should be_symlink }
 end
 
-describe service('apache2'), :if => os[:family] == 'ubuntu' do
-  it { should be_enabled }
-  it { should be_running }
+describe file("#{home}/.zsh") do
+  it { should be_directory }
+  it { should be_symlink }
 end
 
-describe service('org.apache.httpd'), :if => os[:family] == 'darwin' do
-  it { should be_enabled }
-  it { should be_running }
+describe file("#{home}/.tmux.conf") do
+  it { should be_file }
+  it { should be_symlink }
 end
 
-describe port(80) do
-  it { should be_listening }
+describe file("#{home}/.vimrc") do
+  it { should be_file }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.vim") do
+  it { should be_directory }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.gvimrc") do
+  it { should be_file }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.ideavimrc") do
+  it { should be_file }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.rbenv") do
+  it { should be_directory }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.pryrc") do
+  it { should be_file }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.railsrc") do
+  it { should be_file }
+  it { should be_symlink }
+end
+
+describe file("#{home}/.gitconfig") do
+  it { should be_file }
+  it { should be_symlink }
+  its(:content) { should be_include "excludesfile = ~/.gitignore_global" }
+end
+
+describe file("#{home}/.gitignore_global") do
+  it { should be_file }
+  it { should be_symlink }
 end

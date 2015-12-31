@@ -4,10 +4,9 @@ machine:
 
 dependencies:
   override:
-    - docker info
-    - docker build -t izumin5210/dotfiles .
+    - bundle
 
 test:
   override:
-    - bundle
+    - docker build -t izumin5210/dotfiles .
     - bundle exec rspec

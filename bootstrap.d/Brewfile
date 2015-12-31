@@ -3,7 +3,6 @@
 brew update
 brew upgrade
 
-brew tap homebrew/science
 brew tap sanemat/font
 brew tap caskroom/cask
 brew tap caskroom/fonts
@@ -55,14 +54,8 @@ brew install peco
 brew install ghq
 brew install git-secrets
 
-brew install mysql
-brew install redis
-# brew install postgresql
 brew install chromedriver
 brew install terminal-notifier
-
-# ==== science ====
-brew install R
 
 # ==== sanemat/font ====
 # > Error: /usr/local/opt/automake not present or broken
@@ -115,7 +108,6 @@ brew cask install caffeine
 brew cask install appcleaner
 brew cask install day-o
 brew cask install hyperswitch
-brew cask install tinkertool
 brew cask install bettertouchtool
 brew cask install monolingual
 brew cask install lyrics-master
@@ -124,15 +116,6 @@ brew cask install android-file-transfer
 brew cask install pandoc
 brew cask install licecap
 brew cask install aluxian-messenger
-
-# PDF to Keynote
-# Degrees
-# Simplenote
-# FlashLight
-
-# ================================================================
-# versions
-# ================================================================
 
 
 # ================================================================

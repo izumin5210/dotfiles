@@ -5,7 +5,7 @@ machine:
 dependencies:
   override:
     - docker info
-    - docker build -t honeniq/docker-circleci-sample .
+    - docker build -t izumin5210/dotfiles .
 
 test:
   override:

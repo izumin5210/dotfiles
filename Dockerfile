@@ -1,6 +1,4 @@
-FROM ruby:2.3
-
-RUN gem install serverspec
+FROM buildpack-deps:jessie
 
 RUN useradd -m test
 

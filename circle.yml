@@ -1,0 +1,13 @@
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - docker info
+    - docker build -t honeniq/docker-circleci-sample .
+
+test:
+  override:
+    - bundle
+    - bundle exec rspec

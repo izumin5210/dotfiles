@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-home = ENV['HOME']
+home = '/home/test'
 
 describe file("#{home}/bin") do
   it { should be_directory }

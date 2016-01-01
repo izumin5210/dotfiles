@@ -125,6 +125,7 @@ brew cask install java7
 brew cask install font-inconsolata
 brew cask install font-fontawesome
 brew cask install font-m-plus
+brew cask install font-rounded-m-plus
 
 brew cask cleanup
 

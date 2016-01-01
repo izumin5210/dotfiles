@@ -8,11 +8,6 @@ function is_installed() {
     return $(brew info $1 | grep -c "Not installed")
 }
 
-xcode-select -p > /dev/null 2>&1
-if [ $? -ne 0]; then
-    xcode-select install
-fi
-
 if ! is_exists "brew"; then
     # install Homebrew
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"

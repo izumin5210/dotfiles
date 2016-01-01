@@ -8,9 +8,6 @@ brew tap caskroom/cask
 brew tap caskroom/fonts
 brew tap caskroom/versions
 
-# ==== cask ====
-brew install brew-cask
-
 # ==== xquartz ====
 brew cask install xquartz
 

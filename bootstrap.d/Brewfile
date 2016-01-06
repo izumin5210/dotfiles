@@ -114,6 +114,7 @@ brew cask install pandoc
 brew cask install licecap
 brew cask install aluxian-messenger
 brew cask install genymotion
+brew cask install night-owl
 
 brew cask install java
 brew cask install java7

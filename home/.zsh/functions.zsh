@@ -149,6 +149,21 @@ git_reset() {
 _register_keycommand '^gr' git_reset
 
 
+# ==== git reset ================================================================
+git_checkout() {
+  _git_branch_select \
+    | {
+        local target="$(cat)"
+        if [ -n "$target" ]; then
+          _buffer_replace <<< "git checkout $target"
+          zle accept-line
+        fi
+      }
+}
+
+_register_keycommand '^gc' git_checkout
+
+
 # ==== peco history ===============================================================
 peco_history() {
   \history -n 1 \

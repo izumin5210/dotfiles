@@ -110,7 +110,6 @@ git_patch() {
           _buffer_replace <<< "git add -p $target"
           zle accept-line
         fi
-        zle clear-screen
       }
 }
 
@@ -126,7 +125,6 @@ git_add() {
           _buffer_replace <<< "git add $target"
           zle accept-line
         fi
-        zle clear-screen
       }
 }
 
@@ -142,7 +140,6 @@ git_reset() {
           _buffer_replace <<< "git reset HEAD --quiet $target"
           zle accept-line
         fi
-        zle clear-screen
       }
 }
 

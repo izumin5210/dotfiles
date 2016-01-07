@@ -158,3 +158,18 @@ peco_history() {
 }
 
 _register_keycommand '^r' peco_history
+
+
+# ==== pvim ===============================================================
+pvim() {
+  local target
+  _is_git_repo \
+    && git grep -n $1 \
+    | _peco_select \
+    | awk -F: '{ print $1 " +" $2 }' \
+    | sed -e 's/\+$//' \
+    | { target="$(cat)" }
+  if [ -n "$target" ]; then
+    vim $target
+  fi
+}

@@ -20,7 +20,11 @@
     logg = log --stat --pretty=format:'%C(yellow)%h %C(cyan)%ar %C(magenta)%an%n%C(white)%s %Cred%d'
     graph = log --graph --decorate --oneline
     cv = commit -v
+    ca = commit --amend
+    cam = commit --amend -m
     ic = commit --allow-empty -m 'Initial commit'
+    rbm = rebase master
+    mm = merge master
 
 [push]
     default = simple

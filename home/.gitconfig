@@ -1,14 +1,14 @@
 [user]
-	name = izumin5210
-	email = masayuki@izumin.info
+    name = izumin5210
+    email = masayuki@izumin.info
 [core]
-	autocrlf = input
-	editor = vim
-	excludesfile = ~/.gitignore_global
+    autocrlf = input
+    editor = vim
+    excludesfile = ~/.gitignore_global
 [color]
-	ui = true
+    ui = true
 [github]
-	user = izumin5210
+    user = izumin5210
 [alias]
     co = checkout
     cb = checkout -b
@@ -23,19 +23,19 @@
     ic = commit --allow-empty -m 'Initial commit'
 
 [push]
-	default = simple
+    default = simple
 [credential]
-	helper = osxkeychain
+    helper = osxkeychain
 [filter "lfs"]
-	clean = git lfs clean %f
-	smudge = git lfs smudge %f
-	required = true
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
 [ghq]
-	root = ~/Projects
+    root = ~/Projects
 [secrets]
-	providers = git secrets --aws-provider
-	patterns = [A-Z0-9]{20}
-	patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
-	patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
-	allowed = AKIAIOSFODNN7EXAMPLE
-	allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+    providers = git secrets --aws-provider
+    patterns = [A-Z0-9]{20}
+    patterns = (\"|')?(AWS|aws|Aws)?_?(SECRET|secret|Secret)?_?(ACCESS|access|Access)?_?(KEY|key|Key)(\"|')?\\s*(:|=>|=)\\s*(\"|')?[A-Za-z0-9/\\+=]{40}(\"|')?
+    patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
+    allowed = AKIAIOSFODNN7EXAMPLE
+    allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY

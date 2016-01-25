@@ -45,6 +45,14 @@ export PATH=$GOPATH/bin:$PATH
 export PATH=$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS:$PATH
 export PATH=$POSTGRESAPP_ROOT/bin:$PATH
 
+# openni2
+export OPENNI2_INCLUDE=/usr/local/include/ni2
+export OPENNI2_REDIST=/usr/local/lib/ni2
+export NITE2_INCLUDE=/usr/local/Cellar/nite2/2.2a/Include
+export NITE2_REDIST=/usr/local/Cellar/nite2/2.2a/Redist
+
+# OpenCV3
+export OpenCV_DIR=/usr/local/Cellar/opencv3/3.0.0/share/OpenCV/
 
 # ================================================================
 # other

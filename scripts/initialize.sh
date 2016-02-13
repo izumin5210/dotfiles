@@ -37,7 +37,7 @@ if ! is_exists "~/.tmux/plugins/tpm/tpm"; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if is_exists "node" && `which node | grep -qF .nodebrew`; then
+if is_exists "node" && `which node | grep -qF ndenv`; then
     echo "- [o] node"
 else
     echo "- [ ] node"

@@ -52,7 +52,7 @@ export NITE2_INCLUDE=/usr/local/Cellar/nite2/2.2a/Include
 export NITE2_REDIST=/usr/local/Cellar/nite2/2.2a/Redist
 
 # OpenCV3
-export OpenCV_DIR=/usr/local/Cellar/opencv3/3.0.0/share/OpenCV/
+export OpenCV_DIR=/usr/local/Cellar/opencv3/3.1.0_1/share/OpenCV/
 
 # ================================================================
 # other

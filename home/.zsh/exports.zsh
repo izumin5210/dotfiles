@@ -5,14 +5,14 @@ export EDITOR=vim
 # ================================================================
 # path
 # ================================================================
+# anyenv
+export PATH="$HOME/.anyenv/bin:$PATH"
+
 # ruby
 export RBENV_ROOT=$HOME/.rbenv
 
 # python
 export PYENV_ROOT=$HOME/.pyenv
-
-# node
-export NODEBREW_ROOT=$HOME/.nodebrew
 
 # golang
 export GOPATH=$HOME/go

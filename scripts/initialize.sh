@@ -27,6 +27,15 @@ if is_installed "zsh" && [ $SHELL != `which zsh` ]; then
     echo "\t$ chsh -s `which zsh`"
 fi
 
+if is_installed "anyenv"; then
+    git clone https://github.com/riywo/anyenv ~/.anyenv
+fi
+
+if `anyenv commands | grep -v -qF update`; then
+    mkdir -p $(anyenv root)/plugins
+    git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+fi
+
 if [ ! -e ~/.sdkman ]; then
     # install sdkman(Software Development Kit Manager)
     curl -s http://get.sdkman.io | bash
@@ -37,7 +46,7 @@ if ! is_exists "~/.tmux/plugins/tpm/tpm"; then
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 fi
 
-if is_exists "node" && `which node | grep -qF .nodebrew`; then
+if is_exists "node" && `which node | grep -qF ndenv`; then
     echo "- [o] node"
 else
     echo "- [ ] node"

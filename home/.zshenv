@@ -24,3 +24,15 @@ fi
 if which pyenv > /dev/null; then
   eval "$(pyenv init -)";
 fi
+
+# docker-machine
+local machine='default'
+
+if docker-machine ls | awk 'NR>1 { print $1 }' | grep -q $machine; then
+  if [ "`docker-machine status $machine`" = "Stopped" ]; then
+    docker-machine start $machine
+  fi
+  if [ "`docker-machine status $machine`" = "Running" ]; then
+    eval "$(docker-machine env $machine)"
+  fi
+fi

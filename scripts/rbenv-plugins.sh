@@ -6,4 +6,5 @@ function is_exists() {
 
 if `type rbenv > /dev/null 2>&1`; then
     git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
+    ln -s $HOME/.rbenv/default-gems $(rbenv root)
 fi

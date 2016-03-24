@@ -15,16 +15,6 @@ if [ -d ${HOME}/.anyenv ]; then
   eval "$(anyenv init - --no-rehash)"
 fi
 
-# rbenv
-if [ -d ${HOME}/.rbenv ]; then
-  eval "$(rbenv init - --no-rehash)"
-fi
-
-# pyenv
-if which pyenv > /dev/null; then
-  eval "$(pyenv init -)";
-fi
-
 # docker-machine
 local machinename='default'
 

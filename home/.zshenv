@@ -29,8 +29,7 @@ fi
 local machinename='default'
 
 if docker-machine ls | awk 'NR>1 { print $1 }' | grep -q $machinename; then
-  if [ ! "`docker-machine status $machinename`" = "Running" ]; then
-    docker-machine start $machinename
+  if [ "`docker-machine status $machinename`" = "Running" ]; then
+    eval `docker-machine env $machinename`
   fi
-  eval `docker-machine env $machinename`
 fi

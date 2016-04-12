@@ -46,6 +46,7 @@ brew install peco
 brew install ghq
 brew install git-secrets
 brew install direnv
+brew install gsed
 
 brew install chromedriver
 brew install terminal-notifier

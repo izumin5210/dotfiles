@@ -7,3 +7,5 @@ alias mkdir='mkdir -p'
 alias be='bundle exec'
 
 alias vim='vim -c Obsession'
+
+alias sed='gsed'

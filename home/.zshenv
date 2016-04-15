@@ -14,12 +14,3 @@ eval `/usr/libexec/path_helper -s`
 if [ -d ${HOME}/.anyenv ]; then
   eval "$(anyenv init - --no-rehash)"
 fi
-
-# docker-machine
-local machinename='default'
-
-if docker-machine ls | awk 'NR>1 { print $1 }' | grep -q $machinename; then
-  if [ "`docker-machine status $machinename`" = "Running" ]; then
-    eval `docker-machine env $machinename`
-  fi
-fi

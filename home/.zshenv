@@ -14,3 +14,6 @@ eval `/usr/libexec/path_helper -s`
 if [ -d ${HOME}/.anyenv ]; then
   eval "$(anyenv init - --no-rehash)"
 fi
+
+# direnv
+eval "$(direnv hook zsh)"

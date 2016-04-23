@@ -43,6 +43,8 @@ build/
 *.swp
 .DS_Store
 
+home/.zsh/secrets.zsh
+
 home/.vim/bundle/*
 home/.vim/.netrwhist
 !home/.vim/bundle/neobundle.vim

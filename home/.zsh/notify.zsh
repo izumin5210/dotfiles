@@ -27,15 +27,16 @@ function notify_precmd {
     {
       "color": "$notif_color",
       "title": "$notif_title",
+      "mrkdwn_in": ["fields"],
       "fields": [
         {
           "title": "command",
-          "value": "$notif_prev_command",
+          "value": "\\\`$notif_prev_command\\\`",
           "short": false
         },
         {
           "title": "directory",
-          "value": "$(pwd)",
+          "value": "\\\`$(pwd)\\\`",
           "short": false
         },
         {
@@ -66,7 +67,7 @@ EOS
 `
     curl --request POST \
       --header 'Content-type: application/json' \
-      --data "$(echo $payload | tr '\n' ' ' | tr -s ' ')" \
+      --data "$(echo "$payload" | tr '\n' ' ' | tr -s ' ')" \
       $SLACK_WEBHOOK_URL
   fi
 }

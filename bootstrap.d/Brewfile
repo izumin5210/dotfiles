@@ -113,6 +113,7 @@ brew cask install genymotion
 brew cask install night-owl
 
 brew cask install mendeley-desktop
+brew cask install toggldesktop
 
 brew cask install java
 brew cask install java7

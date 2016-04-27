@@ -109,7 +109,6 @@ brew cask install the-unarchiver
 brew cask install android-file-transfer
 brew cask install pandoc
 brew cask install licecap
-brew cask install aluxian-messenger
 brew cask install genymotion
 brew cask install night-owl
 

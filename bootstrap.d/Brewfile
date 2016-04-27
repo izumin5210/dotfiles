@@ -86,7 +86,6 @@ brew cask install firefox
 brew cask install evernote
 brew cask install skitch
 brew cask install dropbox
-brew cask install copy
 brew cask install airserver
 brew cask install flash-player
 brew cask install unity-web-player

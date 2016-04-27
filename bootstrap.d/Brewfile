@@ -39,7 +39,6 @@ brew install highlight
 brew install tree
 brew install tig
 brew install git-flow
-brew install fig
 brew install peco
 brew install ghq
 brew install git-secrets

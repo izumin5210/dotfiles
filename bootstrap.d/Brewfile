@@ -82,6 +82,7 @@ brew cask install dockertoolbox
 
 brew cask install google-chrome
 brew cask install google-japanese-ime
+brew cask install google-drive
 brew cask install firefox
 brew cask install evernote
 brew cask install skitch

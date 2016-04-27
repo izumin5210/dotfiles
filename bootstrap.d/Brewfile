@@ -22,8 +22,6 @@ brew install vim --with-lua
 brew install macvim --with-lua
 brew install tmux
 
-brew install rbenv-gem-rehash
-brew install rbenv-default-gems
 brew install android-sdk
 brew install android-ndk
 brew install lua
@@ -41,7 +39,6 @@ brew install highlight
 brew install tree
 brew install tig
 brew install git-flow
-brew install fig
 brew install peco
 brew install ghq
 brew install git-secrets
@@ -82,11 +79,11 @@ brew cask install dockertoolbox
 
 brew cask install google-chrome
 brew cask install google-japanese-ime
+brew cask install google-drive
 brew cask install firefox
 brew cask install evernote
 brew cask install skitch
 brew cask install dropbox
-brew cask install copy
 brew cask install airserver
 brew cask install flash-player
 brew cask install unity-web-player
@@ -109,9 +106,11 @@ brew cask install the-unarchiver
 brew cask install android-file-transfer
 brew cask install pandoc
 brew cask install licecap
-brew cask install aluxian-messenger
 brew cask install genymotion
 brew cask install night-owl
+
+brew cask install mendeley-desktop
+brew cask install toggldesktop
 
 brew cask install java
 brew cask install java7

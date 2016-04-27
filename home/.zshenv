@@ -2,6 +2,7 @@
 # zmodload zsh/zprof && zprof
 
 source $HOME/.zsh/exports.zsh
+source $HOME/.zsh/secrets.zsh
 source $HOME/.zsh/aliases.zsh
 
 # MacTeX by homebrew

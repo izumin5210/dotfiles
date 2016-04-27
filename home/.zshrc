@@ -1,6 +1,9 @@
 
 bindkey -e
+autoload -Uz add-zsh-hook
 source $HOME/.zsh/functions.zsh
+source $HOME/.zsh/notify.zsh
+
 
 # ================================================================
 # Appearance
@@ -21,7 +24,6 @@ PROMPT=$'\n'$p_cdir$'\n'$p_user
 # ref: http://mollifier.hatenablog.com/entry/20100906/p1
 # ref: http://qiita.com/mollifier/items/8d5a627d773758dd8078
 autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
 autoload -Uz is-at-least        # zshのバージョンによる分岐を有効に
 
 # 以下の3つのメッセージをエクスポート

@@ -43,6 +43,7 @@ build/
 *.swp
 .DS_Store
 
+home/.gitconfig.local
 home/.zsh/secrets.zsh
 
 home/.vim/bundle/*

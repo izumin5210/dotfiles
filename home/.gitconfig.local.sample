@@ -1,0 +1,3 @@
+[credential]
+    ; helper = osxkeychain
+    helper = gnomekeyring

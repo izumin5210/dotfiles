@@ -1,3 +1,5 @@
+[include]
+    path = ~/.gitconfig.local
 [user]
     name = izumin5210
     email = masayuki@izumin.info
@@ -28,8 +30,6 @@
 
 [push]
     default = simple
-[credential]
-    helper = osxkeychain
 [filter "lfs"]
     clean = git lfs clean %f
     smudge = git lfs smudge %f

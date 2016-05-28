@@ -185,3 +185,22 @@ pvim() {
     vim $target
   fi
 }
+
+
+# ==== conda activate ===============================================================
+conda_activate() {
+  conda info -e \
+    | tail -n +3 \
+    | _peco_select \
+    | {
+        local row=$(cat)
+        local targetpath=$(echo $row | awk '{ print $NF }')
+        local targetname=$(echo $row | awk '{ print $1 }')
+        if [ -n "$targetpath" ] && [ -n "$targetname" ]; then
+          _buffer_replace <<< "source $targetpath/bin/activate $targetname"
+          zle accept-line
+        fi
+      }
+}
+
+_register_keycommand '^ve' conda_activate

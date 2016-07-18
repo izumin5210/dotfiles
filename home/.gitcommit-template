@@ -1,0 +1,44 @@
+
+
+# ==== Emojis ====
+# 🎨 :art:                  when improving the format/structure of the code
+# 👍 :+1:                   when improving the feature
+# ✨ :sparkles:             when adding a partial feature
+# 🎉 :tada:                 when adding a big feature
+# ♻️ :recycle               when refactoring
+# 🐎 :racehorse:            when improving performance
+# 🚱 :non-potable_water:    when plugging memory leaks
+# 📝 :memo:                 when writing docs
+# 🐧 :penguin:              when fixing something on Linux
+# 🍎 :apple:                when fixing something on macOS
+# 🏁 :checkered_flag:       when fixing something on Windows
+# 🐛 :bug:                  when fixing a bug
+# 🔥 :fire:                 when removing code or files
+# 💚 :green_heart:          when fixing the CI build
+# ✅ :white_check_mark:     when adding tests
+# 🔒 :lock:                 when dealing with security
+# 👮 :cop:                  when dealing with security
+# ⬆️ :arrow_pu:             when upgrading dependencies
+# ⬇️ :arrow_dow:            when downgrading dependencies
+# 👕 :shirt:                when removing linter warnings
+# 🔒 :lock:                 when restricting scopes of  new features
+
+# ==== Format ====
+# :emoji: Subject
+#
+# Commit body...
+
+# ==== The Seven Rules ====
+# 1. Separate subject from body with a blank line
+# 2. Limit the subject line to 50 characters
+# 3. Capitalize the subject line
+# 4. Do not end the subject line with a period
+# 5. Use the imperative mood in the subject line
+# 6. Wrap the body at 72 characters
+# 7. Use the body to explain what and why vs. how
+#
+# How to Write a Git Commit Message http://chris.beams.io/posts/git-commit/
+
+# ==== References ====
+# - http://memo.goodpatch.co/2016/07/beautiful-commits-with-emojis/
+# - https://github.com/atom/atom/blob/master/CONTRIBUTING.md#git-commit-messages

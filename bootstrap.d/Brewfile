@@ -124,6 +124,9 @@ brew cask install font-inconsolata
 brew cask install font-fontawesome
 brew cask install font-m-plus
 brew cask install font-rounded-m-plus
+brew cask install font-noto-sans-cjk-jp
+brew cask install font-raleway
+brew cask install font-raleway-dots
 
 brew cask cleanup
 

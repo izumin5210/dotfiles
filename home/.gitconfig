@@ -35,7 +35,7 @@
     smudge = git lfs smudge %f
     required = true
 [ghq]
-    root = ~/Projects
+    root = ~/src
 [secrets]
     providers = git secrets --aws-provider
     patterns = [A-Z0-9]{20}

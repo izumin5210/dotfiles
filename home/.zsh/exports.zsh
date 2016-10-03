@@ -15,7 +15,7 @@ export RBENV_ROOT=$HOME/.rbenv
 export PYENV_ROOT=$HOME/.pyenv
 
 # golang
-export GOPATH=$HOME/go
+export GOPATH=$HOME
 
 # android
 export ANDROID_HOME=/usr/local/opt/android-sdk

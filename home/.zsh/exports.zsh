@@ -62,3 +62,5 @@ export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/
 
 # OpenNI2
 export DYLD_LIBRARY_PATH=/usr/local/lib/ni2:$DYLD_LIBRARY_PATH
+export OPENNI2_INCLUDE=/usr/local/include/ni2
+export OPENNI2_REDIST=/usr/local/lib/ni2

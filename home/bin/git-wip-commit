@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+set -eu
+
+branch=`git rev-parse --abbrev-ref @`
+
+if [ $branch = "master" ]; then
+    echo "Current branch is NOT a feature branch."
+    exit 1
+else
+    git add --all
+
+    if git log -1 --pretty='%s' | grep -q -e "^\[WIP\]"; then
+        git commit --amend --verbose --allow-empty
+    else
+        git commit --edit --verbose --allow-empty --message "[WIP] "
+    fi
+fi

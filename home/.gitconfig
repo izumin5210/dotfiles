@@ -27,6 +27,8 @@
     ic = commit --allow-empty -m 'Initial commit'
     rbm = rebase master
     mm = merge master
+    wip-commit = git-wip-commit
+    wc = wip-commit
 
 [push]
     default = simple

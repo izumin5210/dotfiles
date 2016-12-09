@@ -69,6 +69,8 @@ NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'jason0x43/vim-js-indent'
 NeoBundle 'Quramy/tsuquyomi'
 NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'majutsushi/tagbar'
+NeoBundleFetch 'jszakmeister/markdown2ctags'
 
 " go
 NeoBundle 'vim-jp/vim-go-extra'
@@ -345,6 +347,27 @@ autocmd FileType ruby,eruby,haml let b:switch_custom_definitions = [
     \       [510, ':not_extended'],
     \       [511, ':network_authentication_required'],
     \ ]
+
+
+"---------------------------------------------------------------
+" tagbar
+"---------------------------------------------------------------
+
+let g:tagbar_type_markdown = {
+    \ 'ctagstype': 'markdown',
+    \ 'ctagsbin' : $HOME . '/.vim/bundle/markdown2ctags/markdown2ctags.py',
+    \ 'ctagsargs' : '-f - --sort=yes',
+    \ 'kinds' : [
+        \ 's:sections',
+        \ 'i:images'
+    \ ],
+    \ 'sro' : '|',
+    \ 'kind2scope' : {
+        \ 's' : 'section',
+    \ },
+    \ 'sort': 0,
+\ }
+
 
 "---------------------------------------------------------------
 " Vim-LaTeX

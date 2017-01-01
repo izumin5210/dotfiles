@@ -5,7 +5,7 @@
     email = masayuki@izumin.info
 [core]
     autocrlf = input
-    editor = vim
+    editor = $EDITOR
     excludesfile = ~/.gitignore_global
 [color]
     ui = true

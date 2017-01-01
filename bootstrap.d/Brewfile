@@ -45,6 +45,7 @@ brew install ghq
 brew install git-secrets
 brew install direnv
 brew install gsed
+brew install ripgrep
 
 # https://github.com/atom/atom/issues/3093
 brew install reattach-to-user-namespace

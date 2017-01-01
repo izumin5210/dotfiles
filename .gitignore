@@ -46,9 +46,7 @@ build/
 /home/.gitconfig.local
 /home/.zsh/secrets.zsh
 
-/home/.vim/bundle/*
 /home/.vim/.netrwhist
-!/home/.vim/bundle/neobundle.vim
 
 /home/.config/*
 !/home/.config/nvim

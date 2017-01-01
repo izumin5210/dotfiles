@@ -45,6 +45,9 @@ brew install git-secrets
 brew install direnv
 brew install gsed
 
+# https://github.com/atom/atom/issues/3093
+brew install reattach-to-user-namespace
+
 brew install chromedriver
 brew install terminal-notifier
 

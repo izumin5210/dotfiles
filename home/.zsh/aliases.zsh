@@ -6,6 +6,10 @@ alias cd='cdr'
 alias mkdir='mkdir -p'
 alias be='bundle exec'
 
-alias vim='vim -c Obsession'
+if type nvim > /dev/null 2>&1; then
+  alias vim='nvim -c Obsession'
+else
+  alias vim='vim -c Obsession'
+fi
 
 alias sed='gsed'

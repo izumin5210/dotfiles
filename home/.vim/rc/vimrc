@@ -77,7 +77,7 @@ set showtabline=2
 nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
-nnoremap sx :<C-u>taatabclose<CR>
+nnoremap sx :<C-u>tabclose<CR>
 
 
 " ================================================================

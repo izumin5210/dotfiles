@@ -10,6 +10,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
+hook_add = '''
+  " https://github.com/neovim/neovim/issues/2048
+  if has('nvim')
+    nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
+  endif
+'''
 
 [[plugins]]
 repo = 'tpope/vim-obsession'

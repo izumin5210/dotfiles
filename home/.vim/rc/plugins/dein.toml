@@ -24,6 +24,7 @@ repo = 'tpope/vim-obsession'
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/nerdcommenter.rc.vim'
+  map <C-_> <Plug>NERDCommenterToggle
 '''
 
 [[plugins]]

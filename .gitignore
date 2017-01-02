@@ -43,13 +43,16 @@ build/
 *.swp
 .DS_Store
 
-home/.gitconfig.local
-home/.zsh/secrets.zsh
+/home/.gitconfig.local
+/home/.zsh/secrets.zsh
 
-home/.vim/bundle/*
-home/.vim/.netrwhist
-!home/.vim/bundle/neobundle.vim
+/home/.vim/.netrwhist
 
-home/.rbenv/shims
-home/.rbenv/version
-home/.rbenv/versions
+/home/.config/*
+!/home/.config/nvim
+/home/.cache/*
+!/home/.cache/dein/repos/github.com/Shougo/dein.vim
+
+/home/.rbenv/shims
+/home/.rbenv/version
+/home/.rbenv/versions

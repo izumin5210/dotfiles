@@ -1,0 +1,111 @@
+let g:cache_home = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME
+let g:config_home = empty($XDG_CONFIG_HOME) ? expand('$HOME/.config') : $XDG_CONFIG_HOME
+
+if &compatible
+  set nocompatible
+endif
+
+augroup MyAutoCmd
+  autocmd!
+augroup END
+
+
+" ================================================================
+" View
+" ================================================================
+
+set guifont=Ricty:h12
+
+set list
+set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
+
+set number
+set cmdheight=2
+set nowrap
+
+
+" ================================================================
+" Editor
+" ================================================================
+
+set fileencodings=utf-8,cp932,euc-jp,iso-2022-jp
+set fenc=utf-8
+set encoding=utf-8
+
+set ignorecase
+set smartcase
+set incsearch
+set hlsearch
+nmap <Esc><Esc> :nohlsearch<CR><Esc>
+
+set clipboard+=unnamed
+
+let mapleader = "\<Space>"
+
+set autoindent
+set smartindent
+
+set expandtab
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+set shiftround
+
+vnoremap < <gv
+vnoremap > >gv
+
+set noswapfile
+
+set foldenable
+set foldmethod=syntax
+set foldcolumn=4
+set foldlevel=99
+
+set splitbelow
+set splitright
+
+set matchpairs+=<:>
+
+
+" ================================================================
+" Tab
+" ================================================================
+
+set showtabline=2
+nnoremap sn gt
+nnoremap sp gT
+nnoremap st :<C-u>tabnew<CR>
+nnoremap sx :<C-u>taatabclose<CR>
+
+
+" ================================================================
+" Dein.vim
+" ================================================================
+
+let g:dein_cache_dir = g:cache_home . '/dein'
+let g:dein_plugin_rc_dir = g:vim_config_dir . '/plugins'
+
+if &runtimepath !~# '/dein.vim'
+  let s:dein_repo_dir = g:dein_cache_dir . '/repos/github.com/Shougo/dein.vim'
+  execute 'set runtimepath^=' . s:dein_repo_dir
+endif
+
+if !dein#load_state(g:dein_cache_dir)
+  finish
+endif
+
+call dein#begin(g:dein_cache_dir)
+
+call dein#load_toml(g:dein_plugin_rc_dir . '/dein.toml')
+
+call dein#end()
+call dein#save_state()
+
+if dein#check_install()
+  call dein#install()
+endif
+
+filetype plugin indent on
+syntax enable

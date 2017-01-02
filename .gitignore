@@ -45,6 +45,8 @@ build/
 
 /home/.gitconfig.local
 /home/.zsh/secrets.zsh
+/home/.tmux
+!/home/.tmux/plugins/tpm
 
 /home/.vim/.netrwhist
 

@@ -11,9 +11,6 @@ call denite#custom#map(
     \   'noremap'
     \ )
 
-nnoremap <silent> <Leader><Leader> :<C-u>Denite file_rec<CR>
-nnoremap <silent> <Leader>g :<C-u>Denite grep<CR>
-
 if isdirectory(".git")
   call denite#custom#var('file_rec', 'command',
       \   ['git', 'ls-files', '--cached', '--others', '--exclude-standard']

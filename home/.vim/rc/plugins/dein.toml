@@ -10,6 +10,12 @@ hook_add = '''
 
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
+hook_add = '''
+  " https://github.com/neovim/neovim/issues/2048
+  if has('nvim')
+    nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
+  endif
+'''
 
 [[plugins]]
 repo = 'tpope/vim-obsession'
@@ -18,6 +24,7 @@ repo = 'tpope/vim-obsession'
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/nerdcommenter.rc.vim'
+  map <C-_> <Plug>NERDCommenterToggle
 '''
 
 [[plugins]]

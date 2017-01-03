@@ -98,7 +98,12 @@ endif
 
 call dein#begin(g:dein_cache_dir)
 
-call dein#load_toml(g:dein_plugin_rc_dir . '/dein.toml')
+call dein#load_toml(g:dein_plugin_rc_dir . '/dein.toml', {'lazy': 0})
+call dein#load_toml(g:dein_plugin_rc_dir . '/deinlazy.toml', {'lazy': 1})
+
+if dein#tap('deoplete.nvim') && has('nvim')
+  call dein#disable('neocomplete.vim')
+endif
 
 call dein#end()
 call dein#save_state()

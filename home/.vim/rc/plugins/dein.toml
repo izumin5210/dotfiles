@@ -3,12 +3,6 @@ repo = 'Shougo/dein.vim'
 rtp = ''
 
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/denite.rc.vim'
-'''
-
-[[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 hook_add = '''
   " https://github.com/neovim/neovim/issues/2048
@@ -42,6 +36,9 @@ hook_add = '''
 [[plugins]]
 repo = 'jszakmeister/markdown2ctags'
 rtp = ''
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'mattn/emmet-vim'

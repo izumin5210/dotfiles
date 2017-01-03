@@ -38,6 +38,9 @@ repo = 'jszakmeister/markdown2ctags'
 rtp = ''
 
 [[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]

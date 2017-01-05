@@ -187,6 +187,28 @@ pvim() {
 }
 
 
+# ==== fixup with peco ===============================================================
+fixup_with_peco() {
+  git log \
+    --oneline \
+    --no-merges \
+    --no-color \
+    --date=short \
+    --pretty="format:%h %ad %an%x09%s %d" \
+    | _peco_select \
+    | awk '{ print $1 }' \
+    | {
+      local target="$(cat)"
+      if [ -n "$target" ]; then
+        _buffer_replace <<< "git commit --fixup $target"
+        zle accept-line
+      fi
+    }
+}
+
+_register_keycommand '^gf' fixup_with_peco
+
+
 # ==== conda activate ===============================================================
 conda_activate() {
   conda info -e \

@@ -20,6 +20,7 @@ export PYENV_ROOT=$HOME/.pyenv
 
 # golang
 export GOPATH=$HOME
+export GOBIN=$GOPATH/gobin
 
 # android
 export ANDROID_HOME=/usr/local/opt/android-sdk
@@ -45,7 +46,7 @@ export PATH=$HOME/bin:$PATH
 export PATH=$RBENV_ROOT/bin:$PATH
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$NODEBREW_ROOT/current/bin:$PATH
-export PATH=$GOPATH/bin:$PATH
+export PATH=$GOBIN:$PATH
 export PATH=$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS:$PATH
 export PATH=$POSTGRESAPP_ROOT/bin:$PATH
 

@@ -68,6 +68,10 @@ set splitright
 
 set matchpairs+=<:>
 
+if !exists('loaded_matchit')
+  runtime macros/matchit.vim
+endif
+
 
 " ================================================================
 " Tab

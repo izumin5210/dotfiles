@@ -41,6 +41,16 @@ rtp = ''
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
+repo = 'tpope/vim-surround'
+on_i = 1
+
+[[plugins]]
+repo = 'AndrewRadev/switch.vim'
+hook_add = '''
+  nnoremap ! :Switch<CR>
+'''
+
+[[plugins]]
 repo = 'mattn/emmet-vim'
 
 [[plugins]]
@@ -73,6 +83,15 @@ on_ft = 'javascript'
 hook_add = '''
   let g:jsx_ext_required = 0
 '''
+
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+repo = 'tpope/vim-endwise'
+on_ft = 'ruby'
+on_i = 1
 
 [[plugins]]
 repo = 'cespare/vim-toml'

@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+#
+# Create git repository
+
+set -eu
+
+err() {
+  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
+}
+
+usage() {
+  cat <<EOF
+$(basename ${0}) - Create a remote repository
+
+Usage:
+    $(basename ${0}) [-s] <name>
+
+Options:
+    --sandbox, -s     create repository under github.com/${SANDBOX_NAME}
+    --version, -v     print $(basename ${0}) version
+    --help, -h        print this
+EOF
+}
+
+version() {
+  echo "$(basename ${0}) version 0.1.0"
+}
+
+create() {
+  local name=$1
+  local is_sandbox=$2
+  local repo
+
+  if [ $is_sandbox -eq 1 ]; then
+    repo="${SANDBOX_NAME}/${name}"
+  else
+    user=$(git config github.user)
+    if [ -z "${user}" ]; then
+      err "You should set 'git config github.user'."
+      exit 1
+    fi
+    repo="${user}/${name}"
+  fi
+
+  src_dir=$(ghq root)
+  if [ -z "${src_dir}" ]; then
+    err "You should set 'git config ghq.root'."
+    exit 1
+  fi
+
+  local path="${src_dir}/github.com/${repo}"
+
+  mkdir -p $path
+  cd $path
+  git init
+  hub create
+}
+
+if [ $# -lt 1 ]; then
+  err "You should pass a repository name."
+  err "Try '-h' option for more information."
+  exit 1
+fi
+
+is_sandbox=0
+
+while [ $# -gt 0 ];
+do
+  case ${1} in
+    --debug|-d)
+      set -x
+    ;;
+
+    --sandbox|-s)
+      is_sandbox=1
+    ;;
+
+    --version|-v)
+      version
+      exit 0
+    ;;
+
+    --help|-h)
+      usage
+      exit 0
+    ;;
+
+    *)
+      create $1 $is_sandbox
+      exit 0
+    ;;
+  esac
+  shift
+done

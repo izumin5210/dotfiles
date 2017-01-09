@@ -29,6 +29,7 @@
     mm = merge master
     wip-commit = git-wip-commit
     wc = wip-commit
+    create-repo = !git_create_repo
 
 [push]
     default = simple

@@ -4,11 +4,15 @@
 
 set -eu
 
+version="0.2.0"
+
 err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 
 usage() {
+  local github_user=${1}
+  local github_sandbox=${2}
   cat <<EOF
 $(basename ${0}) - Create a remote repository
 
@@ -16,44 +20,45 @@ Usage:
     $(basename ${0}) [-s] <name>
 
 Options:
-    --sandbox, -s     create repository under github.com/${SANDBOX_NAME}
+    --sandbox, -s     create repository under github.com/${github_user}-sandbox
+    --sandbox-name <name>
+                      set sandbox user/organization name (default: ${github_sandbox})
     --version, -v     print $(basename ${0}) version
     --help, -h        print this
 EOF
 }
 
 version() {
-  echo "$(basename ${0}) version 0.1.0"
+  echo "$(basename ${0}) version ${version}"
 }
 
 create() {
-  local name=$1
-  local is_sandbox=$2
+  local name=${1}
+  local github_user=${2}
+  local is_sandbox=${3}
+  local github_sandbox=${4}
+
   local repo
 
   if [ $is_sandbox -eq 1 ]; then
-    repo="${SANDBOX_NAME}/${name}"
+    repo="${github_sandbox}/${name}"
   else
-    user=$(git config github.user)
-    if [ -z "${user}" ]; then
-      err "You should set 'git config github.user'."
-      exit 1
+    repo="${github_user}/${name}"
+  fi
+
+  local path="$(pwd)/${name}"
+
+  if type ghq > /dev/null 2>&1; then
+    src_dir=$(ghq root)
+    if [ -n "${src_dir}" ]; then
+      path="${src_dir}/github.com/${repo}"
     fi
-    repo="${user}/${name}"
   fi
-
-  src_dir=$(ghq root)
-  if [ -z "${src_dir}" ]; then
-    err "You should set 'git config ghq.root'."
-    exit 1
-  fi
-
-  local path="${src_dir}/github.com/${repo}"
 
   mkdir -p $path
   cd $path
   git init
-  hub create
+  hub create $repo
 }
 
 if [ $# -lt 1 ]; then
@@ -62,7 +67,15 @@ if [ $# -lt 1 ]; then
   exit 1
 fi
 
+github_user=$(git config github.user)
+
+if [ -z "${github_user}" ]; then
+  err "You should set 'git config github.user'."
+  exit 1
+fi
+
 is_sandbox=0
+github_sandbox="${github_user}-sandbox"
 
 while [ $# -gt 0 ];
 do
@@ -75,18 +88,23 @@ do
       is_sandbox=1
     ;;
 
+    --sandbox-name)
+      github_sandbox=${2}
+      shift
+    ;;
+
     --version|-v)
       version
       exit 0
     ;;
 
     --help|-h)
-      usage
+      usage $github_user $github_sandbox
       exit 0
     ;;
 
     *)
-      create $1 $is_sandbox
+      create $1 $github_user $is_sandbox $github_sandbox
       exit 0
     ;;
   esac

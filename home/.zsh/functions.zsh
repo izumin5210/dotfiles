@@ -209,6 +209,21 @@ fixup_with_peco() {
 _register_keycommand '^gf' fixup_with_peco
 
 
+# ==== gibo_with_peco ===============================================================
+gibo_with_peco() {
+  gibo --list \
+    | sed "/=/d" \
+    | tr "\t", "\n" \
+    | grep -v "^\s*$" \
+    | sort \
+    | _peco_select \
+    | xargs gibo \
+    >> .gitignore
+}
+
+_register_keycommand '^gi' gibo_with_peco
+
+
 # ==== conda activate ===============================================================
 conda_activate() {
   conda info -e \

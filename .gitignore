@@ -52,6 +52,7 @@ build/
 
 /home/.config/*
 !/home/.config/nvim
+!/home/.config/peco
 /home/.cache/*
 !/home/.cache/dein/repos/github.com/Shougo/dein.vim
 

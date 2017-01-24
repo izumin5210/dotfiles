@@ -85,6 +85,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 

@@ -62,20 +62,11 @@ repo = 'hail2u/vim-css3-syntax'
 on_ft = 'css'
 
 [[plugins]]
-repo = 'gavocanov/vim-js-indent'
+repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
-
-[[plugins]]
-repo = 'othree/yajs.vim'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'othree/es.next.syntax.vim'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'flowtype/vim-flow'
-on_ft = 'javascript'
+hook_add = '''
+  let g:javascript_plugin_flow = 1
+'''
 
 [[plugins]]
 repo = 'mxw/vim-jsx'

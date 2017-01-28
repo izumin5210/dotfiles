@@ -14,11 +14,11 @@
 [alias]
     co = checkout
     cb = checkout -b
-    st = git-st
-    sta = git-sta
-    std = git-std
-    ste = git-str
-    ste = git-ste
+    st = !git_st
+    sta = !git_sta
+    std = !git_std
+    str = !git_str
+    ste = !git_ste
     logg = log --stat --pretty=format:'%C(yellow)%h %C(cyan)%ar %C(magenta)%an%n%C(white)%s %Cred%d'
     graph = log --graph --decorate --oneline
     cv = commit -v
@@ -27,7 +27,7 @@
     ic = commit --allow-empty -m 'Initial commit'
     rbm = rebase master
     mm = merge master
-    wip-commit = git-wip-commit
+    wip-commit = !git_wip_commit
     wc = wip-commit
     create-repo = !git_create_repo
 

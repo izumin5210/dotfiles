@@ -118,3 +118,12 @@ endif
 
 filetype plugin indent on
 syntax enable
+
+
+" ================================================================
+" filetype
+" ================================================================
+
+autoCmd BufNewFile,BufRead *.jbuilder set filetype=ruby
+autoCmd BufNewFile,BufRead Guardfile  set filetype=ruby
+autoCmd BufNewFile,BufRead .pryrc     set filetype=ruby

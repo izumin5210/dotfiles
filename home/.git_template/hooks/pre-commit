@@ -4,11 +4,17 @@
 #
 # ref: http://qiita.com/takose/items/beed51b56aeec396e30e
 
-if git log -1 --oneline --pretty=format:'%s' | grep -q -e '^\[WIP\]'; then
+isLastCommitWIP() {
+  return `git log -1 --oneline --pretty=format:'%s' | grep -q -e '^\[WIP\]'`
+}
+
+doesCurrentCommitAmmend() {
   last_commit=`git log -1 --date=raw --pretty=format:"%ad"`
   current_commit=$GIT_AUTHOR_DATE
-  if echo "$current_commit" | grep -q -v "$last_commit"; then
-    echo "last commit is wip commit!!"
-    exit 1
-  fi
+  return `echo "$current_commit" | grep -q -v "$last_commit"`
+}
+
+if isLastCommitWIP && doesCurrentCommitAmmend; then
+  echo "last commit is wip commit!!"
+  exit 1
 fi

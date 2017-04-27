@@ -55,6 +55,20 @@ _git_branch_select() {
     | tr '\n' ' '
 }
 
+
+# ==== replace_multiple_dots  ================================================================
+
+replace_multiple_dots() {
+  local dots=$LBUFFER[-2,-1]
+  if [ "$dots" = ".." ]; then
+    LBUFFER=$LBUFFER[1,-3]'../.'
+  fi
+  zle self-insert
+}
+
+_register_keycommand '.' replace_multiple_dots
+
+
 # ==== peco project ================================================================
 peco_ghq_list() {
   ghq list -p \

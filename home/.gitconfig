@@ -31,11 +31,6 @@
     wip-commit = !git_wip_commit
     wc = wip-commit
     create-repo = !git_create_repo
-    branch-deletable = !git branch --merged | grep -v master | grep -v '*'
-    branch-deletable-origin = !git branch --remotes --merged | grep origin/ | grep -v master | sed s~origin/~:~
-    clean-branch = !git branch -d $(git branch-deletable)
-    clean-origin-branch = !git push origin $(git branch-deletable-origin)
-    sync = !git checkout master && git pull origin master && git fetch --prune origin && git clean-branch && git clean-origin-branch
     pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=%23%23%20WHY%0A%0A%23%23%20WHAT%0A%0A%23%23%20REF%0A%0A
 [push]
     default = current

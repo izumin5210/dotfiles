@@ -6,10 +6,6 @@ set -eu
 
 version="0.2.0"
 
-err() {
-  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
-}
-
 usage() {
   local github_user=${1}
   local github_sandbox=${2}
@@ -55,22 +51,28 @@ create() {
     fi
   fi
 
+  printutil section "Create ${repo}"
+  printutil subsection "mkdir"
   mkdir -p $path
   cd $path
+
+  printutil subsection "Initialize repository"
   git init
+
+  printutil subsection "Create repository in github"
   hub create $repo
 }
 
 if [ $# -lt 1 ]; then
-  err "You should pass a repository name."
-  err "Try '-h' option for more information."
+  printutil error "You should pass a repository name."
+  printutil error "Try '-h' option for more information."
   exit 1
 fi
 
 github_user=$(git config github.user)
 
 if [ -z "${github_user}" ]; then
-  err "You should set 'git config github.user'."
+  printutil error "You should set 'git config github.user'."
   exit 1
 fi
 

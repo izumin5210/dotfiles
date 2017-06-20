@@ -76,6 +76,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'fleischie/vim-styled-components'
+on_ft = 'javascript'
+
+[[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 

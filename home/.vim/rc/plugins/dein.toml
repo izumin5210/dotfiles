@@ -93,6 +93,10 @@ on_ft = 'ruby'
 on_i = 1
 
 [[plugins]]
+repo = 'chrisbra/vim-sh-indent'
+on_ft = 'sh'
+
+[[plugins]]
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 

@@ -76,51 +76,33 @@ brew cask install alfred && brew cask alfred link
 brew cask install android-studio
 brew cask install iterm2
 brew cask install arduino
-brew cask install fritzing
-brew cask install mactex
-brew cask install vagrant
-brew cask install skim
-brew cask install postgres
-brew cask install dockertoolbox
+brew cask install docker-toolbox
+brew cask install visual-studio-code
+brew install caskroom/versions/docker-edge
 
 brew cask install google-chrome
 brew cask install google-japanese-ime
 brew cask install google-drive
 brew cask install firefox
-brew cask install evernote
 brew cask install skitch
 brew cask install dropbox
-brew cask install airserver
-brew cask install flash-player
-brew cask install unity-web-player
 brew cask install skype
 brew cask install dash
-brew cask install sequel-pro
 brew cask install adobe-creative-cloud
-brew cask install slack
-brew cask install karabiner
 brew cask install 1password
 
 brew cask install caffeine
 brew cask install appcleaner
 brew cask install day-o
-brew cask install hyperswitch
 brew cask install bettertouchtool
 brew cask install monolingual
-brew cask install lyrics-master
 brew cask install the-unarchiver
 brew cask install android-file-transfer
 brew cask install pandoc
 brew cask install licecap
-brew cask install genymotion
-brew cask install night-owl
-
-brew cask install mendeley-desktop
-brew cask install toggldesktop
-
-brew cask install java
-brew cask install java7
-
+brew cask install jasper
+brew cask install insomnia
+brew cask install postico
 
 # ================================================================
 # fonts
@@ -136,3 +118,8 @@ brew cask install font-raleway-dots
 
 brew cask cleanup
 
+# ================================================================
+# whalebrew
+# ================================================================
+
+whalebrew install whalebrew/awscli

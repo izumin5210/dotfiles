@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+#
+#
+
+set -o pipefail
+
+remote_name="${1:-origin}"
+base_branch="${2:-master}"
+
+branch_deletable_local() {
+  git branch --merged \
+    | grep -v ${base_branch} \
+    | grep -v '*' \
+    | grep -v '^\s*$'
+}
+
+branch_deletable_remote() {
+  git branch --remotes --merged \
+    | grep ${remote_name}/ \
+    | grep -v $base_branch  \
+    | sed s~${remote_name}/~:~
+}
+
+clean_local_branch() {
+  target=$(branch_deletable_local)
+  if [ ${#target} -gt 0 ]; then
+    git branch -d $target
+  else
+    printutil warning "Already cleaned."
+  fi
+}
+
+
+clean_remote_branch() {
+  target=$(branch_deletable_remote)
+  if [ ${#target} -gt 0 ]; then
+    git push origin $target
+  else
+    printutil warning "Already cleaned."
+  fi
+}
+
+printutil section "Start sync..."
+
+printutil subsection "Checkout $base_branch"
+git checkout $base_branch
+
+printutil subsection "Pull $base_branch from $remote_name"
+git pull $remote_name $base_branch
+
+printutil subsection "Remove references that no longer exist on the remote"
+git fetch --prune $remote_name
+
+printutil subsection "Cleanup merged branches in local"
+clean_local_branch
+
+printutil subsection "Cleanup merged branches in remote"
+clean_remote_branch

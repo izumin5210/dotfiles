@@ -1,0 +1,144 @@
+#!/usr/bin/env bash
+#
+# Utilities for displaying messages
+#
+
+set -eu
+set -o pipefail
+
+version="0.1.0"
+
+usage() {
+  cat <<EOF
+$(basename ${0}) - Utilities for displaying messages
+
+Usage:
+    $(basename ${0}) <type> [...]
+
+Commands:
+    $(eval $0 header "header")
+    $(eval $0 section "section")
+    $(eval $0 subsection  "subsection")
+    $(eval $0 success "success")
+    $(eval $0 error "error" 2>&1)
+    $(eval $0 warning "warning")
+    $(eval $0 note "note")
+EOF
+}
+
+version() {
+  echo "$(basename ${0}) version ${version}"
+}
+
+bold=$(tput bold)
+underline=$(tput sgr 0 1)
+reset=$(tput sgr 0)
+
+purple=$(tput setaf 5)
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+lightyellow=$(tput setaf 11)
+blue=$(tput setaf 4)
+lightblue=$(tput setaf 12)
+
+#
+# Headers and  Logging
+#
+
+print_header() {
+  printf "${bold}${purple}==========  %s  ==========${reset}\n" "$*"
+}
+
+print_section() {
+  printf "${yellow}==> %s${reset}\n" "$*"
+}
+
+print_subsection() {
+  printf "${blue}--> %s${reset}\n" "$*"
+}
+
+print_success() {
+  printf "${green}✔ %s${reset}\n" "$*"
+}
+
+print_error() {
+  printf "${red}✖ [Error]${reset} %s\n" "$*" >&2
+}
+
+print_warning() {
+  printf "${lightyellow}⚠ [Warn] %s${reset}\n" "$*"
+}
+
+print_note() {
+  printf "${underline}${bold}${lightblue}Note:${reset} ${blue}%s${reset}\n" "$*"
+}
+
+#
+# main
+#
+
+main() {
+  if [ $# -lt 2 ]; then
+    printf "%s\n" "$(eval $0 error "Invalid arguments")"
+    usage
+    exit 0
+  fi
+
+  subcommand=$1
+  shift
+
+  case ${subcommand} in
+    header)
+      print_header "$@"
+      ;;
+
+    section)
+      print_section "$@"
+      ;;
+
+    subsection)
+      print_subsection "$@"
+      ;;
+
+    success)
+      print_success "$@"
+      ;;
+
+    error)
+      print_error "$@"
+      ;;
+
+    warning)
+      print_warning "$@"
+      ;;
+
+    note)
+      print_note "$@"
+      ;;
+
+    *)
+      eval $0 error "Invalid arguments"
+      exit 1
+      ;;
+  esac
+}
+
+if [ $# -lt 1 ]; then
+  eval $0 error "Invalid arguments"
+  exit 1
+fi
+
+case ${1} in
+  --version|-v)
+    version
+  ;;
+
+  --help|-h)
+    usage
+  ;;
+
+  *)
+    main $@
+    ;;
+esac

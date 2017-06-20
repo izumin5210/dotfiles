@@ -8,9 +8,8 @@ if [ $# -gt 0 ]; then
         shift
     done
 
-    git reset HEAD --quiet ${args[@]}
-    git_st
+    git add --all ${args[@]}
+    git st
 else
     exit 1
 fi
-

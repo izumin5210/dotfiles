@@ -6,10 +6,6 @@ set -eu
 
 version="0.2.0"
 
-err() {
-  echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
-}
-
 usage() {
   local github_user=${1}
   local github_sandbox=${2}
@@ -23,6 +19,7 @@ Options:
     --sandbox, -s     create repository under github.com/${github_user}-sandbox
     --sandbox-name <name>
                       set sandbox user/organization name (default: ${github_sandbox})
+    --private, -p     create private repository
     --version, -v     print $(basename ${0}) version
     --help, -h        print this
 EOF
@@ -55,26 +52,38 @@ create() {
     fi
   fi
 
+  printutil section "Create ${repo}"
+  printutil subsection "mkdir"
   mkdir -p $path
   cd $path
+
+  printutil subsection "Initialize repository"
   git init
-  hub create $repo
+
+  if [ $is_private -eq 1 ]; then
+    printutil subsection "Create private repository in github"
+    hub create -p $repo
+  else
+    printutil subsection "Create repository in github"
+    hub create $repo
+  fi
 }
 
 if [ $# -lt 1 ]; then
-  err "You should pass a repository name."
-  err "Try '-h' option for more information."
+  printutil error "You should pass a repository name."
+  printutil error "Try '-h' option for more information."
   exit 1
 fi
 
 github_user=$(git config github.user)
 
 if [ -z "${github_user}" ]; then
-  err "You should set 'git config github.user'."
+  printutil error "You should set 'git config github.user'."
   exit 1
 fi
 
 is_sandbox=0
+is_private=0
 github_sandbox="${github_user}-sandbox"
 
 while [ $# -gt 0 ];
@@ -91,6 +100,10 @@ do
     --sandbox-name)
       github_sandbox=${2}
       shift
+    ;;
+
+    --private|-p)
+      is_private=1
     ;;
 
     --version|-v)

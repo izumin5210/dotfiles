@@ -13,3 +13,4 @@ else
 fi
 
 alias sed='gsed'
+alias git='hub'

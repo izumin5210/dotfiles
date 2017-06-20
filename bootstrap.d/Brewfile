@@ -118,3 +118,8 @@ brew cask install font-raleway-dots
 
 brew cask cleanup
 
+# ================================================================
+# whalebrew
+# ================================================================
+
+whalebrew install whalebrew/awscli

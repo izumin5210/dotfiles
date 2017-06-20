@@ -13,6 +13,12 @@ if ! is_exists "brew"; then
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
+if ! is_exists "whalebrew"; then
+    # install Whalebrew
+    curl -L "https://github.com/bfirsh/whalebrew/releases/download/0.1.0/whalebrew-$(uname -s)-$(uname -m)" -o /usr/local/bin/whalebrew
+    chmod +x /usr/local/bin/whalebrew
+fi
+
 if is_installed "ricty" && [ `find ~/Library/Fonts -name "Ricty*.ttf" | wc -l` -eq 0 ]; then
     # もっとスマートに生きていきたい
     args=$(brew info ricty | grep "Ricty\*.ttf" | sed -e "s/.*cp -f \(.*\) \(.*\)/\1 \2/")

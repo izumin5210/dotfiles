@@ -3,6 +3,7 @@
 brew update
 brew upgrade
 
+brew tap Homebrew/bundle
 brew tap sanemat/font
 brew tap caskroom/cask
 brew tap caskroom/fonts
@@ -20,13 +21,14 @@ brew install zsh --disable-etc-dir
 brew install zsh-completions
 brew install vim --with-lua --with-python3
 brew install macvim --with-lua --with-python3
-brew install neovim
+brew install neovim/neovim/neovim
 brew install tmux
 
 brew install android-sdk
 brew install android-ndk
 brew install lua
 brew install go
+brew install yarn --ignroe-dependencies
 
 brew install hub
 brew install heroku-toolbelt
@@ -47,6 +49,12 @@ brew install direnv
 brew install gsed
 brew install ripgrep
 brew install gibo
+brew install lv
+brew install envchain
+brew install mas
+
+brew install creasty/tools/rid
+brew install dtan4/tools/valec
 
 # https://github.com/atom/atom/issues/3093
 brew install reattach-to-user-namespace
@@ -54,12 +62,7 @@ brew install reattach-to-user-namespace
 brew install chromedriver
 brew install terminal-notifier
 
-# ==== sanemat/font ====
-# > Error: /usr/local/opt/automake not present or broken
-# > Please reinstall automake. Sorry :(
-brew install automake
-
-brew install ricty --vim-powerline
+brew install ricty --with-powerline
 
 # ==== after brew brew install ====
 brew linkapps
@@ -71,39 +74,39 @@ brew cleanup
 
 brew cask update
 
-brew cask install alfred && brew cask alfred link
+brew cask install alfred
 
 brew cask install android-studio
 brew cask install iterm2
 brew cask install arduino
 brew cask install docker-toolbox
 brew cask install visual-studio-code
-brew install caskroom/versions/docker-edge
+brew cask install docker-edge
+brew cask install jetbrains-toolbox
 
 brew cask install google-chrome
 brew cask install google-japanese-ime
 brew cask install google-drive
-brew cask install firefox
 brew cask install skitch
 brew cask install dropbox
 brew cask install skype
 brew cask install dash
 brew cask install adobe-creative-cloud
 brew cask install 1password
+brew cask install zeplin
 
 brew cask install caffeine
 brew cask install appcleaner
 brew cask install day-o
 brew cask install bettertouchtool
-brew cask install monolingual
 brew cask install the-unarchiver
 brew cask install android-file-transfer
-brew cask install pandoc
 brew cask install licecap
 brew cask install jasper
 brew cask install insomnia
 brew cask install postico
 brew cask install hammerspoon
+brew cask install contexts
 
 # ================================================================
 # fonts

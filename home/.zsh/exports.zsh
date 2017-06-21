@@ -9,14 +9,11 @@ fi
 # ================================================================
 # path
 # ================================================================
+# homebrew
+export PATH=/usr/local/bin:$PATH
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
-
-# ruby
-export RBENV_ROOT=$HOME/.rbenv
-
-# python
-export PYENV_ROOT=$HOME/.pyenv
 
 # golang
 export GOPATH=$HOME
@@ -41,11 +38,9 @@ export SDKMAN_DIR="/Users/izumin/.sdkman"
 export POSTGRESAPP_ROOT=/Applications/Postgres.app/Contents/Versions/9.4
 
 # path
-export PATH=/usr/local/bin:$PATH
 export PATH=$HOME/bin:$PATH
 export PATH=$RBENV_ROOT/bin:$PATH
 export PATH=$PYENV_ROOT/bin:$PATH
-export PATH=$NODEBREW_ROOT/current/bin:$PATH
 export PATH=$GOBIN:$PATH
 export PATH=$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS:$PATH
 export PATH=$POSTGRESAPP_ROOT/bin:$PATH
@@ -62,9 +57,6 @@ export OpenCV_DIR=/usr/local/Cellar/opencv3/3.1.0_1/share/OpenCV/
 # ================================================================
 # other
 # ================================================================
-# homebrew cask
-export HOMEBREW_CASK_OPTS="--appdir=/Applications --caskroom=/opt/homebrew-cask/Caskroom"
-
 # OpenNI2
 export DYLD_LIBRARY_PATH=/usr/local/lib/ni2:$DYLD_LIBRARY_PATH
 export OPENNI2_INCLUDE=/usr/local/include/ni2

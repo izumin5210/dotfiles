@@ -71,7 +71,7 @@ brew cleanup
 
 brew cask update
 
-brew cask install alfred && brew cask alfred link
+brew cask install alfred
 
 brew cask install android-studio
 brew cask install iterm2
@@ -83,7 +83,6 @@ brew install caskroom/versions/docker-edge
 brew cask install google-chrome
 brew cask install google-japanese-ime
 brew cask install google-drive
-brew cask install firefox
 brew cask install skitch
 brew cask install dropbox
 brew cask install skype
@@ -95,10 +94,8 @@ brew cask install caffeine
 brew cask install appcleaner
 brew cask install day-o
 brew cask install bettertouchtool
-brew cask install monolingual
 brew cask install the-unarchiver
 brew cask install android-file-transfer
-brew cask install pandoc
 brew cask install licecap
 brew cask install jasper
 brew cask install insomnia

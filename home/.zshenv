@@ -1,12 +1,8 @@
-
-# zmodload zsh/zprof && zprof
+setopt no_global_rcs
 
 source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/secrets.zsh
 source $HOME/.zsh/aliases.zsh
-
-# MacTeX by homebrew
-eval `/usr/libexec/path_helper -s`
 
 # gvm
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

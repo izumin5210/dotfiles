@@ -1,0 +1,50 @@
+macos_defaults:
+  NSGlobalDomain:
+  - key: KeyRepeat
+    value: 1
+
+  - key: InitialKeyRepeat
+    value: 10
+
+  - key: com.apple.mouse.scaling
+    value: 2
+
+  - key: com.apple.scrollwheel.scaling
+    value: 2
+
+  - key: com.apple.trackpad.scaling
+    value: 2
+
+  com.apple.dock:
+  - key: autohide
+    value: 1
+
+  - key: orientation
+    value: right
+
+  com.apple.finder:
+  - key: ShowPathbar
+    value: 1
+
+  - key: ShowPreviewPane
+    value: 1
+
+  - key: ShowStatusBar
+    value: 1
+
+  - key: ShowTabView
+    value: 1
+
+  - key: AppleShowAllFiles
+    value: 1
+
+  com.apple.menuextra.battery:
+  - key: ShowPercent
+    value: "YES"
+
+  com.apple.screensaver:
+  - key: askForPassword
+    value: 1
+
+  - key: askForPasswordDelay
+    value: 60

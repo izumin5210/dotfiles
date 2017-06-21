@@ -3,6 +3,7 @@
 brew update
 brew upgrade
 
+brew tap Homebrew/bundle
 brew tap sanemat/font
 brew tap caskroom/cask
 brew tap caskroom/fonts
@@ -50,6 +51,7 @@ brew install ripgrep
 brew install gibo
 brew install lv
 brew install envchain
+brew install mas
 
 brew install creasty/tools/rid
 brew install dtan4/tools/valec

@@ -103,6 +103,7 @@ brew cask install licecap
 brew cask install jasper
 brew cask install insomnia
 brew cask install postico
+brew cask install hammerspoon
 
 # ================================================================
 # fonts

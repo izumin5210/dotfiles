@@ -1,4 +1,5 @@
 package 'zsh'
+package 'zsh-completions'
 
 dotfile '.zshenv'
 dotfile '.zshrc'

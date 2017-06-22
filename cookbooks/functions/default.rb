@@ -4,7 +4,10 @@ define :dotfile, source: nil do
 
   fail "#{source_path} does not exist" unless File.exist? source_path
 
-  link File.join(ENV['HOME'], params[:name]) do
+  target = File.join(ENV['HOME'], params[:name])
+  directory File.dirname(target)
+
+  link target do
     to source_path
     user node[:user]
   end

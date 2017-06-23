@@ -4,6 +4,7 @@ include_recipe 'anyenv_helper'
 include_node 'rbenv'
 include_node 'pyenv'
 include_node 'nodenv'
+include_node 'yarn'
 include_node 'macos_defaults'
 
 node.reverse_merge!(

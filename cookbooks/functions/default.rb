@@ -20,3 +20,10 @@ define :dotfile_template, source: nil, variables: {} do
     variables params[:variables].merge(platform: node[:platform])
   end
 end
+
+define :cask do
+  caskname = params[:name]
+  execute "brew cask install #{caskname}" do
+    not_if "ls -1 /usr/local/Caskroom/ | grep '#{caskname}'"
+  end
+end

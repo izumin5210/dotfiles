@@ -1,11 +1,9 @@
 include_recipe 'recipe_helper'
 include_recipe 'anyenv_helper'
 
-include_node 'rbenv'
-include_node 'pyenv'
-include_node 'nodenv'
-include_node 'yarn'
-include_node 'macos_defaults'
+Dir.glob(File.join(root_dir, 'nodes', '**', '*.{yml,yaml,json}')).each do |path|
+  include_node path
+end
 
 node.reverse_merge!(
   user: ENV['SUDO_USER'] || ENV['USER'],

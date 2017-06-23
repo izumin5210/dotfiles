@@ -1,7 +1,5 @@
 package 'git'
 package 'hub'
-package 'tig'
-package 'gibo'
 package 'git-secrets'
 
 dotfile '.gitconfig'

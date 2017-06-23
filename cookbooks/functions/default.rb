@@ -21,6 +21,14 @@ define :dotfile_template, source: nil, variables: {} do
   end
 end
 
+define :brew_tap do
+  tapname = params[:name]
+  user, repo = tapname.split('/')
+  execute "brew tap #{tapname}" do
+    not_if "test -e /usr/local/Homebrew/Library/Taps/#{user}/homebrew-#{repo}"
+  end
+end
+
 define :cask do
   caskname = params[:name]
   execute "brew cask install #{caskname}" do

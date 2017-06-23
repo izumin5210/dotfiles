@@ -21,5 +21,3 @@ git "#{plugins_dir}/github.com/Shougo/dein.vim" do
   repository 'https://github.com/Shougo/dein.vim'
   revision '465cd106365e5b4c89b05d9ed1283ed4f3b70aab'
 end
-
-execute 'nvim -c "call dein#install()" -c "qall"'

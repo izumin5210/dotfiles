@@ -10,4 +10,15 @@ MItamae::RecipeContext.class_eval do
   def root_dir
     @root_dir ||= File.expand_path('../..', __FILE__)
   end
+
+  def include_node(name, ext = '.yml')
+    raw = File.read(File.join(root_dir, 'nodes', "#{name}#{ext}"))
+    content =
+      case ext
+      when '.yml', '.yaml' then YAML.load(raw)
+      when '.json' then JSON.parse(raw)
+      end
+
+    node.reverse_merge!(content)
+  end
 end

@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-echo 'Installing python packages...'
-pip install --upgrade pip
-pip install pyflakes
-pip install pep8
-pip install pylint

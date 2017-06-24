@@ -1,4 +1,4 @@
-# Dotfiles
+# ![dotfiles](./docs/visual.png)
 
 ## Installation
 

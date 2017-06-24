@@ -11,6 +11,7 @@ package 'jq'
 package 'lua'
 package 'lv'
 package 'ripgrep'
+package 'terraform'
 package 'tig'
 package 'tree'
 

@@ -1,0 +1,9 @@
+rbenv:
+  global: 2.4.1
+  versions:
+  - 2.4.1
+  default-gems:
+  - bundler
+  - pry
+  - pry-doc
+  - pry-coolline

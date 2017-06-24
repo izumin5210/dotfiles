@@ -59,3 +59,5 @@ build/
 /home/.rbenv/shims
 /home/.rbenv/version
 /home/.rbenv/versions
+
+/bin/mitamae*

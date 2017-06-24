@@ -1,0 +1,7 @@
+nodenv:
+  global: 8.1.2
+  versions:
+  - 8.1.2
+  - 6.11.0
+  default-packages:
+  - fixpack

@@ -1,0 +1,43 @@
+macos_apps:
+  cask:
+  - 1password
+  - adobe-creative-cloud
+  - alfred
+  - android-file-transfer
+  - appcleaner
+  - arduino
+  - bettertouchtool
+  - contexts
+  - dash
+  - day-o
+  - dropbox
+  - firefox
+  - google-chrome
+  - google-drive
+  - google-japanese-ime
+  - gyazo
+  - insomnia
+  - iterm2
+  - jasper
+  - jetbrains-toolbox
+  - licecap
+  - postico
+  - skitch
+  - skype
+  - the-unarchiver
+  - visual-studio-code
+  - zeplin
+
+  mas:
+  - name: 'Display Menu'
+    id: 549083868
+  - name: 'Keynote'
+    id: 409183694
+  - name: 'PopClip'
+    id: 445189367
+  - name: 'Slack'
+    id: 803453959
+  - name: 'Wantedly Chat'
+    id: 1076860635
+  - name: 'Xcode'
+    id: 497799835

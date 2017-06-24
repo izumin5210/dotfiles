@@ -1,3 +1,5 @@
+include_cookbook 'anyenv'
+
 pyenv_root = "#{anyenv_root}/envs/pyenv"
 
 install_env 'pyenv'

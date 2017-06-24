@@ -1,3 +1,5 @@
+include_cookbook 'anyenv'
+
 nodenv_root = "#{anyenv_root}/envs/nodenv"
 
 install_env 'nodenv'

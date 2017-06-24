@@ -1,3 +1,5 @@
+include_cookbook 'anyenv'
+
 rbenv_root = "#{anyenv_root}/envs/rbenv"
 
 install_env 'rbenv'

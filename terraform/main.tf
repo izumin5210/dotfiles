@@ -49,24 +49,25 @@ resource "aws_cloudfront_origin_access_identity" "dotfiles" {
 
 resource "aws_s3_bucket" "dotfiles" {
   bucket = "${var.name}"
-  acl    = "private"
+  acl    = "public-read"
   policy = "${data.template_file.dotfiles_s3_policy.rendered}"
 
   website {
     index_document = "index.html"
-    error_document = "404.html"
   }
 }
 
 resource "aws_s3_bucket_object" "dotfiles-index-document" {
-  bucket = "${aws_s3_bucket.dotfiles.id}"
-  key    = "index.html"
-  content = "${data.template_file.dotfiles_index_document.rendered}"
+  bucket       = "${aws_s3_bucket.dotfiles.id}"
+  key          = "index.html"
+  content      = "${data.template_file.dotfiles_index_document.rendered}"
+  acl          = "public-read"
+  content_type = "text/html"
 }
 
 resource "aws_cloudfront_distribution" "dotfiles" {
   origin {
-    domain_name = "${aws_s3_bucket.dotfiles.bucket_domain_name}"
+    domain_name = "${aws_s3_bucket.dotfiles.website_endpoint}"
     origin_id   = "${var.name}"
 
     custom_origin_config {
@@ -95,7 +96,7 @@ resource "aws_cloudfront_distribution" "dotfiles" {
       }
     }
 
-    viewer_protocol_policy = "redirect-to-https"
+    viewer_protocol_policy = "allow-all"
     min_ttl                = 0
     default_ttl            = 3600
     max_ttl                = 86400

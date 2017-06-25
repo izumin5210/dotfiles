@@ -1,4 +1,5 @@
 region             = "ap-northeast-1"
 name               = "izumin5210-dotfiles"
-domain             = "dot.izum.in"
+domain             = "izum.in"
+subdomain          = "dot"
 install_script_url = "https://raw.githubusercontent.com/izumin5210/dotfiles/master/install.sh"

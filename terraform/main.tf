@@ -1,6 +1,7 @@
 variable "region"             {}
 variable "name"               {}
 variable "domain"             {}
+variable "subdomain"          {}
 variable "install_script_url" {}
 
 data "terraform_remote_state" "tfstates" {
@@ -82,7 +83,7 @@ resource "aws_cloudfront_distribution" "dotfiles" {
   is_ipv6_enabled     = true
   comment             = "${var.name}"
   default_root_object = "index.html"
-  aliases             = ["${var.domain}"]
+  aliases             = ["${var.subdomain}.${var.domain}"]
 
   default_cache_behavior {
     allowed_methods  = ["GET", "HEAD"]
@@ -113,13 +114,13 @@ resource "aws_cloudfront_distribution" "dotfiles" {
   }
 }
 
-resource "aws_route53_zone" "dotfiles" {
+data "aws_route53_zone" "dotfiles" {
   name = "${var.domain}"
 }
 
 resource "aws_route53_record" "dotfiles-ipv4" {
-  zone_id = "${aws_route53_zone.dotfiles.zone_id}"
-  name    = "${aws_route53_zone.dotfiles.name}"
+  zone_id = "${data.aws_route53_zone.dotfiles.zone_id}"
+  name    = "${var.subdomain}.${data.aws_route53_zone.dotfiles.name}"
   type    = "A"
 
   alias {
@@ -130,8 +131,8 @@ resource "aws_route53_record" "dotfiles-ipv4" {
 }
 
 resource "aws_route53_record" "dotfiles-ipv6" {
-  zone_id = "${aws_route53_zone.dotfiles.zone_id}"
-  name    = "${aws_route53_zone.dotfiles.name}"
+  zone_id = "${data.aws_route53_zone.dotfiles.zone_id}"
+  name    = "${var.subdomain}.${data.aws_route53_zone.dotfiles.name}"
   type    = "AAAA"
 
   alias {

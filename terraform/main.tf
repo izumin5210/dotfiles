@@ -1,8 +1,9 @@
-variable "region"             {}
-variable "name"               {}
-variable "domain"             {}
-variable "subdomain"          {}
-variable "install_script_url" {}
+variable "region"              {}
+variable "name"                {}
+variable "domain"              {}
+variable "subdomain"           {}
+variable "install_script_path" {}
+variable "install_script_name" {}
 
 data "terraform_remote_state" "tfstates" {
   backend = "s3"
@@ -36,14 +37,6 @@ data "template_file" "dotfiles_s3_policy" {
   }
 }
 
-data "template_file" "dotfiles_index_document" {
-  template = "${file("index.html.tpl")}"
-
-  vars {
-    redirect_to = "${var.install_script_url}"
-  }
-}
-
 resource "aws_cloudfront_origin_access_identity" "dotfiles" {
   comment = "${var.name}"
 }
@@ -54,16 +47,15 @@ resource "aws_s3_bucket" "dotfiles" {
   policy = "${data.template_file.dotfiles_s3_policy.rendered}"
 
   website {
-    index_document = "index.html"
+    index_document = "${var.install_script_name}"
   }
 }
 
 resource "aws_s3_bucket_object" "dotfiles-index-document" {
-  bucket       = "${aws_s3_bucket.dotfiles.id}"
-  key          = "index.html"
-  content      = "${data.template_file.dotfiles_index_document.rendered}"
-  acl          = "public-read"
-  content_type = "text/html"
+  bucket = "${aws_s3_bucket.dotfiles.id}"
+  key    = "${var.install_script_name}"
+  source = "${var.install_script_path}"
+  acl    = "public-read"
 }
 
 resource "aws_cloudfront_distribution" "dotfiles" {
@@ -82,7 +74,7 @@ resource "aws_cloudfront_distribution" "dotfiles" {
   enabled             = true
   is_ipv6_enabled     = true
   comment             = "${var.name}"
-  default_root_object = "index.html"
+  default_root_object = "${var.install_script_name}"
   aliases             = ["${var.subdomain}.${var.domain}"]
 
   default_cache_behavior {

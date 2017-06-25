@@ -117,10 +117,22 @@ resource "aws_route53_zone" "dotfiles" {
   name = "${var.domain}"
 }
 
-resource "aws_route53_record" "dotfiles" {
+resource "aws_route53_record" "dotfiles-ipv4" {
   zone_id = "${aws_route53_zone.dotfiles.zone_id}"
-  name    = "${var.domain}"
+  name    = "${aws_route53_zone.dotfiles.name}"
   type    = "A"
+
+  alias {
+    name                   = "${aws_cloudfront_distribution.dotfiles.domain_name}"
+    zone_id                = "${aws_cloudfront_distribution.dotfiles.hosted_zone_id}"
+    evaluate_target_health = false
+  }
+}
+
+resource "aws_route53_record" "dotfiles-ipv6" {
+  zone_id = "${aws_route53_zone.dotfiles.zone_id}"
+  name    = "${aws_route53_zone.dotfiles.name}"
+  type    = "AAAA"
 
   alias {
     name                   = "${aws_cloudfront_distribution.dotfiles.domain_name}"

@@ -3,7 +3,7 @@
 ## Installation
 
 ```
-$ curl -L raw.github.com/izumin5210/dotfiles/master/install | bash
+$ bash <(curl -L dot.izum.in)
 ```
 
 ## Inspired

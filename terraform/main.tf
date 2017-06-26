@@ -28,6 +28,18 @@ provider "aws" {
   region     = "${var.region}"
 }
 
+provider "aws" {
+  alias  = "us-east"
+  access_key = "${data.terraform_remote_state.tfstates.access_id}"
+  secret_key = "${data.terraform_remote_state.tfstates.secret_key}"
+  region     = "us-east-1"
+}
+
+data "aws_acm_certificate" "dotfiles" {
+  provider = "aws.us-east"
+  domain   = "${var.subdomain}.${var.domain}"
+}
+
 data "template_file" "dotfiles_s3_policy" {
   template = "${file("s3_policy.json.tpl")}"
 
@@ -89,7 +101,7 @@ resource "aws_cloudfront_distribution" "dotfiles" {
       }
     }
 
-    viewer_protocol_policy = "allow-all"
+    viewer_protocol_policy = "redirect-to-https"
     min_ttl                = 0
     default_ttl            = 3600
     max_ttl                = 86400
@@ -102,7 +114,9 @@ resource "aws_cloudfront_distribution" "dotfiles" {
   }
 
   viewer_certificate {
-    cloudfront_default_certificate = true
+    acm_certificate_arn = "${data.aws_acm_certificate.dotfiles.arn}"
+    ssl_support_method = "sni-only"
+    minimum_protocol_version = "TLSv1"
   }
 }
 

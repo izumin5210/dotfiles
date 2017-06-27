@@ -15,6 +15,9 @@ export PATH=/usr/local/bin:$PATH
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 
+# yarn
+export PATH="$HOME/.yarn/bin:$PATH"
+
 # golang
 export GOPATH=$HOME
 export GOBIN=$GOPATH/gobin

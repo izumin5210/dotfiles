@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
 session=${1:-$(pwd | awk -F/ '{ print $NF}')}
-title $session
-tmux new -s $session
+if tmux list-sessions | awk -F: '{ print $1 }' | grep -q -E "^${session}$"; then
+  tmux attatch -t $session
+else
+  title $session
+  tmux new -s $session
+fi

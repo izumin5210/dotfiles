@@ -1,6 +1,7 @@
 macos_apps:
   cask:
   - 1password
+  - authy-desktop
   - adobe-creative-cloud
   - alfred
   - android-file-transfer

@@ -21,4 +21,6 @@ brew_tap 'creasty/tools'
 package 'creasty/tools/rid'
 
 brew_tap 'dtan4/tools'
+package 'k8sec'
+package 'k8stail'
 package 'valec'

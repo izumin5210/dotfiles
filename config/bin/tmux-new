@@ -2,7 +2,7 @@
 
 session=${1:-$(pwd | awk -F/ '{ print $NF}')}
 if tmux list-sessions | awk -F: '{ print $1 }' | grep -q -E "^${session}$"; then
-  tmux attatch -t $session
+  tmux attach -t $session
 else
   title $session
   tmux new -s $session

@@ -2,7 +2,7 @@
 #
 #
 
-set -o pipefail
+set -euo pipefail
 
 remote_name="${1:-origin}"
 base_branch="${2:-master}"

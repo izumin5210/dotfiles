@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 session=${1:-$(pwd | awk -F/ '{ print $NF}')}
 if tmux list-sessions | awk -F: '{ print $1 }' | grep -q -E "^${session}$"; then
   tmux attach -t $session

@@ -27,7 +27,7 @@ define :install_env_versions, versions: [] do
 end
 
 define :env_global, version: nil do
-  cmd = "#{params[:name]} global #{params[:version]}"
+  cmd = "#{params[:name]} global #{params[:version]} && #{params[:name]} rehash"
   execute cmd do
     command with_anyenv(cmd)
     not_if with_anyenv("#{params[:name]} global | grep '#{params[:version]}'")

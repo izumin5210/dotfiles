@@ -24,3 +24,6 @@ brew_tap 'dtan4/tools'
 package 'k8sec'
 package 'k8stail'
 package 'valec'
+
+brew_tap 'izumin5210/tools'
+package 'scaffold'

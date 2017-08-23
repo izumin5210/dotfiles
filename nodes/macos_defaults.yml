@@ -48,3 +48,7 @@ macos_defaults:
 
   - key: askForPasswordDelay
     value: 60
+
+  com.microsoft.VSCodeInsiders:
+  - key: ApplePressAndHoldEnabled
+    value: false

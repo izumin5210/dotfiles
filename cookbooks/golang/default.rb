@@ -14,6 +14,7 @@ define 'go_get' do
 end
 
 go_get 'golang.org/x/tools/cmd/godoc'
+go_get 'golang.org/x/tools/cmd/stringer'
 go_get 'github.com/nsf/gocode'
 go_get 'github.com/golang/lint/golint'
 go_get 'github.com/motemen/gore'
@@ -24,3 +25,4 @@ go_get 'github.com/ramya-rao-a/go-outline'
 go_get 'sourcegraph.com/sqs/goreturns'
 go_get 'github.com/derekparker/delve/cmd/dlv'
 go_get 'github.com/golang/mock/mockgen'
+go_get 'github.com/golang/dep/cmd/dep'

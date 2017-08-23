@@ -26,7 +26,7 @@ macos_apps:
   - skitch
   - skype
   - the-unarchiver
-  - visual-studio-code
+  - visual-studio-code-insiders
   - zeplin
 
   mas:

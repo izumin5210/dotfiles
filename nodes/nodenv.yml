@@ -6,3 +6,4 @@ nodenv:
   default-packages:
   - fixpack
   - flow-bin
+  - typescript

@@ -5,3 +5,4 @@ nodenv:
   - 6.11.0
   default-packages:
   - fixpack
+  - flow-bin

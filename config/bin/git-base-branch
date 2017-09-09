@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+#
+
+git ls-remote --symref 2> /dev/null \
+  | grep HEAD \
+  | head -n 1 \
+  | awk '{ print $2 }' \
+  | awk -F/ '{\
+    for (i = 3; i <= NF; i++) {
+      print $i
+    }
+  }'

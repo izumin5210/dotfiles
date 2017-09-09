@@ -126,5 +126,6 @@ repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set background=dark
   set t_Co=256
+  let g:hybrid_custom_term_colors = 1
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''

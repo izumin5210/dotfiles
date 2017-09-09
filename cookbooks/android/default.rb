@@ -4,3 +4,5 @@ if node[:platform] == 'darwin'
   cask 'android-sdk'
   cask 'android-studio-canary'
 end
+
+package 'pidcat'

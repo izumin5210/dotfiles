@@ -4,7 +4,7 @@ end
 
 if node[:platform] == 'darwin'
   package 'macvim' do
-    options '--with-lua' if node[:platform] == 'darwin'
+    options '--with-lua --with-python3' if node[:platform] == 'darwin'
   end
 
   package 'neovim/neovim/neovim'

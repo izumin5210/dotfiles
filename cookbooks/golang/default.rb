@@ -15,6 +15,7 @@ end
 
 go_get 'golang.org/x/tools/cmd/godoc'
 go_get 'golang.org/x/tools/cmd/stringer'
+go_get 'golang.org/x/tools/cmd/guru'
 go_get 'github.com/nsf/gocode'
 go_get 'github.com/golang/lint/golint'
 go_get 'github.com/motemen/gore'

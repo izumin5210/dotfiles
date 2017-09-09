@@ -22,10 +22,16 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'vim-airline/vim-airline'
 hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/lightline.rc.vim'
+  execute 'source' g:dein_plugin_rc_dir . '/airline.rc.vim'
 '''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -86,6 +92,21 @@ on_ft = 'typescript'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+  let g:go_highlight_operators = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_fields = 0
+  let g:go_highlight_types = 1
+'''
+
+[[plugins]]
+repo = 'sebdah/vim-delve'
+on_ft = 'go'
+hook_add = '''
+  nnoremap <leader>b :<C-u>DlvToggleBreakpoint<CR>
+  nnoremap <leader>d :<C-u>DlvDebug<CR>
+'''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'
@@ -105,5 +126,6 @@ repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set background=dark
   set t_Co=256
+  let g:hybrid_custom_term_colors = 1
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''

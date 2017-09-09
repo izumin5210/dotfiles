@@ -14,7 +14,7 @@ augroup END
 " View
 " ================================================================
 
-set guifont=Ricty:h12
+set guifont=Ricty\ for\ Powerline:h12
 
 set list
 set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
@@ -22,6 +22,7 @@ set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
 set number
 set cmdheight=2
 set nowrap
+set linespace=5
 
 
 " ================================================================
@@ -82,6 +83,13 @@ nnoremap sn gt
 nnoremap sp gT
 nnoremap st :<C-u>tabnew<CR>
 nnoremap sx :<C-u>tabclose<CR>
+
+
+" ================================================================
+" Terminal
+" ================================================================
+
+tnoremap <Esc> <C-\><C-n>
 
 
 " ================================================================

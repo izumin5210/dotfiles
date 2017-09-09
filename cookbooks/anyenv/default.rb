@@ -27,9 +27,20 @@ define :install_env_versions, versions: [] do
 end
 
 define :env_global, version: nil do
-  cmd = "#{params[:name]} global #{params[:version]} && #{params[:name]} rehash"
+  vers = []
+  if params[:version].is_a? Array
+    vers = params[:version]
+    ver = vers.join(" ")
+  else
+    ver = params[:version]
+    vers = [ver]
+  end
+
+  cmd = "#{params[:name]} global #{ver} && #{params[:name]} rehash"
+  check_cmd = vers.map { |v| "#{params[:name]} global | grep '#{v}'" }.join(" && ")
+
   execute cmd do
     command with_anyenv(cmd)
-    not_if with_anyenv("#{params[:name]} global | grep '#{params[:version]}'")
+    not_if with_anyenv(check_cmd)
   end
 end

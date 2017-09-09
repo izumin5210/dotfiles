@@ -22,10 +22,13 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'vim-airline/vim-airline'
 hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/lightline.rc.vim'
+  execute 'source' g:dein_plugin_rc_dir . '/airline.rc.vim'
 '''
+
+[[plugins]]
+repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'

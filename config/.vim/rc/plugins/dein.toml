@@ -86,6 +86,13 @@ on_ft = 'typescript'
 [[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
+hook_add = '''
+  let g:go_highlight_operators = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_fields = 0
+  let g:go_highlight_types = 1
+'''
 
 [[plugins]]
 repo = 'tpope/vim-endwise'

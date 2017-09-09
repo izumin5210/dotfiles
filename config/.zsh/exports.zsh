@@ -23,10 +23,9 @@ export GOPATH=$HOME
 export GOBIN=$GOPATH/gobin
 
 # android
-export ANDROID_HOME=/usr/local/opt/android-sdk
-export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
-export ANDROID_SDK_TOOLS=/usr/local/opt/android-sdk/tools
-export ANDROID_SDK_PLATFORM_TOOLS=/usr/local/opt/android-sdk/platform-tools
+export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
+export ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
 
 # java
 export JAVA8_HOME=`/usr/libexec/java_home -v 1.8`

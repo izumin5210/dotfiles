@@ -11,6 +11,7 @@
     ui = true
 [github]
     user = izumin5210
+    privatekey = /Users/izumin/.ssh/id_rsa.github
 [alias]
     co = checkout
     cb = checkout -b

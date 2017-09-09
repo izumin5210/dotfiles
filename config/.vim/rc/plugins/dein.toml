@@ -31,6 +31,9 @@ hook_add = '''
 repo = 'vim-airline/vim-airline-themes'
 
 [[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
 repo = 'majutsushi/tagbar'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/tagbar.rc.vim'

@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+#
+#
+
+set -eu
+
+clean_local() {
+  local base=${1:-$(git base-branch)}
+  git branch --merged \
+    | grep -v ${base} \
+    | grep -v '*' \
+    | grep -v '^\s*$' \
+    | {
+      local target=$(cat)
+      if [ ${#target} -gt 0 ]; then
+        git branch -d ${target}
+      else
+        printutil warning "Already cleaned."
+      fi
+    }
+}
+
+clean_remote() {
+  local remote=${1:-origin}
+  local base=${2:-$(git base-branch)}
+  git branch --remotes --merged \
+    | grep ${remote}/ \
+    | grep -v ${base} \
+    | sed s~${remote}/~:~ \
+    | {
+      local target=$(cat)
+      if [ ${#target} -gt 0 ]; then
+        git push origin $target
+      else
+        printutil warning "Already cleaned."
+      fi
+    }
+}
+
+if [ $# -ne 1 ]; then
+  printutil error "Invalid arguments"
+  exit 1
+fi
+
+target="$1"
+shift
+
+case ${target} in
+  local|l)
+    clean_local
+  ;;
+
+  remote|r)
+    clean_remote
+  ;;
+
+  *)
+    printutil error "Invalid target"
+    exit 1
+  ;;
+esac

@@ -5,7 +5,7 @@
 set -eu
 
 remote_name="${1:-origin}"
-base_branch="$(git symbolic-ref --short HEAD)"
+base_branch="$(git base-branch)"
 
 printutil section "Start sync..."
 

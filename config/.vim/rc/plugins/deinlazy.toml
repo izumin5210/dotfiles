@@ -38,6 +38,17 @@ hook_source = '''
 '''
 
 [[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+depends = ['deoplete.nvim']
+on_ft = 'go'
+hook_source = '''
+  let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#package_dot = 1
+'''
+
+[[plugins]]
 repo = 'Shougo/neosnippet'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'

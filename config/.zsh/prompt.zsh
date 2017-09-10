@@ -72,7 +72,7 @@ if is-at-least 4.3.11; then
         # - `wc`: 文字数，行数，バイト数を返す（`wc -l`: 行数のみ返す）
         # - `tr`: 文字の置換（`tr -d arg1`: arg1を消去）
         if [[ $(command git status --porcelain 2> /dev/null | wc -l | tr -d ' ') == "0" ]]; then
-            hook_com[staged]+="✔ "
+            hook_com[staged]+="✔"
         fi
 
         # ステージングされてないファイル数を取得（プロンプトをマゼンタに決定）
@@ -102,7 +102,7 @@ if is-at-least 4.3.11; then
             | awk '{print $1}' | grep -F '??' | wc -l | tr -d ' ')
 
         if [[ "$untracked" -gt 0 ]]; then
-            hook_com[misc]+="%F{3}?${untracked}%f"
+            hook_com[misc]+="%F{6}?${untracked}%f"
         fi
 
         # コンフリクトしてるファイル数を取得（プロンプトをマゼンタに決定）
@@ -111,13 +111,13 @@ if is-at-least 4.3.11; then
             | awk '{print $1}' | grep -F 'UU' | wc -l | tr -d ' ')
 
         if [[ "$unmerged" -gt 0 ]]; then
-            hook_com[misc]+="%F{13}c${unmerged}%f"
+            hook_com[misc]+=" %F{13}c${unmerged}%f"
         fi
 
         local stashed
         stashed=$(command git stash list 2> /dev/null | wc -l | tr -d ' ')
         if [[ "$stashed" -gt 0 ]]; then
-            hook_com[misc]+="%F{6}s${stashed}%f"
+            hook_com[misc]+=" %F{6}s${stashed}%f"
         fi
     }
 fi

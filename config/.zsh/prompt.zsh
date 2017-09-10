@@ -10,10 +10,6 @@ autoload -Uz colors; colors             # プロンプトに色を付ける
 # export LSCOLORS=gxfxcxdxbxegedabagacad
 # zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
-local p_cdir="%F{13}%n%f at %F{9}%m%f in %F{14}%~%f"
-local p_user="%F{3}%*%f %# "
-PROMPT=$'\n'$p_cdir$'\n'$p_user
-
 #### vcs_info ###
 # ref: http://mollifier.hatenablog.com/entry/20090814/p1
 # ref: http://mollifier.hatenablog.com/entry/20100906/p1
@@ -77,7 +73,6 @@ if is-at-least 4.3.11; then
         # - `tr`: 文字の置換（`tr -d arg1`: arg1を消去）
         if [[ $(command git status --porcelain 2> /dev/null | wc -l | tr -d ' ') == "0" ]]; then
             hook_com[staged]+="✔ "
-            return 0
         fi
 
         # ステージングされてないファイル数を取得（プロンプトをマゼンタに決定）
@@ -130,11 +125,15 @@ fi
 function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
 
+    local p_cdir="%F{3}[%~]%f"
+    local p_user="%# "
+
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
-        RPROMPT=""
+        PROMPT=$'\n'$p_cdir$'\n'$p_user
     else
-        RPROMPT="${vcs_info_msg_0_}"
+        PROMPT=$'\n'${p_cdir}\ \(${vcs_info_msg_0_}\)$'\n'${p_user}
+        # RPROMPT="${vcs_info_msg_0_}"
     fi
 }
 

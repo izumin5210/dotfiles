@@ -70,6 +70,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
+'''
+
+[[plugins]]
 repo = 'AndrewRadev/switch.vim'
 hook_add = '''
   nnoremap ! :Switch<CR>
@@ -117,6 +123,10 @@ hook_add = '''
   let g:go_highlight_methods = 1
   let g:go_highlight_fields = 0
   let g:go_highlight_types = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_generate_tags = 1
+  let g:go_fmt_command = "goimports"
 '''
 
 [[plugins]]

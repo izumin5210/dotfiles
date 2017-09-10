@@ -26,8 +26,17 @@ repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 if = "has('nvim')"
 on_i = 1
+on_event = 'InsertCharPre'
 hook_source = '''
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#auto_complete_delay = 0
+  let g:deoplete#auto_complete_start_length = 1
+  let g:deoplete#enable_camel_case = 0
+  let g:deoplete#enable_ignore_case = 0
+  let g:deoplete#enable_refresh_always = 0
+  let g:deoplete#enable_smart_case = 1
+  let g:deoplete#file#enable_buffer_path = 1
+  let g:deoplete#max_list = 10000
 
   imap <expr><TAB>
      \ pumvisible() ? "\<C-n>" :
@@ -35,6 +44,17 @@ hook_source = '''
      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
   smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+'''
+
+[[plugins]]
+repo = 'zchee/deoplete-go'
+build = 'make'
+depends = ['deoplete.nvim']
+on_ft = 'go'
+hook_source = '''
+  let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#package_dot = 1
 '''
 
 [[plugins]]

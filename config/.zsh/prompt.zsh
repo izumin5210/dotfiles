@@ -126,7 +126,7 @@ function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
 
     local p_cdir="%F{3}[%~]%f"
-    local p_user="%# "
+    local p_user="%(?.%F{10}:).%F{9}:()%f %# "
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_infoで何も取得していない場合はプロンプトを表示しない

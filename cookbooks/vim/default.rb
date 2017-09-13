@@ -8,6 +8,7 @@ if node[:platform] == 'darwin'
   end
 
   package 'neovim/neovim/neovim'
+  cask "vimr"
 end
 
 dotfile '.vimrc'

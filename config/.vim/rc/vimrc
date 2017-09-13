@@ -61,10 +61,7 @@ vnoremap > >gv
 
 set noswapfile
 
-set foldenable
-set foldmethod=syntax
-set foldcolumn=4
-set foldlevel=99
+set nofoldenable
 
 set splitbelow
 set splitright

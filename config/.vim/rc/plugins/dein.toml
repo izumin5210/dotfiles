@@ -151,10 +151,15 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid'
+repo = 'sbdchd/vim-hybrid' # supports terminal colors for VimR
+# repo = 'w0ng/vim-hybrid'
 hook_add = '''
-  set background=dark
   set t_Co=256
-  let g:hybrid_custom_term_colors = 1
+  if has("gui_vimr")
+    set termguicolors
+  else
+    let g:hybrid_custom_term_colors = 1
+  endif
+  set background=dark
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''

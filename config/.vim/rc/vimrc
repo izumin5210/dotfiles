@@ -14,7 +14,9 @@ augroup END
 " View
 " ================================================================
 
-set guifont=Ricty\ for\ Powerline:h12
+if !has("gui_vimr")
+  set guifont=Ricty\ for\ Powerline:h12
+endif
 
 set list
 set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･

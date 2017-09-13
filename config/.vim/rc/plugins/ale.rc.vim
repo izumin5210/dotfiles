@@ -21,7 +21,7 @@ let g:ale_linters = {
 \}
 
 let g:ale_go_gometalinter_options = '
-\   --fast --vendored-linters --disable-all --tests
+\   --vendored-linters --disable-all --tests
 \   --enable=vet
 \   --enable=gotype
 \   --enable=cyclo

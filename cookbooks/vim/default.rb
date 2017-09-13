@@ -11,7 +11,6 @@ if node[:platform] == 'darwin'
 end
 
 dotfile '.vimrc'
-dotfile '.gvimrc'
 dotfile '.vim'
 dotfile '.config/nvim'
 

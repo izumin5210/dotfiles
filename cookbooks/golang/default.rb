@@ -28,6 +28,7 @@ go_get 'github.com/derekparker/delve/cmd/dlv'
 go_get 'github.com/golang/mock/mockgen'
 go_get 'github.com/golang/dep/cmd/dep'
 go_get 'github.com/alecthomas/gometalinter'
+go_get 'github.com/jstemmer/gotags'
 
 package 'glide'
 

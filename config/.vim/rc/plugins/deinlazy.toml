@@ -5,7 +5,7 @@ build = 'make'
 [[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
-  nnoremap <silent> <Leader><Leader> :<C-u>Denite file_rec<CR>
+  nnoremap <silent> <Leader><Leader> :<C-u>Denite file_rec buffer<CR>
   nnoremap <silent> <Leader>g :<C-u>Denite grep<CR>
 '''
 hook_source = '''
@@ -46,6 +46,9 @@ hook_source = '''
 repo = 'zchee/deoplete-go'
 build = 'make'
 depends = ['deoplete.nvim']
+if = "has('nvim')"
+on_i = 1
+on_event = 'InsertCharPre'
 on_ft = 'go'
 hook_source = '''
   let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'

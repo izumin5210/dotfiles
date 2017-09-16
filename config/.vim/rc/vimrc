@@ -14,7 +14,9 @@ augroup END
 " View
 " ================================================================
 
-set guifont=Ricty\ for\ Powerline:h12
+if !has("gui_vimr")
+  set guifont=Ricty\ for\ Powerline:h12
+endif
 
 set list
 set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
@@ -59,10 +61,7 @@ vnoremap > >gv
 
 set noswapfile
 
-set foldenable
-set foldmethod=syntax
-set foldcolumn=4
-set foldlevel=99
+set nofoldenable
 
 set splitbelow
 set splitright
@@ -89,7 +88,9 @@ nnoremap sx :<C-u>tabclose<CR>
 " Terminal
 " ================================================================
 
-tnoremap <silent> <C-Space> <C-\><C-n>
+if has('nvim')
+  tnoremap <silent> <C-Space> <C-\><C-n>
+endif
 
 
 " ================================================================

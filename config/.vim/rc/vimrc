@@ -88,7 +88,9 @@ nnoremap sx :<C-u>tabclose<CR>
 " Terminal
 " ================================================================
 
-tnoremap <silent> <C-Space> <C-\><C-n>
+if has('nvim')
+  tnoremap <silent> <C-Space> <C-\><C-n>
+endif
 
 
 " ================================================================

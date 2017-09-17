@@ -4,12 +4,23 @@ package 'go'
 gopath = ENV['HOME']
 gobin = "#{ENV['HOME']}/gobin"
 
-define 'go_get' do
+define 'go_get', bin: false do
   pkg = params[:name]
   cmd = "go get -u #{pkg}"
   execute cmd do
     command "GOPATH=#{gopath} GOBIN=#{gobin} #{cmd}"
-    not_if "test -e #{gopath}/src/#{pkg}"
+    if params[:bin]
+      binname = File.basename(pkg)
+      not_if "test -e #{gobin}/#{binname}"
+    else
+      not_if "test -e #{gopath}/src/#{pkg}"
+    end
+  end
+end
+
+define 'go_bin' do
+  go_get params[:name] do
+    bin true
   end
 end
 

@@ -40,6 +40,7 @@ go_bin 'github.com/golang/mock/mockgen'
 go_bin 'github.com/golang/dep/cmd/dep'
 go_bin 'github.com/alecthomas/gometalinter'
 go_bin 'github.com/jstemmer/gotags'
+go_bin 'github.com/golang/protobuf/protoc-gen-go'
 
 package 'glide'
 

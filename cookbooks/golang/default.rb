@@ -41,6 +41,11 @@ go_bin 'github.com/golang/dep/cmd/dep'
 go_bin 'github.com/alecthomas/gometalinter'
 go_bin 'github.com/jstemmer/gotags'
 
+# gRPC
+go_bin 'github.com/golang/protobuf/protoc-gen-go'
+go_bin 'github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway'
+go_bin 'github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger'
+
 package 'glide'
 
 # liters: https://github.com/alecthomas/gometalinter#supported-linters

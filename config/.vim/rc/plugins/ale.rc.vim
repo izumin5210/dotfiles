@@ -24,10 +24,5 @@ let g:ale_go_gometalinter_options = '
 \   --vendored-linters --disable-all --tests
 \   --enable=vet
 \   --enable=gotype
-\   --enable=cyclo
 \   --enable=golint
-\   --enable=errcheck
-\   --enable=interfacer
-\   --enable=unconvert
-\   --enable=goconst
-\   --enable=gas'
+\ '

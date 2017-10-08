@@ -1,7 +1,7 @@
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
-let g:ale_sign_column_always = 1
+let g:ale_sign_column_always = 0
 let g:ale_set_loclist = 0
 let g:ale_set_quickfix = 1
 
@@ -24,10 +24,5 @@ let g:ale_go_gometalinter_options = '
 \   --vendored-linters --disable-all --tests
 \   --enable=vet
 \   --enable=gotype
-\   --enable=cyclo
 \   --enable=golint
-\   --enable=errcheck
-\   --enable=interfacer
-\   --enable=unconvert
-\   --enable=goconst
-\   --enable=gas'
+\ '

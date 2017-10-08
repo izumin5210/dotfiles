@@ -21,7 +21,6 @@ endif
 set list
 set listchars=tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･
 
-set number
 set cmdheight=2
 set nowrap
 set linespace=5

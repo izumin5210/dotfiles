@@ -1,4 +1,6 @@
-package 'git'
+package 'git' do
+  options '--with-pcre'
+end
 package 'hub'
 package 'git-secrets'
 

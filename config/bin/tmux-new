@@ -2,10 +2,12 @@
 
 set -euo pipefail
 
-session=${1:-$(pwd | awk -F/ '{ print $NF}')}
+rootDir=$(git rev-parse --show-toplevel)
+session=${1:-$(basename $rootDir | sed -e 's/\./-/g')}
+
 if tmux list-sessions | awk -F: '{ print $1 }' | grep -q -E "^${session}$"; then
   tmux attach -t $session
 else
   title $session
-  tmux new -s $session
+  tmux new -s ${session} -c ${rootDir}
 fi

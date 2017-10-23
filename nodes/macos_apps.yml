@@ -24,9 +24,11 @@ macos_apps:
   - jetbrains-toolbox
   - licecap
   - postico
+  - sequel-pro
   - skitch
   - skype
   - the-unarchiver
+  - vagrant
   - visual-studio-code-insiders
   - zeplin
 

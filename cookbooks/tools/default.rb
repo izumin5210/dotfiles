@@ -1,3 +1,4 @@
+package 'coreutils'
 package 'curl'
 package 'direnv'
 package 'envchain'
@@ -18,6 +19,7 @@ package 'terraform'
 package 'tig'
 package 'tree'
 package 'watchman'
+package 'wget'
 
 brew_tap 'creasty/tools'
 package 'creasty/tools/rid'

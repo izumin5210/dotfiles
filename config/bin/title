@@ -1,3 +1,6 @@
 #!/usr/bin/env bash
 set -eu
-echo -ne "\033]0;"$*"\007"
+
+name=${1:-$(basename $(pwd) | sed -e 's/\./-/g')}
+
+echo -ne "\033]0;${name}\007"

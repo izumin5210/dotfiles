@@ -127,12 +127,13 @@ function _update_vcs_info_msg() {
 
     local p_cdir="%F{3}[%~]%f"
     local p_user="%(?.%F{10}:).%F{9}:()%f %# "
+    local p_job="%(1j,%F{1}(%j jobs)%f,)"
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
-        PROMPT=$'\n'$p_cdir$'\n'$p_user
+        PROMPT=$'\n'${p_cdir}\ ${p_job}$'\n'${$p_user}
     else
-        PROMPT=$'\n'${p_cdir}\ \(${vcs_info_msg_0_}\)$'\n'${p_user}
+        PROMPT=$'\n'${p_cdir}\ \(${vcs_info_msg_0_}\)\ ${p_job}$'\n'${p_user}
         # RPROMPT="${vcs_info_msg_0_}"
     fi
 }

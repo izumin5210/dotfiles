@@ -2,7 +2,7 @@
     path = ~/.gitconfig.local
 [user]
     name = izumin5210
-    email = masayuki@izumin.info
+    email = m@izum.in
 [core]
     autocrlf = input
     editor = $EDITOR

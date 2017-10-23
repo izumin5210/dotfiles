@@ -131,7 +131,7 @@ function _update_vcs_info_msg() {
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_infoで何も取得していない場合はプロンプトを表示しない
-        PROMPT=$'\n'${p_cdir}\ ${p_job}$'\n'${$p_user}
+        PROMPT=$'\n'${p_cdir}\ ${p_job}$'\n'${p_user}
     else
         PROMPT=$'\n'${p_cdir}\ \(${vcs_info_msg_0_}\)\ ${p_job}$'\n'${p_user}
         # RPROMPT="${vcs_info_msg_0_}"

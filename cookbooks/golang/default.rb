@@ -41,6 +41,7 @@ go_bin 'github.com/golang/dep/cmd/dep'
 go_bin 'github.com/alecthomas/gometalinter'
 go_bin 'github.com/jstemmer/gotags'
 go_bin 'golang.org/x/tools/cmd/goyacc'
+go_bin 'github.com/rakyll/hey'
 
 # gRPC
 go_bin 'github.com/golang/protobuf/protoc-gen-go'

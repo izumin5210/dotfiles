@@ -144,6 +144,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/vimshell.vim' # for vim/delve
+if = "!has('nvim')"
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 on_i = 1

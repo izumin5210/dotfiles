@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+rev = '1.0'
 rtp = ''
 
 [[plugins]]

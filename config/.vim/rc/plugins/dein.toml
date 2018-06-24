@@ -1,6 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
-rev = '1.0'
+# rev = '1.0'
 rtp = ''
 
 [[plugins]]
@@ -72,7 +72,6 @@ hook_add = '''
 
 [[plugins]]
 repo = 'w0rp/ale'
-rev = 'v1.7.0'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
 '''
@@ -118,7 +117,6 @@ on_ft = 'typescript'
 
 [[plugins]]
 repo = 'fatih/vim-go'
-rev = 'v1.16'
 on_ft = 'go'
 hook_add = '''
   let g:go_highlight_operators = 1
@@ -165,11 +163,7 @@ repo = 'sbdchd/vim-hybrid' # supports terminal colors for VimR
 # repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set t_Co=256
-  if has("gui_vimr")
-    set termguicolors
-  else
-    let g:hybrid_custom_term_colors = 1
-  endif
+  " let g:hybrid_custom_term_colors = 1
   set background=dark
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''

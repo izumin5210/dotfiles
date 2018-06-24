@@ -13,42 +13,43 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'Shougo/neocomplete.vim'
-depends = 'context_filetype.vim'
-if = "has('lua')"
-on_event = 'InsertEnter'
+repo = 'Shougo/deoplete.nvim'
+depends = ['context_filetype.vim', 'nvim-yarp', 'vim-hug-neovim-rpc']
+on_i = 1
 hook_source = '''
-  let g:neocomplete#enable_at_startup = 1
+  " deoplete options
+  let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_smart_case = 1
+
+  " disable autocomplete by default
+  let b:deoplete_disable_auto_complete=1
+  let g:deoplete_disable_auto_complete=1
+  call deoplete#custom#buffer_option('auto_complete', v:false)
+
+  if !exists('g:deoplete#omni#input_patterns')
+      let g:deoplete#omni#input_patterns = {}
+  endif
+
+  " Disable the candidates in Comment/String syntaxes.
+  call deoplete#custom#source('_',
+              \ 'disabled_syntaxes', ['Comment', 'String'])
+
+  autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 '''
 
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-if = "has('nvim')"
-on_i = 1
-on_event = 'InsertCharPre'
-hook_source = '''
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#auto_complete_delay = 0
-  let g:deoplete#auto_complete_start_length = 1
-  let g:deoplete#enable_camel_case = 0
-  let g:deoplete#enable_ignore_case = 0
-  let g:deoplete#enable_refresh_always = 0
-  let g:deoplete#enable_smart_case = 1
-  let g:deoplete#file#enable_buffer_path = 1
-  let g:deoplete#max_list = 10000
+repo = 'roxma/nvim-yarp' # for deoplete.vim
+if = "!has('nvim')"
 
-  inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-  inoremap <expr><BS> deoplete#smart_close_popup()."\<C-h>"
-'''
+[[plugins]]
+repo = 'roxma/vim-hug-neovim-rpc' # for deoplete.vim
+if = "!has('nvim')"
 
 [[plugins]]
 repo = 'zchee/deoplete-go'
 build = 'make'
 depends = ['deoplete.nvim']
-if = "has('nvim')"
 on_i = 1
-on_event = 'InsertCharPre'
 on_ft = 'go'
 hook_source = '''
   let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'

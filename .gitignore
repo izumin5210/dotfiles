@@ -10,3 +10,4 @@
 ### misc ###
 /bin/mitamae*
 /config/.zsh/secrets.zsh
+/config/.vim/view

@@ -1,5 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
+# rev = '1.0'
 rtp = ''
 
 [[plugins]]
@@ -141,6 +142,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = 'Shougo/vimshell.vim' # for vim/delve
+if = "!has('nvim')"
+
+[[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
 on_i = 1
@@ -158,11 +163,7 @@ repo = 'sbdchd/vim-hybrid' # supports terminal colors for VimR
 # repo = 'w0ng/vim-hybrid'
 hook_add = '''
   set t_Co=256
-  if has("gui_vimr")
-    set termguicolors
-  else
-    let g:hybrid_custom_term_colors = 1
-  endif
+  " let g:hybrid_custom_term_colors = 1
   set background=dark
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''

@@ -1,6 +1,7 @@
 nodenv:
-  global: 8.4.0
+  global: 8.11.3
   versions:
+  - 8.11.3
   - 8.4.0
   - 6.11.0
   default-packages:

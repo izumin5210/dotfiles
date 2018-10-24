@@ -30,7 +30,7 @@ end
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/guru'
 go_bin 'golang.org/x/tools/cmd/goimports'
-go_bin 'github.com/nsf/gocode'
+go_bin 'github.com/mdempsky/gocode'
 go_bin 'github.com/motemen/gore'
 go_get 'github.com/k0kubun/pp' # for gore
 go_bin 'github.com/rogpeppe/godef'

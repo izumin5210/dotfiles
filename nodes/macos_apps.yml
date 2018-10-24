@@ -6,7 +6,6 @@ macos_apps:
   - alfred
   - android-file-transfer
   - appcleaner
-  - arduino
   - bettertouchtool
   - contexts
   - dash
@@ -14,19 +13,16 @@ macos_apps:
   - dropbox
   - fantastical
   - firefox
-  - firefoxdeveloperedition
+  - gitify
   - google-chrome
   - google-drive
   - google-japanese-ime
+  - grammarly
   - gyazo
   - insomnia
-  - jasper
   - jetbrains-toolbox
-  - licecap
-  - postico
-  - sequel-pro
-  - skitch
   - skype
+  - spotify
   - the-unarchiver
   - vagrant
   - visual-studio-code-insiders
@@ -41,7 +37,5 @@ macos_apps:
     id: 445189367
   - name: 'Slack'
     id: 803453959
-  - name: 'Wantedly Chat'
-    id: 1076860635
   - name: 'Xcode'
     id: 497799835

@@ -1,7 +1,6 @@
 setopt no_global_rcs
 
 source $HOME/.zsh/exports.zsh
-source $HOME/.zsh/secrets.zsh
 source $HOME/.zsh/aliases.zsh
 
 # gvm

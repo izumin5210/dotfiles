@@ -10,7 +10,6 @@ if node[:platform] == 'darwin'
   package 'neovim/neovim/neovim' do
     options '--HEAD'
   end
-  cask "vimr"
 end
 
 dotfile '.vimrc'

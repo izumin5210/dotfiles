@@ -59,6 +59,7 @@ create() {
 
   printutil subsection "Initialize repository"
   git init
+  git commit --allow-empty -m "Initial commit"
 
   if [ $is_private -eq 1 ]; then
     printutil subsection "Create private repository in github"

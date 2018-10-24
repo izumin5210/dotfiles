@@ -58,6 +58,9 @@ export NITE2_REDIST=/usr/local/Cellar/nite2/2.2a/Redist
 # OpenCV3
 export OpenCV_DIR=/usr/local/Cellar/opencv3/3.1.0_1/share/OpenCV/
 
+# Tools in wantedly
+export PATH=$HOME/.wantedly/bin:$PATH
+
 # ================================================================
 # other
 # ================================================================

@@ -14,3 +14,10 @@ execute "#{plugins_dir}/tpm/bin/install_plugins" do
 end
 
 dotfile '.tmux.conf'
+
+git "#{ENV['HOME']}/.tmux-gitbar" do
+  repository 'https://github.com/arl/tmux-gitbar'
+  revision 'v2.1.5'
+end
+
+dotfile '.tmux-gitbar.conf'

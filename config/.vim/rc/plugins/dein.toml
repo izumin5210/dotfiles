@@ -6,10 +6,11 @@ rtp = ''
 [[plugins]]
 repo = 'christoomey/vim-tmux-navigator'
 hook_add = '''
-  " https://github.com/neovim/neovim/issues/2048
-  if has('nvim')
-    nnoremap <silent> <BS> :TmuxNavigateLeft<CR>
-  endif
+  nnoremap <silent> <C-w>h :TmuxNavigateLeft<cr>
+  nnoremap <silent> <C-w>j :TmuxNavigateDown<cr>
+  nnoremap <silent> <C-w>k :TmuxNavigateUp<cr>
+  nnoremap <silent> <C-w>l :TmuxNavigateRight<cr>
+  nnoremap <silent> <C-w>\\ :TmuxNavigatePrevious<cr>
 '''
 
 [[plugins]]

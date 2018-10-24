@@ -165,6 +165,9 @@ repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
 [[plugins]]
+repo = 'direnv/direnv.vim'
+
+[[plugins]]
 repo = 'sbdchd/vim-hybrid' # supports terminal colors for VimR
 # repo = 'w0ng/vim-hybrid'
 hook_add = '''

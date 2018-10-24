@@ -1,3 +1,4 @@
+package 'colordiff'
 package 'coreutils'
 package 'ctop'
 package 'curl'

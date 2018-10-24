@@ -7,7 +7,7 @@ gobin = "#{ENV['HOME']}/gobin"
 define 'go_get', build: true do
   pkg = params[:name]
   execute "get #{pkg}" do
-    command "GOPATH=#{gopath} go get #{params[:build] ? "" : "-d"} #{pkg}"
+    command "GOPATH=#{gopath} go get -u #{params[:build] ? "" : "-d"} #{pkg}"
     not_if "test -e #{gopath}/src/#{pkg}"
   end
 end
@@ -27,25 +27,25 @@ define 'go_bin', bin: nil do
   end
 end
 
-go_bin 'golang.org/x/tools/cmd/godoc'
-go_bin 'golang.org/x/tools/cmd/guru'
-go_bin 'golang.org/x/tools/cmd/goimports'
-go_bin 'github.com/mdempsky/gocode'
-go_bin 'github.com/motemen/gore'
-go_get 'github.com/k0kubun/pp' # for gore
-go_bin 'github.com/rogpeppe/godef'
-go_bin 'github.com/tpng/gopkgs'
-go_bin 'github.com/ramya-rao-a/go-outline'
+# tools
 go_bin 'github.com/derekparker/delve/cmd/dlv'
 go_bin 'github.com/golang/dep/cmd/dep'
+go_bin 'github.com/motemen/gore'
+go_bin 'github.com/pwaller/goimports-update-ignore'
+go_bin 'github.com/rakyll/hey'
+
+# for vim
+go_bin 'golang.org/x/tools/cmd/godoc'
+go_bin 'golang.org/x/tools/cmd/goimports'
+go_bin 'golang.org/x/tools/cmd/guru'
+go_bin 'github.com/jstemmer/gotags'
+go_bin 'github.com/mdempsky/gocode'
+go_bin 'github.com/rogpeppe/godef'
+
+# liters: https://github.com/alecthomas/gometalinter#supported-linters
 go_bin 'gopkg.in/alecthomas/gometalinter.v2' do
   bin "gometalinter"
 end
-go_bin 'github.com/jstemmer/gotags'
-go_bin 'golang.org/x/tools/cmd/goyacc'
-go_bin 'github.com/rakyll/hey'
-
-# liters: https://github.com/alecthomas/gometalinter#supported-linters
 go_bin 'golang.org/x/tools/cmd/gotype'
 go_bin 'github.com/fzipp/gocyclo'
 go_bin 'github.com/golang/lint/golint'

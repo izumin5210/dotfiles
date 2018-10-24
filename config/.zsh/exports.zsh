@@ -8,6 +8,9 @@ export EDITOR=vim
 # homebrew
 export PATH=/usr/local/bin:$PATH
 
+export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
+export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
+
 # anyenv
 export PATH="$HOME/.anyenv/bin:$PATH"
 
@@ -17,6 +20,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # golang
 export GOPATH=$HOME
 export GOBIN=$GOPATH/gobin
+
+# rust
+export PATH=$HOME/.cargo/bin:$PATH
 
 # android
 export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
@@ -51,6 +57,9 @@ export NITE2_REDIST=/usr/local/Cellar/nite2/2.2a/Redist
 
 # OpenCV3
 export OpenCV_DIR=/usr/local/Cellar/opencv3/3.1.0_1/share/OpenCV/
+
+# Tools in wantedly
+export PATH=$HOME/.wantedly/bin:$PATH
 
 # ================================================================
 # other

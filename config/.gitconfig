@@ -26,6 +26,7 @@
     mm = merge master
     wc = wip-commit
     pr = !hub browse -- compare/$(git symbolic-ref --short HEAD)'?'expand=1'&'body=%23%23%20WHY%0A%0A%23%23%20WHAT%0A%0A%23%23%20REF%0A%0A
+    ct = checkout-topic
 [push]
     default = current
 [filter "lfs"]

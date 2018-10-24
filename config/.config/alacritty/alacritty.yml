@@ -136,12 +136,12 @@ custom_cursor_colors: false
 # If `true`, bold text is drawn using the bright color variants.
 draw_bold_text_with_bright_colors: true
 
-# Colors (Tomorrow Night Bright)
+# Colors (Hybrid)
 colors:
   # Default colors
   primary:
-    background: '0x1d1f21'
-    foreground: '0xeaeaea'
+    background: '0x27292c'
+    foreground: '0xd0d2d1'
 
     # Bright and dim foreground colors
     #
@@ -161,25 +161,25 @@ colors:
 
   # Normal colors
   normal:
-    black:   '0x000000'
-    red:     '0x5f0000'
-    green:   '0x005f00'
-    yellow:  '0x5f5f00'
-    blue:    '0x00005f'
-    magenta: '0x5f005f'
-    cyan:    '0x8abeb7'
-    white:   '0xffffff'
+    black:   '0x35383b'
+    red:     '0xb05655'
+    green:   '0x769972'
+    yellow:  '0xe1a574'
+    blue:    '0x7693ac'
+    magenta: '0x977ba0'
+    cyan:    '0x749e99'
+    white:   '0x848b92'
 
   # Bright colors
   bright:
-    black:   '0x666666'
-    red:     '0xcc6666'
-    green:   '0xb5bd68'
-    yellow:  '0xf0c674'
-    blue:    '0x81a2be'
-    magenta: '0xb294bb'
-    cyan:    '0xb77ee0'
-    white:   '0xffffff'
+    black:   '0x484c52'
+    red:     '0xd27c7b'
+    green:   '0xdffebe'
+    yellow:  '0xf0d189'
+    blue:    '0x96b1c9'
+    magenta: '0xbfa5c7'
+    cyan:    '0x9fc9c3'
+    white:   '0xfcf7e2'
 
   # Dim colors
   #

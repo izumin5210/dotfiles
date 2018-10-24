@@ -34,6 +34,9 @@ go_bin 'github.com/motemen/gore'
 go_bin 'github.com/pwaller/goimports-update-ignore'
 go_bin 'github.com/rakyll/hey'
 
+# tmux
+go_bin 'github.com/arl/gitstatus/cmd/gistatus'
+
 # for vim
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'

@@ -38,7 +38,7 @@ if is-at-least 4.3.10; then
     # - %c: stagedstr
     # - %u: unstagedstr
     # - %m: others
-    zstyle ':vcs_info:git:*' formats '%F{4}%b%f %F{2}%c%f%F{1}%u%f%m'
+    zstyle ':vcs_info:git:*' formats '%F{12}%b%f %F{10}%c%f%F{9}%u%f%m'
     zstyle ':vcs_info:git:*' actionformats '%F{13}%b-%a%f %F{2}%c%f%F{1}%u%f%m'
     # zstyle ':vcs_info:git:*' actionformats '(%s)-[%b]' '%c%u %m' '<!%a>'
     zstyle ':vcs_info:git:*' check-for-changes true     # リポジトリの変更通知
@@ -125,7 +125,7 @@ fi
 function _update_vcs_info_msg() {
     LANG=en_US.UTF-8 vcs_info
 
-    local p_cdir="%F{3}[%~]%f"
+    local p_cdir="%F{11}[$(pwd | sed -e "s,^$HOME,~," | sed -e "s,^~/src/\(github.com/\)\?,,")]%f"
     local p_user="%(?.%F{10}:).%F{9}:()%f %# "
     local p_job="%(1j,%F{1}(%j jobs)%f,)"
 

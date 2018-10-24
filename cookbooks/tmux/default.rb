@@ -14,3 +14,4 @@ execute "#{plugins_dir}/tpm/bin/install_plugins" do
 end
 
 dotfile '.tmux.conf'
+dotfile '.gitstatus.yml'

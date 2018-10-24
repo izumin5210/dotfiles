@@ -44,6 +44,7 @@ end
 go_bin 'github.com/jstemmer/gotags'
 go_bin 'golang.org/x/tools/cmd/goyacc'
 go_bin 'github.com/rakyll/hey'
+go_bin 'github.com/pwaller/goimports-update-ignore'
 
 # liters: https://github.com/alecthomas/gometalinter#supported-linters
 go_bin 'golang.org/x/tools/cmd/gotype'

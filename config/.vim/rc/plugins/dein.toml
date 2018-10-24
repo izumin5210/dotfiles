@@ -117,6 +117,11 @@ repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 
 [[plugins]]
+repo = 'mdempsky/gocode'
+rtp = 'vim'
+on_ft = 'go'
+
+[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = '''

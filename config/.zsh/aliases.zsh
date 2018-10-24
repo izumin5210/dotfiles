@@ -10,3 +10,9 @@ alias vim='vim -c Obsession'
 
 alias sed='gsed'
 alias git='hub'
+
+if [[ -x `which colordiff` ]]; then
+  alias diff='colordiff -u'
+else
+  alias diff='diff -u'
+fi

@@ -14,13 +14,11 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'tpope/vim-obsession'
-
-[[plugins]]
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/nerdcommenter.rc.vim'
-  map <C-_> <Plug>NERDCommenterToggle
+  nmap <leader>/ <Plug>NERDCommenterToggle
+  vmap <leader>/ <Plug>NERDCommenterToggle
 '''
 
 [[plugins]]
@@ -48,21 +46,10 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/tagbar.rc.vim'
-'''
-
-[[plugins]]
-repo = 'jszakmeister/markdown2ctags'
-rtp = ''
-
-[[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-on_i = 1
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -154,7 +141,7 @@ if = "!has('nvim')"
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'chrisbra/vim-sh-indent'

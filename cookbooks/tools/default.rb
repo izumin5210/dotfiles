@@ -12,8 +12,6 @@ package 'heroku'
 package 'htop'
 package 'highlight'
 package 'jq'
-package 'kops'
-package 'kubernetes-cli'
 package 'lua'
 package 'lv'
 package 'protobuf'
@@ -35,3 +33,8 @@ package 'valec'
 
 brew_tap 'izumin5210/tools'
 package 'scaffold'
+
+# kube
+package 'kops'
+package 'kubernetes-cli'
+package 'stern'

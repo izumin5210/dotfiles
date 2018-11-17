@@ -67,6 +67,13 @@ set splitright
 
 set matchpairs+=<:>
 
+set ambiwidth=double
+
+cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
+cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
+
+set completeopt+=noinsert
+
 if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif

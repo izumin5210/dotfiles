@@ -17,7 +17,8 @@ hook_add = '''
 repo = 'scrooloose/nerdcommenter'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/nerdcommenter.rc.vim'
-  map <C-_> <Plug>NERDCommenterToggle
+  nmap <leader>/ <Plug>NERDCommenterToggle
+  vmap <leader>/ <Plug>NERDCommenterToggle
 '''
 
 [[plugins]]

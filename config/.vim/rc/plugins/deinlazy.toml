@@ -15,7 +15,7 @@ hook_source = '''
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = ['context_filetype.vim', 'nvim-yarp', 'vim-hug-neovim-rpc']
-on_i = 1
+on_event = 'InsertEnter'
 hook_source = '''
   " deoplete options
   let g:deoplete#enable_at_startup = 1
@@ -49,7 +49,7 @@ if = "!has('nvim')"
 repo = 'zchee/deoplete-go'
 build = 'make'
 depends = ['deoplete.nvim']
-on_i = 1
+on_event = 'InsertEnter'
 on_ft = 'go'
 hook_source = '''
   let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'
@@ -62,7 +62,6 @@ repo = 'Shougo/neosnippet'
 depends = ['neosnippet-snippets', 'context_filetype.vim']
 on_event = 'InsertCharPre'
 on_ft = 'snippet'
-on_i = 1
 hook_source = '''
   imap <C-k> <Plug>(neosnippet_expand_or_jump)
   smap <C-k> <Plug>(neosnippet_expand_or_jump)

@@ -49,7 +49,6 @@ repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
-on_i = 1
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
@@ -141,7 +140,7 @@ if = "!has('nvim')"
 [[plugins]]
 repo = 'tpope/vim-endwise'
 on_ft = 'ruby'
-on_i = 1
+on_event = 'InsertEnter'
 
 [[plugins]]
 repo = 'chrisbra/vim-sh-indent'

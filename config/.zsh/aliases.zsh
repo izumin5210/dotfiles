@@ -5,8 +5,6 @@ alias history='history -E'
 alias mkdir='mkdir -p'
 alias be='bundle exec'
 
-alias vim='vim -c Obsession'
-
 alias sed='gsed'
 
 # `hub` has implemented `pr` and `sync` subcommands. they are conflicted with self-defined commands.

@@ -1,0 +1,114 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+NAME=the-postgres
+IMAGE=postgres:9.6.1-alpine
+
+
+#  Commands
+#-----------------------------------------------
+usage() {
+  cat <<EOF
+Usage:
+    mid pg [command]
+
+Available Commands:
+   s, start
+   stop
+   rm
+   c, console
+   createdb
+   status
+   logs
+EOF
+}
+
+_ping() {
+  docker exec -it $NAME psql --username=$USER -c 'select 1;' > /dev/null 2>&1
+}
+
+server_stop() {
+  echo "==> Stopping server"
+  docker stop $NAME
+}
+
+server_start() {
+  echo "==> Starting server"
+  docker start $NAME 2>/dev/null || server_create
+
+  echo "==> Waiting for ready"
+  while true; do
+    sleep 5
+    if _ping; then
+      echo
+      echo "ready"
+      break
+    else
+      printf '.'
+    fi
+  done
+}
+
+server_remove() {
+  echo "==> Destroying server"
+  docker rm $NAME
+}
+
+server_create() {
+  echo "==> Creating server"
+  docker run \
+    -p 5432:5432 \
+    --name $NAME \
+    -e POSTGRES_USER=$USER \
+    -e POSTGRES_PASSWORD= \
+    -v ~/docker/postgres:/var/lib/postgresql/data \
+    -d \
+    $IMAGE
+}
+
+exec_psql() {
+  docker exec -it $NAME psql --username=$USER
+}
+
+exec_createdb() {
+  docker exec -it $NAME createdb --username=$USER "$1"
+}
+
+exec_logs() {
+  docker logs -f $NAME
+}
+
+exec_status() {
+  if docker ps | grep $NAME > /dev/null; then
+    if _ping; then
+      echo 'ready'
+    else
+      echo 'not ready'
+    fi
+  else
+    echo 'not running'
+  fi
+}
+
+
+#  Entrypoint
+#-----------------------------------------------
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  s|start)   server_start ;;
+  stop)      server_stop ;;
+  rm)        server_remove ;;
+  c|console) exec_psql ;;
+  createdb)  exec_createdb "$1" ;;
+  status)    exec_status ;;
+  logs)      exec_logs ;;
+  *)
+    printutil error "Unknown command: $COMMAND"
+    usage
+    exit 1
+  ;;
+esac

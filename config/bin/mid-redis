@@ -67,8 +67,9 @@ case "$COMMAND" in
   rm)        server_rm ;;
   c|console) exec_cli ;;
   logs)      exec_logs ;;
+  --help)    usage;;
   *)
-    printutil error "Unknown command: $1"
+    printutil error "Unknown command: $COMMAND"
     usage
     exit 1
   ;;

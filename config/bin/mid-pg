@@ -106,6 +106,7 @@ case "$COMMAND" in
   createdb)  exec_createdb "$1" ;;
   status)    exec_status ;;
   logs)      exec_logs ;;
+  --help)    usage;;
   *)
     printutil error "Unknown command: $COMMAND"
     usage

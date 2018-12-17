@@ -52,6 +52,15 @@ exec_logs() {
   docker logs -f $NAME
 }
 
+print_envs() {
+  docker exec -it $NAME \
+    gcloud beta emulators datastore env-init --data-dir=/opt/data
+}
+
+exec_command() {
+  docker exec -it $NAME gcloud datastore "$@"
+}
+
 
 #  Entrypoint
 #-----------------------------------------------
@@ -63,8 +72,22 @@ case "$COMMAND" in
   stop)      server_stop ;;
   rm)        server_rm ;;
   logs)      exec_logs ;;
+  env)       print_envs;;
+  --help)    usage;;
+  config)
+    docker exec -it $NAME gcloud config "$@"
+    ;;
+  auth)
+    docker exec -it $NAME gcloud auth "$@"
+    ;;
+  indexes|operations)
+    exec_command $COMMAND "$@"
+    ;;
+  cleanup-indexes|create-indexes|export|import)
+    exec_command $COMMAND "$@"
+    ;;
   *)
-    printutil error "Unknown command: $1"
+    printutil error "Unknown command: $COMMAND"
     usage
     exit 1
   ;;

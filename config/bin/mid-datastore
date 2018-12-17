@@ -1,0 +1,94 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+NAME=the-cloud-datastore
+IMAGE=google/cloud-sdk
+
+
+#  Commands
+#-----------------------------------------------
+usage() {
+  cat <<EOF
+Usage:
+    mid datastore [command]
+
+Available Commands:
+     s, start
+     stop
+     rm
+EOF
+}
+
+server_stop() {
+  echo "==> Stopping server"
+  docker stop $NAME
+}
+
+server_start() {
+  echo "==> Starting server"
+  docker start $NAME 2>/dev/null || server_create
+}
+
+server_rm() {
+  echo "==> Destroying server"
+  docker rm $NAME
+}
+
+server_create() {
+  echo "==> Creating server"
+  docker run \
+    -p 8011:8011 \
+    --name $NAME \
+    -v ~/docker/datastore:/opt/data \
+    -e CLOUDSDK_CORE_PROJECT=mid-datastore \
+    -d \
+    $IMAGE \
+    gcloud beta emulators datastore start --data-dir=/opt/data
+}
+
+exec_logs() {
+  docker logs -f $NAME
+}
+
+print_envs() {
+  docker exec -it $NAME \
+    gcloud beta emulators datastore env-init --data-dir=/opt/data
+}
+
+exec_command() {
+  docker exec -it $NAME gcloud datastore "$@"
+}
+
+
+#  Entrypoint
+#-----------------------------------------------
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  s|start)   server_start ;;
+  stop)      server_stop ;;
+  rm)        server_rm ;;
+  logs)      exec_logs ;;
+  env)       print_envs;;
+  --help)    usage;;
+  config)
+    docker exec -it $NAME gcloud config "$@"
+    ;;
+  auth)
+    docker exec -it $NAME gcloud auth "$@"
+    ;;
+  indexes|operations)
+    exec_command $COMMAND "$@"
+    ;;
+  cleanup-indexes|create-indexes|export|import)
+    exec_command $COMMAND "$@"
+    ;;
+  *)
+    printutil error "Unknown command: $COMMAND"
+    usage
+    exit 1
+  ;;
+esac

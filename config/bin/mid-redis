@@ -1,0 +1,76 @@
+#!/usr/bin/env bash
+
+set -eu
+set -o pipefail
+
+NAME=the-redis
+IMAGE=redis:3.0.7-alpine
+
+
+#  Commands
+#-----------------------------------------------
+usage() {
+  cat <<EOF
+Usage:
+    mid redis [command]
+
+Available Commands:
+     s, start
+     stop
+     rm
+     c, console
+EOF
+}
+
+server_stop() {
+  echo "==> Stopping server"
+  docker stop $NAME
+}
+
+server_start() {
+  echo "==> Starting server"
+  docker start $NAME 2>/dev/null || server_create
+}
+
+server_rm() {
+  echo "==> Destroying server"
+  docker rm $NAME
+}
+
+server_create() {
+  echo "==> Creating server"
+  docker run \
+    -p 6379:6379 \
+    --name $NAME \
+    -v ~/docker/redis:/data \
+    -d \
+    $IMAGE
+}
+
+exec_cli() {
+  docker exec -it $NAME redis-cli
+}
+
+exec_logs() {
+  docker logs -f $NAME
+}
+
+
+#  Entrypoint
+#-----------------------------------------------
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  s|start)   server_start ;;
+  stop)      server_stop ;;
+  rm)        server_rm ;;
+  c|console) exec_cli ;;
+  logs)      exec_logs ;;
+  --help)    usage;;
+  *)
+    printutil error "Unknown command: $COMMAND"
+    usage
+    exit 1
+  ;;
+esac

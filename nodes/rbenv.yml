@@ -8,3 +8,4 @@ rbenv:
   - pry
   - pry-doc
   - pry-coolline
+  - solargraph

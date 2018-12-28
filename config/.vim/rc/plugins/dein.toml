@@ -166,6 +166,7 @@ hook_add = '''
 
   let g:LanguageClient_serverCommands = {
       \ 'go': ['golsp'],
+      \ 'ruby': ['solargraph', 'stdio'],
       \ }
 
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>

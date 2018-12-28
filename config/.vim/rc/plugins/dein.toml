@@ -46,9 +46,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -56,12 +53,6 @@ repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_smart_case = 1
   let g:clever_f_mark_char_color = 1
-'''
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
 '''
 
 [[plugins]]
@@ -104,11 +95,6 @@ repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 
 [[plugins]]
-repo = 'mdempsky/gocode'
-rtp = 'vim'
-on_ft = 'go'
-
-[[plugins]]
 repo = 'fatih/vim-go'
 on_ft = 'go'
 hook_add = '''
@@ -124,6 +110,9 @@ hook_add = '''
   let g:go_fmt_experimental = 1
   let g:go_fmt_command = "goimports"
   let g:go_test_timeout= '15s'
+  " for LSP
+  let g:go_def_mapping_enabled = 0
+  let g:go_doc_keywordprg_enabled = 0
 '''
 
 [[plugins]]
@@ -167,3 +156,21 @@ hook_add = '''
 
   au MyAutoCmd VimEnter * nested colorscheme hybrid
 '''
+
+[[plugins]]
+repo = 'autozimu/LanguageClient-neovim'
+rev = 'next'
+build = 'bash install.sh'
+hook_add = '''
+  set hidden
+
+  let g:LanguageClient_serverCommands = {
+      \ 'go': ['golsp'],
+      \ 'ruby': ['solargraph', 'stdio'],
+      \ }
+
+  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
+'''
+if = "has('nvim')"

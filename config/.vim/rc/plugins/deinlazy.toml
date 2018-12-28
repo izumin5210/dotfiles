@@ -9,23 +9,6 @@ hook_source = '''
 '''
 
 [[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-  set hidden
-
-  let g:LanguageClient_serverCommands = {
-      \ 'go': ['golsp'],
-      \ }
-
-  nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
-'''
-if = "has('nvim')"
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = ['context_filetype.vim']
 build = ':UpdateRemotePlugins'

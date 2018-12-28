@@ -46,9 +46,6 @@ repo = 'tpope/vim-fugitive'
 repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-
-[[plugins]]
 repo = 'tpope/vim-surround'
 
 [[plugins]]
@@ -56,12 +53,6 @@ repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_smart_case = 1
   let g:clever_f_mark_char_color = 1
-'''
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
 '''
 
 [[plugins]]
@@ -102,29 +93,6 @@ on_ft = 'javascript'
 [[plugins]]
 repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
-
-[[plugins]]
-repo = 'mdempsky/gocode'
-rtp = 'vim'
-on_ft = 'go'
-
-[[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
-hook_add = '''
-  let g:go_highlight_operators = 1
-  let g:go_highlight_functions = 1
-  let g:go_highlight_methods = 1
-  let g:go_highlight_fields = 0
-  let g:go_highlight_types = 1
-  let g:go_highlight_extra_types = 1
-  let g:go_highlight_build_constraints = 1
-  let g:go_highlight_generate_tags = 1
-  let g:go_highlight_format_strings = 1
-  let g:go_fmt_experimental = 1
-  let g:go_fmt_command = "goimports"
-  let g:go_test_timeout= '15s'
-'''
 
 [[plugins]]
 repo = 'sebdah/vim-delve'

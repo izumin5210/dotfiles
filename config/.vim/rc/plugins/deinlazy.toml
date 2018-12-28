@@ -1,8 +1,4 @@
 [[plugins]]
-repo = 'Shougo/vimproc.vim'
-build = 'make'
-
-[[plugins]]
 repo = 'Shougo/denite.nvim'
 hook_add = '''
   nnoremap <silent> <Leader><Leader> :<C-u>Denite file_rec buffer<CR>
@@ -11,53 +7,3 @@ hook_add = '''
 hook_source = '''
   execute 'source' g:dein_plugin_rc_dir . '/denite.rc.vim'
 '''
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-depends = ['context_filetype.vim', 'nvim-yarp', 'vim-hug-neovim-rpc']
-on_event = 'InsertEnter'
-hook_source = '''
-  execute 'source' g:dein_plugin_rc_dir . '/deoplete.rc.vim'
-  let g:deoplete#enable_at_startup = 1
-'''
-
-[[plugins]]
-repo = 'roxma/nvim-yarp' # for deoplete.vim
-if = "!has('nvim')"
-
-[[plugins]]
-repo = 'roxma/vim-hug-neovim-rpc' # for deoplete.vim
-if = "!has('nvim')"
-
-[[plugins]]
-repo = 'zchee/deoplete-go'
-build = 'make'
-depends = ['deoplete.nvim']
-on_event = 'InsertEnter'
-on_ft = 'go'
-hook_source = '''
-  let g:deoplete#sources#go#gocode_binary = $GOBIN.'/gocode'
-  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-  let g:deoplete#sources#go#package_dot = 1
-'''
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-depends = ['neosnippet-snippets', 'context_filetype.vim']
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-hook_source = '''
-  imap <C-k> <Plug>(neosnippet_expand_or_jump)
-  smap <C-k> <Plug>(neosnippet_expand_or_jump)
-  xmap <C-k> <Plug>(neosnippet_expand_target)
-  let g:neosnippet#enable_snipmate_compatibility = 1
-  let g:neosnippet#enable_complete_done = 1
-  let g:neosnippet#expand_word_boundary = 1
-'''
-
-[[plugins]]
-repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'Quramy/tsuquyomi'
-on_ft = 'typescript'

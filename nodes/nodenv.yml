@@ -1,7 +1,7 @@
 nodenv:
-  global: 10.15.0
+  global: 10.14.2
   versions:
-  - 10.15.0
+  - 10.14.2
   - 8.11.3
   - 8.9.4
   default-packages:

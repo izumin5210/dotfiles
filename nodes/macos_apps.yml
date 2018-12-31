@@ -2,9 +2,8 @@ macos_apps:
   cask:
   - 1password
   - authy-desktop
-  - adobe-creative-cloud
+  - alacritty
   - alfred
-  - android-file-transfer
   - appcleaner
   - bettertouchtool
   - contexts
@@ -12,19 +11,16 @@ macos_apps:
   - day-o
   - dropbox
   - fantastical
-  - firefox
   - gitify
   - google-chrome
   - google-drive
   - google-japanese-ime
   - grammarly
   - gyazo
-  - insomnia
   - jetbrains-toolbox
-  - skype
+  - osxfuse # for telepresence
   - spotify
   - the-unarchiver
-  - vagrant
   - visual-studio-code-insiders
   - zeplin
 

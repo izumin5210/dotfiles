@@ -4,6 +4,11 @@ package 'go'
 gopath = ENV['HOME']
 gobin = "#{ENV['HOME']}/gobin"
 
+execute 'install dep' do
+  command "curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh"
+  not_if 'test $(which dep)'
+end
+
 define 'go_get', build: true do
   pkg = params[:name]
   execute "get #{pkg}" do
@@ -29,7 +34,6 @@ end
 
 # tools
 go_bin 'github.com/derekparker/delve/cmd/dlv'
-go_bin 'github.com/golang/dep/cmd/dep'
 go_bin 'github.com/motemen/gore'
 go_bin 'github.com/pwaller/goimports-update-ignore'
 go_bin 'github.com/rakyll/hey'
@@ -41,9 +45,6 @@ go_bin 'github.com/arl/gitstatus/cmd/gistatus'
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
-go_bin 'github.com/jstemmer/gotags'
-go_bin 'github.com/mdempsky/gocode'
-go_bin 'github.com/rogpeppe/godef'
 
 # liters: https://github.com/alecthomas/gometalinter#supported-linters
 go_bin 'gopkg.in/alecthomas/gometalinter.v2' do

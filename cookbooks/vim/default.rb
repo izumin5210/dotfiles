@@ -1,6 +1,4 @@
-package 'vim' do
-  options '--with-lua --with-python3' if node[:platform] == 'darwin'
-end
+package 'neovim'
 
 if node[:platform] == 'darwin'
   package 'macvim' do

@@ -1,25 +1,8 @@
-git anyenv_root do
-  repository 'https://github.com/riywo/anyenv'
-  revision '3cb8ad1b0dfd89ed5a53fcc9e076b371f6baabfc'
-end
-
-git "#{anyenv_root}/plugins/anyenv-update" do
-  repository 'https://github.com/znz/anyenv-update'
-  revision 'b6cefdb4aeaf930a9e576c515cd557f3acf3ab91'
-end
-
-define :install_env do
-  execute "Install #{params[:name]}" do
-    command with_anyenv("yes | anyenv install #{params[:name]}")
-    not_if "test -e #{anyenv_root}/envs/#{params[:name]}"
-  end
-end
-
 define :install_env_version, version: nil do
   cmd = "#{params[:name]} install #{params[:version]}"
   execute cmd do
-    command with_anyenv(cmd)
-    not_if with_anyenv("#{params[:name]} versions | grep '#{params[:version]}'")
+    command cmd
+    not_if "#{params[:name]} versions | grep '#{params[:version]}'"
   end
 end
 
@@ -45,7 +28,7 @@ define :env_global, version: nil do
   check_cmd = vers.map { |v| "#{params[:name]} global | grep '#{v}'" }.join(" && ")
 
   execute cmd do
-    command with_anyenv(cmd)
-    not_if with_anyenv(check_cmd)
+    command cmd
+    not_if check_cmd
   end
 end

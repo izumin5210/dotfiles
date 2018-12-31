@@ -1,9 +1,9 @@
 nodenv:
-  global: 8.11.3
+  global: 10.14.2
   versions:
+  - 10.14.2
   - 8.11.3
-  - 8.4.0
-  - 6.11.0
+  - 8.9.4
   default-packages:
   - fixpack
   - flow-bin

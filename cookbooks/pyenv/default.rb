@@ -1,8 +1,12 @@
 include_cookbook 'anyenv'
 
-pyenv_root = "#{anyenv_root}/envs/pyenv"
+pyenv_root = "#{ENV['HOME']}/.pyenv"
 
-install_env 'pyenv'
+package 'pyenv'
+
+directory "#{pyenv_root}/plugins" do
+  action :create
+end
 
 git "#{pyenv_root}/plugins/pyenv-default-packages" do
   repository 'https://github.com/jawshooah/pyenv-default-packages'

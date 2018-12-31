@@ -11,9 +11,6 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
 export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
 
-# anyenv
-export PATH="$HOME/.anyenv/bin:$PATH"
-
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
 

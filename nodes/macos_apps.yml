@@ -18,8 +18,10 @@ macos_apps:
   - grammarly
   - gyazo
   - jetbrains-toolbox
+  - notion
   - osxfuse # for telepresence
   - spotify
+  - station
   - the-unarchiver
   - visual-studio-code-insiders
   - zeplin

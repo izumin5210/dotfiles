@@ -1,8 +1,12 @@
 include_cookbook 'anyenv'
 
-nodenv_root = "#{anyenv_root}/envs/nodenv"
+nodenv_root = "#{ENV['HOME']}/.nodenv"
 
-install_env 'nodenv'
+package 'nodenv'
+
+directory "#{nodenv_root}/plugins" do
+  action :create
+end
 
 git "#{nodenv_root}/plugins/nodenv-default-packages" do
   repository 'https://github.com/nodenv/nodenv-default-packages'

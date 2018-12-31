@@ -6,9 +6,19 @@ source $HOME/.zsh/aliases.zsh
 # gvm
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
 
-# anyenv
-if [ -d ${HOME}/.anyenv ]; then
-  eval "$(anyenv init - --no-rehash)"
+# rbenv
+if [ -d "${HOME}/.rbenv" ]; then
+  eval "$(rbenv init - --no-hash)"
+fi
+
+# pyenv
+if [ -d "${HOME}/.pyenv" ]; then
+  eval "$(pyenv init - --no-hash)"
+fi
+
+# nodenv
+if [ -d "${HOME}/.nodenv" ]; then
+  eval "$(nodenv init - --no-hash)"
 fi
 
 # direnv

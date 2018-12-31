@@ -1,8 +1,11 @@
 include_cookbook 'anyenv'
+rbenv_root = "#{ENV["HOME"]}/.rbenv"
 
-rbenv_root = "#{anyenv_root}/envs/rbenv"
+package 'rbenv'
 
-install_env 'rbenv'
+directory "#{rbenv_root}/plugins" do
+  action :create
+end
 
 git "#{rbenv_root}/plugins/rbenv-default-gems" do
   repository 'https://github.com/sstephenson/rbenv-default-gems'

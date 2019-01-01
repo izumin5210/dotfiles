@@ -1,4 +1,5 @@
 alias ls='ls -G'
+alias vim='nvim'
 
 alias history='history -E'
 
@@ -15,3 +16,5 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
+
+alias ew='envchain wtd'

@@ -8,7 +8,7 @@ dotfile '.zsh'
 if node[:platform] == 'darwin'
   zsh_path = '/usr/local/bin/zsh'
 
-  execute "'echo '#{zsh_path}' >> /etc/shells" do
+  execute "echo '#{zsh_path}' >> /etc/shells" do
     not_if "cat /etc/shells | grep -q '#{zsh_path}'"
   end
 

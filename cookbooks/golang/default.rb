@@ -4,15 +4,19 @@ package 'go'
 gopath = ENV['HOME']
 gobin = "#{ENV['HOME']}/gobin"
 
+directory gobin do
+  action :create
+end
+
 execute 'install dep' do
-  command "curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh"
+  command "curl https://raw.githubusercontent.com/golang/dep/master/install.sh | GOBIN=#{gobin} sh"
   not_if 'test $(which dep)'
 end
 
 define 'go_get', build: true do
   pkg = params[:name]
   execute "get #{pkg}" do
-    command "GOPATH=#{gopath} go get -u #{params[:build] ? "" : "-d"} #{pkg}"
+    command "GOPATH=#{gopath} GOBIN=#{gobin} go get -u #{params[:build] ? "" : "-d"} #{pkg}"
     not_if "test -e #{gopath}/src/#{pkg}"
   end
 end
@@ -25,7 +29,7 @@ define 'go_bin', bin: nil do
       build false
     end
     execute "build #{pkg}" do
-      command "GOPATH=#{gopath} go build -o #{gobin}/#{bin} #{pkg}"
+      command "GOPATH=#{gopath} GOBIN=#{gobin} go build -o #{gobin}/#{bin} #{pkg}"
     end
   else
     go_get pkg
@@ -57,4 +61,4 @@ go_bin 'github.com/kisielk/errcheck'
 go_bin 'mvdan.cc/interfacer'
 go_bin 'github.com/mdempsky/unconvert'
 go_bin 'github.com/jgautheron/goconst/cmd/goconst'
-go_bin 'github.com/GoASTScanner/gas/cmd/gas'
+go_bin 'github.com/securego/gosec/cmd/gosec'

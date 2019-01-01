@@ -1,19 +1,17 @@
 macos_apps:
   cask:
   - 1password
-  - authy-desktop
+  - authy
   - alacritty
   - alfred
   - appcleaner
   - bettertouchtool
   - contexts
   - dash
-  - day-o
   - dropbox
   - fantastical
   - gitify
   - google-chrome
-  - google-drive
   - google-japanese-ime
   - grammarly
   - gyazo

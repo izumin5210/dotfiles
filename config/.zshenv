@@ -3,9 +3,6 @@ setopt no_global_rcs
 source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/aliases.zsh
 
-# gvm
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
 # rbenv
 if [ -d "${HOME}/.rbenv" ]; then
   eval "$(rbenv init - --no-hash)"

@@ -16,3 +16,5 @@ if [[ -x `which colordiff` ]]; then
 else
   alias diff='diff -u'
 fi
+
+alias ew='envchain wtd'

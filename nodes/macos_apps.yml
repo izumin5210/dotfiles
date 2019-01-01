@@ -1,7 +1,7 @@
 macos_apps:
   cask:
   - 1password
-  - authy-desktop
+  - authy
   - alacritty
   - alfred
   - appcleaner
@@ -13,7 +13,6 @@ macos_apps:
   - fantastical
   - gitify
   - google-chrome
-  - google-drive
   - google-japanese-ime
   - grammarly
   - gyazo

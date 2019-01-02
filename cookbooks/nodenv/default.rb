@@ -24,3 +24,13 @@ end
 env_global 'nodenv' do
   version node.dig(:nodenv, :global)
 end
+
+(node.dig(:nodenv, :versions) || []).each do |v|
+  (node.dig(:nodenv, :'default-packages') || []).each do |pkg|
+    npm = "NODENV_VERSION=#{v} nodenv exec npm"
+    execute "Install #{pkg} on Node.js v#{v}" do
+      command "#{npm} install -g #{pkg}"
+      not_if "#{npm} list -g #{pkg}"
+    end
+  end
+end

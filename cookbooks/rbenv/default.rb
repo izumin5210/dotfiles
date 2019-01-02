@@ -23,3 +23,13 @@ end
 env_global 'rbenv' do
   version node.dig(:rbenv, :global)
 end
+
+(node.dig(:rbenv, :versions) || []).each do |v|
+  (node.dig(:rbenv, :'default-gems') || []).each do |pkg|
+    gem = "RBENV_VERSION=#{v} rbenv exec gem"
+    execute "Install #{pkg} on Ruby v#{v}" do
+      command "#{gem} install #{pkg}"
+      not_if "#{gem} list -i -e #{pkg}"
+    end
+  end
+end

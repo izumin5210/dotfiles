@@ -17,6 +17,9 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_linters = {
 \   'go': ['golangci-lint'],
 \}
+let g:ale_type_map = {
+\    'golangci-lint': {'E': 'W'},
+\}
 
 let g:ale_go_golangci_lint_options = '--fast --tests --enable-all'
 let g:ale_go_golangci_lint_package = 1

@@ -18,7 +18,8 @@ let g:ale_linters = {
 \   'go': ['golangci-lint'],
 \}
 let g:ale_type_map = {
-\    'golangci-lint': {'E': 'W'},
+\   'golangci-lint': {'E': 'W'},
+\   'proto': ['prototool-lint'],
 \}
 
 let g:ale_go_golangci_lint_options = '--fast --tests --enable-all'

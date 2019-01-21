@@ -39,9 +39,3 @@ if = "!has('nvim')"
 
 [[plugins]]
 repo = 'Shougo/context_filetype.vim'
-
-[[plugins]]
-repo = 'w0rp/ale'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
-'''

@@ -174,3 +174,9 @@ hook_add = '''
   nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>
 '''
 if = "has('nvim')"
+
+[[plugins]]
+repo = 'w0rp/ale'
+hook_add = '''
+  execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
+'''

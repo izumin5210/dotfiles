@@ -49,16 +49,11 @@ go_bin 'github.com/arl/gitstatus/cmd/gitstatus'
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
+go_bin 'golang.org/x/tools/cmd/golsp'
 
-# liters: https://github.com/alecthomas/gometalinter#supported-linters
-go_bin 'gopkg.in/alecthomas/gometalinter.v2' do
-  bin "gometalinter"
+golangcilint_version = "v1.12.5"
+
+execute 'install golangci-lint' do
+  command "curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b #{gobin} #{golangcilint_version}"
+  not_if 'test $(whichi golangci-lint)'
 end
-go_bin 'golang.org/x/tools/cmd/gotype'
-go_bin 'github.com/fzipp/gocyclo'
-go_bin 'github.com/golang/lint/golint'
-go_bin 'github.com/kisielk/errcheck'
-go_bin 'mvdan.cc/interfacer'
-go_bin 'github.com/mdempsky/unconvert'
-go_bin 'github.com/jgautheron/goconst/cmd/goconst'
-go_bin 'github.com/securego/gosec/cmd/gosec'

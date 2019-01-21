@@ -2,8 +2,6 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
 let g:ale_lint_on_save = 1
 let g:ale_sign_column_always = 1
-let g:ale_set_loclist = 0
-let g:ale_set_quickfix = 1
 
 let g:ale_sign_error = '⤫'
 let g:ale_sign_warning = '⚠'
@@ -17,14 +15,11 @@ let g:airline#extensions#ale#enabled = 1
 " Golang
 " ================================================================
 let g:ale_linters = {
-\   'go': ['gometalinter'],
+\   'go': ['golangci-lint'],
+\}
+let g:ale_type_map = {
+\    'golangci-lint': {'E': 'W'},
 \}
 
-let g:ale_go_gometalinter_options = '
-\   --disable-all --tests
-\   --enable=vet
-\   --enable=gotype
-\   --enable=golint
-\   --enable=megacheck
-\   --vendor
-\ '
+let g:ale_go_golangci_lint_options = '--fast --tests --enable-all'
+let g:ale_go_golangci_lint_package = 1

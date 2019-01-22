@@ -159,6 +159,10 @@ colors:
     text: '0x000000'
     cursor: '0xffffff'
 
+  # If this is `true`, the cursor will be rendered as a hollow box when the
+  # window is not focused.
+  unfocused_hollow: true
+
   # Normal colors
   normal:
     black:   '0x35383b'
@@ -278,10 +282,6 @@ dynamic_title: true
 #   - Underline
 #   - Beam
 # cursor_style: Block
-
-# If this is `true`, the cursor will be rendered as a hollow box when the
-# window is not focused.
-unfocused_hollow_cursor: true
 
 # Live config reload (changes require restart)
 live_config_reload: true

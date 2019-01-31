@@ -35,5 +35,6 @@ package 'grapi'
 package 'kops'
 package 'kubernetes-cli'
 package 'stern'
+package 'kubectx'
 brew_tap 'datawire/blackbird' # for telepresence
 package 'telepresence'

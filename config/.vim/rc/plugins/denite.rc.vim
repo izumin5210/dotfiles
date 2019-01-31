@@ -11,21 +11,9 @@ call denite#custom#map(
     \   'noremap'
     \ )
 
-if isdirectory(".git")
-  call denite#custom#var('file_rec', 'command',
-      \   ['git', 'ls-files', '--cached', '--others', '--exclude-standard']
-      \ )
-  call denite#custom#var('grep', 'command', ['git', '--no-pager', 'grep'])
-  call denite#custom#var('grep', 'default_opts',
-      \   ['--ignore-case', '--cached', '--untracked', '--exclude-standard', '-nH']
-      \ )
-  call denite#custom#var('grep', 'recursive_opts', [])
-  call denite#custom#var('grep', 'pattern_opt', ['--extended-regexp'])
-  call denite#custom#var('grep', 'separator', [])
-  call denite#custom#var('grep', 'final_opts', [])
-else
-  call denite#custom#var('file_rec', 'command',
-      \   ['rg', '--follow', '--no-heading', '--hidden', '--glob', '!.git']
+if executable('rg')
+  call denite#custom#var('file/rec', 'command',
+      \   ['rg', '--files', '--hidden', '--follow', '--glob', '!.git']
       \ )
   call denite#custom#var('grep', 'command', ['rg'])
   call denite#custom#var('grep', 'default_opts',
@@ -35,4 +23,10 @@ else
   call denite#custom#var('grep', 'pattern_opt', ['--regexp'])
   call denite#custom#var('grep', 'separator', ['--'])
   call denite#custom#var('grep', 'final_opts', [])
+endif
+
+if isdirectory('.git')
+  call denite#custom#var('file/rec', 'command',
+    \   ['git', 'ls-files', '--cached', '--others', '--exclude-standard']
+    \ )
 endif

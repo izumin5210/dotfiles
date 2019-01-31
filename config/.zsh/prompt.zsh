@@ -6,9 +6,9 @@ _prompt_kube_info() {
 
   local -a INFO
   INFO+=( "%{$fg[grey]%}-%{$reset_color%}" )
-  INFO+=( "%{$fg_bold[grey]%}${(j::)CLUSTER}%{$reset_color%}" )
+  INFO+=( "%{$fg_bold[grey]%}${CLUSTER}%{$reset_color%}" )
   INFO+=( "%{$fg[grey]%}-%{$reset_color%}" )
-  INFO+=( "%{$fg_bold[grey]%}${(j::)NAMESPACE}%{$reset_color%}" )
+  INFO+=( "%{$fg_bold[grey]%}${NAMESPACE}%{$reset_color%}" )
   echo "${(j: :)INFO}"
 }
 

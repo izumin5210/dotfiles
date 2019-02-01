@@ -1,17 +1,5 @@
 autoload -Uz colors; colors
 
-_prompt_kube_info() {
-  local CLUSTER="$(kubectl config current-context)"
-  local NAMESPACE="$(kubectl config view --minify -o "jsonpath={..namespace}")"
-
-  local -a INFO
-  INFO+=( "%{$fg[grey]%}-%{$reset_color%}" )
-  INFO+=( "%{$fg_bold[grey]%}${CLUSTER}%{$reset_color%}" )
-  INFO+=( "%{$fg[grey]%}-%{$reset_color%}" )
-  INFO+=( "%{$fg_bold[grey]%}${NAMESPACE}%{$reset_color%}" )
-  echo "${(j: :)INFO}"
-}
-
 _prompt_git_info() {
   # ref: https://joshdick.net/2017/06/08/my_git_prompt_for_zsh_revisited.html
 
@@ -77,14 +65,13 @@ _update_prompt() {
     local cwd=$(pwd | sed -e "s,^$HOME,~,")
     local p_cwd
     local gitinfo=$(_prompt_git_info)
-    local kubeinfo=$(_prompt_kube_info)
 
     if git rev-parse 2> /dev/null; then
       local repo=$(git rev-parse --show-toplevel | sed -e "s,^$HOME,~," | sed -e "s,^~/src/\(github.com/\)\?,,")
       local path=$(git rev-parse --show-prefix | sed -e "s,/$,,")
-      p_cwd="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo} ${kubeinfo}"
+      p_cwd="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo} "
     else
-      p_cwd="%{$fg[blue]%}${cwd}%{$reset_color%} ${kubeinfo}"
+      p_cwd="%{$fg[blue]%}${cwd}%{$reset_color%} "
     fi
 
     local p_st="%(?.%{$fg[green]%}:).%{$fg[red]%}:()%{$reset_color%} %# "

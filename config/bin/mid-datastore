@@ -18,6 +18,12 @@ Available Commands:
      s, start
      stop
      rm
+     logs
+     env
+     config
+     auth
+     indexes, operations
+     cleanup-indexes, create-indexes, export, import
 EOF
 }
 
@@ -52,7 +58,7 @@ exec_logs() {
   docker logs -f $NAME
 }
 
-print_envs() {
+print_env() {
   docker exec -it $NAME \
     gcloud beta emulators datastore env-init --data-dir=/opt/data
 }
@@ -72,7 +78,7 @@ case "$COMMAND" in
   stop)      server_stop ;;
   rm)        server_rm ;;
   logs)      exec_logs ;;
-  env)       print_envs;;
+  env)       print_env;;
   --help)    usage;;
   config)
     docker exec -it $NAME gcloud config "$@"

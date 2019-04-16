@@ -49,7 +49,7 @@ server_create() {
     -e CLOUDSDK_CORE_PROJECT=mid-pubsub \
     -d \
     $IMAGE \
-    gcloud beta emulators pubsub start --data-dir=/opt/data
+    gcloud beta emulators pubsub start --data-dir=/opt/data --host-port=0.0.0.0:8085
 }
 
 exec_logs() {

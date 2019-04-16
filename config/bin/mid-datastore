@@ -51,7 +51,7 @@ server_create() {
     -e CLOUDSDK_CORE_PROJECT=mid-datastore \
     -d \
     $IMAGE \
-    gcloud beta emulators datastore start --data-dir=/opt/data
+    gcloud beta emulators datastore start --data-dir=/opt/data --host-port=0.0.0.0:8081
 }
 
 exec_logs() {

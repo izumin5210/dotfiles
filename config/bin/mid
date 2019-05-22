@@ -16,6 +16,7 @@ Available Midlewares:
     pg        (PostgreSQL)
     redis     (Redis)
     datastore (Google Cloud Datastore)
+    pubsub    (Google Cloud Pub/Sub)
 EOF
 }
 
@@ -28,7 +29,7 @@ if [ -z "$COMMAND" ]; then
 fi
 
 case $COMMAND in
-  pg|redis|datastore)
+  pg|redis|datastore|pubsub)
     mid-$COMMAND "$@"
     exit 0
   ;;

@@ -3,7 +3,7 @@
 set -eu
 set -o pipefail
 
-NAME=the-cloud-datastore
+NAME=the-cloud-pubsub
 IMAGE=google/cloud-sdk
 
 
@@ -12,7 +12,7 @@ IMAGE=google/cloud-sdk
 usage() {
   cat <<EOF
 Usage:
-    mid datastore [command]
+    mid pubsub [command]
 
 Available Commands:
      s, start
@@ -22,8 +22,6 @@ Available Commands:
      env
      config
      auth
-     indexes, operations
-     cleanup-indexes, create-indexes, export, import
 EOF
 }
 
@@ -45,13 +43,13 @@ server_rm() {
 server_create() {
   echo "==> Creating server"
   docker run \
-    -p 8011:8011 \
+    -p 8085:8085 \
     --name $NAME \
-    -v ~/docker/datastore:/opt/data \
-    -e CLOUDSDK_CORE_PROJECT=mid-datastore \
+    -v ~/docker/pubsub:/opt/data \
+    -e CLOUDSDK_CORE_PROJECT=mid-pubsub \
     -d \
     $IMAGE \
-    gcloud beta emulators datastore start --data-dir=/opt/data --host-port=0.0.0.0:8081
+    gcloud beta emulators pubsub start --data-dir=/opt/data --host-port=0.0.0.0:8085
 }
 
 exec_logs() {
@@ -60,11 +58,11 @@ exec_logs() {
 
 print_env() {
   docker exec -it $NAME \
-    gcloud beta emulators datastore env-init --data-dir=/opt/data
+    gcloud beta emulators pubsub env-init --data-dir=/opt/data
 }
 
 exec_command() {
-  docker exec -it $NAME gcloud datastore "$@"
+  docker exec -it $NAME gcloud pubsub "$@"
 }
 
 
@@ -74,23 +72,17 @@ COMMAND="${1:-}"
 shift || true
 
 case "$COMMAND" in
-  s|start)   server_start ;;
-  stop)      server_stop ;;
-  rm)        server_rm ;;
-  logs)      exec_logs ;;
-  env)       print_env;;
-  --help)    usage;;
+  s|start) server_start ;;
+  stop)    server_stop ;;
+  rm)      server_rm ;;
+  logs)    exec_logs ;;
+  env)     print_env;;
+  --help)  usage;;
   config)
     docker exec -it $NAME gcloud config "$@"
     ;;
   auth)
     docker exec -it $NAME gcloud auth "$@"
-    ;;
-  indexes|operations)
-    exec_command $COMMAND "$@"
-    ;;
-  cleanup-indexes|create-indexes|export|import)
-    exec_command $COMMAND "$@"
     ;;
   *)
     printutil error "Unknown command: $COMMAND"

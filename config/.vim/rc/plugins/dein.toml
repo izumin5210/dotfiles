@@ -111,6 +111,7 @@ hook_add = '''
   let g:go_fmt_command = "goimports"
   let g:go_test_timeout= '15s'
   " for LSP
+  let g:go_fmt_autosave = 1
   let g:go_def_mapping_enabled = 0
   let g:go_doc_keywordprg_enabled = 0
 '''
@@ -165,10 +166,13 @@ hook_add = '''
   set hidden
 
   let g:LanguageClient_serverCommands = {
-      \ 'go': ['golsp'],
+      \ 'go': ['gopls', '-logfile=auto'],
       \ 'ruby': ['solargraph', 'stdio'],
       \ }
 
+  autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
+
+  let g:LanguageClient_loadSettings = 1
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
   nnoremap <silent> <F2> :call LanguageClient#textDocument_rename()<CR>

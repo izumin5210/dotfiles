@@ -1,5 +1,5 @@
 if node[:platform] == 'darwin'
-  brew_tap 'caskroom/fonts'
+  brew_tap 'homebrew/cask-fonts'
 
   cask 'font-fontawesome'
   cask 'font-inconsolata'

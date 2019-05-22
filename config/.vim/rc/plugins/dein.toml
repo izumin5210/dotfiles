@@ -165,7 +165,7 @@ hook_add = '''
   set hidden
 
   let g:LanguageClient_serverCommands = {
-      \ 'go': ['golsp'],
+      \ 'go': ['gopls', '-logfile=auto'],
       \ 'ruby': ['solargraph', 'stdio'],
       \ }
 

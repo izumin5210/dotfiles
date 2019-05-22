@@ -49,7 +49,7 @@ go_bin 'github.com/arl/gitstatus/cmd/gitstatus'
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
-go_bin 'golang.org/x/tools/cmd/golsp'
+go_bin 'golang.org/x/tools/cmd/gopls'
 
 golangcilint_version = "v1.12.5"
 

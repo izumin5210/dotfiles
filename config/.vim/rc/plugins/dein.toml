@@ -52,7 +52,61 @@ repo = 'tpope/vim-surround'
 repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_smart_case = 1
-  let g:clever_f_mark_char_color = 1
+'''
+
+[[plugins]]
+repo = 'haya14busa/incsearch.vim'
+
+[[plugins]]
+repo = 'haya14busa/incsearch-fuzzy.vim'
+
+[[plugins]]
+repo = 'haya14busa/incsearch-easymotion.vim'
+
+[[plugins]]
+repo = 'easymotion/vim-easymotion'
+hook_add = '''
+  let g:EasyMotion_do_mapping = 0 "Disable default mappings
+  let g:EasyMotion_smartcase = 1
+  nmap s <Plug>(easymotion-s2)
+
+  "  Overwin motions
+  "---------------------------
+  map  / <Plug>(easymotion-sn)
+  omap / <Plug>(easymotion-tn)
+  map  n <Plug>(easymotion-next)
+  map  N <Plug>(easymotion-prev)
+
+  "  Bonus fuzzy-search with EasyMotion
+  "---------------------------
+  function! s:config_easyfuzzymotion(...) abort
+    return extend(copy({
+    \   'converters': [incsearch#config#fuzzyword#converter()],
+    \   'modules': [incsearch#config#easymotion#module({'overwin': 1})],
+    \   'keymap': {"\<CR>": '<Over>(easymotion)'},
+    \   'is_expr': 0,
+    \   'is_stay': 1
+    \ }), get(a:, 1, {}))
+  endfunction
+
+  noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+
+  "  n-character search motion
+  "---------------------------
+  " <Leader>f{char} to move to {char}
+  map  <Leader>f <Plug>(easymotion-bd-f)
+  nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+  " s{char}{char} to move to {char}{char}
+  nmap s <Plug>(easymotion-overwin-f2)
+
+  " Move to line
+  map <Leader>L <Plug>(easymotion-bd-jk)
+  nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+  " Move to word
+  map  <Leader>w <Plug>(easymotion-bd-w)
+  nmap <Leader>w <Plug>(easymotion-overwin-w)
 '''
 
 [[plugins]]

@@ -52,7 +52,6 @@ repo = 'tpope/vim-surround'
 repo = 'rhysd/clever-f.vim'
 hook_add = '''
   let g:clever_f_smart_case = 1
-  let g:clever_f_mark_char_color = 1
 '''
 
 [[plugins]]

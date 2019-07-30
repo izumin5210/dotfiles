@@ -89,7 +89,8 @@ hook_add = '''
     \ }), get(a:, 1, {}))
   endfunction
 
-  noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+  " Colide with NERDCommenter
+  " noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
   "  n-character search motion
   "---------------------------

@@ -125,8 +125,9 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`
   use_thin_strokes: true
 
-# Display the time it takes to redraw each frame.
-render_timer: false
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
 
 # Use custom cursor colors. If `true`, the `colors.cursor.foreground` and
 # `colors.cursor.background` colors will be used to display the cursor.

@@ -1,13 +1,14 @@
 rbenv:
-  global: 2.6.0
+  global: 2.6.3
   versions:
-  - 2.4.2
-  - 2.4.3
   - 2.5.1
   - 2.6.0
+  - 2.6.3
   default-gems:
   - bundler
   - pry
   - pry-doc
   - pry-coolline
   - solargraph
+  - travis
+  - keycutter

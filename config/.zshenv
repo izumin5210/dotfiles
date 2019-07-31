@@ -20,3 +20,6 @@ fi
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# rust
+source $HOME/.cargo/env

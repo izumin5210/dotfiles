@@ -89,7 +89,8 @@ hook_add = '''
     \ }), get(a:, 1, {}))
   endfunction
 
-  noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
+  " Colide with NERDCommenter
+  " noremap <silent><expr> <Space>/ incsearch#go(<SID>config_easyfuzzymotion())
 
   "  n-character search motion
   "---------------------------
@@ -179,6 +180,12 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = "rust-lang/rust.vim"
+hook_add = '''
+  let g:rustfmt_autosave = 1
+'''
+
+[[plugins]]
 repo = 'Shougo/vimshell.vim' # for vim/delve
 if = "!has('nvim')"
 
@@ -222,10 +229,12 @@ hook_add = '''
   let g:LanguageClient_serverCommands = {
       \ 'go': ['gopls', '-logfile=auto'],
       \ 'ruby': ['solargraph', 'stdio'],
+      \ 'rust': ['rustup', 'run', 'nightly-2018-12-27', 'rls'],
       \ }
 
   autocmd BufWritePre *.go :call LanguageClient#textDocument_formatting_sync()
 
+  let g:LanguageClient_autoStart = 1
   let g:LanguageClient_loadSettings = 1
   nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
@@ -243,3 +252,12 @@ hook_add = '''
 repo = 'uber/prototool'
 rtp = 'vim/prototool'
 on_ft = 'proto'
+
+[[plugins]]
+repo = "diepm/vim-rest-console"
+hook_add = '''
+  let g:vrc_auto_format_response_enabled = 1
+  let g:vrc_auto_format_response_patterns = {
+  \ 'json': 'jq "."',
+  \}
+'''

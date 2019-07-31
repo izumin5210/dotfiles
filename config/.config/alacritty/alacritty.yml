@@ -100,7 +100,7 @@ font:
     # style: Italic
 
   # Point size
-  size: 13.0
+  size: 14.0
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -125,8 +125,9 @@ font:
   # it is recommended to set `use_thin_strokes` to `false`
   use_thin_strokes: true
 
-# Display the time it takes to redraw each frame.
-render_timer: false
+debug:
+  # Display the time it takes to redraw each frame.
+  render_timer: false
 
 # Use custom cursor colors. If `true`, the `colors.cursor.foreground` and
 # `colors.cursor.background` colors will be used to display the cursor.

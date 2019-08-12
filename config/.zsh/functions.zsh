@@ -56,19 +56,6 @@ _git_branch_select() {
 }
 
 
-# ==== replace_multiple_dots  ================================================================
-
-replace_multiple_dots() {
-  local dots=$LBUFFER[-2,-1]
-  if [ "$dots" = ".." ]; then
-    LBUFFER=$LBUFFER[1,-3]'../.'
-  fi
-  zle self-insert
-}
-
-_register_keycommand '.' replace_multiple_dots
-
-
 # ==== peco project ================================================================
 peco_ghq_list() {
   ghq list -p \
@@ -83,36 +70,6 @@ peco_ghq_list() {
 }
 
 _register_keycommand '^]' peco_ghq_list
-
-
-# ==== tmux attach ================================================================
-tmux_attach() {
-  tmux list-sessions \
-    | _peco_select \
-    | awk -F: '{ print $1 }' \
-    | {
-        local session=$(cat)
-        if [ -n "$session" ]; then
-          title $session
-          _buffer_replace <<< "tmux attach -t $session"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^@' tmux_attach
-
-
-# ==== git status ===============================================================
-git_status() {
-  if _is_git_repo; then
-    echo git status -sb
-    git status -sb
-  fi
-  zle reset-prompt
-}
-
-_register_keycommand '^gs' git_status
 
 
 # ==== git patch ================================================================
@@ -186,21 +143,6 @@ peco_history() {
 _register_keycommand '^r' peco_history
 
 
-# ==== pvim ===============================================================
-pvim() {
-  local target
-  _is_git_repo \
-    && git grep -n $1 \
-    | _peco_select \
-    | awk -F: '{ print $1 " +" $2 }' \
-    | sed -e 's/\+$//' \
-    | { target="$(cat)" }
-  if [ -n "$target" ]; then
-    vim $target
-  fi
-}
-
-
 # ==== fixup with peco ===============================================================
 fixup_with_peco() {
   git log \
@@ -221,37 +163,3 @@ fixup_with_peco() {
 }
 
 _register_keycommand '^gf' fixup_with_peco
-
-
-# ==== gibo_with_peco ===============================================================
-gibo_with_peco() {
-  gibo --list \
-    | sed "/=/d" \
-    | tr "\t", "\n" \
-    | grep -v "^\s*$" \
-    | sort \
-    | _peco_select \
-    | xargs gibo \
-    >> .gitignore
-}
-
-_register_keycommand '^gi' gibo_with_peco
-
-
-# ==== conda activate ===============================================================
-conda_activate() {
-  conda info -e \
-    | tail -n +3 \
-    | _peco_select \
-    | {
-        local row=$(cat)
-        local targetpath=$(echo $row | awk '{ print $NF }')
-        local targetname=$(echo $row | awk '{ print $1 }')
-        if [ -n "$targetpath" ] && [ -n "$targetname" ]; then
-          _buffer_replace <<< "source $targetpath/bin/activate $targetname"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^ve' conda_activate

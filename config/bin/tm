@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+#
+
+set -euo pipefail
+
+changeSession() {
+  local change
+  [[ -n "${TMUX:-""}" ]] && change="switch-client" || change="attach-session"
+  tmux $change -t "$1"
+}
+
+createSessionIfNeeded() {
+  local name=$1
+  [[ -n "$2" ]] && dir=$2 || dir=$(pwd)
+  tmux list-sessions -F "#{session_name}" \
+    | grep -q -E "^${name}$" \
+    || tmux new-session -d -c "${dir}" -s "${name}"
+}
+
+selectRepo() {
+  echo "$(ghq root)/$(ghq list | fzf)"
+}
+
+main() {
+  if [ $# -eq 1 ]; then
+    createSessionIfNeeded $1
+    changeSession $1
+    exit
+  fi
+
+  local repo="$(selectRepo)"
+  local session="$(echo "$repo" | awk -F/ '{ print $NF }')"
+
+  createSessionIfNeeded $session $repo
+  changeSession $session
+}
+
+main

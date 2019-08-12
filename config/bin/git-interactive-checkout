@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+#
+
+set -euo pipefail
+
+listBranches() {
+  git --no-pager for-each-ref \
+    --format="%1B[0;34;1mbranch%09%1B[m%(refname:lstrip=2)" \
+    refs/heads
+}
+
+listRemoteBranches() {
+  git --no-pager for-each-ref \
+    --format="%1B[0;36;1mremote%09%1B[m%(refname:lstrip=1)" \
+    refs/remotes
+}
+
+listTags() {
+  git --no-pager for-each-ref \
+    --format="%1B[0;35;1mtags%09%1B[m%(refname:lstrip=2)" \
+    refs/tags
+}
+
+listTargets() {
+  listBranches
+  listRemoteBranches
+  listTags
+}
+
+listTargets \
+  | fzf --no-hscroll --no-multi -n 2 --ansi \
+  | awk '{$1="";print $0}' \
+  | sed "s#remotes/[^/]*/##" \
+  | {
+      git checkout $(cat)
+    }
+

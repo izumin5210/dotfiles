@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -euo pipefail
-
-session=$(tmux list-sessions | peco | awk -F: '{ print $1 }')
-if [ -n "$session" ]; then
-  title $session
-  tmux attach -t $session
-fi

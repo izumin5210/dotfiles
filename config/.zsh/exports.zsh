@@ -37,3 +37,6 @@ export PATH=$POSTGRESAPP_ROOT/bin:$PATH
 
 # Tools in wantedly
 export PATH=$HOME/.wantedly/bin:$PATH
+
+# fzf
+export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'

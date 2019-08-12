@@ -23,3 +23,5 @@ eval "$(direnv hook zsh)"
 
 # rust
 source $HOME/.cargo/env
+
+source $HOME/.zsh/fzf.zsh

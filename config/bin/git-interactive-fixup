@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+
+set -euo pipefail
+
+git log \
+  --oneline \
+  --no-merges \
+  --color \
+  --pretty=format:"%C(Yellow)%h%Creset - %s %C(green)<%cr>%Creset %Cblue(%an)%Creset" \
+  | fzf --ansi \
+  | awk '{ print $1 }' \
+  | {
+      git commit --fixup $(cat)
+    }

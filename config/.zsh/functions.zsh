@@ -15,151 +15,46 @@ _buffer_replace() {
   CURSOR=$#BUFFER
 }
 
-_peco_select() {
-  local tx="$(cat)"
-  local query="$1"
-
-  if [ "$tx" = '' ]; then
-    tx=' '
-    query='(nothing)'
-  fi
-
-  peco --query "$query" <<< "$tx"
+#  Move to repository
+#--------------------------------
+_ghq_list_fzf() {
+  _buffer_replace <<< "$(echo $(ghq root)/$(ghq list | fzf))"
+  zle accept-line
+  zle fzf-redraw-prompt
 }
 
-_reverse() {
-  if which tac > /dev/null; then
-    tac <<< $(cat)
-  else
-    tail -r <<< $(cat)
-  fi
+_register_keycommand '^]' _ghq_list_fzf
+
+_tmux_session() {
+  _buffer_replace <<< "tm"
+  zle accept-line
+  zle reset-prompt
 }
 
-_is_git_repo() {
-  git rev-parse --is-inside-work-tree > /dev/null 2>&1
+_register_keycommand '^tm' _tmux_session
+
+#  git interactive operations
+#--------------------------------
+_git_interactive_add() {
+  _buffer_replace <<< "git interactive-add"
+  zle accept-line
+  zle reset-prompt
 }
 
-_git_status_select() {
-  _is_git_repo \
-    && git status --short \
-    | _peco_select \
-    | cut -c 4- \
-    | tr '\n' ' '
+_register_keycommand '^ga' _git_interactive_add
+
+_git_interactive_checkout() {
+  _buffer_replace <<< "git interactive-checkout"
+  zle accept-line
+  zle fzf-redraw-prompt
 }
 
-_git_branch_select() {
-  _is_git_repo \
-    && git branch \
-    | _peco_select \
-    | cut -c 3- \
-    | tr '\n' ' '
+_register_keycommand '^gc' _git_interactive_checkout
+
+_git_interactive_fixup() {
+  _buffer_replace <<< "git interactive-fixup"
+  zle accept-line
+  zle fzf-redraw-prompt
 }
 
-
-# ==== peco project ================================================================
-peco_ghq_list() {
-  ghq list -p \
-    | _peco_select \
-    | {
-        local repo=$(cat)
-        if [ -n "$repo" ]; then
-          _buffer_replace <<< "cd $repo"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^]' peco_ghq_list
-
-
-# ==== git patch ================================================================
-git_patch() {
-  _git_status_select \
-    | {
-        local target="$(cat)"
-        if [ -n "$target" ]; then
-          _buffer_replace <<< "git add -p $target"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^gp' git_patch
-
-
-# ==== git add ================================================================
-git_add() {
-  _git_status_select \
-    | {
-        local target="$(cat)"
-        if [ -n "$target" ]; then
-          _buffer_replace <<< "git add $target"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^ga' git_add
-
-
-# ==== git reset ================================================================
-git_reset() {
-  _git_status_select \
-    | {
-        local target="$(cat)"
-        if [ -n "$target" ]; then
-          _buffer_replace <<< "git reset HEAD --quiet $target"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^gr' git_reset
-
-
-# ==== git reset ================================================================
-git_checkout() {
-  _git_branch_select \
-    | {
-        local target="$(cat)"
-        if [ -n "$target" ]; then
-          _buffer_replace <<< "git checkout $target"
-          zle accept-line
-        fi
-      }
-}
-
-_register_keycommand '^gc' git_checkout
-
-
-# ==== peco history ===============================================================
-peco_history() {
-  \history -n 1 \
-    | _reverse \
-    | _peco_select "$LBUFFER" \
-    | _buffer_replace
-}
-
-_register_keycommand '^r' peco_history
-
-
-# ==== fixup with peco ===============================================================
-fixup_with_peco() {
-  git log \
-    --oneline \
-    --no-merges \
-    --no-color \
-    --date=short \
-    --pretty="format:%h %ad %an%x09%s %d" \
-    | _peco_select \
-    | awk '{ print $1 }' \
-    | {
-      local target="$(cat)"
-      if [ -n "$target" ]; then
-        _buffer_replace <<< "git commit --fixup $target"
-        zle accept-line
-      fi
-    }
-}
-
-_register_keycommand '^gf' fixup_with_peco
+_register_keycommand '^gf' _git_interactive_fixup

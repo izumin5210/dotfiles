@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-if [ $# -eq 1 ]; then
-    vim `git status --porcelain | awk '{ print $2 }' | head -n $1 | tail -n 1`
-else
-    exit 1
-fi

@@ -199,6 +199,10 @@ hook_add = '''
 '''
 
 [[plugins]]
+repo = "joker1007/vim-ruby-heredoc-syntax"
+on_ft = 'ruby'
+
+[[plugins]]
 repo = 'junegunn/fzf'
 build = './install --all'
 merged = 0

@@ -3,6 +3,7 @@ bindkey -e
 autoload -Uz add-zsh-hook
 source $HOME/.zsh/prompt.zsh
 source $HOME/.zsh/functions.zsh
+source $HOME/.zsh/fzf.zsh
 
 
 # ================================================================

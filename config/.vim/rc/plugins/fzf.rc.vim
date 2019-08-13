@@ -1,6 +1,3 @@
-nnoremap <silent> <Leader><Leader> :<C-u>Files<CR>
-nnoremap <silent> <Leader>g :<C-u>Rg<CR>
-
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -44,4 +41,3 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
-

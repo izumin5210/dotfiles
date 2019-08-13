@@ -206,6 +206,12 @@ merged = 0
 [[plugins]]
 repo = 'junegunn/fzf.vim'
 depends = ['fzf']
-hook_source = '''
+hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/fzf.rc.vim'
+  if system("git rev-parse --is-inside-work-tree 2> /dev/null ; echo $?") == 0
+    nnoremap <silent> <Leader><Leader> :<C-u>GFiles<CR>
+  else
+    nnoremap <silent> <Leader><Leader> :<C-u>Files<CR>
+  endif
+  nnoremap <silent> <Leader>g :<C-u>Rg<CR>
 '''

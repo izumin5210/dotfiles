@@ -261,3 +261,15 @@ hook_add = '''
   \ 'json': 'jq "."',
   \}
 '''
+
+[[plugins]]
+repo = 'junegunn/fzf'
+build = './install --all'
+merged = 0
+
+[[plugins]]
+repo = 'junegunn/fzf.vim'
+depends = ['fzf']
+hook_source = '''
+  execute 'source' g:dein_plugin_rc_dir . '/fzf.rc.vim'
+'''

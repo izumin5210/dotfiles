@@ -1,14 +1,4 @@
 [[plugins]]
-repo = 'Shougo/denite.nvim'
-hook_add = '''
-  nnoremap <silent> <Leader><Leader> :<C-u>Denite file/rec buffer<CR>
-  nnoremap <silent> <Leader>g :<C-u>Denite grep<CR>
-'''
-hook_source = '''
-  execute 'source' g:dein_plugin_rc_dir . '/denite.rc.vim'
-'''
-
-[[plugins]]
 repo = 'Shougo/deoplete.nvim'
 depends = ['context_filetype.vim']
 build = ':UpdateRemotePlugins'

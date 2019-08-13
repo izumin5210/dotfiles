@@ -22,15 +22,6 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'scrooloose/nerdtree'
-hook_add = '''
-  nnoremap <silent> <leader>e :NERDTreeToggle<CR>
-'''
-
-[[plugins]]
-repo = 'Xuyuanp/nerdtree-git-plugin'
-
-[[plugins]]
 repo = 'vim-airline/vim-airline'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/airline.rc.vim'

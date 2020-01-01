@@ -15,9 +15,9 @@ let g:fzf_colors =
 
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color always --colors path:fg:0xb2,0x94,0xbb --colors line:fg:0x6c,0x7a,0x80 --colors column:fg:0x6c,0x7a,0x80 --smart-case --hidden --glob "!/.git" '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview({'options': '--color dark,hl:#8abeb7,hl+:#8abeb7,prompt:#8abeb7,pointer:#8abeb7 --delimiter : --nth 4..'}, 'up:60%')
-  \           : fzf#vim#with_preview({'options': '--color dark,hl:#8abeb7,hl+:#8abeb7,prompt:#8abeb7,pointer:#8abeb7 --delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
+  \   'rg --column --line-number --no-heading --color always --colors path:fg:0x4,0xbe,0x82 --colors line:fg:0x6b,0x70,0x89 --colors column:fg:0x6b,0x70,0x89 --smart-case --hidden --glob "!/.git" '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'up:60%')
+  \           : fzf#vim#with_preview({'options': '--delimiter : --nth 4..'}, 'right:50%:hidden', '?'),
   \   <bang>0)
 
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }

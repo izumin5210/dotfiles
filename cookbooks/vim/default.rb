@@ -13,6 +13,7 @@ end
 dotfile '.vimrc'
 dotfile '.vim'
 dotfile '.config/nvim'
+dotfile '.ideavimrc'
 
 plugins_dir = "#{ENV['HOME']}/.cache/dein/repos"
 

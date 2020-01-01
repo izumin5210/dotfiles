@@ -4,7 +4,7 @@ set -eu
 set -o pipefail
 
 NAME=the-redis
-IMAGE=redis:3.0.7-alpine
+IMAGE=redis:5-alpine
 
 
 #  Commands
@@ -47,8 +47,12 @@ server_create() {
     $IMAGE
 }
 
+exec_command() {
+  docker exec -it $NAME "$@"
+}
+
 exec_cli() {
-  docker exec -it $NAME redis-cli
+  exec_command redis-cli "$@"
 }
 
 exec_logs() {
@@ -62,12 +66,12 @@ COMMAND="${1:-}"
 shift || true
 
 case "$COMMAND" in
-  s|start)   server_start ;;
-  stop)      server_stop ;;
-  rm)        server_rm ;;
-  c|console) exec_cli ;;
-  logs)      exec_logs ;;
-  --help)    usage;;
+  s|start)       server_start ;;
+  stop)          server_stop ;;
+  rm)            server_rm ;;
+  c|console|cli) exec_cli "$@" ;;
+  logs)          exec_logs ;;
+  --help)        usage;;
   *)
     printutil error "Unknown command: $COMMAND"
     usage

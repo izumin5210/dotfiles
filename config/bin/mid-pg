@@ -68,12 +68,21 @@ server_create() {
     $IMAGE
 }
 
+exec_command() {
+  docker exec -it $NAME "$@"
+}
+
 exec_psql() {
-  docker exec -it $NAME psql --username=$USER
+  # exec_command psql --username=$USER "$@"
+  exec_command psql "$@"
 }
 
 exec_createdb() {
-  docker exec -it $NAME createdb --username=$USER "$1"
+  exec_command createdb --username=$USER "$@"
+}
+
+exec_dropdb() {
+  exec_command dropdb --username=$USER "$@"
 }
 
 exec_logs() {
@@ -99,14 +108,15 @@ COMMAND="${1:-}"
 shift || true
 
 case "$COMMAND" in
-  s|start)   server_start ;;
-  stop)      server_stop ;;
-  rm)        server_remove ;;
-  c|console) exec_psql ;;
-  createdb)  exec_createdb "$1" ;;
-  status)    exec_status ;;
-  logs)      exec_logs ;;
-  --help)    usage;;
+  s|start)        server_start ;;
+  stop)           server_stop ;;
+  rm)             server_remove ;;
+  c|console|psql) exec_psql "$@" ;;
+  createdb)       exec_createdb "$@" ;;
+  dropdb)         exec_dropdb "$@" ;;
+  status)         exec_status ;;
+  logs)           exec_logs ;;
+  --help)         usage;;
   *)
     printutil error "Unknown command: $COMMAND"
     usage

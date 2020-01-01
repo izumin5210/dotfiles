@@ -201,6 +201,13 @@ hook_add = '''
 [[plugins]]
 repo = "joker1007/vim-ruby-heredoc-syntax"
 on_ft = 'ruby'
+hook_add = '''
+  let g:ruby_heredoc_syntax_filetypes = {
+  \ "ruby" : {
+  \   "start" : "RUBY",
+  \},
+  \}
+'''
 
 [[plugins]]
 repo = 'junegunn/fzf'

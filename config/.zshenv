@@ -18,6 +18,11 @@ if [ -d "${HOME}/.nodenv" ]; then
   eval "$(nodenv init - --no-hash)"
 fi
 
+# jenv
+if [ -d "${HOME}/.jenv" ]; then
+  eval "$(jenv init -)"
+fi
+
 # direnv
 eval "$(direnv hook zsh)"
 

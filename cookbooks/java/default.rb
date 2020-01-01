@@ -1,1 +1,5 @@
-cask 'java' if node[:platform] == 'darwin'
+package 'jenv'
+
+if node[:platform] == 'darwin'
+  cask 'java'
+end

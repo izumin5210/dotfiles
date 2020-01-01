@@ -120,17 +120,16 @@ on_ft = 'toml'
 repo = 'direnv/direnv.vim'
 
 [[plugins]]
-repo = 'w0ng/vim-hybrid' # supports terminal colors for VimR
+repo = 'cocopon/iceberg.vim'
 hook_add = '''
-  set t_Co=256
-  let g:hybrid_custom_term_colors = 1
-  let g:hybrid_reduced_contrast = 1
-  set background=dark
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-
-  au MyAutoCmd VimEnter * nested colorscheme hybrid
+  au VimEnter * nested colorscheme iceberg
+  augroup TransparentBG
+    au Colorscheme * highlight Normal ctermbg=none
+    au Colorscheme * highlight NonText ctermbg=none
+    au Colorscheme * highlight LineNr ctermbg=none
+    au Colorscheme * highlight Folded ctermbg=none
+    au Colorscheme * highlight EndOfBuffer ctermbg=none
+  augroup END
 '''
 
 [[plugins]]

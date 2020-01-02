@@ -85,6 +85,28 @@ repo = 'leafgarland/typescript-vim'
 on_ft = 'typescript'
 
 [[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+hook_add = '''
+  let g:go_highlight_operators = 1
+  let g:go_highlight_functions = 1
+  let g:go_highlight_methods = 1
+  let g:go_highlight_fields = 0
+  let g:go_highlight_types = 1
+  let g:go_highlight_extra_types = 1
+  let g:go_highlight_build_constraints = 1
+  let g:go_highlight_generate_tags = 1
+  let g:go_highlight_format_strings = 1
+  let g:go_fmt_experimental = 1
+  let g:go_fmt_command = "goimports"
+  let g:go_test_timeout= '15s'
+  " for LSP
+  let g:go_fmt_autosave = 1
+  let g:go_def_mapping_enabled = 0
+  let g:go_doc_keywordprg_enabled = 0
+'''
+
+[[plugins]]
 repo = 'sebdah/vim-delve'
 on_ft = 'go'
 hook_add = '''
@@ -169,8 +191,6 @@ hook_source = '''
   let g:lsp_diagnostics_enabled = 1
   let g:lsp_diagnostics_echo_cursor = 1
   let g:lsp_text_edit_enabled = 1
-
-  autocmd BufWritePre * LspDocumentFormatSync
 '''
 depends = ['async.vim']
 

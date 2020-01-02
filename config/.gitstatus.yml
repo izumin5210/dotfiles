@@ -13,7 +13,7 @@ tmux:
   styles:
     state: '#[fg=red,bold]'
     branch: '#[fg=white]'
-    remote: '#[fg=cyan]'
+    remote: '#[fg=white]'
     staged: '#[fg=green]'
     conflict: '#[fg=magenta]'
     modified: '#[fg=yellow]'

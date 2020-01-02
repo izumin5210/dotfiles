@@ -144,13 +144,15 @@ repo = 'direnv/direnv.vim'
 [[plugins]]
 repo = 'cocopon/iceberg.vim'
 hook_add = '''
-  au VimEnter * nested colorscheme iceberg
-  augroup TransparentBG
-    au Colorscheme * highlight Normal ctermbg=none
-    au Colorscheme * highlight NonText ctermbg=none
-    au Colorscheme * highlight LineNr ctermbg=none
-    au Colorscheme * highlight Folded ctermbg=none
-    au Colorscheme * highlight EndOfBuffer ctermbg=none
+  augroup MyAutoCmd
+    autocmd VimEnter * nested colorscheme iceberg
+    if !has("gui_running")
+      autocmd Colorscheme * highlight Normal ctermbg=none
+      autocmd Colorscheme * highlight NonText ctermbg=none
+      autocmd Colorscheme * highlight LineNr ctermbg=none
+      autocmd Colorscheme * highlight Folded ctermbg=none
+      autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+    endif
   augroup END
 '''
 

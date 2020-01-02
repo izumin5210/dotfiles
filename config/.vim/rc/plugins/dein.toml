@@ -198,6 +198,19 @@ depends = ['async.vim']
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+hook_source = '''
+  let g:lsp_settings = {
+  \  'gopls': {'workspace_config': {
+  \     'staticcheck': v:true,
+  \     'completeUnimported': v:true,
+  \     'caseSensitiveCompletion': v:true,
+  \     'usePlaceholders': v:true,
+  \     'completionDocumentation': v:true,
+  \     'watchFileChanges': v:true,
+  \     'hoverKind': 'SingleLine',
+  \  }}
+  \}
+'''
 merged = 0
 depends = ['vim-lsp']
 

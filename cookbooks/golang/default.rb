@@ -51,7 +51,7 @@ go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
 go_bin 'golang.org/x/tools/cmd/gopls'
 
-golangcilint_version = "v1.12.5"
+golangcilint_version = "v1.22.2"
 
 execute 'install golangci-lint' do
   command "curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b #{gobin} #{golangcilint_version}"

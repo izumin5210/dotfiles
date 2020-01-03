@@ -204,7 +204,7 @@ repo = 'mattn/vim-lsp-icons'
 depends = ['vim-lsp']
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'dense-analysis/ale'
 hook_add = '''
   execute 'source' g:dein_plugin_rc_dir . '/ale.rc.vim'
 '''

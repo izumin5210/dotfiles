@@ -22,13 +22,16 @@ hook_add = '''
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline'
-hook_add = '''
-  execute 'source' g:dein_plugin_rc_dir . '/airline.rc.vim'
+repo = 'itchyny/lightline.vim'
+hook_source = '''
 '''
 
 [[plugins]]
-repo = 'vim-airline/vim-airline-themes'
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+hook_source = '''
+  execute 'source' g:dein_plugin_rc_dir . '/lightline.rc.vim'
+'''
 
 [[plugins]]
 repo = 'tpope/vim-fugitive'

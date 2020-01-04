@@ -41,3 +41,10 @@ function! FloatingFZF()
 
   call nvim_open_win(buf, v:true, opts)
 endfunction
+
+if system("git rev-parse --is-inside-work-tree 2> /dev/null ; echo $?") == 0
+  nnoremap <silent> <Leader><Leader> :<C-u>GFiles --cached --others --exclude-standard<CR>
+else
+  nnoremap <silent> <Leader><Leader> :<C-u>Files<CR>
+endif
+nnoremap <silent> <Leader>g :<C-u>Rg<CR>

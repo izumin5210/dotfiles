@@ -11,3 +11,5 @@
 /bin/mitamae*
 /config/.zsh/secrets.zsh
 /config/.vim/view
+/config/.vim/plugged
+/config/.vim/autoload/plug.vim

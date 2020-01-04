@@ -15,9 +15,16 @@ dotfile '.vim'
 dotfile '.config/nvim'
 dotfile '.ideavimrc'
 
-plugins_dir = "#{ENV['HOME']}/.cache/dein/repos"
+vim_plug_version = '0.10.0'
 
-git "#{plugins_dir}/github.com/Shougo/dein.vim" do
-  repository 'https://github.com/Shougo/dein.vim'
-  revision 'e5fe114314e9ce8c77f122c148fd6cc4f94f57bf'
+vim_plug_path = "#{ENV['HOME']}/.vim/autoload/plug.vim"
+directory File.dirname(vim_plug_path)
+http_request vim_plug_path do
+  url "https://raw.githubusercontent.com/junegunn/vim-plug/#{vim_plug_version}/plug.vim"
+end
+
+nvim_plug_path = "#{ENV['HOME']}/.local/share/nvim/site/autoload/plug.vim"
+directory File.dirname(nvim_plug_path)
+link nvim_plug_path do
+  to vim_plug_path
 end

@@ -74,4 +74,6 @@ endfunction
 
 augroup MyAutoCmd
   autocmd CompleteDone * call lightline#update()
+  autocmd CursorHold * call lightline#update()
+  autocmd InsertEnter * call lightline#update()
 augroup END

@@ -13,11 +13,6 @@ if [ -d "${HOME}/.pyenv" ]; then
   eval "$(pyenv init - --no-hash)"
 fi
 
-# nodenv
-if [ -d "${HOME}/.nodenv" ]; then
-  eval "$(nodenv init - --no-hash)"
-fi
-
 # jenv
 if [ -d "${HOME}/.jenv" ]; then
   eval "$(jenv init -)"

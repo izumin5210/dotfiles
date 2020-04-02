@@ -1,5 +1,20 @@
 setopt no_global_rcs
 
+# homebrew
+brewPrefix=""
+
+case "$(uname)" in
+  "Darwin")
+    brewPrefix="/usr/local"
+    ;;
+  "Linux")
+    brewPrefix="/home/linuxbrew/.linuxbrew"
+esac
+
+if [ -f "$brewPrefix/bin/brew" ]; then
+  eval $($brewPrefix/bin/brew shellenv)
+fi
+
 source $HOME/.zsh/exports.zsh
 source $HOME/.zsh/aliases.zsh
 

@@ -71,4 +71,6 @@ setopt interactive_comments
 # fi
 
 # added by travis gem
-[ -f /Users/izumin/.travis/travis.sh ] && source /Users/izumin/.travis/travis.sh
+if [ -f /Users/izumin/.travis/travis.sh ]; then
+  source /Users/izumin/.travis/travis.sh
+fi

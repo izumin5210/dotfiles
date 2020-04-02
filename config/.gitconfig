@@ -51,3 +51,5 @@
     diff = $HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less
 [interactive]
     diffFilter = $HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight
+[credential]
+    helper = $GIT_CREDENTIAL_HELPER

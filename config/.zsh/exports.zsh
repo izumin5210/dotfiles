@@ -43,3 +43,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg:-1,bg:-1,hl:#95c4ce,fg+:-1,bg+:-1,hl+:#e9b189
 --color=info:#a093c7,prompt:#89bac2,pointer:#ada0d3,marker:#ada0d3,spinner:#ada0d3
 '
+
+# git
+case "$(uname)" in
+  "Darwin")
+    export GIT_CREDENTIAL_HELPER="osxkeychain"
+    ;;
+  "Linux")
+    # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
+    export GIT_CREDENTIAL_HELPER="store"
+    ;;
+esac

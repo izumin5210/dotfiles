@@ -6,7 +6,9 @@ alias history='history -E'
 alias mkdir='mkdir -p'
 alias be='bundle exec'
 
-alias sed='gsed'
+if type gsed > /dev/null 2>&1; then
+  alias sed='gsed'
+fi
 
 # `hub` has implemented `pr` and `sync` subcommands. they are conflicted with self-defined commands.
 # alias git='hub'

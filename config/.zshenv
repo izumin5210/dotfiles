@@ -39,7 +39,11 @@ if [ -d "${HOME}/.jenv" ]; then
 fi
 
 # direnv
-eval "$(direnv hook zsh)"
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
 
 # rust
-source $HOME/.cargo/env
+if [ -d "${HOME}/.cargo" ]; then
+  source $HOME/.cargo/env
+fi

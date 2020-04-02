@@ -1,4 +1,3 @@
-
 bindkey -e
 autoload -Uz add-zsh-hook
 source $HOME/.zsh/prompt.zsh
@@ -18,10 +17,10 @@ autoload -Uz compinit; compinit -C      # 補完機能を有効にする
 setopt auto_menu                        # 補完候補が複数あるときに自動的に一覧表示
 bindkey "^[[Z" reverse-menu-complete    # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
-zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
+zstyle ':completion:*:sudo:*' command-path $HOMEBREW_PREFIX/sbin $HOMEBREW_PREFIX/bin \
     /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin    # sudo の後ろでコマンド名を補完
-if [ -e /usr/local/share/zsh-completions ]; then
-  fpath=(/usr/local/share/zsh-completions $fpath)   # zsh-completions有効化
+if [ -e $HOMEBREW_PREFIX/share/zsh-completions ]; then
+  fpath=($HOMEBREW_PREFIX/share/zsh-completions $fpath)   # zsh-completions有効化
 fi
 
 

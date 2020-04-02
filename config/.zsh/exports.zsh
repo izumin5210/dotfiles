@@ -7,8 +7,8 @@ export TERM=xterm-256color
 # path
 # ================================================================
 
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
+export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}
+export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -21,7 +21,7 @@ export GOBIN=$GOPATH/gobin
 export PATH=$HOME/.cargo/bin:$PATH
 
 # android
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=$HOMEBREW_PREFIX/share/android-sdk
 export ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 export ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
 

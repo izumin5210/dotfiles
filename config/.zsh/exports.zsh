@@ -6,11 +6,9 @@ export TERM=xterm-256color
 # ================================================================
 # path
 # ================================================================
-# homebrew
-export PATH=/usr/local/bin:$PATH
 
-export PATH=/usr/local/opt/coreutils/libexec/gnubin:${PATH}
-export MANPATH=/usr/local/opt/coreutils/libexec/gnuman:${MANPATH}
+export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}
+export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 
 # yarn
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -23,7 +21,7 @@ export GOBIN=$GOPATH/gobin
 export PATH=$HOME/.cargo/bin:$PATH
 
 # android
-export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+export ANDROID_SDK_ROOT=$HOMEBREW_PREFIX/share/android-sdk
 export ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 export ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
 
@@ -45,3 +43,14 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=fg:-1,bg:-1,hl:#95c4ce,fg+:-1,bg+:-1,hl+:#e9b189
 --color=info:#a093c7,prompt:#89bac2,pointer:#ada0d3,marker:#ada0d3,spinner:#ada0d3
 '
+
+# git
+case "$(uname)" in
+  "Darwin")
+    export GIT_CREDENTIAL_HELPER="osxkeychain"
+    ;;
+  "Linux")
+    # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
+    export GIT_CREDENTIAL_HELPER="store"
+    ;;
+esac

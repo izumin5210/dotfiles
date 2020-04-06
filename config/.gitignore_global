@@ -76,5 +76,9 @@ Temporary Items
 !.vscode/extensions.json
 
 
+### ruby ###
+vendor/bundle
+
 ### misc ###
 .env
+telepresence.log

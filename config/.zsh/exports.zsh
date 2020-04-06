@@ -11,6 +11,7 @@ export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}
 export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 
 # yarn
+export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 
 # golang
@@ -24,6 +25,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 export ANDROID_SDK_ROOT=$HOMEBREW_PREFIX/share/android-sdk
 export ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 export ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
+export ANDROID_HOME=$ANDROID_SDK_ROOT
 
 # path
 export PATH=$HOME/bin:$PATH

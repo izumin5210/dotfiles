@@ -44,7 +44,8 @@
 [commit]
     template = ~/.gitcommit-template
 [diff]
-    compactionHeuristic = true
+    algorithm = "histogram"
+    indentHeuristic = true
 [pager]
     log = $HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less
     show = $HOMEBREW_PREFIX/share/git-core/contrib/diff-highlight/diff-highlight | less

@@ -11,7 +11,6 @@ steps:
     '--cache-from', '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:latest',
     '-t', '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:${COMMIT_SHA}',
     '.' ]
-  timeout: 1200s
 - name: 'gcr.io/cloud-builders/docker'
   entrypoint: /bin/bash
   args:

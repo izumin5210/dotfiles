@@ -1,0 +1,24 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '275.0.0'
+          service_account_email: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+      - name: Build
+        run: |
+          gcloud builds submit \
+            --project ${{ secrets.GCP_PROJECT_ID }} \
+            --config cloudbuild.yml \
+            --substitutions=COMMIT_SHA="${{ github.sha }}",BRANCH_NAME="${GITHUB_REF#refs/heads/}" \
+            .

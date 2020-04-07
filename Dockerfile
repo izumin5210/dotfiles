@@ -78,7 +78,7 @@ RUN brew install bat colordiff ctop direnv gibo ghq htop jq tig tree
 # Ruby
 RUN brew install rbenv
 RUN git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
-COPY --chown=izumin config/.rbenv/default-gems ./.rbenv/
+COPY --chown=$USER config/.rbenv/default-gems ./.rbenv/
 
 USER root
 USER $USER
@@ -93,34 +93,29 @@ RUN nodenv global 12.14.0
 
 # Go
 RUN brew install go
-RUN go get \
-  golang.org/x/tools/cmd/godoc \
-  golang.org/x/tools/cmd/goimports \
-  golang.org/x/tools/cmd/guru \
-  golang.org/x/tools/gopls
-
-RUN curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $GOBIN
 
 
 #-----------------------------------------------
 # Zsh
-COPY --chown=izumin config/.zshrc config/.zshenv ./
-COPY --chown=izumin config/.zsh ./.zsh
+COPY --chown=$USER config/.zshrc config/.zshenv ./
+COPY --chown=$USER config/.zsh ./.zsh
+
+SHELL ["/home/izumin/.linuxbrew/bin/zsh", "-c"]
 
 # Git
-COPY --chown=izumin config/.gitconfig config/.gitcommit-template config/.gitignore_global ./
-COPY --chown=izumin config/.git_template ~/.git_template
+COPY --chown=$USER config/.gitconfig config/.gitcommit-template config/.gitignore_global ./
+COPY --chown=$USER config/.git_template ~/.git_template
 
 # tmux
-COPY --chown=izumin config/.tmux.conf config/.gitstatus.yml ./
+COPY --chown=$UESR config/.tmux.conf config/.gitstatus.yml ./
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
   ./.tmux/plugins/tpm/bin/install_plugins
 RUN go get github.com/arl/gitstatus/cmd/gitstatus
 
 # vim
-COPY --chown=izumin config/.vim ./.vim
-COPY --chown=izumin config/.vimrc config/.ideavimrc ./
-COPY --chown=izumin config/.config/nvim ./.config/nvim
+COPY --chown=$UESR config/.vim ./.vim
+COPY --chown=$UESR config/.vimrc config/.ideavimrc ./
+COPY --chown=$UESR config/.config/nvim ./.config/nvim
 
 RUN mkdir -p ~/.vim/autoload && \
   curl -sfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim && \
@@ -130,7 +125,16 @@ RUN mkdir -p ~/.vim/autoload && \
 RUN nvim -c PlugInstall -c qall --headless
 
 # Bin
-COPY --chown=izumin config/bin .bin
+COPY --chown=$UESR config/bin .bin
+
+# Go
+RUN go get \
+  golang.org/x/tools/cmd/godoc \
+  golang.org/x/tools/cmd/goimports \
+  golang.org/x/tools/cmd/guru \
+  golang.org/x/tools/gopls
+
+RUN curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $GOBIN
 
 #-----------------------------------------------
 CMD ["/home/izumin/.linuxbrew/bin/zsh"]

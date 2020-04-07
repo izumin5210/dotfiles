@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
+        with:
+          version: '275.0.0'
+          service_account_email: ${{ secrets.GCP_SERVICE_ACCOUNT_EMAIL }}
+          service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
+
+      - run: gcloud auth configure-docker --quiet
+
+      - run: docker build -t asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/dotfiles:${{ github.sha }} .
+
+      - run: docker push asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/dotfiles:${{ github.sha }}

@@ -1,0 +1,29 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: /bin/bash
+  args:
+    - -ceux
+    - |
+      docker pull ${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:latest || true
+- name: 'gcr.io/cloud-builders/docker'
+  args: [
+    'build',
+    '--cache-from', '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:latest',
+    '-t', '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:${COMMIT_SHA}',
+    '.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  entrypoint: /bin/bash
+  args:
+  - -ceux
+  - |
+    if [ "${BRANCH_NAME}" = "master" ]; then
+      docker tag ${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:${COMMIT_SHA} ${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:latest
+      docker push ${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:latest
+    fi
+substitutions:
+  _REGION: asia.gcr.io
+  _IMAGE_NAME: dotfiles
+images:
+- '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:${COMMIT_SHA}'
+options:
+  machineType: 'N1_HIGHCPU_32'

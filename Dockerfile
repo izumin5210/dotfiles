@@ -113,9 +113,9 @@ RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
 RUN go get github.com/arl/gitmux
 
 # vim
-COPY --chown=$UESR config/.vim ./.vim
-COPY --chown=$UESR config/.vimrc config/.ideavimrc ./
-COPY --chown=$UESR config/.config/nvim ./.config/nvim
+COPY --chown=$USER config/.vim ./.vim
+COPY --chown=$USER config/.vimrc config/.ideavimrc ./
+COPY --chown=$USER config/.config/nvim ./.config/nvim
 
 RUN mkdir -p ~/.vim/autoload && \
   curl -sfLo ~/.vim/autoload/plug.vim https://raw.githubusercontent.com/junegunn/vim-plug/0.10.0/plug.vim && \

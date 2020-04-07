@@ -17,6 +17,6 @@ jobs:
 
       - run: gcloud auth configure-docker --quiet
 
-      - run: docker build -t asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/dotfiles:${{ github.sha }}
+      - run: docker build -t asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/dotfiles:${{ github.sha }} .
 
       - run: docker push asia.gcr.io/${{ secrets.GCP_PROJECT_ID }}/dotfiles:${{ github.sha }}

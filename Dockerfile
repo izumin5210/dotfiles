@@ -107,10 +107,10 @@ COPY --chown=$USER config/.gitconfig config/.gitcommit-template config/.gitignor
 COPY --chown=$USER config/.git_template ~/.git_template
 
 # tmux
-COPY --chown=$UESR config/.tmux.conf config/.gitstatus.yml ./
+COPY --chown=$UESR config/.tmux.conf config/.gitmux.yml ./
 RUN git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm && \
   ./.tmux/plugins/tpm/bin/install_plugins
-RUN go get github.com/arl/gitstatus/cmd/gitstatus
+RUN go get github.com/arl/gitmux
 
 # vim
 COPY --chown=$UESR config/.vim ./.vim

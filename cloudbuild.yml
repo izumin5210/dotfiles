@@ -26,3 +26,5 @@ substitutions:
   _IMAGE_NAME: dotfiles
 images:
 - '${_REGION}/${PROJECT_ID}/${_IMAGE_NAME}:${COMMIT_SHA}'
+options:
+  machineType: 'N1_HIGHCPU_32'

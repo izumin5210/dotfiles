@@ -48,12 +48,12 @@ RUN git clone https://github.com/Homebrew/brew $HOMEBREW_PREFIX/Homebrew && \
 RUN eval $($HOMEBREW_PREFIX/bin/brew shellenv) && \
   brew install zsh zsh-completions
 
-COPY --chown=izumin config/.bashrc ./
-
 # Use zsh for login shell
 USER root
 RUN chsh -s $HOMEBREW_PREFIX/bin/zsh $USER
 USER $USER
+
+ENV PATH /home/$USER/.linuxbrew/bin:$PATH
 
 # Git
 RUN brew install git hub git-secrets

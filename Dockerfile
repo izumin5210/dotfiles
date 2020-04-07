@@ -80,9 +80,6 @@ RUN brew install rbenv
 RUN git clone https://github.com/rbenv/rbenv-default-gems.git $(rbenv root)/plugins/rbenv-default-gems
 COPY --chown=$USER config/.rbenv/default-gems ./.rbenv/
 
-USER root
-USER $USER
-
 RUN rbenv install 2.7.0
 RUN rbenv global 2.7.0
 

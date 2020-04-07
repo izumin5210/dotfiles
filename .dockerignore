@@ -1,0 +1,10 @@
+bin
+cookbooks
+docs
+lib
+nodes
+roles
+terraform
+README.md
+config/.vim/plugged
+config/.vim/autoload

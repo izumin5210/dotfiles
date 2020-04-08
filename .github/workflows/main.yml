@@ -25,7 +25,7 @@ jobs:
       - run: |
           docker build \
             --cache-from ${IMAGE}:latest \
-            ${IMAGE}:${{ github.sha }} \
+            --tag ${IMAGE}:${{ github.sha }} \
             .
 
       - run: docker push ${IMAGE}:${{ github.sha }}

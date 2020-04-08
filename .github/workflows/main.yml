@@ -20,7 +20,7 @@ jobs:
 
       - run: gcloud auth configure-docker --quiet
 
-      - run: docker pull ${IMAGE}:latest
+      - run: docker pull ${IMAGE}:latest || true
 
       - run: |
           docker build \

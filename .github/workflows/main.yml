@@ -20,9 +20,11 @@ jobs:
 
       - run: gcloud auth configure-docker --quiet
 
+      - run: docker pull ${IMAGE}:latest
 
       - run: |
           docker build \
+            --cache-from ${IMAGE}:latest \
             ${IMAGE}:${{ github.sha }} \
             .
 

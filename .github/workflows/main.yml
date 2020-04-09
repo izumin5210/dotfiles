@@ -19,6 +19,9 @@ jobs:
           service_account_key: ${{ secrets.GCP_SERVICE_ACCOUNT_KEY }}
 
       - run: gcloud auth configure-docker --quiet
+      - run: |
+          echo "${{ secrets.DOCKER_PASSWORD }}" | \
+            docker login --username "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - run: docker pull ${IMAGE}:latest || true
 
@@ -29,6 +32,12 @@ jobs:
             .
 
       - run: docker push ${IMAGE}:${{ github.sha }}
+
+      - run: |
+          docker tag \
+            ${IMAGE}:${{ github.sha }} \
+            izumin5210/dotfiles:latest
+          docker push izumin5210/dotfiles:latest
 
       - run: |
           docker tag \

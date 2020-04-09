@@ -35,4 +35,4 @@ jobs:
             ${IMAGE}:${{ github.sha }} \
             ${IMAGE}:latest
           docker push ${IMAGE}:latest
-        # if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/master'

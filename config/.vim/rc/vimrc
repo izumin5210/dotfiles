@@ -152,6 +152,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " Protocol Buffers
 Plug 'uber/prototool', { 'for': 'proto', 'rtp': 'vim/prototool' }
 
+" tools ----------------
+Plug 'glidenote/memolist.vim'
+
 call plug#end()
 
 augroup MyAutoCmd

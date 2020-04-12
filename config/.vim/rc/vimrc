@@ -76,6 +76,7 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+let g:markdown_fenced_languages = ['ruby', 'go', 'sql']
 
 " ================================================================
 " Tab

@@ -76,6 +76,7 @@ if !exists('loaded_matchit')
   runtime macros/matchit.vim
 endif
 
+let g:markdown_fenced_languages = ['ruby', 'go', 'sql']
 
 " ================================================================
 " Tab
@@ -151,6 +152,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Protocol Buffers
 Plug 'uber/prototool', { 'for': 'proto', 'rtp': 'vim/prototool' }
+
+" tools ----------------
+Plug 'glidenote/memolist.vim'
 
 call plug#end()
 

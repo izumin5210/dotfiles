@@ -129,9 +129,11 @@ RUN go get \
   golang.org/x/tools/cmd/godoc \
   golang.org/x/tools/cmd/goimports \
   golang.org/x/tools/cmd/guru \
-  golang.org/x/tools/gopls
+  golang.org/x/tools/gopls \
+  github.com/mattn/memo
 
 RUN curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b $GOBIN
+COPY --chown=$USER config/.config/memo ./.config/memo
 
 #-----------------------------------------------
 CMD ["/home/izumin/.linuxbrew/bin/zsh"]

@@ -63,21 +63,31 @@ _prompt_git_info() {
 
 _update_prompt() {
     local cwd=$(pwd | sed -e "s,^$HOME,~,")
-    local p_cwd
     local gitinfo=$(_prompt_git_info)
+
+    local line_1
+    local line_2
 
     if git rev-parse 2> /dev/null; then
       local repo=$(git rev-parse --show-toplevel | sed -e "s,^$HOME,~," | sed -e "s,^~/src/\(github.com/\)\?,,")
       local path=$(git rev-parse --show-prefix | sed -e "s,/$,,")
-      p_cwd="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo} "
+      line_1="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo} "
     else
-      p_cwd="%{$fg[blue]%}${cwd}%{$reset_color%} "
+      line_1="%{$fg[blue]%}${cwd}%{$reset_color%} "
     fi
 
-    local p_st="%(?.%{$fg[green]%}:).%{$fg[red]%}:()%{$reset_color%} %# "
-    local p_job="%(1j,%{$fg[red]%}%j job%(2j,s,)%{$reset_color%},)"
+    if [ -n "$(jobs)" ]; then
+      line_1="${line_1}  %(1j,%{$fg[red]%}%j job%(2j,s,)%{$reset_color%},)"
+    fi
 
-    PROMPT=$'\n'${p_cwd}\ \ ${p_job}$'\n'${p_st}
+    # Wantedly
+    if [ -n "${KUBE_FORK_TARGET_ENV}" ]; then
+      line_1="${line_1}  %{$fg[yellow]%}(fork: ${KUBE_FORK_TARGET_ENV})%{$reset_color%}"
+    fi
+
+    line_2="%(?.%{$fg[green]%}:).%{$fg[red]%}:()%{$reset_color%} %# "
+
+    PROMPT=$'\n'${line_1}$'\n'${line_2}
 }
 
 add-zsh-hook precmd _update_prompt

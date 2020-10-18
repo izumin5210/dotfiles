@@ -111,12 +111,9 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 
-Plug 'dense-analysis/ale'
-
 Plug 'cocopon/iceberg.vim'
 
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
 
 Plug expand('$HOMEBREW_PREFIX/opt/fzf')
 Plug 'junegunn/fzf.vim'

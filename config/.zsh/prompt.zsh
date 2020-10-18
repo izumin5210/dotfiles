@@ -62,6 +62,11 @@ _prompt_git_info() {
 }
 
 _update_prompt() {
+    local exitCode=$?
+    if [ -z "${LAST_EXECUTED_COMMAND}" ]; then
+      exitCode=0
+    fi
+
     local cwd=$(pwd | sed -e "s,^$HOME,~,")
     local gitinfo=$(_prompt_git_info)
 
@@ -71,23 +76,41 @@ _update_prompt() {
     if git rev-parse 2> /dev/null; then
       local repo=$(git rev-parse --show-toplevel | sed -e "s,^$HOME,~," | sed -e "s,^~/src/\(github.com/\)\?,,")
       local path=$(git rev-parse --show-prefix | sed -e "s,/$,,")
-      line_1="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo} "
+      line_1="%{$fg_bold[blue]%}${repo}%{$reset_color%} %{$fg[blue]%}/${path}%{$reset_color%} ${gitinfo}"
     else
-      line_1="%{$fg[blue]%}${cwd}%{$reset_color%} "
+      line_1="%{$fg[blue]%}${cwd}%{$reset_color%}"
     fi
 
     if [ -n "$(jobs)" ]; then
-      line_1="${line_1}  %(1j,%{$fg[red]%}%j job%(2j,s,)%{$reset_color%},)"
+      line_1="${line_1} %{$fg[grey]%}- %(1j,%{$fg[red]%}%j job%(2j,s,)%{$reset_color%},)"
     fi
 
     # Wantedly
     if [ -n "${KUBE_FORK_TARGET_ENV}" ]; then
-      line_1="${line_1}  %{$fg[yellow]%}(fork: ${KUBE_FORK_TARGET_ENV})%{$reset_color%}"
+      line_1="${line_1} %{$fg[grey]%}- %{$fg[yellow]%}(fork: ${KUBE_FORK_TARGET_ENV})%{$reset_color%}"
     fi
 
-    line_2="%(?.%{$fg[green]%}:).%{$fg[red]%}:()%{$reset_color%} %# "
+    # signal
+    if [ $exitCode -ne 0 ]; then
+      local sig="SIG$(kill -l $exitCode)"
+      if [[ $sig =~ "^SIG[0-9]*$" ]]; then
+        sig="$exitCode"
+      fi
+      line_1="${line_1} %{$fg[grey]%}- $(printf "\e[31;2m%s\e[m" "$sig")"
+    fi
+
+    line_2="$([ $exitCode -eq 0 ] && echo "%{$fg[green]%}:)" || echo "%{$fg[red]%}:(")%{$reset_color%} %# "
 
     PROMPT=$'\n'${line_1}$'\n'${line_2}
+
+    if [ -n "${LAST_EXECUTED_COMMAND}" ]; then
+      unset LAST_EXECUTED_COMMAND
+    fi
+}
+
+_prepare_prompt() {
+  LAST_EXECUTED_COMMAND="${1}"
 }
 
 add-zsh-hook precmd _update_prompt
+add-zsh-hook preexec _prepare_prompt

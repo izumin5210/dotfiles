@@ -151,6 +151,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " Protocol Buffers
 Plug expand('$HOMEBREW_PREFIX/opt/protobuf/share')
 
+" GraphQL
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
+
 " tools ----------------
 Plug 'glidenote/memolist.vim'
 

@@ -111,12 +111,9 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'mattn/vim-lsp-icons'
 
-Plug 'dense-analysis/ale'
-
 Plug 'cocopon/iceberg.vim'
 
 Plug 'itchyny/lightline.vim'
-Plug 'maximbaz/lightline-ale'
 
 Plug expand('$HOMEBREW_PREFIX/opt/fzf')
 Plug 'junegunn/fzf.vim'
@@ -126,6 +123,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 if !has('nvim')
   Plug 'Shougo/vimshell.vim' " for vim/delve
@@ -151,14 +149,21 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Protocol Buffers
-Plug 'uber/prototool', { 'for': 'proto', 'rtp': 'vim/prototool' }
+Plug expand('$HOMEBREW_PREFIX/opt/protobuf/share')
+
+" GraphQL
+Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
 " tools ----------------
 Plug 'glidenote/memolist.vim'
 
 call plug#end()
 
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+let g:rainbow#blacklist = [110, 140, 252, 242]
+
 augroup MyAutoCmd
+  autocmd VimEnter * RainbowParentheses
   autocmd VimEnter * nested colorscheme iceberg
   if !has("gui_running")
     autocmd Colorscheme * highlight Normal ctermbg=none

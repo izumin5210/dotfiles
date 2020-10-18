@@ -81,4 +81,6 @@ vendor/bundle
 
 ### misc ###
 .env
+.env.local
+.env.*.local
 telepresence.log

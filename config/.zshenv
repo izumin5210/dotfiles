@@ -23,17 +23,17 @@ source $HOME/.zsh/aliases.zsh
 
 # rbenv
 if [ -d "${HOME}/.rbenv" ]; then
-  eval "$(rbenv init - --no-hash)"
+  eval "$(rbenv init -)"
 fi
 
 # pyenv
 if [ -d "${HOME}/.pyenv" ]; then
-  eval "$(pyenv init - --no-hash)"
+  eval "$(pyenv init -)"
 fi
 
 # nodenv
 if [ -d "${HOME}/.nodenv" ]; then
-  eval "$(nodenv init - --no-hash)"
+  eval "$(nodenv init -)"
 fi
 
 # jenv

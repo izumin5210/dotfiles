@@ -126,6 +126,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 if !has('nvim')
   Plug 'Shougo/vimshell.vim' " for vim/delve
@@ -158,7 +159,11 @@ Plug 'glidenote/memolist.vim'
 
 call plug#end()
 
+let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+let g:rainbow#blacklist = [110, 140, 252, 242]
+
 augroup MyAutoCmd
+  autocmd VimEnter * RainbowParentheses
   autocmd VimEnter * nested colorscheme iceberg
   if !has("gui_running")
     autocmd Colorscheme * highlight Normal ctermbg=none

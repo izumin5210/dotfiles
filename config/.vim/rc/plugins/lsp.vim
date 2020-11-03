@@ -39,14 +39,20 @@ let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
   \  'workspace_config': {
   \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
+  \    'semanticTokens': v:true,
+  \    'gofumpt': v:true,
+  \    'experimentalWorkspaceModule': v:true,
+  \    'codelens': {
+  \      'test': v:true,
   \    },
   \  },
   \  'initialization_options': {
   \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
+  \    'semanticTokens': v:true,
+  \    'gofumpt': v:true,
+  \    'experimentalWorkspaceModule': v:true,
+  \    'codelens': {
+  \      'test': v:true,
   \    },
   \  },
   \}

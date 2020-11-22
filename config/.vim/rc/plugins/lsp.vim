@@ -30,7 +30,7 @@ let g:asyncomplete_popup_delay = 200
 let g:lsp_text_edit_enabled = 1
 let g:lsp_preview_float = 1
 let g:lsp_diagnostics_float_cursor = 1
-let g:lsp_settings_filetype_go = ['gopls']
+let g:lsp_settings_filetype_go = ['gopls', 'golangci-lint-langserver']
 
 "  vim-lsp-settings
 "--------------------------------
@@ -39,14 +39,37 @@ let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
   \  'workspace_config': {
   \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
+  \    'semanticTokens': v:true,
+  \    'gofumpt': v:true,
+  \    'experimentalWorkspaceModule': v:true,
+  \    'codelens': {
+  \      'test': v:true,
   \    },
   \  },
   \  'initialization_options': {
   \    'usePlaceholders': v:true,
-  \    'analyses': {
-  \      'fillstruct': v:true,
+  \    'semanticTokens': v:true,
+  \    'gofumpt': v:true,
+  \    'experimentalWorkspaceModule': v:true,
+  \    'codelens': {
+  \      'test': v:true,
   \    },
+  \  },
+  \}
+
+let g:lsp_settings['golangci-lint-langserver'] = {
+  \  'initialization_options': {
+  \    'command': ['golangci-lint', 'run',
+  \        '--enable-all',
+  \        '--fast',
+  \        '--disable', 'lll',
+  \        '--disable', 'wsl',
+  \        '--disable', 'gochecknoglobals',
+  \        '--disable', 'gci',
+  \        '--disable', 'gofumpt',
+  \        '--out-format', 'json',
+  \        '--max-issues-per-linter', '0',
+  \        '--max-same-issues', '0',
+  \    ],
   \  },
   \}

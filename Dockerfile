@@ -17,5 +17,5 @@ RUN url="https://github.com/itamae-kitchen/mitamae/releases/download/v${MITAMAE_
 COPY . .
 
 RUN apt-get update \
-  && ./bin/mitamae local lib/recipe.rb \
+  && /usr/local/bin/mitamae local lib/recipe.rb \
   && rm -rf /var/lib/apt/lists/*

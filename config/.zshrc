@@ -12,7 +12,7 @@ source $HOME/.zsh/fzf.zsh
 REPORTTIME=3
 
 #### complement ####
-fpath=($(brew --prefix)/share/zsh/site-functions $fpath)    # gitのbranch名補完
+fpath=($HOMEBREW_PREFIX/share/zsh/site-functions $fpath)    # gitのbranch名補完
 autoload -Uz compinit; compinit -C      # 補完機能を有効にする
 setopt auto_menu                        # 補完候補が複数あるときに自動的に一覧表示
 bindkey "^[[Z" reverse-menu-complete    # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)

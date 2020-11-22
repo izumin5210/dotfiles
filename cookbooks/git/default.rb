@@ -1,5 +1,7 @@
 package 'git' do
-  options '--with-pcre'
+  if node[:platform] == 'darwin'
+    options '--with-pcre'
+  end
 end
 package 'hub'
 package 'git-secrets'

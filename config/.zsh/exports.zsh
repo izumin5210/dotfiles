@@ -7,6 +7,10 @@ export TERM=xterm-256color
 # path
 # ================================================================
 
+if [ -z "$HOMEBREW_PREFIX" ]; then
+  export HOMEBREW_PREFIX="/usr/local"
+fi
+
 export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}
 export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 

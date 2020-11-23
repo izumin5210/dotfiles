@@ -44,7 +44,7 @@ fi
 
 bin/setup_mitamae
 
-if [ "${CODESPACES:-"false"}" == true ]; then
+if [ "${CODESPACES:-"false"}" == "true" ]; then
   sudo CODESPACES=true bin/mitamae local lib/recipe.rb
 else
   bin/mitamae local lib/recipe.rb

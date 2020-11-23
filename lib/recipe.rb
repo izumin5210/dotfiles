@@ -5,7 +5,8 @@ Dir.glob(File.join(root_dir, 'nodes', '**', '*.{yml,yaml,json}')).each do |path|
 end
 
 node.reverse_merge!(
-  user: ENV['SUDO_USER'] || ENV['USER'],
+    user: default_user,
+    home: home_dir,
 )
 
 include_role node[:platform]

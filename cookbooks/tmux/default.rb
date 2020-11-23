@@ -1,7 +1,7 @@
 package 'tmux'
 package 'reattach-to-user-namespace' if node[:platform] == 'darwin'
 
-plugins_dir = "#{ENV['HOME']}/.tmux/plugins"
+plugins_dir = "#{node[:home]}/.tmux/plugins"
 
 git "#{plugins_dir}/tpm" do
   repository 'https://github.com/tmux-plugins/tpm'
@@ -9,8 +9,9 @@ git "#{plugins_dir}/tpm" do
 end
 
 execute "#{plugins_dir}/tpm/bin/install_plugins" do
-  subscribes :run, "link[#{ENV['HOME']}/.tmux.conf]"
+  subscribes :run, "link[#{node[:home]}/.tmux.conf]"
   action :nothing
+  user node[:user]
 end
 
 dotfile '.tmux.conf'

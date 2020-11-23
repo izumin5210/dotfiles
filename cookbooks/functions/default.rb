@@ -20,6 +20,7 @@ define :dotfile_template, source: nil, variables: {} do
     action :create
     source params[:source]
     variables params[:variables].merge(platform: node[:platform])
+    user node[:user]
   end
 end
 

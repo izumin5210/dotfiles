@@ -1,5 +1,6 @@
 .github
 bin
+!bin/setup_mitamae
 docs
 terraform
 install

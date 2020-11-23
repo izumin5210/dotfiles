@@ -7,7 +7,7 @@ else
     archive 'fzf-0.24.3-linux_amd64.tar.gz'
   end
 
-  prefix = "/usr/local/opt"
+  prefix = "#{default_prefix}/opt"
 
   directory prefix do
     action :create

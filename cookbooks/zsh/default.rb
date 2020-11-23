@@ -3,7 +3,7 @@ package 'zsh'
 if node[:platform] == 'darwin'
   package 'zsh-completions'
 else
-  git "/usr/local/share/zsh-completions" do
+  git "#{default_prefix}/share/zsh-completions" do
     repository 'https://github.com/zsh-users/zsh-completions'
     revision '0.32.0'
   end

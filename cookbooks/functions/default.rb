@@ -4,17 +4,19 @@ define :dotfile, source: nil do
 
   fail "#{source_path} does not exist" unless File.exist? source_path
 
-  target = File.join(ENV['HOME'], params[:name])
-  directory File.dirname(target)
+  should_force = codespaces?
 
+  target = File.join(node[:home], params[:name])
+  directory File.dirname(target)
   link target do
     to source_path
+    force should_force
     user node[:user]
   end
 end
 
 define :dotfile_template, source: nil, variables: {} do
-  template File.join(ENV['HOME'], params[:name]) do
+  template File.join(node[:home], params[:name]) do
     action :create
     source params[:source]
     variables params[:variables].merge(platform: node[:platform])
@@ -36,12 +38,23 @@ define :cask do
   end
 end
 
-define :github_release, repo: nil, version: nil, archive: nil, bin: nil, prefix: '/usr/local/bin' do
-  bin = "#{params[:prefix]}/#{params[:name]}"
-  url = "https://github.com/#{params[:repo]}/releases/download/#{params[:version]}/#{params[:archive]}"
+define :github_release, repo: nil, version: nil, archive: nil, checksum: nil, bin: nil, prefix: nil do
+  bin_dir = "#{params[:prefix] || default_prefix}/bin"
+  bin = "#{bin_dir}/#{params[:name]}"
+  url = "https://github.com/#{params[:repo]}/releases/download/#{params[:version]}"
 
-  execute "curl -sfL -o /tmp/#{params[:archive]} #{url}" do
+  execute "curl -sfL -o /tmp/#{params[:archive]} #{url}/#{params[:archive]}" do
     not_if "test -f #{bin}"
+  end
+
+  if params[:checksum]
+    execute "curl -sfL -o /tmp/#{params[:checksum]} #{url}/#{params[:checksum]}" do
+      not_if "test -f #{bin}"
+    end
+    execute "sha256sum -c #{params[:checksum]} --ignore-missing" do
+      not_if "test -f #{bin}"
+      cwd "/tmp"
+    end
   end
 
   execute 'unarchive' do
@@ -52,6 +65,8 @@ define :github_release, repo: nil, version: nil, archive: nil, bin: nil, prefix:
     not_if "test -f #{bin}"
     cwd '/tmp'
   end
+
+  directory bin_dir
 
   execute "mv /tmp/#{params[:bin] || params[:name]} #{bin} && chmod +x #{bin}" do
     not_if "test -f #{bin}"

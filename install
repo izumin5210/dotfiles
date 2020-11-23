@@ -4,31 +4,40 @@
 
 set -eu
 
-repo="github.com/izumin5210/dotfiles"
-dotpath="${HOME}/src/${repo}"
-github_url="https://${repo}"
-
 has() {
   return `type $1 > /dev/null 2>&1`
 }
 
-if has "git"; then
-  git clone --recursive "${github_url}" "${dotpath}"
-elif has "curl" || has "wget"; then
-  tarball="${github_url}/archive/master.tar.gz"
+download() {
+  local repo="github.com/izumin5210/dotfiles"
+  local dotpath="${HOME}/src/${repo}"
+  local github_url="https://${repo}"
 
-  if has "curl"; then
-    curl -L "${tarball}"
-  elif has "wget"; then
-    wget -O - "${tarball}"
-  fi | tar xv -
+  if has "git"; then
+    git clone --recursive "${github_url}" "${dotpath}"
+  elif has "curl" || has "wget"; then
+    tarball="${github_url}/archive/master.tar.gz"
 
-  mv -f dotfiles-master "${dotpath}"
-else
-  exit 1
+    if has "curl"; then
+      curl -L "${tarball}"
+    elif has "wget"; then
+      wget -O - "${tarball}"
+    fi | tar xv -
+
+    mv -f dotfiles-master "${dotpath}"
+  else
+    exit 1
+  fi
+
+  ln -s ~/dotfiles $dotpath
+}
+
+if [ ! -d ~/dotfiles ]; then
+  download
 fi
 
-cd "${dotpath}"
+cd ~/dotfiles
+
 if [ $? -ne 0 ]; then
   exit 1
 fi

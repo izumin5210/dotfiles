@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM ubuntu:20.04
 
 LABEL org.opencontainers.image.source https://github.com/izumin5210/dotfiles
 

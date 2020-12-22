@@ -7,15 +7,14 @@ export TERM=xterm-256color
 # path
 # ================================================================
 
+export DEFAULT_PREFIX="${HOMEBREW_PREFIX-:"${HOME}/.local"}"
+
 if [ -n "$HOMEBREW_PREFIX" ]; then
   export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}
   export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 fi
 
-if [ "$CODESPACES" = "true" ]; then
-  export PATH="${HOME}/usr/bin:${PATH}"
-  export MANPATH="${HOME}/usr/opt/fzf/man:${MANPATH}"
-fi
+export PATH="${DEFAULT_PREFIX}/bin:${PATH}"
 
 # yarn
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"

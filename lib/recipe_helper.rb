@@ -16,7 +16,7 @@ MItamae::RecipeContext.class_eval do
   end
 
   def default_prefix
-    "#{home_dir}/usr"
+    "#{home_dir}/.local"
   end
 
   def default_user

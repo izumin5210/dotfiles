@@ -115,7 +115,7 @@ Plug 'cocopon/iceberg.vim'
 
 Plug 'itchyny/lightline.vim'
 
-Plug expand('$HOMEBREW_PREFIX/opt/fzf')
+Plug expand('$DEFAULT_PREFIX/opt/fzf')
 Plug 'junegunn/fzf.vim'
 
 Plug 'preservim/nerdcommenter'
@@ -149,7 +149,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Protocol Buffers
-Plug expand('$HOMEBREW_PREFIX/opt/protobuf/share')
+Plug expand('$DEFAULT_PREFIX/opt/protobuf/share')
 
 " GraphQL
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }

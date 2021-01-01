@@ -2,7 +2,7 @@ define :install_env_version, version: nil do
   cmd = "#{params[:name]} install #{params[:version]}"
   execute cmd do
     command cmd
-    not_if "#{params[:name]} versions | grep '#{params[:version]}'"
+    not_if "#{params[:name]} versions --bare | grep '^#{params[:version]}$'"
   end
 end
 

@@ -1,10 +1,7 @@
 nodenv:
-  global: 10.14.2
+  global: 14.15.0
   versions:
-  - 10.14.2
-  - 8.11.3
-  - 8.9.4
+  - 12.15.0
+  - 14.15.0
   default-packages:
-  - fixpack
-  - flow-bin
-  - typescript
+  - commitizen 

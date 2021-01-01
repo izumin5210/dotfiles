@@ -74,3 +74,5 @@ setopt interactive_comments
 if [ -f /Users/izumin/.travis/travis.sh ]; then
   source /Users/izumin/.travis/travis.sh
 fi
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"

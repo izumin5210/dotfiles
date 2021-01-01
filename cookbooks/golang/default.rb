@@ -49,11 +49,11 @@ go_bin 'github.com/arl/gitmux'
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
-go_bin 'golang.org/x/tools/cmd/gopls'
+go_bin 'golang.org/x/tools/gopls'
 
-golangcilint_version = "v1.22.2"
+golangcilint_version = "v1.34.1"
 
 execute 'install golangci-lint' do
   command "curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b #{gobin} #{golangcilint_version}"
-  not_if 'test $(whichi golangci-lint)'
+  not_if 'test $(which golangci-lint)'
 end

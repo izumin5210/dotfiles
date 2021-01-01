@@ -10,7 +10,6 @@ macos_apps:
   - dash
   - dropbox
   - fantastical
-  - gitify
   - google-chrome
   - google-japanese-ime
   - grammarly
@@ -18,11 +17,12 @@ macos_apps:
   - jetbrains-toolbox
   - notion
   - osxfuse # for telepresence
+  - slack
   - spotify
-  - station
   - the-unarchiver
   - visual-studio-code-insiders
   - zeplin
+  - zoomus
 
   mas:
   - name: 'Display Menu'
@@ -31,7 +31,7 @@ macos_apps:
     id: 409183694
   - name: 'PopClip'
     id: 445189367
-  - name: 'Slack'
-    id: 803453959
   - name: 'Xcode'
     id: 497799835
+  - name: 'Todoist'
+    id: 585829637

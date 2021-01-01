@@ -20,9 +20,6 @@ package 'tree'
 package 'watchman'
 package 'wget'
 
-brew_tap 'creasty/tools'
-package 'creasty/tools/rid'
-
 brew_tap 'dtan4/tools'
 package 'valec'
 
@@ -30,7 +27,6 @@ brew_tap 'izumin5210/tools'
 package 'grapi'
 
 # kube
-package 'kops'
 package 'kubernetes-cli'
 package 'stern'
 package 'kubectx'

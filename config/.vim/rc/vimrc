@@ -154,9 +154,6 @@ Plug expand('$DEFAULT_PREFIX/opt/protobuf/share')
 " GraphQL
 Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
-" tools ----------------
-Plug 'glidenote/memolist.vim'
-
 call plug#end()
 
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]

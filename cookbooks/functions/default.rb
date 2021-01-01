@@ -34,7 +34,7 @@ end
 
 define :cask do
   caskname = params[:name]
-  execute "brew cask install #{caskname}" do
+  execute "brew install --cask #{caskname}" do
     not_if "ls -1 /usr/local/Caskroom/ | grep '#{caskname}'"
   end
 end

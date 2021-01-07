@@ -6,7 +6,7 @@ set -euo pipefail
 
 prefix=izumin5210
 current=$(git symbolic-ref --short HEAD)
-base=$(git base-branch)
+base=$(git default-branch)
 
 if [ $# -lt 1 ]; then
   printutil error "You should pass a topic branch name."

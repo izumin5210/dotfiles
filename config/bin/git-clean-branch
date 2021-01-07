@@ -5,7 +5,7 @@
 set -eu
 
 clean_local() {
-  local base=${1:-$(git base-branch)}
+  local base=${1:-$(git default-branch)}
   git branch --merged \
     | grep -v ${base} \
     | grep -v '*' \
@@ -22,7 +22,7 @@ clean_local() {
 
 clean_remote() {
   local remote=${1:-origin}
-  local base=${2:-$(git base-branch)}
+  local base=${2:-$(git default-branch)}
   git branch --remotes --merged \
     | grep ${remote}/ \
     | grep -v ${base} \

@@ -35,7 +35,6 @@ if codespaces?
 end
 
 dotfile '.gitconfig'
-dotfile '.gitcommit-template'
 dotfile '.gitignore_global'
 dotfile '.git_template'
 dotfile_template '.gitconfig.local' do

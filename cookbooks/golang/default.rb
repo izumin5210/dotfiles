@@ -8,11 +8,6 @@ directory gobin do
   action :create
 end
 
-execute 'install dep' do
-  command "curl https://raw.githubusercontent.com/golang/dep/master/install.sh | GOBIN=#{gobin} sh"
-  not_if 'test $(which dep)'
-end
-
 define 'go_get', build: true do
   pkg = params[:name]
   execute "get #{pkg}" do

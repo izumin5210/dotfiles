@@ -15,17 +15,15 @@
 [alias]
     co = checkout
     cb = checkout -b
-    cm = checkout master
-    logg = log --stat --pretty=format:'%C(yellow)%h %C(cyan)%ar %C(magenta)%an%n%C(white)%s %Cred%d'
-    graph = log --graph --decorate --oneline
-    cv = commit -v
-    ca = commit --amend
-    cam = commit --amend -m
     ic = commit --allow-empty -m 'Initial commit'
-    rbm = rebase master
-    mm = merge master
     wc = wip-commit
     ct = checkout-topic
+    # https://medium.com/@jmatsu.drm/avoid-direct-value-of-default-branch-name-f24ec6e6b52
+    get-branch-cache = "!f() { git config --local misc.$1-branch; }; f"
+    set-branch-cache = "!f() { git config --local misc.$1-branch \"$2\"; }; f"
+    fetch-default-branch = "!f() { git ls-remote --symref $(git remote get-url origin) HEAD | grep 'refs/heads' | awk '$0=$2' | sed 's/refs\\/heads\\///'; }; f"
+    refresh-default-branch= "!f() { git set-branch-cache default $(git fetch-default-branch); }; f"
+    default-branch = "!f() { git get-branch-cache default || (git refresh-default-branch; git get-branch-cache default); }; f"
 [push]
     default = current
 [filter "lfs"]
@@ -41,8 +39,6 @@
     patterns = (\"|')?(AWS|aws|Aws)?_?(ACCOUNT|account|Account)_?(ID|id|Id)?(\"|')?\\s*(:|=>|=)\\s*(\"|')?[0-9]{4}\\-?[0-9]{4}\\-?[0-9]{4}(\"|')?
     allowed = AKIAIOSFODNN7EXAMPLE
     allowed = wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
-[commit]
-    template = ~/.gitcommit-template
 [diff]
     algorithm = "histogram"
     indentHeuristic = true
@@ -54,3 +50,5 @@
     diffFilter = diff-highlight
 [credential]
     helper = $GIT_CREDENTIAL_HELPER
+[init]
+    defaultBranch = main

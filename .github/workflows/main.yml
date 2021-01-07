@@ -31,4 +31,4 @@ jobs:
           context: .
           push: true
           tags: ${{ env.IMAGE }}:laetst
-        if: github.ref == 'refs/heads/master'
+        if: github.ref == 'refs/heads/main'

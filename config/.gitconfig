@@ -26,6 +26,12 @@
     mm = merge master
     wc = wip-commit
     ct = checkout-topic
+    # https://medium.com/@jmatsu.drm/avoid-direct-value-of-default-branch-name-f24ec6e6b52
+    get-branch-cache = "!f() { git config --local misc.$1-branch; }; f"
+    set-branch-cache = "!f() { git config --local misc.$1-branch \"$2\"; }; f"
+    fetch-default-branch = "!f() { git ls-remote --symref $(git remote get-url origin) HEAD | grep 'refs/heads' | awk '$0=$2' | sed 's/refs\\/heads\\///'; }; f"
+    refresh-default-branch= "!f() { git set-branch-cache default $(git fetch-default-branch); }; f"
+    default-branch = "!f() { git get-branch-cache default || (git refresh-default-branch; git get-branch-cache default); }; f"
 [push]
     default = current
 [filter "lfs"]

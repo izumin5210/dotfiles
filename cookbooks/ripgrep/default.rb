@@ -5,7 +5,7 @@ else
     repo 'BurntSushi/ripgrep'
     version '12.1.1'
     archive 'ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz'
-    bin 'ripgrep-12.1.1-x86_64-unknown-linux-musl.tar.gz/rg'
+    bin 'ripgrep-12.1.1-x86_64-unknown-linux-musl/rg'
   end
 end
 

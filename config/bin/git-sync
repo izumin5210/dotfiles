@@ -12,7 +12,7 @@ printutil section "Start sync..."
 printutil subsection "Checkout $defaultBranch"
 git checkout $defaultBranch
 
-printutil subsection "Pull $defaultBranch from $remote_name"
+printutil subsection "Pull $defaultBranch from $remoteName"
 git pull $remoteName $defaultBranch
 
 printutil subsection "Remove references that no longer exist on the remote"

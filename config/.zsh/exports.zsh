@@ -7,7 +7,7 @@ export TERM=xterm-256color
 # path
 # ================================================================
 
-export DEFAULT_PREFIX="${HOMEBREW_PREFIX-:"${HOME}/.local"}"
+export DEFAULT_PREFIX="${HOMEBREW_PREFIX:-"${HOME}/.local"}"
 
 if [ -n "$HOMEBREW_PREFIX" ]; then
   export PATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin:${PATH}

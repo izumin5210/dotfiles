@@ -4,7 +4,7 @@ set -euo pipefail
 
 branch=`git rev-parse --abbrev-ref @`
 
-if [ $branch = "master" ]; then
+if [ $branch = "$(git default-branch)" ]; then
     echo "Current branch is NOT a feature branch."
     exit 1
 else

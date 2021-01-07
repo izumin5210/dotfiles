@@ -4,19 +4,19 @@
 
 set -eu
 
-remote_name="${1:-origin}"
-base_branch="$(git base-branch)"
+remoteName="${1:-origin}"
+defaultBranch="$(git default-branch)"
 
 printutil section "Start sync..."
 
-printutil subsection "Checkout $base_branch"
-git checkout $base_branch
+printutil subsection "Checkout $defaultBranch"
+git checkout $defaultBranch
 
-printutil subsection "Pull $base_branch from $remote_name"
-git pull $remote_name $base_branch
+printutil subsection "Pull $defaultBranch from $remote_name"
+git pull $remoteName $defaultBranch
 
 printutil subsection "Remove references that no longer exist on the remote"
-git fetch --prune $remote_name
+git fetch --prune $remoteName
 
 printutil subsection "Cleanup merged branches in local"
 git clean-branch local

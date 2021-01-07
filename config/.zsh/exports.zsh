@@ -52,6 +52,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
 --color=info:#a093c7,prompt:#89bac2,pointer:#ada0d3,marker:#ada0d3,spinner:#ada0d3
 '
 
+# ripgrep
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+
 # git
 case "$(uname)" in
   "Darwin")

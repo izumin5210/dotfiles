@@ -1,3 +1,7 @@
+if empty(globpath(&rtp, 'autoload/lightline.vim'))
+  finish
+endif
+
 let g:lightline = {
 \   'colorscheme': 'iceberg',
 \   'mode_map': {'c': 'NORMAL'},

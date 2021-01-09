@@ -65,7 +65,9 @@ set splitright
 
 set matchpairs+=<:>
 
-set ambiwidth=double
+if !exists('g:vscode')
+  set ambiwidth=double
+endif
 
 cnoremap <expr> / getcmdtype() == '/' ? '\/' : '/'
 cnoremap <expr> ? getcmdtype() == '?' ? '\?' : '?'
@@ -104,33 +106,35 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim', { 'tag': '*' }
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp', { 'tag': '*' }
-Plug 'mattn/vim-lsp-settings'
-Plug 'mattn/vim-lsp-icons'
+if !exists('g:vscode')
+  Plug 'prabirshrestha/async.vim'
+  Plug 'prabirshrestha/asyncomplete.vim', { 'tag': '*' }
+  Plug 'prabirshrestha/asyncomplete-lsp.vim'
+  Plug 'prabirshrestha/vim-lsp', { 'tag': '*' }
+  Plug 'mattn/vim-lsp-settings'
+  Plug 'mattn/vim-lsp-icons'
 
-Plug 'cocopon/iceberg.vim'
+  Plug 'cocopon/iceberg.vim'
 
-Plug 'itchyny/lightline.vim'
+  Plug 'itchyny/lightline.vim'
 
-Plug expand('$DEFAULT_PREFIX/opt/fzf')
-Plug 'junegunn/fzf.vim'
+  Plug expand('$DEFAULT_PREFIX/opt/fzf')
+  Plug 'junegunn/fzf.vim'
+
+  Plug 'junegunn/rainbow_parentheses.vim'
+  Plug 'christoomey/vim-tmux-navigator'
+endif
 
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-surround'
 Plug 'AndrewRadev/switch.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
 
 if !has('nvim')
   Plug 'Shougo/vimshell.vim' " for vim/delve
 endif
 
-" integrations ----------------
-Plug 'christoomey/vim-tmux-navigator'
 Plug 'direnv/direnv.vim'
 
 " filetypes ----------------
@@ -156,20 +160,22 @@ Plug 'jparise/vim-graphql', { 'for': 'graphql' }
 
 call plug#end()
 
-let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
-let g:rainbow#blacklist = [110, 140, 252, 242]
+if !exists('g:vscode')
+  let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+  let g:rainbow#blacklist = [110, 140, 252, 242]
 
-augroup MyAutoCmd
-  autocmd VimEnter * RainbowParentheses
-  autocmd VimEnter * nested colorscheme iceberg
-  if !has("gui_running")
-    autocmd Colorscheme * highlight Normal ctermbg=none
-    autocmd Colorscheme * highlight NonText ctermbg=none
-    autocmd Colorscheme * highlight LineNr ctermbg=none
-    autocmd Colorscheme * highlight Folded ctermbg=none
-    autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
-  endif
-augroup END
+  augroup MyAutoCmd
+    autocmd VimEnter * RainbowParentheses
+    autocmd VimEnter * nested colorscheme iceberg
+    if !has("gui_running")
+      autocmd Colorscheme * highlight Normal ctermbg=none
+      autocmd Colorscheme * highlight NonText ctermbg=none
+      autocmd Colorscheme * highlight LineNr ctermbg=none
+      autocmd Colorscheme * highlight Folded ctermbg=none
+      autocmd Colorscheme * highlight EndOfBuffer ctermbg=none
+    endif
+  augroup END
+endif
 
 call map(sort(split(globpath(g:vim_config_dir, 'plugins/*.vim'))), {->[execute('exec "so" v:val')]})
 

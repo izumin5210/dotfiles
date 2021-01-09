@@ -1,3 +1,7 @@
+if empty(globpath(&rtp, 'autoload/fzf/vim.vim'))
+  finish
+endif
+
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],

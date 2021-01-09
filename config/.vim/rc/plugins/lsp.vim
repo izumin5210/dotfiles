@@ -1,3 +1,7 @@
+if empty(globpath(&rtp, 'autoload/lsp.vim'))
+  finish
+endif
+
 "  asynccomplete.vim
 "--------------------------------
 let g:asyncomplete_auto_popup = 1

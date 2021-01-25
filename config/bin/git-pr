@@ -11,7 +11,7 @@ if [ "$base" = "$current" ]; then
   base="$(git default-branch)"
 fi
 
-gh pr create --web --body "## Why
+gh pr create --web --base $base --head $current --body "## Why
 
 ## What
 

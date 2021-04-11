@@ -6,6 +6,7 @@ else
   git "#{default_prefix}/share/zsh-completions" do
     repository 'https://github.com/zsh-users/zsh-completions'
     revision '0.32.0'
+    user node[:user]
   end
 end
 

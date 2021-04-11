@@ -11,10 +11,12 @@ else
 
   directory prefix do
     action :create
+    user node[:user]
   end
 
   git "#{prefix}/fzf" do
     repository 'https://github.com/junegunn/fzf'
     revision '0.24.3'
+    user node[:user]
   end
 end

@@ -17,14 +17,20 @@ dotfile '.ideavimrc'
 
 vim_plug_version = '0.10.0'
 
-vim_plug_path = "#{ENV['HOME']}/.vim/autoload/plug.vim"
-directory File.dirname(vim_plug_path)
+vim_plug_path = "#{node[:home]}/.vim/autoload/plug.vim"
+directory File.dirname(vim_plug_path) do
+  user node[:user]
+end
 http_request vim_plug_path do
   url "https://raw.githubusercontent.com/junegunn/vim-plug/#{vim_plug_version}/plug.vim"
+  user node[:user]
 end
 
-nvim_plug_path = "#{ENV['HOME']}/.local/share/nvim/site/autoload/plug.vim"
-directory File.dirname(nvim_plug_path)
+nvim_plug_path = "#{node[:home]}/.local/share/nvim/site/autoload/plug.vim"
+directory File.dirname(nvim_plug_path) do
+  user node[:user]
+end
 link nvim_plug_path do
   to vim_plug_path
+  user node[:user]
 end

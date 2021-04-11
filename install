@@ -8,13 +8,14 @@ has() {
   return `type $1 > /dev/null 2>&1`
 }
 
+REPO="github.com/izumin5210/dotfiles"
+DOTPATH="${HOME}/src/${REPO}"
+
 download() {
-  local repo="github.com/izumin5210/dotfiles"
-  local dotpath="${HOME}/src/${repo}"
-  local github_url="https://${repo}"
+  local github_url="https://${REPO}"
 
   if has "git"; then
-    git clone --recursive "${github_url}" "${dotpath}"
+    git clone --recursive "${github_url}" "${DOTPATH}"
   elif has "curl" || has "wget"; then
     tarball="${github_url}/archive/main.tar.gz"
 
@@ -28,15 +29,13 @@ download() {
   else
     exit 1
   fi
-
-  ln -s ~/dotfiles $dotpath
 }
 
-if [ ! -d ~/dotfiles ]; then
+if [ ! -d $DOTPATH ]; then
   download
 fi
 
-cd ~/dotfiles
+cd $DOTPATH
 
 if [ $? -ne 0 ]; then
   exit 1
@@ -44,8 +43,8 @@ fi
 
 bin/setup_mitamae
 
-if [ "${CODESPACES:-"false"}" == "true" ]; then
-  sudo CODESPACES=true bin/mitamae local lib/recipe.rb
+if [ "$(uname)" == "Linux" ]; then
+  sudo bin/mitamae local lib/recipe.rb
 else
   bin/mitamae local lib/recipe.rb
 fi

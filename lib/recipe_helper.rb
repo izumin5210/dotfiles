@@ -20,7 +20,7 @@ MItamae::RecipeContext.class_eval do
   end
 
   def default_user
-    codespaces? ? "codespace" : (ENV['SUDO_USER'] || ENV['USER'])
+    ENV['SUDO_USER'] || ENV['USER']
   end
 
   def home_dir

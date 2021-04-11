@@ -8,7 +8,11 @@ current=$(git symbolic-ref --short HEAD)
 base=$(echo $current | sed -e 's/\+[^\+]*$//')
 
 if [ "$base" = "$current" ]; then
-  base="$(git default-branc)"
+  base="$(git default-branch)"
 fi
 
-hub browse -- compare/${base}...${current}'?'expand=1'&'body=%23%23%20WHY%0A%0A%23%23%20WHAT%0A%0A%23%23%20REF%0A%0A
+gh pr create --web --base $base --head $current --body "## Why
+
+## What
+
+"

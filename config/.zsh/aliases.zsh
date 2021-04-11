@@ -1,5 +1,6 @@
 alias ls='ls -G'
 alias vim='nvim'
+alias rg='ripgrep'
 
 alias history='history -E'
 

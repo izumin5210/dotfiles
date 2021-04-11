@@ -1,5 +1,3 @@
-package 'neovim'
-
 if node[:platform] == 'darwin'
   package 'macvim' do
     options '--with-lua --with-python3' if node[:platform] == 'darwin'
@@ -7,6 +5,12 @@ if node[:platform] == 'darwin'
 
   package 'neovim' do
     options '--HEAD'
+  end
+else
+  http_request "#{default_prefix}/bin/nvim" do
+    url "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+    user node[:user]
+    mode "744"
   end
 end
 

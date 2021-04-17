@@ -19,6 +19,14 @@ MItamae::RecipeContext.class_eval do
     "#{home_dir}/.local"
   end
 
+  def default_bin_dir
+    "#{default_prefix}/bin"
+  end
+
+  def default_tmp_dir
+    "#{home_dir}/.tmp"
+  end
+
   def default_user
     ENV['SUDO_USER'] || ENV['USER']
   end

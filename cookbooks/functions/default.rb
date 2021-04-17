@@ -43,35 +43,43 @@ define :github_release, repo: nil, version: nil, archive: nil, checksum: nil, bi
   bin_dir = "#{params[:prefix] || default_prefix}/bin"
   bin = "#{bin_dir}/#{params[:name]}"
   url = "https://github.com/#{params[:repo]}/releases/download/#{params[:version]}"
+  
+  directory default_tmp_dir do
+    user node[:user]
+  end
 
-  execute "curl -sfL -o /tmp/#{params[:archive]} #{url}/#{params[:archive]}" do
+  execute "curl -sfL -o #{default_tmp_dir}/#{params[:archive]} #{url}/#{params[:archive]}" do
+    user node[:user]
     not_if "test -f #{bin}"
   end
 
   if params[:checksum]
-    execute "curl -sfL -o /tmp/#{params[:checksum]} #{url}/#{params[:checksum]}" do
+    execute "curl -sfL -o #{default_tmp_dir}/#{params[:checksum]} #{url}/#{params[:checksum]}" do
+      user node[:user]
       not_if "test -f #{bin}"
     end
     execute "sha256sum -c #{params[:checksum]} --ignore-missing" do
       not_if "test -f #{bin}"
-      cwd "/tmp"
+      user node[:user]
+      cwd default_tmp_dir
     end
   end
 
   execute 'unarchive' do
     case params[:archive]
-    when /.zip$/; command "unzip -o /tmp/#{params[:archive]}"
-    when /.tar.gz$/; command "tar -xf /tmp/#{params[:archive]}"
+    when /.zip$/; command "unzip -o #{default_tmp_dir}/#{params[:archive]}"
+    when /.tar.gz$/; command "tar -xf #{default_tmp_dir}/#{params[:archive]}"
     end
     not_if "test -f #{bin}"
-    cwd '/tmp'
+    user node[:user]
+    cwd default_tmp_dir
   end
 
   directory bin_dir do
     user node[:user]
   end
 
-  execute "mv /tmp/#{params[:bin] || params[:name]} #{bin} && chmod +x #{bin}" do
+  execute "mv #{default_tmp_dir}/#{params[:bin] || params[:name]} #{bin} && chmod +x #{bin}" do
     not_if "test -f #{bin}"
     user node[:user]
   end

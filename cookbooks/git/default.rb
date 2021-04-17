@@ -26,11 +26,15 @@ if node[:platform] == 'darwin'
 end
 
 if codespaces?
-  bin = '/usr/share/doc/git/contrib/diff-highlight/diff-highlight'
+  dir = '/usr/share/doc/git/contrib/diff-highlight'
 
-  execute "chmod +x #{bin}"
+  execute "build diff-highlight" do
+    command "make"
+    cwd dir
+  end
+  execute "chmod +x #{dir}/diff-highlight"
   link "#{default_prefix}/bin/diff-highlight" do
-    to bin
+    to "#{dir}/diff-highlight"
   end
 end
 

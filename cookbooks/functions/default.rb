@@ -46,14 +46,17 @@ define :github_release, repo: nil, version: nil, archive: nil, checksum: nil, bi
 
   execute "curl -sfL -o /tmp/#{params[:archive]} #{url}/#{params[:archive]}" do
     not_if "test -f #{bin}"
+    user node[:user]
   end
 
   if params[:checksum]
     execute "curl -sfL -o /tmp/#{params[:checksum]} #{url}/#{params[:checksum]}" do
       not_if "test -f #{bin}"
+      user node[:user]
     end
     execute "sha256sum -c #{params[:checksum]} --ignore-missing" do
       not_if "test -f #{bin}"
+      user node[:user]
       cwd "/tmp"
     end
   end
@@ -64,12 +67,16 @@ define :github_release, repo: nil, version: nil, archive: nil, checksum: nil, bi
     when /.tar.gz$/; command "tar -xf /tmp/#{params[:archive]}"
     end
     not_if "test -f #{bin}"
+    user node[:user]
     cwd '/tmp'
   end
 
-  directory bin_dir
+  directory bin_dir do
+    user node[:user]
+  end
 
   execute "mv /tmp/#{params[:bin] || params[:name]} #{bin} && chmod +x #{bin}" do
     not_if "test -f #{bin}"
+    user node[:user]
   end
 end

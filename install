@@ -44,7 +44,7 @@ fi
 bin/setup_mitamae
 
 if [ "$(uname)" = "Linux" ]; then
-  if [ "${CODESPACES}" = "true" ]; then
+  if [ "${CODESPACES:-"false"}" = "true" ]; then
     sudo apt update
   fi
   sudo -E bin/mitamae local lib/recipe.rb

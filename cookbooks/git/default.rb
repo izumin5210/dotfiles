@@ -1,8 +1,4 @@
-package 'git' do
-  if node[:platform] == 'darwin'
-    options '--with-pcre'
-  end
-end
+package 'git'
 
 if node[:platform] == 'darwin'
   package 'gh'

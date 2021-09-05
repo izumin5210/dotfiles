@@ -2,7 +2,7 @@
 --max-columns-preview
 
 --hidden
---glob=!git/*
+--glob=!.git/*
 
 --colors=line:none
 --colors=line:style:bold

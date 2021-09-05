@@ -3,11 +3,8 @@ if node[:platform] == 'darwin'
 
   cask 'font-fontawesome'
   cask 'font-inconsolata'
-  cask 'font-m-plus'
   cask 'font-noto-sans-cjk-jp'
   cask 'font-poppins'
-  cask 'font-raleway'
-  cask 'font-raleway-dots'
 
   brew_tap 'sanemat/font'
   package 'ricty' do

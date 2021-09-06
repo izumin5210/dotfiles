@@ -1,3 +1,5 @@
+brew_tap 'homebrew/cask-versions'
+
 node[:macos_apps][:cask].each do |app|
   cask app
 end

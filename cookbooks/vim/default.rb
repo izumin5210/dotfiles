@@ -8,7 +8,7 @@ if node[:platform] == 'darwin'
   end
 else
   http_request "#{default_prefix}/bin/nvim" do
-    url "https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage"
+    url "https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage"
     user node[:user]
     mode "744"
   end

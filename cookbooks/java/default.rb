@@ -1,5 +1,5 @@
 package 'jenv'
 
 if node[:platform] == 'darwin'
-  cask 'java'
+  package 'java'
 end

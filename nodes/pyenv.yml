@@ -1,8 +1,8 @@
 pyenv:
   global:
   - system
-  - 3.6.1
+  - 3.9.0
   versions:
-  - 3.6.1
+  - 3.9.0
   default-packages:
   - neovim; python_version >= '3.4'

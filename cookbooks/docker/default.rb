@@ -1,5 +1,5 @@
 if node[:platform] == 'darwin'
-  brew_tap 'caskroom/versions'
+  package 'docker'
   cask 'docker'
   cask 'docker-toolbox'
 end

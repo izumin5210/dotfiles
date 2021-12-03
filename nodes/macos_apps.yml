@@ -21,6 +21,7 @@ macos_apps:
   - spotify
   - the-unarchiver
   - visual-studio-code-insiders
+    # - cask-versions/visual-studio-code-insiders
   - zeplin
   - zoomus
 

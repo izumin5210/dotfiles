@@ -1,7 +1,7 @@
 nodenv:
-  global: 14.15.0
+  global: 16.11.1
   versions:
-  - 12.15.0
-  - 14.15.0
+  - 14.18.1
+  - 16.11.1
   default-packages:
   - commitizen 

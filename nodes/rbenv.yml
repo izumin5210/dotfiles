@@ -1,9 +1,9 @@
 rbenv:
-  global: 3.0.0
+  global: 3.0.2
   versions:
-  - 2.6.3
-  - 2.7.2
-  - 3.0.0
+  - 2.6.8
+  - 2.7.4
+  - 3.0.2
   default-gems:
   - bundler
   - pry

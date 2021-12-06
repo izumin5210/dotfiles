@@ -14,8 +14,9 @@ if node[:platform] == 'darwin'
     subscribes :run, 'execute[Copy ricty fonts]'
     action :nothing
   end
+  prefix = brew_prefix
   execute 'Copy ricty fonts' do
-    command "cp -f #{brew_prefix}/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/"
+    command "cp -f #{prefix}/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/"
     not_if 'ls -1 ~/Library/Fonts/ | grep -c -E "Ricty.*\.ttf$" | grep -E "^8$"'
   end
 

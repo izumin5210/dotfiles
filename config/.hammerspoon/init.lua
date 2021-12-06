@@ -36,11 +36,11 @@ end
 local prevCmdsKeyCode
 
 local function toJa()
-  hs.eventtap.keyStroke({}, hs.keycodes.map['kana'])
+  hs.keycodes.setMethod('Hiragana')
 end
 
 local function toEn()
-  hs.eventtap.keyStroke({}, hs.keycodes.map['eisu'])
+  hs.keycodes.setLayout('ABC')
 end
 
 local function handleCmds(e)
@@ -60,7 +60,7 @@ local function handleCmds(e)
   prevCmdsKeyCode = keyCode
 end
 
-observeCmds = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp}, handleCmds)
+observeCmds = hs.eventtap.new({hs.eventtap.event.types.flagsChanged, hs.eventtap.event.types.keyDown}, handleCmds)
 observeCmds:start()
 
 -- key remapping: http://qiita.com/naoya@github/items/81027083aeb70b309c14

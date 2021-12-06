@@ -27,15 +27,17 @@ end
 define :brew_tap do
   tapname = params[:name]
   user, repo = tapname.split('/')
+  prefix = brew_prefix
   execute "brew tap #{tapname}" do
-    not_if "test -e #{brew_prefix}/Homebrew/Library/Taps/#{user}/homebrew-#{repo}"
+    not_if "test -e #{prefix}/Homebrew/Library/Taps/#{user}/homebrew-#{repo}"
   end
 end
 
 define :cask do
   caskname = params[:name]
+  prefix = brew_prefix
   execute "brew install --cask #{caskname}" do
-    not_if "ls -1 #{brew_prefix}/Caskroom/ | grep '#{caskname}'"
+    not_if "ls -1 #{prefix}/Caskroom/ | grep '#{caskname}'"
   end
 end
 

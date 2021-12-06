@@ -13,9 +13,9 @@ define :mas, id: nil do
   end
 end
 
-execute 'mas signin' do
-  not_if 'mas account'
-end
+# execute 'mas signin' do
+#   not_if 'mas account'
+# end
 
 node[:macos_apps][:mas].each do |app|
   mas app[:name] do

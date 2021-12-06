@@ -1,5 +1,3 @@
-arch = system("uname -m")
-
 MItamae::RecipeContext.class_eval do
   def include_cookbook(name)
     include_recipe File.join(root_dir, 'cookbooks', name, 'default')
@@ -18,6 +16,7 @@ MItamae::RecipeContext.class_eval do
   end
 
   def brew_prefix
+    arch = `uname -m`.chomp
     case arch
     when 'x86_64'; '/usr/local'
     when 'arm64';  '/opt/homebrew'

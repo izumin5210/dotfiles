@@ -16,8 +16,8 @@ else
 end
 
 if node[:platform] == 'darwin'
-  link "/usr/local/bin/diff-highlight" do
-    to "/usr/local/share/git-core/contrib/diff-highlight/diff-highlight"
+  link "#{brew_prefix}/bin/diff-highlight" do
+    to "#{brew_prefix}/share/git-core/contrib/diff-highlight/diff-highlight"
   end
 end
 

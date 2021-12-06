@@ -5,14 +5,11 @@ brewPrefix=""
 
 case "$(uname)" in
   "Darwin")
-    case "$(uname -m)" in
-      "x86_64")
-        brewPrefix="/usr/local"
-        ;;
-      "arm64")
-        brewPrefix="/opt/homebrew"
-        ;;
-    esac
+    if [ -d "/opt/homebrew" ]; then
+      brewPrefix="/opt/homebrew"
+    else
+      brewPrefix="/usr/local"
+    fi
     ;;
   "Linux")
     brewPrefix="/home/linuxbrew/.linuxbrew"

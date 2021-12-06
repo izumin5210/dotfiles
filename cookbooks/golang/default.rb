@@ -32,8 +32,8 @@ define 'go_bin', bin: nil do
 end
 
 # tools
-go_bin 'github.com/derekparker/delve/cmd/dlv'
-go_bin 'github.com/motemen/gore'
+go_bin 'github.com/go-delve/delve/cmd/dlv'
+go_bin 'github.com/x-motemen/gore'
 go_bin 'github.com/pwaller/goimports-update-ignore'
 go_bin 'github.com/rakyll/hey'
 
@@ -46,7 +46,7 @@ go_bin 'golang.org/x/tools/cmd/goimports'
 go_bin 'golang.org/x/tools/cmd/guru'
 go_bin 'golang.org/x/tools/gopls'
 
-golangcilint_version = "v1.34.1"
+golangcilint_version = "v1.43.0"
 
 execute 'install golangci-lint' do
   command "curl -sfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s -- -b #{gobin} #{golangcilint_version}"

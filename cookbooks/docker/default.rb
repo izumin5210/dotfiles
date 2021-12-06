@@ -1,5 +1,5 @@
 if node[:platform] == 'darwin'
-  package 'docker'
+  # package 'docker'
   cask 'docker'
-  cask 'docker-toolbox'
+  # cask 'docker-toolbox'
 end

@@ -16,14 +16,14 @@ macos_apps:
   - gyazo
   - jetbrains-toolbox
   - notion
-  - osxfuse # for telepresence
+  - macfuse # for telepresence
   - slack
   - spotify
   - the-unarchiver
   - visual-studio-code-insiders
     # - cask-versions/visual-studio-code-insiders
   - zeplin
-  - zoomus
+  - zoom
 
   mas:
   - name: 'Display Menu'

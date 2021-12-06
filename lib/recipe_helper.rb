@@ -1,3 +1,5 @@
+arch = system("uname -m")
+
 MItamae::RecipeContext.class_eval do
   def include_cookbook(name)
     include_recipe File.join(root_dir, 'cookbooks', name, 'default')
@@ -13,6 +15,14 @@ MItamae::RecipeContext.class_eval do
 
   def root_dir
     @root_dir ||= File.expand_path('../..', __FILE__)
+  end
+
+  def brew_prefix
+    case arch
+    when 'x86_64'; '/usr/local'
+    when 'arm64';  '/opt/homebrew'
+    else fail "unknown arch: #{arch}"
+    end
   end
 
   def default_prefix

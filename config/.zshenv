@@ -5,7 +5,14 @@ brewPrefix=""
 
 case "$(uname)" in
   "Darwin")
-    brewPrefix="/usr/local"
+    case "$(uname -m)" in
+      "x86_64")
+        brewPrefix="/usr/local"
+        ;;
+      "arm64")
+        brewPrefix="/opt/homebrew"
+        ;;
+    esac
     ;;
   "Linux")
     brewPrefix="/home/linuxbrew/.linuxbrew"

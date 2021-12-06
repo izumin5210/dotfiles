@@ -14,7 +14,7 @@ dotfile '.zshenv'
 dotfile '.zshrc'
 dotfile '.zsh'
 
-zsh_path = node[:platform] == 'darwin' ? '/usr/local/bin/zsh' : '$(which zsh)'
+zsh_path = node[:platform] == 'darwin' ? "#{brew_prefix}/bin/zsh" : '$(which zsh)'
 
 execute "echo #{zsh_path} >> /etc/shells" do
   not_if "cat /etc/shells | grep -q #{zsh_path}"

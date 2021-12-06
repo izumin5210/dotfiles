@@ -1,4 +1,4 @@
-bin = '/usr/local/bin/whalebrew'
+bin = "#{brew_prefix}/bin/whalebrew"
 ver = '0.1.0'
 
 execute 'Install whalebrew' do

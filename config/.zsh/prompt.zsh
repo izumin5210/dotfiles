@@ -61,6 +61,28 @@ _prompt_git_info() {
   echo "${(j: :)GIT_INFO}"
 }
 
+_prompt_warning() {
+  local warns=()
+  # Wantedly
+  if [ -n "${KUBE_FORK_TARGET_ENV}" ]; then
+    warns+=("fork: ${KUBE_FORK_TARGET_ENV}")
+  fi
+  # arch
+  if [ "$(uname -s)" = "Darwin" ]; then
+    if [ "$(uname -m)" != "arm64" ]; then
+      warns+=("arch: $(uname -m)")
+    fi
+  fi
+  # print warnings
+  if [ "${#warns[@]}" -gt 0 ]; then
+    local line
+    for warn in ${warns[@]}; do
+      line="${line}${warn}, "
+    done
+    echo "${line:0:-2}"
+  fi
+}
+
 _update_prompt() {
     local exitCode=$?
     if [ -z "${LAST_EXECUTED_COMMAND}" ]; then
@@ -69,10 +91,12 @@ _update_prompt() {
 
     local cwd=$(pwd | sed -e "s,^$HOME,~,")
     local gitinfo=$(_prompt_git_info)
+    local line_1_warning=$(_prompt_warning)
 
     local line_1
     local line_2
 
+    # current directory (based on `ghq root`) and git info
     if git rev-parse 2> /dev/null; then
       local repo=$(git rev-parse --show-toplevel | sed -e "s,^$HOME,~," | sed -e "s,^~/src/\(github.com/\)\?,,")
       local path=$(git rev-parse --show-prefix | sed -e "s,/$,,")
@@ -81,13 +105,14 @@ _update_prompt() {
       line_1="%{$fg[blue]%}${cwd}%{$reset_color%}"
     fi
 
+    # background job count
     if [ -n "$(jobs)" ]; then
       line_1="${line_1} %{$fg[grey]%}- %(1j,%{$fg[red]%}%j job%(2j,s,)%{$reset_color%},)"
     fi
 
-    # Wantedly
-    if [ -n "${KUBE_FORK_TARGET_ENV}" ]; then
-      line_1="${line_1} %{$fg[grey]%}- %{$fg[yellow]%}(fork: ${KUBE_FORK_TARGET_ENV})%{$reset_color%}"
+    # warning
+    if [ -n "$line_1_warning" ]; then
+      line_1="${line_1} %{$fg[grey]%}- %{$fg[yellow]%}(${line_1_warning})%{$reset_color%}"
     fi
 
     # signal

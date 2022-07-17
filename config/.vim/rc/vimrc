@@ -143,7 +143,6 @@ Plug 'tpope/vim-endwise', { 'for': 'ruby' }
 Plug 'joker1007/vim-ruby-heredoc-syntax', { 'for': 'ruby' }
 
 " Go
-Plug 'mattn/vim-goimports', { 'for': 'go' }
 Plug 'sebdah/vim-delve', { 'for': 'go' }
 
 " Rust

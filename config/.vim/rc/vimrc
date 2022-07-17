@@ -108,9 +108,9 @@ call plug#begin('~/.vim/plugged')
 
 if !exists('g:vscode')
   Plug 'prabirshrestha/async.vim'
-  Plug 'prabirshrestha/asyncomplete.vim', { 'tag': '*' }
+  Plug 'prabirshrestha/asyncomplete.vim'
   Plug 'prabirshrestha/asyncomplete-lsp.vim'
-  Plug 'prabirshrestha/vim-lsp', { 'tag': '*' }
+  Plug 'prabirshrestha/vim-lsp'
   Plug 'mattn/vim-lsp-settings'
   Plug 'mattn/vim-lsp-icons'
 

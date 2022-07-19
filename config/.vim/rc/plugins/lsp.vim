@@ -13,13 +13,22 @@ let g:asyncomplete_popup_delay = 200
 function! s:on_lsp_buffer_enabled() abort
   setlocal omnifunc=lsp#complete
   setlocal signcolumn=yes
+  if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
   nmap <buffer> gd <plug>(lsp-definition)
-  nmap <buffer> <C-]> <plug>(lsp-definition)
-  nmap <buffer> <f2> <plug>(lsp-rename)
-  nmap <buffer> <Leader>d <plug>(lsp-type-definition)
-  nmap <buffer> <Leader>r <plug>(lsp-references)
-  nmap <buffer> <Leader>i <plug>(lsp-implementation)
-  inoremap <expr> <cr> pumvisible() ? "\<c-y>\<cr>" : "\<cr>"
+  nmap <buffer> gs <plug>(lsp-document-symbol-search)
+  nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+  nmap <buffer> gr <plug>(lsp-references)
+  nmap <buffer> gi <plug>(lsp-implementation)
+  nmap <buffer> gt <plug>(lsp-type-definition)
+  nmap <buffer> <leader>rn <plug>(lsp-rename)
+  nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+  nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+  nmap <buffer> K <plug>(lsp-hover)
+  nnoremap <buffer> <expr><c-j> lsp#scroll(+4)
+  nnoremap <buffer> <expr><c-k> lsp#scroll(-4)
+
+  let g:lsp_format_sync_timeout = 1000
+  autocmd BufWritePre *.go call execute(['LspCodeActionSync source.organizeImports', 'LspDocumentFormatSync'])
 endfunction
 
 augroup lsp_install
@@ -43,21 +52,13 @@ let g:lsp_settings = {}
 let g:lsp_settings['gopls'] = {
   \  'workspace_config': {
   \    'usePlaceholders': v:true,
-  \    'semanticTokens': v:true,
   \    'gofumpt': v:true,
   \    'experimentalWorkspaceModule': v:true,
-  \    'codelens': {
-  \      'test': v:true,
-  \    },
   \  },
   \  'initialization_options': {
   \    'usePlaceholders': v:true,
-  \    'semanticTokens': v:true,
   \    'gofumpt': v:true,
   \    'experimentalWorkspaceModule': v:true,
-  \    'codelens': {
-  \      'test': v:true,
-  \    },
   \  },
   \}
 

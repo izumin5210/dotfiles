@@ -1,6 +1,6 @@
+package 'bat'
 package 'colordiff'
 package 'coreutils'
-package 'ctop'
 package 'curl'
 package 'direnv'
 package 'envchain'
@@ -18,16 +18,3 @@ package 'tig'
 package 'tree'
 package 'watchman'
 package 'wget'
-
-brew_tap 'dtan4/tools'
-package 'valec'
-
-brew_tap 'izumin5210/tools'
-package 'grapi'
-
-# kube
-package 'kubernetes-cli'
-package 'stern'
-package 'kubectx'
-brew_tap 'datawire/blackbird' # for telepresence
-package 'telepresence'

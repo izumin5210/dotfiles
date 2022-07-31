@@ -52,3 +52,7 @@ macos_defaults:
   com.microsoft.VSCodeInsiders:
   - key: ApplePressAndHoldEnabled
     value: false
+
+  com.apple.screencapture:
+  - key: location
+    value: ~/Downloads

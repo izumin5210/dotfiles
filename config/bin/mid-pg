@@ -4,7 +4,7 @@ set -eu
 set -o pipefail
 
 NAME=the-postgres
-IMAGE=postgres:9.6.1-alpine
+IMAGE=postgres:14-alpine
 
 
 #  Commands
@@ -61,8 +61,9 @@ server_create() {
   docker run \
     -p 5432:5432 \
     --name $NAME \
+    -e POSTGRES_HOST_AUTH_METHOD=trust \
     -e POSTGRES_USER=$USER \
-    -e POSTGRES_PASSWORD= \
+    -e POSTGRES_PASSWORD="" \
     -v ~/docker/postgres:/var/lib/postgresql/data \
     -d \
     $IMAGE

@@ -9,20 +9,13 @@ macos_apps:
   - contexts
   - dash
   - dropbox
-  - fantastical
   - google-chrome
   - google-japanese-ime
   - grammarly
-  - gyazo
-  - jetbrains-toolbox
   - notion
   - macfuse # for telepresence
-  - slack
   - spotify
-  - the-unarchiver
   - visual-studio-code-insiders
-    # - cask-versions/visual-studio-code-insiders
-  - zeplin
   - zoom
 
   mas:
@@ -36,3 +29,5 @@ macos_apps:
     id: 497799835
   - name: 'Todoist'
     id: 585829637
+  - name: 'Slack'
+    id: 803453959

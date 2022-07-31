@@ -4,7 +4,7 @@ if node[:platform] == 'darwin'
   package 'gh'
 else
   github_release 'gh' do
-    v = "1.2.1"
+    v = "2.3.0"
     name = "gh_#{v}_#{node[:kernel][:name].downcase}_amd64"
 
     repo 'cli/cli'

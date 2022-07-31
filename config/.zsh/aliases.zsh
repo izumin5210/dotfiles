@@ -1,6 +1,8 @@
 alias ls='ls -G'
 alias vim='nvim'
-alias rg='ripgrep'
+if type ripgrep > /dev/null 2>&1; then
+  alias rg='ripgrep'
+fi
 
 alias history='history -E'
 

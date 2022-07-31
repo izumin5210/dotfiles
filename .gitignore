@@ -13,3 +13,5 @@
 /config/.vim/view
 /config/.vim/plugged
 /config/.vim/autoload/plug.vim
+/config/.config/karabiner/*
+!/config/.config/karabiner/karabiner.json

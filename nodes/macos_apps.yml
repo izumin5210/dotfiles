@@ -12,6 +12,7 @@ macos_apps:
   - google-chrome
   - google-japanese-ime
   - grammarly
+  - karabiner-elements
   - notion
   - macfuse # for telepresence
   - spotify

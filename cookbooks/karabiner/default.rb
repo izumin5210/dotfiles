@@ -1,0 +1,1 @@
+dotfile '.config/karabiner'

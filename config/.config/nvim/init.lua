@@ -499,6 +499,7 @@ require('telescope').setup({
         ['<C-u>'] = false
       },
     },
+    winblend = 20,
   },
 })
 local telescope_builtin = require('telescope.builtin')
@@ -564,6 +565,8 @@ if not vim.g.vscode then
     pattern = '*',
     command = 'highlight IlluminatedWordWrite ctermbg=238 guibg=#33374c'
   })
-  vim.o.termguicolors = true
+  vim.opt.termguicolors = true
+  vim.opt.winblend=20
+  vim.opt.pumblend=20
   vim.cmd'colorscheme iceberg'
 end

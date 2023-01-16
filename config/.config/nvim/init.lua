@@ -175,7 +175,7 @@ require('lazy').setup({
         sections = {
           lualine_a = {'mode'},
           lualine_b = {'branch', 'diff', 'diagnostics'},
-          lualine_c = {'filename'},
+          lualine_c = {'filename', 'lsp_progress'},
           lualine_x = {'encoding'},
           lualine_y = {'progress'},
           lualine_z = {'location'},
@@ -183,13 +183,7 @@ require('lazy').setup({
       })
     end
   },
-  {
-    'j-hui/fidget.nvim',
-    cond = not vim.g.vscode,
-    config = function ()
-      require('fidget').setup()
-    end,
-  },
+  { 'arkav/lualine-lsp-progress', cond = not vim.g.vscode },
   {
     'petertriho/nvim-scrollbar',
     cond = not vim.g.vscode,

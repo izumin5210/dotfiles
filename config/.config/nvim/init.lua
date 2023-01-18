@@ -353,7 +353,7 @@ vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
   callback = function()
     cursor_diagnostics_timer:stop()
     cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function ()
-      require('lspsaga.diagnostic').show_cursor_diagnostics()
+      require('lspsaga.diagnostic').show_line_diagnostics()
     end))
   end,
 })

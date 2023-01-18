@@ -140,7 +140,7 @@ require('lazy').setup({
   -- Fuzzy finder
   'nvim-lua/plenary.nvim',
   'nvim-telescope/telescope.nvim',
-  -- Apperance
+  -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   { 'kyazdani42/nvim-web-devicons', cond = not vim.g.vscode },
   {
@@ -510,7 +510,7 @@ vim.keymap.set('n', '<leader>fs', telescope_builtin.git_status, {})
 vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
 
 
--- Apperance
+-- Appearance
 if not vim.g.vscode then
   vim.opt.signcolumn = 'yes';
 

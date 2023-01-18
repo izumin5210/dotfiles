@@ -347,10 +347,14 @@ end
 vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
 vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
 
-vim.api.nvim_create_autocmd({ 'CursorHold' }, {
+local cursor_diagnostics_timer = vim.loop.new_timer()
+vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
   pattern = { '*' },
   callback = function()
-    require('lspsaga.diagnostic').show_cursor_diagnostics()
+    cursor_diagnostics_timer:stop()
+    cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function ()
+      require('lspsaga.diagnostic').show_cursor_diagnostics()
+    end))
   end,
 })
 

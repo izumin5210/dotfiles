@@ -142,6 +142,13 @@ require('lazy').setup({
   -- Fuzzy finder
   'nvim-lua/plenary.nvim',
   'nvim-telescope/telescope.nvim',
+  {
+    'nvim-telescope/telescope-frecency.nvim',
+    config = function()
+      require('telescope').load_extension('frecency')
+    end,
+    dependencies = {'kkharji/sqlite.lua'}
+  },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   { 'kyazdani42/nvim-web-devicons', cond = not vim.g.vscode },
@@ -540,8 +547,11 @@ require('telescope').setup({
     winblend = 20,
   },
 })
+local telescope = require('telescope')
 local telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader><leader>', telescope_builtin.find_files, {
+vim.keymap.set('n', '<leader><leader>', function ()
+  telescope.extensions.frecency.frecency({ workspace = 'CWD' })
+end, {
   desc = "Find files",
 })
 vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep, {

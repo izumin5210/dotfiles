@@ -2,14 +2,17 @@
 -- Options
 -----------------------------------
 
+vim.opt.updatetime = 2000
+
+-- editor
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
-
 vim.opt.wrap = false
 
 -- show whitespace chars
 vim.opt.list       = true
 vim.opt.listchars  = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
+
 -- search
 vim.opt.ignorecase = true
 vim.opt.smartcase  = true

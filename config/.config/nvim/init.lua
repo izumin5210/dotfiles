@@ -236,9 +236,17 @@ require('lazy').setup({
   },
   {
     "folke/which-key.nvim",
+    cond = not vim.g.vscode,
     config = function()
       require("which-key").setup()
     end,
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    cond = not vim.g.vscode,
+    config = function ()
+      require('indent_blankline').setup()
+    end
   },
   -- Editor
   {

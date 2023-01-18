@@ -13,8 +13,8 @@ vim.opt.wrap = false
 vim.opt.completeopt = 'menu,menuone,noselect'
 
 -- show whitespace chars
-vim.opt.list       = true
-vim.opt.listchars  = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
+vim.opt.list      = true
+vim.opt.listchars = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
 
 -- search
 vim.opt.ignorecase = true
@@ -82,7 +82,7 @@ require('lazy').setup({
   {
     'kkharji/lspsaga.nvim',
     lazy = true,
-    config = function ()
+    config = function()
       require('lspsaga').setup()
     end,
   },
@@ -125,7 +125,7 @@ require('lazy').setup({
           { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
           { name = 'path' },
-        },{
+        }, {
           { name = 'buffer' },
         }),
       })
@@ -144,7 +144,7 @@ require('lazy').setup({
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
-        config = function ()
+        config = function()
           require('treesitter-context').setup()
         end,
       },
@@ -153,14 +153,14 @@ require('lazy').setup({
       'mrjones2014/nvim-ts-rainbow',
       {
         'haringsrob/nvim_context_vt',
-        config = function ()
+        config = function()
           require('nvim_context_vt').setup({
             min_rows = 3,
           })
         end,
       },
     },
-    config = function ()
+    config = function()
       require('nvim-treesitter.configs').setup({
         ensure_installed = {
           'bash',
@@ -191,38 +191,38 @@ require('lazy').setup({
           'yaml',
         },
         -- indent = {
-          --   enable = true,
-          -- },
-          highlight = {
-            enable = true,
-            additional_vim_regex_highlighting = false,
-          },
-          rainbow = {
-            enable = true,
-            extended_mode = true,
-            max_file_lines = 1500,
-            colors = {
-              "#e27878", -- red
-              "#e2a478", -- yellow
-              "#b4be82", -- green
-              "#84a0c6", -- blue
-            }, -- table of hex strings
-            termcolors = {
-              'Red',
-              'Yellow',
-              'Green',
-              'Blue',
-            }
-          },
-          context_commentstring = {
-            enable = true,
-            enable_autocmd = false,
-          },
-        })
-      end
-    },
-    -- Fuzzy finder
-    {
+        --   enable = true,
+        -- },
+        highlight = {
+          enable = true,
+          additional_vim_regex_highlighting = false,
+        },
+        rainbow = {
+          enable = true,
+          extended_mode = true,
+          max_file_lines = 1500,
+          colors = {
+            "#e27878", -- red
+            "#e2a478", -- yellow
+            "#b4be82", -- green
+            "#84a0c6", -- blue
+          }, -- table of hex strings
+          termcolors = {
+            'Red',
+            'Yellow',
+            'Green',
+            'Blue',
+          }
+        },
+        context_commentstring = {
+          enable = true,
+          enable_autocmd = false,
+        },
+      })
+    end
+  },
+  -- Fuzzy finder
+  {
     'nvim-telescope/telescope.nvim',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -231,19 +231,19 @@ require('lazy').setup({
         config = function()
           require('telescope').load_extension('frecency')
         end,
-        dependencies = {'kkharji/sqlite.lua'}
+        dependencies = { 'kkharji/sqlite.lua' }
       },
     },
     lazy = true,
     keys = {
       {
-        '<leader><leader>', function ()
+        '<leader><leader>', function()
           require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })
         end,
         mode = 'n', noremap = true, desc = "Find files",
       },
       {
-        '<leader>g', function () require('telescope.builtin').live_grep() end,
+        '<leader>g', function() require('telescope.builtin').live_grep() end,
         mode = 'n', noremap = true, desc = "Grep files",
       },
       {
@@ -251,11 +251,11 @@ require('lazy').setup({
         mode = 'n', noremap = true, desc = "Show git status",
       },
       {
-        '<leader>fb', function () require('telescope_builtin').buffers() end,
+        '<leader>fb', function() require('telescope_builtin').buffers() end,
         mode = 'n', noremap = true, desc = "Show buffers",
       },
     },
-    config = function ()
+    config = function()
       require('telescope').setup({
         defaults = {
           layout_strategy = 'vertical',
@@ -279,9 +279,9 @@ require('lazy').setup({
     'nvim-tree/nvim-tree.lua',
     cond = not vim.g.vscode,
     keys = {
-      {"<C-h>", ":NvimTreeFindFileToggle<cr>", mode = "n", desc = "Open File Tree", silent = true, noremap = true},
+      { "<C-h>", ":NvimTreeFindFileToggle<cr>", mode = "n", desc = "Open File Tree", silent = true, noremap = true },
     },
-    config = function ()
+    config = function()
       require("nvim-tree").setup({
         sort_by = 'case_sensitive',
         view = {
@@ -306,19 +306,19 @@ require('lazy').setup({
     dependencies = {
       'arkav/lualine-lsp-progress',
     },
-    config = function ()
+    config = function()
       require('lualine').setup({
         options = {
           icons_enabled = false,
           theme = 'iceberg',
         },
         sections = {
-          lualine_a = {'mode'},
-          lualine_b = {'branch', 'diff', 'diagnostics'},
-          lualine_c = {'filename', 'lsp_progress'},
-          lualine_x = {'encoding'},
-          lualine_y = {'progress'},
-          lualine_z = {'location'},
+          lualine_a = { 'mode' },
+          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_c = { 'filename', 'lsp_progress' },
+          lualine_x = { 'encoding' },
+          lualine_y = { 'progress' },
+          lualine_z = { 'location' },
         },
       })
     end
@@ -326,7 +326,7 @@ require('lazy').setup({
   {
     'petertriho/nvim-scrollbar',
     cond = not vim.g.vscode,
-    config = function ()
+    config = function()
       require('scrollbar').setup({
         marks = {
           Search = { color_nr = '3', color = '#c57339' },
@@ -346,7 +346,7 @@ require('lazy').setup({
   {
     'kevinhwang91/nvim-hlslens',
     cond = not vim.g.vscode,
-    config = function ()
+    config = function()
       require('scrollbar.handlers.search').setup({
         override_lens = function() end,
       })
@@ -355,7 +355,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
         command = 'highlight SignColumn ctermbg=none guibg=none'
@@ -373,7 +373,7 @@ require('lazy').setup({
         command = 'highlight GitGutterDelete ctermbg=none guibg=none'
       })
     end,
-    config = function ()
+    config = function()
       require('gitsigns').setup()
       require('scrollbar.handlers.gitsigns').setup()
     end,
@@ -388,7 +388,7 @@ require('lazy').setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     cond = not vim.g.vscode,
-    config = function ()
+    config = function()
       require('indent_blankline').setup()
     end
   },
@@ -400,7 +400,7 @@ require('lazy').setup({
     end,
   },
   {
-   'numToStr/Comment.nvim',
+    'numToStr/Comment.nvim',
     config = function()
       require('Comment').setup({
         toggler = {
@@ -421,13 +421,13 @@ require('lazy').setup({
   },
   {
     'folke/todo-comments.nvim',
-    config = function ()
+    config = function()
       require('todo-comments').setup()
     end,
   },
   {
     'RRethy/vim-illuminate',
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
         command = 'highlight IlluminatedWordText ctermbg=238 guibg=#33374c'
@@ -441,13 +441,13 @@ require('lazy').setup({
         command = 'highlight IlluminatedWordWrite ctermbg=238 guibg=#33374c'
       })
     end,
-    config = function ()
+    config = function()
       require('illuminate').configure()
     end,
   },
   {
     "ntpeters/vim-better-whitespace",
-    config = function ()
+    config = function()
       vim.g.better_whitespace_enabled = 1
       vim.g.strip_whitespace_on_save = 1
       vim.g.strip_whitespace_confirm = 0
@@ -458,12 +458,13 @@ require('lazy').setup({
     'alexghergh/nvim-tmux-navigation',
     cond = not vim.g.vscode,
     keys = {
-      {'<C-w>h',    function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft()       end, mode = "n", noremap = true },
-      {'<C-w>j',    function() require('nvim-tmux-navigation').NvimTmuxNavigateDown()       end, mode = "n", noremap = true },
-      {'<C-w>k',    function() require('nvim-tmux-navigation').NvimTmuxNavigateUp()         end, mode = "n", noremap = true },
-      {'<C-w>l',    function() require('nvim-tmux-navigation').NvimTmuxNavigateRight()      end, mode = "n", noremap = true },
-      {'<C-w>\\',   function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, mode = "n", noremap = true },
-      {'<C-w>Space',function() require('nvim-tmux-navigation').NvimTmuxNavigateNext()       end, mode = "n", noremap = true },
+      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, mode = "n", noremap = true },
+      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, mode = "n", noremap = true },
+      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, mode = "n", noremap = true },
+      { '<C-w>l', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, mode = "n", noremap = true },
+      { '<C-w>\\', function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, mode = "n",
+        noremap = true },
+      { '<C-w>Space', function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, mode = "n", noremap = true },
     },
     config = function()
       require('nvim-tmux-navigation').setup({ disable_when_zoomed = true })
@@ -517,9 +518,10 @@ local on_attach_lsp = function(client, bufnr)
   vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols, vim.tbl_extend('keep', bufopts, {
     desc = 'Search Symbols in Workspace',
   }))
-  vim.keymap.set({'n','i'}, '<C-k>', require('lspsaga.signaturehelp').signature_help, vim.tbl_extend('keep', bufopts, {
-    desc = 'Show Signature Help'
-  }))
+  vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lspsaga.signaturehelp').signature_help,
+    vim.tbl_extend('keep', bufopts, {
+      desc = 'Show Signature Help'
+    }))
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
@@ -549,7 +551,7 @@ local on_attach_lsp = function(client, bufnr)
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, vim.tbl_extend('keep', bufopts, {
     desc = 'Go to next Diagnostic',
   }))
-  vim.keymap.set('n', '<space>q', function ()
+  vim.keymap.set('n', '<space>q', function()
     telescope_builtin.diagnostics({ bufnr = 0 })
   end, vim.tbl_extend('keep', bufopts, {
     desc = 'Show diagnostics in Document',
@@ -564,7 +566,7 @@ vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
   pattern = { '*' },
   callback = function()
     cursor_diagnostics_timer:stop()
-    cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function ()
+    cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function()
       require('lspsaga.diagnostic').show_line_diagnostics()
     end))
   end,
@@ -663,7 +665,7 @@ if not vim.g.vscode then
     command = 'highlight EndOfBuffer ctermbg=none guibg=none'
   })
   vim.opt.termguicolors = true
-  vim.opt.winblend=20
-  vim.opt.pumblend=20
-  vim.cmd'colorscheme iceberg'
+  vim.opt.winblend = 20
+  vim.opt.pumblend = 20
+  vim.cmd 'colorscheme iceberg'
 end

@@ -224,6 +224,12 @@ require('lazy').setup({
       require('scrollbar.handlers.gitsigns').setup()
     end,
   },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("which-key").setup()
+    end,
+  },
   -- Editor
   {
     'windwp/nvim-autopairs',
@@ -315,33 +321,62 @@ local on_attach_lsp = function(client, bufnr)
   -- Mappings.
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gt', telescope_builtin.lsp_definitions, bufopts)
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-  vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, bufopts)
-  -- vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-  vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc, bufopts)
-  -- vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
-  vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations, bufopts)
+  vim.keymap.set('n', 'gt', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Type Definitions',
+  }))
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Declarations',
+  }))
+  vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Definitions',
+  }))
+  vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc, vim.tbl_extend('keep', bufopts, {
+    desc = 'Show Hover Card'
+  }))
+  vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Implementations',
+  }))
+  vim.keymap.set('n', 'gs', telescope_builtin.lsp_document_symbols, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Symbols in Document',
+  }))
+  vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols, vim.tbl_extend('keep', bufopts, {
+    desc = 'Search Symbols in Workspace',
+  }))
   vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
-  -- vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, bufopts)
-  vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions, bufopts)
-  -- vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
-  vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename, bufopts)
-  -- vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
-  vim.keymap.set('n', '<space>ca', require('lspsaga.codeaction').code_action, bufopts)
-  -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
-  vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, bufopts)
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-
-  vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics, bufopts)
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, bufopts)
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, bufopts)
-  vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, bufopts)
+  vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to Type Definitions',
+  }))
+  vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename, vim.tbl_extend('keep', bufopts, {
+    desc = 'Rename symbol',
+  }))
+  vim.keymap.set('n', '<space>ca', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
+    desc = 'Code Action',
+  }))
+  vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, vim.tbl_extend('keep', bufopts, {
+    desc = "Go to References",
+  }))
+  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, vim.tbl_extend('keep', bufopts, {
+    desc = 'Format Document',
+  }))
+  vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics, vim.tbl_extend('keep', bufopts, {
+    desc = 'Show Workspace Diagnostics',
+  }))
+  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to prev Diagnostic',
+  }))
+  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, vim.tbl_extend('keep', bufopts, {
+    desc = 'Go to next Diagnostic',
+  }))
+  vim.keymap.set('n', '<space>q', function ()
+    telescope_builtin.diagnostics({ bufnr = 0 })
+  end, vim.tbl_extend('keep', bufopts, {
+    desc = 'Show diagnostics in Document',
+  }))
 end
 
 vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
@@ -504,11 +539,18 @@ require('telescope').setup({
   },
 })
 local telescope_builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader><leader>', telescope_builtin.find_files, {})
-vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fs', telescope_builtin.git_status, {})
-vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {})
-
+vim.keymap.set('n', '<leader><leader>', telescope_builtin.find_files, {
+  desc = "Find files",
+})
+vim.keymap.set('n', '<leader>g', telescope_builtin.live_grep, {
+  desc = "Grep files",
+})
+vim.keymap.set('n', '<leader>fs', telescope_builtin.git_status, {
+  desc = "Show git status",
+})
+vim.keymap.set('n', '<leader>fb', telescope_builtin.buffers, {
+  desc = "Show buffers",
+})
 
 -- Appearance
 if not vim.g.vscode then

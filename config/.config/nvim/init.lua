@@ -130,6 +130,7 @@ require('lazy').setup({
   'nvim-treesitter/nvim-treesitter',
   'nvim-treesitter/nvim-treesitter-context',
   'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
+  'JoosepAlviste/nvim-ts-context-commentstring',
   'mrjones2014/nvim-ts-rainbow',
   {
     'haringsrob/nvim_context_vt',
@@ -256,6 +257,7 @@ require('lazy').setup({
         opleader = {
           line = '<Leader>/',
         },
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
       })
     end,
   },
@@ -527,7 +529,11 @@ require('nvim-treesitter.configs').setup({
       'Green',
       'Blue',
     }
-  }
+  },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
 })
 
 require('treesitter-context').setup()

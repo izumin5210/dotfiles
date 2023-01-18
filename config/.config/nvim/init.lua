@@ -401,6 +401,7 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
+    keys = { { '<Leader>/' } },
     config = function()
       require('Comment').setup({
         toggler = {

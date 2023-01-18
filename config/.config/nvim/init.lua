@@ -110,11 +110,11 @@ require('lazy').setup({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp' },
           { name = 'nvim_lsp_signature_help' },
+          { name = 'nvim_lsp' },
+          { name = 'path' },
         },{
           { name = 'buffer' },
-          { name = 'path' },
         }),
       })
 
@@ -361,7 +361,9 @@ local on_attach_lsp = function(client, bufnr)
   vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols, vim.tbl_extend('keep', bufopts, {
     desc = 'Search Symbols in Workspace',
   }))
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
+  vim.keymap.set({'n','i'}, '<C-k>', require('lspsaga.signaturehelp').signature_help, vim.tbl_extend('keep', bufopts, {
+    desc = 'Show Signature Help'
+  }))
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wl', function()

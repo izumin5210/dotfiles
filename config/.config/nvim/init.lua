@@ -141,6 +141,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    event = "BufReadPost",
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
@@ -326,6 +327,7 @@ require('lazy').setup({
   {
     'petertriho/nvim-scrollbar',
     cond = not vim.g.vscode,
+    event = "BufReadPost",
     config = function()
       require('scrollbar').setup({
         marks = {
@@ -346,6 +348,7 @@ require('lazy').setup({
   {
     'kevinhwang91/nvim-hlslens',
     cond = not vim.g.vscode,
+    event = "BufReadPost",
     config = function()
       require('scrollbar.handlers.search').setup({
         override_lens = function() end,
@@ -355,6 +358,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
+    event = { "BufReadPost", "BufNewFile" },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',

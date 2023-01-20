@@ -447,6 +447,13 @@ require('lazy').setup({
       vim.g.strip_whitespace_confirm = 0
     end
   },
+  {
+    "dinhhuy258/git.nvim",
+    keys = { { '<Leader>go' }, { '<Leader>gp' }, { '<Leader>gD' } },
+    config = function ()
+      require('git').setup()
+    end
+  },
   -- lang
   {
     "vuki656/package-info.nvim",

@@ -447,6 +447,30 @@ require('lazy').setup({
       vim.g.strip_whitespace_confirm = 0
     end
   },
+  -- lang
+  {
+    "vuki656/package-info.nvim",
+    event = 'VimEnter',
+    dependencies = { "MunifTanjim/nui.nvim" },
+    init = function()
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link PackageInfoOutdatedVersion DiagnosticHint'
+      })
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link PackageInfoUpToDateVersion DiagnosticHint'
+      })
+    end,
+    config = function()
+      require('package-info').setup({
+        autostart = true,
+        hide_up_to_date = true,
+        hide_unstable_version = true,
+      })
+      require('package-info').show()
+    end
+  },
   -- misc
   {
     'alexghergh/nvim-tmux-navigation',

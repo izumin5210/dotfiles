@@ -225,22 +225,11 @@ require('lazy').setup({
   -- Fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      {
-        'nvim-telescope/telescope-frecency.nvim',
-        config = function()
-          require('telescope').load_extension('frecency')
-        end,
-        dependencies = { 'kkharji/sqlite.lua' }
-      },
-    },
+    dependencies = { 'nvim-lua/plenary.nvim', },
     lazy = true,
     keys = {
       {
-        '<leader><leader>', function()
-          require('telescope').extensions.frecency.frecency({ workspace = 'CWD' })
-        end,
+        '<leader><leader>', function() require('telescope.builtin').find_files() end,
         mode = 'n', noremap = true, desc = "Find files",
       },
       {

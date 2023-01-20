@@ -450,7 +450,7 @@ require('lazy').setup({
   {
     "dinhhuy258/git.nvim",
     keys = { { '<Leader>go' }, { '<Leader>gp' }, { '<Leader>gD' } },
-    config = function ()
+    config = function()
       require('git').setup()
     end
   },
@@ -559,6 +559,9 @@ local on_attach_lsp = function(client, bufnr)
     desc = 'Rename symbol',
   }))
   vim.keymap.set('n', '<space>ca', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
+    desc = 'Code Action',
+  }))
+  vim.keymap.set('v', '<space>ca', require('lspsaga.codeaction').range_code_action, vim.tbl_extend('keep', bufopts, {
     desc = 'Code Action',
   }))
   vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, vim.tbl_extend('keep', bufopts, {

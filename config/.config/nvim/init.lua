@@ -772,6 +772,14 @@ require('lazy').setup({
       require('indent_blankline').setup()
     end
   },
+  {
+    'zbirenbaum/neodim',
+    cond = not vim.g.vscode,
+    event = 'LspAttach',
+    config = function ()
+      require('neodim').setup()
+    end
+  },
   -- Editor
   { 'andymass/vim-matchup' },
   {

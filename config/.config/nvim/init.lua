@@ -254,7 +254,10 @@ require('lazy').setup({
   -- Fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim', },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'otavioschwanck/telescope-alternate.nvim',
+    },
     lazy = true,
     keys = {
       {
@@ -277,8 +280,12 @@ require('lazy').setup({
         mode = 'n', noremap = true, desc = "Show git unmerged files",
       },
       {
-        '<leader>fb', function() require('telescope.builtin').buffers() end,
+        '<leader>gb', function() require('telescope.builtin').buffers() end,
         mode = 'n', noremap = true, desc = "Show buffers",
+      },
+      {
+        '<leader>ga', function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
+        mode = 'n', noremap = true, desc = "Show alternate files",
       },
     },
     config = function()
@@ -295,7 +302,45 @@ require('lazy').setup({
           },
           winblend = 20,
         },
+        extensions = {
+          ["telescope-alternate"] = {
+            mappings = {
+              -- go
+              { "(.*).go", {
+                { "[1]_test.go", "Test", false },
+              } },
+              { "(.*)_test.go", {
+                { "[1].go", "Source", false },
+              } },
+              -- js, ts
+              { "(.*)/([^!]*).([cm]?[tj]s)(x?)", {
+                { "[1]/[2].test.[3][4]", "Test", false },
+                { "[1]/[2].spec.[3][4]", "Test", false },
+                { "[1]/[2].stories.[3][4]", "Storybook", false },
+                { "[1]/[2].test.[3]", "Test", false },
+                { "[1]/[2].spec.[3]", "Test", false },
+                { "[1]/[2].stories.[3]", "Storybook", false },
+                { "[1]/index.[3]", "Index", false },
+              } },
+              { "(.*)/([^!]*).(?:(test|spec)).([cm]?[tj]s)(x?)", {
+                { "[1]/[2].[3][4]", "Source", false },
+                { "[1]/[2].stories.[3][4]", "Source Storybook", false },
+                { "[1]/[2].[3]", "Source", false },
+                { "[1]/[2].stories.[3]", "Source Storybook", false },
+              } },
+              { "(.*)/([^!]*).stories.([cm]?[tj]s)(x?)", {
+                { "[1]/[2].[3][4]", "Source", false },
+                { "[1]/[2].test.[3][4]", "Source Test", false },
+                { "[1]/[2].spec.[3][4]", "Source Test", false },
+                { "[1]/[2].[3]", "Source", false },
+                { "[1]/[2].test.[3]", "Source Test", false },
+                { "[1]/[2].spec.[3]", "Source Test", false },
+              } },
+            },
+          },
+        },
       })
+      require('telescope').load_extension('telescope-alternate')
     end
   },
   -- Appearance

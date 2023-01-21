@@ -1,10 +1,9 @@
 -----------------------------------
--- Options
+-- Editor
 -----------------------------------
-
 vim.opt.updatetime = 2000
 
--- editor
+-- edit
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 vim.opt.wrap = false
@@ -49,14 +48,38 @@ vim.opt.signcolumn = 'yes';
 -- Keymaps
 -----------------------------------
 vim.g.mapleader = ' '
--- clear search highlights
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
+  { noremap = true, desc = 'Search: Clear Search Highlight' })
 
--- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
--- vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, { noremap = true, silent = true })
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { noremap = true, silent = true })
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { noremap = true, silent = true })
--- vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, { noremap = true, silent = true })
+-----------------------------------
+-- Appearance
+-----------------------------------
+if not vim.g.vscode then
+  -- clear bg
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight Normal ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight NonText ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight LineNr ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight Folded ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight EndOfBuffer ctermbg=none guibg=none'
+  })
+  vim.opt.termguicolors = true
+  vim.opt.winblend = 20
+  vim.opt.pumblend = 20
+end
 
 -----------------------------------
 -- Plugins
@@ -76,18 +99,178 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
   -- LSP
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig',
   {
-    'kkharji/lspsaga.nvim',
-    lazy = true,
+    'williamboman/mason.nvim',
     config = function()
-      require('lspsaga').setup()
+      require('mason').setup()
     end,
   },
-  'jose-elias-alvarez/null-ls.nvim',
-  'jayp0521/mason-null-ls.nvim',
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = { 'neovim/nvim-lspconfig' },
+    config = function()
+      -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
+      local on_attach_lsp = function(client, bufnr)
+        local telescope_builtin = require('telescope.builtin')
+
+        -- Enable completion triggered by <c-x><c-o>
+        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+        -- Mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local bufopts = { noremap = true, silent = true, buffer = bufnr }
+        vim.keymap.set('n', 'gt', telescope_builtin.lsp_type_definitions,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Declarations' }))
+        vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Definitions' }))
+        vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Hover Card' }))
+        vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Implementations' }))
+        vim.keymap.set('n', 'gs', telescope_builtin.lsp_document_symbols,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Symbols in Document' }))
+        vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Search Symbols in Workspace' }))
+        vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lspsaga.signaturehelp').signature_help,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Signature Help' }))
+        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
+        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
+        vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
+        vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
+        vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Rename Symbol' }))
+        vim.keymap.set({ 'n', 'v' }, '<space>.', require('lspsaga.codeaction').code_action,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
+        vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
+          vim.tbl_extend('keep', bufopts, { desc = "LSP: Go to References" }))
+        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Format Document' }))
+        vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Workspace Diagnostics' }))
+        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to prev Diagnostic' }))
+        vim.keymap.set('n', ']d', vim.diagnostic.goto_next,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to next Diagnostic' }))
+        vim.keymap.set('n', '<space>q', function() telescope_builtin.diagnostics({ bufnr = 0 }) end,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show diagnostics in Document' }))
+
+        -- autocmds
+        local augroup = vim.api.nvim_create_augroup("LspAutoCmds", { clear = true })
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+
+        local cursor_diagnostics_timer = vim.loop.new_timer()
+        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+            cursor_diagnostics_timer:stop()
+            cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function()
+              require('lspsaga.diagnostic').show_line_diagnostics()
+            end))
+          end,
+        })
+      end
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = { '*.go', '*.rs' },
+        callback = function()
+          vim.lsp.buf.format({ async = false })
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = { '*.go' },
+        callback = function()
+          -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
+          local params = vim.lsp.util.make_range_params()
+          params.context = { only = { 'source.organizeImports' } }
+          local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
+          for cid, res in pairs(result or {}) do
+            for _, r in pairs(res.result or {}) do
+              if r.edit then
+                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
+                vim.lsp.util.apply_workspace_edit(r.edit, enc)
+              end
+            end
+          end
+        end,
+      })
+
+      vim.api.nvim_create_autocmd('BufWritePre', {
+        pattern = {
+          '*.js', '*.jsx', '*.cjs', '*.mjs',
+          '*.ts', '*.tsx', '*.cts', '*.mts',
+          '*.vue'
+        },
+        callback = function()
+          vim.cmd('EslintFixAll')
+          vim.lsp.buf.format({ name = 'null-ls', async = false })
+        end,
+      })
+
+      local lspconfig = require('lspconfig')
+      local mason_lspconfig = require('mason-lspconfig')
+
+      mason_lspconfig.setup({
+        ensure_installed = {
+          'bashls',
+          'bufls',
+          'dockerls',
+          'graphql',
+          'rust_analyzer',
+          -- Ruby
+          'solargraph',
+          -- JS
+          'eslint',
+          'tsserver',
+          'volar',
+          -- Go
+          'gopls',
+          'golangci_lint_ls',
+          -- Lua
+          'sumneko_lua',
+        },
+        automatic_installation = true,
+      })
+      mason_lspconfig.setup_handlers({
+        function(server_name)
+          lspconfig[server_name].setup({
+            on_attach = on_attach_lsp,
+            capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          })
+        end,
+      })
+    end,
+  },
+  {
+    'kkharji/lspsaga.nvim',
+    config = function()
+      require('lspsaga').setup()
+      vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
+      vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
+    end,
+  },
+  {
+    'jose-elias-alvarez/null-ls.nvim',
+    config = function()
+      local null_ls = require('null-ls')
+      null_ls.setup({
+        sources = { null_ls.builtins.formatting.prettier },
+      })
+    end,
+  },
+  {
+    'jayp0521/mason-null-ls.nvim',
+    config = function()
+      require('mason-null-ls').setup({
+        ensure_installed = { 'prettier' },
+        automatic_installation = true,
+      })
+    end,
+  },
   -- Completion
   {
     'hrsh7th/nvim-cmp',
@@ -429,7 +612,13 @@ require('lazy').setup({
     end
   },
   -- Appearance
-  { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
+  {
+    'cocopon/iceberg.vim',
+    cond = not vim.g.vscode,
+    config = function ()
+      vim.cmd.colorscheme('iceberg')
+    end,
+  },
   { 'nvim-tree/nvim-web-devicons', lazy = true,
     config = function() require('nvim-web-devicons').setup() end,
   }, -- required by lualine and nvim-tree.lua
@@ -770,201 +959,3 @@ require('lazy').setup({
     end,
   },
 })
-
--- LSP
-local lspconfig = require('lspconfig')
-local mason = require('mason')
-local mason_lspconfig = require('mason-lspconfig')
-local mason_null_ls = require('mason-null-ls')
-local null_ls = require('null-ls')
-
-mason_null_ls.setup({
-  ensure_installed = { 'prettier' },
-  automatic_installation = true,
-})
-null_ls.setup({
-  sources = { null_ls.builtins.formatting.prettier },
-})
-
--- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
-local on_attach_lsp = function(client, bufnr)
-  local telescope_builtin = require('telescope.builtin')
-
-  -- Enable completion triggered by <c-x><c-o>
-  vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
-
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
-  local bufopts = { noremap = true, silent = true, buffer = bufnr }
-  vim.keymap.set('n', 'gt', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Type Definitions',
-  }))
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Declarations',
-  }))
-  vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Definitions',
-  }))
-  vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Show Hover Card'
-  }))
-  vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Implementations',
-  }))
-  vim.keymap.set('n', 'gs', telescope_builtin.lsp_document_symbols, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Symbols in Document',
-  }))
-  vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Search Symbols in Workspace',
-  }))
-  vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lspsaga.signaturehelp').signature_help,
-    vim.tbl_extend('keep', bufopts, {
-      desc = 'LSP: Show Signature Help'
-    }))
-  vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-  vim.keymap.set('n', '<space>wl', function()
-    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-  end, bufopts)
-  vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to Type Definitions',
-  }))
-  vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Rename Symbol',
-  }))
-  vim.keymap.set({ 'n', 'v' }, '<space>.', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Code Action',
-  }))
-  vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, vim.tbl_extend('keep', bufopts, {
-    desc = "LSP: Go to References",
-  }))
-  vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Format Document',
-  }))
-  vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Show Workspace Diagnostics',
-  }))
-  vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to prev Diagnostic',
-  }))
-  vim.keymap.set('n', ']d', vim.diagnostic.goto_next, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Go to next Diagnostic',
-  }))
-  vim.keymap.set('n', '<space>q', function()
-    telescope_builtin.diagnostics({ bufnr = 0 })
-  end, vim.tbl_extend('keep', bufopts, {
-    desc = 'LSP: Show diagnostics in Document',
-  }))
-end
-
-vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
-vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
-
-local cursor_diagnostics_timer = vim.loop.new_timer()
-vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
-  pattern = { '*' },
-  callback = function()
-    cursor_diagnostics_timer:stop()
-    cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function()
-      require('lspsaga.diagnostic').show_line_diagnostics()
-    end))
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.go', '*.rs' },
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = {
-    '*.js', '*.jsx', '*.cjs', '*.mjs',
-    '*.ts', '*.tsx', '*.cts', '*.mts',
-    '*.vue'
-  },
-  callback = function()
-    vim.cmd('EslintFixAll')
-    vim.lsp.buf.format({ name = 'null-ls', async = false })
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufWritePre', {
-  pattern = { '*.go' },
-  callback = function()
-    -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
-    local params = vim.lsp.util.make_range_params()
-    params.context = { only = { 'source.organizeImports' } }
-    local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
-    for cid, res in pairs(result or {}) do
-      for _, r in pairs(res.result or {}) do
-        if r.edit then
-          local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
-          vim.lsp.util.apply_workspace_edit(r.edit, enc)
-        end
-      end
-    end
-  end,
-})
-
-mason.setup()
-mason_lspconfig.setup({
-  ensure_installed = {
-    'bashls',
-    'bufls',
-    'dockerls',
-    'graphql',
-    'rust_analyzer',
-    -- Ruby
-    'solargraph',
-    -- JS
-    'eslint',
-    'tsserver',
-    'volar',
-    -- Go
-    'gopls',
-    'golangci_lint_ls',
-    -- Lua
-    'sumneko_lua',
-  },
-  automatic_installation = true,
-})
-mason_lspconfig.setup_handlers({
-  function(server_name)
-    lspconfig[server_name].setup({
-      on_attach = on_attach_lsp,
-      capabilities = require('cmp_nvim_lsp').default_capabilities(),
-    })
-  end,
-})
-
-
--- Appearance
-if not vim.g.vscode then
-  -- clear bg
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight Normal ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight NonText ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight LineNr ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight Folded ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight EndOfBuffer ctermbg=none guibg=none'
-  })
-  vim.opt.termguicolors = true
-  vim.opt.winblend = 20
-  vim.opt.pumblend = 20
-  vim.cmd 'colorscheme iceberg'
-end

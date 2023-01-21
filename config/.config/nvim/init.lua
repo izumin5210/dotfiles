@@ -182,6 +182,7 @@ require('lazy').setup({
           })
         end,
       },
+      'windwp/nvim-ts-autotag',
     },
     config = function()
       require('nvim-treesitter.configs').setup({
@@ -242,6 +243,9 @@ require('lazy').setup({
           enable_autocmd = false,
         },
         matchup = {
+          enable = true,
+        },
+        autotag = {
           enable = true,
         }
       })

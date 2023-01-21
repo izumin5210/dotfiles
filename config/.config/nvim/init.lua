@@ -324,8 +324,47 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     dependencies = {
       'arkav/lualine-lsp-progress',
+      {
+        "SmiteshP/nvim-navic",
+        dependencies = "neovim/nvim-lspconfig",
+        cond = not vim.g.vscode,
+        config = function()
+          require('nvim-navic').setup({
+            -- hide icons
+            icons = {
+              File          = "",
+              Module        = "",
+              Namespace     = "",
+              Package       = "",
+              Class         = "",
+              Method        = "",
+              Property      = "",
+              Field         = "",
+              Constructor   = "",
+              Enum          = "",
+              Interface     = "",
+              Function      = "",
+              Variable      = "",
+              Constant      = "",
+              String        = "",
+              Number        = "",
+              Boolean       = "",
+              Array         = "",
+              Object        = "",
+              Key           = "",
+              Null          = "",
+              EnumMember    = "",
+              Struct        = "",
+              Event         = "",
+              Operator      = "",
+              TypeParameter = "",
+            }
+          })
+        end
+      },
     },
     config = function()
+      local navic = require('nvim-navic')
       require('lualine').setup({
         options = {
           icons_enabled = false,
@@ -334,7 +373,11 @@ require('lazy').setup({
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filename', 'lsp_progress' },
+          lualine_c = {
+            'filename',
+            { navic.get_location, cond = navic.is_available },
+            'lsp_progress',
+          },
           lualine_x = { 'encoding' },
           lualine_y = { 'progress' },
           lualine_z = { 'location' },
@@ -616,6 +659,10 @@ local on_attach_lsp = function(client, bufnr)
   end, vim.tbl_extend('keep', bufopts, {
     desc = 'Show diagnostics in Document',
   }))
+
+  if client.server_capabilities.documentSymbolProvider then
+    require('nvim-navic').attach(client, bufnr)
+  end
 end
 
 vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))

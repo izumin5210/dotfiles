@@ -834,10 +834,7 @@ local on_attach_lsp = function(client, bufnr)
   vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename, vim.tbl_extend('keep', bufopts, {
     desc = 'Rename symbol',
   }))
-  vim.keymap.set('n', '<space>ca', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
-    desc = 'Code Action',
-  }))
-  vim.keymap.set('v', '<space>ca', require('lspsaga.codeaction').range_code_action, vim.tbl_extend('keep', bufopts, {
+  vim.keymap.set({ 'n', 'v' }, '<space>.', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
     desc = 'Code Action',
   }))
   vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, vim.tbl_extend('keep', bufopts, {

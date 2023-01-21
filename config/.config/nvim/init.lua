@@ -241,6 +241,9 @@ require('lazy').setup({
           enable = true,
           enable_autocmd = false,
         },
+        matchup = {
+          enable = true,
+        }
       })
     end
   },
@@ -466,6 +469,7 @@ require('lazy').setup({
     end
   },
   -- Editor
+  { 'andymass/vim-matchup' },
   {
     'windwp/nvim-autopairs',
     config = function()

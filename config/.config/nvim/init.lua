@@ -99,6 +99,7 @@ require('lazy').setup({
       'hrsh7th/cmp-vsnip',
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/vim-vsnip',
+      'hrsh7th/cmp-cmdline',
     },
     config = function()
       local cmp = require('cmp')
@@ -128,6 +129,27 @@ require('lazy').setup({
         }, {
           { name = 'buffer' },
         }),
+      })
+
+      cmp.setup.cmdline('/', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = {
+          { name = 'buffer' }
+        }
+      })
+
+      cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline(),
+        sources = cmp.config.sources({
+          { name = 'path' }
+        }, {
+          {
+            name = 'cmdline',
+            option = {
+              ignore_cmds = { 'Man', '!' }
+            }
+          }
+        })
       })
 
       -- for nvim-autopairs

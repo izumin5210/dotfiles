@@ -410,10 +410,18 @@ require('lazy').setup({
     'kevinhwang91/nvim-hlslens',
     cond = not vim.g.vscode,
     event = "BufReadPost",
-    config = function()
-      require('scrollbar.handlers.search').setup({
-        override_lens = function() end,
+    init = function ()
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link HlSearchLens DiagnosticHint',
       })
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link HlSearchLensNear DiagnosticHint',
+      })
+    end,
+    config = function()
+      require('scrollbar.handlers.search').setup({})
     end
   },
   {

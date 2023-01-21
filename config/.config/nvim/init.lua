@@ -258,6 +258,7 @@ require('lazy').setup({
       'nvim-lua/plenary.nvim',
       'otavioschwanck/telescope-alternate.nvim',
       'stevearc/aerial.nvim',
+      'nvim-telescope/telescope-dap.nvim',
     },
     lazy = true,
     keys = {
@@ -297,7 +298,8 @@ require('lazy').setup({
       },
     },
     config = function()
-      require('telescope').setup({
+      local telescope = require('telescope')
+      telescope.setup({
         defaults = {
           layout_strategy = 'vertical',
           layout_config = {
@@ -348,9 +350,69 @@ require('lazy').setup({
           },
         },
       })
-      require('telescope').load_extension('telescope-alternate')
-      require('telescope').load_extension('aerial')
+      telescope.load_extension('telescope-alternate')
+      telescope.load_extension('aerial')
+      telescope.load_extension('dap')
     end
+  },
+  -- Debugger
+  {
+    'mfussenegger/nvim-dap',
+    cond = not vim.g.vscode,
+    dependencies = {
+      {
+        'leoluz/nvim-dap-go',
+        ft = 'go',
+        config = function()
+          require('dap-go').setup {
+            dap_configurations = {
+              {
+                type = "go",
+                name = "Attach remote",
+                mode = "remote",
+                request = "attach",
+              },
+            },
+            delve = {
+              initialize_timeout_sec = 20,
+              port = "${port}"
+            },
+          }
+        end
+      },
+      {
+        'theHamsta/nvim-dap-virtual-text',
+        config = function()
+          require("nvim-dap-virtual-text").setup()
+        end
+      }
+    },
+    keys = {
+      { "<Leader>dc", function() require('dap').continue() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Continue' },
+      { "<Leader>dsv", function() require('dap').step_over() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Step over' },
+      { "<Leader>dsi", function() require('dap').step_into() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Step into' },
+      { "<Leader>dso", function() require('dap').step_out() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Step out' },
+      { "<Leader>b", function() require('dap').toggle_breakpoint() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Toggle breakpoint' },
+      { "<Leader>B", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = "n",
+        silent = true, noremap = true, desc = 'Debugger: Add conditional breakpoint' },
+      { "<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+        mode = "n", silent = true, noremap = true, desc = 'Debugger: Add Logpoint' },
+      { "<Leader>dr", function() require('dap').repl.open() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Open REPL' },
+      { "<Leader>dl", function() require('dap').run_last() end, mode = "n", silent = true, noremap = true,
+        desc = 'Debugger: Re-run the last debug adapter' },
+      { "<Leader>dv", function() require('telescope').extensions['dap'].variables() end, mode = "n", silent = true,
+        noremap = true, desc = 'Debugger: Show variables' },
+      { "<Leader>df", function() require('telescope').extensions['dap'].frames() end, mode = "n", silent = true,
+        noremap = true, desc = 'Debugger: Show frames' },
+      { "<Leader>d<space>", function() require('telescope').extensions['dap'].commands() end, mode = "n", silent = true,
+        noremap = true, desc = 'Debugger: Show commands' },
+    },
   },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
@@ -394,7 +456,7 @@ require('lazy').setup({
           theme = 'iceberg',
         },
         sections = {
-          lualine_a = { 'mode' },
+          lualine_a = { 'mode', function() return require('dap').status() end },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             'filename',

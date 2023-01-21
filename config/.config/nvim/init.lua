@@ -68,6 +68,18 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
+  -- Libraries
+  {
+    'nvim-tree/nvim-web-devicons', -- required by lualine and nvim-tree.lua
+    lazy = true,
+    config = function()
+      require('nvim-web-devicons').setup()
+    end,
+  },
+  {
+    'mortepau/codicons.nvim', -- required by config function for nvim-dap
+    lazy = true,
+  },
   -- LSP
   {
     'williamboman/mason.nvim',
@@ -419,7 +431,7 @@ require('lazy').setup({
       'stevearc/aerial.nvim',
       'nvim-telescope/telescope-dap.nvim',
     },
-    lazy = true,
+    cmd = 'Telescope',
     keys = {
       {
         '<leader><leader>', function() require('telescope.builtin').find_files() end,
@@ -584,16 +596,7 @@ require('lazy').setup({
     end
   },
   -- Appearance
-  {
-    'cocopon/iceberg.vim',
-    cond = not vim.g.vscode,
-    config = function ()
-    end,
-  },
-  { 'nvim-tree/nvim-web-devicons', lazy = true,
-    config = function() require('nvim-web-devicons').setup() end,
-  }, -- required by lualine and nvim-tree.lua
-  { 'mortepau/codicons.nvim', lazy = true }, -- required by config function for nvim-dap
+  { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   {
     'nvim-tree/nvim-tree.lua',
     cond = not vim.g.vscode,
@@ -782,6 +785,7 @@ require('lazy').setup({
   },
   {
     'folke/todo-comments.nvim',
+    cond = not vim.g.vscode,
     dependencies = { 'nvim-lua/plenary.nvim', },
     config = function()
       require('todo-comments').setup({
@@ -791,6 +795,7 @@ require('lazy').setup({
   },
   {
     'RRethy/vim-illuminate',
+    cond = not vim.g.vscode,
     event = { 'CursorMoved', 'CursorMovedI' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
@@ -812,6 +817,7 @@ require('lazy').setup({
   },
   {
     "ntpeters/vim-better-whitespace",
+    cond = not vim.g.vscode,
     config = function()
       vim.g.better_whitespace_enabled = 1
       vim.g.strip_whitespace_on_save = 1
@@ -837,9 +843,7 @@ require('lazy').setup({
         typescriptreact = 'switch_js',
       }
       local function get_switch_group()
-        local g = switch_groups[vim.bo.filetype] or 'switch'
-        print(g)
-        return g
+        return switch_groups[vim.bo.filetype] or 'switch'
       end
 
       return {
@@ -901,6 +905,7 @@ require('lazy').setup({
     "vuki656/package-info.nvim",
     event = 'VimEnter',
     dependencies = { "MunifTanjim/nui.nvim" },
+    cond = not vim.g.vscode,
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',

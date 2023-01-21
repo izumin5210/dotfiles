@@ -417,10 +417,25 @@ require('lazy').setup({
       { "<Leader>d<space>", function() require('telescope').extensions['dap'].commands() end, mode = "n", silent = true,
         noremap = true, desc = 'Debugger: Show commands' },
     },
+    config = function()
+      local codicons = require('codicons')
+      vim.fn.sign_define('DapBreakpoint',
+        { text = codicons.get('circle-filled'), texthl = 'Error', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapBreakpointCondition',
+        { text = codicons.get('debug-breakpoint-conditional'), texthl = 'Error', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapLogPoint',
+        { text = codicons.get('debug-breakpoint-log'), texthl = 'Error', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapStopped', { text = codicons.get('stop-circle'), texthl = 'Error', linehl = '', numhl = '' })
+      vim.fn.sign_define('DapBreakpointRejected',
+        { text = codicons.get('debug-breakpoint-unsupported'), texthl = 'Error', linehl = '', numhl = '' })
+    end
   },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
-  { 'nvim-tree/nvim-web-devicons', cond = not vim.g.vscode },
+  { 'nvim-tree/nvim-web-devicons', lazy = true,
+    config = function() require('nvim-web-devicons').setup() end,
+  }, -- required by lualine and nvim-tree.lua
+  { 'mortepau/codicons.nvim', lazy = true }, -- required by config function for nvim-dap
   {
     'nvim-tree/nvim-tree.lua',
     cond = not vim.g.vscode,
@@ -454,13 +469,20 @@ require('lazy').setup({
       'stevearc/aerial.nvim',
     },
     config = function()
+      local codicons = require('codicons')
       require('lualine').setup({
         options = {
-          icons_enabled = false,
+          icons_enabled = true,
           theme = 'iceberg',
         },
         sections = {
-          lualine_a = { 'mode', function() return require('dap').status() end },
+          lualine_a = {
+            'mode',
+            function()
+              local s = require('dap').status()
+              return #s > 0 and codicons.get('debug') .. ' ' .. s or ''
+            end,
+          },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             'filename',

@@ -257,6 +257,7 @@ require('lazy').setup({
     dependencies = {
       'nvim-lua/plenary.nvim',
       'otavioschwanck/telescope-alternate.nvim',
+      'stevearc/aerial.nvim',
     },
     lazy = true,
     keys = {
@@ -286,6 +287,13 @@ require('lazy').setup({
       {
         '<leader>ga', function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
         mode = 'n', noremap = true, desc = "Show alternate files",
+      },
+      {
+        '<leader>gf', function() require('telescope').extensions['aerial'].aerial({
+            filter_kind = { 'Function', 'Method' },
+          })
+        end,
+        mode = 'n', noremap = true, desc = "Show functions and methods in document",
       },
     },
     config = function()
@@ -341,6 +349,7 @@ require('lazy').setup({
         },
       })
       require('telescope').load_extension('telescope-alternate')
+      require('telescope').load_extension('aerial')
     end
   },
   -- Appearance
@@ -376,47 +385,9 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     dependencies = {
       'arkav/lualine-lsp-progress',
-      {
-        "SmiteshP/nvim-navic",
-        dependencies = "neovim/nvim-lspconfig",
-        cond = not vim.g.vscode,
-        config = function()
-          require('nvim-navic').setup({
-            -- hide icons
-            icons = {
-              File          = "",
-              Module        = "",
-              Namespace     = "",
-              Package       = "",
-              Class         = "",
-              Method        = "",
-              Property      = "",
-              Field         = "",
-              Constructor   = "",
-              Enum          = "",
-              Interface     = "",
-              Function      = "",
-              Variable      = "",
-              Constant      = "",
-              String        = "",
-              Number        = "",
-              Boolean       = "",
-              Array         = "",
-              Object        = "",
-              Key           = "",
-              Null          = "",
-              EnumMember    = "",
-              Struct        = "",
-              Event         = "",
-              Operator      = "",
-              TypeParameter = "",
-            }
-          })
-        end
-      },
+      'stevearc/aerial.nvim',
     },
     config = function()
-      local navic = require('nvim-navic')
       require('lualine').setup({
         options = {
           icons_enabled = false,
@@ -427,7 +398,7 @@ require('lazy').setup({
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             'filename',
-            { navic.get_location, cond = navic.is_available },
+            { "aerial", sep = '  ', dence = true }, -- the same as copmonent separator
             'lsp_progress',
           },
           lualine_x = { 'encoding' },
@@ -436,6 +407,12 @@ require('lazy').setup({
         },
       })
     end
+  },
+  {
+    'stevearc/aerial.nvim',
+    config = function ()
+      require('aerial').setup()
+    end,
   },
   {
     'petertriho/nvim-scrollbar',
@@ -763,10 +740,6 @@ local on_attach_lsp = function(client, bufnr)
   end, vim.tbl_extend('keep', bufopts, {
     desc = 'Show diagnostics in Document',
   }))
-
-  if client.server_capabilities.documentSymbolProvider then
-    require('nvim-navic').attach(client, bufnr)
-  end
 end
 
 vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))

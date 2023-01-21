@@ -508,6 +508,7 @@ require('lazy').setup({
   },
   {
     'RRethy/vim-illuminate',
+    event = { 'CursorMoved', 'CursorMovedI' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',

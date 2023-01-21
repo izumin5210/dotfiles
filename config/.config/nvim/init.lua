@@ -233,15 +233,22 @@ require('lazy').setup({
         mode = 'n', noremap = true, desc = "Find files",
       },
       {
-        '<leader>g', function() require('telescope.builtin').live_grep() end,
+        '<leader>gg', function() require('telescope.builtin').live_grep() end,
         mode = 'n', noremap = true, desc = "Grep files",
       },
       {
-        '<leader>fs', function() require('telescope_builtin').git_status() end,
+        '<leader>gs', function() require('telescope.builtin').git_status() end,
         mode = 'n', noremap = true, desc = "Show git status",
       },
       {
-        '<leader>fb', function() require('telescope_builtin').buffers() end,
+        '<leader>gu', function() require('telescope.builtin').git_files({
+            git_command = { "git", "diff", "--name-only", "--diff-filter=U" },
+          })
+        end,
+        mode = 'n', noremap = true, desc = "Show git unmerged files",
+      },
+      {
+        '<leader>fb', function() require('telescope.builtin').buffers() end,
         mode = 'n', noremap = true, desc = "Show buffers",
       },
     },

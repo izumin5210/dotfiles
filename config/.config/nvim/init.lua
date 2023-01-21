@@ -52,36 +52,6 @@ vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
   { noremap = true, desc = 'Search: Clear Search Highlight' })
 
 -----------------------------------
--- Appearance
------------------------------------
-if not vim.g.vscode then
-  -- clear bg
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight Normal ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight NonText ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight LineNr ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight Folded ctermbg=none guibg=none'
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = 'highlight EndOfBuffer ctermbg=none guibg=none'
-  })
-  vim.opt.termguicolors = true
-  vim.opt.winblend = 20
-  vim.opt.pumblend = 20
-end
-
------------------------------------
 -- Plugins
 -----------------------------------
 local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
@@ -247,6 +217,8 @@ require('lazy').setup({
   },
   {
     'kkharji/lspsaga.nvim',
+    -- FIXME: workaround. should setup lspsaga before set colorscheme.
+    -- lazy = true,
     config = function()
       require('lspsaga').setup()
       vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
@@ -616,7 +588,6 @@ require('lazy').setup({
     'cocopon/iceberg.vim',
     cond = not vim.g.vscode,
     config = function ()
-      vim.cmd.colorscheme('iceberg')
     end,
   },
   { 'nvim-tree/nvim-web-devicons', lazy = true,
@@ -967,3 +938,34 @@ require('lazy').setup({
     end,
   },
 })
+
+-----------------------------------
+-- Appearance
+-----------------------------------
+if not vim.g.vscode then
+  -- clear bg
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight Normal ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight NonText ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight LineNr ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight Folded ctermbg=none guibg=none'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight EndOfBuffer ctermbg=none guibg=none'
+  })
+  vim.opt.termguicolors = true
+  vim.opt.winblend = 20
+  vim.opt.pumblend = 20
+  vim.cmd.colorscheme('iceberg')
+end

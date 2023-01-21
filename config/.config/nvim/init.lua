@@ -410,7 +410,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
-    config = function ()
+    config = function()
       require('aerial').setup()
     end,
   },
@@ -571,42 +571,71 @@ require('lazy').setup({
   {
     'monaqa/dial.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', },
-    keys = {
-      { "<C-a>", function() return require("dial.map").inc_normal() end, mode = "n", expr = true, noremap = true,
-        desc = "Increment" },
-      { "<C-x>", function() return require("dial.map").dec_normal() end, mode = "n", expr = true, noremap = true,
-        desc = "Decrement" },
-      { "<C-a>", function() return require("dial.map").inc_visual() end, mode = "v", expr = true, noremap = true,
-        desc = "Increment" },
-      { "<C-x>", function() return require("dial.map").dec_visual() end, mode = "v", expr = true, noremap = true,
-        desc = "Decrement" },
-      { "g<C-a>", function() return require("dial.map").inc_gvisual() end, mode = "v", expr = true, noremap = true,
-        desc = "Increment" },
-      { "g<C-x>", function() return require("dial.map").dec_gvisual() end, mode = "v", expr = true, noremap = true,
-        desc = "Decrement" },
-    },
+    keys = function()
+      local groups = {
+        go = 'go',
+        javascript = 'js',
+        javascriptreact = 'js',
+        typescript = 'js',
+        typescriptreact = 'js',
+      }
+      local function get_group()
+        return groups[vim.bo.filetype]
+      end
+
+      return {
+        { "<C-a>", function() return require("dial.map").inc_normal(get_group()) end, mode = "n", expr = true,
+          noremap = true,
+          desc = "Increment" },
+        { "<C-x>", function() return require("dial.map").dec_normal(get_group()) end, mode = "n", expr = true,
+          noremap = true,
+          desc = "Decrement" },
+        { "<C-a>", function() return require("dial.map").inc_visual(get_group()) end, mode = "v", expr = true,
+          noremap = true,
+          desc = "Increment" },
+        { "<C-x>", function() return require("dial.map").dec_visual(get_group()) end, mode = "v", expr = true,
+          noremap = true,
+          desc = "Decrement" },
+        { "g<C-a>", function() return require("dial.map").inc_gvisual(get_group()) end, mode = "v", expr = true,
+          noremap = true,
+          desc = "Increment" },
+        { "g<C-x>", function() return require("dial.map").dec_gvisual(get_group()) end, mode = "v", expr = true,
+          noremap = true,
+          desc = "Decrement" },
+      }
+    end,
     config = function()
       local augend = require("dial.augend")
+      local default = {
+        augend.constant.alias.bool,
+        augend.constant.new({ elements = { '&&', '||' }, word = false, cyclic = true }),
+        augend.constant.new({ elements = { '==', '!=' }, word = false, cyclic = true }),
+        augend.case.new({
+          types = { "camelCase", "snake_case" },
+          cyclic = true,
+        }),
+        augend.case.new({
+          types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
+          cyclic = true,
+        }),
+        -- default
+        augend.integer.alias.decimal,
+        augend.integer.alias.hex,
+        augend.date.alias["%Y/%m/%d"],
+        augend.date.alias["%Y-%m-%d"],
+        augend.date.alias["%m/%d"],
+        augend.date.alias["%H:%M"],
+        augend.constant.alias.ja_weekday_full,
+      }
       require('dial.config').augends:register_group({
-        default = {
-          augend.constant.alias.bool,
-          augend.case.new({
-            types = { "camelCase", "snake_case" },
-            cyclic = true,
-          }),
-          augend.case.new({
-            types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
-            cyclic = true,
-          }),
-          -- default
-          augend.integer.alias.decimal,
-          augend.integer.alias.hex,
-          augend.date.alias["%Y/%m/%d"],
-          augend.date.alias["%Y-%m-%d"],
-          augend.date.alias["%m/%d"],
-          augend.date.alias["%H:%M"],
-          augend.constant.alias.ja_weekday_full,
-        },
+        default = default,
+        go = vim.list_extend({
+          augend.constant.new({ elements = { "=", ":=" }, word = false, cyclic = true }),
+          augend.constant.new({ elements = { "var", "const" }, cyclic = true }),
+        }, default),
+        js = vim.list_extend({
+          augend.constant.new({ elements = { "let", "const" }, cyclic = true }),
+        }, default),
       })
     end
   },

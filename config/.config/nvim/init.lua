@@ -268,37 +268,35 @@ require('lazy').setup({
     keys = {
       {
         '<leader><leader>', function() require('telescope.builtin').find_files() end,
-        mode = 'n', noremap = true, desc = "Find files",
+        mode = 'n', noremap = true, desc = "File: Go to ...",
       },
       {
         '<leader>gg', function() require('telescope.builtin').live_grep() end,
-        mode = 'n', noremap = true, desc = "Grep files",
+        mode = 'n', noremap = true, desc = "File: Grep",
       },
       {
         '<leader>gs', function() require('telescope.builtin').git_status() end,
-        mode = 'n', noremap = true, desc = "Show git status",
+        mode = 'n', noremap = true, desc = "File: Git Suatus",
       },
       {
         '<leader>gu', function() require('telescope.builtin').git_files({
             git_command = { "git", "diff", "--name-only", "--diff-filter=U" },
           })
         end,
-        mode = 'n', noremap = true, desc = "Show git unmerged files",
+        mode = 'n', noremap = true, desc = "File: Git Unmerged Files",
       },
       {
         '<leader>gb', function() require('telescope.builtin').buffers() end,
-        mode = 'n', noremap = true, desc = "Show buffers",
+        mode = 'n', noremap = true, desc = "File: Buffers",
       },
       {
         '<leader>ga', function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
-        mode = 'n', noremap = true, desc = "Show alternate files",
+        mode = 'n', noremap = true, desc = "File: Alternate",
       },
       {
-        '<leader>gf', function() require('telescope').extensions['aerial'].aerial({
-            filter_kind = { 'Function', 'Method' },
-          })
-        end,
-        mode = 'n', noremap = true, desc = "Show functions and methods in document",
+        '<leader>gf',
+        function() require('telescope').extensions['aerial'].aerial({ filter_kind = { 'Function', 'Method' }, }) end,
+        mode = 'n', noremap = true, desc = "LSP: Functions and Methods",
       },
     },
     config = function()
@@ -393,29 +391,29 @@ require('lazy').setup({
     },
     keys = {
       { "<Leader>dc", function() require('dap').continue() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Continue' },
+        desc = 'Debug: Continue' },
       { "<Leader>dsv", function() require('dap').step_over() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Step over' },
+        desc = 'Debug: Step over' },
       { "<Leader>dsi", function() require('dap').step_into() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Step into' },
+        desc = 'Debug: Step into' },
       { "<Leader>dso", function() require('dap').step_out() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Step out' },
+        desc = 'Debug: Step out' },
       { "<Leader>b", function() require('dap').toggle_breakpoint() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Toggle breakpoint' },
+        desc = 'Debug: Toggle breakpoint' },
       { "<Leader>B", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = "n",
-        silent = true, noremap = true, desc = 'Debugger: Add conditional breakpoint' },
+        silent = true, noremap = true, desc = 'Debug: Add conditional breakpoint' },
       { "<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
-        mode = "n", silent = true, noremap = true, desc = 'Debugger: Add Logpoint' },
+        mode = "n", silent = true, noremap = true, desc = 'Debug: Add Logpoint' },
       { "<Leader>dr", function() require('dap').repl.open() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Open REPL' },
+        desc = 'Debug: Open REPL' },
       { "<Leader>dl", function() require('dap').run_last() end, mode = "n", silent = true, noremap = true,
-        desc = 'Debugger: Re-run the last debug adapter' },
+        desc = 'Debug: Re-run the last debug adapter' },
       { "<Leader>dv", function() require('telescope').extensions['dap'].variables() end, mode = "n", silent = true,
-        noremap = true, desc = 'Debugger: Show variables' },
+        noremap = true, desc = 'Debug: Show variables' },
       { "<Leader>df", function() require('telescope').extensions['dap'].frames() end, mode = "n", silent = true,
-        noremap = true, desc = 'Debugger: Show frames' },
+        noremap = true, desc = 'Debug: Show frames' },
       { "<Leader>d<space>", function() require('telescope').extensions['dap'].commands() end, mode = "n", silent = true,
-        noremap = true, desc = 'Debugger: Show commands' },
+        noremap = true, desc = 'Debug: Show commands' },
     },
     config = function()
       local codicons = require('codicons')
@@ -440,7 +438,7 @@ require('lazy').setup({
     'nvim-tree/nvim-tree.lua',
     cond = not vim.g.vscode,
     keys = {
-      { "<C-h>", ":NvimTreeFindFileToggle<cr>", mode = "n", desc = "Open File Tree", silent = true, noremap = true },
+      { "<C-h>", ":NvimTreeFindFileToggle<cr>", mode = "n", desc = "File: Tree", silent = true, noremap = true },
     },
     config = function()
       require("nvim-tree").setup({
@@ -679,28 +677,28 @@ require('lazy').setup({
       return {
         { "<C-a>", function() return require("dial.map").inc_normal() end, mode = "n", expr = true,
           noremap = true,
-          desc = "Increment" },
+          desc = "Edit: Increment" },
         { "<C-x>", function() return require("dial.map").dec_normal() end, mode = "n", expr = true,
           noremap = true,
-          desc = "Decrement" },
+          desc = "Edit: Decrement" },
         { "<C-a>", function() return require("dial.map").inc_visual() end, mode = "v", expr = true,
           noremap = true,
-          desc = "Increment" },
+          desc = "Edit: Increment" },
         { "<C-x>", function() return require("dial.map").dec_visual() end, mode = "v", expr = true,
           noremap = true,
-          desc = "Decrement" },
+          desc = "Edit: Decrement" },
         { "g<C-a>", function() return require("dial.map").inc_gvisual() end, mode = "v", expr = true,
           noremap = true,
-          desc = "Increment" },
+          desc = "Edit: Increment" },
         { "g<C-x>", function() return require("dial.map").dec_gvisual() end, mode = "v", expr = true,
           noremap = true,
-          desc = "Decrement" },
+          desc = "Edit: Decrement" },
         { "<leader>a", function() return require("dial.map").inc_normal(get_switch_group()) end, mode = "n", expr = true,
           noremap = true,
-          desc = "Switch prev" },
+          desc = "Edit: Switch prev" },
         { "<leader>x", function() return require("dial.map").dec_normal(get_switch_group()) end, mode = "n", expr = true,
           noremap = true,
-          desc = "Switch next" },
+          desc = "Edit: Switch next" },
       }
     end,
     config = function()
@@ -799,29 +797,29 @@ local on_attach_lsp = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
   vim.keymap.set('n', 'gt', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Type Definitions',
+    desc = 'LSP: Go to Type Definitions',
   }))
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Declarations',
+    desc = 'LSP: Go to Declarations',
   }))
   vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Definitions',
+    desc = 'LSP: Go to Definitions',
   }))
   vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc, vim.tbl_extend('keep', bufopts, {
-    desc = 'Show Hover Card'
+    desc = 'LSP: Show Hover Card'
   }))
   vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Implementations',
+    desc = 'LSP: Go to Implementations',
   }))
   vim.keymap.set('n', 'gs', telescope_builtin.lsp_document_symbols, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Symbols in Document',
+    desc = 'LSP: Go to Symbols in Document',
   }))
   vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols, vim.tbl_extend('keep', bufopts, {
-    desc = 'Search Symbols in Workspace',
+    desc = 'LSP: Search Symbols in Workspace',
   }))
   vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lspsaga.signaturehelp').signature_help,
     vim.tbl_extend('keep', bufopts, {
-      desc = 'Show Signature Help'
+      desc = 'LSP: Show Signature Help'
     }))
   vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
   vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
@@ -829,33 +827,33 @@ local on_attach_lsp = function(client, bufnr)
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, bufopts)
   vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to Type Definitions',
+    desc = 'LSP: Go to Type Definitions',
   }))
   vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename, vim.tbl_extend('keep', bufopts, {
-    desc = 'Rename symbol',
+    desc = 'LSP: Rename Symbol',
   }))
   vim.keymap.set({ 'n', 'v' }, '<space>.', require('lspsaga.codeaction').code_action, vim.tbl_extend('keep', bufopts, {
-    desc = 'Code Action',
+    desc = 'LSP: Code Action',
   }))
   vim.keymap.set('n', 'gr', telescope_builtin.lsp_references, vim.tbl_extend('keep', bufopts, {
-    desc = "Go to References",
+    desc = "LSP: Go to References",
   }))
   vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end, vim.tbl_extend('keep', bufopts, {
-    desc = 'Format Document',
+    desc = 'LSP: Format Document',
   }))
   vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics, vim.tbl_extend('keep', bufopts, {
-    desc = 'Show Workspace Diagnostics',
+    desc = 'LSP: Show Workspace Diagnostics',
   }))
   vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to prev Diagnostic',
+    desc = 'LSP: Go to prev Diagnostic',
   }))
   vim.keymap.set('n', ']d', vim.diagnostic.goto_next, vim.tbl_extend('keep', bufopts, {
-    desc = 'Go to next Diagnostic',
+    desc = 'LSP: Go to next Diagnostic',
   }))
   vim.keymap.set('n', '<space>q', function()
     telescope_builtin.diagnostics({ bufnr = 0 })
   end, vim.tbl_extend('keep', bufopts, {
-    desc = 'Show diagnostics in Document',
+    desc = 'LSP: Show diagnostics in Document',
   }))
 end
 

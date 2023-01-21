@@ -462,7 +462,7 @@ require('lazy').setup({
     'kevinhwang91/nvim-hlslens',
     cond = not vim.g.vscode,
     event = "BufReadPost",
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
         command = 'highlight link HlSearchLens DiagnosticHint',
@@ -614,11 +614,11 @@ require('lazy').setup({
         default = {
           augend.constant.alias.bool,
           augend.case.new({
-            types = {"camelCase", "snake_case"},
+            types = { "camelCase", "snake_case" },
             cyclic = true,
           }),
           augend.case.new({
-            types = {"PascalCase", "SCREAMING_SNAKE_CASE"},
+            types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
             cyclic = true,
           }),
           -- default

@@ -529,6 +529,48 @@ require('lazy').setup({
       require('git').setup()
     end
   },
+  {
+    'monaqa/dial.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim', },
+    keys = {
+      { "<C-a>", function() return require("dial.map").inc_normal() end, mode = "n", expr = true, noremap = true,
+        desc = "Increment" },
+      { "<C-x>", function() return require("dial.map").dec_normal() end, mode = "n", expr = true, noremap = true,
+        desc = "Decrement" },
+      { "<C-a>", function() return require("dial.map").inc_visual() end, mode = "v", expr = true, noremap = true,
+        desc = "Increment" },
+      { "<C-x>", function() return require("dial.map").dec_visual() end, mode = "v", expr = true, noremap = true,
+        desc = "Decrement" },
+      { "g<C-a>", function() return require("dial.map").inc_gvisual() end, mode = "v", expr = true, noremap = true,
+        desc = "Increment" },
+      { "g<C-x>", function() return require("dial.map").dec_gvisual() end, mode = "v", expr = true, noremap = true,
+        desc = "Decrement" },
+    },
+    config = function()
+      local augend = require("dial.augend")
+      require('dial.config').augends:register_group({
+        default = {
+          augend.constant.alias.bool,
+          augend.case.new({
+            types = {"camelCase", "snake_case"},
+            cyclic = true,
+          }),
+          augend.case.new({
+            types = {"PascalCase", "SCREAMING_SNAKE_CASE"},
+            cyclic = true,
+          }),
+          -- default
+          augend.integer.alias.decimal,
+          augend.integer.alias.hex,
+          augend.date.alias["%Y/%m/%d"],
+          augend.date.alias["%Y-%m-%d"],
+          augend.date.alias["%m/%d"],
+          augend.date.alias["%H:%M"],
+          augend.constant.alias.ja_weekday_full,
+        },
+      })
+    end
+  },
   -- lang
   {
     "vuki656/package-info.nvim",

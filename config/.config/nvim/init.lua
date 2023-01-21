@@ -466,7 +466,6 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     dependencies = {
       'arkav/lualine-lsp-progress',
-      'stevearc/aerial.nvim',
     },
     config = function()
       local codicons = require('codicons')
@@ -478,16 +477,19 @@ require('lazy').setup({
         sections = {
           lualine_a = {
             'mode',
-            function()
-              local s = require('dap').status()
-              return #s > 0 and codicons.get('debug') .. ' ' .. s or ''
-            end,
+            {
+              function()
+                local s = require('dap').status()
+                return #s > 0 and codicons.get('debug') .. ' ' .. s or ''
+              end,
+              cond = function() return package.loaded['dap'] ~= nil end,
+            },
           },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
           lualine_c = {
             'filename',
             { "aerial", sep = '  ', dence = true }, -- the same as copmonent separator
-            'lsp_progress',
+            { 'lsp_progress' }
           },
           lualine_x = { 'encoding' },
           lualine_y = { 'progress' },
@@ -498,6 +500,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
+    lazy = true,
     config = function()
       require('aerial').setup()
     end,

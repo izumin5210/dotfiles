@@ -416,7 +416,7 @@ require('lazy').setup({
   },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
-  { 'kyazdani42/nvim-web-devicons', cond = not vim.g.vscode },
+  { 'nvim-tree/nvim-web-devicons', cond = not vim.g.vscode },
   {
     'nvim-tree/nvim-tree.lua',
     cond = not vim.g.vscode,

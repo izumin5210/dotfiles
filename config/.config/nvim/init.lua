@@ -100,6 +100,7 @@ require('lazy').setup({
       'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-cmdline',
+      'onsails/lspkind.nvim'
     },
     config = function()
       local cmp = require('cmp')
@@ -129,6 +130,9 @@ require('lazy').setup({
         }, {
           { name = 'buffer' },
         }),
+        formatting = {
+          format = require('lspkind').cmp_format()
+        }
       })
 
       cmp.setup.cmdline('/', {

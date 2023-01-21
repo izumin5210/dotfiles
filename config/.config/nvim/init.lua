@@ -572,41 +572,49 @@ require('lazy').setup({
     'monaqa/dial.nvim',
     dependencies = { 'nvim-lua/plenary.nvim', },
     keys = function()
-      local groups = {
-        go = 'go',
-        javascript = 'js',
-        javascriptreact = 'js',
-        typescript = 'js',
-        typescriptreact = 'js',
+      local switch_groups = {
+        go = 'switch_go',
+        javascript = 'switch_js',
+        javascriptreact = 'switch_js',
+        typescript = 'switch_js',
+        typescriptreact = 'switch_js',
       }
-      local function get_group()
-        return groups[vim.bo.filetype]
+      local function get_switch_group()
+        local g = switch_groups[vim.bo.filetype] or 'switch'
+        print(g)
+        return g
       end
 
       return {
-        { "<C-a>", function() return require("dial.map").inc_normal(get_group()) end, mode = "n", expr = true,
+        { "<C-a>", function() return require("dial.map").inc_normal() end, mode = "n", expr = true,
           noremap = true,
           desc = "Increment" },
-        { "<C-x>", function() return require("dial.map").dec_normal(get_group()) end, mode = "n", expr = true,
+        { "<C-x>", function() return require("dial.map").dec_normal() end, mode = "n", expr = true,
           noremap = true,
           desc = "Decrement" },
-        { "<C-a>", function() return require("dial.map").inc_visual(get_group()) end, mode = "v", expr = true,
+        { "<C-a>", function() return require("dial.map").inc_visual() end, mode = "v", expr = true,
           noremap = true,
           desc = "Increment" },
-        { "<C-x>", function() return require("dial.map").dec_visual(get_group()) end, mode = "v", expr = true,
+        { "<C-x>", function() return require("dial.map").dec_visual() end, mode = "v", expr = true,
           noremap = true,
           desc = "Decrement" },
-        { "g<C-a>", function() return require("dial.map").inc_gvisual(get_group()) end, mode = "v", expr = true,
+        { "g<C-a>", function() return require("dial.map").inc_gvisual() end, mode = "v", expr = true,
           noremap = true,
           desc = "Increment" },
-        { "g<C-x>", function() return require("dial.map").dec_gvisual(get_group()) end, mode = "v", expr = true,
+        { "g<C-x>", function() return require("dial.map").dec_gvisual() end, mode = "v", expr = true,
           noremap = true,
           desc = "Decrement" },
+        { "<leader>a", function() return require("dial.map").inc_normal(get_switch_group()) end, mode = "n", expr = true,
+          noremap = true,
+          desc = "Switch prev" },
+        { "<leader>x", function() return require("dial.map").dec_normal(get_switch_group()) end, mode = "n", expr = true,
+          noremap = true,
+          desc = "Switch next" },
       }
     end,
     config = function()
       local augend = require("dial.augend")
-      local default = {
+      local switch_common = {
         augend.constant.alias.bool,
         augend.constant.new({ elements = { '&&', '||' }, word = false, cyclic = true }),
         augend.constant.new({ elements = { '==', '!=' }, word = false, cyclic = true }),
@@ -618,24 +626,16 @@ require('lazy').setup({
           types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
           cyclic = true,
         }),
-        -- default
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.date.alias["%Y/%m/%d"],
-        augend.date.alias["%Y-%m-%d"],
-        augend.date.alias["%m/%d"],
-        augend.date.alias["%H:%M"],
-        augend.constant.alias.ja_weekday_full,
       }
       require('dial.config').augends:register_group({
-        default = default,
-        go = vim.list_extend({
+        switch = switch_common,
+        switch_go = vim.list_extend({
           augend.constant.new({ elements = { "=", ":=" }, word = false, cyclic = true }),
           augend.constant.new({ elements = { "var", "const" }, cyclic = true }),
-        }, default),
-        js = vim.list_extend({
+        }, switch_common),
+        switch_js = vim.list_extend({
           augend.constant.new({ elements = { "let", "const" }, cyclic = true }),
-        }, default),
+        }, switch_common),
       })
     end
   },

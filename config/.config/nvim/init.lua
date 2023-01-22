@@ -639,11 +639,12 @@ require('lazy').setup({
           lualine_a = {
             'mode',
             {
-              function()
-                local s = require('dap').status()
-                return #s > 0 and codicons.get('debug') .. ' ' .. s or ''
+              function() return require('dap').status() end,
+              icon = { codicons.get('debug') },
+              cond = function()
+                return package.loaded['dap'] ~= nil and #(require('dap').status()) > 0
               end,
-              cond = function() return package.loaded['dap'] ~= nil end,
+              color = { fg = '#b4be82', bg = '#1e2132' }
             },
           },
           lualine_b = { 'branch', 'diff', 'diagnostics' },

@@ -750,7 +750,7 @@ require('lazy').setup({
     'zbirenbaum/neodim',
     cond = not vim.g.vscode,
     event = 'LspAttach',
-    config = function ()
+    config = function()
       require('neodim').setup()
     end
   },
@@ -826,7 +826,10 @@ require('lazy').setup({
   },
   {
     "dinhhuy258/git.nvim",
-    keys = { { '<Leader>go' }, { '<Leader>gp' }, { '<Leader>gD' } },
+    keys = {
+      { '<Leader>go', desc = 'Git: Open in GitHub' },
+      { '<Leader>gp', desc = 'Git: Open Pull Request Page' },
+    },
     config = function()
       require('git').setup()
     end

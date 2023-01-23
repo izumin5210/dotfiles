@@ -596,6 +596,27 @@ require('lazy').setup({
         { text = codicons.get('debug-breakpoint-unsupported'), texthl = 'Error', linehl = '', numhl = '' })
     end
   },
+  -- Runner
+  {
+    "klen/nvim-test",
+    keys = {
+      { "<leader>ts", function() require('nvim-test').run('suite') end, mode = 'n', desc = 'Test: Run Suite' },
+      { "<leader>tf", function() require('nvim-test').run('file') end, mode = 'n', desc = 'Test: Run File' },
+      { "<leader>tn", function() require('nvim-test').run('nearest') end, mode = 'n', desc = 'Test: Run Nearest' },
+      { "<leader>tv", function() require('nvim-test').visit() end, mode = 'n', desc = 'Test: Visit the last run test' },
+    },
+    config = function()
+      require('nvim-test').setup({
+        termOpts = {
+          direction = 'float',
+        }
+      })
+      require('nvim-test.runners.go-test'):setup({
+        command = 'gotest',
+        args = { '-v' },
+      })
+    end
+  },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   {

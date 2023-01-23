@@ -11,31 +11,22 @@ end
 define 'go_get', build: true do
   pkg = params[:name]
   execute "get #{pkg}" do
-    command "GOPATH=#{gopath} GOBIN=#{gobin} go get -u #{params[:build] ? "" : "-d"} #{pkg}"
+    command "GOPATH=#{gopath} GOBIN=#{gobin} go install #{pkg}@latest"
     not_if "test -e #{gopath}/src/#{pkg}"
   end
 end
 
-define 'go_bin', bin: nil do
+define 'go_bin' do
   pkg = params[:name]
-  bin = params[:bin]
-  if bin
-    go_get pkg do
-      build false
-    end
-    execute "build #{pkg}" do
-      command "GOPATH=#{gopath} GOBIN=#{gobin} go build -o #{gobin}/#{bin} #{pkg}"
-    end
-  else
-    go_get pkg
-  end
+  go_get pkg
 end
 
 # tools
 go_bin 'github.com/go-delve/delve/cmd/dlv'
-go_bin 'github.com/x-motemen/gore'
-go_bin 'github.com/pwaller/goimports-update-ignore'
-go_bin 'github.com/rakyll/hey'
+# go_bin 'github.com/x-motemen/gore'
+# go_bin 'github.com/pwaller/goimports-update-ignore'
+# go_bin 'github.com/rakyll/hey'
+go_bin 'github.com/rakyll/gotest'
 
 # tmux
 go_bin 'github.com/arl/gitmux'

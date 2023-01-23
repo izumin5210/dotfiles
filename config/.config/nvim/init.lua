@@ -566,11 +566,11 @@ require('lazy').setup({
         desc = 'Debug: Step into' },
       { "<Leader>dso", function() require('dap').step_out() end, mode = "n", silent = true, noremap = true,
         desc = 'Debug: Step out' },
-      { "<Leader>b", function() require('dap').toggle_breakpoint() end, mode = "n", silent = true, noremap = true,
+      { "<Leader>db", function() require('dap').toggle_breakpoint() end, mode = "n", silent = true, noremap = true,
         desc = 'Debug: Toggle breakpoint' },
-      { "<Leader>B", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = "n",
+      { "<Leader>dB", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = "n",
         silent = true, noremap = true, desc = 'Debug: Add conditional breakpoint' },
-      { "<Leader>lp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+      { "<Leader>dlp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
         mode = "n", silent = true, noremap = true, desc = 'Debug: Add Logpoint' },
       { "<Leader>dr", function() require('dap').repl.open() end, mode = "n", silent = true, noremap = true,
         desc = 'Debug: Open REPL' },
@@ -760,6 +760,11 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     config = function()
       require("which-key").setup()
+      require("which-key").register({
+        ['<leader>g'] = { name = '+Go to File, Code or GitHub' },
+        ['<leader>t'] = { name = '+Test' },
+        ['<leader>d'] = { name = '+Debug' },
+      })
     end,
   },
   {

@@ -124,7 +124,9 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
         vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Rename Symbol' }))
-        vim.keymap.set({ 'n', 'v' }, '<space>.', require('lspsaga.codeaction').code_action,
+        vim.keymap.set('n', '<space>.', require('lspsaga.codeaction').code_action,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
+        vim.keymap.set('v', '<space>.', require('lspsaga.codeaction').range_code_action,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
         vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
           vim.tbl_extend('keep', bufopts, { desc = "LSP: Go to References" }))

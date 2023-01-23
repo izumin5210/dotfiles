@@ -148,7 +148,6 @@ require('lazy').setup({
         local cursor_diagnostics_timer = vim.loop.new_timer()
         vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
           group = augroup,
-          buffer = bufnr,
           callback = function()
             cursor_diagnostics_timer:stop()
             cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function()

@@ -1012,6 +1012,15 @@ if not vim.g.vscode then
     pattern = '*',
     command = 'highlight EndOfBuffer ctermbg=none guibg=none'
   })
+  -- floating
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight NormalFloat guibg=#1e2132'
+  })
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight FloatBorder guibg=#1e2132 blend=20'
+  })
   vim.opt.termguicolors = true
   vim.opt.winblend = 20
   vim.opt.pumblend = 20

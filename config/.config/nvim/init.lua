@@ -670,23 +670,21 @@ require('lazy').setup({
           theme = 'iceberg',
         },
         sections = {
-          lualine_a = {
-            'mode',
-            {
-              function() return require('dap').status() end,
-              icon = { codicons.get('debug') },
-              cond = function()
-                return package.loaded['dap'] ~= nil and #(require('dap').status()) > 0
-              end,
-              color = { fg = '#b4be82', bg = '#1e2132' }
-            },
-          },
+          lualine_a = { 'mode' },
           lualine_b = {
             { 'branch', cond = function() return vim.env.TMUX == nil end }, -- hide on tmux
             'diff',
             'diagnostics',
           },
           lualine_c = {
+            {
+              function() return require('dap').status() end,
+              icon = { codicons.get('debug') },
+              cond = function()
+                return package.loaded['dap'] ~= nil and #(require('dap').status()) > 0
+              end,
+              color = { fg = '#b4be82' }
+            },
             'filename',
             { "aerial", sep = '  ', dence = true }, -- the same as copmonent separator
             { 'lsp_progress' }

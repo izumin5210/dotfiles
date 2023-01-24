@@ -681,7 +681,11 @@ require('lazy').setup({
               color = { fg = '#b4be82', bg = '#1e2132' }
             },
           },
-          lualine_b = { 'branch', 'diff', 'diagnostics' },
+          lualine_b = {
+            { 'branch', cond = function() return vim.env.TMUX == nil end }, -- hide on tmux
+            'diff',
+            'diagnostics',
+          },
           lualine_c = {
             'filename',
             { "aerial", sep = '  ', dence = true }, -- the same as copmonent separator

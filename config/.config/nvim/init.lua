@@ -860,6 +860,12 @@ require('lazy').setup({
   {
     "ntpeters/vim-better-whitespace",
     cond = not vim.g.vscode,
+    init = function ()
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight ExtraWhitespace guibg=#e27878'
+      })
+    end,
     config = function()
       vim.g.better_whitespace_enabled = 1
       vim.g.strip_whitespace_on_save = 1

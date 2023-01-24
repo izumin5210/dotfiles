@@ -256,6 +256,20 @@ require('lazy').setup({
       })
     end,
   },
+  {
+    'ray-x/lsp_signature.nvim',
+    init = function ()
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link LspSignatureActiveParameter Todo'
+      })
+    end,
+    config = function ()
+      require('lsp_signature').setup({
+        hint_enable = false,
+      })
+    end
+  },
   -- Completion
   {
     'hrsh7th/nvim-cmp',
@@ -265,7 +279,6 @@ require('lazy').setup({
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-vsnip',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-cmdline',
       'onsails/lspkind.nvim'
@@ -292,7 +305,6 @@ require('lazy').setup({
           ['<CR>'] = cmp.mapping.confirm({ select = true }),
         }),
         sources = cmp.config.sources({
-          { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
           { name = 'path' },
         }, {

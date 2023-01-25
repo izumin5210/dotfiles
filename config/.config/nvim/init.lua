@@ -283,6 +283,54 @@ require('lazy').setup({
       'hrsh7th/cmp-cmdline',
       'onsails/lspkind.nvim'
     },
+    init = function ()
+      -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
+      local tbl = {
+        CmpItemAbbrDeprecated = { fg = "#6b7089", bg = "NONE", fmt = "strikethrough" },
+        CmpItemAbbrMatch = { fg = "#91acd1", bg = "NONE", fmt = "bold" },
+        CmpItemAbbrMatchFuzzy = { fg = "#91acd1", bg = "NONE", fmt = "bold" },
+        CmpItemMenu = { fg = "#ada0d3", bg = "NONE", fmt = "italic" },
+
+        CmpItemKindField = { fg = "#c6c8d1", bg = "#e27878" },
+        CmpItemKindProperty = { fg = "#c6c8d1", bg = "#e27878" },
+        CmpItemKindEvent = { fg = "#c6c8d1", bg = "#e27878" },
+
+        CmpItemKindText = { fg = "#c6c8d1", bg = "#b4be82" },
+        CmpItemKindEnum = { fg = "#c6c8d1", bg = "#b4be82" },
+        CmpItemKindKeyword = { fg = "#c6c8d1", bg = "#b4be82" },
+
+        CmpItemKindConstant = { fg = "#c6c8d1", bg = "#e2a478" },
+        CmpItemKindConstructor = { fg = "#c6c8d1", bg = "#e2a478" },
+        CmpItemKindReference = { fg = "#c6c8d1", bg = "#e2a478" },
+
+        CmpItemKindFunction = { fg = "#c6c8d1", bg = "#a093c7" },
+        CmpItemKindStruct = { fg = "#c6c8d1", bg = "#a093c7" },
+        CmpItemKindClass = { fg = "#c6c8d1", bg = "#a093c7" },
+        CmpItemKindModule = { fg = "#c6c8d1", bg = "#a093c7" },
+        CmpItemKindOperator = { fg = "#c6c8d1", bg = "#a093c7" },
+
+        CmpItemKindVariable = { fg = "#c6c8d1", bg = "#6b7089" },
+        CmpItemKindFile = { fg = "#c6c8d1", bg = "#6b7089" },
+
+        CmpItemKindUnit = { fg = "#c6c8d1", bg = "#6b7089" },
+        CmpItemKindSnippet = { fg = "#c6c8d1", bg = "#6b7089" },
+        CmpItemKindFolder = { fg = "#c6c8d1", bg = "#6b7089" },
+
+        CmpItemKindMethod = { fg = "#c6c8d1", bg = "#84a0c6" },
+        CmpItemKindValue = { fg = "#c6c8d1", bg = "#84a0c6" },
+        CmpItemKindEnumMember = { fg = "#c6c8d1", bg = "#84a0c6" },
+
+        CmpItemKindInterface = { fg = "#c6c8d1", bg = "#89b8c2" },
+        CmpItemKindColor = { fg = "#c6c8d1", bg = "#89b8c2" },
+        CmpItemKindTypeParameter = { fg = "#c6c8d1", bg = "#89b8c2" },
+      }
+      for key, colors in pairs(tbl) do
+        vim.api.nvim_create_autocmd('Colorscheme', {
+          pattern = '*',
+          command = 'highlight ' .. key .. ' guifg=' .. colors['fg'] .. ' guibg=' .. colors['bg'],
+        })
+      end
+    end,
     config = function()
       local cmp = require('cmp')
 
@@ -292,10 +340,6 @@ require('lazy').setup({
           expand = function(args)
             vim.fn['vsnip#anonymous'](args.body)
           end,
-        },
-        window = {
-          completion = cmp.config.window.bordered(),
-          documentation = cmp.config.window.bordered(),
         },
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -310,9 +354,25 @@ require('lazy').setup({
         }, {
           { name = 'buffer' },
         }),
+        -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
+        window = {
+          completion = {
+            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            col_offset = -3,
+            side_padding = 0,
+          },
+        },
         formatting = {
-          format = require('lspkind').cmp_format()
-        }
+          fields = { "kind", "abbr", "menu" },
+          format = function(entry, vim_item)
+            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, "%s", { trimempty = true })
+            kind.kind = " " .. (strings[1] or "") .. " "
+            kind.menu = "    (" .. (strings[2] or "") .. ")"
+
+            return kind
+          end,
+        },
       })
 
       cmp.setup.cmdline('/', {

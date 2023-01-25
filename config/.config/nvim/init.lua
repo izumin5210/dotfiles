@@ -146,7 +146,7 @@ require('lazy').setup({
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 
         local cursor_diagnostics_timer = vim.loop.new_timer()
-        vim.api.nvim_create_autocmd({ 'CursorMoved', 'CursorMovedI' }, {
+        vim.api.nvim_create_autocmd({ 'CursorMoved' }, { -- only normal mode
           group = augroup,
           callback = function()
             cursor_diagnostics_timer:stop()
@@ -838,7 +838,7 @@ require('lazy').setup({
   {
     'RRethy/vim-illuminate',
     cond = not vim.g.vscode,
-    event = { 'CursorMoved' }, -- only normal mode
+    event = { 'CursorMoved', 'CursorMovedI' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',

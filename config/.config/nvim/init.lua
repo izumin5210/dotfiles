@@ -503,6 +503,7 @@ require('lazy').setup({
       'otavioschwanck/telescope-alternate.nvim',
       'stevearc/aerial.nvim',
       'nvim-telescope/telescope-dap.nvim',
+      "nvim-telescope/telescope-file-browser.nvim",
     },
     cmd = 'Telescope',
     keys = {
@@ -538,9 +539,16 @@ require('lazy').setup({
         function() require('telescope').extensions['aerial'].aerial({ filter_kind = { 'Function', 'Method' }, }) end,
         mode = 'n', noremap = true, desc = "LSP: Functions and Methods",
       },
+      {
+        '<C-h>',
+        function() require('telescope').extensions['file_browser'].file_browser({ files = false, respect_gitignore = true }) end,
+        mode = 'n', noremap = true, desc = 'File: Explorer',
+      },
     },
     config = function()
       local telescope = require('telescope')
+      local fb_actions = require('telescope').extensions.file_browser.actions
+
       telescope.setup({
         defaults = {
           layout_strategy = 'vertical',
@@ -555,6 +563,15 @@ require('lazy').setup({
           winblend = 20,
         },
         extensions = {
+          ['file_browser'] = {
+            mappings = {
+              ['i'] = {
+                ['<C-a>'] = fb_actions.create_from_prompt,
+                ['<C-r>'] = fb_actions.rename,
+                ['<C-d>'] = fb_actions.remove,
+              }
+            }
+          },
           ["telescope-alternate"] = {
             mappings = {
               -- go
@@ -595,6 +612,7 @@ require('lazy').setup({
       telescope.load_extension('telescope-alternate')
       telescope.load_extension('aerial')
       telescope.load_extension('dap')
+      telescope.load_extension('file_browser')
     end
   },
   -- Debugger
@@ -691,31 +709,6 @@ require('lazy').setup({
   },
   -- Appearance
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
-  {
-    'nvim-tree/nvim-tree.lua',
-    cond = not vim.g.vscode,
-    keys = {
-      { "<C-h>", ":NvimTreeFindFileToggle<cr>", mode = "n", desc = "File: Tree", silent = true, noremap = true },
-    },
-    config = function()
-      require("nvim-tree").setup({
-        sort_by = 'case_sensitive',
-        view = {
-          adaptive_size = true,
-          float = {
-            enable = true,
-          }
-        },
-        renderer = {
-          group_empty = true,
-        },
-        filters = {
-          dotfiles = false,
-          custom = { "^.git$" },
-        },
-      })
-    end
-  },
   {
     'nvim-lualine/lualine.nvim',
     cond = not vim.g.vscode,

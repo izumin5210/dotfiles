@@ -541,7 +541,19 @@ require('lazy').setup({
       },
       {
         '<C-h>',
-        function() require('telescope').extensions['file_browser'].file_browser({ files = false, respect_gitignore = true }) end,
+        function()
+          local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+          local opts = {
+            respect_gitignore = true,
+            depth = false,
+            cwd_to_path = true,
+            path = dir,
+            files = dir ~= vim.loop.cwd(),
+          }
+          print(dir, vim.loop.cwd(), opts.file)
+
+          require('telescope').extensions['file_browser'].file_browser(opts)
+        end,
         mode = 'n', noremap = true, desc = 'File: Explorer',
       },
     },

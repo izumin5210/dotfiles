@@ -210,6 +210,9 @@ require('lazy').setup({
           'eslint',
           'tsserver',
           'volar',
+          -- CSS
+          'cssls',
+          'tailwindcss',
           -- Go
           'gopls',
           'golangci_lint_ls',

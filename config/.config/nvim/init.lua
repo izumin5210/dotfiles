@@ -222,6 +222,8 @@ require('lazy').setup({
           'golangci_lint_ls',
           -- Lua
           'sumneko_lua',
+          -- JSON (JSON Schema)
+          'jsonls',
         },
         automatic_installation = true,
       })

@@ -129,7 +129,7 @@ require('lazy').setup({
         vim.keymap.set('v', '<space>.', require('lspsaga.codeaction').range_code_action,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
         vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
-          vim.tbl_extend('keep', bufopts, { desc = "LSP: Go to References" }))
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to References' }))
         vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Format Document' }))
         vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics,
@@ -142,19 +142,23 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show diagnostics in Document' }))
 
         -- autocmds
-        local augroup = vim.api.nvim_create_augroup("LspAutoCmds", { clear = true })
+        local augroup = vim.api.nvim_create_augroup('LspAutoCmds', { clear = true })
         vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 
         local cursor_diagnostics_timer = vim.loop.new_timer()
-        vim.api.nvim_create_autocmd({ 'CursorMoved' }, { -- only normal mode
-          group = augroup,
-          callback = function()
-            cursor_diagnostics_timer:stop()
-            cursor_diagnostics_timer:start(1000, 0, vim.schedule_wrap(function()
-              require('lspsaga.diagnostic').show_line_diagnostics()
-            end))
-          end,
-        })
+        vim.api.nvim_create_autocmd({ 'CursorMoved' }, -- only normal mode
+          {
+            group = augroup,
+            callback = function()
+              cursor_diagnostics_timer:stop()
+              cursor_diagnostics_timer:start(1000, 0,
+                vim.schedule_wrap(function()
+                  require('lspsaga.diagnostic')
+                      .show_line_diagnostics()
+                end))
+            end,
+          }
+        )
       end
 
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -261,13 +265,13 @@ require('lazy').setup({
   },
   {
     'ray-x/lsp_signature.nvim',
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
         command = 'highlight link LspSignatureActiveParameter Todo'
       })
     end,
-    config = function ()
+    config = function()
       require('lsp_signature').setup({
         hint_enable = false,
       })
@@ -286,46 +290,46 @@ require('lazy').setup({
       'hrsh7th/cmp-cmdline',
       'onsails/lspkind.nvim'
     },
-    init = function ()
+    init = function()
       -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
       local tbl = {
-        CmpItemAbbrDeprecated = { fg = "#6b7089", bg = "NONE", fmt = "strikethrough" },
-        CmpItemAbbrMatch = { fg = "#91acd1", bg = "NONE", fmt = "bold" },
-        CmpItemAbbrMatchFuzzy = { fg = "#91acd1", bg = "NONE", fmt = "bold" },
-        CmpItemMenu = { fg = "#ada0d3", bg = "NONE", fmt = "italic" },
+        CmpItemAbbrDeprecated = { fg = '#6b7089', bg = 'NONE', fmt = 'strikethrough' },
+        CmpItemAbbrMatch = { fg = '#91acd1', bg = 'NONE', fmt = 'bold' },
+        CmpItemAbbrMatchFuzzy = { fg = '#91acd1', bg = 'NONE', fmt = 'bold' },
+        CmpItemMenu = { fg = '#ada0d3', bg = 'NONE', fmt = 'italic' },
 
-        CmpItemKindField = { fg = "#c6c8d1", bg = "#e27878" },
-        CmpItemKindProperty = { fg = "#c6c8d1", bg = "#e27878" },
-        CmpItemKindEvent = { fg = "#c6c8d1", bg = "#e27878" },
+        CmpItemKindField = { fg = '#c6c8d1', bg = '#e27878' },
+        CmpItemKindProperty = { fg = '#c6c8d1', bg = '#e27878' },
+        CmpItemKindEvent = { fg = '#c6c8d1', bg = '#e27878' },
 
-        CmpItemKindText = { fg = "#c6c8d1", bg = "#b4be82" },
-        CmpItemKindEnum = { fg = "#c6c8d1", bg = "#b4be82" },
-        CmpItemKindKeyword = { fg = "#c6c8d1", bg = "#b4be82" },
+        CmpItemKindText = { fg = '#c6c8d1', bg = '#b4be82' },
+        CmpItemKindEnum = { fg = '#c6c8d1', bg = '#b4be82' },
+        CmpItemKindKeyword = { fg = '#c6c8d1', bg = '#b4be82' },
 
-        CmpItemKindConstant = { fg = "#c6c8d1", bg = "#e2a478" },
-        CmpItemKindConstructor = { fg = "#c6c8d1", bg = "#e2a478" },
-        CmpItemKindReference = { fg = "#c6c8d1", bg = "#e2a478" },
+        CmpItemKindConstant = { fg = '#c6c8d1', bg = '#e2a478' },
+        CmpItemKindConstructor = { fg = '#c6c8d1', bg = '#e2a478' },
+        CmpItemKindReference = { fg = '#c6c8d1', bg = '#e2a478' },
 
-        CmpItemKindFunction = { fg = "#c6c8d1", bg = "#a093c7" },
-        CmpItemKindStruct = { fg = "#c6c8d1", bg = "#a093c7" },
-        CmpItemKindClass = { fg = "#c6c8d1", bg = "#a093c7" },
-        CmpItemKindModule = { fg = "#c6c8d1", bg = "#a093c7" },
-        CmpItemKindOperator = { fg = "#c6c8d1", bg = "#a093c7" },
+        CmpItemKindFunction = { fg = '#c6c8d1', bg = '#a093c7' },
+        CmpItemKindStruct = { fg = '#c6c8d1', bg = '#a093c7' },
+        CmpItemKindClass = { fg = '#c6c8d1', bg = '#a093c7' },
+        CmpItemKindModule = { fg = '#c6c8d1', bg = '#a093c7' },
+        CmpItemKindOperator = { fg = '#c6c8d1', bg = '#a093c7' },
 
-        CmpItemKindVariable = { fg = "#c6c8d1", bg = "#6b7089" },
-        CmpItemKindFile = { fg = "#c6c8d1", bg = "#6b7089" },
+        CmpItemKindVariable = { fg = '#c6c8d1', bg = '#6b7089' },
+        CmpItemKindFile = { fg = '#c6c8d1', bg = '#6b7089' },
 
-        CmpItemKindUnit = { fg = "#c6c8d1", bg = "#6b7089" },
-        CmpItemKindSnippet = { fg = "#c6c8d1", bg = "#6b7089" },
-        CmpItemKindFolder = { fg = "#c6c8d1", bg = "#6b7089" },
+        CmpItemKindUnit = { fg = '#c6c8d1', bg = '#6b7089' },
+        CmpItemKindSnippet = { fg = '#c6c8d1', bg = '#6b7089' },
+        CmpItemKindFolder = { fg = '#c6c8d1', bg = '#6b7089' },
 
-        CmpItemKindMethod = { fg = "#c6c8d1", bg = "#84a0c6" },
-        CmpItemKindValue = { fg = "#c6c8d1", bg = "#84a0c6" },
-        CmpItemKindEnumMember = { fg = "#c6c8d1", bg = "#84a0c6" },
+        CmpItemKindMethod = { fg = '#c6c8d1', bg = '#84a0c6' },
+        CmpItemKindValue = { fg = '#c6c8d1', bg = '#84a0c6' },
+        CmpItemKindEnumMember = { fg = '#c6c8d1', bg = '#84a0c6' },
 
-        CmpItemKindInterface = { fg = "#c6c8d1", bg = "#89b8c2" },
-        CmpItemKindColor = { fg = "#c6c8d1", bg = "#89b8c2" },
-        CmpItemKindTypeParameter = { fg = "#c6c8d1", bg = "#89b8c2" },
+        CmpItemKindInterface = { fg = '#c6c8d1', bg = '#89b8c2' },
+        CmpItemKindColor = { fg = '#c6c8d1', bg = '#89b8c2' },
+        CmpItemKindTypeParameter = { fg = '#c6c8d1', bg = '#89b8c2' },
       }
       for key, colors in pairs(tbl) do
         vim.api.nvim_create_autocmd('Colorscheme', {
@@ -360,18 +364,18 @@ require('lazy').setup({
         -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
         window = {
           completion = {
-            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
+            winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
             col_offset = -3,
             side_padding = 0,
           },
         },
         formatting = {
-          fields = { "kind", "abbr", "menu" },
+          fields = { 'kind', 'abbr', 'menu' },
           format = function(entry, vim_item)
-            local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
-            local strings = vim.split(kind.kind, "%s", { trimempty = true })
-            kind.kind = " " .. (strings[1] or "") .. " "
-            kind.menu = "    (" .. (strings[2] or "") .. ")"
+            local kind = require('lspkind').cmp_format({ mode = 'symbol_text', maxwidth = 50 })(entry, vim_item)
+            local strings = vim.split(kind.kind, '%s', { trimempty = true })
+            kind.kind = ' ' .. (strings[1] or '') .. ' '
+            kind.menu = '    (' .. (strings[2] or '') .. ')'
 
             return kind
           end,
@@ -410,7 +414,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    event = "BufReadPost",
+    event = 'BufReadPost',
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
@@ -473,10 +477,10 @@ require('lazy').setup({
           extended_mode = true,
           max_file_lines = 1500,
           colors = {
-            "#e27878", -- red
-            "#e2a478", -- yellow
-            "#b4be82", -- green
-            "#84a0c6", -- blue
+            '#e27878', -- red
+            '#e2a478', -- yellow
+            '#b4be82', -- green
+            '#84a0c6', -- blue
           }, -- table of hex strings
           termcolors = {
             'Red',
@@ -506,46 +510,46 @@ require('lazy').setup({
       'otavioschwanck/telescope-alternate.nvim',
       'stevearc/aerial.nvim',
       'nvim-telescope/telescope-dap.nvim',
-      "nvim-telescope/telescope-file-browser.nvim",
+      'nvim-telescope/telescope-file-browser.nvim',
     },
     cmd = 'Telescope',
     keys = {
       {
         '<leader><leader>', function() require('telescope.builtin').find_files() end,
-        mode = 'n', noremap = true, desc = "File: Go to ...",
+        mode = 'n', noremap = true, desc = 'File: Go to ...',
       },
       {
         '<leader>gg', function() require('telescope.builtin').live_grep() end,
-        mode = 'n', noremap = true, desc = "File: Grep",
+        mode = 'n', noremap = true, desc = 'File: Grep',
       },
       {
         '<leader>gs', function() require('telescope.builtin').git_status() end,
-        mode = 'n', noremap = true, desc = "File: Git Suatus",
+        mode = 'n', noremap = true, desc = 'File: Git Suatus',
       },
       {
         '<leader>gu', function() require('telescope.builtin').git_files({
-            git_command = { "git", "diff", "--name-only", "--diff-filter=U" },
+            git_command = { 'git', 'diff', '--name-only', '--diff-filter=U' },
           })
         end,
-        mode = 'n', noremap = true, desc = "File: Git Unmerged Files",
+        mode = 'n', noremap = true, desc = 'File: Git Unmerged Files',
       },
       {
         '<leader>gb', function() require('telescope.builtin').buffers() end,
-        mode = 'n', noremap = true, desc = "File: Buffers",
+        mode = 'n', noremap = true, desc = 'File: Buffers',
       },
       {
         '<leader>ga', function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
-        mode = 'n', noremap = true, desc = "File: Alternate",
+        mode = 'n', noremap = true, desc = 'File: Alternate',
       },
       {
         '<leader>gf',
         function() require('telescope').extensions['aerial'].aerial({ filter_kind = { 'Function', 'Method' }, }) end,
-        mode = 'n', noremap = true, desc = "LSP: Functions and Methods",
+        mode = 'n', noremap = true, desc = 'LSP: Functions and Methods',
       },
       {
         '<C-h>',
         function()
-          local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+          local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':p:h')
           local opts = {
             respect_gitignore = true,
             depth = false,
@@ -590,39 +594,39 @@ require('lazy').setup({
               }
             }
           },
-          ["telescope-alternate"] = {
+          ['telescope-alternate'] = {
             mappings = {
               -- go
-              { "(.*).go", {
-                { "[1]_test.go", "Test", false },
-              } },
-              { "(.*)_test.go", {
-                { "[1].go", "Source", false },
-              } },
+              { '(.*).go', {
+                { '[1]_test.go', 'Test', false },
+                } },
+              { '(.*)_test.go', {
+                { '[1].go', 'Source', false },
+                } },
               -- js, ts
-              { "(.*)/([^!]*).([cm]?[tj]s)(x?)", {
-                { "[1]/[2].test.[3][4]", "Test", false },
-                { "[1]/[2].spec.[3][4]", "Test", false },
-                { "[1]/[2].stories.[3][4]", "Storybook", false },
-                { "[1]/[2].test.[3]", "Test", false },
-                { "[1]/[2].spec.[3]", "Test", false },
-                { "[1]/[2].stories.[3]", "Storybook", false },
-                { "[1]/index.[3]", "Index", false },
-              } },
-              { "(.*)/([^!]*).(?:(test|spec)).([cm]?[tj]s)(x?)", {
-                { "[1]/[2].[3][4]", "Source", false },
-                { "[1]/[2].stories.[3][4]", "Source Storybook", false },
-                { "[1]/[2].[3]", "Source", false },
-                { "[1]/[2].stories.[3]", "Source Storybook", false },
-              } },
-              { "(.*)/([^!]*).stories.([cm]?[tj]s)(x?)", {
-                { "[1]/[2].[3][4]", "Source", false },
-                { "[1]/[2].test.[3][4]", "Source Test", false },
-                { "[1]/[2].spec.[3][4]", "Source Test", false },
-                { "[1]/[2].[3]", "Source", false },
-                { "[1]/[2].test.[3]", "Source Test", false },
-                { "[1]/[2].spec.[3]", "Source Test", false },
-              } },
+              { '(.*)/([^!]*).([cm]?[tj]s)(x?)', {
+                { '[1]/[2].test.[3][4]', 'Test', false },
+                { '[1]/[2].spec.[3][4]', 'Test', false },
+                { '[1]/[2].stories.[3][4]', 'Storybook', false },
+                { '[1]/[2].test.[3]', 'Test', false },
+                { '[1]/[2].spec.[3]', 'Test', false },
+                { '[1]/[2].stories.[3]', 'Storybook', false },
+                { '[1]/index.[3]', 'Index', false },
+                } },
+              { '(.*)/([^!]*).(?:(test|spec)).([cm]?[tj]s)(x?)', {
+                { '[1]/[2].[3][4]', 'Source', false },
+                { '[1]/[2].stories.[3][4]', 'Source Storybook', false },
+                { '[1]/[2].[3]', 'Source', false },
+                { '[1]/[2].stories.[3]', 'Source Storybook', false },
+                } },
+              { '(.*)/([^!]*).stories.([cm]?[tj]s)(x?)', {
+                { '[1]/[2].[3][4]', 'Source', false },
+                { '[1]/[2].test.[3][4]', 'Source Test', false },
+                { '[1]/[2].spec.[3][4]', 'Source Test', false },
+                { '[1]/[2].[3]', 'Source', false },
+                { '[1]/[2].test.[3]', 'Source Test', false },
+                { '[1]/[2].spec.[3]', 'Source Test', false },
+                } },
             },
           },
         },
@@ -645,15 +649,15 @@ require('lazy').setup({
           require('dap-go').setup {
             dap_configurations = {
               {
-                type = "go",
-                name = "Attach remote",
-                mode = "remote",
-                request = "attach",
+                type = 'go',
+                name = 'Attach remote',
+                mode = 'remote',
+                request = 'attach',
               },
             },
             delve = {
               initialize_timeout_sec = 20,
-              port = "${port}"
+              port = '${port}'
             },
           }
         end
@@ -661,34 +665,34 @@ require('lazy').setup({
       {
         'theHamsta/nvim-dap-virtual-text',
         config = function()
-          require("nvim-dap-virtual-text").setup()
+          require('nvim-dap-virtual-text').setup()
         end
       }
     },
     keys = {
-      { "<Leader>dc", function() require('dap').continue() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dc', function() require('dap').continue() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Continue' },
-      { "<Leader>dsv", function() require('dap').step_over() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dsv', function() require('dap').step_over() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Step over' },
-      { "<Leader>dsi", function() require('dap').step_into() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dsi', function() require('dap').step_into() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Step into' },
-      { "<Leader>dso", function() require('dap').step_out() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dso', function() require('dap').step_out() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Step out' },
-      { "<Leader>db", function() require('dap').toggle_breakpoint() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>db', function() require('dap').toggle_breakpoint() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Toggle breakpoint' },
-      { "<Leader>dB", function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = "n",
+      { '<Leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = 'n',
         silent = true, noremap = true, desc = 'Debug: Add conditional breakpoint' },
-      { "<Leader>dlp", function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
-        mode = "n", silent = true, noremap = true, desc = 'Debug: Add Logpoint' },
-      { "<Leader>dr", function() require('dap').repl.open() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dlp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+        mode = 'n', silent = true, noremap = true, desc = 'Debug: Add Logpoint' },
+      { '<Leader>dr', function() require('dap').repl.open() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Open REPL' },
-      { "<Leader>dl", function() require('dap').run_last() end, mode = "n", silent = true, noremap = true,
+      { '<Leader>dl', function() require('dap').run_last() end, mode = 'n', silent = true, noremap = true,
         desc = 'Debug: Re-run the last debug adapter' },
-      { "<Leader>dv", function() require('telescope').extensions['dap'].variables() end, mode = "n", silent = true,
+      { '<Leader>dv', function() require('telescope').extensions['dap'].variables() end, mode = 'n', silent = true,
         noremap = true, desc = 'Debug: Show variables' },
-      { "<Leader>df", function() require('telescope').extensions['dap'].frames() end, mode = "n", silent = true,
+      { '<Leader>df', function() require('telescope').extensions['dap'].frames() end, mode = 'n', silent = true,
         noremap = true, desc = 'Debug: Show frames' },
-      { "<Leader>d<space>", function() require('telescope').extensions['dap'].commands() end, mode = "n", silent = true,
+      { '<Leader>d<space>', function() require('telescope').extensions['dap'].commands() end, mode = 'n', silent = true,
         noremap = true, desc = 'Debug: Show commands' },
     },
     config = function()
@@ -706,12 +710,12 @@ require('lazy').setup({
   },
   -- Runner
   {
-    "klen/nvim-test",
+    'klen/nvim-test',
     keys = {
-      { "<leader>ts", function() require('nvim-test').run('suite') end, mode = 'n', desc = 'Test: Run Suite' },
-      { "<leader>tf", function() require('nvim-test').run('file') end, mode = 'n', desc = 'Test: Run File' },
-      { "<leader>tn", function() require('nvim-test').run('nearest') end, mode = 'n', desc = 'Test: Run Nearest' },
-      { "<leader>tv", function() require('nvim-test').visit() end, mode = 'n', desc = 'Test: Visit the last run test' },
+      { '<leader>ts', function() require('nvim-test').run('suite') end, mode = 'n', desc = 'Test: Run Suite' },
+      { '<leader>tf', function() require('nvim-test').run('file') end, mode = 'n', desc = 'Test: Run File' },
+      { '<leader>tn', function() require('nvim-test').run('nearest') end, mode = 'n', desc = 'Test: Run Nearest' },
+      { '<leader>tv', function() require('nvim-test').visit() end, mode = 'n', desc = 'Test: Visit the last run test' },
     },
     config = function()
       require('nvim-test').setup({
@@ -757,7 +761,7 @@ require('lazy').setup({
               color = { fg = '#b4be82' }
             },
             'filename',
-            { "aerial", sep = '  ', dence = true }, -- the same as copmonent separator
+            { 'aerial', sep = '  ', dence = true }, -- the same as copmonent separator
             { 'lsp_progress' }
           },
           lualine_x = { 'encoding' },
@@ -777,7 +781,7 @@ require('lazy').setup({
   {
     'petertriho/nvim-scrollbar',
     cond = not vim.g.vscode,
-    event = "BufReadPost",
+    event = 'BufReadPost',
     config = function()
       require('scrollbar').setup({
         marks = {
@@ -798,7 +802,7 @@ require('lazy').setup({
   {
     'kevinhwang91/nvim-hlslens',
     cond = not vim.g.vscode,
-    event = "BufReadPost",
+    event = 'BufReadPost',
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
@@ -816,7 +820,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufNewFile" },
+    event = { 'BufReadPost', 'BufNewFile' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
@@ -841,11 +845,11 @@ require('lazy').setup({
     end,
   },
   {
-    "folke/which-key.nvim",
+    'folke/which-key.nvim',
     cond = not vim.g.vscode,
     config = function()
-      require("which-key").setup()
-      require("which-key").register({
+      require('which-key').setup()
+      require('which-key').register({
         ['<leader>g'] = { name = '+Go to File, Code or GitHub' },
         ['<leader>t'] = { name = '+Test' },
         ['<leader>d'] = { name = '+Debug' },
@@ -853,7 +857,7 @@ require('lazy').setup({
     end,
   },
   {
-    "lukas-reineke/indent-blankline.nvim",
+    'lukas-reineke/indent-blankline.nvim',
     cond = not vim.g.vscode,
     config = function()
       require('indent_blankline').setup()
@@ -902,7 +906,7 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim', },
     config = function()
       require('todo-comments').setup({
-        highlight = { after = "" }
+        highlight = { after = '' }
       })
     end,
   },
@@ -929,9 +933,9 @@ require('lazy').setup({
     end,
   },
   {
-    "ntpeters/vim-better-whitespace",
+    'ntpeters/vim-better-whitespace',
     cond = not vim.g.vscode,
-    init = function ()
+    init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
         command = 'highlight ExtraWhitespace guibg=#e27878'
@@ -944,7 +948,7 @@ require('lazy').setup({
     end
   },
   {
-    "dinhhuy258/git.nvim",
+    'dinhhuy258/git.nvim',
     keys = {
       { '<Leader>go', desc = 'Git: Open in GitHub' },
       { '<Leader>gp', desc = 'Git: Open Pull Request Page' },
@@ -969,64 +973,64 @@ require('lazy').setup({
       end
 
       return {
-        { "<C-a>", function() return require("dial.map").inc_normal() end, mode = "n", expr = true,
+        { '<C-a>', function() return require('dial.map').inc_normal() end, mode = 'n', expr = true,
           noremap = true,
-          desc = "Edit: Increment" },
-        { "<C-x>", function() return require("dial.map").dec_normal() end, mode = "n", expr = true,
+          desc = 'Edit: Increment' },
+        { '<C-x>', function() return require('dial.map').dec_normal() end, mode = 'n', expr = true,
           noremap = true,
-          desc = "Edit: Decrement" },
-        { "<C-a>", function() return require("dial.map").inc_visual() end, mode = "v", expr = true,
+          desc = 'Edit: Decrement' },
+        { '<C-a>', function() return require('dial.map').inc_visual() end, mode = 'v', expr = true,
           noremap = true,
-          desc = "Edit: Increment" },
-        { "<C-x>", function() return require("dial.map").dec_visual() end, mode = "v", expr = true,
+          desc = 'Edit: Increment' },
+        { '<C-x>', function() return require('dial.map').dec_visual() end, mode = 'v', expr = true,
           noremap = true,
-          desc = "Edit: Decrement" },
-        { "g<C-a>", function() return require("dial.map").inc_gvisual() end, mode = "v", expr = true,
+          desc = 'Edit: Decrement' },
+        { 'g<C-a>', function() return require('dial.map').inc_gvisual() end, mode = 'v', expr = true,
           noremap = true,
-          desc = "Edit: Increment" },
-        { "g<C-x>", function() return require("dial.map").dec_gvisual() end, mode = "v", expr = true,
+          desc = 'Edit: Increment' },
+        { 'g<C-x>', function() return require('dial.map').dec_gvisual() end, mode = 'v', expr = true,
           noremap = true,
-          desc = "Edit: Decrement" },
-        { "<leader>a", function() return require("dial.map").inc_normal(get_switch_group()) end, mode = "n", expr = true,
+          desc = 'Edit: Decrement' },
+        { '<leader>a', function() return require('dial.map').inc_normal(get_switch_group()) end, mode = 'n', expr = true,
           noremap = true,
-          desc = "Edit: Switch prev" },
-        { "<leader>x", function() return require("dial.map").dec_normal(get_switch_group()) end, mode = "n", expr = true,
+          desc = 'Edit: Switch prev' },
+        { '<leader>x', function() return require('dial.map').dec_normal(get_switch_group()) end, mode = 'n', expr = true,
           noremap = true,
-          desc = "Edit: Switch next" },
+          desc = 'Edit: Switch next' },
       }
     end,
     config = function()
-      local augend = require("dial.augend")
+      local augend = require('dial.augend')
       local switch_common = {
         augend.constant.alias.bool,
         augend.constant.new({ elements = { '&&', '||' }, word = false, cyclic = true }),
         augend.constant.new({ elements = { '==', '!=' }, word = false, cyclic = true }),
         augend.case.new({
-          types = { "camelCase", "snake_case" },
+          types = { 'camelCase', 'snake_case' },
           cyclic = true,
         }),
         augend.case.new({
-          types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
+          types = { 'PascalCase', 'SCREAMING_SNAKE_CASE' },
           cyclic = true,
         }),
       }
       require('dial.config').augends:register_group({
         switch = switch_common,
         switch_go = vim.list_extend({
-          augend.constant.new({ elements = { "=", ":=" }, word = false, cyclic = true }),
-          augend.constant.new({ elements = { "var", "const" }, cyclic = true }),
+          augend.constant.new({ elements = { '=', ':=' }, word = false, cyclic = true }),
+          augend.constant.new({ elements = { 'var', 'const' }, cyclic = true }),
         }, switch_common),
         switch_js = vim.list_extend({
-          augend.constant.new({ elements = { "let", "const" }, cyclic = true }),
+          augend.constant.new({ elements = { 'let', 'const' }, cyclic = true }),
         }, switch_common),
       })
     end
   },
   -- lang
   {
-    "vuki656/package-info.nvim",
+    'vuki656/package-info.nvim',
     event = 'VimEnter',
-    dependencies = { "MunifTanjim/nui.nvim" },
+    dependencies = { 'MunifTanjim/nui.nvim' },
     cond = not vim.g.vscode,
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
@@ -1052,13 +1056,13 @@ require('lazy').setup({
     'alexghergh/nvim-tmux-navigation',
     cond = not vim.g.vscode,
     keys = {
-      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, mode = "n", noremap = true },
-      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, mode = "n", noremap = true },
-      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, mode = "n", noremap = true },
-      { '<C-w>l', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, mode = "n", noremap = true },
-      { '<C-w>\\', function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, mode = "n",
+      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, mode = 'n', noremap = true },
+      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, mode = 'n', noremap = true },
+      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, mode = 'n', noremap = true },
+      { '<C-w>l', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, mode = 'n', noremap = true },
+      { '<C-w>\\', function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, mode = 'n',
         noremap = true },
-      { '<C-w>Space', function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, mode = "n", noremap = true },
+      { '<C-w>Space', function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, mode = 'n', noremap = true },
     },
     config = function()
       require('nvim-tmux-navigation').setup({ disable_when_zoomed = true })

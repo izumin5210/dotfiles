@@ -581,6 +581,9 @@ require('lazy').setup({
                 ['<C-a>'] = fb_actions.create_from_prompt,
                 ['<C-r>'] = fb_actions.rename,
                 ['<C-d>'] = fb_actions.remove,
+                ['<C-g>'] = fb_actions.goto_parent_dir,
+                ['<C-e>'] = fb_actions.goto_cwd,
+                ['<C-f>'] = fb_actions.toggle_browser,
               }
             }
           },

@@ -290,7 +290,29 @@ require('lazy').setup({
       'hrsh7th/cmp-vsnip',
       'hrsh7th/vim-vsnip',
       'hrsh7th/cmp-cmdline',
-      'onsails/lspkind.nvim'
+      {
+        'zbirenbaum/copilot-cmp',
+        dependencies = { 'zbirenbaum/copilot.lua' },
+        config = function()
+          require('copilot').setup({
+            suggestion = { enabled = false },
+            panel = { enabled = false },
+          })
+          require('copilot_cmp').setup({
+            method = 'getCompletionsCycling',
+          })
+        end
+      },
+      {
+        'onsails/lspkind.nvim',
+        config = function()
+          require('lspkind').init({
+            symbol_map = {
+              Copilot = '',
+            },
+          })
+        end
+      },
     },
     init = function()
       -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
@@ -332,6 +354,8 @@ require('lazy').setup({
         CmpItemKindInterface = { fg = '#c6c8d1', bg = '#89b8c2' },
         CmpItemKindColor = { fg = '#c6c8d1', bg = '#89b8c2' },
         CmpItemKindTypeParameter = { fg = '#c6c8d1', bg = '#89b8c2' },
+
+        CmpItemKindCopilot = { fg = '#c6c8d1', bg = '#a093c7' },
       }
       for key, colors in pairs(tbl) do
         vim.api.nvim_create_autocmd('Colorscheme', {
@@ -359,6 +383,7 @@ require('lazy').setup({
         }),
         sources = cmp.config.sources({
           { name = 'nvim_lsp' },
+          { name = 'copilot' },
           { name = 'path' },
         }, {
           { name = 'buffer' },

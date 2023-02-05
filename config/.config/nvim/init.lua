@@ -1096,6 +1096,7 @@ require('lazy').setup({
       require('package-info').show()
     end
   },
+  { 'jxnblk/vim-mdx-js' },
   -- misc
   {
     'alexghergh/nvim-tmux-navigation',

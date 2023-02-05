@@ -1055,7 +1055,7 @@ require('lazy').setup({
         augend.constant.new({ elements = { '&&', '||' }, word = false, cyclic = true }),
         augend.constant.new({ elements = { '==', '!=' }, word = false, cyclic = true }),
         augend.case.new({
-          types = { 'camelCase', 'snake_case' },
+          types = { 'camelCase', 'snake_case', 'kebab-case' },
           cyclic = true,
         }),
         augend.case.new({

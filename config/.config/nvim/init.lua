@@ -224,6 +224,7 @@ require('lazy').setup({
           'sumneko_lua',
           -- JSON (JSON Schema)
           'jsonls',
+          'yamlls'
         },
         automatic_installation = true,
       })
@@ -252,7 +253,17 @@ require('lazy').setup({
     config = function()
       local null_ls = require('null-ls')
       null_ls.setup({
-        sources = { null_ls.builtins.formatting.prettier },
+        sources = {
+          -- JavaScript
+          null_ls.builtins.formatting.prettier,
+          -- Ppotocol Buffers
+          null_ls.builtins.diagnostics.buf,
+          null_ls.builtins.formatting.buf,
+          -- Dockerfile
+          null_ls.builtins.diagnostics.hadolint,
+          -- GitHub Actions
+          null_ls.builtins.diagnostics.actionlint,
+        },
       })
     end,
   },

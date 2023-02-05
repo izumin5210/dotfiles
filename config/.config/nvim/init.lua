@@ -250,7 +250,11 @@ require('lazy').setup({
     -- FIXME: workaround. should setup lspsaga before set colorscheme.
     -- lazy = true,
     config = function()
-      require('lspsaga').setup()
+      require('lspsaga').setup({
+        code_action_keys = {
+          quit = "<Esc>",
+        }
+      })
       vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
       vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
     end,

@@ -1225,8 +1225,8 @@ require('lazy').setup({
   -- lang
   {
     'vuki656/package-info.nvim',
-    event = 'VimEnter',
     dependencies = { 'MunifTanjim/nui.nvim' },
+    ft = 'json',
     cond = not vim.g.vscode,
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {

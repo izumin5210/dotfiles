@@ -978,6 +978,7 @@ require('lazy').setup({
         ['<leader>g'] = { name = '+Go to File, Code or GitHub' },
         ['<leader>t'] = { name = '+Test' },
         ['<leader>d'] = { name = '+Debug' },
+        ['<leader>c'] = { name = '+Comment' },
       })
     end,
   },
@@ -1016,6 +1017,16 @@ require('lazy').setup({
           line = '<Leader>/',
         },
         pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      })
+    end,
+  },
+  {
+    'danymat/neogen',
+    keys = { { '<Leader>cd', function() require('neogen').generate() end, mode = 'n', desc = 'Generate doc comment' } },
+    dependencies = 'nvim-treesitter/nvim-treesitter',
+    config = function()
+      require('neogen').setup({
+        snippet_engine = 'vsnip',
       })
     end,
   },

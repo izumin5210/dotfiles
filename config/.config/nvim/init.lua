@@ -821,6 +821,82 @@ require('lazy').setup({
     end
   },
   {
+    'akinsho/bufferline.nvim',
+    cond = not vim.g.vscode,
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      require('bufferline').setup({
+        options = {
+          middle_mouse_command = 'bdelete! %d', -- same as close_command
+          indicator = { style = 'none' }, -- hide current buffer indicator
+          diagnostics = 'nvim_lsp',
+          diagnostics_indicator = function(count, level, diagnostics_dict, context)
+            if context.buffer:current() then -- hide diagnostics indicator for the current buffer
+              return ''
+            end
+            local icon = level:match("error") and " " or " "
+            return " " .. icon .. count
+          end,
+          show_buffer_close_icons = false,
+          show_close_icon = false,
+          separator_style = 'thin',
+          hover = { enabled = false },
+        },
+        highlights = {
+            fill = { bg = 'none' },
+            background = { bg = 'none' },
+            tab = { bg = 'none' },
+            tab_selected = { bg = 'none', italic = false, bold = true },
+            tab_close = { bg = 'none' },
+            tab_separator = { bg = 'none' },
+            tab_separator_selected = { bg = 'none' },
+            buffer_visible = { bg = 'none' },
+            buffer_selected = { bg = 'none', italic = false, bold = true },
+            diagnostic = { bg = 'none' },
+            diagnostic_visible = { bg = 'none' },
+            diagnostic_selected = { bg = 'none', italic = false, bold = true },
+            hint = { bg = 'none' },
+            hint_visible = { bg = 'none' },
+            hint_selected = { bg = 'none', italic = false, bold = true },
+            hint_diagnostic = { bg = 'none' },
+            hint_diagnostic_visible = { bg = 'none' },
+            hint_diagnostic_selected = { bg = 'none', italic = false, bold = true },
+            info = { bg = 'none' },
+            info_visible = { bg = 'none' },
+            info_selected = { bg = 'none', italic = false, bold = true },
+            info_diagnostic = { bg = 'none' },
+            info_diagnostic_visible = { bg = 'none' },
+            info_diagnostic_selected = { bg = 'none', italic = false, bold = true },
+            warning = { bg = 'none' },
+            warning_visible = { bg = 'none' },
+            warning_selected = { bg = 'none', italic = false, bold = true },
+            warning_diagnostic = { bg = 'none' },
+            warning_diagnostic_visible = { bg = 'none' },
+            warning_diagnostic_selected = { bg = 'none', italic = false, bold = true },
+            error = { bg = 'none' },
+            error_visible = { bg = 'none' },
+            error_selected = { bg = 'none', italic = false, bold = true },
+            error_diagnostic = { bg = 'none' },
+            error_diagnostic_visible = { bg = 'none' },
+            error_diagnostic_selected = { bg = 'none', italic = false, bold = true },
+            modified = { bg = 'none' },
+            modified_visible = { bg = 'none' },
+            modified_selected = { bg = 'none', italic = true, bold = true },
+            duplicate_selected = { bg = 'none', italic = false, bold = true },
+            duplicate_visible = { bg = 'none' },
+            duplicate = { bg = 'none' },
+            separator_selected = { bg = 'none' },
+            separator_visible = { bg = 'none' },
+            separator = { bg = 'none' },
+            indicator_selected = { bg = 'none' },
+            pick_selected = { bg = 'none' },
+            pick_visible = { bg = 'none' },
+            pick = { bg = 'none' },
+        }
+      })
+    end
+  },
+  {
     'stevearc/aerial.nvim',
     lazy = true,
     config = function()

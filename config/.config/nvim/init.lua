@@ -101,19 +101,6 @@ require('lazy').setup({
         end,
       },
       {
-        'kkharji/lspsaga.nvim',
-        lazy = true,
-        config = function()
-          require('lspsaga').setup({
-            code_action_keys = {
-              quit = '<Esc>',
-            }
-          })
-          vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
-          vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
-        end,
-      },
-      {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
           local null_ls = require('null-ls')
@@ -309,6 +296,19 @@ require('lazy').setup({
           })
         end,
       })
+    end,
+  },
+  {
+    'kkharji/lspsaga.nvim',
+    -- FIXME: workaround. should setup lspsaga before set colorscheme.
+    config = function()
+      require('lspsaga').setup({
+        code_action_keys = {
+          quit = '<Esc>',
+        }
+      })
+      vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
+      vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
     end,
   },
   -- Completion

@@ -312,7 +312,7 @@ require('lazy').setup({
           'gopls',
           'golangci_lint_ls',
           -- Lua
-          'sumneko_lua',
+          'lua_ls',
           -- JSON (JSON Schema)
           'jsonls',
           'yamlls'

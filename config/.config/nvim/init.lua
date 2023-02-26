@@ -41,6 +41,14 @@ vim.opt.splitright = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- disable builtin statusline and tablne
+vim.opt.laststatus = 0
+vim.opt.showtabline = 0
+
+-- disable builtin matchit.vim and matchparen.vim
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
+
 -- sign
 vim.opt.signcolumn = 'yes';
 
@@ -82,14 +90,72 @@ require('lazy').setup({
   },
   -- LSP
   {
-    'williamboman/mason.nvim',
-    config = function()
-      require('mason').setup()
-    end,
-  },
-  {
-    'williamboman/mason-lspconfig.nvim',
-    dependencies = { 'neovim/nvim-lspconfig' },
+    'neovim/nvim-lspconfig',
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
+    dependencies = {
+      'williamboman/mason-lspconfig.nvim',
+      {
+        'williamboman/mason.nvim',
+        config = function()
+          require('mason').setup()
+        end,
+      },
+      {
+        'kkharji/lspsaga.nvim',
+        lazy = true,
+        config = function()
+          require('lspsaga').setup({
+            code_action_keys = {
+              quit = '<Esc>',
+            }
+          })
+          vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
+          vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
+        end,
+      },
+      {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+          local null_ls = require('null-ls')
+          null_ls.setup({
+            sources = {
+              -- JavaScript
+              null_ls.builtins.formatting.prettier,
+              -- Ppotocol Buffers
+              null_ls.builtins.diagnostics.buf,
+              null_ls.builtins.formatting.buf,
+              -- Dockerfile
+              null_ls.builtins.diagnostics.hadolint,
+              -- GitHub Actions
+              null_ls.builtins.diagnostics.actionlint,
+            },
+          })
+        end,
+      },
+      {
+        'jayp0521/mason-null-ls.nvim',
+        config = function()
+          require('mason-null-ls').setup({
+            ensure_installed = { 'prettier' },
+            automatic_installation = true,
+          })
+        end,
+      },
+      {
+        'ray-x/lsp_signature.nvim',
+        init = function()
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight link LspSignatureActiveParameter Todo'
+          })
+        end,
+        config = function()
+          require('lsp_signature').setup({
+            hint_enable = false,
+          })
+        end
+      },
+    },
     config = function()
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
@@ -244,62 +310,6 @@ require('lazy').setup({
         end,
       })
     end,
-  },
-  {
-    'kkharji/lspsaga.nvim',
-    -- FIXME: workaround. should setup lspsaga before set colorscheme.
-    -- lazy = true,
-    config = function()
-      require('lspsaga').setup({
-        code_action_keys = {
-          quit = "<Esc>",
-        }
-      })
-      vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
-      vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
-    end,
-  },
-  {
-    'jose-elias-alvarez/null-ls.nvim',
-    config = function()
-      local null_ls = require('null-ls')
-      null_ls.setup({
-        sources = {
-          -- JavaScript
-          null_ls.builtins.formatting.prettier,
-          -- Ppotocol Buffers
-          null_ls.builtins.diagnostics.buf,
-          null_ls.builtins.formatting.buf,
-          -- Dockerfile
-          null_ls.builtins.diagnostics.hadolint,
-          -- GitHub Actions
-          null_ls.builtins.diagnostics.actionlint,
-        },
-      })
-    end,
-  },
-  {
-    'jayp0521/mason-null-ls.nvim',
-    config = function()
-      require('mason-null-ls').setup({
-        ensure_installed = { 'prettier' },
-        automatic_installation = true,
-      })
-    end,
-  },
-  {
-    'ray-x/lsp_signature.nvim',
-    init = function()
-      vim.api.nvim_create_autocmd('Colorscheme', {
-        pattern = '*',
-        command = 'highlight link LspSignatureActiveParameter Todo'
-      })
-    end,
-    config = function()
-      require('lsp_signature').setup({
-        hint_enable = false,
-      })
-    end
   },
   -- Completion
   {
@@ -463,7 +473,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
-    event = 'BufReadPost',
+    event = { 'CursorHold', 'CursorHoldI' },
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
@@ -482,6 +492,7 @@ require('lazy').setup({
           })
         end,
       },
+      'andymass/vim-matchup',
       'windwp/nvim-ts-autotag',
     },
     config = function()
@@ -782,6 +793,7 @@ require('lazy').setup({
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   {
     'nvim-lualine/lualine.nvim',
+    event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
     cond = not vim.g.vscode,
     dependencies = {
       'arkav/lualine-lsp-progress',
@@ -823,6 +835,7 @@ require('lazy').setup({
   {
     'akinsho/bufferline.nvim',
     cond = not vim.g.vscode,
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = function()
       require('bufferline').setup({
@@ -834,8 +847,8 @@ require('lazy').setup({
             if context.buffer:current() then -- hide diagnostics indicator for the current buffer
               return ''
             end
-            local icon = level:match("error") and " " or " "
-            return " " .. icon .. count
+            local icon = level:match('error') and ' ' or ' '
+            return ' ' .. icon .. count
           end,
           show_buffer_close_icons = false,
           show_close_icon = false,
@@ -945,7 +958,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
-    event = { 'BufReadPost', 'BufNewFile' },
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
@@ -972,6 +985,7 @@ require('lazy').setup({
   {
     'folke/which-key.nvim',
     cond = not vim.g.vscode,
+    event = 'VeryLazy',
     config = function()
       require('which-key').setup()
       require('which-key').register({
@@ -985,6 +999,7 @@ require('lazy').setup({
   {
     'lukas-reineke/indent-blankline.nvim',
     cond = not vim.g.vscode,
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
       require('indent_blankline').setup()
     end
@@ -998,9 +1013,9 @@ require('lazy').setup({
     end
   },
   -- Editor
-  { 'andymass/vim-matchup' },
   {
     'windwp/nvim-autopairs',
+    event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup()
     end,
@@ -1032,6 +1047,7 @@ require('lazy').setup({
   },
   {
     'kylechui/nvim-surround',
+    event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('nvim-surround').setup()
     end,
@@ -1039,6 +1055,7 @@ require('lazy').setup({
   {
     'folke/todo-comments.nvim',
     cond = not vim.g.vscode,
+    event = 'VeryLazy',
     dependencies = { 'nvim-lua/plenary.nvim', },
     config = function()
       require('todo-comments').setup({
@@ -1071,6 +1088,7 @@ require('lazy').setup({
   {
     'ntpeters/vim-better-whitespace',
     cond = not vim.g.vscode,
+    event = 'VeryLazy',
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',

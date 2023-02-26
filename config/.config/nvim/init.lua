@@ -1212,6 +1212,14 @@ require('lazy').setup({
   { 'jxnblk/vim-mdx-js' },
   -- misc
   {
+    'rmagatti/auto-session',
+    cond = not vim.g.vscode,
+    config = function()
+      vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
+      require('auto-session').setup()
+    end,
+  },
+  {
     'alexghergh/nvim-tmux-navigation',
     cond = not vim.g.vscode,
     keys = {

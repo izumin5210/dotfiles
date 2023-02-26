@@ -88,6 +88,10 @@ require('lazy').setup({
     'mortepau/codicons.nvim', -- required by config function for nvim-dap
     lazy = true,
   },
+  {
+    'tpope/vim-repeat', -- required by leap.nvim
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
+  },
   -- LSP
   {
     'neovim/nvim-lspconfig',
@@ -1023,6 +1027,21 @@ require('lazy').setup({
     config = function()
       require('nvim-autopairs').setup()
     end,
+  },
+  {
+    'ggandor/flit.nvim',
+    dependencies = {
+      { 'ggandor/leap.nvim', lazy = true },
+    },
+    keys = {
+      { 'f', mode = { 'n' } },
+      { 'F', mode = { 'n' } },
+      { 't', mode = { 'n' } },
+      { 'T', mode = { 'n' } },
+    },
+    config = function()
+      require('flit').setup()
+    end
   },
   {
     'numToStr/Comment.nvim',

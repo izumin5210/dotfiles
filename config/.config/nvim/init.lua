@@ -530,7 +530,7 @@ require('lazy').setup({
           'json5',
           'lua',
           'markdown',
-          'markdown_inline',
+          'markdown_inline', -- required by lspsaga.nvim
           'proto',
           'ruby',
           'rust',

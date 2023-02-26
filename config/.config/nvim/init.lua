@@ -56,8 +56,18 @@ vim.opt.signcolumn = 'yes';
 -- Keymaps
 -----------------------------------
 vim.g.mapleader = ' '
-vim.api.nvim_set_keymap('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
+vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
   { noremap = true, desc = 'Search: Clear Search Highlight' })
+
+-- buffers
+vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, desc = 'Buffer: Next' })
+vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
+vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, desc = 'Buffer: Delete' })
+
+-- tabs
+vim.keymap.set('n', '<leader>btt', ':tabnew<CR>', { noremap = true, desc = 'Tab: New' })
+vim.keymap.set('n', '<leader>btn', ':tabnext<CR>', { noremap = true, desc = 'Tab: Next' })
+vim.keymap.set('n', '<leader>btp', ':tabprevious<CR>', { noremap = true, desc = 'Tab: Prev' })
 
 -----------------------------------
 -- Plugins
@@ -1001,6 +1011,8 @@ require('lazy').setup({
         ['<leader>t'] = { name = '+Test' },
         ['<leader>d'] = { name = '+Debug' },
         ['<leader>c'] = { name = '+Comment' },
+        ['<leader>b'] = { name = '+Buffer, +Tab' },
+        ['<leader>bt'] = { name = '+Tab' },
       })
     end,
   },

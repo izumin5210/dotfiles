@@ -156,8 +156,28 @@ require('lazy').setup({
           })
         end
       },
+      {
+        'glepnir/lspsaga.nvim',
+        dependencies = {
+          { 'nvim-tree/nvim-web-devicons' },
+          { 'nvim-treesitter/nvim-treesitter' }
+        },
+        cmd = { 'Lspsaga' },
+        config = function()
+          require('lspsaga').setup({
+            symbol_in_winbar = { enable = false },
+            beacon = { enable = false }
+          })
+        end,
+      },
     },
     config = function()
+      local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
+      for type, icon in pairs(signs) do
+        local hl = 'DiagnosticSign' .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+      end
+
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
         local telescope_builtin = require('telescope.builtin')
@@ -174,7 +194,7 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Declarations' }))
         vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Definitions' }))
-        vim.keymap.set('n', 'K', require('lspsaga.hover').render_hover_doc,
+        vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>',
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Hover Card' }))
         vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Implementations' }))
@@ -182,18 +202,16 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Symbols in Document' }))
         vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Search Symbols in Workspace' }))
-        vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lspsaga.signaturehelp').signature_help,
+        vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lsp_signature').toggle_float_win,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Signature Help' }))
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
         vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
         vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
         vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
-        vim.keymap.set('n', '<space>rn', require('lspsaga.rename').rename,
+        vim.keymap.set('n', '<space>rn', '<cmd>Lspsaga rename ++project<CR>',
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Rename Symbol' }))
-        vim.keymap.set('n', '<space>.', require('lspsaga.codeaction').code_action,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
-        vim.keymap.set('v', '<space>.', require('lspsaga.codeaction').range_code_action,
+        vim.keymap.set({ 'n', 'v' }, '<space>.', '<cmd>Lspsaga code_action<CR>',
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
         vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to References' }))
@@ -220,8 +238,7 @@ require('lazy').setup({
               cursor_diagnostics_timer:stop()
               cursor_diagnostics_timer:start(1000, 0,
                 vim.schedule_wrap(function()
-                  require('lspsaga.diagnostic')
-                      .show_line_diagnostics()
+                  vim.api.nvim_command('Lspsaga show_line_diagnostics')
                 end))
             end,
           }
@@ -310,19 +327,6 @@ require('lazy').setup({
           })
         end,
       })
-    end,
-  },
-  {
-    'kkharji/lspsaga.nvim',
-    -- FIXME: workaround. should setup lspsaga before set colorscheme.
-    config = function()
-      require('lspsaga').setup({
-        code_action_keys = {
-          quit = '<Esc>',
-        }
-      })
-      vim.keymap.set({ 'n' }, '<Plug>(lsp)n', require('lspsaga.diagnostic').navigate('next'))
-      vim.keymap.set({ 'n' }, '<Plug>(lsp)p', require('lspsaga.diagnostic').navigate('prev'))
     end,
   },
   -- Completion
@@ -526,6 +530,7 @@ require('lazy').setup({
           'json5',
           'lua',
           'markdown',
+          'markdown_inline', -- required by lspsaga.nvim
           'proto',
           'ruby',
           'rust',

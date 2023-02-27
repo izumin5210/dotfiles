@@ -99,6 +99,11 @@ require('lazy').setup({
     lazy = true,
   },
   {
+    'nvim-lua/plenary.nvim',
+    lazy = true,
+    tag = 'v0.1.3'
+  },
+  {
     'tpope/vim-repeat', -- required by leap.nvim
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
   },
@@ -584,6 +589,7 @@ require('lazy').setup({
   -- Fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
+    tag = '0.1.1',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'otavioschwanck/telescope-alternate.nvim',

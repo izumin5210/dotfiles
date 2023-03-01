@@ -558,6 +558,12 @@ require('lazy').setup({
       'mrjones2014/nvim-ts-rainbow',
       {
         'haringsrob/nvim_context_vt',
+        init = function()
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight link ContextVt DiagnosticHint'
+          })
+        end,
         config = function()
           require('nvim_context_vt').setup({
             min_rows = 3,
@@ -1333,6 +1339,11 @@ require('lazy').setup({
 -----------------------------------
 -- Appearance
 -----------------------------------
+vim.api.nvim_create_autocmd('Colorscheme', {
+  pattern = '*',
+  command = 'highlight! link DiagnosticHint LineNr'
+})
+
 if not vim.g.vscode then
   -- clear bg
   vim.api.nvim_create_autocmd('Colorscheme', {

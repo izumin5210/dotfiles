@@ -175,14 +175,27 @@ require('lazy').setup({
           })
         end,
       },
+      {
+        'lvimuser/lsp-inlayhints.nvim',
+        lazy = true,
+        config = function ()
+          require("lsp-inlayhints").setup()
+        end
+      }
     },
-    config = function()
+    init = function ()
       local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
       for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
 
+      vim.api.nvim_create_autocmd('Colorscheme', {
+        pattern = '*',
+        command = 'highlight link LspInlayHint DiagnosticHint',
+      })
+    end,
+    config = function()
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
         local telescope_builtin = require('telescope.builtin')
@@ -248,6 +261,8 @@ require('lazy').setup({
             end,
           }
         )
+
+        require('lsp-inlayhints').on_attach(client, bufnr)
       end
 
       vim.api.nvim_create_autocmd('BufWritePre', {
@@ -329,9 +344,20 @@ require('lazy').setup({
           lspconfig[server_name].setup({
             on_attach = on_attach_lsp,
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            settings = ({
+              gopls = {
+                gopls = {
+                  -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/inlayHints.md
+                  hints = {
+                    parameterNames = true,
+                  },
+                },
+              },
+            })[server_name],
           })
         end,
       })
+
     end,
   },
   -- Completion

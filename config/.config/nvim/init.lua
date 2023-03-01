@@ -341,6 +341,18 @@ require('lazy').setup({
       })
       mason_lspconfig.setup_handlers({
         function(server_name)
+          local tsserverSettings = {
+            inlayHints = {
+              includeInlayParameterNameHints = 'all',
+              includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+              includeInlayFunctionParameterTypeHints = false,
+              includeInlayVariableTypeHints = false,
+              includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+              includeInlayPropertyDeclarationTypeHints = false,
+              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayEnumMemberValueHints = false,
+            },
+          }
           lspconfig[server_name].setup({
             on_attach = on_attach_lsp,
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
@@ -353,6 +365,17 @@ require('lazy').setup({
                   },
                 },
               },
+              tsserver = {
+                typescript = tsserverSettings,
+                typescriptreact = tsserverSettings,
+                javascript = tsserverSettings,
+                javascriptreact = tsserverSettings,
+              },
+              lua_ls = {
+                Lua = {
+                  hint = { enable = true },
+                },
+              }
             })[server_name],
           })
         end,

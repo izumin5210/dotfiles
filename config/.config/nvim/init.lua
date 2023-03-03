@@ -1073,7 +1073,13 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = 'VeryLazy',
     config = function()
-      require('which-key').setup()
+      require('which-key').setup({
+        plugins = {
+          presets = {
+            operators = false,
+          },
+        },
+      })
       require('which-key').register({
         ['<leader>g'] = { name = '+Go to File, Code or GitHub' },
         ['<leader>t'] = { name = '+Test' },
@@ -1083,6 +1089,27 @@ require('lazy').setup({
         ['<leader>bt'] = { name = '+Tab' },
       })
     end,
+  },
+  {
+    'mvllow/modes.nvim',
+    tag = 'v0.2.0',
+    event = { 'CursorMoved', 'CursorMovedI' },
+    config = function()
+      require('modes').setup({
+        colors = {
+          copy = "#e2a478",   -- yellow
+          delete = "#e27878", -- red
+          insert = "#89b8c2", -- cyan
+          visual = "#a093c7", -- purple
+        },
+        line_opacity = {
+          copy = 0.15,
+          delete = 0.15,
+          insert = 0.15,
+          visual = 0.25,
+        }
+      })
+    end
   },
   {
     'lukas-reineke/indent-blankline.nvim',

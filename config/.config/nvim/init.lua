@@ -62,7 +62,8 @@ vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
 -- buffers
 vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, desc = 'Buffer: Next' })
 vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
-vim.keymap.set('n', '<leader>bd', ':bdelete<CR>', { noremap = true, desc = 'Buffer: Delete' })
+vim.keymap.set('n', '<leader>bd', function() require('bufdelete').bufdelete(0, false) end,
+  { noremap = true, desc = 'Buffer: Delete' })
 
 -- tabs
 vim.keymap.set('n', '<leader>btt', ':tabnew<CR>', { noremap = true, desc = 'Tab: New' })
@@ -1309,6 +1310,10 @@ require('lazy').setup({
         }, switch_common),
       })
     end
+  },
+  {
+    'famiu/bufdelete.nvim',
+    lazy = true,
   },
   -- lang
   {

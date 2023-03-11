@@ -220,6 +220,10 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Symbols in Document' }))
         vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Search Symbols in Workspace' }))
+        vim.keymap.set('n', 'gci', telescope_builtin.lsp_dynamic_workspace_symbols,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Incoming Calls' }))
+        vim.keymap.set('n', 'gco', telescope_builtin.lsp_dynamic_workspace_symbols,
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Outgoing Calls' }))
         vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lsp_signature').toggle_float_win,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Signature Help' }))
         vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)

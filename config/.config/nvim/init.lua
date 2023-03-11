@@ -1319,6 +1319,19 @@ require('lazy').setup({
     'famiu/bufdelete.nvim',
     lazy = true,
   },
+  {
+    'rapan931/lasterisk.nvim',
+    keys = {
+      { '*', function()
+          require('lasterisk').search()
+          require('hlslens').start()
+        end, mode = 'n' },
+      { 'g*', function()
+          require('lasterisk').search({ is_whole = false })
+          require('hlslens').start()
+        end, mode = { 'n', 'x' } },
+    },
+  },
   -- lang
   {
     'vuki656/package-info.nvim',

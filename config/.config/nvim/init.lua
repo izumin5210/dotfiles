@@ -178,12 +178,12 @@ require('lazy').setup({
       {
         'lvimuser/lsp-inlayhints.nvim',
         lazy = true,
-        config = function ()
-          require("lsp-inlayhints").setup()
+        config = function()
+          require('lsp-inlayhints').setup()
         end
-      }
+      },
     },
-    init = function ()
+    init = function()
       local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
       for type, icon in pairs(signs) do
         local hl = 'DiagnosticSign' .. type
@@ -1097,10 +1097,10 @@ require('lazy').setup({
     config = function()
       require('modes').setup({
         colors = {
-          copy = "#e2a478",   -- yellow
-          delete = "#e27878", -- red
-          insert = "#89b8c2", -- cyan
-          visual = "#a093c7", -- purple
+          copy = '#e2a478', -- yellow
+          delete = '#e27878', -- red
+          insert = '#89b8c2', -- cyan
+          visual = '#a093c7', -- purple
         },
         line_opacity = {
           copy = 0.15,

@@ -346,10 +346,10 @@ require('lazy').setup({
               includeInlayParameterNameHints = 'all',
               includeInlayParameterNameHintsWhenArgumentMatchesName = true,
               includeInlayFunctionParameterTypeHints = false,
-              includeInlayVariableTypeHints = false,
+              includeInlayVariableTypeHints = true,
               includeInlayVariableTypeHintsWhenTypeMatchesName = false,
               includeInlayPropertyDeclarationTypeHints = false,
-              includeInlayFunctionLikeReturnTypeHints = true,
+              includeInlayFunctionLikeReturnTypeHints = false,
               includeInlayEnumMemberValueHints = false,
             },
           }

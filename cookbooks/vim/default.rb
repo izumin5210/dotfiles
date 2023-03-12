@@ -3,9 +3,7 @@ if node[:platform] == 'darwin'
     # options '--with-lua --with-python3' if node[:platform] == 'darwin'
   end
 
-  package 'neovim' do
-    options '--HEAD'
-  end
+  package 'neovim'
 else
   http_request "#{default_prefix}/bin/nvim" do
     url "https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage"

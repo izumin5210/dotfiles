@@ -28,9 +28,6 @@ go_bin 'github.com/go-delve/delve/cmd/dlv'
 # go_bin 'github.com/rakyll/hey'
 go_bin 'github.com/rakyll/gotest'
 
-# tmux
-go_bin 'github.com/arl/gitmux'
-
 # for vim
 go_bin 'golang.org/x/tools/cmd/godoc'
 go_bin 'golang.org/x/tools/cmd/goimports'

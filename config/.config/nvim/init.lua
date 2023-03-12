@@ -49,6 +49,9 @@ vim.opt.showtabline = 0
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 
+-- hide cmdline
+vim.opt.cmdheight = 0
+
 -- sign
 vim.opt.signcolumn = 'yes';
 
@@ -894,7 +897,7 @@ require('lazy').setup({
         sections = {
           lualine_a = { 'mode' },
           lualine_b = {
-            { 'branch', cond = function() return vim.env.TMUX == nil end }, -- hide on tmux
+            'branch',
             'diff',
             'diagnostics',
           },

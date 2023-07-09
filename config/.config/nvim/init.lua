@@ -262,8 +262,6 @@ require('lazy').setup({
             end,
           }
         )
-
-        require('lsp-inlayhints').on_attach(client, bufnr)
       end
 
       vim.api.nvim_create_autocmd('BufWritePre', {

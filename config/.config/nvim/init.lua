@@ -559,7 +559,27 @@ require('lazy').setup({
       },
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
       'JoosepAlviste/nvim-ts-context-commentstring',
-      'mrjones2014/nvim-ts-rainbow',
+      {
+        'HiPhish/nvim-ts-rainbow2',
+        init = function()
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight link TSRainbowRed DiagnosticError'
+          })
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight link TSRainbowYellow DiagnosticWarn'
+          })
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight TSRainbowGreen guifg=#b4be82'
+          })
+          vim.api.nvim_create_autocmd('Colorscheme', {
+            pattern = '*',
+            command = 'highlight TSRainbowBlue guifg=#84a0c6'
+          })
+        end,
+      },
       {
         'haringsrob/nvim_context_vt',
         init = function()
@@ -633,17 +653,19 @@ require('lazy').setup({
           enable = true,
           extended_mode = true,
           max_file_lines = 1500,
-          colors = {
-            '#e27878', -- red
-            '#e2a478', -- yellow
-            '#b4be82', -- green
-            '#84a0c6', -- blue
-          }, -- table of hex strings
-          termcolors = {
-            'Red',
-            'Yellow',
-            'Green',
-            'Blue',
+          query = {
+            'rainbow-parens',
+            html = 'rainbow-tags',
+            javascript = 'rainbow-tags-react',
+            tsx = 'rainbow-tags',
+            vue = 'rainbow-tags',
+          },
+          strategy = require('ts-rainbow').strategy.global,
+          hlgroups = {
+            'TSRainbowRed',
+            'TSRainbowYellow',
+            'TSRainbowGreen',
+            'TSRainbowBlue',
           }
         },
         context_commentstring = {

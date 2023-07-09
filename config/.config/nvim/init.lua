@@ -897,7 +897,7 @@ require('lazy').setup({
         sections = {
           lualine_a = { 'mode' },
           lualine_b = {
-            'branch',
+            { 'branch', cond = function() return vim.env.TMUX == nil end }, -- hide on tmux
             'diff',
             'diagnostics',
           },

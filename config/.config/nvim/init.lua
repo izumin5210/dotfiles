@@ -138,6 +138,8 @@ require('lazy').setup({
               null_ls.builtins.diagnostics.hadolint,
               -- GitHub Actions
               null_ls.builtins.diagnostics.actionlint,
+              -- ShellScript
+              null_ls.builtins.formatting.shfmt,
             },
           })
         end,
@@ -330,6 +332,8 @@ require('lazy').setup({
           -- Go
           'gopls',
           'golangci_lint_ls',
+          -- Python
+          'pyright',
           -- Lua
           'lua_ls',
           -- JSON (JSON Schema)
@@ -577,12 +581,14 @@ require('lazy').setup({
         ensure_installed = {
           'bash',
           'css',
+          'cue',
           'dockerfile',
           'gitignore',
           'go',
           'gomod',
           'gowork',
           'graphql',
+          'hcl',
           'html',
           'javascript',
           'json',
@@ -591,11 +597,11 @@ require('lazy').setup({
           'markdown',
           'markdown_inline', -- required by lspsaga.nvim
           'proto',
+          'python',
           'ruby',
           'rust',
           'scss',
           'sql',
-          'terraform',
           'toml',
           'typescript',
           'tsx',

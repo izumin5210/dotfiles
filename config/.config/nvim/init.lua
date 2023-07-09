@@ -179,13 +179,6 @@ require('lazy').setup({
           })
         end,
       },
-      {
-        'lvimuser/lsp-inlayhints.nvim',
-        lazy = true,
-        config = function()
-          require('lsp-inlayhints').setup()
-        end
-      },
     },
     init = function()
       local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }

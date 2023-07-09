@@ -476,7 +476,10 @@ require('lazy').setup({
       local cmp = require('cmp')
 
       cmp.setup({
-        enabled = true,
+        enabled = function ()
+          local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+          return buftype ~= 'prompt'
+        end,
         snippet = {
           expand = function(args)
             vim.fn['vsnip#anonymous'](args.body)

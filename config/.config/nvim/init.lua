@@ -141,6 +141,23 @@ require('lazy').setup({
               -- ShellScript
               null_ls.builtins.formatting.shfmt,
             },
+            on_attach = function(client, bufnr)
+              if client.supports_method("textDocument/formatting") then
+                -- vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                vim.api.nvim_create_autocmd("BufWritePre", {
+                  -- group = augroup,
+                  buffer = bufnr,
+                  callback = function()
+                    vim.lsp.buf.format({
+                      bufnr = bufnr,
+                      async = false,
+                      timeout_ms = 5000,
+                      name = 'null-ls',
+                    })
+                  end,
+                })
+              end
+            end,
           })
         end,
       },
@@ -148,7 +165,8 @@ require('lazy').setup({
         'jayp0521/mason-null-ls.nvim',
         config = function()
           require('mason-null-ls').setup({
-            ensure_installed = { 'prettier' },
+            -- Primary Source of Truth is `null-ls`
+            ensure_installed = nil,
             automatic_installation = true,
           })
         end,
@@ -168,16 +186,17 @@ require('lazy').setup({
         end
       },
       {
-        'glepnir/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim',
         dependencies = {
           { 'nvim-tree/nvim-web-devicons' },
-          { 'nvim-treesitter/nvim-treesitter' }
         },
-        cmd = { 'Lspsaga' },
+        event = { 'LspAttach' },
         config = function()
           require('lspsaga').setup({
             symbol_in_winbar = { enable = false },
-            beacon = { enable = false }
+            code_action = {
+              show_server_name = true,
+            }
           })
         end,
       },
@@ -188,19 +207,11 @@ require('lazy').setup({
         local hl = 'DiagnosticSign' .. type
         vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
       end
-
-      vim.api.nvim_create_autocmd('Colorscheme', {
-        pattern = '*',
-        command = 'highlight link LspInlayHint DiagnosticHint',
-      })
     end,
     config = function()
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
         local telescope_builtin = require('telescope.builtin')
-
-        -- Enable completion triggered by <c-x><c-o>
-        vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
         -- Mappings.
         -- See `:help vim.lsp.*` for documentation on any of the below functions
@@ -236,79 +247,56 @@ require('lazy').setup({
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
         vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to References' }))
-        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format { async = true } end,
+        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({ async = true, bufnr = bufnr, timeout_ms = 10000 }) end,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Format Document' }))
-        vim.keymap.set('n', '<space>e', telescope_builtin.diagnostics,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Workspace Diagnostics' }))
-        vim.keymap.set('n', '[d', vim.diagnostic.goto_prev,
+        vim.keymap.set('n', '<C-p>', '<cmd>Lspsaga diagnostic_jump_prev<CR>',
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to prev Diagnostic' }))
-        vim.keymap.set('n', ']d', vim.diagnostic.goto_next,
+        vim.keymap.set('n', '<C-n>', '<cmd>Lspsaga diagnostic_jump_next<CR>',
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to next Diagnostic' }))
-        vim.keymap.set('n', '<space>q', function() telescope_builtin.diagnostics({ bufnr = 0 }) end,
+        vim.keymap.set('n', 'ge', function() telescope_builtin.diagnostics({ bufnr = bufnr }) end,
           vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show diagnostics in Document' }))
+        vim.keymap.set('n', '<space>e', '<cmd>Lspsaga show_line_diagnostics<CR>',
+          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show cursor Diagnostics' }))
 
-        -- autocmds
-        local augroup = vim.api.nvim_create_augroup('LspAutoCmds', { clear = true })
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-
-        local cursor_diagnostics_timer = vim.loop.new_timer()
-        vim.api.nvim_create_autocmd({ 'CursorMoved' }, -- only normal mode
-          {
-            group = augroup,
+        if client.name == 'gopls' or client.name == 'rust_analyzer' then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
             callback = function()
-              cursor_diagnostics_timer:stop()
-              cursor_diagnostics_timer:start(1000, 0,
-                vim.schedule_wrap(function()
-                  vim.api.nvim_command('Lspsaga show_line_diagnostics')
-                end))
+              vim.lsp.buf.format({
+                bufnr = bufnr,
+                async = false,
+                name = client.name,
+                timeout_ms = 5000
+              })
             end,
-          }
-        )
-      end
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = { '*.go', '*.rs' },
-        callback = function()
-          vim.lsp.buf.format({ async = false })
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = { '*.go' },
-        callback = function()
-          -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
-          local params = vim.lsp.util.make_range_params()
-          params.context = { only = { 'source.organizeImports' } }
-          local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
-          for cid, res in pairs(result or {}) do
-            for _, r in pairs(res.result or {}) do
-              if r.edit then
-                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
-                vim.lsp.util.apply_workspace_edit(r.edit, enc)
+          })
+        end
+        if client.name == 'gopls' then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            callback = function()
+              -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
+              local params = vim.lsp.util.make_range_params()
+              params.context = { only = { 'source.organizeImports' } }
+              local result = vim.lsp.buf_request_sync(0, 'textDocument/codeAction', params, 3000)
+              for cid, res in pairs(result or {}) do
+                for _, r in pairs(res.result or {}) do
+                  if r.edit then
+                    local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or 'utf-16'
+                    vim.lsp.util.apply_workspace_edit(r.edit, enc)
+                  end
+                end
               end
             end
-          end
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = { '*.proto' },
-        callback = function()
-          vim.lsp.buf.format({ name = 'null-ls', async = false })
-        end,
-      })
-
-      vim.api.nvim_create_autocmd('BufWritePre', {
-        pattern = {
-          '*.js', '*.jsx', '*.cjs', '*.mjs',
-          '*.ts', '*.tsx', '*.cts', '*.mts',
-          '*.vue'
-        },
-        callback = function()
-          vim.cmd('EslintFixAll')
-          vim.lsp.buf.format({ name = 'null-ls', async = false })
-        end,
-      })
+          })
+        end
+        if client.name == 'eslint' then
+          vim.api.nvim_create_autocmd("BufWritePre", {
+            buffer = bufnr,
+            command = "silent! EslintFixAll",
+          })
+        end
+      end
 
       local lspconfig = require('lspconfig')
       local mason_lspconfig = require('mason-lspconfig')
@@ -342,6 +330,14 @@ require('lazy').setup({
           'yamlls'
         },
         automatic_installation = true,
+        handlers = {
+          function(server_name)
+            lspconfig[server_name].setup({
+              on_attach = on_attach_lsp,
+              capabilities = require('cmp_nvim_lsp').default_capabilities(),
+            })
+          end,
+        }
       })
       mason_lspconfig.setup_handlers({
         function(server_name)
@@ -361,14 +357,6 @@ require('lazy').setup({
             on_attach = on_attach_lsp,
             capabilities = require('cmp_nvim_lsp').default_capabilities(),
             settings = ({
-              gopls = {
-                gopls = {
-                  -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/inlayHints.md
-                  hints = {
-                    parameterNames = true,
-                  },
-                },
-              },
               tsserver = {
                 typescript = tsserverSettings,
                 typescriptreact = tsserverSettings,
@@ -379,8 +367,20 @@ require('lazy').setup({
                 Lua = {
                   hint = { enable = true },
                 },
+              },
+              tailwindcss = {
+                tailwindCSS = {
+                  experimetnal = {
+                    classRegex = {
+                      {"clsx\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"},
+                    }
+                  }
+                }
               }
             })[server_name],
+            filetypes = ({
+              graphql = { 'graphql', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'vue' },
+            })[server_name]
           })
         end,
       })
@@ -547,6 +547,9 @@ require('lazy').setup({
         'confirm_done',
         cmp_autopairs.on_confirm_done()
       )
+
+      -- use cmp as omnifunc
+      vim.keymap.set('i', '<C-x><C-o>', function () cmp.complete() end, { noremap = true })
     end,
   },
   -- Treesitter

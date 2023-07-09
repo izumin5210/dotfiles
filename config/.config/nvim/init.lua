@@ -179,13 +179,6 @@ require('lazy').setup({
           })
         end,
       },
-      {
-        'lvimuser/lsp-inlayhints.nvim',
-        lazy = true,
-        config = function()
-          require('lsp-inlayhints').setup()
-        end
-      },
     },
     init = function()
       local signs = { Error = ' ', Warn = ' ', Hint = ' ', Info = ' ' }
@@ -269,8 +262,6 @@ require('lazy').setup({
             end,
           }
         )
-
-        require('lsp-inlayhints').on_attach(client, bufnr)
       end
 
       vim.api.nvim_create_autocmd('BufWritePre', {

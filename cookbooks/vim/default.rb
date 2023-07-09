@@ -12,8 +12,6 @@ else
   end
 end
 
-dotfile '.vimrc'
-dotfile '.vim'
 dotfile '.config/nvim'
 dotfile '.ideavimrc'
 

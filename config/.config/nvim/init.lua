@@ -55,6 +55,9 @@ vim.opt.cmdheight = 0
 -- sign
 vim.opt.signcolumn = 'yes';
 
+-- lsp
+vim.diagnostic.config({ virtual_text = false })
+
 -----------------------------------
 -- Keymaps
 -----------------------------------

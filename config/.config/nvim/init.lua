@@ -129,6 +129,7 @@ require('lazy').setup({
       {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
+          local augroup = vim.api.nvim_create_augroup("null_ls_setup", { clear = true })
           local null_ls = require('null-ls')
           null_ls.setup({
             sources = {
@@ -145,10 +146,10 @@ require('lazy').setup({
               null_ls.builtins.formatting.shfmt,
             },
             on_attach = function(client, bufnr)
-              if client.supports_method("textDocument/formatting") then
-                -- vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-                vim.api.nvim_create_autocmd("BufWritePre", {
-                  -- group = augroup,
+              if client.supports_method('textDocument/formatting') then
+                vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+                vim.api.nvim_create_autocmd('BufWritePre', {
+                  group = augroup,
                   buffer = bufnr,
                   callback = function()
                     vim.lsp.buf.format({
@@ -212,6 +213,8 @@ require('lazy').setup({
       end
     end,
     config = function()
+      local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
+
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
         local ts_builtin = require('telescope.builtin')
@@ -260,7 +263,8 @@ require('lazy').setup({
         end
 
         if client.name == 'gopls' or client.name == 'rust_analyzer' then
-          vim.api.nvim_create_autocmd("BufWritePre", {
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
             buffer = bufnr,
             callback = function()
               vim.lsp.buf.format({
@@ -273,7 +277,8 @@ require('lazy').setup({
           })
         end
         if client.name == 'gopls' then
-          vim.api.nvim_create_autocmd("BufWritePre", {
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
             buffer = bufnr,
             callback = function()
               -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
@@ -292,9 +297,10 @@ require('lazy').setup({
           })
         end
         if client.name == 'eslint' then
-          vim.api.nvim_create_autocmd("BufWritePre", {
+          vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
             buffer = bufnr,
-            command = "silent! EslintFixAll",
+            command = 'silent! EslintFixAll',
           })
         end
       end
@@ -385,7 +391,6 @@ require('lazy').setup({
           })
         end,
       })
-
     end,
   },
   -- Completion

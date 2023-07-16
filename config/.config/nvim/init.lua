@@ -1564,7 +1564,11 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     config = function()
       vim.o.sessionoptions = 'blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions'
-      require('auto-session').setup()
+      require('auto-session').setup({
+        session_lens = {
+          load_on_setup = false,
+        }
+      })
     end,
   },
   {

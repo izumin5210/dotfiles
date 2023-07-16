@@ -1,59 +1,59 @@
 -----------------------------------
 -- Editor
 -----------------------------------
-vim.opt.updatetime = 2000
+vim.opt.updatetime       = 2000
 
 -- edit
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
-vim.opt.wrap = false
+vim.opt.encoding         = 'utf-8'
+vim.opt.fileencoding     = 'utf-8'
+vim.opt.wrap             = false
 
 -- completion
-vim.opt.completeopt = 'menu,menuone,noselect'
+vim.opt.completeopt      = 'menu,menuone,noselect'
 
 -- show whitespace chars
-vim.opt.list      = true
-vim.opt.listchars = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
+vim.opt.list             = true
+vim.opt.listchars        = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
 
 -- search
-vim.opt.ignorecase = true
-vim.opt.smartcase  = true
-vim.opt.incsearch  = true
-vim.opt.hlsearch   = true
+vim.opt.ignorecase       = true
+vim.opt.smartcase        = true
+vim.opt.incsearch        = true
+vim.opt.hlsearch         = true
 
 -- clipboard
-vim.opt.clipboard = 'unnamedplus'
+vim.opt.clipboard        = 'unnamedplus'
 
 -- indent
-vim.opt.autoindent  = true
-vim.opt.smartindent = true
-vim.opt.expandtab   = true
-vim.opt.tabstop     = 2
-vim.opt.softtabstop = 2
-vim.opt.shiftwidth  = 2
-vim.opt.shiftround  = true
+vim.opt.autoindent       = true
+vim.opt.smartindent      = true
+vim.opt.expandtab        = true
+vim.opt.tabstop          = 2
+vim.opt.softtabstop      = 2
+vim.opt.shiftwidth       = 2
+vim.opt.shiftround       = true
 
 -- split
-vim.opt.splitbelow = true
-vim.opt.splitright = true
+vim.opt.splitbelow       = true
+vim.opt.splitright       = true
 
 -- disable netrw
-vim.g.loaded_netrw = 1
+vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- disable builtin statusline and tablne
-vim.opt.laststatus = 0
-vim.opt.showtabline = 0
+vim.opt.laststatus       = 0
+vim.opt.showtabline      = 0
 
 -- disable builtin matchit.vim and matchparen.vim
-vim.g.loaded_matchit = 1
-vim.g.loaded_matchparen = 1
+vim.g.loaded_matchit     = 1
+vim.g.loaded_matchparen  = 1
 
 -- hide cmdline
-vim.opt.cmdheight = 0
+vim.opt.cmdheight        = 0
 
 -- sign
-vim.opt.signcolumn = 'yes';
+vim.opt.signcolumn       = 'yes';
 
 -- lsp
 vim.diagnostic.config({ virtual_text = false })
@@ -129,7 +129,7 @@ require('lazy').setup({
       {
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
-          local augroup = vim.api.nvim_create_augroup("null_ls_setup", { clear = true })
+          local augroup = vim.api.nvim_create_augroup('null_ls_setup', { clear = true })
           local null_ls = require('null-ls')
           null_ls.setup({
             sources = {
@@ -213,7 +213,7 @@ require('lazy').setup({
       end
     end,
     config = function()
-      local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
+      local augroup = vim.api.nvim_create_augroup('neovim_lspconfig_setup', { clear = true })
 
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
@@ -379,7 +379,7 @@ require('lazy').setup({
                 tailwindCSS = {
                   experimetnal = {
                     classRegex = {
-                      {"clsx\\(([^)]*)\\)", "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)"},
+                      { 'clsx\\(([^)]*)\\)', "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)" },
                     }
                   }
                 }
@@ -482,8 +482,8 @@ require('lazy').setup({
       local cmp = require('cmp')
 
       cmp.setup({
-        enabled = function ()
-          local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+        enabled = function()
+          local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
           return buftype ~= 'prompt'
         end,
         snippet = {
@@ -555,7 +555,7 @@ require('lazy').setup({
       )
 
       -- use cmp as omnifunc
-      vim.keymap.set('i', '<C-x><C-o>', function () cmp.complete() end, { noremap = true })
+      vim.keymap.set('i', '<C-x><C-o>', function() cmp.complete() end, { noremap = true })
     end,
   },
   -- Treesitter
@@ -707,36 +707,57 @@ require('lazy').setup({
     cmd = 'Telescope',
     keys = {
       {
-        '<leader><leader>', function() require('telescope.builtin').find_files() end,
-        mode = 'n', noremap = true, desc = 'File: Go to ...',
+        '<leader><leader>',
+        function() require('telescope.builtin').find_files() end,
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Go to ...',
       },
       {
-        '<leader>gg', function() require('telescope.builtin').live_grep() end,
-        mode = 'n', noremap = true, desc = 'File: Grep',
+        '<leader>gg',
+        function() require('telescope.builtin').live_grep() end,
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Grep',
       },
       {
-        '<leader>gs', function() require('telescope.builtin').git_status() end,
-        mode = 'n', noremap = true, desc = 'File: Git Suatus',
+        '<leader>gs',
+        function() require('telescope.builtin').git_status() end,
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Git Suatus',
       },
       {
-        '<leader>gu', function() require('telescope.builtin').git_files({
+        '<leader>gu',
+        function()
+          require('telescope.builtin').git_files({
             git_command = { 'git', 'diff', '--name-only', '--diff-filter=U' },
           })
         end,
-        mode = 'n', noremap = true, desc = 'File: Git Unmerged Files',
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Git Unmerged Files',
       },
       {
-        '<leader>gb', function() require('telescope.builtin').buffers() end,
-        mode = 'n', noremap = true, desc = 'File: Buffers',
+        '<leader>gb',
+        function() require('telescope.builtin').buffers() end,
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Buffers',
       },
       {
-        '<leader>ga', function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
-        mode = 'n', noremap = true, desc = 'File: Alternate',
+        '<leader>ga',
+        function() require('telescope').extensions['telescope-alternate'].alternate_file() end,
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Alternate',
       },
       {
         '<leader>gf',
         function() require('telescope').extensions['aerial'].aerial({ filter_kind = { 'Function', 'Method' }, }) end,
-        mode = 'n', noremap = true, desc = 'LSP: Functions and Methods',
+        mode = 'n',
+        noremap = true,
+        desc = 'LSP: Functions and Methods',
       },
       {
         '<C-h>',
@@ -753,7 +774,9 @@ require('lazy').setup({
 
           require('telescope').extensions['file_browser'].file_browser(opts)
         end,
-        mode = 'n', noremap = true, desc = 'File: Explorer',
+        mode = 'n',
+        noremap = true,
+        desc = 'File: Explorer',
       },
     },
     config = function()
@@ -792,34 +815,34 @@ require('lazy').setup({
               -- go
               { '(.*).go', {
                 { '[1]_test.go', 'Test', false },
-                } },
+              } },
               { '(.*)_test.go', {
                 { '[1].go', 'Source', false },
-                } },
+              } },
               -- js, ts
               { '(.*)/([^!]*).([cm]?[tj]s)(x?)', {
-                { '[1]/[2].test.[3][4]', 'Test', false },
-                { '[1]/[2].spec.[3][4]', 'Test', false },
+                { '[1]/[2].test.[3][4]',    'Test',      false },
+                { '[1]/[2].spec.[3][4]',    'Test',      false },
                 { '[1]/[2].stories.[3][4]', 'Storybook', false },
-                { '[1]/[2].test.[3]', 'Test', false },
-                { '[1]/[2].spec.[3]', 'Test', false },
-                { '[1]/[2].stories.[3]', 'Storybook', false },
-                { '[1]/index.[3]', 'Index', false },
-                } },
+                { '[1]/[2].test.[3]',       'Test',      false },
+                { '[1]/[2].spec.[3]',       'Test',      false },
+                { '[1]/[2].stories.[3]',    'Storybook', false },
+                { '[1]/index.[3]',          'Index',     false },
+              } },
               { '(.*)/([^!]*).(?:(test|spec)).([cm]?[tj]s)(x?)', {
-                { '[1]/[2].[3][4]', 'Source', false },
+                { '[1]/[2].[3][4]',         'Source',           false },
                 { '[1]/[2].stories.[3][4]', 'Source Storybook', false },
-                { '[1]/[2].[3]', 'Source', false },
-                { '[1]/[2].stories.[3]', 'Source Storybook', false },
-                } },
+                { '[1]/[2].[3]',            'Source',           false },
+                { '[1]/[2].stories.[3]',    'Source Storybook', false },
+              } },
               { '(.*)/([^!]*).stories.([cm]?[tj]s)(x?)', {
-                { '[1]/[2].[3][4]', 'Source', false },
+                { '[1]/[2].[3][4]',      'Source',      false },
                 { '[1]/[2].test.[3][4]', 'Source Test', false },
                 { '[1]/[2].spec.[3][4]', 'Source Test', false },
-                { '[1]/[2].[3]', 'Source', false },
-                { '[1]/[2].test.[3]', 'Source Test', false },
-                { '[1]/[2].spec.[3]', 'Source Test', false },
-                } },
+                { '[1]/[2].[3]',         'Source',      false },
+                { '[1]/[2].test.[3]',    'Source Test', false },
+                { '[1]/[2].spec.[3]',    'Source Test', false },
+              } },
             },
           },
         },
@@ -863,30 +886,102 @@ require('lazy').setup({
       }
     },
     keys = {
-      { '<Leader>dc', function() require('dap').continue() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Continue' },
-      { '<Leader>dsv', function() require('dap').step_over() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Step over' },
-      { '<Leader>dsi', function() require('dap').step_into() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Step into' },
-      { '<Leader>dso', function() require('dap').step_out() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Step out' },
-      { '<Leader>db', function() require('dap').toggle_breakpoint() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Toggle breakpoint' },
-      { '<Leader>dB', function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end, mode = 'n',
-        silent = true, noremap = true, desc = 'Debug: Add conditional breakpoint' },
-      { '<Leader>dlp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
-        mode = 'n', silent = true, noremap = true, desc = 'Debug: Add Logpoint' },
-      { '<Leader>dr', function() require('dap').repl.open() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Open REPL' },
-      { '<Leader>dl', function() require('dap').run_last() end, mode = 'n', silent = true, noremap = true,
-        desc = 'Debug: Re-run the last debug adapter' },
-      { '<Leader>dv', function() require('telescope').extensions['dap'].variables() end, mode = 'n', silent = true,
-        noremap = true, desc = 'Debug: Show variables' },
-      { '<Leader>df', function() require('telescope').extensions['dap'].frames() end, mode = 'n', silent = true,
-        noremap = true, desc = 'Debug: Show frames' },
-      { '<Leader>d<space>', function() require('telescope').extensions['dap'].commands() end, mode = 'n', silent = true,
-        noremap = true, desc = 'Debug: Show commands' },
+      {
+        '<Leader>dc',
+        function() require('dap').continue() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Continue'
+      },
+      {
+        '<Leader>dsv',
+        function() require('dap').step_over() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Step over'
+      },
+      {
+        '<Leader>dsi',
+        function() require('dap').step_into() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Step into'
+      },
+      {
+        '<Leader>dso',
+        function() require('dap').step_out() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Step out'
+      },
+      {
+        '<Leader>db',
+        function() require('dap').toggle_breakpoint() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Toggle breakpoint'
+      },
+      {
+        '<Leader>dB',
+        function() require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: ')) end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Add conditional breakpoint'
+      },
+      {
+        '<Leader>dlp',
+        function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Add Logpoint'
+      },
+      {
+        '<Leader>dr',
+        function() require('dap').repl.open() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Open REPL'
+      },
+      {
+        '<Leader>dl',
+        function() require('dap').run_last() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Re-run the last debug adapter'
+      },
+      {
+        '<Leader>dv',
+        function() require('telescope').extensions['dap'].variables() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Show variables'
+      },
+      {
+        '<Leader>df',
+        function() require('telescope').extensions['dap'].frames() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Show frames'
+      },
+      {
+        '<Leader>d<space>',
+        function() require('telescope').extensions['dap'].commands() end,
+        mode = 'n',
+        silent = true,
+        noremap = true,
+        desc = 'Debug: Show commands'
+      },
     },
     config = function()
       local codicons = require('codicons')
@@ -905,10 +1000,16 @@ require('lazy').setup({
   {
     'klen/nvim-test',
     keys = {
-      { '<leader>ts', function() require('nvim-test').run('suite') end, mode = 'n', desc = 'Test: Run Suite' },
-      { '<leader>tf', function() require('nvim-test').run('file') end, mode = 'n', desc = 'Test: Run File' },
+      { '<leader>ts', function() require('nvim-test').run('suite') end,   mode = 'n', desc = 'Test: Run Suite' },
+      { '<leader>tf', function() require('nvim-test').run('file') end,    mode = 'n', desc = 'Test: Run File' },
       { '<leader>tn', function() require('nvim-test').run('nearest') end, mode = 'n', desc = 'Test: Run Nearest' },
-      { '<leader>tv', function() require('nvim-test').visit() end, mode = 'n', desc = 'Test: Visit the last run test' },
+      {
+        '<leader>tv',
+        function() require('nvim-test').visit() end,
+        mode = 'n',
+        desc =
+        'Test: Visit the last run test'
+      },
     },
     config = function()
       require('nvim-test').setup({
@@ -955,7 +1056,7 @@ require('lazy').setup({
               color = { fg = '#b4be82' }
             },
             'filename',
-            { 'aerial', sep = '  ', dence = true }, -- the same as copmonent separator
+            { 'aerial',      sep = '  ', dence = true }, -- the same as copmonent separator
             { 'lsp_progress' }
           },
           lualine_x = { 'encoding' },
@@ -979,7 +1080,7 @@ require('lazy').setup({
       require('bufferline').setup({
         options = {
           middle_mouse_command = 'bdelete! %d', -- same as close_command
-          indicator = { style = 'none' }, -- hide current buffer indicator
+          indicator = { style = 'none' },       -- hide current buffer indicator
           diagnostics = 'nvim_lsp',
           diagnostics_indicator = function(count, level, diagnostics_dict, context)
             if context.buffer:current() then -- hide diagnostics indicator for the current buffer
@@ -994,55 +1095,55 @@ require('lazy').setup({
           hover = { enabled = false },
         },
         highlights = {
-            fill = { bg = 'none' },
-            background = { bg = 'none' },
-            tab = { bg = 'none' },
-            tab_selected = vim.tbl_extend('keep', { fg = hl_normal_fg }, hl_selected),
-            tab_close = { bg = 'none' },
-            tab_separator = hl_separator,
-            tab_separator_selected = hl_separator,
-            buffer_visible = { bg = 'none' },
-            buffer_selected = hl_selected,
-            diagnostic = { bg = 'none' },
-            diagnostic_visible = { bg = 'none' },
-            diagnostic_selected = hl_selected,
-            hint = { bg = 'none' },
-            hint_visible = { bg = 'none' },
-            hint_selected = hl_selected,
-            hint_diagnostic = { bg = 'none' },
-            hint_diagnostic_visible = { bg = 'none' },
-            hint_diagnostic_selected = hl_selected,
-            info = { bg = 'none' },
-            info_visible = { bg = 'none' },
-            info_selected = hl_selected,
-            info_diagnostic = { bg = 'none' },
-            info_diagnostic_visible = { bg = 'none' },
-            info_diagnostic_selected = hl_selected,
-            warning = { bg = 'none' },
-            warning_visible = { bg = 'none' },
-            warning_selected = hl_selected,
-            warning_diagnostic = { bg = 'none' },
-            warning_diagnostic_visible = { bg = 'none' },
-            warning_diagnostic_selected = hl_selected,
-            error = { bg = 'none' },
-            error_visible = { bg = 'none' },
-            error_selected = hl_selected,
-            error_diagnostic = { bg = 'none' },
-            error_diagnostic_visible = { bg = 'none' },
-            error_diagnostic_selected = hl_selected,
-            modified = { fg = hl_comment_fg, bg = 'none' },
-            modified_visible = { fg = hl_comment_fg, bg = 'none' },
-            modified_selected = vim.tbl_extend('keep', { fg = hl_normal_fg }, hl_selected),
-            duplicate_selected = hl_selected,
-            duplicate_visible = { bg = 'none' },
-            duplicate = { bg = 'none' },
-            separator_selected = hl_separator,
-            separator_visible = hl_separator,
-            separator = hl_separator,
-            indicator_selected = { bg = 'none' },
-            pick_selected = { bg = 'none' },
-            pick_visible = { bg = 'none' },
-            pick = { bg = 'none' },
+          fill = { bg = 'none' },
+          background = { bg = 'none' },
+          tab = { bg = 'none' },
+          tab_selected = vim.tbl_extend('keep', { fg = hl_normal_fg }, hl_selected),
+          tab_close = { bg = 'none' },
+          tab_separator = hl_separator,
+          tab_separator_selected = hl_separator,
+          buffer_visible = { bg = 'none' },
+          buffer_selected = hl_selected,
+          diagnostic = { bg = 'none' },
+          diagnostic_visible = { bg = 'none' },
+          diagnostic_selected = hl_selected,
+          hint = { bg = 'none' },
+          hint_visible = { bg = 'none' },
+          hint_selected = hl_selected,
+          hint_diagnostic = { bg = 'none' },
+          hint_diagnostic_visible = { bg = 'none' },
+          hint_diagnostic_selected = hl_selected,
+          info = { bg = 'none' },
+          info_visible = { bg = 'none' },
+          info_selected = hl_selected,
+          info_diagnostic = { bg = 'none' },
+          info_diagnostic_visible = { bg = 'none' },
+          info_diagnostic_selected = hl_selected,
+          warning = { bg = 'none' },
+          warning_visible = { bg = 'none' },
+          warning_selected = hl_selected,
+          warning_diagnostic = { bg = 'none' },
+          warning_diagnostic_visible = { bg = 'none' },
+          warning_diagnostic_selected = hl_selected,
+          error = { bg = 'none' },
+          error_visible = { bg = 'none' },
+          error_selected = hl_selected,
+          error_diagnostic = { bg = 'none' },
+          error_diagnostic_visible = { bg = 'none' },
+          error_diagnostic_selected = hl_selected,
+          modified = { fg = hl_comment_fg, bg = 'none' },
+          modified_visible = { fg = hl_comment_fg, bg = 'none' },
+          modified_selected = vim.tbl_extend('keep', { fg = hl_normal_fg }, hl_selected),
+          duplicate_selected = hl_selected,
+          duplicate_visible = { bg = 'none' },
+          duplicate = { bg = 'none' },
+          separator_selected = hl_separator,
+          separator_visible = hl_separator,
+          separator = hl_separator,
+          indicator_selected = { bg = 'none' },
+          pick_selected = { bg = 'none' },
+          pick_visible = { bg = 'none' },
+          pick = { bg = 'none' },
         }
       })
     end
@@ -1149,7 +1250,7 @@ require('lazy').setup({
     config = function()
       require('modes').setup({
         colors = {
-          copy = '#e2a478', -- yellow
+          copy = '#e2a478',   -- yellow
           delete = '#e27878', -- red
           insert = '#89b8c2', -- cyan
           visual = '#a093c7', -- purple
@@ -1169,7 +1270,7 @@ require('lazy').setup({
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
       require('indent_blankline').setup({
-        space_char_blankline = " ",
+        space_char_blankline = ' ',
         show_current_context = true,
         -- show_current_context_start = true,
       })
@@ -1313,30 +1414,70 @@ require('lazy').setup({
       end
 
       return {
-        { '<C-a>', function() return require('dial.map').inc_normal() end, mode = 'n', expr = true,
+        {
+          '<C-a>',
+          function() return require('dial.map').inc_normal() end,
+          mode = 'n',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Increment' },
-        { '<C-x>', function() return require('dial.map').dec_normal() end, mode = 'n', expr = true,
+          desc = 'Edit: Increment'
+        },
+        {
+          '<C-x>',
+          function() return require('dial.map').dec_normal() end,
+          mode = 'n',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Decrement' },
-        { '<C-a>', function() return require('dial.map').inc_visual() end, mode = 'v', expr = true,
+          desc = 'Edit: Decrement'
+        },
+        {
+          '<C-a>',
+          function() return require('dial.map').inc_visual() end,
+          mode = 'v',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Increment' },
-        { '<C-x>', function() return require('dial.map').dec_visual() end, mode = 'v', expr = true,
+          desc = 'Edit: Increment'
+        },
+        {
+          '<C-x>',
+          function() return require('dial.map').dec_visual() end,
+          mode = 'v',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Decrement' },
-        { 'g<C-a>', function() return require('dial.map').inc_gvisual() end, mode = 'v', expr = true,
+          desc = 'Edit: Decrement'
+        },
+        {
+          'g<C-a>',
+          function() return require('dial.map').inc_gvisual() end,
+          mode = 'v',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Increment' },
-        { 'g<C-x>', function() return require('dial.map').dec_gvisual() end, mode = 'v', expr = true,
+          desc = 'Edit: Increment'
+        },
+        {
+          'g<C-x>',
+          function() return require('dial.map').dec_gvisual() end,
+          mode = 'v',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Decrement' },
-        { '<leader>a', function() return require('dial.map').inc_normal(get_switch_group()) end, mode = 'n', expr = true,
+          desc = 'Edit: Decrement'
+        },
+        {
+          '<leader>a',
+          function() return require('dial.map').inc_normal(get_switch_group()) end,
+          mode = 'n',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Switch prev' },
-        { '<leader>x', function() return require('dial.map').dec_normal(get_switch_group()) end, mode = 'n', expr = true,
+          desc = 'Edit: Switch prev'
+        },
+        {
+          '<leader>x',
+          function() return require('dial.map').dec_normal(get_switch_group()) end,
+          mode = 'n',
+          expr = true,
           noremap = true,
-          desc = 'Edit: Switch next' },
+          desc = 'Edit: Switch next'
+        },
       }
     end,
     config = function()
@@ -1373,14 +1514,22 @@ require('lazy').setup({
   {
     'rapan931/lasterisk.nvim',
     keys = {
-      { '*', function()
+      {
+        '*',
+        function()
           require('lasterisk').search()
           require('hlslens').start()
-        end, mode = 'n' },
-      { 'g*', function()
+        end,
+        mode = 'n'
+      },
+      {
+        'g*',
+        function()
           require('lasterisk').search({ is_whole = false })
           require('hlslens').start()
-        end, mode = { 'n', 'x' } },
+        end,
+        mode = { 'n', 'x' }
+      },
     },
   },
   -- lang
@@ -1422,12 +1571,16 @@ require('lazy').setup({
     'alexghergh/nvim-tmux-navigation',
     cond = not vim.g.vscode,
     keys = {
-      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end, mode = 'n', noremap = true },
-      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end, mode = 'n', noremap = true },
-      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end, mode = 'n', noremap = true },
+      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end,  mode = 'n', noremap = true },
+      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end,  mode = 'n', noremap = true },
+      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end,    mode = 'n', noremap = true },
       { '<C-w>l', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, mode = 'n', noremap = true },
-      { '<C-w>\\', function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end, mode = 'n',
-        noremap = true },
+      {
+        '<C-w>\\',
+        function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end,
+        mode = 'n',
+        noremap = true
+      },
       { '<C-w>Space', function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, mode = 'n', noremap = true },
     },
     config = function()

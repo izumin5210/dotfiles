@@ -214,52 +214,50 @@ require('lazy').setup({
     config = function()
       -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
       local on_attach_lsp = function(client, bufnr)
-        local telescope_builtin = require('telescope.builtin')
+        local ts_builtin = require('telescope.builtin')
 
-        -- Mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local bufopts = { noremap = true, silent = true, buffer = bufnr }
-        vim.keymap.set('n', 'gt', telescope_builtin.lsp_type_definitions,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Declarations' }))
-        vim.keymap.set('n', 'gd', telescope_builtin.lsp_definitions,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Definitions' }))
-        vim.keymap.set('n', 'K', '<cmd>Lspsaga hover_doc<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Hover Card' }))
-        vim.keymap.set('n', 'gi', telescope_builtin.lsp_implementations,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Implementations' }))
-        vim.keymap.set('n', 'gs', telescope_builtin.lsp_document_symbols,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Symbols in Document' }))
-        vim.keymap.set('n', 'gS', telescope_builtin.lsp_dynamic_workspace_symbols,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Search Symbols in Workspace' }))
-        vim.keymap.set('n', 'gci', telescope_builtin.lsp_dynamic_workspace_symbols,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Incoming Calls' }))
-        vim.keymap.set('n', 'gco', telescope_builtin.lsp_dynamic_workspace_symbols,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Outgoing Calls' }))
-        vim.keymap.set({ 'n', 'i' }, '<C-k>', require('lsp_signature').toggle_float_win,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show Signature Help' }))
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, bufopts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, bufopts)
-        vim.keymap.set('n', '<space>wl', function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end, bufopts)
-        vim.keymap.set('n', '<space>D', telescope_builtin.lsp_type_definitions,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to Type Definitions' }))
-        vim.keymap.set('n', '<space>rn', '<cmd>Lspsaga rename ++project<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Rename Symbol' }))
-        vim.keymap.set({ 'n', 'v' }, '<space>.', '<cmd>Lspsaga code_action<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Code Action', }))
-        vim.keymap.set('n', 'gr', telescope_builtin.lsp_references,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to References' }))
-        vim.keymap.set('n', '<space>f', function() vim.lsp.buf.format({ async = true, bufnr = bufnr, timeout_ms = 10000 }) end,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Format Document' }))
-        vim.keymap.set('n', '<C-p>', '<cmd>Lspsaga diagnostic_jump_prev<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to prev Diagnostic' }))
-        vim.keymap.set('n', '<C-n>', '<cmd>Lspsaga diagnostic_jump_next<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Go to next Diagnostic' }))
-        vim.keymap.set('n', 'ge', function() telescope_builtin.diagnostics({ bufnr = bufnr }) end,
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show diagnostics in Document' }))
-        vim.keymap.set('n', '<space>e', '<cmd>Lspsaga show_line_diagnostics<CR>',
-          vim.tbl_extend('keep', bufopts, { desc = 'LSP: Show cursor Diagnostics' }))
+        local list_workspace_folders = function()
+          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end
+
+        local format = function()
+          vim.lsp.buf.format({ async = true, bufnr = bufnr, timeout_ms = 10000 })
+        end
+
+        local show_diagnostics = function()
+          ts_builtin.diagnostics({ bufnr = 0 })
+        end
+
+        local keymaps = {
+          -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
+          { 'n',          'ge',        show_diagnostics,                         'Show diagnostics in Document' },
+          { 'n',          '[d',        '<cmd>Lspsaga diagnostic_jump_prev<CR>',  'Go to prev Diagnostic' },
+          { 'n',          ']d',        '<cmd>Lspsaga diagnostic_jump_next<CR>',  'Go to next Diagnostic' },
+          { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show cursor Diagnostics' },
+          -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
+          { 'n',          'gD',        vim.lsp.buf.declaration,                  'Go to Declarations' },
+          { 'n',          'gd',        ts_builtin.lsp_definitions,               'Go to Definitions' },
+          { 'n',          'K',         '<cmd>Lspsaga hover_doc<CR>',             'Show Hover Card' },
+          { 'n',          'gi',        ts_builtin.lsp_implementations,           'Go to Implementations' },
+          { { 'n', 'i' }, '<C-k>',     vim.lsp.buf.signature_help,               'Show Signature Help' },
+          { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder,         'Add workspace folder' },
+          { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder,      'Remove workspace folder' },
+          { 'n',          '<space>wl', list_workspace_folders,                   'List workspace folders' },
+          { 'n',          '<space>D',  ts_builtin.lsp_type_definitions,          'Go to Type Definitions' },
+          { 'n',          '<space>rn', '<cmd>Lspsaga rename ++project<CR>',      'Rename Symbol' },
+          { { 'n', 'v' }, '<space>.',  '<cmd>Lspsaga code_action<CR>',           'Code Action' },
+          { 'n',          'gr',        ts_builtin.lsp_references,                'Go to References' },
+          { 'n',          '<space>f',  format,                                   'Format Document' },
+          -- custom mappings
+          { 'n',          'gs',        ts_builtin.lsp_document_symbols,          'Go to Symbols in Document' },
+          { 'n',          'gS',        ts_builtin.lsp_dynamic_workspace_symbols, 'Search Symbols in Workspace' },
+          { 'n',          'gci',       ts_builtin.lsp_incoming_calls,            'Incoming Calls' },
+          { 'n',          'gco',       ts_builtin.lsp_outgoing_calls,            'Outgoing Calls' },
+        }
+        for _, km in pairs(keymaps) do
+          vim.keymap.set(km[1], km[2], km[3],
+            { noremap = true, silent = true, buffer = bufnr, desc = 'LSP: ' .. km[4] })
+        end
 
         if client.name == 'gopls' or client.name == 'rust_analyzer' then
           vim.api.nvim_create_autocmd("BufWritePre", {

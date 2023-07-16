@@ -230,19 +230,19 @@ require('lazy').setup({
 
         local keymaps = {
           -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
-          { 'n',          'ge',        show_diagnostics,                         'Show diagnostics in Document' },
+          { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show Line Diagnostics' },
           { 'n',          '[d',        '<cmd>Lspsaga diagnostic_jump_prev<CR>',  'Go to prev Diagnostic' },
           { 'n',          ']d',        '<cmd>Lspsaga diagnostic_jump_next<CR>',  'Go to next Diagnostic' },
-          { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', 'Show cursor Diagnostics' },
+          { 'n',          '<space>q',  show_diagnostics,                         'Show Diagnostics in Document' },
           -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
           { 'n',          'gD',        vim.lsp.buf.declaration,                  'Go to Declarations' },
           { 'n',          'gd',        ts_builtin.lsp_definitions,               'Go to Definitions' },
           { 'n',          'K',         '<cmd>Lspsaga hover_doc<CR>',             'Show Hover Card' },
           { 'n',          'gi',        ts_builtin.lsp_implementations,           'Go to Implementations' },
           { { 'n', 'i' }, '<C-k>',     vim.lsp.buf.signature_help,               'Show Signature Help' },
-          { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder,         'Add workspace folder' },
-          { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder,      'Remove workspace folder' },
-          { 'n',          '<space>wl', list_workspace_folders,                   'List workspace folders' },
+          { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder,         'Add Workspace Folder' },
+          { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder,      'Remove Workspace Folder' },
+          { 'n',          '<space>wl', list_workspace_folders,                   'List Workspace Folders' },
           { 'n',          '<space>D',  ts_builtin.lsp_type_definitions,          'Go to Type Definitions' },
           { 'n',          '<space>rn', '<cmd>Lspsaga rename ++project<CR>',      'Rename Symbol' },
           { { 'n', 'v' }, '<space>.',  '<cmd>Lspsaga code_action<CR>',           'Code Action' },

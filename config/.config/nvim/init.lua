@@ -206,7 +206,6 @@ require('lazy').setup({
       'otavioschwanck/telescope-alternate.nvim',
       'stevearc/aerial.nvim',
       'nvim-telescope/telescope-dap.nvim',
-      'nvim-telescope/telescope-file-browser.nvim',
     },
     cmd = 'Telescope',
     keys = require('pluginconfig.telescope').keys,
@@ -356,6 +355,13 @@ require('lazy').setup({
     config = function()
       require('neodim').setup()
     end
+  },
+  -- Filer
+  {
+    'nvim-tree/nvim-tree.lua',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    keys = require('pluginconfig.tree').keys,
+    config = require('pluginconfig.tree').setup,
   },
   -- Editor
   {

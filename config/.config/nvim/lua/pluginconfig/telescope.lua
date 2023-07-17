@@ -14,19 +14,6 @@ local actions = {
   aerial           = function()
     require('telescope').extensions['aerial'].aerial({ filter_kind = { 'Function', 'Method' }, })
   end,
-  file_browser     = function()
-    local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ':p:h')
-    local opts = {
-      respect_gitignore = true,
-      depth = false,
-      cwd_to_path = true,
-      path = dir,
-      files = dir ~= vim.loop.cwd(),
-    }
-    print(dir, vim.loop.cwd(), opts.file)
-
-    require('telescope').extensions['file_browser'].file_browser(opts)
-  end,
 }
 
 M.keys = require('utils').lazy_keymap({
@@ -38,14 +25,12 @@ M.keys = require('utils').lazy_keymap({
     { 'n', '<leader>gb',       actions.buffers,          desc = 'File: Buffers' },
     { 'n', '<leader>ga',       actions.alternate_files,  desc = 'File: Alternate' },
     { 'n', '<leader>gf',       actions.aerial,           desc = 'LSP: Functions and Methods' },
-    { 'n', '<C-h>',            actions.file_browser,     desc = 'File: Explorer' }
   },
   common = { noremap = true }
 })
 
 function M.setup()
   local telescope = require('telescope')
-  local fb_actions = require('telescope').extensions.file_browser.actions
 
   telescope.setup({
     defaults = {
@@ -61,19 +46,6 @@ function M.setup()
       winblend = 20,
     },
     extensions = {
-      ['file_browser'] = {
-        mappings = {
-          ['i'] = {
-            ['<C-a>'] = fb_actions.create_from_prompt,
-            ['<C-r>'] = fb_actions.rename,
-            ['<C-d>'] = fb_actions.remove,
-            ['<C-y>'] = fb_actions.copy,
-            ['<C-g>'] = fb_actions.goto_parent_dir,
-            ['<C-e>'] = fb_actions.goto_cwd,
-            ['<C-f>'] = fb_actions.toggle_browser,
-          }
-        }
-      },
       ['telescope-alternate'] = {
         mappings = {
           -- go
@@ -114,7 +86,6 @@ function M.setup()
   telescope.load_extension('telescope-alternate')
   telescope.load_extension('aerial')
   telescope.load_extension('dap')
-  telescope.load_extension('file_browser')
 end
 
 return M

@@ -13,6 +13,34 @@ M.actions = {
   end,
 }
 
+local lsp_settings = {
+  gopls = {
+    gopls = {
+      semanticTokens = true,
+    }
+  },
+  lua_ls = {
+    Lua = {
+      hint = { enable = true },
+    },
+  },
+  tailwindcss = {
+    tailwindCSS = {
+      experimental = {
+        classRegex = {
+          -- https://github.com/paolotiu/tailwind-intellisense-regex-list
+          { "clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+          "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)"
+        }
+      }
+    }
+  }
+}
+
+local lsp_filetypes =  {
+  graphql = { 'graphql', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'vue' },
+}
+
 function M.setup_null_ls()
   local augroup = vim.api.nvim_create_augroup('null_ls_setup', { clear = true })
   local null_ls = require('null-ls')
@@ -221,54 +249,11 @@ function M.setup()
         lspconfig[server_name].setup({
           on_attach = on_attach_lsp,
           capabilities = require('cmp_nvim_lsp').default_capabilities(),
+          settings = lsp_settings[server_name],
+          filetypes = lsp_filetypes[server_name]
         })
       end,
     }
-  })
-  mason_lspconfig.setup_handlers({
-    function(server_name)
-      local tsserverSettings = {
-        inlayHints = {
-          includeInlayParameterNameHints = 'all',
-          includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-          includeInlayFunctionParameterTypeHints = false,
-          includeInlayVariableTypeHints = true,
-          includeInlayVariableTypeHintsWhenTypeMatchesName = false,
-          includeInlayPropertyDeclarationTypeHints = false,
-          includeInlayFunctionLikeReturnTypeHints = false,
-          includeInlayEnumMemberValueHints = false,
-        },
-      }
-      lspconfig[server_name].setup({
-        on_attach = on_attach_lsp,
-        capabilities = require('cmp_nvim_lsp').default_capabilities(),
-        settings = ({
-          tsserver = {
-            typescript = tsserverSettings,
-            typescriptreact = tsserverSettings,
-            javascript = tsserverSettings,
-            javascriptreact = tsserverSettings,
-          },
-          lua_ls = {
-            Lua = {
-              hint = { enable = true },
-            },
-          },
-          tailwindcss = {
-            tailwindCSS = {
-              experimetnal = {
-                classRegex = {
-                  { 'clsx\\(([^)]*)\\)', "(?:'|\"|`)([^\"'`]*)(?:'|\"|`)" },
-                }
-              }
-            }
-          }
-        })[server_name],
-        filetypes = ({
-          graphql = { 'graphql', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'vue' },
-        })[server_name]
-      })
-    end,
   })
 end
 

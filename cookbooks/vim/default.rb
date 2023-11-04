@@ -6,7 +6,7 @@ if node[:platform] == 'darwin'
   package 'neovim'
 else
   http_request "#{default_prefix}/bin/nvim" do
-    url "https://github.com/neovim/neovim/releases/download/v0.5.0/nvim.appimage"
+    url "https://github.com/neovim/neovim/releases/download/v0.9.4/nvim.appimage"
     user node[:user]
     mode "744"
   end

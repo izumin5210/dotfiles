@@ -13,11 +13,39 @@ M.actions = {
   end,
 }
 
+-- https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
+local tsserver_settings = {
+  inlayHints = {
+    includeInlayEnumMemberValueHints = true,
+    -- includeInlayFunctionLikeReturnTypeHints = true,
+    includeInlayFunctionParameterTypeHints = true,
+    includeInlayParameterNameHints = 'all',
+    includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+    -- includeInlayPropertyDeclarationTypeHints = true,
+    -- includeInlayVariableTypeHints = true,
+    -- includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+  }
+}
+
 local lsp_settings = {
   gopls = {
     gopls = {
       semanticTokens = true,
+      hints = {
+        -- assignVariableTypes = true,
+        compositeLiteralFields = true,
+        constantValues = true,
+        -- functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
     }
+  },
+  tsserver = {
+    javascript = tsserver_settings,
+    typescript = tsserver_settings,
+    javascriptreact = tsserver_settings,
+    typescriptreact = tsserver_settings,
   },
   lua_ls = {
     Lua = {
@@ -29,7 +57,7 @@ local lsp_settings = {
       experimental = {
         classRegex = {
           -- https://github.com/paolotiu/tailwind-intellisense-regex-list
-          { "clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+          { 'clsx\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
           "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)"
         }
       }
@@ -37,7 +65,7 @@ local lsp_settings = {
   }
 }
 
-local lsp_filetypes =  {
+local lsp_filetypes = {
   graphql = { 'graphql', 'typescriptreact', 'javascriptreact', 'typescript', 'javascript', 'vue' },
 }
 
@@ -119,6 +147,10 @@ function M.init()
     local hl = 'DiagnosticSign' .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
   end
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight link LspInlayHint DiagnosticHint',
+  })
 end
 
 function M.setup()
@@ -164,6 +196,14 @@ function M.setup()
       { 'n',          'gci',       ts_builtin.lsp_incoming_calls,            desc = 'Incoming Calls' },
       { 'n',          'gco',       ts_builtin.lsp_outgoing_calls,            desc = 'Outgoing Calls' },
     }
+
+    if vim.lsp.inlay_hint then
+      table.insert(keys, { 'n', '<leader>uh', function() vim.lsp.inlay_hint(bufnr, nil) end, desc = 'Toggle Inlay Hints' })
+
+      -- enable inlay hints by default
+      vim.lsp.inlay_hint(bufnr, true)
+    end
+
     for _, km in pairs(keys) do
       vim.keymap.set(km[1], km[2], km[3],
         { noremap = true, silent = true, buffer = bufnr, desc = 'LSP: ' .. km.desc })

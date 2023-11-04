@@ -108,7 +108,7 @@ require('lazy').setup({
   {
     'nvim-lua/plenary.nvim',
     lazy = true,
-    tag = 'v0.1.3'
+    version = '*'
   },
   {
     'tpope/vim-repeat', -- required by leap.nvim
@@ -200,7 +200,7 @@ require('lazy').setup({
   -- Fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.1',
+    version = '*',
     dependencies = {
       'nvim-lua/plenary.nvim',
       'otavioschwanck/telescope-alternate.nvim',
@@ -332,7 +332,7 @@ require('lazy').setup({
   },
   {
     'mvllow/modes.nvim',
-    tag = 'v0.2.0',
+    version = '*',
     event = { 'CursorMoved', 'CursorMovedI' },
     config = require('pluginconfig.modes').setup,
   },

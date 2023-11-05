@@ -327,6 +327,7 @@ require('lazy').setup({
   },
   {
     'folke/which-key.nvim',
+    version = '*',
     cond = not vim.g.vscode,
     event = 'VeryLazy',
     config = require('pluginconfig.which-key').setup,
@@ -420,6 +421,7 @@ require('lazy').setup({
   },
   {
     'kylechui/nvim-surround',
+    version = '*',
     event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('nvim-surround').setup()

@@ -246,6 +246,7 @@ require('lazy').setup({
   },
   {
     'akinsho/bufferline.nvim',
+    version = '*',
     cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },

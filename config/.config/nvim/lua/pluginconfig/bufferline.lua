@@ -18,7 +18,6 @@ function M.setup()
         local icon = level:match('error') and ' ' or ' '
         return ' ' .. icon .. count
       end,
-      show_buffer_close_icons = false,
       show_close_icon = false,
       separator_style = 'thin',
       hover = { enabled = false },

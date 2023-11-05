@@ -184,8 +184,8 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
-        'HiPhish/nvim-ts-rainbow2',
-        init = require('pluginconfig.treesitter').init_ts_rainbow2,
+        'HiPhish/rainbow-delimiters.nvim',
+        init = require('pluginconfig.treesitter').init_rainbow_delimiters,
       },
       {
         'haringsrob/nvim_context_vt',

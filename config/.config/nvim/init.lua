@@ -184,8 +184,8 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
-        'HiPhish/nvim-ts-rainbow2',
-        init = require('pluginconfig.treesitter').init_ts_rainbow2,
+        'HiPhish/rainbow-delimiters.nvim',
+        init = require('pluginconfig.treesitter').init_rainbow_delimiters,
       },
       {
         'haringsrob/nvim_context_vt',
@@ -327,6 +327,7 @@ require('lazy').setup({
   },
   {
     'folke/which-key.nvim',
+    version = '*',
     cond = not vim.g.vscode,
     event = 'VeryLazy',
     config = require('pluginconfig.which-key').setup,
@@ -339,14 +340,28 @@ require('lazy').setup({
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    version = '*',
+    main = 'ibl',
     cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
-      require('indent_blankline').setup({
-        space_char_blankline = ' ',
-        show_current_context = true,
-        -- show_current_context_start = true,
+      require('ibl').setup({
+        indent = {
+          char = '│',
+          tab_char = '│'
+        },
+        scope = {
+          show_start = false,
+          highlight = {
+            'RainbowDelimiterRed',
+            'RainbowDelimiterYellow',
+            'RainbowDelimiterGreen',
+            'RainbowDelimiterBlue',
+          }
+        },
       })
+      local hooks = require('ibl.hooks')
+      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end
   },
   {
@@ -414,6 +429,7 @@ require('lazy').setup({
   },
   {
     'kylechui/nvim-surround',
+    version = '*',
     event = { 'CursorHold', 'CursorHoldI' },
     config = function()
       require('nvim-surround').setup()

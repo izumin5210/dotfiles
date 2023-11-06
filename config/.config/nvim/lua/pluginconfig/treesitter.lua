@@ -1,32 +1,53 @@
 local M = {}
 
 function M.setup_treesitter_context()
-  require('treesitter-context').setup()
+  require('treesitter-context').setup({
+    max_lines = 4,
+  })
 end
 
-function M.init_ts_rainbow2()
+function M.init_rainbow_delimiters()
   local augroup = vim.api.nvim_create_augroup('ts_rainbow2_init', { clear = true })
 
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight link TSRainbowRed DiagnosticError'
+    command = 'highlight link RainbowDelimiterRed DiagnosticError'
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight link TSRainbowYellow DiagnosticWarn'
+    command = 'highlight link RainbowDelimiterYellow DiagnosticWarn'
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight TSRainbowGreen guifg=#b4be82'
+    command = 'highlight RainbowDelimiterGreen guifg=#b4be82'
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight TSRainbowBlue guifg=#84a0c6'
+
+    command = 'highlight RainbowDelimiterBlue guifg=#84a0c6'
   })
+
+  local rainbow_delimiters = require('rainbow-delimiters')
+  vim.g.rainbow_delimiters = {
+    strategy = {
+      [''] = rainbow_delimiters.strategy['global'],
+      vim = rainbow_delimiters.strategy['local'],
+    },
+    query = {
+      [''] = 'rainbow-delimiters',
+      lua = 'rainbow-blocks',
+    },
+    highlight = {
+      'RainbowDelimiterRed',
+      'RainbowDelimiterYellow',
+      'RainbowDelimiterGreen',
+      'RainbowDelimiterBlue',
+    },
+  }
 end
 
 function M.setup_context_vt()
@@ -96,25 +117,6 @@ function M.setup()
     highlight = {
       enable = true,
       additional_vim_regex_highlighting = false,
-    },
-    rainbow = {
-      enable = true,
-      extended_mode = true,
-      max_file_lines = 1500,
-      query = {
-        'rainbow-parens',
-        html = 'rainbow-tags',
-        javascript = 'rainbow-tags-react',
-        tsx = 'rainbow-tags',
-        vue = 'rainbow-tags',
-      },
-      strategy = require('ts-rainbow').strategy.global,
-      hlgroups = {
-        'TSRainbowRed',
-        'TSRainbowYellow',
-        'TSRainbowGreen',
-        'TSRainbowBlue',
-      }
     },
     context_commentstring = {
       enable = true,

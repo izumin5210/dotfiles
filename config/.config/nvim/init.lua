@@ -352,8 +352,16 @@ require('lazy').setup({
         },
         scope = {
           show_start = false,
+          highlight = {
+            'RainbowDelimiterRed',
+            'RainbowDelimiterYellow',
+            'RainbowDelimiterGreen',
+            'RainbowDelimiterBlue',
+          }
         },
       })
+      local hooks = require('ibl.hooks')
+      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end
   },
   {

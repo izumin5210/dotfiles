@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup_treesitter_context()
-  require('treesitter-context').setup()
+  require('treesitter-context').setup({
+    max_lines = 4,
+  })
 end
 
 function M.init_rainbow_delimiters()

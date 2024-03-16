@@ -21,8 +21,30 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
+
+    pkgs.go
+
+    # go
+    pkgs.gopls
+    pkgs.delve
+    pkgs.golangci-lint
+
+    # tmux
+    pkgs.tmux
+    pkgs.reattach-to-user-namespace # for darwin
+
+    pkgs.buf
     pkgs.bat
+    pkgs.direnv
+    pkgs.fzf
+    pkgs.ghq
+    pkgs.gawk
+    pkgs.gnused
+    pkgs.htop
+    pkgs.jq
     pkgs.ripgrep
+    pkgs.tig
+    pkgs.tree
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -59,6 +81,10 @@
   # either
   #
   #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
   #
   # or
   #

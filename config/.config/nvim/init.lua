@@ -22,7 +22,11 @@ vim.opt.incsearch        = true
 vim.opt.hlsearch         = true
 
 -- clipboard
-vim.opt.clipboard        = 'unnamedplus'
+if vim.fn.has('unnamedplus') == 1 then
+  vim.opt.clipboard = 'unnamed,unnamedplus'
+else
+  vim.opt.clipboard = 'unnamed'
+end
 
 -- indent
 vim.opt.autoindent       = true
@@ -76,6 +80,24 @@ vim.keymap.set('n', '<leader>btt', ':tabnew<CR>', { noremap = true, desc = 'Tab:
 vim.keymap.set('n', '<leader>btn', ':tabnext<CR>', { noremap = true, desc = 'Tab: Next' })
 vim.keymap.set('n', '<leader>btp', ':tabprevious<CR>', { noremap = true, desc = 'Tab: Prev' })
 
+if vim.g.vscode then
+  vim.keymap.set('n', 'gi',
+    function() require('vscode-neovim').call('editor.action.goToImplementation') end,
+    { noremap = true, desc = 'Go to implementation' })
+  vim.keymap.set('n', '[d',
+    function() require('vscode-neovim').call('editor.action.marker.prev') end,
+    { noremap = true, desc = 'Go to prev Diagnostic' })
+  vim.keymap.set('n', ']d',
+    function() require('vscode-neovim').call('editor.action.marker.next') end,
+    { noremap = true, desc = 'Go to next Diagnostic' })
+  vim.keymap.set('n', '<leader>rn',
+    function() require('vscode-neovim').call('editor.action.rename') end,
+    { noremap = true, desc = 'Rename Symbol' })
+  vim.keymap.set('n', '<leader>q',
+    function() require('vscode-neovim').call('workbench.actions.view.problems') end,
+    { noremap = true, desc = 'Show Diagnostics list' })
+end
+
 -----------------------------------
 -- Plugins
 -----------------------------------
@@ -96,6 +118,7 @@ require('lazy').setup({
   -- Libraries
   {
     'nvim-tree/nvim-web-devicons', -- required by lualine and nvim-tree.lua
+    cond = not vim.g.vscode,
     lazy = true,
     config = function()
       require('nvim-web-devicons').setup()
@@ -103,10 +126,12 @@ require('lazy').setup({
   },
   {
     'mortepau/codicons.nvim', -- required by config function for nvim-dap
+    cond = not vim.g.vscode,
     lazy = true,
   },
   {
     'nvim-lua/plenary.nvim',
+    cond = not vim.g.vscode,
     lazy = true,
     version = '*'
   },
@@ -117,6 +142,7 @@ require('lazy').setup({
   -- LSP
   {
     'neovim/nvim-lspconfig',
+    cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = {
       'williamboman/mason-lspconfig.nvim',
@@ -150,6 +176,7 @@ require('lazy').setup({
   -- Completion
   {
     'hrsh7th/nvim-cmp',
+    cond = not vim.g.vscode,
     event = 'InsertEnter',
     dependencies = {
       'hrsh7th/cmp-nvim-lsp',
@@ -175,6 +202,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    cond = not vim.g.vscode,
     event = { 'CursorHold', 'CursorHoldI' },
     dependencies = {
       {
@@ -200,6 +228,7 @@ require('lazy').setup({
   -- Fuzzy finder
   {
     'nvim-telescope/telescope.nvim',
+    cond = not vim.g.vscode,
     version = '*',
     dependencies = {
       'nvim-lua/plenary.nvim',
@@ -232,6 +261,7 @@ require('lazy').setup({
   -- Runner
   {
     'klen/nvim-test',
+    cond = not vim.g.vscode,
     keys = require('pluginconfig.test').keys,
     config = require('pluginconfig.test').setup,
   },
@@ -239,21 +269,22 @@ require('lazy').setup({
   { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
   {
     'nvim-lualine/lualine.nvim',
-    event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
     cond = not vim.g.vscode,
+    event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
     dependencies = { 'arkav/lualine-lsp-progress' },
     config = require('pluginconfig.lualine').setup,
   },
   {
     'akinsho/bufferline.nvim',
-    version = '*',
     cond = not vim.g.vscode,
+    version = '*',
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = require('pluginconfig.bufferline').setup,
   },
   {
     'stevearc/aerial.nvim',
+    cond = not vim.g.vscode,
     lazy = true,
     config = function()
       require('aerial').setup()
@@ -327,22 +358,23 @@ require('lazy').setup({
   },
   {
     'folke/which-key.nvim',
-    version = '*',
     cond = not vim.g.vscode,
+    version = '*',
     event = 'VeryLazy',
     config = require('pluginconfig.which-key').setup,
   },
   {
     'mvllow/modes.nvim',
+    cond = not vim.g.vscode,
     version = '*',
     event = { 'CursorMoved', 'CursorMovedI' },
     config = require('pluginconfig.modes').setup,
   },
   {
     'lukas-reineke/indent-blankline.nvim',
+    cond = not vim.g.vscode,
     version = '*',
     main = 'ibl',
-    cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
       require('ibl').setup({
@@ -375,6 +407,7 @@ require('lazy').setup({
   -- Filer
   {
     'nvim-tree/nvim-tree.lua',
+    cond = not vim.g.vscode,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = require('pluginconfig.tree').keys,
     config = require('pluginconfig.tree').setup,
@@ -382,6 +415,7 @@ require('lazy').setup({
   -- Editor
   {
     'windwp/nvim-autopairs',
+    cond = not vim.g.vscode,
     event = 'InsertEnter',
     config = function()
       require('nvim-autopairs').setup()
@@ -404,6 +438,7 @@ require('lazy').setup({
   },
   {
     'numToStr/Comment.nvim',
+    cond = not vim.g.vscode,
     keys = { { '<Leader>/', mode = { 'n', 'v' } } },
     config = function()
       require('Comment').setup({
@@ -419,6 +454,7 @@ require('lazy').setup({
   },
   {
     'danymat/neogen',
+    cond = not vim.g.vscode,
     keys = { { '<Leader>cd', function() require('neogen').generate() end, mode = 'n', desc = 'Generate doc comment' } },
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
@@ -486,6 +522,7 @@ require('lazy').setup({
   },
   {
     'dinhhuy258/git.nvim',
+    cond = not vim.g.vscode,
     keys = {
       { '<Leader>go', desc = 'Git: Open in GitHub' },
       { '<Leader>gp', desc = 'Git: Open Pull Request Page' },
@@ -502,6 +539,7 @@ require('lazy').setup({
   },
   {
     'famiu/bufdelete.nvim',
+    cond = not vim.g.vscode,
     lazy = true,
   },
   {
@@ -511,7 +549,9 @@ require('lazy').setup({
         '*',
         function()
           require('lasterisk').search()
-          require('hlslens').start()
+          if package.loaded['hlslens'] then
+            require('hlslens').start()
+          end
         end,
         mode = 'n'
       },
@@ -519,7 +559,9 @@ require('lazy').setup({
         'g*',
         function()
           require('lasterisk').search({ is_whole = false })
-          require('hlslens').start()
+          if package.loaded['hlslens'] then
+            require('hlslens').start()
+          end
         end,
         mode = { 'n', 'x' }
       },
@@ -528,9 +570,9 @@ require('lazy').setup({
   -- lang
   {
     'vuki656/package-info.nvim',
+    cond = not vim.g.vscode,
     dependencies = { 'MunifTanjim/nui.nvim' },
     ft = 'json',
-    cond = not vim.g.vscode,
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
@@ -550,7 +592,10 @@ require('lazy').setup({
       require('package-info').show()
     end
   },
-  { 'jxnblk/vim-mdx-js' },
+  {
+    'jxnblk/vim-mdx-js',
+    cond = not vim.g.vscode,
+  },
   -- misc
   {
     'rmagatti/auto-session',
@@ -589,12 +634,23 @@ require('lazy').setup({
 -----------------------------------
 -- Appearance
 -----------------------------------
-vim.api.nvim_create_autocmd('Colorscheme', {
-  pattern = '*',
-  command = 'highlight! link DiagnosticHint LineNr'
-})
-
 if not vim.g.vscode then
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    command = 'highlight! link DiagnosticHint LineNr'
+  })
+
+  -- reset semantic highlight
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    callback = function()
+      local types = { 'variable', 'parameter', 'property', 'function' }
+      for _, typ in pairs(types) do
+        vim.api.nvim_set_hl(0, '@lsp.type.' .. typ, {})
+      end
+    end
+  })
+
   -- clear bg
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',

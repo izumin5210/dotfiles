@@ -20,7 +20,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       users = [
-        { username = "izumin"; homeDir = "/Users/izumin"; hostname = "fleur"; }
+        { username = "izumin"; homeDir = "/Users/izumin"; hostname = "fleur.local"; }
         { username = "masayuki.izumi"; homeDir = "/Users/masayuki.izumi"; hostname = "CM2NX3M6CH"; }
       ];
 

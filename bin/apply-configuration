@@ -4,8 +4,8 @@ set -euo pipefail
 
 cd $(dirname $0)/..
 
-nix build .\#darwinConfigurations.$(hostname).system
-./result/sw/bin/darwin-rebuild switch --flake ".#$(hostname)"
+nix build .\#darwinConfigurations.\"$(hostname)\".system
+./result/sw/bin/darwin-rebuild switch --flake .\#\"$(hostname)\"
 
 nix build .\#homeConfigurations.\"${USER}\".activationPackage
 ./result/activate

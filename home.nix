@@ -66,7 +66,6 @@
     # fonts
     pkgs.hackgen-font
     pkgs.hackgen-nf-font
-    pkgs.nerdfonts
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

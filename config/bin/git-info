@@ -30,7 +30,7 @@ isInsideGitRepo() {
 showRepoSlug() {
 	git rev-parse --show-toplevel |
     sed -e "s,^$HOME,~," |
-    gsed -e "s,^~/src/\(github.com/\)\?,," |
+    sed -e "s,^~/src/\(github.com/\)\?,," |
     shorten "slug" |
     truncate
 }

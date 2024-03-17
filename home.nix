@@ -53,6 +53,9 @@
     pkgs.tig
     pkgs.tree
 
+    # desktop app for darwin
+    pkgs.alacritty
+
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
     # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
@@ -93,6 +96,9 @@
 
     # ripgrep
     ".config/.ripgreprc".source = config/.ripgreprc;
+
+    # alacritty
+    ".config/alacritty/".source = config/.config/alacritty;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''

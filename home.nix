@@ -38,7 +38,7 @@
 
     # tmux
     pkgs.tmux
-    pkgs.reattach-to-user-namespace # for darwin
+    pkgs.reattach-to-user-namespace # only darwin
 
     # middlewares
     pkgs.postgresql_16
@@ -58,6 +58,7 @@
     pkgs.google-cloud-sdk
     pkgs.htop
     pkgs.jq
+    pkgs.mas # only darwin
     pkgs.ripgrep
     pkgs.tig
     pkgs.tree
@@ -66,9 +67,6 @@
     pkgs.hackgen-font
     pkgs.hackgen-nf-font
     pkgs.nerdfonts
-
-    # desktop app for darwin
-    pkgs.alacritty
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

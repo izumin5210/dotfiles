@@ -10,12 +10,20 @@
     dock = {
       autohide = true;
       orientation = "right";
+      show-recents = false;
+      tilesize = 48;
+    };
+    finder = {
+      AppleShowAllExtensions = true;
+      AppleShowAllFiles = true;
+      CreateDesktop = false;
+    };
+    screencapture = {
+      disable-shadow = true;
+      location = "~/Downloads";
     };
     screensaver = {
       askForPassword = true;
-    };
-    screencapture = {
-      location = "~/Downloads";
     };
   };
 

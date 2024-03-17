@@ -53,6 +53,11 @@
     pkgs.tig
     pkgs.tree
 
+    # fonts
+    pkgs.hackgen-font
+    pkgs.hackgen-nf-font
+    pkgs.nerdfonts
+
     # desktop app for darwin
     pkgs.alacritty
 

@@ -85,6 +85,9 @@
     # zsh
     ".config/zsh/legacy/".source = config/.config/zsh/legacy;
 
+    # tmux
+    ".config/tmux/tmux.base.conf".source = config/.config/tmux/tmux.base.conf;
+
     # vim
     ".config/nvim/".source = config/.config/nvim;
 
@@ -143,6 +146,12 @@
       '';
       envExtra = ''
         source $HOME/.config/zsh/legacy/.zshenv
+      '';
+    };
+    tmux = {
+      enable = true;
+      extraConfig = ''
+        source $HOME/.config/tmux/tmux.base.conf
       '';
     };
   };

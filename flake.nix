@@ -40,7 +40,7 @@
         acc // {
           "${user.hostname}" = nix-darwin.lib.darwinSystem {
             inherit pkgs;
-            modules = [ ./darwin.nix ];
+            modules = [ ./darwin-configuration.nix ];
           };
         }
       ) { } usersList;

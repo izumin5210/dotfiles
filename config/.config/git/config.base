@@ -1,17 +1,13 @@
-[include]
-    path = ~/.gitconfig.local
 [user]
     name = izumin5210
     email = m@izum.in
 [core]
     autocrlf = input
     editor = $EDITOR
-    excludesfile = ~/.gitignore_global
 [color]
     ui = true
 [github]
     user = izumin5210
-    privatekey = /Users/izumin/.ssh/id_rsa.github
 [alias]
     co = checkout
     cb = checkout -b
@@ -24,6 +20,7 @@
     fetch-default-branch = "!f() { git ls-remote --symref $(git remote get-url origin) HEAD | grep 'refs/heads' | awk '$0=$2' | sed 's/refs\\/heads\\///'; }; f"
     refresh-default-branch= "!f() { git set-branch-cache default $(git fetch-default-branch); }; f"
     default-branch = "!f() { git get-branch-cache default || (git refresh-default-branch; git get-branch-cache default); }; f"
+    pr = "gh pr create --web"
 [push]
     default = current
 [filter "lfs"]
@@ -43,19 +40,11 @@
     algorithm = "histogram"
     indentHeuristic = true
     tool = difftastic
-[pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
-[interactive]
-    diffFilter = diff-highlight
 [difftool]
     prompt = false
 [difftool "difftastic"]
     cmd = difft "$LOCAL" "$REMOTE"
-[credential]
-    helper = $GIT_CREDENTIAL_HELPER
 [init]
     defaultBranch = main
 [url "https://github.com/"]
-	insteadOf = git@github.com:
+    insteadOf = git@github.com:

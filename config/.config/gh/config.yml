@@ -1,0 +1,29 @@
+# What protocol to use when performing git operations. Supported values: ssh, https
+git_protocol: https
+# What editor gh should run when creating issues, pull requests, etc. If blank, will refer to environment.
+editor:
+# When to interactively prompt. This is a global config that cannot be overridden by hostname. Supported values: enabled, disabled
+prompt: enabled
+# A pager program to send command output to, e.g. "less". Set the value to "cat" to disable the pager.
+pager:
+# Aliases allow you to create nicknames for gh commands
+aliases:
+    co: pr checkout
+    sync: '!gh pr create --web'
+    default-branch: repo view --json defaultBranchRef --jq .defaultBranchRef.name
+    home: '!ref=$(gh default-branch); git switch $ref && git fetch --all && git pull origin $ref && gh poi'
+    pr-report: |-
+        api graphql -f query="query {
+          search(first: 100, type: ISSUE, query: \"author:@me org:LayerXcom is:pr merged:$1 sort:updated-asc\") {
+            nodes { ... on PullRequest { title, url, repository { name }, state, mergedAt } }
+          }
+        }" --jq "
+          .data.search.nodes |
+            map({ title: .title, url: .url, repo: .repository.name, state: .state, mergedAt: .mergedAt }) |
+            map(select(.state \!= \"CLOSED\")) |
+            group_by(.repo)[] |
+            \"* \\(.[0].repo)\\n\" + (map(\"  * \\(if .state == \"MERGED\" then \"✅\" else \"⏩\" end) [\\(.title)](\\(.url))\") | join(\"\\n\"))"
+# The path to a unix socket through which send HTTP connections. If blank, HTTP traffic will be handled by net/http.DefaultTransport.
+http_unix_socket:
+# What web browser gh should use when opening URLs. If blank, will refer to environment.
+browser:

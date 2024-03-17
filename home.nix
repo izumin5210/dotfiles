@@ -23,6 +23,11 @@
     # pkgs.hello
     # pkgs.go
 
+    # git
+    pkgs.git-secrets
+    pkgs.gh
+    pkgs.difftastic
+
     # go
     pkgs.gopls
     pkgs.delve
@@ -67,6 +72,14 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
 
+    "bin/".source = config/bin;
+
+    # git
+    ".config/git/config.base".source = config/.config/git/config.base;
+    ".config/git/ignore".source      = config/.config/git/ignore;
+    # gh
+    ".config/gh/config.yml".source = config/.config/gh/config.yml;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -91,6 +104,25 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+  };
+
+  programs= {
+    git = {
+      enable = true;
+      extraConfig = {
+        include = {
+          path = "${config.home.homeDirectory}/.config/git/config.base";
+        };
+        pager = {
+          log  = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
+          show = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
+          diff = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
+        };
+        interactive = {
+          diffFilter = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
+        };
+      };
+    };
   };
 
   # Let Home Manager install and manage itself.

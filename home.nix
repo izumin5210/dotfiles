@@ -31,6 +31,10 @@
     # javascript
     pkgs.fnm
 
+    # other langs
+    pkgs.ruby
+    pkgs.php
+
     # git
     pkgs.git-secrets
     pkgs.gh

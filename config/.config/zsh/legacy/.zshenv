@@ -55,5 +55,6 @@ if [ -d "${HOME}/.cargo" ]; then
 fi
 
 # 1password
-source $HOME/.config/op/plugins.sh
-. "$HOME/.cargo/env"
+if [ -d "$HOME/.config/op/plugins.sh" ]; then
+  source $HOME/.config/op/plugins.sh
+fi

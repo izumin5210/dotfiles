@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd $(dirname $0)/..
+
+./bin/ln-idempotently ./config/bin ~/bin
+
+# git
+./bin/ln-idempotently ./config/.config/git/config.base ~/.config/git/config.base
+./bin/ln-idempotently ./config/.config/git/ignore ~/.config/git/ignore
+./bin/ln-idempotently ./config/.config/gh ~/.config/gh
+
+# zsh
+./bin/ln-idempotently ./config/.config/zsh/legacy ~/.config/zsh/legacy
+
+# vim
+./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim
+
+# tmux
+./bin/ln-idempotently ./config/.config/tmux/tmux.base.conf ~/.config/tmux/tmux.base.conf
+
+# alacritty
+./bin/ln-idempotently ./config/.config/alacritty ~/.config/alacritty
+
+# karabiner
+./bin/ln-idempotently ./config/.config/karabiner ~/.config/karabiner
+
+# ripgrep
+./bin/ln-idempotently ./config/.ripgreprc ~/.ripgreprc

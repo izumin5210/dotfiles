@@ -81,44 +81,8 @@
     # '')
   ];
 
-  # Home Manager is pretty good at managing dotfiles. The primary way to manage
-  # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    "bin/".source = config/bin;
-
-    # git
-    ".config/git/config.base".source = config/.config/git/config.base;
-    ".config/git/ignore".source      = config/.config/git/ignore;
-    ".config/gh/config.yml".source   = config/.config/gh/config.yml;
-
-    # zsh
-    ".config/zsh/legacy/".source = config/.config/zsh/legacy;
-
-    # tmux
-    ".config/tmux/tmux.base.conf".source = config/.config/tmux/tmux.base.conf;
-
-    # vim
-    ".config/nvim/".source = config/.config/nvim;
-
-    # ripgrep
-    ".ripgreprc".source = config/.ripgreprc;
-
-    # alacritty
-    ".config/alacritty/".source = config/.config/alacritty;
-
-    # karabiner
-    ".config/karabiner/".source = config/.config/karabiner;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    # Create symlink with ./bin/deploy-config-files.
   };
 
   # Home Manager can also manage your environment variables through

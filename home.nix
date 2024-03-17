@@ -21,7 +21,15 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    # pkgs.go
+
+    # go
+    pkgs.go
+    pkgs.gopls
+    pkgs.delve
+    pkgs.golangci-lint
+
+    # javascript
+    pkgs.fnm
 
     # git
     pkgs.git-secrets
@@ -30,14 +38,6 @@
 
     # vim
     pkgs.neovim
-
-    # go
-    pkgs.gopls
-    pkgs.delve
-    pkgs.golangci-lint
-
-    # javascript
-    pkgs.fnm
 
     # tmux
     pkgs.tmux

@@ -2,8 +2,6 @@ include_cookbook 'functions'
 
 include_cookbook 'homebrew'
 include_cookbook 'rbenv'
-include_cookbook 'nodenv'
-include_cookbook 'yarn'
 include_cookbook 'android'
 include_cookbook 'docker'
 include_cookbook 'whalebrew'

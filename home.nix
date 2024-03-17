@@ -36,6 +36,9 @@
     pkgs.delve
     pkgs.golangci-lint
 
+    # javascript
+    pkgs.fnm
+
     # tmux
     pkgs.tmux
     pkgs.reattach-to-user-namespace # only darwin

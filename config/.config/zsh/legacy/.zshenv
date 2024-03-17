@@ -35,9 +35,8 @@ if [ -d "${HOME}/.pyenv" ]; then
   eval "$(pyenv init -)"
 fi
 
-# nodenv
-if [ -d "${HOME}/.nodenv" ]; then
-  eval "$(nodenv init -)"
+if type fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd)"
 fi
 
 # jenv

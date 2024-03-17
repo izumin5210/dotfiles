@@ -100,6 +100,9 @@
     # alacritty
     ".config/alacritty/".source = config/.config/alacritty;
 
+    # karabiner
+    ".config/karabiner/".source = config/.config/karabiner;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose

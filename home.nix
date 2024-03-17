@@ -97,7 +97,7 @@
     # git
     ".config/git/config.base".source = config/.config/git/config.base;
     ".config/git/ignore".source      = config/.config/git/ignore;
-    ".config/gh/".source             = config/.config/gh;
+    ".config/gh/config.yml".source   = config/.config/gh/config.yml;
 
     # zsh
     ".config/zsh/legacy/".source = config/.config/zsh/legacy;

@@ -1,13 +1,5 @@
 include_cookbook 'functions'
 
-include_cookbook 'git'
-include_cookbook 'zsh'
-include_cookbook 'bin'
-include_cookbook 'tmux'
-include_cookbook 'vim'
-include_cookbook 'fzf'
-include_cookbook 'ghq'
-include_cookbook 'ripgrep'
 # include_cookbook 'rbenv'
 # include_cookbook 'pyenv'
 # include_cookbook 'nodenv'

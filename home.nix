@@ -95,7 +95,7 @@
     ".config/nvim/".source = config/.config/nvim;
 
     # ripgrep
-    ".config/.ripgreprc".source = config/.ripgreprc;
+    ".ripgreprc".source = config/.ripgreprc;
 
     # alacritty
     ".config/alacritty/".source = config/.config/alacritty;

@@ -14,7 +14,9 @@ if [ -n "$HOMEBREW_PREFIX" ]; then
   export MANPATH=$HOMEBREW_PREFIX/opt/coreutils/libexec/gnuman:${MANPATH}
 fi
 
-export PATH="${DEFAULT_PREFIX}/bin:${PATH}"
+export PATH="${HOMEBREW_PREFIX}/bin:${PATH}"
+export PATH="${HOME}/.local/bin:${PATH}"
+export PATH="/usr/local/bin:${PATH}"
 
 # yarn
 export PATH="$HOME/.config/yarn/global/node_modules/.bin:$PATH"
@@ -40,6 +42,9 @@ export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$GOBIN:$PATH
 export PATH=$ANDROID_SDK_TOOLS:$ANDROID_SDK_PLATFORM_TOOLS:$PATH
 export PATH=$POSTGRESAPP_ROOT/bin:$PATH
+# nix
+export PATH=/nix/var/nix/profiles/default/bin:$PATH
+export PATH=$HOME/.nix-profile/bin:$PATH
 
 # Tools in wantedly
 export PATH=$HOME/.wantedly/bin:$PATH
@@ -65,3 +70,5 @@ case "$(uname)" in
     export GIT_CREDENTIAL_HELPER="store"
     ;;
 esac
+
+export GOPRIVATE=github.com/LayerXcom/

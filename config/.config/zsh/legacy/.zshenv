@@ -22,8 +22,8 @@ if [ -f "$brewPrefix/bin/brew" ]; then
   eval $($brewPrefix/bin/brew shellenv)
 fi
 
-source $HOME/.zsh/exports.zsh
-source $HOME/.zsh/aliases.zsh
+source $HOME/.config/zsh/legacy/exports.zsh
+source $HOME/.config/zsh/legacy/aliases.zsh
 
 # rbenv
 if [ -d "${HOME}/.rbenv" ]; then
@@ -54,3 +54,7 @@ fi
 if [ -d "${HOME}/.cargo" ]; then
   source $HOME/.cargo/env
 fi
+
+# 1password
+source $HOME/.config/op/plugins.sh
+. "$HOME/.cargo/env"

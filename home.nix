@@ -80,6 +80,9 @@
     # gh
     ".config/gh/config.yml".source = config/.config/gh/config.yml;
 
+    # zsh
+    ".config/zsh/legacy/".source = config/.config/zsh/legacy;
+
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
@@ -122,6 +125,17 @@
           diffFilter = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
         };
       };
+    };
+    zsh = {
+      enable = true;
+      enableCompletion = true;
+      dotDir = ".config/zsh";
+      initExtra = ''
+        source $HOME/.config/zsh/legacy/.zshrc
+      '';
+      envExtra = ''
+        source $HOME/.config/zsh/legacy/.zshenv
+      '';
     };
   };
 

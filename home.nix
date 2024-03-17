@@ -40,13 +40,22 @@
     pkgs.tmux
     pkgs.reattach-to-user-namespace # for darwin
 
+    # middlewares
+    pkgs.postgresql_16
+    pkgs.mysql80
+    pkgs.redis
+
+    # tools
+    pkgs.awscli2
     pkgs.buf
     pkgs.bat
+    pkgs.ctop
     pkgs.direnv
     pkgs.fzf
-    pkgs.ghq
     pkgs.gawk
+    pkgs.ghq
     pkgs.gnused
+    pkgs.google-cloud-sdk
     pkgs.htop
     pkgs.jq
     pkgs.ripgrep

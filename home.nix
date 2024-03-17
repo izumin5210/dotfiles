@@ -28,6 +28,9 @@
     pkgs.gh
     pkgs.difftastic
 
+    # vim
+    pkgs.neovim
+
     # go
     pkgs.gopls
     pkgs.delve
@@ -77,11 +80,13 @@
     # git
     ".config/git/config.base".source = config/.config/git/config.base;
     ".config/git/ignore".source      = config/.config/git/ignore;
-    # gh
-    ".config/gh/config.yml".source = config/.config/gh/config.yml;
+    ".config/gh/config.yml".source   = config/.config/gh/config.yml;
 
     # zsh
     ".config/zsh/legacy/".source = config/.config/zsh/legacy;
+
+    # vim
+    ".config/nvim/".source = config/.config/nvim;
 
     # ripgrep
     ".config/.ripgreprc".source = config/.ripgreprc;

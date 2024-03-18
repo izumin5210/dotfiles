@@ -35,6 +35,9 @@ export ANDROID_SDK_TOOLS=$ANDROID_SDK_ROOT/tools
 export ANDROID_SDK_PLATFORM_TOOLS=$ANDROID_SDK_ROOT/platform-tools
 export ANDROID_HOME=$ANDROID_SDK_ROOT
 
+# Rancher Desktop
+export PATH=$HOME/.rd/bin:$PATH
+
 # path
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.bin:$PATH

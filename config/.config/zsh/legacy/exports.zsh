@@ -37,6 +37,7 @@ export ANDROID_HOME=$ANDROID_SDK_ROOT
 
 # path
 export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.bin:$PATH
 export PATH=$RBENV_ROOT/bin:$PATH
 export PATH=$PYENV_ROOT/bin:$PATH
 export PATH=$GOBIN:$PATH

@@ -4,7 +4,7 @@ set -euo pipefail
 
 cd $(dirname $0)/..
 
-./bin/ln-idempotently ./config/bin ~/bin
+./bin/ln-idempotently ./config/.bin ~/.bin
 
 # git
 ./bin/ln-idempotently ./config/.config/git/config.base ~/.config/git/config.base

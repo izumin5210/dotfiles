@@ -21,8 +21,10 @@ mas "PopClip", id: 445189367
 if !is_lx
   cask "google-chrome"
   cask "google-japanese-ime"
+  cask "orbstack"
 end
 
 if is_lx
+  cask "rancher"
   mas "Twingate", id: 1501592214
 end

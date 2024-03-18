@@ -25,6 +25,9 @@
     screensaver = {
       askForPassword = true;
     };
+    universalaccess = {
+      closeViewScrollWheelToggle = true;
+    };
   };
 
   security.pam.enableSudoTouchIdAuth = true;

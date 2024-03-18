@@ -22,6 +22,7 @@ if !is_lx
   cask "google-chrome"
   cask "google-japanese-ime"
   cask "orbstack"
+  mas "Slack for Desktop", id: 803453959
 end
 
 if is_lx

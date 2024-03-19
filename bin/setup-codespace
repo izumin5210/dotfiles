@@ -4,8 +4,8 @@ set -euo pipefail
 
 cd $(dirname $0)/..
 
-sudo apt update
-sudo apt install -y \
+apt update
+apt install -y \
 	bat \
 	fzf \
 	ripgrep \

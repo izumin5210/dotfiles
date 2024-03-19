@@ -42,7 +42,7 @@ if [ $? -ne 0 ]; then
 fi
 
 if [ "${CODESPACES:-"false"}" = "true" ]; then
-  ./bin/setup-codespace
+  sudo ./bin/setup-codespace
 else
   echo "TODO: not yet implemented"
   exit 1

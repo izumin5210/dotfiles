@@ -11,6 +11,6 @@ RUN apt-get update \
 COPY . .
 
 RUN apt-get update \
-  && sudo ./bin/setup-codespace \
+  && ./bin/setup-codespace \
   && ./bin/deploy-config-files \
   && rm -rf /var/lib/apt/lists/*

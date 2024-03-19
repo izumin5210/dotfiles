@@ -32,7 +32,7 @@ mkdir -p ~/.config/tmux
 # ripgrep
 ./bin/ln-idempotently ./config/.ripgreprc ~/.ripgreprc
 
-if [ "${CODESPACES}" = "true" ]; then
+if [ "${CODESPACES:-"false"}" = "true" ]; then
   # overwrite default zsh configurations
   cp ./codespaces/config/.zshrc ~/.zshrc
   cp ./codespaces/config/.zshenv ~/.zshenv

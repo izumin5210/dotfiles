@@ -1,4 +1,4 @@
-fzf_base="/usr/share/fzf"
+fzf_base="/usr/share/doc/fzf/examples"
 if type fzf-share >/dev/null 2>&1; then
   fzf_base=$(fzf-share)
 fi

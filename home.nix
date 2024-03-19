@@ -44,7 +44,6 @@
     pkgs.neovim
 
     # tmux
-    pkgs.tmux
     pkgs.reattach-to-user-namespace # only darwin
 
     # middlewares
@@ -144,6 +143,15 @@
       extraConfig = ''
         source $HOME/.config/tmux/tmux.base.conf
       '';
+      plugins = with pkgs; [
+        { plugin = tmuxPlugins.yank; }
+        { plugin = tmuxPlugins.open; }
+        { plugin = tmuxPlugins.resurrect; }
+        { plugin = tmuxPlugins.pain-control; }
+        { plugin = tmuxPlugins.continuum; }
+      ];
+      sensibleOnTop = false;
+      tmuxp.enable = false;
     };
   };
 

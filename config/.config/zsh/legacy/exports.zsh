@@ -1,6 +1,10 @@
 export LANG=en_US.UTF-8
 
-export EDITOR=nvim
+if [ "$CODESPACES" = "true" ]; then
+  export EDITOR="code --wait"
+else
+  export EDITOR=nvim
+fi
 export TERM=xterm-256color
 
 # ================================================================

@@ -43,6 +43,7 @@ fi
 
 if [ "${CODESPACES:-"false"}" = "true" ]; then
   sudo ./bin/setup-codespace
+  ./bin/deploy-config-files
 else
   echo "TODO: not yet implemented"
   exit 1

@@ -14,6 +14,7 @@ cask "karabiner-elements"
 cask "ngrok"
 cask "obsidian"
 cask "spotify"
+cask "tableplus"
 cask "visual-studio-code"
 mas "Kindle", id: 302584613
 mas "PopClip", id: 445189367

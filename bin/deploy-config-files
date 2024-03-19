@@ -7,8 +7,7 @@ cd $(dirname $0)/..
 ./bin/ln-idempotently ./config/.bin ~/.bin
 
 # git
-./bin/ln-idempotently ./config/.config/git/config.base ~/.config/git/config.base
-./bin/ln-idempotently ./config/.config/git/ignore ~/.config/git/ignore
+./bin/ln-idempotently ./config/.config/git ~/.config/git
 ./bin/ln-idempotently ./config/.config/gh ~/.config/gh
 
 # zsh

@@ -1,7 +1,12 @@
+fzf_base="/usr/share/fzf"
+if type fzf-share >/dev/null 2>&1; then
+  fzf_base=$(fzf-share)
+fi
+
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "$(fzf-share)/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "${fzf_base}/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "$(fzf-share)/key-bindings.zsh"
+source "${fzf_base}/key-bindings.zsh"

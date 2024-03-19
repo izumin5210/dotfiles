@@ -36,6 +36,7 @@
     pkgs.php
 
     # git
+    pkgs.git
     pkgs.git-secrets
     pkgs.gh
     pkgs.difftastic
@@ -111,22 +112,6 @@
   };
 
   programs= {
-    git = {
-      enable = true;
-      extraConfig = {
-        include = {
-          path = "${config.home.homeDirectory}/.config/git/config.base";
-        };
-        pager = {
-          log  = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
-          show = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
-          diff = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight | less";
-        };
-        interactive = {
-          diffFilter = "${pkgs.git}/share/git/contrib/diff-highlight/diff-highlight";
-        };
-      };
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
@@ -136,6 +121,7 @@
       '';
       envExtra = ''
         source $HOME/.config/zsh/legacy/.zshenv
+        PATH=${pkgs.git}/share/git/contrib/diff-highlight:$PATH
       '';
     };
     tmux = {

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cd $(dirname $0)/..
+
+./bin/ln-idempotently ./config/.bin ~/.bin
+
+mkdir -p ~/.config
+
+# git
+./bin/ln-idempotently ./config/.config/git ~/.config/git
+./bin/ln-idempotently ./config/.config/gh ~/.config/gh
+
+# zsh
+mkdir -p ~/.config/zsh
+./bin/ln-idempotently ./config/.config/zsh/legacy ~/.config/zsh/legacy
+
+# vim
+./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim
+
+# tmux
+mkdir -p ~/.config/tmux
+./bin/ln-idempotently ./config/.config/tmux/tmux.base.conf ~/.config/tmux/tmux.base.conf
+
+# alacritty
+./bin/ln-idempotently ./config/.config/alacritty ~/.config/alacritty
+
+# karabiner
+./bin/ln-idempotently ./config/.config/karabiner ~/.config/karabiner
+
+# ripgrep
+./bin/ln-idempotently ./config/.ripgreprc ~/.ripgreprc
+
+if [ "${CODESPACES:-"false"}" = "true" ]; then
+  # overwrite default zsh configurations
+  cp ./codespaces/config/.zshrc ~/.zshrc
+  cp ./codespaces/config/.zshenv ~/.zshenv
+fi

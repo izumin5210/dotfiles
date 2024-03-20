@@ -263,6 +263,8 @@ function M.setup()
       'graphql',
       'jsonnet_ls',
       'rust_analyzer',
+      -- Nix
+      'nil',
       -- Ruby
       'solargraph',
       -- JS

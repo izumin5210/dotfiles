@@ -1,0 +1,139 @@
+#!/usr/bin/env bash
+#
+# Show information
+
+set -euo pipefail
+
+usage() {
+	cat <<EOF
+$(basename ${0}) - Create a remote repository
+
+Usage:
+    $(basename ${0}) <command>
+
+Commands:
+    branch            show branch name
+    slug              show repository name with user name
+    path              show path from repository root
+
+Options:
+    --max-len         specify max length (default: 80)
+    --short, -s       print short format
+    --help, -h        print this
+EOF
+}
+
+isInsideGitRepo() {
+	git rev-parse --is-inside-work-tree >/dev/null 2>&1
+}
+
+showRepoSlug() {
+	git rev-parse --show-toplevel |
+    sed -e "s,^$HOME,~," |
+    sed -e "s,^~/src/\(github.com/\)\?,," |
+    shorten "slug" |
+    truncate
+}
+
+showPath() {
+  git rev-parse --show-prefix |
+    sed -e "s,/$,," |
+    echo "/$(cat)" |
+    shorten "path" |
+    truncate
+}
+
+showBranchName() {
+  git rev-parse --abbrev-ref HEAD |
+    shorten "branch" |
+    truncate
+}
+
+showRootPath() {
+  git rev-parse --show-superproject-working-tree --show-toplevel | head -1
+}
+
+maxLen=80
+withShort=false
+
+shorten() {
+  local mode="${1:-}" # "slug", "branch" or "path"
+  local str="$(cat)"
+  if [ "${withShort}" = true ]; then
+    if [ "${mode}" = "slug" ]; then
+      str="$(echo "${str}" | sed -e "s,izumin5210/,,")"
+    else
+      str="$(echo "${str}" | sed -e "s,izumin5210/,~/,")"
+    fi
+    str="$(echo "${str}" | sed -e "s,izumin5210-sandbox/,@sb/,")"
+    str="$(echo "${str}" | sed -e "s,LayerXcom/,@lx/,")"
+    str="$(echo "${str}" | sed -e "s,features?/,f/,")"
+    str="$(echo "${str}" | sed -e "s,hotfix/,h/,")"
+    str="$(echo "${str}" | sed -e "s,releases?/,r/,")"
+  fi
+  echo "${str}"
+}
+
+truncate() {
+  local str="$(cat)"
+  if [ ${#str} -gt ${maxLen} ]; then
+    str="${str:0:$(expr "${maxLen}" - 3)}..."
+  fi
+  echo "${str}"
+}
+
+if [ $# -lt 1 ]; then
+	usage
+	exit 1
+fi
+
+if ! isInsideGitRepo; then
+	exit 1
+fi
+
+while [ $# -gt 0 ]; do
+	case ${1} in
+	slug | path | branch | root)
+		subcmd="${1}"
+		;;
+
+	--short | -s)
+		withShort=true
+		;;
+
+	--max-len)
+		shift
+		maxLen="${1}"
+		;;
+
+	--help | -h)
+		usage
+		exit 0
+		;;
+
+	*)
+		usage
+		exit 1
+		;;
+	esac
+	shift
+done
+
+case "${subcmd}" in
+slug)
+	showRepoSlug
+	;;
+path)
+	showPath
+	;;
+branch)
+	showBranchName
+	;;
+root)
+	showRootPath
+	;;
+*)
+	usage
+	exit 1
+	;;
+esac

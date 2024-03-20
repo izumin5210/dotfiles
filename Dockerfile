@@ -11,6 +11,6 @@ RUN apt-get update \
 COPY . .
 
 RUN apt-get update \
-  && ./bin/setup_mitamae \
-  && ./bin/mitamae local lib/recipe.rb \
+  && ./bin/setup-codespace \
+  && ./bin/deploy-config-files \
   && rm -rf /var/lib/apt/lists/*

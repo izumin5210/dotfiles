@@ -1,0 +1,36 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: the-postgres
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    volumes:
+      - the-postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  mysql:
+    image: mysql:8
+    container_name: the-mysql
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+    volumes:
+      - the-mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+  redis:
+    image: redis:7
+    container_name: the-redis
+    volumes:
+      - the-redis:/data
+    ports:
+      - 6379:6379
+
+volumes:
+  the-postgres:
+    name: the-postgres
+  the-mysql:
+    name: the-mysql
+  the-redis:
+    name: the-redis

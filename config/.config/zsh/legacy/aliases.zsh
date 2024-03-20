@@ -22,7 +22,4 @@ fi
 
 alias ew='envchain wtd'
 
-alias psql='mid pg psql'
-alias createdb='mid pg createdb'
-alias dropdb='mid pg dropdb'
-alias redis-cli='mid redis exec redis-cli'
+alias mw="docker compose -f /Users/izumin/.bin/compose.mw.yaml"

@@ -266,7 +266,17 @@ require('lazy').setup({
     config = require('pluginconfig.test').setup,
   },
   -- Appearance
-  { 'cocopon/iceberg.vim', cond = not vim.g.vscode },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    cond = not vim.g.vscode,
+    priority = 1000,
+    config = function()
+      require("catppuccin").setup({
+        flavour = 'frappe',
+      })
+    end,
+  },
   {
     'nvim-lualine/lualine.nvim',
     cond = not vim.g.vscode,
@@ -684,5 +694,5 @@ if not vim.g.vscode then
   vim.opt.termguicolors = true
   vim.opt.winblend = 20
   vim.opt.pumblend = 20
-  vim.cmd.colorscheme('iceberg')
+  vim.cmd.colorscheme('catppuccin')
 end

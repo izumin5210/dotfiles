@@ -1,7 +1,9 @@
 local M = {}
 
 function M.setup()
+  local palette = require('colors').palette
   local codicons = require('codicons')
+
   require('lualine').setup({
     options = {
       icons_enabled = true,
@@ -19,7 +21,7 @@ function M.setup()
           require('pluginconfig.dap').status,
           icon = { codicons.get('debug') },
           cond = require('pluginconfig.dap').is_loaded,
-          color = { fg = '#b4be82' }
+          color = { fg = palette.teal }
         },
         'filename',
         { 'aerial',      sep = '  ', dence = true }, -- the same as copmonent separator

@@ -1,10 +1,12 @@
 local M = {}
 
 function M.setup()
+  local palette = require('colors').palette
+
   local hl_selected = { bg = 'none', italic = false, bold = true }
   local hl_normal_fg = { highlight = 'Normal', attribute = 'fg' }
   local hl_comment_fg = { highlight = 'Comment', attribute = 'fg' }
-  local hl_separator = { fg = '#262a3f', bg = 'none' }
+  local hl_separator = { fg = palette.surface1, bg = 'none' }
 
   require('bufferline').setup({
     options = {

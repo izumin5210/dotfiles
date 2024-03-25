@@ -26,48 +26,49 @@ end
 
 function M.init()
   local augroup = vim.api.nvim_create_augroup('cmp_init', { clear = true })
+  local palette = require('colors').palette
 
   -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
   local tbl = {
-    CmpItemAbbrDeprecated = { fg = '#6b7089', bg = 'NONE', fmt = 'strikethrough' },
-    CmpItemAbbrMatch = { fg = '#91acd1', bg = 'NONE', fmt = 'bold' },
-    CmpItemAbbrMatchFuzzy = { fg = '#91acd1', bg = 'NONE', fmt = 'bold' },
-    CmpItemMenu = { fg = '#ada0d3', bg = 'NONE', fmt = 'italic' },
+    CmpItemAbbrDeprecated = { fg = palette.overlay0, bg = "NONE", strikethrough = true },
+    CmpItemAbbrMatch = { fg = palette.blue, bg = "NONE", bold = true },
+    CmpItemAbbrMatchFuzzy = { fg = palette.blue, bg = "NONE", bold = true },
+    CmpItemMenu = { fg = palette.mauve, bg = "NONE", italic = true },
 
-    CmpItemKindField = { fg = '#c6c8d1', bg = '#e27878' },
-    CmpItemKindProperty = { fg = '#c6c8d1', bg = '#e27878' },
-    CmpItemKindEvent = { fg = '#c6c8d1', bg = '#e27878' },
+    CmpItemKindField = { fg = palette.text, bg = palette.red },
+    CmpItemKindProperty = { fg = palette.text, bg = palette.red },
+    CmpItemKindEvent = { fg = palette.text, bg = palette.red },
 
-    CmpItemKindText = { fg = '#c6c8d1', bg = '#b4be82' },
-    CmpItemKindEnum = { fg = '#c6c8d1', bg = '#b4be82' },
-    CmpItemKindKeyword = { fg = '#c6c8d1', bg = '#b4be82' },
+    CmpItemKindText = { fg = palette.text, bg = palette.green },
+    CmpItemKindEnum = { fg = palette.text, bg = palette.green },
+    CmpItemKindKeyword = { fg = palette.text, bg = palette.green },
 
-    CmpItemKindConstant = { fg = '#c6c8d1', bg = '#e2a478' },
-    CmpItemKindConstructor = { fg = '#c6c8d1', bg = '#e2a478' },
-    CmpItemKindReference = { fg = '#c6c8d1', bg = '#e2a478' },
+    CmpItemKindConstant = { fg = palette.text, bg = palette.yellow },
+    CmpItemKindConstructor = { fg = palette.text, bg = palette.yellow },
+    CmpItemKindReference = { fg = palette.text, bg = palette.yellow },
 
-    CmpItemKindFunction = { fg = '#c6c8d1', bg = '#a093c7' },
-    CmpItemKindStruct = { fg = '#c6c8d1', bg = '#a093c7' },
-    CmpItemKindClass = { fg = '#c6c8d1', bg = '#a093c7' },
-    CmpItemKindModule = { fg = '#c6c8d1', bg = '#a093c7' },
-    CmpItemKindOperator = { fg = '#c6c8d1', bg = '#a093c7' },
+    CmpItemKindFunction = { fg = palette.text, bg = palette.mauve },
+    CmpItemKindStruct = { fg = palette.text, bg = palette.mauve },
+    CmpItemKindClass = { fg = palette.text, bg = palette.mauve },
+    CmpItemKindModule = { fg = palette.text, bg = palette.mauve },
+    CmpItemKindOperator = { fg = palette.text, bg = palette.mauve },
 
-    CmpItemKindVariable = { fg = '#c6c8d1', bg = '#6b7089' },
-    CmpItemKindFile = { fg = '#c6c8d1', bg = '#6b7089' },
+    CmpItemKindVariable = { fg = palette.text, bg = palette.overlay0 },
+    CmpItemKindFile = { fg = palette.text, bg = palette.overlay0 },
 
-    CmpItemKindUnit = { fg = '#c6c8d1', bg = '#6b7089' },
-    CmpItemKindSnippet = { fg = '#c6c8d1', bg = '#6b7089' },
-    CmpItemKindFolder = { fg = '#c6c8d1', bg = '#6b7089' },
+    CmpItemKindUnit = { fg = palette.text, bg = palette.peach },
+    CmpItemKindSnippet = { fg = palette.text, bg = palette.peach },
+    CmpItemKindFolder = { fg = palette.text, bg = palette.peach },
 
-    CmpItemKindMethod = { fg = '#c6c8d1', bg = '#84a0c6' },
-    CmpItemKindValue = { fg = '#c6c8d1', bg = '#84a0c6' },
-    CmpItemKindEnumMember = { fg = '#c6c8d1', bg = '#84a0c6' },
+    CmpItemKindMethod = { fg = palette.text, bg = palette.blue },
+    CmpItemKindValue = { fg = palette.text, bg = palette.blue },
+    CmpItemKindEnumMember = { fg = palette.text, bg = palette.blue },
 
-    CmpItemKindInterface = { fg = '#c6c8d1', bg = '#89b8c2' },
-    CmpItemKindColor = { fg = '#c6c8d1', bg = '#89b8c2' },
-    CmpItemKindTypeParameter = { fg = '#c6c8d1', bg = '#89b8c2' },
+    CmpItemKindInterface = { fg = palette.text, bg = palette.teal },
+    CmpItemKindColor = { fg = palette.text, bg = palette.teal },
+    CmpItemKindTypeParameter = { fg = palette.text, bg = palette.teal },
 
-    CmpItemKindCopilot = { fg = '#c6c8d1', bg = '#a093c7' },
+    CmpItemKindCopilot = { fg = palette.text, bg = palette.lavender },
   }
 
   for key, colors in pairs(tbl) do

@@ -1,18 +1,20 @@
 local M = {}
 
 function M.setup()
+  local palette = require('colors').palette
+
   require('modes').setup({
     colors = {
-      copy = '#e2a478',       -- yellow
-      delete = '#e27878',     -- red
-      insert = '#89b8c2',     -- cyan
-      visual = '#a093c7',     -- purple
+      copy = palette.yellow,
+      delete = palette.red,
+      insert = palette.sky,
+      visual = palette.mauve,
     },
     line_opacity = {
-      copy = 0.15,
-      delete = 0.15,
-      insert = 0.15,
-      visual = 0.25,
+      copy = 0.4,
+      delete = 0.4,
+      insert = 0.4,
+      visual = 0.4,
     }
   })
 end

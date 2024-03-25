@@ -8,27 +8,27 @@ end
 
 function M.init_rainbow_delimiters()
   local augroup = vim.api.nvim_create_augroup('ts_rainbow2_init', { clear = true })
+  local palette = require('colors').palette
 
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight link RainbowDelimiterRed DiagnosticError'
+    command = string.format('highlight RainbowDelimiterRed guifg=%s', palette.maroon),
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight link RainbowDelimiterYellow DiagnosticWarn'
+    command = string.format('highlight RainbowDelimiterYellow guifg=%s', palette.yellow),
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight RainbowDelimiterGreen guifg=#b4be82'
+    command = string.format('highlight RainbowDelimiterGreen guifg=%s', palette.green),
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-
-    command = 'highlight RainbowDelimiterBlue guifg=#84a0c6'
+    command = string.format('highlight RainbowDelimiterBlue guifg=%s', palette.sapphire),
   })
 
   local rainbow_delimiters = require('rainbow-delimiters')

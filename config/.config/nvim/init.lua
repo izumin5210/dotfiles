@@ -305,11 +305,12 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = 'BufReadPost',
     config = function()
+      local palette = require("colors").palette
       require('scrollbar').setup({
         marks = {
-          Search = { color_nr = '3', color = '#c57339' },
-          Error = { color_nr = '9', color = '#cc3768' },
-          Warn = { color_nr = '11', color = '#b6662d' },
+          Search = { color_nr = '3', color = palette.yellow },
+          Error = { color_nr = '9', color = palette.red },
+          Warn = { color_nr = '11', color = palette.peach },
         },
         handlers = {
           cursor = true,
@@ -497,17 +498,18 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = { 'CursorMoved', 'CursorMovedI' },
     init = function()
+      local palette = require('colors').palette
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight IlluminatedWordText ctermbg=238 guibg=#33374c'
+        command = string.format("highlight IlluminatedWordText ctermbg=238 guibg=%s", palette.overlay0)
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight IlluminatedWordRead ctermbg=238 guibg=#33374c'
+        command = string.format("highlight IlluminatedWordRead ctermbg=238 guibg=%s", palette.overlay0)
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight IlluminatedWordWrite ctermbg=238 guibg=#33374c'
+        command = string.format("highlight IlluminatedWordWrite ctermbg=238 guibg=%s", palette.overlay0)
       })
     end,
     config = function()
@@ -519,9 +521,10 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = 'VeryLazy',
     init = function()
+      local palette = require('colors').palette
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight ExtraWhitespace guibg=#e27878'
+        command = string.format('highlight ExtraWhitespace guibg=%s', palette.red)
       })
     end,
     config = function()
@@ -661,6 +664,8 @@ if not vim.g.vscode then
     end
   })
 
+  local palette = require('colors').palette
+
   -- clear bg
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
@@ -685,11 +690,11 @@ if not vim.g.vscode then
   -- floating
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight NormalFloat guibg=#1e2132'
+    command = string.format('highlight NormalFloat guibg=%s', palette.mantle)
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight FloatBorder guibg=#1e2132 blend=20'
+    command = string.format('highlight FloatBorder guibg=%s blend=20', palette.mantle)
   })
   vim.opt.termguicolors = true
   vim.opt.winblend = 20

@@ -67,6 +67,7 @@
     pkgs.jq
     pkgs.mas # only darwin
     pkgs.ripgrep
+    pkgs.starship
     pkgs.tig
     pkgs.tree
 

@@ -36,7 +36,7 @@ if [ -d "${HOME}/.pyenv" ]; then
 fi
 
 if type fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd)"
+  eval "$(fnm env --use-on-cd --log-level error)"
 fi
 
 # jenv

@@ -4,6 +4,9 @@ source $HOME/.config/zsh/legacy/aliases.zsh
 ulimit -u 2048
 ulimit -n 16384
 
+bindkey -e # emacs emulation
+autoload -Uz add-zsh-hook
+
 # Load plugins
 # ================================================================
 source $HOME/.config/zsh/legacy/functions.zsh
@@ -37,9 +40,6 @@ eval "$(sheldon source)"
 # Zsh options
 # ================================================================
 REPORTTIME=3
-
-bindkey -e # emacs emulation
-autoload -Uz add-zsh-hook
 
 setopt correct
 setopt interactive_comments

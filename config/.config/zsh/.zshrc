@@ -1,6 +1,8 @@
 source $HOME/.config/zsh/legacy/exports.zsh
 source $HOME/.config/zsh/legacy/aliases.zsh
 
+eval "$(sheldon source)"
+
 bindkey -e # emacs emulation
 autoload -Uz add-zsh-hook
 

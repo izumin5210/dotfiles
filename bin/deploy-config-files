@@ -15,6 +15,7 @@ mkdir -p ~/.config
 # zsh
 mkdir -p ~/.config/zsh
 ./bin/ln-idempotently ./config/.config/zsh/legacy ~/.config/zsh/legacy
+./bin/ln-idempotently ./config/.config/starship.toml ~/.config/starship.toml
 
 # vim
 ./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim

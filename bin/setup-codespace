@@ -10,3 +10,5 @@ apt install -y \
 	fzf \
 	ripgrep \
 	tig
+
+curl -sS https://starship.rs/install.sh | sh -s -- -y

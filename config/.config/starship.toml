@@ -1,0 +1,72 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+add_newline = true
+
+format = """
+${custom.git_repo}\
+$directory\
+$git_status\
+$git_state\
+$git_branch\
+$git_commit\
+$git_state\
+$jobs\
+$status\
+$cmd_duration\
+$line_break\
+$shell\
+$character"""
+
+[character]
+success_symbol = '[:\)](green)'
+error_symbol = '[:\(](red)'
+
+[package]
+disabled = true
+
+[directory]
+truncate_to_repo = false
+truncation_length = 100
+format = '[$path ]($style)[$read_only]($read_only_style)'
+style = 'blue'
+repo_root_format = '[($path )]($style)[$read_only]($read_only_style)[-](black) '
+repo_root_style = 'blue'
+
+[custom.git_repo]
+when = true
+require_repo = true
+command = 'git rev-parse --show-toplevel | sed -e "s,$(ghq root)/\(github\.com/\)\?,,"'
+style = 'bold blue'
+
+[git_status]
+format = '([$all_status$ahead_behind]($style) )'
+ahead = '[⇡$ahead_count](red)'
+behind = '[⇣$behind_count](cyan)'
+modified = '[ ](yellow)'
+deleted = '[󱎘 ](red)'
+untracked = '[ ](red)'
+staged = '[󰸞 ](green)'
+stashed ='[󰉀 ](cyan)'
+
+[git_state]
+format = '\([$state( $progress_current/$progress_total)]($style)\) '
+style = 'bold red'
+
+[git_branch]
+format = '[[$symbol](black)$branch(:$remote_branch) ]($style)'
+symbol = ''
+style = 'bold black'
+
+[jobs]
+number_threshold = 1
+style = 'purple'
+
+[status]
+format = '[[-](black) $status( SIG$signal_name)]($style) '
+disabled = false
+style = 'red'
+
+[cmd_duration]
+format = '[[-](black) 󱦟 $duration]($style) '
+style = 'yellow'
+min_time = 10_000

@@ -1,6 +1,5 @@
 bindkey -e
 autoload -Uz add-zsh-hook
-source $HOME/.config/zsh/legacy/prompt.zsh
 source $HOME/.config/zsh/legacy/functions.zsh
 source $HOME/.config/zsh/legacy/fzf.zsh
 
@@ -79,3 +78,4 @@ if [ -f /Users/izumin/.travis/travis.sh ]; then
 fi
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+eval "$(starship init zsh)"

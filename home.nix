@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (import ./overlays/sheldon.nix)
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;
@@ -43,6 +46,9 @@
 
     # vim
     pkgs.neovim
+
+    # zsh
+    pkgs.sheldon
 
     # tmux
     pkgs.reattach-to-user-namespace # only darwin

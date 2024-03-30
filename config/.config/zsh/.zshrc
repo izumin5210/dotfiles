@@ -70,8 +70,9 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':chpwd:*' recent-dirs-prune 'parent'
+zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME"/zsh/chpwd-recent-dirs
 zstyle ':completion:*' recent-dirs-insert both
-zstyle ':completion:*' cache-path $XDG_CACHE_HOME/zsh/zcompcache
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 # cdしたあとで、自動的に ls する
 function chpwd() { ls }

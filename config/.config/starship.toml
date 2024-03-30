@@ -3,9 +3,8 @@
 add_newline = true
 
 format = """
-$directory\
 ${custom.git_repo}\
-${custom.git_path}\
+$directory\
 $git_status\
 $git_state\
 $git_branch\
@@ -28,23 +27,16 @@ disabled = true
 [directory]
 truncate_to_repo = false
 truncation_length = 100
-format = '[$path]($style)[$read_only]($read_only_style) '
+format = '[$path ]($style)[$read_only]($read_only_style)'
 style = 'blue'
-repo_root_format = ''
-repo_root_style = ''
+repo_root_format = '[($path )]($style)[$read_only]($read_only_style)'
+repo_root_style = 'blue'
 
 [custom.git_repo]
 when = true
 require_repo = true
 command = 'git rev-parse --show-toplevel | sed -e "s,$(ghq root)/\(github\.com/\)\?,,"'
 style = 'bold blue'
-
-[custom.git_path]
-when = true
-require_repo = true
-command = 'git rev-parse --show-prefix | sed -e "s,/$,,"'
-format = '[/$output ]($style)'
-style = 'blue'
 
 [git_status]
 format = '([-](black) [$all_status$ahead_behind]($style) )'

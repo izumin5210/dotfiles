@@ -13,8 +13,8 @@ mkdir -p ~/.config
 ./bin/ln-idempotently ./config/.config/gh ~/.config/gh
 
 # zsh
-mkdir -p ~/.config/zsh
-./bin/ln-idempotently ./config/.config/zsh/legacy ~/.config/zsh/legacy
+./bin/ln-idempotently ./config/.zshenv ~/.zshenv
+./bin/ln-idempotently ./config/.config/zsh ~/.config/zsh
 ./bin/ln-idempotently ./config/.config/starship.toml ~/.config/starship.toml
 
 # vim
@@ -32,9 +32,3 @@ mkdir -p ~/.config/tmux
 
 # ripgrep
 ./bin/ln-idempotently ./config/.ripgreprc ~/.ripgreprc
-
-if [ "${CODESPACES:-"false"}" = "true" ]; then
-  # overwrite default zsh configurations
-  cp ./codespaces/config/.zshrc ~/.zshrc
-  cp ./codespaces/config/.zshenv ~/.zshenv
-fi

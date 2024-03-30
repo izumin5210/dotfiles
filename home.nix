@@ -35,8 +35,8 @@
     pkgs.fnm
 
     # other langs
-    pkgs.ruby
     pkgs.php
+    pkgs.ruby
 
     # git
     pkgs.git
@@ -48,6 +48,7 @@
     pkgs.neovim
 
     # zsh
+    pkgs.zsh
     pkgs.sheldon
 
     # tmux
@@ -119,18 +120,6 @@
   };
 
   programs= {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      dotDir = ".config/zsh";
-      initExtra = ''
-        source $HOME/.config/zsh/legacy/.zshrc
-      '';
-      envExtra = ''
-        source $HOME/.config/zsh/legacy/.zshenv
-        PATH=${pkgs.git}/share/git/contrib/diff-highlight:$PATH
-      '';
-    };
     tmux = {
       enable = true;
       extraConfig = ''

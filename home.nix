@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 
 {
+  nixpkgs.overlays = [
+    (import ./overlays/sheldon.nix)
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;
@@ -32,8 +35,8 @@
     pkgs.fnm
 
     # other langs
-    pkgs.ruby
     pkgs.php
+    pkgs.ruby
 
     # git
     pkgs.git
@@ -43,6 +46,10 @@
 
     # vim
     pkgs.neovim
+
+    # zsh
+    pkgs.zsh
+    pkgs.sheldon
 
     # tmux
     pkgs.reattach-to-user-namespace # only darwin
@@ -113,18 +120,6 @@
   };
 
   programs= {
-    zsh = {
-      enable = true;
-      enableCompletion = true;
-      dotDir = ".config/zsh";
-      initExtra = ''
-        source $HOME/.config/zsh/legacy/.zshrc
-      '';
-      envExtra = ''
-        source $HOME/.config/zsh/legacy/.zshenv
-        PATH=${pkgs.git}/share/git/contrib/diff-highlight:$PATH
-      '';
-    };
     tmux = {
       enable = true;
       extraConfig = ''

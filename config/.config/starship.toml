@@ -77,3 +77,4 @@ style = 'red'
 [cmd_duration]
 format = '[[-](black) 󱦟 $duration]($style) '
 style = 'yellow'
+min_time = 10_000

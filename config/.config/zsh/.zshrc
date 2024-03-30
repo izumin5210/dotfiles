@@ -1,17 +1,45 @@
 source $HOME/.config/zsh/legacy/exports.zsh
 source $HOME/.config/zsh/legacy/aliases.zsh
 
-eval "$(sheldon source)"
-
-bindkey -e # emacs emulation
-autoload -Uz add-zsh-hook
-
 ulimit -u 2048
 ulimit -n 16384
+
+# Load plugins
+# ================================================================
+source $HOME/.config/zsh/legacy/functions.zsh
+source $HOME/.config/zsh/legacy/fzf.zsh
+
+# direnv
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+# fnm (Node.js)
+if type fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd --log-level error)"
+fi
+
+# 1Password
+if [ -d "${HOME}/.config/op/plugins.sh" ]; then
+  source "${HOME}/.config/op/plugins.sh"
+fi
+
+# Orbstack
+if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
+  source "${HOME}/.orbstack/shell/init.zsh"
+fi
+
+# Starship
+eval "$(starship init zsh)"
+
+eval "$(sheldon source)"
 
 # Zsh options
 # ================================================================
 REPORTTIME=3
+
+bindkey -e # emacs emulation
+autoload -Uz add-zsh-hook
 
 setopt correct
 setopt interactive_comments
@@ -61,31 +89,3 @@ bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する(
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
 autoload -Uz compinit; compinit -C
-
-# Load plugins
-# ================================================================
-source $HOME/.config/zsh/legacy/functions.zsh
-source $HOME/.config/zsh/legacy/fzf.zsh
-
-# direnv
-if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-# fnm (Node.js)
-if type fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd --log-level error)"
-fi
-
-# 1Password
-if [ -d "${HOME}/.config/op/plugins.sh" ]; then
-  source "${HOME}/.config/op/plugins.sh"
-fi
-
-# Orbstack
-if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
-  source "${HOME}/.orbstack/shell/init.zsh"
-fi
-
-# Starship
-eval "$(starship init zsh)"

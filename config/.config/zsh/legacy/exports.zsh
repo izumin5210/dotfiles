@@ -17,9 +17,27 @@ export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.bin:$PATH
 
 # Go
-export GOPATH=$HOME
-export GOBIN=$GOPATH/gobin
+export GOPATH="$XDG_DATA_HOME"/go
+export GOMODCACHE="$XDG_CACHE_HOME"/go/mod
+export GOBIN=$HOME/gobin
 export PATH=$GOBIN:$PATH
+
+# Node.js
+export NODE_REPL_HISTORY="$XDG_DATA_HOME"/node_repl_history
+
+# Ruby
+export IRBRC="$XDG_CONFIG_HOME"/irb/irbrc
+
+# MySQL
+export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
+
+# PostgreSQL
+export PSQL_HISTORY="$XDG_STATE_HOME"/psql_history
+
+# Redis
+mkdir -p "$XDG_DATA_HOME"/redis
+export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
+export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
 
 # Rancher Desktop
 export PATH=$HOME/.rd/bin:$PATH
@@ -29,15 +47,10 @@ export PATH=/nix/var/nix/profiles/default/bin:$PATH
 export PATH=$HOME/.nix-profile/bin:$PATH
 
 # fzf
-export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
---color=dark
---color=fg:-1,bg:-1,hl:#95c4ce,fg+:-1,bg+:-1,hl+:#e9b189
---color=info:#a093c7,prompt:#89bac2,pointer:#ada0d3,marker:#ada0d3,spinner:#ada0d3
-'
+export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/config
 
 # ripgrep
-export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
+export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
 case "$(uname)" in

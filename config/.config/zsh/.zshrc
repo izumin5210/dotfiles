@@ -46,7 +46,9 @@ setopt interactive_comments
 setopt extended_glob
 
 # ---- Histroy ----
-HISTFILE="${ZDOTDIR}/.zsh_history"
+mkdir -p "$XDG_STATE_HOME"/zsh "$XDG_CACHE_HOME"/zsh
+
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=10000    # メモリに保存される履歴の件数
 SAVEHIST=1000000  # 保存される履歴の件数
 # https://github.com/rothgar/mastering-zsh/blob/921766e642bcf02d0f1be8fc57d0159a867299b0/docs/config/history.md
@@ -68,7 +70,9 @@ add-zsh-hook chpwd chpwd_recent_dirs
 zstyle ':chpwd:*' recent-dirs-max 5000
 zstyle ':chpwd:*' recent-dirs-default yes
 zstyle ':chpwd:*' recent-dirs-prune 'parent'
+zstyle ':chpwd:*' recent-dirs-file "$XDG_CACHE_HOME"/zsh/chpwd-recent-dirs
 zstyle ':completion:*' recent-dirs-insert both
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 # cdしたあとで、自動的に ls する
 function chpwd() { ls }
@@ -88,4 +92,5 @@ setopt auto_menu                      # 補完候補が複数あるときに自�
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
-autoload -Uz compinit; compinit -C
+autoload -Uz compinit
+compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION

@@ -16,10 +16,5 @@
 /config/.config/karabiner/*
 !/config/.config/karabiner/karabiner.json
 
-# zsh
-/config/.config/zsh/.chpwd-recent-dirs
-/config/.config/zsh/.zcompdump
-/config/.config/zsh/.zsh_history
-
 # Nix
 /result

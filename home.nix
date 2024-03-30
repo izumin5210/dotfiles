@@ -65,6 +65,7 @@
     pkgs.bat
     pkgs.ctop
     pkgs.direnv
+    pkgs.eza
     pkgs.fzf
     pkgs.gawk
     pkgs.ghq

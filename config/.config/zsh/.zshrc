@@ -75,7 +75,7 @@ zstyle ':completion:*' recent-dirs-insert both
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 
 # cdしたあとで、自動的に ls する
-function chpwd() { ls }
+function chpwd() { eza --icons -a --git-ignore }
 
 # ---- Directory stack ----
 setopt auto_cd            # ディレクトリ名を入力したら自動でcd

@@ -13,7 +13,6 @@ self: super: {
         name = "${pname}-${version}-vendor.tar.gz";
         outputHash = "sha256-XY8FtZcTKoWB9GpooJv16OrqqRDKK86lor2TsyRxLtw=";
     });
-    cargoSha256 = "";
     meta = oldAttrs.meta // {
       platforms = super.lib.platforms.unix;
     };

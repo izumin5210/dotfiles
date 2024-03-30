@@ -25,11 +25,17 @@ mkdir -p ~/.config
 mkdir -p ~/.config/tmux
 ./bin/ln-idempotently ./config/.config/tmux/tmux.base.conf ~/.config/tmux/tmux.base.conf
 
+# ruby
+./bin/ln-idempotently ./config/.config/irb ~/.config/irb
+
 # alacritty
 ./bin/ln-idempotently ./config/.config/alacritty ~/.config/alacritty
 
 # karabiner
 ./bin/ln-idempotently ./config/.config/karabiner ~/.config/karabiner
 
+# fzf
+./bin/ln-idempotently ./config/.config/fzf ~/.config/fzf
+
 # ripgrep
-./bin/ln-idempotently ./config/.ripgreprc ~/.ripgreprc
+./bin/ln-idempotently ./config/.config/ripgrep ~/.config/ripgrep

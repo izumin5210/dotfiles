@@ -29,7 +29,7 @@ truncate_to_repo = false
 truncation_length = 100
 format = '[$path ]($style)[$read_only]($read_only_style)'
 style = 'blue'
-repo_root_format = '[($path )]($style)[$read_only]($read_only_style)'
+repo_root_format = '[($path )]($style)[$read_only]($read_only_style)[-](black) '
 repo_root_style = 'blue'
 
 [custom.git_repo]
@@ -39,7 +39,7 @@ command = 'git rev-parse --show-toplevel | sed -e "s,$(ghq root)/\(github\.com/\
 style = 'bold blue'
 
 [git_status]
-format = '([-](black) [$all_status$ahead_behind]($style) )'
+format = '([$all_status$ahead_behind]($style) )'
 ahead = '[⇡$ahead_count](red)'
 behind = '[⇣$behind_count](cyan)'
 modified = '[ ](yellow)'

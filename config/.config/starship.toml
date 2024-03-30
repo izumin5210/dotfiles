@@ -62,7 +62,7 @@ number_threshold = 1
 style = 'purple'
 
 [status]
-format = '[[-](black) $status]($style) '
+format = '[[-](black) $status( SIG$signal_name)]($style) '
 disabled = false
 style = 'red'
 

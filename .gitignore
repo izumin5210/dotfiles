@@ -15,6 +15,7 @@
 /config/.vim/autoload/plug.vim
 /config/.config/karabiner/*
 !/config/.config/karabiner/karabiner.json
+/config/.config/tmux/plugins
 
 # Nix
 /result

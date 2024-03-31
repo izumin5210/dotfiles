@@ -22,8 +22,7 @@ mkdir -p ~/.config
 ./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim
 
 # tmux
-mkdir -p ~/.config/tmux
-./bin/ln-idempotently ./config/.config/tmux/tmux.base.conf ~/.config/tmux/tmux.base.conf
+./bin/ln-idempotently ./config/.config/tmux ~/.config/tmux
 
 # ruby
 ./bin/ln-idempotently ./config/.config/irb ~/.config/irb

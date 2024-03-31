@@ -52,6 +52,7 @@
     pkgs.sheldon
 
     # tmux
+    pkgs.tmux
     pkgs.reattach-to-user-namespace # only darwin
 
     # middlewares
@@ -118,24 +119,6 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-  };
-
-  programs= {
-    tmux = {
-      enable = true;
-      extraConfig = ''
-        source $HOME/.config/tmux/tmux.base.conf
-      '';
-      plugins = with pkgs; [
-        { plugin = tmuxPlugins.yank; }
-        { plugin = tmuxPlugins.open; }
-        { plugin = tmuxPlugins.resurrect; }
-        { plugin = tmuxPlugins.pain-control; }
-        { plugin = tmuxPlugins.continuum; }
-      ];
-      sensibleOnTop = false;
-      tmuxp.enable = false;
-    };
   };
 
   # Let Home Manager install and manage itself.

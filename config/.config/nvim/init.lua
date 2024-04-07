@@ -432,6 +432,7 @@ require('lazy').setup({
   -- Filer
   {
     'nvim-tree/nvim-tree.lua',
+    version = '*',
     cond = not vim.g.vscode,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = require('pluginconfig.tree').keys,

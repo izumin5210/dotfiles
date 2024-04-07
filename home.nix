@@ -81,6 +81,7 @@
     pkgs.mas # only darwin
     pkgs.ngrok
     pkgs.ripgrep
+    pkgs.semgrep
     pkgs.starship
     pkgs.tig
     pkgs.tree

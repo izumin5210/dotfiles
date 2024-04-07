@@ -108,7 +108,7 @@ function M.setup_mason_null_ls()
     ensure_installed = {
       -- JavaScript
       'biome',
-      'prettier',
+      'prettierd',
       -- Protocol Buffers
       'buf',
       -- Dockerfile
@@ -120,11 +120,10 @@ function M.setup_mason_null_ls()
     },
     automatic_installation = false,
     handlers = {
-      prettier = function(source_name, methods)
+      prettierd = function(source_name, methods)
         local null_ls = require('null-ls')
         null_ls.register(
-          null_ls.builtins.formatting.prettier.with({
-            only_local = 'node_modules/.bin',
+          null_ls.builtins.formatting.prettierd.with({
             condition = function(utils)
               return not utils.root_has_file({ 'biome.json' })
             end,

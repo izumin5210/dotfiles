@@ -20,30 +20,41 @@
       pkgs = nixpkgs.legacyPackages.${system};
 
       users = [
-        { username = "izumin"; homeDir = "/Users/izumin"; hostname = "fleur.local"; }
-        { username = "masayuki.izumi"; homeDir = "/Users/masayuki.izumi"; hostname = "CM2NX3M6CH"; }
+        {
+          username = "izumin";
+          homeDir = "/Users/izumin";
+          hostname = "fleur.local";
+        }
+        {
+          username = "masayuki.izumi";
+          homeDir = "/Users/masayuki.izumi";
+          hostname = "CM2NX3M6CH";
+        }
       ];
 
-      genHomeConfigurations = usersList: builtins.foldl' (acc: user:
-        acc // {
-          "${user.username}" = home-manager.lib.homeManagerConfiguration {
-            inherit pkgs;
-            modules = [
-              { home.username = user.username; home.homeDirectory = user.homeDir; }
-              ./home.nix
-            ];
-          };
-        }
-      ) { } usersList;
+      genHomeConfigurations = usersList:
+        builtins.foldl' (acc: user:
+          acc // {
+            "${user.username}" = home-manager.lib.homeManagerConfiguration {
+              inherit pkgs;
+              modules = [
+                {
+                  home.username = user.username;
+                  home.homeDirectory = user.homeDir;
+                }
+                ./home.nix
+              ];
+            };
+          }) { } usersList;
 
-      genDarwinConfigurations = usersList: builtins.foldl' (acc: user:
-        acc // {
-          "${user.hostname}" = nix-darwin.lib.darwinSystem {
-            inherit pkgs;
-            modules = [ ./darwin-configuration.nix ];
-          };
-        }
-      ) { } usersList;
+      genDarwinConfigurations = usersList:
+        builtins.foldl' (acc: user:
+          acc // {
+            "${user.hostname}" = nix-darwin.lib.darwinSystem {
+              inherit pkgs;
+              modules = [ ./darwin-configuration.nix ];
+            };
+          }) { } usersList;
     in {
       homeConfigurations = genHomeConfigurations users;
       darwinConfigurations = genDarwinConfigurations users;

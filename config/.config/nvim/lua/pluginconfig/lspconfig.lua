@@ -84,7 +84,9 @@ function M.setup_null_ls()
       -- GitHub Actions
       null_ls.builtins.diagnostics.actionlint,
       -- ShellScript
-      null_ls.builtins.formatting.shfmt,
+      null_ls.builtins.formatting.shfmt.with({
+        extra_args = { "-i", "2" },
+      }),
     },
     on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then

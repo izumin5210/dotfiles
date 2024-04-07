@@ -17,3 +17,8 @@ apply = ["defer"]
 [plugins.zsh-syntax-highlighting]
 github = "zsh-users/zsh-syntax-highlighting"
 apply = ["defer"]
+
+[plugins.zsh-syntax-highlighting-catppuccin]
+github = "catppuccin/zsh-syntax-highlighting"
+apply = ["defer"]
+use = ["themes/catppuccin_frappe-zsh-syntax-highlighting.zsh"]

@@ -7,7 +7,7 @@ function M.setup()
   require('lualine').setup({
     options = {
       icons_enabled = true,
-      theme = 'iceberg',
+      theme = 'catppuccin',
     },
     sections = {
       lualine_a = { 'mode' },

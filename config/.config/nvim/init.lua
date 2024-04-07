@@ -145,9 +145,13 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      {
+        'williamboman/mason-lspconfig.nvim',
+        version = "*",
+      },
       {
         'williamboman/mason.nvim',
+        version = "*",
         config = require('pluginconfig.lspconfig').setup_mason,
       },
       {
@@ -156,6 +160,7 @@ require('lazy').setup({
       },
       {
         'jayp0521/mason-null-ls.nvim',
+        version = "*",
         config = require('pluginconfig.lspconfig').setup_mason_null_ls,
       },
       {
@@ -202,6 +207,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    version = '*',
     cond = not vim.g.vscode,
     event = { 'CursorHold', 'CursorHoldI' },
     dependencies = {
@@ -213,6 +219,7 @@ require('lazy').setup({
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'HiPhish/rainbow-delimiters.nvim',
+        version = '*',
         init = require('pluginconfig.treesitter').init_rainbow_delimiters,
       },
       {
@@ -220,7 +227,10 @@ require('lazy').setup({
         init = require('pluginconfig.treesitter').init_context_vt,
         config = require('pluginconfig.treesitter').setup_context_vt,
       },
-      'andymass/vim-matchup',
+      {
+        'andymass/vim-matchup',
+        version = '*',
+      },
       'windwp/nvim-ts-autotag',
     },
     config = require('pluginconfig.treesitter').setup,
@@ -298,6 +308,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
+    version = '*',
     cond = not vim.g.vscode,
     lazy = true,
     config = function()
@@ -422,6 +433,7 @@ require('lazy').setup({
   -- Filer
   {
     'nvim-tree/nvim-tree.lua',
+    version = '*',
     cond = not vim.g.vscode,
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     keys = require('pluginconfig.tree').keys,
@@ -469,6 +481,7 @@ require('lazy').setup({
   },
   {
     'danymat/neogen',
+    version = '*',
     cond = not vim.g.vscode,
     keys = { { '<Leader>cd', function() require('neogen').generate() end, mode = 'n', desc = 'Generate doc comment' } },
     dependencies = 'nvim-treesitter/nvim-treesitter',

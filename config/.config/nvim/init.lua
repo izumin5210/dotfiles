@@ -308,6 +308,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
+    version = '*',
     cond = not vim.g.vscode,
     lazy = true,
     config = function()

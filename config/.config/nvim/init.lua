@@ -286,7 +286,7 @@ require('lazy').setup({
         flavour = 'frappe',
         transparent_background = true,
         integrations = {
-          -- ...
+          fidget = true,
         }
       })
     end,
@@ -295,8 +295,24 @@ require('lazy').setup({
     'nvim-lualine/lualine.nvim',
     cond = not vim.g.vscode,
     event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
-    dependencies = { 'arkav/lualine-lsp-progress' },
     config = require('pluginconfig.lualine').setup,
+  },
+  {
+    "j-hui/fidget.nvim",
+    version = '*',
+    event = 'LspAttach',
+    cond = not vim.g.vscode,
+    config = function ()
+      require('fidget').setup({
+        notification = {
+          window = {
+            winblend = 0,
+            x_padding = 1,
+            y_padding = 1,
+          },
+        },
+      })
+    end,
   },
   {
     'akinsho/bufferline.nvim',

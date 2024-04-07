@@ -155,7 +155,7 @@ require('lazy').setup({
         config = require('pluginconfig.lspconfig').setup_mason,
       },
       {
-        'jose-elias-alvarez/null-ls.nvim',
+        'nvimtools/none-ls.nvim',
         config = require('pluginconfig.lspconfig').setup_null_ls,
       },
       {

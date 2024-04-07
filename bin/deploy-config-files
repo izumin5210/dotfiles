@@ -38,3 +38,6 @@ mkdir -p ~/.config
 
 # ripgrep
 ./bin/ln-idempotently ./config/.config/ripgrep ~/.config/ripgrep
+
+# bat
+./bin/ln-idempotently ./config/.config/bat ~/.config/bat

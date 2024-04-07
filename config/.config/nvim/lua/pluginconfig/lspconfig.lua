@@ -74,23 +74,9 @@ function M.setup_null_ls()
   local null_ls = require('null-ls')
   null_ls.setup({
     sources = {
-      -- JavaScript
-      null_ls.builtins.formatting.biome,
-      null_ls.builtins.formatting.prettierd,
-      -- Potocol Buffers
-      null_ls.builtins.diagnostics.buf,
-      null_ls.builtins.formatting.buf,
-      -- Nix
+      -- not supported by mason
       null_ls.builtins.formatting.nixfmt,
-      -- Dockerfile
-      null_ls.builtins.diagnostics.hadolint,
-      -- GitHub Actions
-      null_ls.builtins.diagnostics.actionlint,
-      -- ShellScript
-      null_ls.builtins.formatting.shfmt.with({
-        extra_args = { "-i", "2" },
-      }),
-      -- misc
+      -- install manually because depends on python
       null_ls.builtins.diagnostics.semgrep,
     },
     on_attach = function(client, bufnr)
@@ -119,9 +105,30 @@ end
 
 function M.setup_mason_null_ls()
   require('mason-null-ls').setup({
-    -- Primary Source of Truth is `null-ls`
-    ensure_installed = nil,
-    automatic_installation = true,
+    ensure_installed = {
+      -- JavaScript
+      'biome',
+      'prettierd',
+      -- Protocol Buffers
+      'buf',
+      -- Dockerfile
+      'hadolint',
+      -- GitHub Actions
+      'actionlint',
+      -- ShellScript
+      'shfmt',
+    },
+    automatic_installation = false,
+    handlers = {
+      shfmt = function(source_name, methods)
+        local null_ls = require('null-ls')
+        null_ls.register(
+          null_ls.builtins.formatting.shfmt.with({
+            extra_args = { '-i', '2' },
+          })
+        )
+      end,
+    },
   })
 end
 

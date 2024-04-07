@@ -202,6 +202,7 @@ require('lazy').setup({
   -- Treesitter
   {
     'nvim-treesitter/nvim-treesitter',
+    version = '*',
     cond = not vim.g.vscode,
     event = { 'CursorHold', 'CursorHoldI' },
     dependencies = {
@@ -213,6 +214,7 @@ require('lazy').setup({
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
         'HiPhish/rainbow-delimiters.nvim',
+        version = '*',
         init = require('pluginconfig.treesitter').init_rainbow_delimiters,
       },
       {
@@ -220,7 +222,10 @@ require('lazy').setup({
         init = require('pluginconfig.treesitter').init_context_vt,
         config = require('pluginconfig.treesitter').setup_context_vt,
       },
-      'andymass/vim-matchup',
+      {
+        'andymass/vim-matchup',
+        version = '*',
+      },
       'windwp/nvim-ts-autotag',
     },
     config = require('pluginconfig.treesitter').setup,

@@ -40,6 +40,7 @@ style = 'bold blue'
 
 [git_status]
 format = '([$all_status$ahead_behind]($style) )'
+conflicted= '[= ](red)'
 ahead = '[⇡$ahead_count](red)'
 behind = '[⇣$behind_count](cyan)'
 modified = '[ ](yellow)'

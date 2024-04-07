@@ -481,6 +481,7 @@ require('lazy').setup({
   },
   {
     'danymat/neogen',
+    version = '*',
     cond = not vim.g.vscode,
     keys = { { '<Leader>cd', function() require('neogen').generate() end, mode = 'n', desc = 'Generate doc comment' } },
     dependencies = 'nvim-treesitter/nvim-treesitter',

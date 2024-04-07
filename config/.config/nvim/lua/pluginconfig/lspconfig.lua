@@ -289,8 +289,6 @@ function M.setup()
       'graphql',
       'jsonnet_ls',
       'rust_analyzer',
-      -- Nix
-      'nil',
       -- Ruby
       'solargraph',
       -- JS
@@ -312,7 +310,7 @@ function M.setup()
       'jsonls',
       'yamlls'
     },
-    automatic_installation = true,
+    automatic_installation = false,
     handlers = {
       function(server_name)
         lspconfig[server_name].setup({
@@ -323,6 +321,12 @@ function M.setup()
         })
       end,
     }
+  })
+
+  -- language servers are installed manually
+  lspconfig.nixd.setup({
+    on_attach = on_attach_lsp,
+    capabilities = require('cmp_nvim_lsp').default_capabilities(),
   })
 end
 

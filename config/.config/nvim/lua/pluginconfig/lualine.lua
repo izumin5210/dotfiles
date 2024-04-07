@@ -8,6 +8,7 @@ function M.setup()
     options = {
       icons_enabled = true,
       theme = 'catppuccin',
+      component_separators = '｜',
     },
     sections = {
       lualine_a = { 'mode' },
@@ -23,8 +24,9 @@ function M.setup()
           cond = require('pluginconfig.dap').is_loaded,
           color = { fg = palette.teal }
         },
-        'filename',
-        { 'aerial', sep = '  ', dence = true }, -- the same as copmonent separator
+        { 'filetype', icon_only = true, separator = '', padding = { left = 1, right = 0 } },
+        { 'filename', padding = { left = 0, right = 1 } },
+        { 'aerial',  dence = true }, -- the same as copmonent separator
       },
       lualine_x = { 'encoding' },
       lualine_y = { 'progress' },

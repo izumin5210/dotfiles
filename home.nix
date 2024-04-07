@@ -1,13 +1,10 @@
 { config, lib, pkgs, ... }:
 
 {
-  nixpkgs.overlays = [
-    (import ./overlays/sheldon.nix)
-  ];
+  nixpkgs.overlays = [ (import ./overlays/sheldon.nix) ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "ngrok"
-  ];
+  nixpkgs.config.allowUnfreePredicate = pkg:
+    builtins.elem (lib.getName pkg) [ "ngrok" ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;
@@ -58,6 +55,9 @@
     # tmux
     pkgs.tmux
     pkgs.reattach-to-user-namespace # only darwin
+
+    # nix
+    pkgs.nixfmt
 
     # middlewares
     pkgs.postgresql_16

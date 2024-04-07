@@ -75,10 +75,13 @@ function M.setup_null_ls()
   null_ls.setup({
     sources = {
       -- JavaScript
-      null_ls.builtins.formatting.prettier,
-      -- Ppotocol Buffers
+      null_ls.builtins.formatting.biome,
+      null_ls.builtins.formatting.prettierd,
+      -- Potocol Buffers
       null_ls.builtins.diagnostics.buf,
       null_ls.builtins.formatting.buf,
+      -- Nix
+      null_ls.builtins.formatting.nixfmt,
       -- Dockerfile
       null_ls.builtins.diagnostics.hadolint,
       -- GitHub Actions
@@ -87,6 +90,8 @@ function M.setup_null_ls()
       null_ls.builtins.formatting.shfmt.with({
         extra_args = { "-i", "2" },
       }),
+      -- misc
+      null_ls.builtins.diagnostics.semgrep,
     },
     on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then

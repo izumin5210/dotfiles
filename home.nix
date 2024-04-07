@@ -59,6 +59,9 @@
     pkgs.tmux
     pkgs.reattach-to-user-namespace # only darwin
 
+    # nix
+    pkgs.nixfmt
+
     # middlewares
     pkgs.postgresql_16
     pkgs.mysql80

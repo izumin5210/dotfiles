@@ -24,8 +24,7 @@ function M.setup()
           color = { fg = palette.teal }
         },
         'filename',
-        { 'aerial',      sep = '  ', dence = true }, -- the same as copmonent separator
-        { 'lsp_progress' }
+        { 'aerial', sep = '  ', dence = true }, -- the same as copmonent separator
       },
       lualine_x = { 'encoding' },
       lualine_y = { 'progress' },

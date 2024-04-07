@@ -107,7 +107,6 @@ function M.setup_mason_null_ls()
   require('mason-null-ls').setup({
     ensure_installed = {
       -- JavaScript
-      'biome',
       'prettierd',
       -- Protocol Buffers
       'buf',
@@ -120,6 +119,16 @@ function M.setup_mason_null_ls()
     },
     automatic_installation = false,
     handlers = {
+      prettierd = function(source_name, methods)
+        local null_ls = require('null-ls')
+        null_ls.register(
+          null_ls.builtins.formatting.prettierd.with({
+            condition = function(utils)
+              return not utils.root_has_file({ 'biome.json' })
+            end,
+          })
+        )
+      end,
       shfmt = function(source_name, methods)
         local null_ls = require('null-ls')
         null_ls.register(
@@ -285,6 +294,7 @@ function M.setup()
       -- Ruby
       'solargraph',
       -- JS
+      'biome',
       'eslint',
       'tsserver',
       'volar',

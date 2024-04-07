@@ -139,7 +139,10 @@ end
 function M.setup_lspsaga()
   require('lspsaga').setup({
     symbol_in_winbar = { enable = false },
-    code_action = { show_server_name = true, }
+    code_action = { show_server_name = true },
+    ui = {
+      kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+    },
   })
 end
 

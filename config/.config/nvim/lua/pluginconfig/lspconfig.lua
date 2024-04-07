@@ -108,7 +108,7 @@ function M.setup_mason_null_ls()
     ensure_installed = {
       -- JavaScript
       'biome',
-      'prettierd',
+      'prettier',
       -- Protocol Buffers
       'buf',
       -- Dockerfile
@@ -120,6 +120,22 @@ function M.setup_mason_null_ls()
     },
     automatic_installation = false,
     handlers = {
+      prettier = function(source_name, methods)
+        local null_ls = require('null-ls')
+        null_ls.register(
+          null_ls.builtins.formatting.prettier.with({
+            only_local = 'node_modules/.bin'
+          })
+        )
+      end,
+      biome = function(source_name, methods)
+        local null_ls = require('null-ls')
+        null_ls.register(
+          null_ls.builtins.formatting.biome.with({
+            only_local = 'node_modules/.bin'
+          })
+        )
+      end,
       shfmt = function(source_name, methods)
         local null_ls = require('null-ls')
         null_ls.register(

@@ -124,7 +124,10 @@ function M.setup_mason_null_ls()
         local null_ls = require('null-ls')
         null_ls.register(
           null_ls.builtins.formatting.prettier.with({
-            only_local = 'node_modules/.bin'
+            only_local = 'node_modules/.bin',
+            condition = function(utils)
+              return not utils.root_has_file({ 'biome.json' })
+            end,
           })
         )
       end,
@@ -132,7 +135,10 @@ function M.setup_mason_null_ls()
         local null_ls = require('null-ls')
         null_ls.register(
           null_ls.builtins.formatting.biome.with({
-            only_local = 'node_modules/.bin'
+            only_local = 'node_modules/.bin',
+            condition = function(utils)
+              return utils.root_has_file({ 'biome.json' })
+            end,
           })
         )
       end,

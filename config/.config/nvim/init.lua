@@ -286,8 +286,12 @@ require('lazy').setup({
         flavour = 'frappe',
         transparent_background = true,
         integrations = {
+          aerial = true,
           fidget = true,
-        }
+          lsp_saga = true,
+          mason = true,
+          which_key = true,
+        },
       })
     end,
   },

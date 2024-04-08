@@ -6,7 +6,6 @@ format = """
 ${custom.git_repo}\
 $directory\
 $git_status\
-$git_state\
 $git_branch\
 $git_commit\
 $git_state\
@@ -50,7 +49,7 @@ staged = '[󰸞 ](green)'
 stashed ='[󰉀 ](cyan)'
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+format = '[$state( $progress_current/$progress_total)]($style) '
 style = 'bold red'
 
 [git_branch]

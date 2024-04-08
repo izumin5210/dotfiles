@@ -18,6 +18,12 @@ curl -sS https://starship.rs/install.sh | sh -s -- -y
 curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
   bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 
+# eza
+curl -sfL https://github.com/eza-community/eza/releases/latest/download/eza_x86_64-unknown-linux-gnu.tar.gz | tar xz
+chmod +x eza
+chown root:root eza
+mv eza /usr/local/bin/eza
+
 # difft
 curl -sfL https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x difft

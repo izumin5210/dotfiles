@@ -11,10 +11,12 @@ apt install -y \
   ripgrep \
   tig
 
+# starship
 curl -sS https://starship.rs/install.sh | sh -s -- -y
 
+# sheldon
 curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
-	bash -s -- --repo rossmacarthur/sheldon --to ~/.local/bin
+  bash -s -- --repo rossmacarthur/sheldon --to /usr/local/bin
 
 # difft
 curl -sfL https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz

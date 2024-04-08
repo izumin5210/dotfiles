@@ -47,6 +47,7 @@
     pkgs.git
     pkgs.git-secrets
     pkgs.gh
+    pkgs.delta
     pkgs.difftastic
 
     # vim

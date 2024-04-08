@@ -1,9 +1,12 @@
+[include]
+    path = ~/.config/git/delta/themes/catppuccin.gitconfig
 [user]
     name = izumin5210
     email = m@izum.in
 [core]
     autocrlf = input
     editor = $EDITOR
+    pager = delta
 [color]
     ui = true
 [github]
@@ -21,6 +24,7 @@
     refresh-default-branch= "!f() { git set-branch-cache default $(git fetch-default-branch); }; f"
     default-branch = "!f() { git get-branch-cache default || (git refresh-default-branch; git get-branch-cache default); }; f"
     pr = "gh pr create --web"
+    dft = difftool
 [push]
     default = current
 [filter "lfs"]
@@ -39,17 +43,22 @@
 [diff]
     algorithm = "histogram"
     indentHeuristic = true
+    colorMoved = default
     tool = difftastic
 [pager]
-    log = diff-highlight | less
-    show = diff-highlight | less
-    diff = diff-highlight | less
+    difftool = true
 [interactive]
-    diffFilter = diff-highlight
+    diffFilter = delta --color-only
 [difftool]
     prompt = false
 [difftool "difftastic"]
     cmd = difft "$LOCAL" "$REMOTE"
+[delta]
+    navigate = true
+    side-by-side = true
+    dark = true
+    true-color = always
+    features = catppuccin-frappe
 [init]
     defaultBranch = main
 [url "https://github.com/"]

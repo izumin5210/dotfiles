@@ -20,7 +20,7 @@ curl --proto '=https' -fLsS https://rossmacarthur.github.io/install/crate.sh |
 curl -sfL https://github.com/Wilfred/difftastic/releases/download/0.57.0/difft-x86_64-unknown-linux-gnu.tar.gz | tar xz
 chmod +x difft
 chown root:root difft
-mv eza /usr/local/bin/difft
+mv difft /usr/local/bin/difft
 
 # delta
 curl -sfL https://github.com/dandavison/delta/releases/download/0.17.0/delta-0.17.0-x86_64-unknown-linux-gnu.tar.gz | tar xz

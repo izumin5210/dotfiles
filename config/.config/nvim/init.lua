@@ -538,15 +538,15 @@ require('lazy').setup({
       local palette = require('colors').palette
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordText ctermbg=238 guibg=%s", palette.overlay0)
+        command = string.format("highlight IlluminatedWordText ctermbg=238 guibg=%s", palette.surface1)
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordRead ctermbg=238 guibg=%s", palette.overlay0)
+        command = string.format("highlight IlluminatedWordRead ctermbg=238 guibg=%s", palette.surface1)
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordWrite ctermbg=238 guibg=%s", palette.overlay0)
+        command = string.format("highlight IlluminatedWordWrite ctermbg=238 guibg=%s", palette.surface1)
       })
     end,
     config = function()

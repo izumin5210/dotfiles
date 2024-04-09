@@ -450,6 +450,19 @@ require('lazy').setup({
       require('neodim').setup()
     end
   },
+  {
+    'brenoprata10/nvim-highlight-colors',
+    cond = not vim.g.vscode,
+    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
+    config = function()
+      require('nvim-highlight-colors').setup({
+        render = 'virtual',
+        virtual_symbol = ' ■',
+        enable_named_colors = false,
+        enable_tailwind = true,
+      })
+    end
+  },
   -- Filer
   {
     'nvim-tree/nvim-tree.lua',

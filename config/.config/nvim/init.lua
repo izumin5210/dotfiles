@@ -70,15 +70,12 @@ vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
   { noremap = true, desc = 'Search: Clear Search Highlight' })
 
 -- buffers
-vim.keymap.set('n', '<leader>bn', ':bnext<CR>', { noremap = true, desc = 'Buffer: Next' })
-vim.keymap.set('n', '<leader>bp', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
-vim.keymap.set('n', '<leader>bd', function() require('bufdelete').bufdelete(0, false) end,
+vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
+vim.keymap.set('n', '<S-l>', ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
+vim.keymap.set('n', '[b',    ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
+vim.keymap.set('n', ']b',    ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
+vim.keymap.set('n', '<leader>q', function() require('bufdelete').bufdelete(0, false) end,
   { noremap = true, desc = 'Buffer: Delete' })
-
--- tabs
-vim.keymap.set('n', '<leader>btt', ':tabnew<CR>', { noremap = true, desc = 'Tab: New' })
-vim.keymap.set('n', '<leader>btn', ':tabnext<CR>', { noremap = true, desc = 'Tab: Next' })
-vim.keymap.set('n', '<leader>btp', ':tabprevious<CR>', { noremap = true, desc = 'Tab: Prev' })
 
 if vim.g.vscode then
   vim.keymap.set('n', 'gi',

@@ -13,7 +13,7 @@ vim.opt.completeopt      = 'menu,menuone,noselect'
 
 -- show whitespace chars
 vim.opt.list             = true
-vim.opt.listchars        = 'tab:»-,trail:_,eol:↲,extends:»,precedes:«,nbsp:･'
+vim.opt.listchars        = 'tab:»-,trail:_,extends:»,precedes:«,nbsp:･'
 
 -- search
 vim.opt.ignorecase       = true

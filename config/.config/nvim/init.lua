@@ -288,6 +288,10 @@ require('lazy').setup({
         integrations = {
           aerial = true,
           fidget = true,
+          indent_blankline = {
+            enabled = true,
+            colored_indent_levels = true,
+          },
           lsp_saga = true,
           mason = true,
           which_key = true,
@@ -431,10 +435,13 @@ require('lazy').setup({
         scope = {
           show_start = false,
           highlight = {
-            'RainbowDelimiterRed',
-            'RainbowDelimiterYellow',
-            'RainbowDelimiterGreen',
-            'RainbowDelimiterBlue',
+            'RainbowRed',
+            'RainbowYellow',
+            'RainbowBlue',
+            'RainbowOrange',
+            'RainbowGreen',
+            'RainbowViolet',
+            'RainbowCyan',
           }
         },
       })

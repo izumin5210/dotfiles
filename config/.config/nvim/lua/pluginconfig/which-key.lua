@@ -13,8 +13,6 @@ function M.setup()
     ['<leader>t'] = { name = '+Test' },
     ['<leader>d'] = { name = '+Debug' },
     ['<leader>c'] = { name = '+Comment' },
-    ['<leader>b'] = { name = '+Buffer, +Tab' },
-    ['<leader>bt'] = { name = '+Tab' },
   })
 end
 

@@ -76,6 +76,7 @@
     pkgs.bat
     pkgs.ctop
     pkgs.direnv
+    pkgs.diff-pdf
     pkgs.eza
     pkgs.fzf
     pkgs.gawk

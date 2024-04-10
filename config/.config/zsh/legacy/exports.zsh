@@ -1,13 +1,6 @@
 export LANG=en_US.UTF-8
-
-if [ "$CODESPACES" = "true" ]; then
-  export EDITOR="code --wait"
-  # use aqua.codespaces.yaml on codespaces
-  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.codespaces.yaml
-else
-  export EDITOR=nvim
-fi
 export TERM=xterm-256color
+export EDITOR=nvim
 
 # ================================================================
 # path
@@ -65,12 +58,21 @@ case "$(uname)" in
     ;;
 esac
 
-if [ -d "$HOME/.nix-profile/share/git/contrib/diff-highlight" ];then
-  export PATH="$HOME/.nix-profile/share/git/contrib/diff-highlight:$PATH"
-fi
-
 # aqua
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
 
 # LayerX
 export GOPRIVATE=github.com/LayerXcom/
+
+# ================================================================
+# overrides on codespaces
+# ================================================================
+if [ "$CODESPACES" = "true" ]; then
+  # use aqua.codespaces.yaml on codespaces
+  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.codespaces.yaml
+
+  # set VSCode to $EDITOR on VSCode intergarted terminal
+  if [ "$VSCODE_INJECTION" = "1" ]; then
+    export EDITOR="code --wait"
+  fi
+fi

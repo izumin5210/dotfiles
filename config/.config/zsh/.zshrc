@@ -67,8 +67,17 @@ compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # Load plugins
 # ================================================================
-source $HOME/.config/zsh/legacy/functions.zsh
-source $HOME/.config/zsh/legacy/fzf.zsh
+# aqua
+if type aqua >/dev/null 2>&1; then
+  source <(aqua completion zsh);
+  aqua install --all --only-link
+fi
+
+# Sheldon
+eval "$(sheldon source)"
+
+# Starship
+eval "$(starship init zsh)"
 
 # direnv
 if type direnv > /dev/null 2>&1; then
@@ -78,12 +87,6 @@ fi
 # fnm (Node.js)
 if type fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd --log-level error)"
-fi
-
-# aqua
-if type aqua >/dev/null 2>&1; then
-  source <(aqua completion zsh);
-  aqua install --all --only-link
 fi
 
 # 1Password
@@ -96,7 +99,5 @@ if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
   source "${HOME}/.orbstack/shell/init.zsh"
 fi
 
-# Starship
-eval "$(starship init zsh)"
-
-eval "$(sheldon source)"
+source $HOME/.config/zsh/legacy/fzf.zsh
+source $HOME/.config/zsh/legacy/functions.zsh

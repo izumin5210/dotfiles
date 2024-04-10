@@ -7,36 +7,6 @@ ulimit -n 16384
 bindkey -e # emacs emulation
 autoload -Uz add-zsh-hook
 
-# Load plugins
-# ================================================================
-source $HOME/.config/zsh/legacy/functions.zsh
-source $HOME/.config/zsh/legacy/fzf.zsh
-
-# direnv
-if type direnv > /dev/null 2>&1; then
-  eval "$(direnv hook zsh)"
-fi
-
-# fnm (Node.js)
-if type fnm >/dev/null 2>&1; then
-  eval "$(fnm env --use-on-cd --log-level error)"
-fi
-
-# 1Password
-if [ -d "${HOME}/.config/op/plugins.sh" ]; then
-  source "${HOME}/.config/op/plugins.sh"
-fi
-
-# Orbstack
-if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
-  source "${HOME}/.orbstack/shell/init.zsh"
-fi
-
-# Starship
-eval "$(starship init zsh)"
-
-eval "$(sheldon source)"
-
 # Zsh options
 # ================================================================
 REPORTTIME=3
@@ -94,3 +64,39 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小�
 
 autoload -Uz compinit
 compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
+
+# Load plugins
+# ================================================================
+source $HOME/.config/zsh/legacy/functions.zsh
+source $HOME/.config/zsh/legacy/fzf.zsh
+
+# direnv
+if type direnv > /dev/null 2>&1; then
+  eval "$(direnv hook zsh)"
+fi
+
+# fnm (Node.js)
+if type fnm >/dev/null 2>&1; then
+  eval "$(fnm env --use-on-cd --log-level error)"
+fi
+
+# aqua
+if type aqua >/dev/null 2>&1; then
+  source <(aqua completion zsh);
+  aqua install --all --only-link
+fi
+
+# 1Password
+if [ -d "${HOME}/.config/op/plugins.sh" ]; then
+  source "${HOME}/.config/op/plugins.sh"
+fi
+
+# Orbstack
+if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
+  source "${HOME}/.orbstack/shell/init.zsh"
+fi
+
+# Starship
+eval "$(starship init zsh)"
+
+eval "$(sheldon source)"

@@ -91,6 +91,7 @@
     pkgs.starship
     pkgs.tig
     pkgs.tree
+    (pkgs.callPackage ./pkgs/aqua.nix { })
 
     # fonts
     pkgs.hackgen-font

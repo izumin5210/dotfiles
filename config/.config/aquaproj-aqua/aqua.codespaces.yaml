@@ -1,0 +1,22 @@
+---
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+# checksum:
+#   enabled: true
+#   require_checksum: true
+#   supported_envs:
+#   - all
+registries:
+- type: standard
+  ref: v4.159.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+- name: cli/cli@v2.47.0
+- name: junegunn/fzf@0.49.0
+- name: dandavison/delta@0.17.0
+- name: Wilfred/difftastic@0.57.0
+- name: rossmacarthur/sheldon@0.7.4
+- name: BurntSushi/ripgrep@14.1.0
+- name: sharkdp/bat@v0.24.0
+- name: starship/starship@v1.18.2
+- name: eza-community/eza@v0.18.9
+- name: neovim/neovim@v0.9.5

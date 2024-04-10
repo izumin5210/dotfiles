@@ -22,6 +22,12 @@ if type fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd --log-level error)"
 fi
 
+# aqua
+if type aqua >/dev/null 2>&1; then
+  source <(aqua completion zsh);
+  aqua install --all --only-link
+fi
+
 # 1Password
 if [ -d "${HOME}/.config/op/plugins.sh" ]; then
   source "${HOME}/.config/op/plugins.sh"

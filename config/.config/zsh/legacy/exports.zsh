@@ -69,7 +69,7 @@ export GOPRIVATE=github.com/LayerXcom/
 # ================================================================
 if [ "$CODESPACES" = "true" ]; then
   # use aqua.codespaces.yaml on codespaces
-  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.codespaces.yaml
+  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml
 
   # set VSCode to $EDITOR on VSCode intergarted terminal
   if [ "$VSCODE_INJECTION" = "1" ]; then

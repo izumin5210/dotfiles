@@ -89,6 +89,11 @@ if type fnm >/dev/null 2>&1; then
   eval "$(fnm env --use-on-cd --log-level error)"
 fi
 
+# fzf
+if type fzf >/dev/null 2>&1; then
+  eval "$(fzf --zsh)"
+fi
+
 # 1Password
 if [ -d "${HOME}/.config/op/plugins.sh" ]; then
   source "${HOME}/.config/op/plugins.sh"
@@ -99,5 +104,4 @@ if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
   source "${HOME}/.orbstack/shell/init.zsh"
 fi
 
-source $HOME/.config/zsh/legacy/fzf.zsh
 source $HOME/.config/zsh/legacy/functions.zsh

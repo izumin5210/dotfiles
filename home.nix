@@ -8,7 +8,12 @@
 {
   nixpkgs.overlays = [ (import ./overlays/sheldon.nix) ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [ "ngrok" ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "1password-cli"
+      "ngrok"
+    ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;
@@ -71,6 +76,7 @@
     pkgs.redis
 
     # tools
+    pkgs._1password
     pkgs.awscli2
     pkgs.buf
     pkgs.bat

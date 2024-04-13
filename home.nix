@@ -64,7 +64,6 @@
 
     # tmux
     pkgs.tmux
-    pkgs.reattach-to-user-namespace # only darwin
 
     # nix
     pkgs.nixd
@@ -78,20 +77,17 @@
     # tools
     pkgs._1password
     pkgs.awscli2
-    pkgs.buf
     pkgs.bat
+    pkgs.buf
     pkgs.ctop
-    pkgs.direnv
     pkgs.diff-pdf
+    pkgs.direnv
     pkgs.eza
     pkgs.fzf
-    pkgs.gawk
     pkgs.ghq
-    pkgs.gnused
     pkgs.google-cloud-sdk
     pkgs.htop
     pkgs.jq
-    pkgs.mas # only darwin
     pkgs.ngrok
     pkgs.ripgrep
     pkgs.semgrep
@@ -99,6 +95,17 @@
     pkgs.tig
     pkgs.tree
     (pkgs.callPackage ./pkgs/aqua.nix { })
+
+    # gnu
+    pkgs.coreutils
+    pkgs.findutils
+    pkgs.gawk
+    pkgs.gnugrep
+    pkgs.gnused
+
+    # only darwin
+    pkgs.mas
+    pkgs.reattach-to-user-namespace
 
     # fonts
     pkgs.hackgen-font

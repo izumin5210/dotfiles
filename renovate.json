@@ -7,8 +7,8 @@
   "packageRules": [
     {
       "matchPackageNames": ["aquaproj/aqua-registry"],
-      "extends": ["schedule:earlyMondays"],
-      "minimumReleaseAge": "3 days"
+      "extends": ["schedule:earlyMondays"]
     }
-  ]
+  ],
+  "minimumReleaseAge": "3 days"
 }

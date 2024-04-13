@@ -4,10 +4,13 @@ function M.setup()
   local palette = require('colors').palette
   local codicons = require('codicons')
 
+  local theme = require('lualine.themes.catppuccin-frappe')
+  theme.inactive.c.bg = palette.surface0
+
   require('lualine').setup({
     options = {
       icons_enabled = true,
-      theme = 'catppuccin',
+      theme = theme,
       component_separators = '｜',
     },
     sections = {

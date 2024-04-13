@@ -1,15 +1,34 @@
-# ![dotfiles](./docs/visual.png)
+<div align="center">
+
+# izumin5210's dotfiles
+
+[![CI](https://github.com/izumin5210/dotfiles/actions/workflows/main.yml/badge.svg)](https://github.com/izumin5210/dotfiles/actions/workflows/main.yml)
+![GitHub License](https://img.shields.io/github/license/izumin5210/dotfiles)
+
+
+</div>
+
+## Supported OS
+
+- macOS
+  - manage packages with Nix [Home Manager](https://github.com/nix-community/home-manager)
+  - manage macOS apps with [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) and [mas-cli](https://github.com/mas-cli/mas)
+  - manage system preferences with [nix-darwin](https://github.com/lnl7/nix-darwin)
+- GitHub Codespaces (Ubuntu)
+  - manage tools with [aqua](https://aquaproj.github.io/)
 
 ## Installation
 
-```
-$ bash <(curl -L dot.izum.in)
-```
+### macOS
 
-## Inspired
-- [b4b4r07/dotfiles](https://github.com/b4b4r07/dotfiles)
-- [creasty/dotfiles](https://github.com/creasty/dotfiles)
-- [k0kubun/dotfiles](https://github.com/k0kubun/dotfiles).
+1. Install [Homebrew](https://brew.sh/)
+2. Install Nix with [`nix-installer`](https://github.com/DeterminateSystems/nix-installer)
+3. Run following commands
 
-## License
-Licensed under the [MIT license](http://izumin.mit-license.org/2015).
+```sh
+git clone https://github.com/izumin5210/dotfiles ~/src/github.com/izumin5210/dotfiles
+cd ~/src/github.com/izumin5210/dotfiles
+./bin/apply-configurations
+./bin/deploy-config-files
+/opt/homebrew/bin/brew bundle --flie .Brewfile
+```

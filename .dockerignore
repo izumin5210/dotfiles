@@ -1,7 +1,4 @@
 .github
 docs
-terraform
 install
 README.md
-config/.vim/plugged
-config/.vim/autoload

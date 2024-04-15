@@ -44,3 +44,9 @@ mkdir -p ~/.config
 
 # aqua
 ./bin/ln-idempotently ./config/.config/aquaproj-aqua ~/.config/aquaproj-aqua
+
+# yabai
+./bin/ln-idempotently ./config/.config/yabai ~/.config/yabai
+
+# skhd
+./bin/ln-idempotently ./config/.config/skhd ~/.config/skhd

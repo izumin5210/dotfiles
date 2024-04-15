@@ -106,6 +106,8 @@
     # only darwin
     pkgs.mas
     pkgs.reattach-to-user-namespace
+    pkgs.skhd
+    pkgs.yabai
 
     # fonts
     pkgs.hackgen-font

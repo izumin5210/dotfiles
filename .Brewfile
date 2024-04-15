@@ -2,7 +2,6 @@ hostname = `hostname -s`.chomp
 is_lx = hostname == 'CM2NX3M6CH'
 
 cask "1password"
-cask "1password-cli"
 cask "alfred"
 cask "arc"
 cask "bettertouchtool"

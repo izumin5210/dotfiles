@@ -74,9 +74,14 @@
     pkgs.mysql80
     pkgs.redis
 
+    # CLIs for cloud services
+    pkgs.auth0-cli
+    pkgs.awscli2
+    pkgs.google-cloud-sdk
+    pkgs.ngrok
+
     # tools
     pkgs._1password
-    pkgs.awscli2
     pkgs.bat
     pkgs.buf
     pkgs.ctop
@@ -85,10 +90,8 @@
     pkgs.eza
     pkgs.fzf
     pkgs.ghq
-    pkgs.google-cloud-sdk
     pkgs.htop
     pkgs.jq
-    pkgs.ngrok
     pkgs.ripgrep
     pkgs.semgrep
     pkgs.starship

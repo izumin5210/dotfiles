@@ -62,6 +62,7 @@ setopt auto_menu                      # 補完候補が複数あるときに自�
 bindkey "^[[Z" reverse-menu-complete  # Shift-Tabで補完候補を逆順する("\e[Z"でも動作する)
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' # 補完時に大文字小文字を区別しない
 
+autoload bashcompinit && bashcompinit
 autoload -Uz compinit
 compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
@@ -97,6 +98,11 @@ fi
 # 1Password
 if [ -d "${HOME}/.config/op/plugins.sh" ]; then
   source "${HOME}/.config/op/plugins.sh"
+fi
+
+# aws
+if type aws_completer >/dev/null 2>&1; then
+  complete -C $(which aws_completer) aws
 fi
 
 # Orbstack

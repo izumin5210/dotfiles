@@ -24,3 +24,5 @@ else
 fi
 
 alias mw="docker compose -f $HOME/.bin/compose.mw.yaml"
+
+alias lg="lazygit"

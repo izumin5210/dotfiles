@@ -49,11 +49,13 @@
     pkgs.ruby
 
     # git
-    pkgs.git
-    pkgs.git-secrets
-    pkgs.gh
     pkgs.delta
     pkgs.difftastic
+    pkgs.gh
+    pkgs.git
+    pkgs.git-secrets
+    pkgs.lazygit
+    pkgs.tig
 
     # vim
     pkgs.neovim
@@ -95,7 +97,6 @@
     pkgs.ripgrep
     pkgs.semgrep
     pkgs.starship
-    pkgs.tig
     pkgs.tree
     (pkgs.callPackage ./pkgs/aqua.nix { })
 

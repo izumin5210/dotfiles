@@ -45,9 +45,11 @@ vim.opt.splitright       = true
 vim.g.loaded_netrw       = 1
 vim.g.loaded_netrwPlugin = 1
 
--- disable builtin statusline and tablne
-vim.opt.laststatus       = 0
+-- disable builtin tablne
 vim.opt.showtabline      = 0
+
+-- global statusline
+vim.opt.laststatus       = 3
 
 -- disable builtin matchit.vim and matchparen.vim
 vim.g.loaded_matchit     = 1

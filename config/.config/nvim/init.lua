@@ -76,8 +76,7 @@ vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true, desc = 'Buffer:
 vim.keymap.set('n', '<S-l>', ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
 vim.keymap.set('n', '[b',    ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
 vim.keymap.set('n', ']b',    ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
-vim.keymap.set('n', '<leader>q', function() require('bufdelete').bufdelete(0, false) end,
-  { noremap = true, desc = 'Buffer: Delete' })
+-- <C-q> to delete buffer using bufdelete.nvim
 
 if vim.g.vscode then
   vim.keymap.set('n', 'gi',
@@ -592,6 +591,9 @@ require('lazy').setup({
     'famiu/bufdelete.nvim',
     cond = not vim.g.vscode,
     lazy = true,
+    keys = {
+      {  '<C-q>', function() require('bufdelete').bufdelete(0, false) end, mode = 'n', noremap = true, desc = 'Buffer: Delete' }
+    }
   },
   {
     'rapan931/lasterisk.nvim',

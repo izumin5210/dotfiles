@@ -13,7 +13,7 @@ vim.opt.completeopt      = 'menu,menuone,noselect'
 
 -- show whitespace chars
 vim.opt.list             = true
-vim.opt.listchars        = 'tab:»-,trail:_,extends:»,precedes:«,nbsp:･'
+vim.opt.listchars        = 'tab:│─,trail:_,extends:»,precedes:«,nbsp:･'
 
 -- search
 vim.opt.ignorecase       = true
@@ -217,11 +217,6 @@ require('lazy').setup({
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
       'JoosepAlviste/nvim-ts-context-commentstring',
       {
-        'HiPhish/rainbow-delimiters.nvim',
-        version = '*',
-        init = require('pluginconfig.treesitter').init_rainbow_delimiters,
-      },
-      {
         'haringsrob/nvim_context_vt',
         init = require('pluginconfig.treesitter').init_context_vt,
         config = require('pluginconfig.treesitter').setup_context_vt,
@@ -287,10 +282,6 @@ require('lazy').setup({
         integrations = {
           aerial = true,
           fidget = true,
-          indent_blankline = {
-            enabled = true,
-            colored_indent_levels = true,
-          },
           lsp_saga = true,
           mason = true,
           which_key = true,
@@ -420,32 +411,23 @@ require('lazy').setup({
     config = require('pluginconfig.modes').setup,
   },
   {
-    'lukas-reineke/indent-blankline.nvim',
+    "shellRaining/hlchunk.nvim",
     cond = not vim.g.vscode,
     version = '*',
-    main = 'ibl',
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
-      require('ibl').setup({
-        indent = {
-          char = '│',
-          tab_char = '│'
-        },
-        scope = {
-          show_start = false,
-          highlight = {
-            'RainbowRed',
-            'RainbowYellow',
-            'RainbowBlue',
-            'RainbowOrange',
-            'RainbowGreen',
-            'RainbowViolet',
-            'RainbowCyan',
+      local palette = require('colors').palette
+      require("hlchunk").setup({
+        chunk = {
+          style = {
+            { fg = palette.sapphire },
+            { fg = palette.red },
           }
         },
+        indent = { enable = true },
+        line_num = { enable = false },
+        blank = { enable = false },
       })
-      local hooks = require('ibl.hooks')
-      hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
     end
   },
   {

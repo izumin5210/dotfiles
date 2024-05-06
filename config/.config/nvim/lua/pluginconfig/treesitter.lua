@@ -6,20 +6,6 @@ function M.setup_treesitter_context()
   })
 end
 
-function M.init_rainbow_delimiters()
-  local rainbow_delimiters = require('rainbow-delimiters')
-  vim.g.rainbow_delimiters = {
-    strategy = {
-      [''] = rainbow_delimiters.strategy['global'],
-      vim = rainbow_delimiters.strategy['local'],
-    },
-    query = {
-      [''] = 'rainbow-delimiters',
-      lua = 'rainbow-blocks',
-    },
-  }
-end
-
 function M.setup_context_vt()
   require('nvim_context_vt').setup({
     min_rows = 3,

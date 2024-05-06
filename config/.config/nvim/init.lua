@@ -322,7 +322,8 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
-    version = '*',
+    -- FIXME: tree-sitter throws in javascript file after aerial.nvim v1.5.0
+    version = 'v1.4.0',
     cond = not vim.g.vscode,
     lazy = true,
     config = function()

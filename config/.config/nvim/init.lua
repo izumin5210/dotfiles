@@ -49,7 +49,7 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.showtabline      = 0
 
 -- global statusline
-vim.opt.laststatus       = 3
+vim.opt.laststatus       = 0
 
 -- disable builtin matchit.vim and matchparen.vim
 vim.g.loaded_matchit     = 1
@@ -288,12 +288,6 @@ require('lazy').setup({
         },
       })
     end,
-  },
-  {
-    'nvim-lualine/lualine.nvim',
-    cond = not vim.g.vscode,
-    event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
-    config = require('pluginconfig.lualine').setup,
   },
   {
     "j-hui/fidget.nvim",

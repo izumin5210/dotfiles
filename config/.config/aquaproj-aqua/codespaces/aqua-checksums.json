@@ -96,18 +96,18 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza.exe_x86_64-pc-windows-gnu.tar.gz",
-      "checksum": "5F89F4B3A2AC8C5072C9FDBB928546768A67AB1F7CA1DE61D25920D9C08EAB9E",
+      "id": "github_release/github.com/eza-community/eza/v0.18.15/eza.exe_x86_64-pc-windows-gnu.tar.gz",
+      "checksum": "E6D88FDB66658CF8AB09BCA37CF881373063E9D2ACBBB5083080E3DF78D41DDF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza_aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "0CA2FDBFDE90EB209E0E79B26052ED0087F89AB7C4F7A28B7EF28425AC9C2CC5",
+      "id": "github_release/github.com/eza-community/eza/v0.18.15/eza_aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "C71F43D1208EDEC028C381E3DCA46890DC7EB6BA588DEB7A5EA43DD6D2A85F9A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza_x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "76897BFEB00E17DFFB9D4BC0A72351568461EECCBCB4B490FA1DAB7A7941528A",
+      "id": "github_release/github.com/eza-community/eza/v0.18.15/eza_x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "5F50CE6C280DE988FD05AB7E3768F37A678D9CCBE65F48A3A3482B08227C875C",
       "algorithm": "sha256"
     },
     {

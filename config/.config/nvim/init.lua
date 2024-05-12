@@ -269,6 +269,7 @@ require('lazy').setup({
   -- Appearance
   {
     "catppuccin/nvim",
+    version = '*',
     name = "catppuccin",
     cond = not vim.g.vscode,
     priority = 1000,

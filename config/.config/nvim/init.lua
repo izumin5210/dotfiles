@@ -48,9 +48,6 @@ vim.g.loaded_netrwPlugin = 1
 -- disable builtin tablne
 vim.opt.showtabline      = 0
 
--- global statusline
-vim.opt.laststatus       = 0
-
 -- disable builtin matchit.vim and matchparen.vim
 vim.g.loaded_matchit     = 1
 vim.g.loaded_matchparen  = 1
@@ -707,6 +704,17 @@ if not vim.g.vscode then
       end
     end
   })
+
+  -- clear statusline
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    callback = function()
+      vim.api.nvim_set_hl(0 , 'StatusLine', {link = 'LineNr'})
+      vim.api.nvim_set_hl(0 , 'StatusLineNC', {link = 'LineNr'})
+    end
+  })
+  vim.opt.laststatus = 0
+  vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 
   local palette = require('colors').palette
 

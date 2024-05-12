@@ -4,8 +4,8 @@ name: update-aqua-checksum
 on:
   pull_request:
     paths:
-      - config/.config/aquaproj-aqua/aqua.yaml
-      - config/.config/aquaproj-aqua/aqua-checksums.json
+      - config/.config/aquaproj-aqua/codespaces/aqua.yaml
+      - config/.config/aquaproj-aqua/codespaces/aqua-checksums.json
 jobs:
   update-aqua-checksums:
     uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@f367004e7f17e99d30297cd9e89afad30ee1f251 # v1.0.0

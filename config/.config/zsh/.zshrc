@@ -69,6 +69,16 @@ compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 # Load plugins
 # ================================================================
 # aqua
+if [ "${CODESPACES:-"false"}" = "true" ]; then
+  # install aqua if not exists on Codespace
+  if ! type aqua >/dev/null 2>&1; then
+    tempdir=$(mktemp -d)
+    curl -sSfL -o "${tempdir}/aqua-installer" https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.1/aqua-installer
+    echo "fb4b3b7d026e5aba1fc478c268e8fbd653e01404c8a8c6284fdba88ae62eda6a  ${tempdir}/aqua-installer" | sha256sum -c
+    chmod +x ${tempdir}/aqua-installer
+    ${tempdir}/aqua-installer
+  fi
+fi
 if type aqua >/dev/null 2>&1; then
   source <(aqua completion zsh);
   aqua install --all --only-link

@@ -44,13 +44,19 @@ function M.setup()
         return label
       end
 
+      local hasError = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity['ERROR'] }) > 0
+
       return {
         { get_diagnostic_label() },
         { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' },
         {
-          filename .. ' ' .. (vim.bo[props.buf].modified and '● ' or ''),
-          guifg = props.focused and palette.text or palette.overlay0,
+          filename .. ' ',
+          guifg = props.focused and (hasError and palette.red or palette.text) or palette.overlay0,
           gui = props.focused and 'bold' or '',
+        },
+        {
+          vim.bo[props.buf].modified and '● ' or '',
+          guifg = props.focused and palette.text or palette.overlay0,
         },
       }
     end,

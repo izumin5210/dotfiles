@@ -96,48 +96,48 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.9/eza.exe_x86_64-pc-windows-gnu.tar.gz",
-      "checksum": "224D89771D02C2ED1B370F430E550910DA14344F69F7C95F7514EB1B1A5E27CD",
+      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza.exe_x86_64-pc-windows-gnu.tar.gz",
+      "checksum": "5F89F4B3A2AC8C5072C9FDBB928546768A67AB1F7CA1DE61D25920D9C08EAB9E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.9/eza_aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "7DC7FB2A366E2178B8B14E8AE85575156BC7957F79F099CE445F3261042F1F0B",
+      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza_aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "0CA2FDBFDE90EB209E0E79B26052ED0087F89AB7C4F7A28B7EF28425AC9C2CC5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/eza-community/eza/v0.18.9/eza_x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "D774DE4F77D48E19299A0621CC31DF546381BC869E5E49FC19BA896B76C8139D",
+      "id": "github_release/github.com/eza-community/eza/v0.18.11/eza_x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "76897BFEB00E17DFFB9D4BC0A72351568461EECCBCB4B490FA1DAB7A7941528A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-darwin_amd64.zip",
-      "checksum": "1557E060E8EF788158F84AE6EB74E0E66B206E006B9983C2D08522B4DD5130D6",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-darwin_amd64.zip",
+      "checksum": "9D7234A480076240C846EB3830B4EF4B8C8C7494C31D00706DBF021A1C475067",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-darwin_arm64.zip",
-      "checksum": "CB825C213DE14F49EFD62E20D9650BF0DFF91F58F22DB853CF25F2B72851BF0A",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-darwin_arm64.zip",
+      "checksum": "8415A1487513474752FEFCE43E6DC871FE9B5A8F72C3B22634AAAB4F44C429CF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-linux_amd64.tar.gz",
-      "checksum": "0C8DF3ED2633B8D14643B0C47D4FAE4BBE5987CDFC34EB1DB438B2D04DB3C041",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-linux_amd64.tar.gz",
+      "checksum": "8FCEFBCB085706DE98F5FD23955FF343BD75EED826EC0A9C793BACBA15CA9932",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-linux_arm64.tar.gz",
-      "checksum": "11F461330D5AA8F7BD299BA3092EF0764327521429951DD9E1E93CE63D1FEDB5",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-linux_arm64.tar.gz",
+      "checksum": "FFD22479AC8CB3DF4AA04AFA9C0EC48DC96B4E8632C290C60E32CD322BB5B0AA",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-windows_amd64.zip",
-      "checksum": "6480965E9E39C4D78C51D96FC6D18EDE10778C00CB595D1BDFFAF753F7A1A59E",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-windows_amd64.zip",
+      "checksum": "A1B3E102FC6B428E990A10B48D82C13D1B5EE92D275AC43250297D1A10FA2C67",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/0.49.0/fzf-0.49.0-windows_arm64.zip",
-      "checksum": "3FF75C6DC34F559097A45DA3E73E7C06822DFC1686849875AF28F1B9A3BD6C53",
+      "id": "github_release/github.com/junegunn/fzf/0.50.0/fzf-0.50.0-windows_arm64.zip",
+      "checksum": "B42F9B98E6B9BA6D78804937B291A03F1137F7BC87FBB9F66EB1A1417AE3840E",
       "algorithm": "sha256"
     },
     {

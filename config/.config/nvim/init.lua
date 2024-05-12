@@ -211,6 +211,7 @@ require('lazy').setup({
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
+        init = require('pluginconfig.treesitter').init_treesitter_context,
         config = require('pluginconfig.treesitter').setup_treesitter_context,
       },
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround

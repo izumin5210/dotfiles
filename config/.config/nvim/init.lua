@@ -48,9 +48,6 @@ vim.g.loaded_netrwPlugin = 1
 -- disable builtin tablne
 vim.opt.showtabline      = 0
 
--- global statusline
-vim.opt.laststatus       = 3
-
 -- disable builtin matchit.vim and matchparen.vim
 vim.g.loaded_matchit     = 1
 vim.g.loaded_matchparen  = 1
@@ -211,6 +208,7 @@ require('lazy').setup({
     dependencies = {
       {
         'nvim-treesitter/nvim-treesitter-context',
+        init = require('pluginconfig.treesitter').init_treesitter_context,
         config = require('pluginconfig.treesitter').setup_treesitter_context,
       },
       'nvim-treesitter/nvim-treesitter-textobjects', -- required by nvim-surround
@@ -289,12 +287,6 @@ require('lazy').setup({
     end,
   },
   {
-    'nvim-lualine/lualine.nvim',
-    cond = not vim.g.vscode,
-    event = { 'InsertEnter', 'CursorHold', 'FocusLost', 'BufRead', 'BufNewFile' },
-    config = require('pluginconfig.lualine').setup,
-  },
-  {
     "j-hui/fidget.nvim",
     version = '*',
     event = 'LspAttach',
@@ -318,6 +310,14 @@ require('lazy').setup({
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = require('pluginconfig.bufferline').setup,
+  },
+  {
+    'b0o/incline.nvim',
+    cond = not vim.g.vscode,
+    event = 'VeryLazy',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = require('pluginconfig.incline').setup,
+    init = require('pluginconfig.incline').init,
   },
   {
     'stevearc/aerial.nvim',
@@ -704,6 +704,17 @@ if not vim.g.vscode then
       end
     end
   })
+
+  -- clear statusline
+  vim.api.nvim_create_autocmd('Colorscheme', {
+    pattern = '*',
+    callback = function()
+      vim.api.nvim_set_hl(0 , 'StatusLine', {link = 'LineNr'})
+      vim.api.nvim_set_hl(0 , 'StatusLineNC', {link = 'LineNr'})
+    end
+  })
+  vim.opt.laststatus = 0
+  vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 
   local palette = require('colors').palette
 

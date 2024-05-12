@@ -17,6 +17,9 @@ function M.setup()
   local palette = require('colors').palette
 
   require('incline').setup({
+    hide = {
+      cursorline = true,
+    },
     -- based on https://github.com/b0o/incline.nvim/discussions/32
     render = function(props)
       local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')

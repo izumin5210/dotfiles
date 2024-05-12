@@ -1,7 +1,7 @@
 local M = {}
 
 function M.init()
-  local palette = require("colors").palette
+  local palette = require('colors').palette
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
     command = string.format('highlight InclineNormal guibg=%s blend=0', palette.base),
@@ -14,7 +14,7 @@ end
 
 function M.setup()
   local devicons = require('nvim-web-devicons')
-  local palette = require("colors").palette
+  local palette = require('colors').palette
 
   require('incline').setup({
     -- based on https://github.com/b0o/incline.nvim/discussions/32
@@ -25,24 +25,6 @@ function M.setup()
       end
       local ft_icon, ft_color = devicons.get_icon_color(filename)
 
-      local function get_git_diff()
-        local icons = { removed = ' ', changed = ' ', added = ' ' }
-        local signs = vim.b[props.buf].gitsigns_status_dict
-        local labels = {}
-        if signs == nil then
-          return labels
-        end
-        for name, icon in pairs(icons) do
-          if tonumber(signs[name]) and signs[name] > 0 then
-            table.insert(labels, { icon .. signs[name] .. ' ', group = 'Diff' .. name })
-          end
-        end
-        if #labels > 0 then
-          table.insert(labels, { '┊ ' })
-        end
-        return labels
-      end
-
       local function get_diagnostic_label()
         local icons = { error = '󰅚 ', warn = '󰀪 ', hint = '󰌶 ', info = ' ' }
         local label = {}
@@ -50,7 +32,10 @@ function M.setup()
         for severity, icon in pairs(icons) do
           local n = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity[string.upper(severity)] })
           if n > 0 then
-            table.insert(label, { icon .. n .. ' ', group = 'DiagnosticSign' .. severity })
+            table.insert(label, {
+              icon .. n .. ' ',
+              group = props.focused and ('DiagnosticSign' .. severity) or 'NonText',
+            })
           end
         end
         if #label > 0 then
@@ -59,21 +44,15 @@ function M.setup()
         return label
       end
 
-      local result = {}
-
-      if props.focused then
-        table.insert(result,{ get_diagnostic_label() })
-        table.insert(result,{ get_git_diff() })
-      end
-
-      table.insert(result, { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' })
-      table.insert(result, { filename .. ' ', guifg = props.focused and palette.text or palette.overlay1 })
-
-      if vim.bo[props.buf].modified then
-        table.insert(result, { '● ' })
-      end
-
-      return result
+      return {
+        { get_diagnostic_label() },
+        { (ft_icon or '') .. ' ', guifg = ft_color, guibg = 'none' },
+        {
+          filename .. ' ' .. (vim.bo[props.buf].modified and '● ' or ''),
+          guifg = props.focused and palette.text or palette.overlay0,
+          gui = props.focused and 'bold' or '',
+        },
+      }
     end,
   })
 end

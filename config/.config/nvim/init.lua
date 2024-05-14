@@ -318,7 +318,6 @@ require('lazy').setup({
     event = 'VeryLazy',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     config = require('pluginconfig.incline').setup,
-    init = require('pluginconfig.incline').init,
   },
   {
     'stevearc/aerial.nvim',

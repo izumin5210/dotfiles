@@ -461,6 +461,25 @@ require('lazy').setup({
     keys = require('pluginconfig.tree').keys,
     config = require('pluginconfig.tree').setup,
   },
+  -- Buffer
+  {
+    'famiu/bufdelete.nvim',
+    cond = not vim.g.vscode,
+    lazy = true,
+    keys = {
+      {  '<C-q>', function() require('bufdelete').bufdelete(0, false) end, mode = 'n', noremap = true, desc = 'Buffer: Delete' }
+    }
+  },
+  {
+    "chrisgrieser/nvim-early-retirement",
+    cond = not vim.g.vscode,
+    event = "VeryLazy",
+    config = function ()
+      require('early-retirement').setup({
+        retirementAgeMins = 480, -- 8h
+      })
+    end
+  },
   -- Editor
   {
     'windwp/nvim-autopairs',
@@ -588,14 +607,6 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
     keys = require('pluginconfig.dial').keys,
     config = require('pluginconfig.dial').setup,
-  },
-  {
-    'famiu/bufdelete.nvim',
-    cond = not vim.g.vscode,
-    lazy = true,
-    keys = {
-      {  '<C-q>', function() require('bufdelete').bufdelete(0, false) end, mode = 'n', noremap = true, desc = 'Buffer: Delete' }
-    }
   },
   {
     'rapan931/lasterisk.nvim',

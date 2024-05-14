@@ -305,14 +305,6 @@ require('lazy').setup({
     end,
   },
   {
-    'akinsho/bufferline.nvim',
-    cond = not vim.g.vscode,
-    version = '*',
-    event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = require('pluginconfig.bufferline').setup,
-  },
-  {
     'b0o/incline.nvim',
     cond = not vim.g.vscode,
     event = 'VeryLazy',

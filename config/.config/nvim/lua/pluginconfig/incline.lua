@@ -1,17 +1,5 @@
 local M = {}
 
-function M.init()
-  local palette = require('colors').palette
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = string.format('highlight InclineNormal guibg=%s blend=0', palette.base),
-  })
-  vim.api.nvim_create_autocmd('Colorscheme', {
-    pattern = '*',
-    command = string.format('highlight InclineNormalNC guibg=%s blend=0', palette.base),
-  })
-end
-
 function M.setup()
   local devicons = require('nvim-web-devicons')
   local palette = require('colors').palette
@@ -19,6 +7,17 @@ function M.setup()
   require('incline').setup({
     hide = {
       cursorline = true,
+    },
+    highlight = {
+      groups = {
+        InclineNormal = { guibg = 'none' },
+        InclineNormalNC = { guibg = 'none' },
+      }
+    },
+    window = {
+      options = {
+        winblend = 0
+      }
     },
     -- based on https://github.com/b0o/incline.nvim/discussions/32
     render = function(props)

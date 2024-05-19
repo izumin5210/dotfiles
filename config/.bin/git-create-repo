@@ -45,7 +45,7 @@ create() {
 
   local path="$(pwd)/${name}"
 
-  if type ghq > /dev/null 2>&1; then
+  if type ghq >/dev/null 2>&1; then
     src_dir=$(ghq root)
     if [ -n "${src_dir}" ]; then
       path="${src_dir}/github.com/${repo}"
@@ -87,39 +87,38 @@ is_sandbox=0
 is_private=0
 github_sandbox="${github_user}-sandbox"
 
-while [ $# -gt 0 ];
-do
+while [ $# -gt 0 ]; do
   case ${1} in
-    --debug|-d)
-      set -x
+  --debug | -d)
+    set -x
     ;;
 
-    --sandbox|-s)
-      is_sandbox=1
+  --sandbox | -s)
+    is_sandbox=1
     ;;
 
-    --sandbox-name)
-      github_sandbox=${2}
-      shift
+  --sandbox-name)
+    github_sandbox=${2}
+    shift
     ;;
 
-    --private|-p)
-      is_private=1
+  --private | -p)
+    is_private=1
     ;;
 
-    --version|-v)
-      version
-      exit 0
+  --version | -v)
+    version
+    exit 0
     ;;
 
-    --help|-h)
-      usage $github_user $github_sandbox
-      exit 0
+  --help | -h)
+    usage $github_user $github_sandbox
+    exit 0
     ;;
 
-    *)
-      create $1 $github_user $is_sandbox $github_sandbox
-      exit 0
+  *)
+    create $1 $github_user $is_sandbox $github_sandbox
+    exit 0
     ;;
   esac
   shift

@@ -27,11 +27,10 @@ listTargets() {
   listTags
 }
 
-listTargets \
-  | fzf --no-hscroll --no-multi -n 2 --ansi \
-  | awk '{$1="";print $0}' \
-  | sed "s#remotes/[^/]*/##" \
-  | {
-      git checkout $(cat)
-    }
-
+listTargets |
+  fzf --no-hscroll --no-multi -n 2 --ansi |
+  awk '{$1="";print $0}' |
+  sed "s#remotes/[^/]*/##" |
+  {
+    git checkout $(cat)
+  }

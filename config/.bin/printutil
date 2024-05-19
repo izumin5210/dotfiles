@@ -18,7 +18,7 @@ Usage:
 Commands:
     $(eval $0 header "header")
     $(eval $0 section "section")
-    $(eval $0 subsection  "subsection")
+    $(eval $0 subsection "subsection")
     $(eval $0 success "success")
     $(eval $0 error "error" 2>&1)
     $(eval $0 warning "warning")
@@ -89,38 +89,38 @@ main() {
   shift
 
   case ${subcommand} in
-    header)
-      print_header "$@"
-      ;;
+  header)
+    print_header "$@"
+    ;;
 
-    section)
-      print_section "$@"
-      ;;
+  section)
+    print_section "$@"
+    ;;
 
-    subsection)
-      print_subsection "$@"
-      ;;
+  subsection)
+    print_subsection "$@"
+    ;;
 
-    success)
-      print_success "$@"
-      ;;
+  success)
+    print_success "$@"
+    ;;
 
-    error)
-      print_error "$@"
-      ;;
+  error)
+    print_error "$@"
+    ;;
 
-    warning)
-      print_warning "$@"
-      ;;
+  warning)
+    print_warning "$@"
+    ;;
 
-    note)
-      print_note "$@"
-      ;;
+  note)
+    print_note "$@"
+    ;;
 
-    *)
-      eval $0 error "Invalid arguments"
-      exit 1
-      ;;
+  *)
+    eval $0 error "Invalid arguments"
+    exit 1
+    ;;
   esac
 }
 
@@ -130,15 +130,15 @@ if [ $# -lt 1 ]; then
 fi
 
 case ${1} in
-  --version|-v)
-    version
+--version | -v)
+  version
   ;;
 
-  --help|-h)
-    usage
+--help | -h)
+  usage
   ;;
 
-  *)
-    main $@
-    ;;
+*)
+  main $@
+  ;;
 esac

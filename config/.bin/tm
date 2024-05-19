@@ -12,9 +12,9 @@ changeSession() {
 createSessionIfNeeded() {
   local name=$1
   [[ -n "$2" ]] && dir=$2 || dir=$(pwd)
-  tmux list-sessions -F "#{session_name}" \
-    | grep -q -E "^${name}$" \
-    || tmux new-session -d -c "${dir}" -s "${name}"
+  tmux list-sessions -F "#{session_name}" |
+    grep -q -E "^${name}$" ||
+    tmux new-session -d -c "${dir}" -s "${name}"
 }
 
 selectRepo() {

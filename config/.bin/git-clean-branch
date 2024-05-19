@@ -6,11 +6,11 @@ set -eu
 
 clean_local() {
   local base=${1:-$(git default-branch)}
-  git branch --merged \
-    | grep -v ${base} \
-    | grep -v '*' \
-    | grep -v '^\s*$' \
-    | {
+  git branch --merged |
+    grep -v ${base} |
+    grep -v '*' |
+    grep -v '^\s*$' |
+    {
       local target=$(cat)
       if [ ${#target} -gt 0 ]; then
         git branch -d ${target}
@@ -23,11 +23,11 @@ clean_local() {
 clean_remote() {
   local remote=${1:-origin}
   local base=${2:-$(git default-branch)}
-  git branch --remotes --merged \
-    | grep ${remote}/ \
-    | grep -v ${base} \
-    | sed s~${remote}/~:~ \
-    | {
+  git branch --remotes --merged |
+    grep ${remote}/ |
+    grep -v ${base} |
+    sed s~${remote}/~:~ |
+    {
       local target=$(cat)
       if [ ${#target} -gt 0 ]; then
         git push origin $target
@@ -46,16 +46,16 @@ target="$1"
 shift
 
 case ${target} in
-  local|l)
-    clean_local
+local | l)
+  clean_local
   ;;
 
-  remote|r)
-    clean_remote
+remote | r)
+  clean_remote
   ;;
 
-  *)
-    printutil error "Invalid target"
-    exit 1
+*)
+  printutil error "Invalid target"
+  exit 1
   ;;
 esac

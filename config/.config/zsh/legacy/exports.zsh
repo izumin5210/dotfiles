@@ -49,13 +49,13 @@ export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
 case "$(uname)" in
-  "Darwin")
-    export GIT_CREDENTIAL_HELPER="osxkeychain"
-    ;;
-  "Linux")
-    # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
-    export GIT_CREDENTIAL_HELPER="store"
-    ;;
+"Darwin")
+  export GIT_CREDENTIAL_HELPER="osxkeychain"
+  ;;
+"Linux")
+  # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
+  export GIT_CREDENTIAL_HELPER="store"
+  ;;
 esac
 
 # aqua

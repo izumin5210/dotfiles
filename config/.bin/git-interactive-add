@@ -4,23 +4,23 @@
 set -euo pipefail
 
 selectFiles() {
-  git status --short \
-    | fzf -n 2 --multi --exit-0 --expect=ctrl-d,ctrl-p --preview='git diff --color=always {2}'
-  }
+  git status --short |
+    fzf -n 2 --multi --exit-0 --expect=ctrl-d,ctrl-p --preview='git diff --color=always {2}'
+}
 
 out=$(selectFiles)
-addfiles=$(tail -n +2 <<< "$out" | awk '{if (substr($0,2,1) !~ / /) print $2}')
+addfiles=$(tail -n +2 <<<"$out" | awk '{if (substr($0,2,1) !~ / /) print $2}')
 
 [[ -z "$addfiles" ]] && continue
 
-case $(head -1 <<< "$out") in
-  ctrl-d)
-    git diff --color=always $addfiles | less -R
-    ;;
-  ctrl-p)
-    git add -p $addfiles
-    ;;
-  *)
-    git add $addfiles
-    ;;
+case $(head -1 <<<"$out") in
+ctrl-d)
+  git diff --color=always $addfiles | less -R
+  ;;
+ctrl-p)
+  git add -p $addfiles
+  ;;
+*)
+  git add $addfiles
+  ;;
 esac

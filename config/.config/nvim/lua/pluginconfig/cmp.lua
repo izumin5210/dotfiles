@@ -1,32 +1,39 @@
 local M = {}
 
-M.keys = require('utils').lazy_keymap({
+M.keys = require("utils").lazy_keymap({
   {
-    { 'i', '<C-x><C-o>', function() require('cmp').complete() end, noremap = true },
-  }
+    {
+      "i",
+      "<C-x><C-o>",
+      function()
+        require("cmp").complete()
+      end,
+      noremap = true,
+    },
+  },
 })
 
 function M.setup_copilot_cmp()
-  require('copilot').setup({
+  require("copilot").setup({
     suggestion = { enabled = false },
     panel = { enabled = false },
   })
-  require('copilot_cmp').setup({
-    method = 'getCompletionsCycling',
+  require("copilot_cmp").setup({
+    method = "getCompletionsCycling",
   })
 end
 
 function M.setup_lspkind()
-  require('lspkind').init({
+  require("lspkind").init({
     symbol_map = {
-      Copilot = '',
+      Copilot = "",
     },
   })
 end
 
 function M.init()
-  local augroup = vim.api.nvim_create_augroup('cmp_init', { clear = true })
-  local palette = require('colors').palette
+  local augroup = vim.api.nvim_create_augroup("cmp_init", { clear = true })
+  local palette = require("colors").palette
 
   -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
   local tbl = {
@@ -72,89 +79,86 @@ function M.init()
   }
 
   for key, colors in pairs(tbl) do
-    vim.api.nvim_create_autocmd('Colorscheme', {
+    vim.api.nvim_create_autocmd("Colorscheme", {
       group = augroup,
-      pattern = '*',
-      command = 'highlight ' .. key .. ' guifg=' .. colors['fg'] .. ' guibg=' .. colors['bg'],
+      pattern = "*",
+      command = "highlight " .. key .. " guifg=" .. colors["fg"] .. " guibg=" .. colors["bg"],
     })
   end
 end
 
 function M.setup()
-  local cmp = require('cmp')
+  local cmp = require("cmp")
 
   cmp.setup({
     enabled = function()
-      local buftype = vim.api.nvim_buf_get_option(0, 'buftype')
-      return buftype ~= 'prompt'
+      local buftype = vim.api.nvim_buf_get_option(0, "buftype")
+      return buftype ~= "prompt"
     end,
     snippet = {
       expand = function(args)
-        vim.fn['vsnip#anonymous'](args.body)
+        vim.fn["vsnip#anonymous"](args.body)
       end,
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }), -- zbirenbaum/copilot-cmp
+      ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+      ["<C-f>"] = cmp.mapping.scroll_docs(4),
+      ["<C-Space>"] = cmp.mapping.complete(),
+      ["<C-e>"] = cmp.mapping.abort(),
+      ["<CR>"] = cmp.mapping.confirm({ behavior = cmp.ConfirmBehavior.Replace, select = false }), -- zbirenbaum/copilot-cmp
     }),
     sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'copilot' },
-      { name = 'path' },
+      { name = "nvim_lsp" },
+      { name = "copilot" },
+      { name = "path" },
     }, {
-      { name = 'buffer' },
+      { name = "buffer" },
     }),
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
     window = {
       completion = {
-        winhighlight = 'Normal:Pmenu,FloatBorder:Pmenu,Search:None',
+        winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
         col_offset = -3,
         side_padding = 0,
       },
     },
     formatting = {
-      fields = { 'kind', 'abbr', 'menu' },
+      fields = { "kind", "abbr", "menu" },
       format = function(entry, vim_item)
-        local kind = require('lspkind').cmp_format({ mode = 'symbol_text', maxwidth = 50 })(entry, vim_item)
-        local strings = vim.split(kind.kind, '%s', { trimempty = true })
-        kind.kind = ' ' .. (strings[1] or '') .. ' '
-        kind.menu = '    (' .. (strings[2] or '') .. ')'
+        local kind = require("lspkind").cmp_format({ mode = "symbol_text", maxwidth = 50 })(entry, vim_item)
+        local strings = vim.split(kind.kind, "%s", { trimempty = true })
+        kind.kind = " " .. (strings[1] or "") .. " "
+        kind.menu = "    (" .. (strings[2] or "") .. ")"
 
         return kind
       end,
     },
   })
 
-  cmp.setup.cmdline('/', {
+  cmp.setup.cmdline("/", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
-    }
+      { name = "buffer" },
+    },
   })
 
-  cmp.setup.cmdline(':', {
+  cmp.setup.cmdline(":", {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
+      { name = "path" },
     }, {
       {
-        name = 'cmdline',
+        name = "cmdline",
         option = {
-          ignore_cmds = { 'Man', '!' }
-        }
-      }
-    })
+          ignore_cmds = { "Man", "!" },
+        },
+      },
+    }),
   })
 
   -- for nvim-autopairs
-  local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-  cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
-  )
+  local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 end
 
 return M

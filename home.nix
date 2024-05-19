@@ -55,7 +55,6 @@
     pkgs.git
     pkgs.git-secrets
     pkgs.lazygit
-    pkgs.tig
 
     # vim
     pkgs.neovim

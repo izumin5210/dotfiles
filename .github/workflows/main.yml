@@ -42,7 +42,7 @@ jobs:
             cmd: |
               curl -sfL -o nixfmt https://github.com/NixOS/nixfmt/releases/download/v0.5.0/nixfmt
               chmod +x ./nixfmt
-              ./nixfmt .
+              ./nixfmt **/*.nix
               git diff --exit-code
     name: format-${{ matrix.name }}
     steps:

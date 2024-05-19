@@ -5,7 +5,7 @@
 set -euo pipefail
 
 usage() {
-	cat <<EOF
+  cat <<EOF
 $(basename ${0}) - Create a remote repository
 
 Usage:
@@ -24,11 +24,11 @@ EOF
 }
 
 isInsideGitRepo() {
-	git rev-parse --is-inside-work-tree >/dev/null 2>&1
+  git rev-parse --is-inside-work-tree >/dev/null 2>&1
 }
 
 showRepoSlug() {
-	git rev-parse --show-toplevel |
+  git rev-parse --show-toplevel |
     sed -e "s,^$HOME,~," |
     sed -e "s,^~/src/\(github.com/\)\?,," |
     shorten "slug" |
@@ -83,57 +83,57 @@ truncate() {
 }
 
 if [ $# -lt 1 ]; then
-	usage
-	exit 1
+  usage
+  exit 1
 fi
 
 if ! isInsideGitRepo; then
-	exit 1
+  exit 1
 fi
 
 while [ $# -gt 0 ]; do
-	case ${1} in
-	slug | path | branch | root)
-		subcmd="${1}"
-		;;
+  case ${1} in
+  slug | path | branch | root)
+    subcmd="${1}"
+    ;;
 
-	--short | -s)
-		withShort=true
-		;;
+  --short | -s)
+    withShort=true
+    ;;
 
-	--max-len)
-		shift
-		maxLen="${1}"
-		;;
+  --max-len)
+    shift
+    maxLen="${1}"
+    ;;
 
-	--help | -h)
-		usage
-		exit 0
-		;;
+  --help | -h)
+    usage
+    exit 0
+    ;;
 
-	*)
-		usage
-		exit 1
-		;;
-	esac
-	shift
+  *)
+    usage
+    exit 1
+    ;;
+  esac
+  shift
 done
 
 case "${subcmd}" in
 slug)
-	showRepoSlug
-	;;
+  showRepoSlug
+  ;;
 path)
-	showPath
-	;;
+  showPath
+  ;;
 branch)
-	showBranchName
-	;;
+  showBranchName
+  ;;
 root)
-	showRootPath
-	;;
+  showRootPath
+  ;;
 *)
-	usage
-	exit 1
-	;;
+  usage
+  exit 1
+  ;;
 esac

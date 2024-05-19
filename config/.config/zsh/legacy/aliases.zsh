@@ -7,7 +7,7 @@ alias lt='l -T -L 3'
 alias llt='ll -T -L 3'
 
 alias vim='nvim'
-if type ripgrep > /dev/null 2>&1; then
+if type ripgrep >/dev/null 2>&1; then
   alias rg='ripgrep'
 fi
 
@@ -17,7 +17,7 @@ alias mkdir='mkdir -p'
 
 alias gsed=sed
 
-if [[ -x `which colordiff` ]]; then
+if [[ -x $(which colordiff) ]]; then
   alias diff='colordiff -u'
 else
   alias diff='diff -u'

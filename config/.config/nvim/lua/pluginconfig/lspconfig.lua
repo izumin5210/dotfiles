@@ -124,7 +124,7 @@ function M.setup_mason_null_ls()
         null_ls.register(
           null_ls.builtins.formatting.prettierd.with({
             condition = function(utils)
-              return not utils.root_has_file({ 'biome.json' })
+              return not utils.root_has_file({ 'biome.json', 'biome.jsonc' })
             end,
           })
         )
@@ -186,9 +186,6 @@ function M.setup()
   local on_attach_lsp = function(client, bufnr)
     local ts_builtin = require('telescope.builtin')
 
-    local list_workspace_folders = function()
-      print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    end
     local format = function()
       vim.lsp.buf.format({ async = true, bufnr = bufnr, timeout_ms = 10000, name = client.name })
     end
@@ -224,9 +221,6 @@ function M.setup()
       { 'n',          'K',         '<cmd>Lspsaga hover_doc<CR>',             desc = 'Show Hover Card' },
       { 'n',          'gi',        ts_builtin.lsp_implementations,           desc = 'Go to Implementations' },
       { { 'n', 'i' }, '<C-k>',     vim.lsp.buf.signature_help,               desc = 'Show Signature Help' },
-      { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder,         desc = 'Add Workspace Folder' },
-      { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder,      desc = 'Remove Workspace Folder' },
-      { 'n',          '<space>wl', list_workspace_folders,                   desc = 'List Workspace Folders' },
       { 'n',          '<space>D',  ts_builtin.lsp_type_definitions,          desc = 'Go to Type Definitions' },
       { 'n',          '<space>rn', '<cmd>Lspsaga rename ++project<CR>',      desc = 'Rename Symbol' },
       { { 'n', 'v' }, '<space>.',  '<cmd>Lspsaga code_action<CR>',           desc = 'Code Action' },

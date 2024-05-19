@@ -1,6 +1,31 @@
 {
   "checksums": [
     {
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-linux-aarch64.zip",
+      "checksum": "376B675766BC0B9261B2B82C8D0F624C7E5F78E83BD8490330E0BF3D8F770AD7",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-linux-x86_64.zip",
+      "checksum": "28EDDB9257BF85B20B1C337E536B7A3D16BA308863F067D447C1F4D24C6DEC64",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-macos-aarch64.zip",
+      "checksum": "F1B1CF758FD4346248C78640C9B62610B811B87190942EA828A8228DD8292EE6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-macos-x86_64.zip",
+      "checksum": "858A3F6B69AAF4A1F94809F0371EDB4B27FA8D1DB230B55780C4B51194BC7125",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-windows-x86_64.zip",
+      "checksum": "1623AF48183BBDDA9A03C39EF35C1888CED8D4D14C9730F8B92783A7EBE3B3B6",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/int128/ghcp/v1.13.2/ghcp_darwin_amd64.zip",
       "checksum": "8221F411AC4F2465B7CFD31EFB6DA4568E5FD20BAD9F66AC312B23AFA4520FDD",
       "algorithm": "sha256"

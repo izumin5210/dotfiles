@@ -164,7 +164,10 @@ require('lazy').setup({
         config = require('pluginconfig.lspconfig').setup_lsp_signature,
       },
       {
-        'nvimdev/lspsaga.nvim',
+        'izumin5210/lspsaga.nvim',
+        -- NOTE: use patched version to work around the following issue:
+        -- https://github.com/nvimdev/lspsaga.nvim/issues/1444
+        branch = "fix-goto-severity-filter",
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = { 'LspAttach' },
         config = require('pluginconfig.lspconfig').setup_lspsaga,

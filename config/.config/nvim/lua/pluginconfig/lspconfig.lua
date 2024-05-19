@@ -195,12 +195,28 @@ function M.setup()
     local show_diagnostics = function()
       require('telescope.builtin').diagnostics({ bufnr = 0 })
     end
+    ---@param is_next'next'|'prev'
+    ---@param severity 'ERROR'|'WARN'|nil
+    local get_diagnostic_goto = function(is_next, severity)
+      return function()
+        severity = vim.diagnostic.severity[severity]
+        if is_next == 'next' then
+          require('lspsaga.diagnostic'):goto_next({ severity = severity })
+        else
+          require('lspsaga.diagnostic'):goto_prev({ severity = severity })
+        end
+      end
+    end
 
     local keys = {
       -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
       { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', desc = 'Show Line Diagnostics' },
-      { 'n',          '[d',        '<cmd>Lspsaga diagnostic_jump_prev<CR>',  desc = 'Go to prev Diagnostic' },
-      { 'n',          ']d',        '<cmd>Lspsaga diagnostic_jump_next<CR>',  desc = 'Go to next Diagnostic' },
+      { 'n',          '[d',        get_diagnostic_goto('prev'),              desc = 'Go to prev Diagnostic' },
+      { 'n',          ']d',        get_diagnostic_goto('next'),              desc = 'Go to next Diagnostic' },
+      { 'n',          '[e',        get_diagnostic_goto('prev', 'ERROR'),     desc = 'Go to prev Error' },
+      { 'n',          ']e',        get_diagnostic_goto('next', 'ERROR'),     desc = 'Go to next Error' },
+      { 'n',          '[w',        get_diagnostic_goto('prev', 'WARN'),      desc = 'Go to prev Diagnostic(warn)' },
+      { 'n',          ']w',        get_diagnostic_goto('next', 'WARN'),      desc = 'Go to next Diagnostic(warn)' },
       { 'n',          '<space>q',  show_diagnostics,                         desc = 'Show Diagnostics in Document' },
       -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
       { 'n',          'gD',        vim.lsp.buf.declaration,                  desc = 'Go to Declarations' },

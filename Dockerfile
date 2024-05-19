@@ -10,7 +10,4 @@ RUN apt-get update \
 
 COPY . .
 
-RUN apt-get update \
-  && ./bin/setup-codespace \
-  && ./bin/deploy-config-files \
-  && rm -rf /var/lib/apt/lists/*
+RUN ./bin/deploy-config-files

@@ -8,11 +8,13 @@ self: super: {
       rev = version;
       hash = "sha256-foIC60cD2U8/w40CVEgloa6lPKq/+dml70rBroY5p7Q=";
     };
-    cargoDeps = oldAttrs.cargoDeps.overrideAttrs (super.lib.const {
+    cargoDeps = oldAttrs.cargoDeps.overrideAttrs (
+      super.lib.const {
         inherit src;
         name = "${pname}-${version}-vendor.tar.gz";
         outputHash = "sha256-XY8FtZcTKoWB9GpooJv16OrqqRDKK86lor2TsyRxLtw=";
-    });
+      }
+    );
     meta = oldAttrs.meta // {
       platforms = super.lib.platforms.unix;
     };

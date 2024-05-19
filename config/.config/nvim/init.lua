@@ -364,6 +364,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
+    version = '*',
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {

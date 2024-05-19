@@ -1,9 +1,9 @@
 local M = {}
 
 function M.setup()
-  local palette = require('colors').palette
+  local palette = require("colors").palette
 
-  require('modes').setup({
+  require("modes").setup({
     colors = {
       copy = palette.yellow,
       delete = palette.red,

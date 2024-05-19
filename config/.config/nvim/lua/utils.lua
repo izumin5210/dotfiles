@@ -9,11 +9,11 @@ local M = {}
 function M.lazy_keymap(opt)
   local res = {}
   local keymaps = opt[1]
-  local desc_prefix = opt.desc_prefix == nil and '' or (opt.desc_prefix .. ': ')
+  local desc_prefix = opt.desc_prefix == nil and "" or (opt.desc_prefix .. ": ")
   local common = opt.common == nil and {} or opt.common
   for _, km in pairs(keymaps) do
-    local desc = km.desc == nil and '' or (desc_prefix .. km.desc)
-    table.insert(res, vim.tbl_extend('keep', { km[2], km[3], mode = km[1], desc = desc }, common))
+    local desc = km.desc == nil and "" or (desc_prefix .. km.desc)
+    table.insert(res, vim.tbl_extend("keep", { km[2], km[3], mode = km[1], desc = desc }, common))
   end
   return res
 end

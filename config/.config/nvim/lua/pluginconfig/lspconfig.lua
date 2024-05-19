@@ -24,7 +24,7 @@ local tsserver_settings = {
     -- includeInlayPropertyDeclarationTypeHints = true,
     -- includeInlayVariableTypeHints = true,
     -- includeInlayVariableTypeHintsWhenTypeMatchesName = true,
-  }
+  },
 }
 
 local lsp_settings = {
@@ -39,7 +39,7 @@ local lsp_settings = {
         parameterNames = true,
         rangeVariableTypes = true,
       },
-    }
+    },
   },
   tsserver = {
     javascript = tsserver_settings,
@@ -58,11 +58,11 @@ local lsp_settings = {
         classRegex = {
           -- https://github.com/paolotiu/tailwind-intellisense-regex-list
           { 'clsx\\(([^)]*)\\)', "(?:'|\"|`)([^']*)(?:'|\"|`)" },
-          "(?:enter|leave)(?:From|To)?=\\s*(?:\"|')([^(?:\"|')]*)"
-        }
-      }
-    }
-  }
+          '(?:enter|leave)(?:From|To)?=\\s*(?:"|\')([^(?:"|\')]*)',
+        },
+      },
+    },
+  },
 }
 
 local lsp_filetypes = {
@@ -121,21 +121,17 @@ function M.setup_mason_null_ls()
     handlers = {
       prettierd = function(source_name, methods)
         local null_ls = require('null-ls')
-        null_ls.register(
-          null_ls.builtins.formatting.prettierd.with({
-            condition = function(utils)
-              return not utils.root_has_file({ 'biome.json' })
-            end,
-          })
-        )
+        null_ls.register(null_ls.builtins.formatting.prettierd.with({
+          condition = function(utils)
+            return not utils.root_has_file({ 'biome.json' })
+          end,
+        }))
       end,
       shfmt = function(source_name, methods)
         local null_ls = require('null-ls')
-        null_ls.register(
-          null_ls.builtins.formatting.shfmt.with({
-            extra_args = { '-i', '2' },
-          })
-        )
+        null_ls.register(null_ls.builtins.formatting.shfmt.with({
+          extra_args = { '-i', '2' },
+        }))
       end,
     },
   })
@@ -147,7 +143,7 @@ function M.init_lsp_signature()
   vim.api.nvim_create_autocmd('Colorscheme', {
     group = augroup,
     pattern = '*',
-    command = 'highlight link LspSignatureActiveParameter Todo'
+    command = 'highlight link LspSignatureActiveParameter Todo',
   })
 end
 
@@ -162,7 +158,7 @@ function M.setup_lspsaga()
     symbol_in_winbar = { enable = false },
     code_action = { show_server_name = true },
     ui = {
-      kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
+      kind = require('catppuccin.groups.integrations.lsp_saga').custom_kind(),
     },
   })
 end
@@ -210,47 +206,51 @@ function M.setup()
 
     local keys = {
       -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
-      { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', desc = 'Show Line Diagnostics' },
-      { 'n',          '[d',        get_diagnostic_goto('prev'),              desc = 'Go to prev Diagnostic' },
-      { 'n',          ']d',        get_diagnostic_goto('next'),              desc = 'Go to next Diagnostic' },
-      { 'n',          '[e',        get_diagnostic_goto('prev', 'ERROR'),     desc = 'Go to prev Error' },
-      { 'n',          ']e',        get_diagnostic_goto('next', 'ERROR'),     desc = 'Go to next Error' },
-      { 'n',          '[w',        get_diagnostic_goto('prev', 'WARN'),      desc = 'Go to prev Diagnostic(warn)' },
-      { 'n',          ']w',        get_diagnostic_goto('next', 'WARN'),      desc = 'Go to next Diagnostic(warn)' },
-      { 'n',          '<space>q',  show_diagnostics,                         desc = 'Show Diagnostics in Document' },
+      { 'n', '<space>e', '<cmd>Lspsaga show_line_diagnostics<CR>', desc = 'Show Line Diagnostics' },
+      { 'n', '[d', get_diagnostic_goto('prev'), desc = 'Go to prev Diagnostic' },
+      { 'n', ']d', get_diagnostic_goto('next'), desc = 'Go to next Diagnostic' },
+      { 'n', '[e', get_diagnostic_goto('prev', 'ERROR'), desc = 'Go to prev Error' },
+      { 'n', ']e', get_diagnostic_goto('next', 'ERROR'), desc = 'Go to next Error' },
+      { 'n', '[w', get_diagnostic_goto('prev', 'WARN'), desc = 'Go to prev Diagnostic(warn)' },
+      { 'n', ']w', get_diagnostic_goto('next', 'WARN'), desc = 'Go to next Diagnostic(warn)' },
+      { 'n', '<space>q', show_diagnostics, desc = 'Show Diagnostics in Document' },
       -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
-      { 'n',          'gD',        vim.lsp.buf.declaration,                  desc = 'Go to Declarations' },
-      { 'n',          'gd',        ts_builtin.lsp_definitions,               desc = 'Go to Definitions' },
-      { 'n',          'K',         '<cmd>Lspsaga hover_doc<CR>',             desc = 'Show Hover Card' },
-      { 'n',          'gi',        ts_builtin.lsp_implementations,           desc = 'Go to Implementations' },
-      { { 'n', 'i' }, '<C-k>',     vim.lsp.buf.signature_help,               desc = 'Show Signature Help' },
-      { 'n',          '<space>wa', vim.lsp.buf.add_workspace_folder,         desc = 'Add Workspace Folder' },
-      { 'n',          '<space>wr', vim.lsp.buf.remove_workspace_folder,      desc = 'Remove Workspace Folder' },
-      { 'n',          '<space>wl', list_workspace_folders,                   desc = 'List Workspace Folders' },
-      { 'n',          '<space>D',  ts_builtin.lsp_type_definitions,          desc = 'Go to Type Definitions' },
-      { 'n',          '<space>rn', '<cmd>Lspsaga rename ++project<CR>',      desc = 'Rename Symbol' },
-      { { 'n', 'v' }, '<space>.',  '<cmd>Lspsaga code_action<CR>',           desc = 'Code Action' },
-      { 'n',          'gr',        ts_builtin.lsp_references,                desc = 'Go to References' },
-      { 'n',          '<space>f',  format,                                   desc = 'Format Document' },
+      { 'n', 'gD', vim.lsp.buf.declaration, desc = 'Go to Declarations' },
+      { 'n', 'gd', ts_builtin.lsp_definitions, desc = 'Go to Definitions' },
+      { 'n', 'K', '<cmd>Lspsaga hover_doc<CR>', desc = 'Show Hover Card' },
+      { 'n', 'gi', ts_builtin.lsp_implementations, desc = 'Go to Implementations' },
+      { { 'n', 'i' }, '<C-k>', vim.lsp.buf.signature_help, desc = 'Show Signature Help' },
+      { 'n', '<space>wa', vim.lsp.buf.add_workspace_folder, desc = 'Add Workspace Folder' },
+      { 'n', '<space>wr', vim.lsp.buf.remove_workspace_folder, desc = 'Remove Workspace Folder' },
+      { 'n', '<space>wl', list_workspace_folders, desc = 'List Workspace Folders' },
+      { 'n', '<space>D', ts_builtin.lsp_type_definitions, desc = 'Go to Type Definitions' },
+      { 'n', '<space>rn', '<cmd>Lspsaga rename ++project<CR>', desc = 'Rename Symbol' },
+      { { 'n', 'v' }, '<space>.', '<cmd>Lspsaga code_action<CR>', desc = 'Code Action' },
+      { 'n', 'gr', ts_builtin.lsp_references, desc = 'Go to References' },
+      { 'n', '<space>f', format, desc = 'Format Document' },
       -- custom mappings
-      { 'n',          'gs',        ts_builtin.lsp_document_symbols,          desc = 'Go to Symbols in Document' },
-      { 'n',          'gS',        ts_builtin.lsp_dynamic_workspace_symbols, desc = 'Search Symbols in Workspace' },
-      { 'n',          'gci',       ts_builtin.lsp_incoming_calls,            desc = 'Incoming Calls' },
-      { 'n',          'gco',       ts_builtin.lsp_outgoing_calls,            desc = 'Outgoing Calls' },
+      { 'n', 'gs', ts_builtin.lsp_document_symbols, desc = 'Go to Symbols in Document' },
+      { 'n', 'gS', ts_builtin.lsp_dynamic_workspace_symbols, desc = 'Search Symbols in Workspace' },
+      { 'n', 'gci', ts_builtin.lsp_incoming_calls, desc = 'Incoming Calls' },
+      { 'n', 'gco', ts_builtin.lsp_outgoing_calls, desc = 'Outgoing Calls' },
     }
 
     if vim.lsp.inlay_hint then
-      table.insert(keys, { 'n', '<leader>uh',
-        function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr }) end,
-        desc = 'Toggle Inlay Hints' })
+      table.insert(keys, {
+        'n',
+        '<leader>uh',
+        function()
+          vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr })
+        end,
+        desc = 'Toggle Inlay Hints',
+      })
 
       -- enable inlay hints by default
       vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 
     for _, km in pairs(keys) do
-      vim.keymap.set(km[1], km[2], km[3],
-        { noremap = true, silent = true, buffer = bufnr, desc = 'LSP: ' .. km.desc })
+      vim.keymap.set(km[1], km[2], km[3], { noremap = true, silent = true, buffer = bufnr, desc = 'LSP: ' .. km.desc })
     end
 
     if client.name == 'gopls' or client.name == 'rust_analyzer' then
@@ -262,7 +262,7 @@ function M.setup()
             bufnr = bufnr,
             async = false,
             name = client.name,
-            timeout_ms = 5000
+            timeout_ms = 5000,
           })
         end,
       })
@@ -284,7 +284,7 @@ function M.setup()
               end
             end
           end
-        end
+        end,
       })
     end
     if client.name == 'eslint' then
@@ -327,7 +327,7 @@ function M.setup()
       'lua_ls',
       -- JSON (JSON Schema)
       'jsonls',
-      'yamlls'
+      'yamlls',
     },
     automatic_installation = false,
     handlers = {
@@ -336,10 +336,10 @@ function M.setup()
           on_attach = on_attach_lsp,
           capabilities = require('cmp_nvim_lsp').default_capabilities(),
           settings = lsp_settings[server_name],
-          filetypes = lsp_filetypes[server_name]
+          filetypes = lsp_filetypes[server_name],
         })
       end,
-    }
+    },
   })
 
   -- language servers are installed manually

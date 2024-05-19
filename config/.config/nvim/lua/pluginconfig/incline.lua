@@ -12,12 +12,12 @@ function M.setup()
       groups = {
         InclineNormal = { guibg = 'none' },
         InclineNormalNC = { guibg = 'none' },
-      }
+      },
     },
     window = {
       options = {
-        winblend = 0
-      }
+        winblend = 0,
+      },
     },
     -- based on https://github.com/b0o/incline.nvim/discussions/32
     render = function(props)

@@ -2,8 +2,15 @@ local M = {}
 
 M.keys = require('utils').lazy_keymap({
   {
-    { 'i', '<C-x><C-o>', function() require('cmp').complete() end, noremap = true },
-  }
+    {
+      'i',
+      '<C-x><C-o>',
+      function()
+        require('cmp').complete()
+      end,
+      noremap = true,
+    },
+  },
 })
 
 function M.setup_copilot_cmp()
@@ -30,10 +37,10 @@ function M.init()
 
   -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
   local tbl = {
-    CmpItemAbbrDeprecated = { fg = palette.overlay0, bg = "NONE", strikethrough = true },
-    CmpItemAbbrMatch = { fg = palette.blue, bg = "NONE", bold = true },
-    CmpItemAbbrMatchFuzzy = { fg = palette.blue, bg = "NONE", bold = true },
-    CmpItemMenu = { fg = palette.mauve, bg = "NONE", italic = true },
+    CmpItemAbbrDeprecated = { fg = palette.overlay0, bg = 'NONE', strikethrough = true },
+    CmpItemAbbrMatch = { fg = palette.blue, bg = 'NONE', bold = true },
+    CmpItemAbbrMatchFuzzy = { fg = palette.blue, bg = 'NONE', bold = true },
+    CmpItemMenu = { fg = palette.mauve, bg = 'NONE', italic = true },
 
     CmpItemKindField = { fg = palette.text, bg = palette.red },
     CmpItemKindProperty = { fg = palette.text, bg = palette.red },
@@ -131,30 +138,27 @@ function M.setup()
   cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
-      { name = 'buffer' }
-    }
+      { name = 'buffer' },
+    },
   })
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({
-      { name = 'path' }
+      { name = 'path' },
     }, {
       {
         name = 'cmdline',
         option = {
-          ignore_cmds = { 'Man', '!' }
-        }
-      }
-    })
+          ignore_cmds = { 'Man', '!' },
+        },
+      },
+    }),
   })
 
   -- for nvim-autopairs
   local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-  cmp.event:on(
-    'confirm_done',
-    cmp_autopairs.on_confirm_done()
-  )
+  cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
 end
 
 return M

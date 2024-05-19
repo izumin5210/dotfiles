@@ -1,25 +1,25 @@
 -----------------------------------
 -- Editor
 -----------------------------------
-vim.opt.updatetime       = 2000
+vim.opt.updatetime = 2000
 
 -- edit
-vim.opt.encoding         = 'utf-8'
-vim.opt.fileencoding     = 'utf-8'
-vim.opt.wrap             = false
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
+vim.opt.wrap = false
 
 -- completion
-vim.opt.completeopt      = 'menu,menuone,noselect'
+vim.opt.completeopt = 'menu,menuone,noselect'
 
 -- show whitespace chars
-vim.opt.list             = true
-vim.opt.listchars        = 'tab:│─,trail:_,extends:»,precedes:«,nbsp:･'
+vim.opt.list = true
+vim.opt.listchars = 'tab:│─,trail:_,extends:»,precedes:«,nbsp:･'
 
 -- search
-vim.opt.ignorecase       = true
-vim.opt.smartcase        = true
-vim.opt.incsearch        = true
-vim.opt.hlsearch         = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.incsearch = true
+vim.opt.hlsearch = true
 
 -- clipboard
 if vim.fn.has('unnamedplus') == 1 then
@@ -29,34 +29,34 @@ else
 end
 
 -- indent
-vim.opt.autoindent       = true
-vim.opt.smartindent      = true
-vim.opt.expandtab        = true
-vim.opt.tabstop          = 2
-vim.opt.softtabstop      = 2
-vim.opt.shiftwidth       = 2
-vim.opt.shiftround       = true
+vim.opt.autoindent = true
+vim.opt.smartindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.shiftround = true
 
 -- split
-vim.opt.splitbelow       = true
-vim.opt.splitright       = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- disable netrw
-vim.g.loaded_netrw       = 1
+vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- disable builtin tablne
-vim.opt.showtabline      = 0
+vim.opt.showtabline = 0
 
 -- disable builtin matchit.vim and matchparen.vim
-vim.g.loaded_matchit     = 1
-vim.g.loaded_matchparen  = 1
+vim.g.loaded_matchit = 1
+vim.g.loaded_matchparen = 1
 
 -- hide cmdline
-vim.opt.cmdheight        = 0
+vim.opt.cmdheight = 0
 
 -- sign
-vim.opt.signcolumn       = 'yes'
+vim.opt.signcolumn = 'yes'
 
 -- lsp
 vim.diagnostic.config({ virtual_text = false })
@@ -65,32 +65,31 @@ vim.diagnostic.config({ virtual_text = false })
 -- Keymaps
 -----------------------------------
 vim.g.mapleader = ' '
-vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>',
-  { noremap = true, desc = 'Search: Clear Search Highlight' })
+vim.keymap.set('n', '<Esc><Esc>', ':nohlsearch<CR><Esc>', { noremap = true, desc = 'Search: Clear Search Highlight' })
 
 -- buffers
 vim.keymap.set('n', '<S-h>', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
-vim.keymap.set('n', '<S-l>', ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
-vim.keymap.set('n', '[b',    ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
-vim.keymap.set('n', ']b',    ':bnext<CR>',     { noremap = true, desc = 'Buffer: Next' })
+vim.keymap.set('n', '<S-l>', ':bnext<CR>', { noremap = true, desc = 'Buffer: Next' })
+vim.keymap.set('n', '[b', ':bprevious<CR>', { noremap = true, desc = 'Buffer: Prev' })
+vim.keymap.set('n', ']b', ':bnext<CR>', { noremap = true, desc = 'Buffer: Next' })
 -- <C-q> to delete buffer using bufdelete.nvim
 
 if vim.g.vscode then
-  vim.keymap.set('n', 'gi',
-    function() require('vscode-neovim').call('editor.action.goToImplementation') end,
-    { noremap = true, desc = 'Go to implementation' })
-  vim.keymap.set('n', '[d',
-    function() require('vscode-neovim').call('editor.action.marker.prev') end,
-    { noremap = true, desc = 'Go to prev Diagnostic' })
-  vim.keymap.set('n', ']d',
-    function() require('vscode-neovim').call('editor.action.marker.next') end,
-    { noremap = true, desc = 'Go to next Diagnostic' })
-  vim.keymap.set('n', '<leader>rn',
-    function() require('vscode-neovim').call('editor.action.rename') end,
-    { noremap = true, desc = 'Rename Symbol' })
-  vim.keymap.set('n', '<leader>q',
-    function() require('vscode-neovim').call('workbench.actions.view.problems') end,
-    { noremap = true, desc = 'Show Diagnostics list' })
+  vim.keymap.set('n', 'gi', function()
+    require('vscode-neovim').call('editor.action.goToImplementation')
+  end, { noremap = true, desc = 'Go to implementation' })
+  vim.keymap.set('n', '[d', function()
+    require('vscode-neovim').call('editor.action.marker.prev')
+  end, { noremap = true, desc = 'Go to prev Diagnostic' })
+  vim.keymap.set('n', ']d', function()
+    require('vscode-neovim').call('editor.action.marker.next')
+  end, { noremap = true, desc = 'Go to next Diagnostic' })
+  vim.keymap.set('n', '<leader>rn', function()
+    require('vscode-neovim').call('editor.action.rename')
+  end, { noremap = true, desc = 'Rename Symbol' })
+  vim.keymap.set('n', '<leader>q', function()
+    require('vscode-neovim').call('workbench.actions.view.problems')
+  end, { noremap = true, desc = 'Show Diagnostics list' })
 end
 
 -----------------------------------
@@ -128,7 +127,7 @@ require('lazy').setup({
     'nvim-lua/plenary.nvim',
     cond = not vim.g.vscode,
     lazy = true,
-    version = '*'
+    version = '*',
   },
   {
     'tpope/vim-repeat', -- required by leap.nvim
@@ -142,11 +141,11 @@ require('lazy').setup({
     dependencies = {
       {
         'williamboman/mason-lspconfig.nvim',
-        version = "*",
+        version = '*',
       },
       {
         'williamboman/mason.nvim',
-        version = "*",
+        version = '*',
         config = require('pluginconfig.lspconfig').setup_mason,
       },
       {
@@ -155,7 +154,7 @@ require('lazy').setup({
       },
       {
         'jayp0521/mason-null-ls.nvim',
-        version = "*",
+        version = '*',
         config = require('pluginconfig.lspconfig').setup_mason_null_ls,
       },
       {
@@ -167,7 +166,7 @@ require('lazy').setup({
         'izumin5210/lspsaga.nvim',
         -- NOTE: use patched version to work around the following issue:
         -- https://github.com/nvimdev/lspsaga.nvim/issues/1444
-        branch = "fix-goto-severity-filter",
+        branch = 'fix-goto-severity-filter',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         event = { 'LspAttach' },
         config = require('pluginconfig.lspconfig').setup_lspsaga,
@@ -257,7 +256,7 @@ require('lazy').setup({
       {
         'theHamsta/nvim-dap-virtual-text',
         config = require('pluginconfig.dap').setup_dap_virtual_text,
-      }
+      },
     },
     keys = require('pluginconfig.dap').keys,
     config = require('pluginconfig.dap').setup,
@@ -271,13 +270,13 @@ require('lazy').setup({
   },
   -- Appearance
   {
-    "catppuccin/nvim",
+    'catppuccin/nvim',
     version = '*',
-    name = "catppuccin",
+    name = 'catppuccin',
     cond = not vim.g.vscode,
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
+      require('catppuccin').setup({
         flavour = 'frappe',
         transparent_background = true,
         integrations = {
@@ -291,11 +290,11 @@ require('lazy').setup({
     end,
   },
   {
-    "j-hui/fidget.nvim",
+    'j-hui/fidget.nvim',
     version = '*',
     event = 'LspAttach',
     cond = not vim.g.vscode,
-    config = function ()
+    config = function()
       require('fidget').setup({
         notification = {
           window = {
@@ -328,7 +327,7 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     event = 'BufReadPost',
     config = function()
-      local palette = require("colors").palette
+      local palette = require('colors').palette
       require('scrollbar').setup({
         marks = {
           Search = { color_nr = '3', color = palette.yellow },
@@ -341,9 +340,9 @@ require('lazy').setup({
           gitsigns = true,
           handle = true,
           search = true,
-        }
+        },
       })
-    end
+    end,
   },
   {
     'kevinhwang91/nvim-hlslens',
@@ -361,7 +360,7 @@ require('lazy').setup({
     end,
     config = function()
       require('scrollbar.handlers.search').setup({})
-    end
+    end,
   },
   {
     'lewis6991/gitsigns.nvim',
@@ -371,19 +370,19 @@ require('lazy').setup({
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight SignColumn ctermbg=none guibg=none'
+        command = 'highlight SignColumn ctermbg=none guibg=none',
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight GitGutterAdd ctermbg=none guibg=none'
+        command = 'highlight GitGutterAdd ctermbg=none guibg=none',
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight GitGutterChange ctermbg=none guibg=none'
+        command = 'highlight GitGutterChange ctermbg=none guibg=none',
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight GitGutterDelete ctermbg=none guibg=none'
+        command = 'highlight GitGutterDelete ctermbg=none guibg=none',
       })
     end,
     config = function()
@@ -406,24 +405,24 @@ require('lazy').setup({
     config = require('pluginconfig.modes').setup,
   },
   {
-    "shellRaining/hlchunk.nvim",
+    'shellRaining/hlchunk.nvim',
     cond = not vim.g.vscode,
     version = '*',
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     config = function()
       local palette = require('colors').palette
-      require("hlchunk").setup({
+      require('hlchunk').setup({
         chunk = {
           style = {
             { fg = palette.sapphire },
             { fg = palette.red },
-          }
+          },
         },
         indent = { enable = true },
         line_num = { enable = false },
         blank = { enable = false },
       })
-    end
+    end,
   },
   {
     'zbirenbaum/neodim',
@@ -431,7 +430,7 @@ require('lazy').setup({
     event = 'LspAttach',
     config = function()
       require('neodim').setup()
-    end
+    end,
   },
   {
     'brenoprata10/nvim-highlight-colors',
@@ -444,24 +443,24 @@ require('lazy').setup({
         enable_named_colors = false,
         enable_tailwind = true,
       })
-    end
+    end,
   },
   {
-    "karb94/neoscroll.nvim", -- To make it easier to visually see how much you have scrolled
-    config = function ()
+    'karb94/neoscroll.nvim', -- To make it easier to visually see how much you have scrolled
+    config = function()
       require('neoscroll').setup({})
       local t = {}
-      t['<C-u>'] = {'scroll', {'-vim.wo.scroll', 'true', '150'}}
-      t['<C-d>'] = {'scroll', { 'vim.wo.scroll', 'true', '150'}}
-      t['<C-b>'] = {'scroll', {'-vim.api.nvim_win_get_height(0)', 'true', '300'}}
-      t['<C-f>'] = {'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '300'}}
-      t['<C-y>'] = {'scroll', {'-0.10', 'false', '100'}}
-      t['<C-e>'] = {'scroll', { '0.10', 'false', '100'}}
-      t['zt']    = {'zt', {'250'}}
-      t['zz']    = {'zz', {'250'}}
-      t['zb']    = {'zb', {'250'}}
+      t['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '150' } }
+      t['<C-d>'] = { 'scroll', { 'vim.wo.scroll', 'true', '150' } }
+      t['<C-b>'] = { 'scroll', { '-vim.api.nvim_win_get_height(0)', 'true', '300' } }
+      t['<C-f>'] = { 'scroll', { 'vim.api.nvim_win_get_height(0)', 'true', '300' } }
+      t['<C-y>'] = { 'scroll', { '-0.10', 'false', '100' } }
+      t['<C-e>'] = { 'scroll', { '0.10', 'false', '100' } }
+      t['zt'] = { 'zt', { '250' } }
+      t['zz'] = { 'zz', { '250' } }
+      t['zb'] = { 'zb', { '250' } }
       require('neoscroll.config').set_mappings(t)
-    end
+    end,
   },
   -- Filer
   {
@@ -478,18 +477,26 @@ require('lazy').setup({
     cond = not vim.g.vscode,
     lazy = true,
     keys = {
-      {  '<C-q>', function() require('bufdelete').bufdelete(0, false) end, mode = 'n', noremap = true, desc = 'Buffer: Delete' }
-    }
+      {
+        '<C-q>',
+        function()
+          require('bufdelete').bufdelete(0, false)
+        end,
+        mode = 'n',
+        noremap = true,
+        desc = 'Buffer: Delete',
+      },
+    },
   },
   {
-    "chrisgrieser/nvim-early-retirement",
+    'chrisgrieser/nvim-early-retirement',
     cond = not vim.g.vscode,
-    event = "VeryLazy",
-    config = function ()
+    event = 'VeryLazy',
+    config = function()
       require('early-retirement').setup({
         retirementAgeMins = 480, -- 8h
       })
-    end
+    end,
   },
   -- Editor
   {
@@ -501,7 +508,7 @@ require('lazy').setup({
     end,
   },
   {
-    "folke/flash.nvim",
+    'folke/flash.nvim',
     version = '*',
     ---@type Flash.Config
     opts = {},
@@ -540,7 +547,14 @@ require('lazy').setup({
     'danymat/neogen',
     version = '*',
     cond = not vim.g.vscode,
-    keys = { { '<Leader>cd', function() require('neogen').generate() end, mode = 'n', desc = 'Generate doc comment' } },
+    keys = { {
+      '<Leader>cd',
+      function()
+        require('neogen').generate()
+      end,
+      mode = 'n',
+      desc = 'Generate doc comment',
+    } },
     dependencies = 'nvim-treesitter/nvim-treesitter',
     config = function()
       require('neogen').setup({
@@ -560,10 +574,10 @@ require('lazy').setup({
     'folke/todo-comments.nvim',
     cond = not vim.g.vscode,
     event = 'VeryLazy',
-    dependencies = { 'nvim-lua/plenary.nvim', },
+    dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
       require('todo-comments').setup({
-        highlight = { after = '' }
+        highlight = { after = '' },
       })
     end,
   },
@@ -575,15 +589,15 @@ require('lazy').setup({
       local palette = require('colors').palette
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordText ctermbg=238 guibg=%s", palette.surface1)
+        command = string.format('highlight IlluminatedWordText ctermbg=238 guibg=%s', palette.surface1),
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordRead ctermbg=238 guibg=%s", palette.surface1)
+        command = string.format('highlight IlluminatedWordRead ctermbg=238 guibg=%s', palette.surface1),
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format("highlight IlluminatedWordWrite ctermbg=238 guibg=%s", palette.surface1)
+        command = string.format('highlight IlluminatedWordWrite ctermbg=238 guibg=%s', palette.surface1),
       })
     end,
     config = function()
@@ -598,14 +612,14 @@ require('lazy').setup({
       local palette = require('colors').palette
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = string.format('highlight ExtraWhitespace guibg=%s', palette.red)
+        command = string.format('highlight ExtraWhitespace guibg=%s', palette.red),
       })
     end,
     config = function()
       vim.g.better_whitespace_enabled = 1
       vim.g.strip_whitespace_on_save = 1
       vim.g.strip_whitespace_confirm = 0
-    end
+    end,
   },
   {
     'dinhhuy258/git.nvim',
@@ -616,7 +630,7 @@ require('lazy').setup({
     },
     config = function()
       require('git').setup()
-    end
+    end,
   },
   {
     'monaqa/dial.nvim',
@@ -635,7 +649,7 @@ require('lazy').setup({
             require('hlslens').start()
           end
         end,
-        mode = 'n'
+        mode = 'n',
       },
       {
         'g*',
@@ -645,7 +659,7 @@ require('lazy').setup({
             require('hlslens').start()
           end
         end,
-        mode = { 'n', 'x' }
+        mode = { 'n', 'x' },
       },
     },
   },
@@ -658,11 +672,11 @@ require('lazy').setup({
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight link PackageInfoOutdatedVersion DiagnosticHint'
+        command = 'highlight link PackageInfoOutdatedVersion DiagnosticHint',
       })
       vim.api.nvim_create_autocmd('Colorscheme', {
         pattern = '*',
-        command = 'highlight link PackageInfoUpToDateVersion DiagnosticHint'
+        command = 'highlight link PackageInfoUpToDateVersion DiagnosticHint',
       })
     end,
     config = function()
@@ -672,7 +686,7 @@ require('lazy').setup({
         hide_unstable_version = true,
       })
       require('package-info').show()
-    end
+    end,
   },
   {
     'jxnblk/vim-mdx-js',
@@ -687,7 +701,7 @@ require('lazy').setup({
       require('auto-session').setup({
         session_lens = {
           load_on_setup = false,
-        }
+        },
       })
     end,
   },
@@ -695,17 +709,54 @@ require('lazy').setup({
     'alexghergh/nvim-tmux-navigation',
     cond = not vim.g.vscode,
     keys = {
-      { '<C-w>h', function() require('nvim-tmux-navigation').NvimTmuxNavigateLeft() end,  mode = 'n', noremap = true },
-      { '<C-w>j', function() require('nvim-tmux-navigation').NvimTmuxNavigateDown() end,  mode = 'n', noremap = true },
-      { '<C-w>k', function() require('nvim-tmux-navigation').NvimTmuxNavigateUp() end,    mode = 'n', noremap = true },
-      { '<C-w>l', function() require('nvim-tmux-navigation').NvimTmuxNavigateRight() end, mode = 'n', noremap = true },
+      {
+        '<C-w>h',
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateLeft()
+        end,
+        mode = 'n',
+        noremap = true,
+      },
+      {
+        '<C-w>j',
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateDown()
+        end,
+        mode = 'n',
+        noremap = true,
+      },
+      {
+        '<C-w>k',
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateUp()
+        end,
+        mode = 'n',
+        noremap = true,
+      },
+      {
+        '<C-w>l',
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateRight()
+        end,
+        mode = 'n',
+        noremap = true,
+      },
       {
         '<C-w>\\',
-        function() require('nvim-tmux-navigation').NvimTmuxNavigateLastActive() end,
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateLastActive()
+        end,
         mode = 'n',
-        noremap = true
+        noremap = true,
       },
-      { '<C-w>Space', function() require('nvim-tmux-navigation').NvimTmuxNavigateNext() end, mode = 'n', noremap = true },
+      {
+        '<C-w>Space',
+        function()
+          require('nvim-tmux-navigation').NvimTmuxNavigateNext()
+        end,
+        mode = 'n',
+        noremap = true,
+      },
     },
     config = function()
       require('nvim-tmux-navigation').setup({ disable_when_zoomed = true })
@@ -719,7 +770,7 @@ require('lazy').setup({
 if not vim.g.vscode then
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight! link DiagnosticHint LineNr'
+    command = 'highlight! link DiagnosticHint LineNr',
   })
 
   -- reset semantic highlight
@@ -730,51 +781,51 @@ if not vim.g.vscode then
       for _, typ in pairs(types) do
         vim.api.nvim_set_hl(0, '@lsp.type.' .. typ, {})
       end
-    end
+    end,
   })
 
   -- clear statusline
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
     callback = function()
-      vim.api.nvim_set_hl(0 , 'StatusLine', {link = 'LineNr'})
-      vim.api.nvim_set_hl(0 , 'StatusLineNC', {link = 'LineNr'})
-    end
+      vim.api.nvim_set_hl(0, 'StatusLine', { link = 'LineNr' })
+      vim.api.nvim_set_hl(0, 'StatusLineNC', { link = 'LineNr' })
+    end,
   })
   vim.opt.laststatus = 0
-  vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
+  vim.opt.statusline = string.rep('─', vim.api.nvim_win_get_width(0))
 
   local palette = require('colors').palette
 
   -- clear bg
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight Normal ctermbg=none guibg=none'
+    command = 'highlight Normal ctermbg=none guibg=none',
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight NonText ctermbg=none guibg=none'
+    command = 'highlight NonText ctermbg=none guibg=none',
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight LineNr ctermbg=none guibg=none'
+    command = 'highlight LineNr ctermbg=none guibg=none',
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight Folded ctermbg=none guibg=none'
+    command = 'highlight Folded ctermbg=none guibg=none',
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = 'highlight EndOfBuffer ctermbg=none guibg=none'
+    command = 'highlight EndOfBuffer ctermbg=none guibg=none',
   })
   -- floating
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = string.format('highlight NormalFloat guibg=%s', palette.mantle)
+    command = string.format('highlight NormalFloat guibg=%s', palette.mantle),
   })
   vim.api.nvim_create_autocmd('Colorscheme', {
     pattern = '*',
-    command = string.format('highlight FloatBorder guibg=%s blend=20', palette.mantle)
+    command = string.format('highlight FloatBorder guibg=%s blend=20', palette.mantle),
   })
   vim.opt.termguicolors = true
   vim.opt.winblend = 20

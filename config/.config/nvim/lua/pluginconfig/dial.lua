@@ -13,26 +13,42 @@ local function get_switch_group()
 end
 
 local actions = {
-  inc_normal = function() return require('dial.map').inc_normal() end,
-  dec_normal = function() return require('dial.map').dec_normal() end,
-  inc_visual = function() return require('dial.map').inc_visual() end,
-  dec_visual = function() return require('dial.map').dec_visual() end,
-  inc_gvisual = function() return require('dial.map').inc_gvisual() end,
-  dec_gvisual = function() return require('dial.map').dec_gvisual() end,
-  inc_custom = function() return require('dial.map').inc_normal(get_switch_group()) end,
-  dec_custom = function() return require('dial.map').dec_normal(get_switch_group()) end,
+  inc_normal = function()
+    return require('dial.map').inc_normal()
+  end,
+  dec_normal = function()
+    return require('dial.map').dec_normal()
+  end,
+  inc_visual = function()
+    return require('dial.map').inc_visual()
+  end,
+  dec_visual = function()
+    return require('dial.map').dec_visual()
+  end,
+  inc_gvisual = function()
+    return require('dial.map').inc_gvisual()
+  end,
+  dec_gvisual = function()
+    return require('dial.map').dec_gvisual()
+  end,
+  inc_custom = function()
+    return require('dial.map').inc_normal(get_switch_group())
+  end,
+  dec_custom = function()
+    return require('dial.map').dec_normal(get_switch_group())
+  end,
 }
 
 M.keys = require('utils').lazy_keymap({
   {
-    { 'n', '<C-a>',     actions.inc_normal,  desc = 'Increment' },
-    { 'n', '<C-x>',     actions.dec_normal,  desc = 'Decrement' },
-    { 'v', '<C-a>',     actions.inc_visual,  desc = 'Increment' },
-    { 'v', '<C-x>',     actions.dec_visual,  desc = 'Decrement' },
-    { 'v', 'g<C-a>',    actions.inc_gvisual, desc = 'Increment' },
-    { 'v', 'g<C-x>',    actions.dec_gvisual, desc = 'Decrement' },
-    { 'n', '<leader>a', actions.inc_custom,  desc = 'Switch prev' },
-    { 'n', '<leader>x', actions.dec_custom,  desc = 'Switch next' },
+    { 'n', '<C-a>', actions.inc_normal, desc = 'Increment' },
+    { 'n', '<C-x>', actions.dec_normal, desc = 'Decrement' },
+    { 'v', '<C-a>', actions.inc_visual, desc = 'Increment' },
+    { 'v', '<C-x>', actions.dec_visual, desc = 'Decrement' },
+    { 'v', 'g<C-a>', actions.inc_gvisual, desc = 'Increment' },
+    { 'v', 'g<C-x>', actions.dec_gvisual, desc = 'Decrement' },
+    { 'n', '<leader>a', actions.inc_custom, desc = 'Switch prev' },
+    { 'n', '<leader>x', actions.dec_custom, desc = 'Switch next' },
   },
   desc_prefix = 'Edit',
   common = { expr = true, noremap = true },

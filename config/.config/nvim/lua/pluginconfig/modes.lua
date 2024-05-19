@@ -15,7 +15,7 @@ function M.setup()
       delete = 0.4,
       insert = 0.4,
       visual = 0.4,
-    }
+    },
   })
 end
 

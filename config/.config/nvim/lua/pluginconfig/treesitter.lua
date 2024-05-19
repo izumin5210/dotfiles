@@ -63,6 +63,7 @@ function M.setup()
       'make',
       'markdown',
       'markdown_inline', -- required by lspsaga.nvim
+      'prisma',
       'proto',
       'python',
       'regex',

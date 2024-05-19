@@ -298,6 +298,7 @@ function M.setup()
       'eslint',
       'tsserver',
       'volar',
+      'prismals',
       -- CSS
       'cssls',
       'tailwindcss',

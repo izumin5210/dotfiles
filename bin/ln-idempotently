@@ -5,8 +5,8 @@ set -euo pipefail
 cd $(dirname $0)/..
 
 if [ "$#" -ne 2 ]; then
-	echo "Usage: $0 target_path link_path"
-	exit 1
+  echo "Usage: $0 target_path link_path"
+  exit 1
 fi
 
 target_path=$(realpath "$1")
@@ -14,22 +14,22 @@ link_path="$2"
 
 # ターゲットパスが存在するかを検証します。
 if [ ! -e "${target_path}" ]; then
-	echo "Error: Target path '${target_path}' does not exist."
-	exit 1
+  echo "Error: Target path '${target_path}' does not exist."
+  exit 1
 fi
 
 if [ -L "${link_path}" ]; then
-	if [ "$(readlink "${link_path}")" = "${target_path}" ]; then
-		exit 0
-	fi
+  if [ "$(readlink "${link_path}")" = "${target_path}" ]; then
+    exit 0
+  fi
 
-	echo "Error: A different symbolic link already exists at '${link_path}'."
-	exit 1
+  echo "Error: A different symbolic link already exists at '${link_path}'."
+  exit 1
 fi
 
 if [ -e "${link_path}" ]; then
-	echo "Error: A different file or link already exists at '${link_path}'."
-	exit 1
+  echo "Error: A different file or link already exists at '${link_path}'."
+  exit 1
 fi
 
 ln -s "${target_path}" "${link_path}"

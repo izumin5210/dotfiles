@@ -195,12 +195,34 @@ function M.setup()
     local show_diagnostics = function()
       require('telescope.builtin').diagnostics({ bufnr = 0 })
     end
+    local goto_prev_diagnostic = function()
+      require('lspsaga.diagnostic'):goto_prev()
+    end
+    local goto_next_diagnostic = function()
+      require('lspsaga.diagnostic'):goto_next()
+    end
+    local goto_prev_error = function()
+      require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.ERROR })
+    end
+    local goto_next_error = function()
+      require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.ERROR })
+    end
+    local goto_prev_warn = function()
+      require('lspsaga.diagnostic'):goto_prev({ severity = vim.diagnostic.severity.WARN })
+    end
+    local goto_next_warn = function()
+      require('lspsaga.diagnostic'):goto_next({ severity = vim.diagnostic.severity.WARN })
+    end
 
     local keys = {
       -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
       { 'n',          '<space>e',  '<cmd>Lspsaga show_line_diagnostics<CR>', desc = 'Show Line Diagnostics' },
-      { 'n',          '[d',        '<cmd>Lspsaga diagnostic_jump_prev<CR>',  desc = 'Go to prev Diagnostic' },
-      { 'n',          ']d',        '<cmd>Lspsaga diagnostic_jump_next<CR>',  desc = 'Go to next Diagnostic' },
+      { 'n',          '[d',        goto_prev_diagnostic,                     desc = 'Go to prev Diagnostic' },
+      { 'n',          ']d',        goto_next_diagnostic,                     desc = 'Go to next Diagnostic' },
+      { 'n',          '[e',        goto_prev_error,                          desc = 'Go to prev Error' },
+      { 'n',          ']e',        goto_next_error,                          desc = 'Go to next Error' },
+      { 'n',          '[w',        goto_prev_warn,                           desc = 'Go to prev Diagnostic(warn)' },
+      { 'n',          ']w',        goto_next_warn,                           desc = 'Go to next Diagnostic(warn)' },
       { 'n',          '<space>q',  show_diagnostics,                         desc = 'Show Diagnostics in Document' },
       -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
       { 'n',          'gD',        vim.lsp.buf.declaration,                  desc = 'Go to Declarations' },

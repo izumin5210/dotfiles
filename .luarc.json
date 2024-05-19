@@ -1,31 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
   "diagnostics": {
-    "globals": [
-      "vim"
-    ]
+    "globals": ["vim"]
   },
   "format": {
-    "defaultConfig": {
-      "indent_style":"space",
-      "indent_size":"2",
-      "quote_style": "single",
-      "call_arg_parentheses": "keep",
-      "continuation_indent_size": "4",
-      "local_assign_continuation_align_to_first_expression": "true",
-      "align_call_args": "false",
-      "align_function_define_params": "true",
-      "keep_one_space_between_table_and_bracket": "true",
-      "align_table_field_to_first_field": "true",
-      "keep_one_space_between_namedef_and_attribute": "true",
-      "max_continuous_line_distance": "1",
-      "continuous_assign_statement_align_to_equal_sign": "true",
-      "continuous_assign_table_field_align_to_equal_sign": "true",
-      "label_no_indent": "true",
-      "do_statement_no_indent": "true",
-      "if_condition_no_continuation_indent": "true",
-      "table_append_expression_no_space": "false",
-      "if_condition_align_with_each_other": "true"
-    }
+    "enable": false
   }
 }

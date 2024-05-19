@@ -116,14 +116,12 @@ function M.setup_mason_null_ls()
     automatic_installation = false,
     handlers = {
       prettierd = function(source_name, methods)
-        local null_ls = require('null-ls')
-        null_ls.register(
-          null_ls.builtins.formatting.prettierd.with({
-            condition = function(utils)
-              return not utils.root_has_file({ 'biome.json', 'biome.jsonc' })
-            end,
-          })
-        )
+        local null_ls = require("null-ls")
+        null_ls.register(null_ls.builtins.formatting.prettierd.with({
+          condition = function(utils)
+            return not utils.root_has_file({ "biome.json", "biome.jsonc" })
+          end,
+        }))
       end,
       shfmt = function(source_name, methods)
         local null_ls = require("null-ls")
@@ -210,16 +208,16 @@ function M.setup()
       { "n", "]w", get_diagnostic_goto("next", "WARN"), desc = "Go to next Diagnostic(warn)" },
       { "n", "<space>q", show_diagnostics, desc = "Show Diagnostics in Document" },
       -- see buffer lcoal mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
-      { 'n',          'gD',        vim.lsp.buf.declaration,                  desc = 'Go to Declarations' },
-      { 'n',          'gd',        ts_builtin.lsp_definitions,               desc = 'Go to Definitions' },
-      { 'n',          'K',         '<cmd>Lspsaga hover_doc<CR>',             desc = 'Show Hover Card' },
-      { 'n',          'gi',        ts_builtin.lsp_implementations,           desc = 'Go to Implementations' },
-      { { 'n', 'i' }, '<C-k>',     vim.lsp.buf.signature_help,               desc = 'Show Signature Help' },
-      { 'n',          '<space>D',  ts_builtin.lsp_type_definitions,          desc = 'Go to Type Definitions' },
-      { 'n',          '<space>rn', '<cmd>Lspsaga rename ++project<CR>',      desc = 'Rename Symbol' },
-      { { 'n', 'v' }, '<space>.',  '<cmd>Lspsaga code_action<CR>',           desc = 'Code Action' },
-      { 'n',          'gr',        ts_builtin.lsp_references,                desc = 'Go to References' },
-      { 'n',          '<space>f',  format,                                   desc = 'Format Document' },
+      { "n", "gD", vim.lsp.buf.declaration, desc = "Go to Declarations" },
+      { "n", "gd", ts_builtin.lsp_definitions, desc = "Go to Definitions" },
+      { "n", "K", "<cmd>Lspsaga hover_doc<CR>", desc = "Show Hover Card" },
+      { "n", "gi", ts_builtin.lsp_implementations, desc = "Go to Implementations" },
+      { { "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, desc = "Show Signature Help" },
+      { "n", "<space>D", ts_builtin.lsp_type_definitions, desc = "Go to Type Definitions" },
+      { "n", "<space>rn", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename Symbol" },
+      { { "n", "v" }, "<space>.", "<cmd>Lspsaga code_action<CR>", desc = "Code Action" },
+      { "n", "gr", ts_builtin.lsp_references, desc = "Go to References" },
+      { "n", "<space>f", format, desc = "Format Document" },
       -- custom mappings
       { "n", "gs", ts_builtin.lsp_document_symbols, desc = "Go to Symbols in Document" },
       { "n", "gS", ts_builtin.lsp_dynamic_workspace_symbols, desc = "Search Symbols in Workspace" },

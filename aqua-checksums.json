@@ -41,6 +41,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/mvdan/sh/v3.8.0/shfmt_v3.8.0_darwin_amd64",
+      "checksum": "C0218B47A0301BB006F49FAD85D2C08DE23DF303472834FAF5639D04121320F8",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mvdan/sh/v3.8.0/shfmt_v3.8.0_darwin_arm64",
+      "checksum": "1481240D2A90D4F0B530688D76D4F9117D17A756B6027CFA42B96F0707317F83",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mvdan/sh/v3.8.0/shfmt_v3.8.0_linux_amd64",
+      "checksum": "27B3C6F9D9592FC5B4856C341D1FF2C88856709B9E76469313642A1D7B558FE0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mvdan/sh/v3.8.0/shfmt_v3.8.0_linux_arm64",
+      "checksum": "27E1F69B0D57C584BCBF5C882B4C4F78FFCF945D0EFEF45C1FBFC6692213C7C3",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/mvdan/sh/v3.8.0/shfmt_v3.8.0_windows_amd64.exe",
+      "checksum": "91230A6D2D4DBB52E9C0BB134ACBA526F7880BFD3DFD1FFDDE66E9F393D7A646",
+      "algorithm": "sha256"
+    },
+    {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.175.0/registry.yaml",
       "checksum": "35BFF47D120F1158CF4CDCD37595367BFB7FE09F81B98C0DE2FB64EF217B823EAF28F14905A7513EDA148175A153D9F090F8AA64053E9DCA88E4CCF54268B781",
       "algorithm": "sha512"

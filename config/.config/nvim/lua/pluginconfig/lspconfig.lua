@@ -224,10 +224,12 @@ function M.setup()
     }
 
     if vim.lsp.inlay_hint then
-      table.insert(keys, { 'n', '<leader>uh', function() vim.lsp.inlay_hint(bufnr, nil) end, desc = 'Toggle Inlay Hints' })
+      table.insert(keys, { 'n', '<leader>uh',
+        function() vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = bufnr }), { bufnr = bufnr }) end,
+        desc = 'Toggle Inlay Hints' })
 
       -- enable inlay hints by default
-      vim.lsp.inlay_hint(bufnr, true)
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
     end
 
     for _, km in pairs(keys) do

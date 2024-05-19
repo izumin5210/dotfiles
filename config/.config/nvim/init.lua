@@ -447,7 +447,7 @@ require('lazy').setup({
     end
   },
   {
-    "karb94/neoscroll.nvim",
+    "karb94/neoscroll.nvim", -- To make it easier to visually see how much you have scrolled
     config = function ()
       require('neoscroll').setup({})
       local t = {}

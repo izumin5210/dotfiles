@@ -106,16 +106,12 @@ end
 function M.setup_mason_null_ls()
   require("mason-null-ls").setup({
     ensure_installed = {
-      -- JavaScript
-      "prettierd",
-      -- Protocol Buffers
-      "buf",
-      -- Dockerfile
-      "hadolint",
-      -- GitHub Actions
-      "actionlint",
-      -- ShellScript
-      "shfmt",
+      "prettierd", -- JavaScript
+      "buf", -- Protocol Buffers
+      "hadolint", -- Dockerfile
+      "actionlint", -- GitHub Actions
+      "shfmt", -- ShellScript
+      "stylua", -- Lua
     },
     automatic_installation = false,
     handlers = {

@@ -313,8 +313,7 @@ require('lazy').setup({
   },
   {
     'stevearc/aerial.nvim',
-    -- FIXME: tree-sitter throws in javascript file after aerial.nvim v1.5.0
-    version = 'v1.4.0',
+    version = '*',
     cond = not vim.g.vscode,
     lazy = true,
     config = function()
@@ -364,6 +363,7 @@ require('lazy').setup({
   {
     'lewis6991/gitsigns.nvim',
     cond = not vim.g.vscode,
+    version = '*',
     event = { 'BufReadPost', 'BufAdd', 'BufNewFile' },
     init = function()
       vim.api.nvim_create_autocmd('Colorscheme', {

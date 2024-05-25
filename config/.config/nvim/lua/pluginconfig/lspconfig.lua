@@ -76,8 +76,6 @@ function M.setup_null_ls()
     sources = {
       -- not supported by mason
       null_ls.builtins.formatting.nixfmt,
-      -- install manually because depends on python
-      null_ls.builtins.diagnostics.semgrep,
     },
     on_attach = function(client, bufnr)
       if client.supports_method("textDocument/formatting") then

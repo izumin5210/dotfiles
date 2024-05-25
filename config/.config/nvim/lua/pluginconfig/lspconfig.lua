@@ -97,10 +97,6 @@ function M.setup_null_ls()
   })
 end
 
-function M.setup_mason()
-  require("mason").setup()
-end
-
 function M.setup_mason_null_ls()
   require("mason-null-ls").setup({
     ensure_installed = {

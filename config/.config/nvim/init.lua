@@ -490,6 +490,7 @@ require("lazy").setup({
   {
     "folke/flash.nvim",
     version = "*",
+    event = "VeryLazy",
     ---@type Flash.Config
     opts = {},
     -- stylua: ignore
@@ -499,12 +500,6 @@ require("lazy").setup({
       { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
       { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
       { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-      { "f", mode = { "n" } },
-      { "F", mode = { "n" } },
-      { "t", mode = { "n" } },
-      { "T", mode = { "n" } },
-      { ",", mode = { "n" } },
-      { ";", mode = { "n" } },
     },
   },
   {

@@ -92,9 +92,6 @@ function M.setup()
     matchup = {
       enable = true,
     },
-    autotag = {
-      enable = true,
-    },
   })
 end
 

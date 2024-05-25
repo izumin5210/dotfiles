@@ -114,9 +114,7 @@ require("lazy").setup({
     "nvim-tree/nvim-web-devicons", -- required by lualine and nvim-tree.lua
     cond = not vim.g.vscode,
     lazy = true,
-    config = function()
-      require("nvim-web-devicons").setup()
-    end,
+    config = true,
   },
   {
     "mortepau/codicons.nvim", -- required by config function for nvim-dap
@@ -146,7 +144,7 @@ require("lazy").setup({
       {
         "williamboman/mason.nvim",
         version = "*",
-        config = require("pluginconfig.lspconfig").setup_mason,
+        config = true,
       },
       {
         "nvimtools/none-ls.nvim",
@@ -224,9 +222,11 @@ require("lazy").setup({
       {
         "windwp/nvim-ts-autotag",
         opts = {
-          enable_close = true,
-          enable_rename = true,
-          enable_close_on_slash = true,
+          opts = {
+            enable_close = true,
+            enable_rename = true,
+            enable_close_on_slash = true,
+          },
         },
       },
     },
@@ -259,7 +259,7 @@ require("lazy").setup({
       },
       {
         "theHamsta/nvim-dap-virtual-text",
-        config = require("pluginconfig.dap").setup_dap_virtual_text,
+        config = true,
       },
     },
     keys = require("pluginconfig.dap").keys,
@@ -279,36 +279,32 @@ require("lazy").setup({
     name = "catppuccin",
     cond = not vim.g.vscode,
     priority = 1000,
-    config = function()
-      require("catppuccin").setup({
-        flavour = "frappe",
-        transparent_background = true,
-        integrations = {
-          aerial = true,
-          fidget = true,
-          lsp_saga = true,
-          mason = true,
-          which_key = true,
-        },
-      })
-    end,
+    opts = {
+      flavour = "frappe",
+      transparent_background = true,
+      integrations = {
+        aerial = true,
+        fidget = true,
+        lsp_saga = true,
+        mason = true,
+        which_key = true,
+      },
+    },
   },
   {
     "j-hui/fidget.nvim",
     version = "*",
     event = "LspAttach",
     cond = not vim.g.vscode,
-    config = function()
-      require("fidget").setup({
-        notification = {
-          window = {
-            winblend = 0,
-            x_padding = 1,
-            y_padding = 1,
-          },
+    opts = {
+      notification = {
+        window = {
+          winblend = 0,
+          x_padding = 1,
+          y_padding = 1,
         },
-      })
-    end,
+      },
+    },
   },
   {
     "b0o/incline.nvim",
@@ -322,9 +318,7 @@ require("lazy").setup({
     version = "*",
     cond = not vim.g.vscode,
     lazy = true,
-    config = function()
-      require("aerial").setup()
-    end,
+    config = true,
   },
   {
     "petertriho/nvim-scrollbar",
@@ -432,22 +426,18 @@ require("lazy").setup({
     "zbirenbaum/neodim",
     cond = not vim.g.vscode,
     event = "LspAttach",
-    config = function()
-      require("neodim").setup()
-    end,
+    config = true,
   },
   {
     "brenoprata10/nvim-highlight-colors",
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    config = function()
-      require("nvim-highlight-colors").setup({
-        render = "virtual",
-        virtual_symbol = " ■",
-        enable_named_colors = false,
-        enable_tailwind = true,
-      })
-    end,
+    opts = {
+      render = "virtual",
+      virtual_symbol = " ■",
+      enable_named_colors = false,
+      enable_tailwind = true,
+    },
   },
   -- Filer
   {
@@ -479,20 +469,16 @@ require("lazy").setup({
     "chrisgrieser/nvim-early-retirement",
     cond = not vim.g.vscode,
     event = "VeryLazy",
-    config = function()
-      require("early-retirement").setup({
-        retirementAgeMins = 480, -- 8h
-      })
-    end,
+    opts = {
+      retirementAgeMins = 480, -- 8h
+    },
   },
   -- Editor
   {
     "windwp/nvim-autopairs",
     cond = not vim.g.vscode,
     event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup()
-    end,
+    config = true,
   },
   {
     "folke/flash.nvim",
@@ -540,30 +526,24 @@ require("lazy").setup({
       },
     },
     dependencies = "nvim-treesitter/nvim-treesitter",
-    config = function()
-      require("neogen").setup({
-        snippet_engine = "vsnip",
-      })
-    end,
+    opts = {
+      snippet_engine = "vsnip",
+    },
   },
   {
     "kylechui/nvim-surround",
     version = "*",
     event = { "CursorHold", "CursorHoldI" },
-    config = function()
-      require("nvim-surround").setup()
-    end,
+    config = true,
   },
   {
     "folke/todo-comments.nvim",
     cond = not vim.g.vscode,
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
-      require("todo-comments").setup({
-        highlight = { after = "" },
-      })
-    end,
+    opts = {
+      highlight = { after = "" },
+    },
   },
   {
     "RRethy/vim-illuminate",
@@ -612,9 +592,7 @@ require("lazy").setup({
       { "<Leader>go", desc = "Git: Open in GitHub" },
       { "<Leader>gp", desc = "Git: Open Pull Request Page" },
     },
-    config = function()
-      require("git").setup()
-    end,
+    config = true,
   },
   {
     "monaqa/dial.nvim",
@@ -742,9 +720,9 @@ require("lazy").setup({
         noremap = true,
       },
     },
-    config = function()
-      require("nvim-tmux-navigation").setup({ disable_when_zoomed = true })
-    end,
+    opts = {
+      disable_when_zoomed = true,
+    },
   },
 })
 

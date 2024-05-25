@@ -83,10 +83,6 @@ function M.setup()
   )
 end
 
-function M.setup_dap_virtual_text()
-  require("nvim-dap-virtual-text").setup()
-end
-
 function M.setup_go()
   require("dap-go").setup({
     dap_configurations = {

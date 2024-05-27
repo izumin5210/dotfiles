@@ -69,6 +69,43 @@ local lsp_filetypes = {
   graphql = { "graphql", "typescriptreact", "javascriptreact", "typescript", "javascript", "vue" },
 }
 
+---@param fname string
+---@return {node_root: string|nil, deno_root: string|nil}
+local function detect_node_or_deno_root(fname)
+  local util = require("lspconfig.util")
+  local node_root = util.root_pattern("tsconfig.json", "package.json", "jsconfig.json")(fname)
+  local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
+
+  if deno_root == nil then
+    return { node_root = node_root, deno_root = nil }
+  end
+
+  if node_root == nil then
+    return { node_root = nil, deno_root = deno_root }
+  end
+
+  if string.len(vim.fs.dirname(node_root)) > string.len(vim.fs.dirname(deno_root)) then
+    return { node_root = node_root, deno_root = nil }
+  end
+
+  return { node_root = nil, deno_root = deno_root }
+end
+
+local lsp_root_dir = {
+  ---@param fname string
+  ---@return string|nil
+  tsserver = function(fname)
+    local res = detect_node_or_deno_root(fname)
+    return res.node_root
+  end,
+  ---@param fname string
+  ---@return string|nil
+  denols = function(fname)
+    local res = detect_node_or_deno_root(fname)
+    return res.deno_root
+  end,
+}
+
 function M.setup_null_ls()
   local augroup = vim.api.nvim_create_augroup("null_ls_setup", { clear = true })
   local null_ls = require("null-ls")
@@ -305,6 +342,7 @@ function M.setup()
       "tsserver",
       "volar",
       "prismals",
+      "denols",
       -- CSS
       "cssls",
       "tailwindcss",
@@ -327,6 +365,8 @@ function M.setup()
           capabilities = require("cmp_nvim_lsp").default_capabilities(),
           settings = lsp_settings[server_name],
           filetypes = lsp_filetypes[server_name],
+          root_dir = lsp_root_dir[server_name],
+          single_file_support = server_name ~= "tsserver" and nil or false,
         })
       end,
     },

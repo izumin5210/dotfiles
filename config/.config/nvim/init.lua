@@ -265,12 +265,21 @@ require("lazy").setup({
     keys = require("pluginconfig.dap").keys,
     config = require("pluginconfig.dap").setup,
   },
-  -- Runner
   {
-    "klen/nvim-test",
+    "nvim-neotest/neotest",
+    version = "*",
     cond = not vim.g.vscode,
-    keys = require("pluginconfig.test").keys,
-    config = require("pluginconfig.test").setup,
+    dependencies = {
+      "nvim-neotest/nvim-nio",
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      -- adapters
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-jest",
+      "marilari88/neotest-vitest",
+    },
+    config = require("pluginconfig.neotest").setup,
+    keys = require("pluginconfig.neotest").keys,
   },
   -- Appearance
   {
@@ -287,6 +296,7 @@ require("lazy").setup({
         fidget = true,
         lsp_saga = true,
         mason = true,
+        neotest = true,
         which_key = true,
       },
     },

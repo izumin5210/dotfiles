@@ -43,6 +43,7 @@
 
     # javascript
     pkgs.fnm
+    pkgs.deno
 
     # other langs
     pkgs.php

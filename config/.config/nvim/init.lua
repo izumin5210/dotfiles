@@ -242,6 +242,11 @@ require("lazy").setup({
     version = "*",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      {
+        "prochri/telescope-all-recent.nvim",
+        dependencies = { "kkharji/sqlite.lua" },
+        opts = {},
+      },
       "otavioschwanck/telescope-alternate.nvim",
       "stevearc/aerial.nvim",
       "nvim-telescope/telescope-dap.nvim",

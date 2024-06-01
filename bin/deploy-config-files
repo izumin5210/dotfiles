@@ -50,3 +50,6 @@ mkdir -p ~/.config
 
 # skhd
 ./bin/ln-idempotently ./config/.config/skhd ~/.config/skhd
+
+# hammerspoon
+./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon

@@ -140,6 +140,10 @@ require("lazy").setup({
       {
         "williamboman/mason-lspconfig.nvim",
         version = "*",
+        dependencies = {
+          { "folke/neoconf.nvim", opts = { local_settings = ".nvim/neoconf.json" } },
+          { "folke/neodev.nvim", opts = {} },
+        },
       },
       {
         "williamboman/mason.nvim",

@@ -108,6 +108,7 @@
     pkgs.gnused
 
     # only darwin
+    pkgs.blueutil
     pkgs.mas
     pkgs.reattach-to-user-namespace
     pkgs.skhd

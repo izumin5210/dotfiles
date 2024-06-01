@@ -34,7 +34,7 @@ jobs:
         include:
           - name: lua
             cmd: |
-              stylua --check -g '*.lua' -- config/.config
+              stylua --check -g '*.lua' -- config/{.config,.hammerspoon}
           - name: sh
             cmd: |
               shfmt -i 2 -d bin config/{.bin,.config/zsh} install

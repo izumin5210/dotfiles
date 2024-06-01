@@ -247,6 +247,7 @@ require("lazy").setup({
         dependencies = { "kkharji/sqlite.lua" },
         opts = {},
       },
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       "otavioschwanck/telescope-alternate.nvim",
       "stevearc/aerial.nvim",
       "nvim-telescope/telescope-dap.nvim",

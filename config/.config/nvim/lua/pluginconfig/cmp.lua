@@ -32,11 +32,10 @@ function M.setup_lspkind()
 end
 
 function M.init()
-  local augroup = vim.api.nvim_create_augroup("cmp_init", { clear = true })
   local palette = require("colors").palette
 
   -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
-  local tbl = {
+  require("utils").force_set_highlights("cmp_hl", {
     CmpItemAbbrDeprecated = { fg = palette.overlay0, bg = "NONE", strikethrough = true },
     CmpItemAbbrMatch = { fg = palette.blue, bg = "NONE", bold = true },
     CmpItemAbbrMatchFuzzy = { fg = palette.blue, bg = "NONE", bold = true },
@@ -76,15 +75,7 @@ function M.init()
     CmpItemKindTypeParameter = { fg = palette.text, bg = palette.teal },
 
     CmpItemKindCopilot = { fg = palette.text, bg = palette.lavender },
-  }
-
-  for key, colors in pairs(tbl) do
-    vim.api.nvim_create_autocmd("Colorscheme", {
-      group = augroup,
-      pattern = "*",
-      command = "highlight " .. key .. " guifg=" .. colors["fg"] .. " guibg=" .. colors["bg"],
-    })
-  end
+  })
 end
 
 function M.setup()

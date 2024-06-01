@@ -165,12 +165,8 @@ function M.setup_mason_null_ls()
 end
 
 function M.init_lsp_signature()
-  local augroup = vim.api.nvim_create_augroup("lsp_signature_init", { clear = true })
-
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    group = augroup,
-    pattern = "*",
-    command = "highlight link LspSignatureActiveParameter Todo",
+  require("utils").force_set_highlights("lsp_signature_init_hl", {
+    LspSignatureActiveParameter = { link = "Todo" },
   })
 end
 
@@ -196,9 +192,9 @@ function M.init()
     local hl = "DiagnosticSign" .. type
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight link LspInlayHint DiagnosticHint",
+
+  require("utils").force_set_highlights("lspconfig_hl", {
+    LspInlayHint = { link = "DiagnosticHint" },
   })
 end
 

@@ -361,13 +361,9 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "BufReadPost",
     init = function()
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight link HlSearchLens DiagnosticHint",
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight link HlSearchLensNear DiagnosticHint",
+      require("utils").force_set_highlights("nvim-hlslens_hl", {
+        HlSearchLens = { link = "DiagnosticHint" },
+        HlSearchLensNear = { link = "DiagnosticHint" },
       })
     end,
     config = function()
@@ -380,21 +376,11 @@ require("lazy").setup({
     version = "*",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight SignColumn ctermbg=none guibg=none",
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight GitGutterAdd ctermbg=none guibg=none",
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight GitGutterChange ctermbg=none guibg=none",
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight GitGutterDelete ctermbg=none guibg=none",
+      require("utils").force_set_highlights("gitsigns_hl", {
+        SignColumn = { ctermbg = "none", bg = "none" },
+        GitGutterAdd = { ctermbg = "none", bg = "none" },
+        GitGutterChange = { ctermbg = "none", bg = "none" },
+        GitGutterDelete = { ctermbg = "none", bg = "none" },
       })
     end,
     config = function()
@@ -565,17 +551,10 @@ require("lazy").setup({
     event = { "CursorMoved", "CursorMovedI" },
     init = function()
       local palette = require("colors").palette
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = string.format("highlight IlluminatedWordText ctermbg=238 guibg=%s", palette.surface1),
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = string.format("highlight IlluminatedWordRead ctermbg=238 guibg=%s", palette.surface1),
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = string.format("highlight IlluminatedWordWrite ctermbg=238 guibg=%s", palette.surface1),
+      require("utils").force_set_highlights("vim-illuminate_hl", {
+        IlluminatedWordText = { ctermbg = 238, bg = palette.surface1 },
+        IlluminatedWordRead = { ctermbg = 238, bg = palette.surface1 },
+        IlluminatedWordWrite = { ctermbg = 238, bg = palette.surface1 },
       })
     end,
     config = function()
@@ -588,9 +567,8 @@ require("lazy").setup({
     event = "VeryLazy",
     init = function()
       local palette = require("colors").palette
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = string.format("highlight ExtraWhitespace guibg=%s", palette.red),
+      require("utils").force_set_highlights("vim-illuminate_hl", {
+        ExtraWhitespace = { bg = palette.red },
       })
     end,
     config = function()
@@ -646,13 +624,9 @@ require("lazy").setup({
     dependencies = { "MunifTanjim/nui.nvim" },
     ft = "json",
     init = function()
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight link PackageInfoOutdatedVersion DiagnosticHint",
-      })
-      vim.api.nvim_create_autocmd("Colorscheme", {
-        pattern = "*",
-        command = "highlight link PackageInfoUpToDateVersion DiagnosticHint",
+      require("utils").force_set_highlights("vim-illuminate_hl", {
+        PackageInfoOutdatedVersion = { link = "DiagnosticHint" },
+        PackageInfoUpToDateVersion = { link = "DiagnosticHint" },
       })
     end,
     config = function()
@@ -744,65 +718,36 @@ require("lazy").setup({
 -- Appearance
 -----------------------------------
 if not vim.g.vscode then
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight! link DiagnosticHint LineNr",
+  local palette = require("colors").palette
+
+  require("utils").set_highlights("hl_for_non_vscode", {
+    -- clear statusline
+    StatusLine = { link = "LineNr" },
+    StatusLineNc = { link = "LineNr" },
+    -- clear bg
+    Normal = { ctermbg = "none", bg = "none" },
+    NonText = { ctermbg = "none", bg = "none" },
+    LineNr = { ctermbg = "none", bg = "none" },
+    Folded = { ctermbg = "none", bg = "none" },
+    EndOfBuffer = { ctermbg = "none", bg = "none" },
+    -- floating
+    NormalFloat = { bg = palette.mantle },
+    FloatBorder = { bg = palette.mantle, blend = 20 },
   })
 
-  -- reset semantic highlight
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    callback = function()
-      local types = { "variable", "parameter", "property", "function" }
-      for _, typ in pairs(types) do
-        vim.api.nvim_set_hl(0, "@lsp.type." .. typ, {})
-      end
-    end,
+  require("utils").force_set_highlights("force_hl_for_non_vscode", {
+    DiagnosticHint = { link = "LineNr" },
+    -- reset semantic highlight
+    ["@lsp.type.variable"] = {},
+    ["@lsp.type.parameter"] = {},
+    ["@lsp.type.property"] = {},
+    ["@lsp.type.function"] = {},
   })
 
   -- clear statusline
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    callback = function()
-      vim.api.nvim_set_hl(0, "StatusLine", { link = "LineNr" })
-      vim.api.nvim_set_hl(0, "StatusLineNC", { link = "LineNr" })
-    end,
-  })
   vim.opt.laststatus = 0
   vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 
-  local palette = require("colors").palette
-
-  -- clear bg
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight Normal ctermbg=none guibg=none",
-  })
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight NonText ctermbg=none guibg=none",
-  })
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight LineNr ctermbg=none guibg=none",
-  })
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight Folded ctermbg=none guibg=none",
-  })
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = "highlight EndOfBuffer ctermbg=none guibg=none",
-  })
-  -- floating
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = string.format("highlight NormalFloat guibg=%s", palette.mantle),
-  })
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    pattern = "*",
-    command = string.format("highlight FloatBorder guibg=%s blend=20", palette.mantle),
-  })
   vim.opt.termguicolors = true
   vim.opt.winblend = 20
   vim.opt.pumblend = 20

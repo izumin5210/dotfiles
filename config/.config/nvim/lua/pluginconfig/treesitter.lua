@@ -7,13 +7,10 @@ function M.setup_treesitter_context()
 end
 
 function M.init_treesitter_context()
-  local augroup = vim.api.nvim_create_augroup("treesitter-context", { clear = true })
   local palette = require("colors").palette
 
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    group = augroup,
-    pattern = "*",
-    command = string.format("highlight TreesitterContext guibg=%s blend=10", palette.surface1),
+  require("utils").force_set_highlights("treesitter-context_hl", {
+    TreesitterContext = { bg = palette.surface1, blend = 10 },
   })
 end
 
@@ -24,12 +21,8 @@ function M.setup_context_vt()
 end
 
 function M.init_context_vt()
-  local augroup = vim.api.nvim_create_augroup("context_vt_init", { clear = true })
-
-  vim.api.nvim_create_autocmd("Colorscheme", {
-    group = augroup,
-    pattern = "*",
-    command = "highlight link ContextVt DiagnosticHint",
+  require("utils").force_set_highlights("context_vt_hl", {
+    ContextVt = { link = "DiagnosticHint" },
   })
 end
 

@@ -213,7 +213,6 @@ require("lazy").setup({
         config = require("pluginconfig.treesitter").setup_treesitter_context,
       },
       "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
-      "JoosepAlviste/nvim-ts-context-commentstring",
       {
         "haringsrob/nvim_context_vt",
         init = require("pluginconfig.treesitter").init_context_vt,
@@ -496,20 +495,23 @@ require("lazy").setup({
     },
   },
   {
+    "folke/ts-comments.nvim",
+    version = "*",
+    opts = {},
+    event = "VeryLazy",
+  },
+  {
     "numToStr/Comment.nvim",
     cond = not vim.g.vscode,
     keys = { { "<Leader>/", mode = { "n", "v" } } },
-    config = function()
-      require("Comment").setup({
-        toggler = {
-          line = "<Leader>/",
-        },
-        opleader = {
-          line = "<Leader>/",
-        },
-        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
-      })
-    end,
+    opts = {
+      toggler = {
+        line = "<Leader>/",
+      },
+      opleader = {
+        line = "<Leader>/",
+      },
+    },
   },
   {
     "danymat/neogen",

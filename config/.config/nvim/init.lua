@@ -644,16 +644,34 @@ require("lazy").setup({
   },
   -- misc
   {
-    "rmagatti/auto-session",
-    cond = not vim.g.vscode,
+    "nvimdev/dashboard-nvim",
+    event = "VimEnter",
     config = function()
-      vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
-      require("auto-session").setup({
-        session_lens = {
-          load_on_setup = false,
+      require("dashboard").setup({
+        theme = "hyper",
+        config = {
+          -- stylua: ignore
+          shortcut = {
+            { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+          },
+          project = { enable = false },
+          mru = { cwd_only = true },
+          header = {},
+          -- https://www.lazyvim.org/plugins/ui#dashboard-nvim
+          footer = function()
+            local stats = require("lazy").stats()
+            local ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+            return { "⚡ Neovim loaded " .. stats.loaded .. "/" .. stats.count .. " plugins in " .. ms .. "ms" }
+          end,
         },
       })
     end,
+    dependencies = { { "nvim-tree/nvim-web-devicons" } },
+  },
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {},
   },
   {
     "alexghergh/nvim-tmux-navigation",

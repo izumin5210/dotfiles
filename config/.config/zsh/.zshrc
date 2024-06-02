@@ -68,6 +68,14 @@ compinit -C -d $XDG_CACHE_HOME/zsh/zcompdump-$ZSH_VERSION
 
 # Load plugins
 # ================================================================
+# nix
+if [ -e /etc/profile.d/nix.sh ]; then
+  . /etc/profile.d/nix.sh
+fi
+if [ -e "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
+  . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
+fi
+
 # aqua
 if [ "${CODESPACES:-"false"}" = "true" ]; then
   # install aqua if not exists on Codespace

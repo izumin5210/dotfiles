@@ -411,7 +411,7 @@ require("lazy").setup({
     "shellRaining/hlchunk.nvim",
     cond = not vim.g.vscode,
     version = "*",
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
       local palette = require("colors").palette
       require("hlchunk").setup({

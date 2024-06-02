@@ -75,6 +75,7 @@
     pkgs.postgresql_16
     pkgs.mysql80
     pkgs.redis
+    pkgs.sqlite
 
     # CLIs for cloud services
     pkgs.auth0-cli
@@ -152,7 +153,8 @@
   #  /etc/profiles/per-user/masayuki.izumi/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
-    # EDITOR = "emacs";
+    # https://github.com/kkharji/sqlite.lua/blob/d0ffd70/lua/sqlite/defs.lua#L18
+    LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
   };
 
   # Let Home Manager install and manage itself.

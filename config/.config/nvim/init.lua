@@ -416,6 +416,7 @@ require("lazy").setup({
       local palette = require("colors").palette
       require("hlchunk").setup({
         chunk = {
+          enable = true,
           style = {
             { fg = palette.sapphire },
             { fg = palette.red },

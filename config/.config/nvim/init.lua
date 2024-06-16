@@ -140,10 +140,6 @@ require("lazy").setup({
       {
         "williamboman/mason-lspconfig.nvim",
         version = "*",
-        dependencies = {
-          { "folke/neoconf.nvim", opts = { local_settings = ".nvim/neoconf.json" } },
-          { "folke/neodev.nvim", opts = {} },
-        },
       },
       {
         "williamboman/mason.nvim",
@@ -744,6 +740,19 @@ require("lazy").setup({
     },
     opts = {
       disable_when_zoomed = true,
+    },
+  },
+  {
+    "folke/lazydev.nvim",
+    version = "*",
+    ft = "lua",
+    dependencies = {
+      { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings
+    },
+    opts = {
+      library = {
+        { path = "luvit-meta/library", words = { "vim%.uv" } },
+      },
     },
   },
 })

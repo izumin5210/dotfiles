@@ -576,7 +576,7 @@ require("lazy").setup({
     event = "VeryLazy",
     init = function()
       local palette = require("colors").palette
-      require("utils").force_set_highlights("vim-illuminate_hl", {
+      require("utils").force_set_highlights("vim-better-whitespace_hl", {
         ExtraWhitespace = { bg = palette.red },
       })
     end,
@@ -643,9 +643,9 @@ require("lazy").setup({
     "vuki656/package-info.nvim",
     cond = not vim.g.vscode,
     dependencies = { "MunifTanjim/nui.nvim" },
-    ft = "json",
+    event = { "BufEnter package.json" },
     init = function()
-      require("utils").force_set_highlights("vim-illuminate_hl", {
+      require("utils").force_set_highlights("package-info_hl", {
         PackageInfoOutdatedVersion = { link = "DiagnosticHint" },
         PackageInfoUpToDateVersion = { link = "DiagnosticHint" },
       })

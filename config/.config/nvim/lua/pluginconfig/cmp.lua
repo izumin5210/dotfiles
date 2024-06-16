@@ -104,6 +104,9 @@ function M.setup()
       { name = "path" },
     }, {
       { name = "buffer" },
+    }, {
+      name = "lazydev",
+      group_index = 0,
     }),
     -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
     window = {

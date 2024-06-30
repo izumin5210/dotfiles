@@ -663,6 +663,7 @@ require("lazy").setup({
   {
     "nvimdev/dashboard-nvim",
     event = "VimEnter",
+    cond = not vim.g.vscode,
     config = function()
       require("dashboard").setup({
         theme = "hyper",
@@ -682,6 +683,7 @@ require("lazy").setup({
   },
   {
     "folke/persistence.nvim",
+    cond = not vim.g.vscode,
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {},
   },
@@ -745,6 +747,7 @@ require("lazy").setup({
   {
     "folke/lazydev.nvim",
     version = "*",
+    cond = not vim.g.vscode,
     ft = "lua",
     dependencies = {
       { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings

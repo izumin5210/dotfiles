@@ -18,5 +18,5 @@ packages:
 - name: BurntSushi/ripgrep@14.1.0
 - name: sharkdp/bat@v0.24.0
 - name: starship/starship@v1.19.0
-- name: eza-community/eza@v0.18.17
+- name: eza-community/eza@v0.18.19
 - name: neovim/neovim@v0.10.0

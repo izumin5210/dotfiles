@@ -82,6 +82,7 @@
     pkgs.awscli2
     pkgs.google-cloud-sdk
     pkgs.ngrok
+    pkgs.stripe-cli
 
     # tools
     pkgs._1password

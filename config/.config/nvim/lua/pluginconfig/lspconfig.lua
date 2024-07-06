@@ -173,6 +173,18 @@ end
 function M.setup_lsp_signature()
   require("lsp_signature").setup({
     hint_enable = false,
+    handler_opts = {
+      -- create padding around the floating window
+      border = { " ", " ", " ", " ", " ", " ", " ", " " },
+    },
+  })
+end
+
+function M.init_lspsaga()
+  local palette = require("colors").palette
+  require("utils").set_highlights("lspsaga_hl", {
+    SagaNormal = { bg = palette.crust },
+    SagaBorder = { bg = palette.crust },
   })
 end
 
@@ -181,6 +193,8 @@ function M.setup_lspsaga()
     symbol_in_winbar = { enable = false },
     code_action = { show_server_name = true },
     ui = {
+      -- create padding around the floating window
+      border = { " ", " ", " ", " ", " ", " ", " ", " " },
       kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
     },
   })

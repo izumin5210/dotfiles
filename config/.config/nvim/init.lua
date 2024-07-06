@@ -417,6 +417,7 @@ require("lazy").setup({
             { fg = palette.sapphire },
             { fg = palette.red },
           },
+          delay = 0, -- disable animation
         },
         indent = { enable = true },
         line_num = { enable = false },

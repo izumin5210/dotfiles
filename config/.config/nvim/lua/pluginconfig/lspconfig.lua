@@ -164,22 +164,6 @@ function M.setup_mason_null_ls()
   })
 end
 
-function M.init_lsp_signature()
-  require("utils").force_set_highlights("lsp_signature_init_hl", {
-    LspSignatureActiveParameter = { link = "Todo" },
-  })
-end
-
-function M.setup_lsp_signature()
-  require("lsp_signature").setup({
-    hint_enable = false,
-    handler_opts = {
-      -- create padding around the floating window
-      border = { " ", " ", " ", " ", " ", " ", " ", " " },
-    },
-  })
-end
-
 function M.init_lspsaga()
   local palette = require("colors").palette
   require("utils").set_highlights("lspsaga_hl", {

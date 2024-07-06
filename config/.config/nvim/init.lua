@@ -165,11 +165,6 @@ require("lazy").setup({
         config = require("pluginconfig.lspconfig").setup_mason_null_ls,
       },
       {
-        "ray-x/lsp_signature.nvim",
-        init = require("pluginconfig.lspconfig").init_lsp_signature,
-        config = require("pluginconfig.lspconfig").setup_lsp_signature,
-      },
-      {
         "nvimdev/lspsaga.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = { "LspAttach" },
@@ -386,7 +381,7 @@ require("lazy").setup({
           ["vim.lsp.util.stylize_markdown"] = true,
           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
         },
-        signature = { enabled = false },
+        signature = { enabled = true },
         progress = { enabled = false }, -- use fidget.nvim
         hover = { enabled = false }, -- use lspsaga
       },

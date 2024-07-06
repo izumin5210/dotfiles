@@ -510,9 +510,14 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
-    config = function()
+    opts = function()
       local palette = require("colors").palette
-      require("hlchunk").setup({
+      local exclude_filetypes = {
+        ["rip-substitute"] = true,
+        ["fidget"] = true,
+        ["TelescopeResults"] = true,
+      }
+      return {
         chunk = {
           enable = true,
           style = {
@@ -520,11 +525,12 @@ require("lazy").setup({
             { fg = palette.red },
           },
           delay = 0, -- disable animation
+          exclude_filetypes = exclude_filetypes,
         },
-        indent = { enable = true },
+        indent = { enable = true, exclude_filetypes = exclude_filetypes },
         line_num = { enable = false },
         blank = { enable = false },
-      })
+      }
     end,
   },
   {

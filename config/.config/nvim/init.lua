@@ -654,6 +654,29 @@ require("lazy").setup({
     },
   },
   {
+    "chrisgrieser/nvim-rip-substitute",
+    cond = not vim.g.vscode,
+    cmd = "RipSubstitute",
+    keys = {
+      {
+        "<leader>fs",
+        function()
+          require("rip-substitute").sub()
+        end,
+        mode = { "n", "x" },
+        desc = " rip substitute",
+      },
+    },
+    opts = {
+      popupWin = {
+        border = { " ", " ", " ", " ", " ", " ", " ", " " },
+      },
+      prefill = {
+        normal = false,
+      },
+    },
+  },
+  {
     "RRethy/vim-illuminate",
     cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },

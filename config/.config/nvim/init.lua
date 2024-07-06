@@ -303,28 +303,12 @@ require("lazy").setup({
       transparent_background = true,
       integrations = {
         aerial = true,
-        fidget = true,
         lsp_saga = true,
         mason = true,
         neotest = true,
         noice = true,
         notify = true,
         which_key = true,
-      },
-    },
-  },
-  {
-    "j-hui/fidget.nvim",
-    version = "*",
-    event = "LspAttach",
-    cond = not vim.g.vscode,
-    opts = {
-      notification = {
-        window = {
-          winblend = 0,
-          x_padding = 1,
-          y_padding = 1,
-        },
       },
     },
   },
@@ -381,7 +365,7 @@ require("lazy").setup({
           ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
         },
         signature = { enabled = true },
-        progress = { enabled = false }, -- use fidget.nvim
+        progress = { enabled = true },
         hover = { enabled = false }, -- use lspsaga
       },
       -- you can enable a preset for easier configuration
@@ -511,7 +495,6 @@ require("lazy").setup({
       local palette = require("colors").palette
       local exclude_filetypes = {
         ["rip-substitute"] = true,
-        ["fidget"] = true,
         ["TelescopeResults"] = true,
       }
       return {

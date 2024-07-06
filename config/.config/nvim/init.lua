@@ -399,6 +399,9 @@ require("lazy").setup({
           opts = { skip = true },
         },
       },
+      messages = {
+        view_search = false, -- use hlslens
+      },
       views = {
         cmdline_popup = {
           border = { style = "none", padding = { 1, 3 } },
@@ -461,7 +464,7 @@ require("lazy").setup({
     init = function()
       require("utils").force_set_highlights("nvim-hlslens_hl", {
         HlSearchLens = { link = "DiagnosticHint" },
-        HlSearchLensNear = { link = "DiagnosticHint" },
+        HlSearchLensNear = { link = "DiagnosticInfo" },
       })
     end,
     config = function()

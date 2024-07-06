@@ -45,21 +45,30 @@ vim.opt.splitright = true
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- disable builtin tablne
-vim.opt.showtabline = 0
-
 -- disable builtin matchit.vim and matchparen.vim
 vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 
--- hide cmdline
-vim.opt.cmdheight = 0
+-- lsp
+vim.diagnostic.config({ virtual_text = false })
+
+-----------------------------------
+-- Appearance
+-----------------------------------
+vim.opt.termguicolors = true
 
 -- sign
 vim.opt.signcolumn = "yes"
 
--- lsp
-vim.diagnostic.config({ virtual_text = false })
+-- disable builtin tabline
+vim.opt.showtabline = 0
+
+-- hide cmdline
+vim.opt.cmdheight = 0
+
+-- clear statusline
+vim.opt.laststatus = 0
+vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 
 -----------------------------------
 -- Keymaps
@@ -164,6 +173,7 @@ require("lazy").setup({
         "nvimdev/lspsaga.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = { "LspAttach" },
+        init = require("pluginconfig.lspconfig").init_lspsaga,
         config = require("pluginconfig.lspconfig").setup_lspsaga,
       },
     },
@@ -250,6 +260,7 @@ require("lazy").setup({
     },
     cmd = "Telescope",
     keys = require("pluginconfig.telescope").keys,
+    init = require("pluginconfig.telescope").init,
     config = require("pluginconfig.telescope").setup,
   },
   -- Debugger
@@ -302,6 +313,8 @@ require("lazy").setup({
         lsp_saga = true,
         mason = true,
         neotest = true,
+        noice = true,
+        notify = true,
         which_key = true,
       },
     },
@@ -327,6 +340,95 @@ require("lazy").setup({
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = require("pluginconfig.incline").setup,
+  },
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      { "MunifTanjim/nui.nvim", version = "*" },
+      {
+        "rcarriga/nvim-notify",
+        version = "*",
+        init = function()
+          local palette = require("colors").palette
+          require("utils").set_highlights("nvim-notify_hl", {
+            NotifyBackground = { bg = palette.base },
+            NotifyERRORBorder = { bg = palette.base },
+            NotifyERRORBody = { bg = palette.base },
+            NotifyWARNBorder = { bg = palette.base },
+            NotifyWARNBody = { bg = palette.base },
+            NotifyINFOBorder = { bg = palette.base },
+            NotifyINFOBody = { bg = palette.base },
+            NotifyDEBUGBorder = { bg = palette.base },
+            NotifyDEBUGBody = { bg = palette.base },
+            NotifyTRACEBorder = { bg = palette.base },
+            NotifyTRACEBody = { bg = palette.base },
+          })
+        end,
+        opts = {
+          render = "wrapped-compact",
+          stages = "static",
+          timeout = 3000,
+          max_height = function()
+            return math.floor(vim.o.lines * 0.75)
+          end,
+          max_width = function()
+            return math.floor(vim.o.columns * 0.50)
+          end,
+        },
+      },
+    },
+    opts = {
+      lsp = {
+        -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+        override = {
+          ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+          ["vim.lsp.util.stylize_markdown"] = true,
+          ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+        },
+        signature = { enabled = false },
+        progress = { enabled = false }, -- use fidget.nvim
+        hover = { enabled = false }, -- use lspsaga
+      },
+      -- you can enable a preset for easier configuration
+      presets = {
+        bottom_search = true, -- use a classic bottom cmdline for search
+        command_palette = true, -- position the cmdline and popupmenu together
+        long_message_to_split = true, -- long messages will be sent to a split
+        inc_rename = false, -- enables an input dialog for inc-rename.nvim
+        lsp_doc_border = false, -- add a border to hover docs and signature help
+      },
+      routes = {
+        {
+          filter = { event = "notify", find = "No information available" },
+          opts = { skip = true },
+        },
+      },
+      views = {
+        cmdline_popup = {
+          border = { style = "none", padding = { 1, 3 } },
+          win_options = {
+            winhighlight = { NormalFloat = "NoiceCmdlinePopupNormal", FloatBorder = "NoiceCmdlinePopupBorder" },
+          },
+        },
+        cmdline_popupmenu = {
+          border = { style = "none", padding = { 1, 3 } },
+          win_options = {
+            winhighlight = { NormalFloat = "NoiceCmdlinePopupmenuNormal", FloatBorder = "NoiceCmdlinePopupmenuBorder" },
+          },
+        },
+      },
+    },
+    init = function()
+      local palette = require("colors").palette
+
+      require("utils").set_highlights("noice_hl", {
+        NoiceCmdlinePopupNormal = { link = "NormalFloat" },
+        NoiceCmdlinePopupBorder = { link = "FloatBorder" },
+        NoiceCmdlinePopupmenuNormal = { fg = palette.text, bg = palette.mantle },
+        NoiceCmdlinePopupmenuBorder = { fg = palette.text, bg = palette.mantle },
+      })
+    end,
   },
   {
     "stevearc/aerial.nvim",
@@ -639,7 +741,7 @@ require("lazy").setup({
   {
     "vuki656/package-info.nvim",
     cond = not vim.g.vscode,
-    dependencies = { "MunifTanjim/nui.nvim" },
+    dependencies = { "MunifTanjim/nui.nvim", version = "*" },
     event = { "BufEnter package.json" },
     init = function()
       require("utils").force_set_highlights("package-info_hl", {
@@ -761,12 +863,7 @@ require("lazy").setup({
   },
 })
 
------------------------------------
--- Appearance
------------------------------------
 if not vim.g.vscode then
-  local palette = require("colors").palette
-
   require("utils").set_highlights("hl_for_non_vscode", {
     -- clear statusline
     StatusLine = { link = "LineNr" },
@@ -777,9 +874,6 @@ if not vim.g.vscode then
     LineNr = { ctermbg = "none", bg = "none" },
     Folded = { ctermbg = "none", bg = "none" },
     EndOfBuffer = { ctermbg = "none", bg = "none" },
-    -- floating
-    NormalFloat = { bg = palette.mantle },
-    FloatBorder = { bg = palette.mantle, blend = 20 },
   })
 
   require("utils").force_set_highlights("force_hl_for_non_vscode", {
@@ -791,12 +885,11 @@ if not vim.g.vscode then
     ["@lsp.type.function"] = {},
   })
 
-  -- clear statusline
-  vim.opt.laststatus = 0
-  vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
+  local palette = require("colors").palette
+  require("utils").set_highlights("catppuccin_hl", {
+    NormalFloat = { bg = palette.crust },
+    FloatBorder = { bg = palette.crust },
+  })
 
-  vim.opt.termguicolors = true
-  vim.opt.winblend = 20
-  vim.opt.pumblend = 20
   vim.cmd.colorscheme("catppuccin")
 end

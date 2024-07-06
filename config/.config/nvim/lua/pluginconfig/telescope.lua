@@ -39,20 +39,46 @@ M.keys = require("utils").lazy_keymap({
   common = { noremap = true },
 })
 
+function M.init()
+  local palette = require("colors").palette
+
+  require("utils").set_highlights("teelscope_hl", {
+    TelescopeNormal = { bg = palette.mantle },
+    TelescopeTitle = { bg = palette.mantle },
+    TelescopePromptNormal = { bg = palette.crust },
+    TelescopePromptBorder = { bg = palette.crust },
+    TelescopePromptTitle = { bg = palette.crust },
+  })
+
+  require("utils").force_set_highlights("telescope_hl_force", {
+    TelescopeBorder = { bg = palette.mantle },
+    TelescopePromptTitle = { bg = palette.crust, fg = palette.overlay0 },
+    TelescopeTitle = { bg = palette.mantle, fg = palette.overlay0 },
+    TelescopePromptPrefix = { fg = palette.sky },
+  })
+end
+
 function M.setup()
   local telescope = require("telescope")
 
   telescope.setup({
     defaults = {
-      layout_strategy = "vertical",
-      layout_config = {},
+      prompt_prefix = "   ",
+      selection_caret = "   ",
+      entry_prefix = "    ",
+      sorting_strategy = "ascending",
+      layout_strategy = "horizontal",
+      layout_config = {
+        prompt_position = "top",
+      },
       mappings = {
         i = {
           ["<esc>"] = require("telescope.actions").close,
           ["<C-u>"] = false,
         },
       },
-      winblend = 20,
+      -- create padding around the floating window
+      borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
     },
     extensions = {
       fzf = {

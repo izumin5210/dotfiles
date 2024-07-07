@@ -33,7 +33,7 @@
   "neotest-go": { "branch": "main", "commit": "92950ad7be2ca02a41abca5c6600ff6ffaf5b5d6" },
   "neotest-jest": { "branch": "main", "commit": "514fd4eae7da15fd409133086bb8e029b65ac43f" },
   "neotest-vitest": { "branch": "main", "commit": "353364aa05b94b09409cbef21b79c97c5564e2ce" },
-  "noice.nvim": { "branch": "main", "commit": "27b63bdadcdf54bf1a83631266e6bbe099f463f0" },
+  "noice.nvim": { "branch": "main", "commit": "03c6a75661e68012e30b0ed81f050358b1e2233c" },
   "none-ls.nvim": { "branch": "main", "commit": "0d1b3fa2ad0b371b94cb4b9a27ba6e5a1a915c91" },
   "nui.nvim": { "branch": "main", "commit": "a0fd35fcbb4cb479366f1dc5f20145fd718a3733" },
   "nvim-autopairs": { "branch": "master", "commit": "c15de7e7981f1111642e7e53799e1211d4606cb9" },

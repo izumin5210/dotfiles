@@ -79,6 +79,7 @@ function M.setup()
       },
       -- create padding around the floating window
       borderchars = { " ", " ", " ", " ", " ", " ", " ", " " },
+      path_display = { "truncate" },
     },
     extensions = {
       fzf = {

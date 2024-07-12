@@ -74,7 +74,16 @@ vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
 -- Keymaps
 -----------------------------------
 vim.g.mapleader = " "
+
+-- search
 vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR><Esc>", { noremap = true, desc = "Search: Clear Search Highlight" })
+-- center search results
+vim.keymap.set("n", "n", "nzz", { noremap = true, desc = "Search: Next" })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, desc = "Search: Prev" })
+vim.keymap.set("n", "*", "*zz", { noremap = true, desc = "Search: Next" })
+vim.keymap.set("n", "#", "#zz", { noremap = true, desc = "Search: Prev" })
+vim.keymap.set("n", "g*", "g*zz", { noremap = true, desc = "Search: Next" })
+vim.keymap.set("n", "g#", "g#zz", { noremap = true, desc = "Search: Prev" })
 
 -- buffers
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, desc = "Buffer: Prev" })

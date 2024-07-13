@@ -289,7 +289,7 @@ require("lazy").setup({
     version = "*",
     cond = not vim.g.vscode,
     dependencies = {
-      "nvim-neotest/nvim-nio",
+      { "nvim-neotest/nvim-nio", version = "*" },
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       -- adapters
@@ -643,6 +643,7 @@ require("lazy").setup({
   },
   {
     "folke/todo-comments.nvim",
+    version = "*",
     cond = not vim.g.vscode,
     event = "VeryLazy",
     dependencies = { "nvim-lua/plenary.nvim" },

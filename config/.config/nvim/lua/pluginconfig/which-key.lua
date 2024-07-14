@@ -1,18 +1,19 @@
 local M = {}
 
 function M.setup()
-  require("which-key").setup({
+  local wk = require("which-key")
+  wk.setup({
     plugins = {
       presets = {
         operators = false,
       },
     },
   })
-  require("which-key").register({
-    ["<leader>g"] = { name = "+Go to File, Code or GitHub" },
-    ["<leader>t"] = { name = "+Test" },
-    ["<leader>d"] = { name = "+Debug" },
-    ["<leader>c"] = { name = "+Comment" },
+  wk.add({
+    { "<leader>g", group = "+Go to File, Code or GitHub" },
+    { "<leader>t", group = "+Test" },
+    { "<leader>d", group = "+Debug" },
+    { "<leader>c", group = "+Comment" },
   })
 end
 

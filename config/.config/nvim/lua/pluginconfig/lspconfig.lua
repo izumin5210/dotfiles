@@ -158,46 +158,6 @@ local lsp_root_dir = {
   end,
 }
 
-function M.setup_null_ls()
-  local null_ls = require("null-ls")
-  null_ls.setup({
-    sources = {
-      -- not supported by mason
-      null_ls.builtins.formatting.nixfmt,
-    },
-  })
-end
-
-function M.setup_mason_null_ls()
-  require("mason-null-ls").setup({
-    ensure_installed = {
-      "prettierd", -- JavaScript
-      "buf", -- Protocol Buffers
-      "hadolint", -- Dockerfile
-      "actionlint", -- GitHub Actions
-      "shfmt", -- ShellScript
-      "stylua", -- Lua
-    },
-    automatic_installation = false,
-    handlers = {
-      prettierd = function(source_name, methods)
-        local null_ls = require("null-ls")
-        null_ls.register(null_ls.builtins.formatting.prettierd.with({
-          condition = function(utils)
-            return not utils.root_has_file({ "biome.json", "biome.jsonc" })
-          end,
-        }))
-      end,
-      shfmt = function(source_name, methods)
-        local null_ls = require("null-ls")
-        null_ls.register(null_ls.builtins.formatting.shfmt.with({
-          extra_args = { "-i", "2" },
-        }))
-      end,
-    },
-  })
-end
-
 function M.init_lspsaga()
   local palette = require("colors").palette
   require("utils").set_highlights("lspsaga_hl", {
@@ -327,6 +287,7 @@ function M.setup()
   local lspconfig = require("lspconfig")
   local mason_lspconfig = require("mason-lspconfig")
 
+  require("mason").setup()
   mason_lspconfig.setup({
     ensure_installed = {
       "bashls",
@@ -377,6 +338,41 @@ function M.setup()
   lspconfig.nixd.setup({
     on_attach = on_attach_lsp,
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
+  })
+
+  -- Setup null-ls(none-ls)
+  -- Primary Source of Truth is null-ls.
+  local null_ls = require("null-ls")
+  null_ls.setup({
+    sources = {
+      -- JavaScript
+      null_ls.builtins.formatting.prettierd.with({
+        condition = function(utils)
+          return not utils.root_has_file({ "biome.json", "biome.jsonc" })
+        end,
+      }),
+      -- Protocol Buffers
+      null_ls.builtins.diagnostics.buf,
+      null_ls.builtins.formatting.buf,
+      -- Dockerfile
+      null_ls.builtins.diagnostics.hadolint,
+      -- GitHub Actions
+      null_ls.builtins.diagnostics.actionlint,
+      -- ShellScript
+      null_ls.builtins.formatting.shfmt.with({
+        extra_args = { "-i", "2" },
+      }),
+      -- Lua
+      null_ls.builtins.formatting.stylua,
+      -- not supported by mason
+      -- Nix
+      null_ls.builtins.formatting.nixfmt,
+    },
+    debug = true,
+  })
+  require("mason-null-ls").setup({
+    ensure_installed = nil,
+    automatic_installation = true,
   })
 end
 

@@ -155,24 +155,10 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     dependencies = {
-      {
-        "williamboman/mason-lspconfig.nvim",
-        version = "*",
-      },
-      {
-        "williamboman/mason.nvim",
-        version = "*",
-        config = true,
-      },
-      {
-        "nvimtools/none-ls.nvim",
-        config = require("pluginconfig.lspconfig").setup_null_ls,
-      },
-      {
-        "jayp0521/mason-null-ls.nvim",
-        version = "*",
-        config = require("pluginconfig.lspconfig").setup_mason_null_ls,
-      },
+      { "williamboman/mason-lspconfig.nvim", version = "*" },
+      { "williamboman/mason.nvim", version = "*" },
+      { "nvimtools/none-ls.nvim" },
+      { "jayp0521/mason-null-ls.nvim", version = "*" },
       {
         "nvimdev/lspsaga.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },

@@ -13,6 +13,58 @@ M.actions = {
   end,
 }
 
+---@param client vim.lsp.Client
+---@param bufnr integer
+local function format_sync(client, bufnr)
+  vim.lsp.buf.format({
+    bufnr = bufnr,
+    async = false,
+    name = client.name,
+    timeout_ms = 5000,
+  })
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+---@param cmd string
+local function code_action_sync(client, bufnr, cmd)
+  -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
+  local params = vim.lsp.util.make_range_params()
+  params.context = { only = { cmd }, diagnostics = {} }
+  local res = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
+  for _, r in pairs(res.result or {}) do
+    if r.edit then
+      local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+      vim.lsp.util.apply_workspace_edit(r.edit, enc)
+    end
+  end
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+local function organize_imports_sync(client, bufnr)
+  code_action_sync(client, bufnr, "source.organizeImports")
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+local function fix_all_sync(client, bufnr)
+  code_action_sync(client, bufnr, "source.fixAll")
+end
+
+---@type table<string, fun(client: vim.lsp.Client, bufnr: integer)[]>
+local save_handlers_by_client_name = {
+  gopls = { organize_imports_sync, format_sync },
+  rust_analyzer = { format_sync },
+  biome = { fix_all_sync, organize_imports_sync, format_sync },
+  eslint = {
+    function()
+      vim.api.nvim_command("silent! EslintFixAll")
+    end,
+  },
+  ["null-ls"] = { format_sync },
+}
+
 -- https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
 local tsserver_settings = {
   inlayHints = {
@@ -107,30 +159,12 @@ local lsp_root_dir = {
 }
 
 function M.setup_null_ls()
-  local augroup = vim.api.nvim_create_augroup("null_ls_setup", { clear = true })
   local null_ls = require("null-ls")
   null_ls.setup({
     sources = {
       -- not supported by mason
       null_ls.builtins.formatting.nixfmt,
     },
-    on_attach = function(client, bufnr)
-      if client.supports_method("textDocument/formatting") then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd("BufWritePre", {
-          group = augroup,
-          buffer = bufnr,
-          callback = function()
-            vim.lsp.buf.format({
-              bufnr = bufnr,
-              async = false,
-              timeout_ms = 5000,
-              name = "null-ls",
-            })
-          end,
-        })
-      end
-    end,
   })
 end
 
@@ -199,7 +233,26 @@ end
 function M.setup()
   local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
 
-  -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    group = augroup,
+    ---@param args { buf: integer }
+    callback = function(args)
+      local bufnr = args.buf
+      local shouldSleep = false
+      for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+        local save_handlers = save_handlers_by_client_name[client.name]
+        for _, f in pairs(save_handlers or {}) do
+          if shouldSleep then
+            vim.api.nvim_command("sleep 10ms")
+          else
+            shouldSleep = true
+          end
+          f(client, bufnr)
+        end
+      end
+    end,
+  })
+
   ---@param client vim.lsp.Client
   ---@param bufnr integer
   local on_attach_lsp = function(client, bufnr)
@@ -268,51 +321,6 @@ function M.setup()
 
     for _, km in pairs(keys) do
       vim.keymap.set(km[1], km[2], km[3], { noremap = true, silent = true, buffer = bufnr, desc = "LSP: " .. km.desc })
-    end
-
-    if client.name == "gopls" or client.name == "rust_analyzer" then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          vim.lsp.buf.format({
-            bufnr = bufnr,
-            async = false,
-            name = client.name,
-            timeout_ms = 5000,
-          })
-        end,
-      })
-    end
-    if client.name == "gopls" or client.name == "biome" then
-      local cmd_by_client_name = {
-        gopls = "source.organizeImports",
-        biome = "source.fixAll",
-      }
-
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        callback = function()
-          -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
-          local params = vim.lsp.util.make_range_params()
-          params.context = { only = { cmd_by_client_name[client.name] }, diagnostics = {} }
-          local res = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
-          for _, r in pairs(res.result or {}) do
-            if r.edit then
-              local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-              vim.lsp.util.apply_workspace_edit(r.edit, enc)
-            end
-          end
-        end,
-      })
-    end
-    if client.name == "eslint" then
-      vim.api.nvim_create_autocmd("BufWritePre", {
-        group = augroup,
-        buffer = bufnr,
-        command = "silent! EslintFixAll",
-      })
     end
   end
 

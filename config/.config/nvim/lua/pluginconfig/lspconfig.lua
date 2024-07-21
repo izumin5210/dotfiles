@@ -200,6 +200,8 @@ function M.setup()
   local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
 
   -- https://github.com/neovim/nvim-lspconfig/tree/v0.1.5#suggested-configuration
+  ---@param client vim.lsp.Client
+  ---@param bufnr integer
   local on_attach_lsp = function(client, bufnr)
     local ts_builtin = require("telescope.builtin")
 
@@ -282,21 +284,24 @@ function M.setup()
         end,
       })
     end
-    if client.name == "gopls" then
+    if client.name == "gopls" or client.name == "biome" then
+      local cmd_by_client_name = {
+        gopls = "source.organizeImports",
+        biome = "source.fixAll",
+      }
+
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         buffer = bufnr,
         callback = function()
           -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
           local params = vim.lsp.util.make_range_params()
-          params.context = { only = { "source.organizeImports" } }
-          local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, 3000)
-          for cid, res in pairs(result or {}) do
-            for _, r in pairs(res.result or {}) do
-              if r.edit then
-                local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
-                vim.lsp.util.apply_workspace_edit(r.edit, enc)
-              end
+          params.context = { only = { cmd_by_client_name[client.name] }, diagnostics = {} }
+          local res = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
+          for _, r in pairs(res.result or {}) do
+            if r.edit then
+              local enc = (vim.lsp.get_client_by_id(cid) or {}).offset_encoding or "utf-16"
+              vim.lsp.util.apply_workspace_edit(r.edit, enc)
             end
           end
         end,

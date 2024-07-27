@@ -117,6 +117,7 @@ function M.setup()
           filetypes = require("rc.pluginconfig.lspconfig.lsp_filetypes")[server_name],
           root_dir = lsp_root_dir[server_name],
           single_file_support = server_name ~= "tsserver" and nil or false,
+          on_new_config = require("rc.pluginconfig.lspconfig.lsp_config_overrides")[server_name],
         })
       end,
     },

@@ -26,4 +26,28 @@ function M.register_keymaps(keymaps, args)
   end
 end
 
+---@return "npm"|"yarn"|"pnpm"|nil
+function M.detect_node_package_manager()
+  local lspconfig = require("lspconfig")
+
+  local startpath = vim.api.nvim_buf_get_name(0)
+  local npm = lspconfig.util.root_pattern("package-lock.json")(startpath)
+  local yarn = lspconfig.util.root_pattern("yarn.lock")(startpath)
+  local pnpm = lspconfig.util.root_pattern("pnpm-lock.yml", "pnpm-lock.yaml")(startpath)
+
+  ---@type { [1]: "npm"|"yarn"|"pnpm", [2]: number } | nil
+  local detected = nil
+  for _, cmd in pairs({
+    { "npm", string.len(npm or "") },
+    { "yarn", string.len(yarn or "") },
+    { "pnpm", string.len(pnpm or "") },
+  }) do
+    if cmd[2] > 0 and (detected == nil or cmd[2] > detected[2]) then
+      detected = cmd
+    end
+  end
+
+  return detected and detected[1]
+end
+
 return M

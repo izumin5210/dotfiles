@@ -1,7 +1,7 @@
 local M = {}
 
 function M.setup()
-  local palette = require("colors").palette
+  local palette = require("rc.colors").palette
 
   require("modes").setup({
     colors = {

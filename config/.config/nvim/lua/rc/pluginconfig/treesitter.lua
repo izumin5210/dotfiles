@@ -7,9 +7,9 @@ function M.setup_treesitter_context()
 end
 
 function M.init_treesitter_context()
-  local palette = require("colors").palette
+  local palette = require("rc.colors").palette
 
-  require("utils").force_set_highlights("treesitter-context_hl", {
+  require("rc.utils").force_set_highlights("treesitter-context_hl", {
     TreesitterContext = { bg = palette.surface1, blend = 10 },
   })
 end
@@ -21,7 +21,7 @@ function M.setup_context_vt()
 end
 
 function M.init_context_vt()
-  require("utils").force_set_highlights("context_vt_hl", {
+  require("rc.utils").force_set_highlights("context_vt_hl", {
     ContextVt = { link = "DiagnosticHint" },
   })
 end

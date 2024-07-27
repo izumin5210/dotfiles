@@ -26,7 +26,7 @@ local actions = {
   end,
 }
 
-M.keys = require("utils").lazy_keymap({
+M.keys = require("rc.utils").lazy_keymap({
   {
     { "n", "<leader><leader>", actions.find_files, desc = "File: Go to ..." },
     { "n", "<leader>gg", actions.grep, desc = "File: Grep" },
@@ -40,9 +40,9 @@ M.keys = require("utils").lazy_keymap({
 })
 
 function M.init()
-  local palette = require("colors").palette
+  local palette = require("rc.colors").palette
 
-  require("utils").set_highlights("teelscope_hl", {
+  require("rc.utils").set_highlights("teelscope_hl", {
     TelescopeNormal = { bg = palette.mantle },
     TelescopeTitle = { bg = palette.mantle },
     TelescopePromptNormal = { bg = palette.crust },
@@ -50,7 +50,7 @@ function M.init()
     TelescopePromptTitle = { bg = palette.crust },
   })
 
-  require("utils").force_set_highlights("telescope_hl_force", {
+  require("rc.utils").force_set_highlights("telescope_hl_force", {
     TelescopeBorder = { bg = palette.mantle },
     TelescopePromptTitle = { bg = palette.crust, fg = palette.overlay0 },
     TelescopeTitle = { bg = palette.mantle, fg = palette.overlay0 },

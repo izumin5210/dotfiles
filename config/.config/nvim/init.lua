@@ -163,12 +163,12 @@ require("lazy").setup({
         "nvimdev/lspsaga.nvim",
         dependencies = { "nvim-tree/nvim-web-devicons" },
         event = { "LspAttach" },
-        init = require("pluginconfig.lspconfig").init_lspsaga,
-        config = require("pluginconfig.lspconfig").setup_lspsaga,
+        init = require("rc.pluginconfig.lspconfig").init_lspsaga,
+        config = require("rc.pluginconfig.lspconfig").setup_lspsaga,
       },
     },
-    init = require("pluginconfig.lspconfig").init,
-    config = require("pluginconfig.lspconfig").setup,
+    init = require("rc.pluginconfig.lspconfig").init,
+    config = require("rc.pluginconfig.lspconfig").setup,
   },
   -- Completion
   {
@@ -184,16 +184,16 @@ require("lazy").setup({
       {
         "zbirenbaum/copilot-cmp",
         dependencies = { "zbirenbaum/copilot.lua" },
-        config = require("pluginconfig.cmp").setup_copilot_cmp,
+        config = require("rc.pluginconfig.cmp").setup_copilot_cmp,
       },
       {
         "onsails/lspkind.nvim",
-        config = require("pluginconfig.cmp").setup_lspkind,
+        config = require("rc.pluginconfig.cmp").setup_lspkind,
       },
     },
-    keys = require("pluginconfig.cmp").keys,
-    init = require("pluginconfig.cmp").init,
-    config = require("pluginconfig.cmp").setup,
+    keys = require("rc.pluginconfig.cmp").keys,
+    init = require("rc.pluginconfig.cmp").init,
+    config = require("rc.pluginconfig.cmp").setup,
   },
   -- Treesitter
   {
@@ -204,14 +204,14 @@ require("lazy").setup({
     dependencies = {
       {
         "nvim-treesitter/nvim-treesitter-context",
-        init = require("pluginconfig.treesitter").init_treesitter_context,
-        config = require("pluginconfig.treesitter").setup_treesitter_context,
+        init = require("rc.pluginconfig.treesitter").init_treesitter_context,
+        config = require("rc.pluginconfig.treesitter").setup_treesitter_context,
       },
       "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
       {
         "haringsrob/nvim_context_vt",
-        init = require("pluginconfig.treesitter").init_context_vt,
-        config = require("pluginconfig.treesitter").setup_context_vt,
+        init = require("rc.pluginconfig.treesitter").init_context_vt,
+        config = require("rc.pluginconfig.treesitter").setup_context_vt,
       },
       {
         "andymass/vim-matchup",
@@ -228,7 +228,7 @@ require("lazy").setup({
         },
       },
     },
-    config = require("pluginconfig.treesitter").setup,
+    config = require("rc.pluginconfig.treesitter").setup,
   },
   -- Fuzzy finder
   {
@@ -248,9 +248,9 @@ require("lazy").setup({
       "nvim-telescope/telescope-dap.nvim",
     },
     cmd = "Telescope",
-    keys = require("pluginconfig.telescope").keys,
-    init = require("pluginconfig.telescope").init,
-    config = require("pluginconfig.telescope").setup,
+    keys = require("rc.pluginconfig.telescope").keys,
+    init = require("rc.pluginconfig.telescope").init,
+    config = require("rc.pluginconfig.telescope").setup,
   },
   -- Debugger
   {
@@ -260,15 +260,15 @@ require("lazy").setup({
       {
         "leoluz/nvim-dap-go",
         ft = "go",
-        config = require("pluginconfig.dap").setup_go,
+        config = require("rc.pluginconfig.dap").setup_go,
       },
       {
         "theHamsta/nvim-dap-virtual-text",
         config = true,
       },
     },
-    keys = require("pluginconfig.dap").keys,
-    config = require("pluginconfig.dap").setup,
+    keys = require("rc.pluginconfig.dap").keys,
+    config = require("rc.pluginconfig.dap").setup,
   },
   {
     "nvim-neotest/neotest",
@@ -283,8 +283,8 @@ require("lazy").setup({
       "nvim-neotest/neotest-jest",
       "marilari88/neotest-vitest",
     },
-    config = require("pluginconfig.neotest").setup,
-    keys = require("pluginconfig.neotest").keys,
+    config = require("rc.pluginconfig.neotest").setup,
+    keys = require("rc.pluginconfig.neotest").keys,
   },
   -- Appearance
   {
@@ -312,7 +312,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "VeryLazy",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = require("pluginconfig.incline").setup,
+    config = require("rc.pluginconfig.incline").setup,
   },
   {
     "folke/noice.nvim",
@@ -325,8 +325,8 @@ require("lazy").setup({
         "rcarriga/nvim-notify",
         version = "*",
         init = function()
-          local palette = require("colors").palette
-          require("utils").set_highlights("nvim-notify_hl", {
+          local palette = require("rc.colors").palette
+          require("rc.utils").set_highlights("nvim-notify_hl", {
             NotifyBackground = { bg = palette.base },
             NotifyERRORBorder = { bg = palette.base },
             NotifyERRORBody = { bg = palette.base },
@@ -398,9 +398,9 @@ require("lazy").setup({
       },
     },
     init = function()
-      local palette = require("colors").palette
+      local palette = require("rc.colors").palette
 
-      require("utils").set_highlights("noice_hl", {
+      require("rc.utils").set_highlights("noice_hl", {
         NoiceCmdlinePopupNormal = { link = "NormalFloat" },
         NoiceCmdlinePopupBorder = { link = "FloatBorder" },
         NoiceCmdlinePopupmenuNormal = { fg = palette.text, bg = palette.mantle },
@@ -420,7 +420,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "BufReadPost",
     config = function()
-      local palette = require("colors").palette
+      local palette = require("rc.colors").palette
       require("scrollbar").setup({
         marks = {
           Search = { color_nr = "3", color = palette.yellow },
@@ -442,7 +442,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "BufReadPost",
     init = function()
-      require("utils").force_set_highlights("nvim-hlslens_hl", {
+      require("rc.utils").force_set_highlights("nvim-hlslens_hl", {
         HlSearchLens = { link = "DiagnosticHint" },
         HlSearchLensNear = { link = "DiagnosticInfo" },
       })
@@ -457,7 +457,7 @@ require("lazy").setup({
     version = "*",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
-      require("utils").force_set_highlights("gitsigns_hl", {
+      require("rc.utils").force_set_highlights("gitsigns_hl", {
         SignColumn = { ctermbg = "none", bg = "none" },
         GitGutterAdd = { ctermbg = "none", bg = "none" },
         GitGutterChange = { ctermbg = "none", bg = "none" },
@@ -474,14 +474,14 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     version = "*",
     event = "VeryLazy",
-    config = require("pluginconfig.which-key").setup,
+    config = require("rc.pluginconfig.which-key").setup,
   },
   {
     "mvllow/modes.nvim",
     cond = not vim.g.vscode,
     version = "*",
     event = { "CursorMoved", "CursorMovedI" },
-    config = require("pluginconfig.modes").setup,
+    config = require("rc.pluginconfig.modes").setup,
   },
   {
     "shellRaining/hlchunk.nvim",
@@ -489,7 +489,7 @@ require("lazy").setup({
     version = "*",
     event = { "BufReadPre", "BufNewFile" },
     opts = function()
-      local palette = require("colors").palette
+      local palette = require("rc.colors").palette
       local exclude_filetypes = {
         ["rip-substitute"] = true,
         ["TelescopeResults"] = true,
@@ -537,8 +537,8 @@ require("lazy").setup({
     version = "*",
     cond = not vim.g.vscode,
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    keys = require("pluginconfig.tree").keys,
-    config = require("pluginconfig.tree").setup,
+    keys = require("rc.pluginconfig.tree").keys,
+    config = require("rc.pluginconfig.tree").setup,
   },
   -- Buffer
   {
@@ -669,8 +669,8 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },
     init = function()
-      local palette = require("colors").palette
-      require("utils").force_set_highlights("vim-illuminate_hl", {
+      local palette = require("rc.colors").palette
+      require("rc.utils").force_set_highlights("vim-illuminate_hl", {
         IlluminatedWordText = { ctermbg = 238, bg = palette.surface1 },
         IlluminatedWordRead = { ctermbg = 238, bg = palette.surface1 },
         IlluminatedWordWrite = { ctermbg = 238, bg = palette.surface1 },
@@ -685,8 +685,8 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "VeryLazy",
     init = function()
-      local palette = require("colors").palette
-      require("utils").force_set_highlights("vim-better-whitespace_hl", {
+      local palette = require("rc.colors").palette
+      require("rc.utils").force_set_highlights("vim-better-whitespace_hl", {
         ExtraWhitespace = { bg = palette.red },
       })
     end,
@@ -721,8 +721,8 @@ require("lazy").setup({
   {
     "monaqa/dial.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    keys = require("pluginconfig.dial").keys,
-    config = require("pluginconfig.dial").setup,
+    keys = require("rc.pluginconfig.dial").keys,
+    config = require("rc.pluginconfig.dial").setup,
   },
   {
     "rapan931/lasterisk.nvim",
@@ -756,7 +756,7 @@ require("lazy").setup({
     dependencies = { "MunifTanjim/nui.nvim", version = "*" },
     event = { "BufEnter package.json" },
     init = function()
-      require("utils").force_set_highlights("package-info_hl", {
+      require("rc.utils").force_set_highlights("package-info_hl", {
         PackageInfoOutdatedVersion = { link = "DiagnosticHint" },
         PackageInfoUpToDateVersion = { link = "DiagnosticHint" },
       })
@@ -877,7 +877,7 @@ require("lazy").setup({
 })
 
 if not vim.g.vscode then
-  require("utils").set_highlights("hl_for_non_vscode", {
+  require("rc.utils").set_highlights("hl_for_non_vscode", {
     -- clear statusline
     StatusLine = { link = "LineNr" },
     StatusLineNc = { link = "LineNr" },
@@ -889,7 +889,7 @@ if not vim.g.vscode then
     EndOfBuffer = { ctermbg = "none", bg = "none" },
   })
 
-  require("utils").force_set_highlights("force_hl_for_non_vscode", {
+  require("rc.utils").force_set_highlights("force_hl_for_non_vscode", {
     DiagnosticHint = { link = "LineNr" },
     -- reset semantic highlight
     ["@lsp.type.variable"] = {},
@@ -898,8 +898,8 @@ if not vim.g.vscode then
     ["@lsp.type.function"] = {},
   })
 
-  local palette = require("colors").palette
-  require("utils").set_highlights("catppuccin_hl", {
+  local palette = require("rc.colors").palette
+  require("rc.utils").set_highlights("catppuccin_hl", {
     NormalFloat = { bg = palette.crust },
     FloatBorder = { bg = palette.crust },
   })

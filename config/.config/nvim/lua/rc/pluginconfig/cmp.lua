@@ -1,6 +1,6 @@
 local M = {}
 
-M.keys = require("utils").lazy_keymap({
+M.keys = require("rc.utils").lazy_keymap({
   {
     {
       "i",
@@ -32,10 +32,10 @@ function M.setup_lspkind()
 end
 
 function M.init()
-  local palette = require("colors").palette
+  local palette = require("rc.colors").palette
 
   -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
-  require("utils").force_set_highlights("cmp_hl", {
+  require("rc.utils").force_set_highlights("cmp_hl", {
     CmpItemAbbrDeprecated = { fg = palette.overlay0, bg = "NONE", strikethrough = true },
     CmpItemAbbrMatch = { fg = palette.blue, bg = "NONE", bold = true },
     CmpItemAbbrMatchFuzzy = { fg = palette.blue, bg = "NONE", bold = true },

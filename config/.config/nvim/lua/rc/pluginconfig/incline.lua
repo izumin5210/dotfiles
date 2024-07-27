@@ -2,7 +2,7 @@ local M = {}
 
 function M.setup()
   local devicons = require("nvim-web-devicons")
-  local palette = require("colors").palette
+  local palette = require("rc.colors").palette
 
   require("incline").setup({
     hide = {

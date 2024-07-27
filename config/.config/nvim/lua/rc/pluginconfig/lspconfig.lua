@@ -159,8 +159,8 @@ local lsp_root_dir = {
 }
 
 function M.init_lspsaga()
-  local palette = require("colors").palette
-  require("utils").set_highlights("lspsaga_hl", {
+  local palette = require("rc.colors").palette
+  require("rc.utils").set_highlights("lspsaga_hl", {
     SagaNormal = { bg = palette.crust },
     SagaBorder = { bg = palette.crust },
   })
@@ -185,7 +185,7 @@ function M.init()
     vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
   end
 
-  require("utils").force_set_highlights("lspconfig_hl", {
+  require("rc.utils").force_set_highlights("lspconfig_hl", {
     LspInlayHint = { link = "DiagnosticHint" },
   })
 end

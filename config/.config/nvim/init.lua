@@ -525,6 +525,10 @@ require("lazy").setup({
       virtual_symbol = " ■",
       enable_named_colors = false,
       enable_tailwind = true,
+      exclude_filetypes = {
+        "dashboard",
+        "lazy",
+      },
     },
   },
   -- Filer
@@ -692,6 +696,7 @@ require("lazy").setup({
       vim.g.strip_whitespace_confirm = 0
       vim.g.better_whitespace_filetypes_blacklist = {
         "dashboard",
+        "lazy",
         -- default values
         "diff",
         "git",

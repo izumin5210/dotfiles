@@ -770,9 +770,15 @@ require("lazy").setup({
       require("package-info").show()
     end,
   },
+  -- Syntax Highlighting
   {
     "jxnblk/vim-mdx-js",
     cond = not vim.g.vscode,
+  },
+  {
+    "direnv/direnv.vim",
+    cond = not vim.g.vscode,
+    ft = "direnv",
   },
   -- misc
   {

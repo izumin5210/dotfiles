@@ -111,33 +111,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-darwin_amd64.zip",
-      "checksum": "2F23D43495FD0EE0C5A18D9A801584380EFF7CD523F40DA320B59F22434D15B9",
+      "id": "github_release/github.com/junegunn/fzf/v0.54.2/fzf-0.54.2-linux_amd64.tar.gz",
+      "checksum": "7BF4E3853E625B5D1143208E96E874F44CC72E6F6483D38AD64E9D9194E4F158",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-darwin_arm64.zip",
-      "checksum": "DE5F27FDEC3BAE1C3FB6C540BD7E85D3BC9055E989797147C7FFBB2ABCAA1298",
+      "id": "github_release/github.com/junegunn/fzf/v0.54.2/fzf-0.54.2-linux_arm64.tar.gz",
+      "checksum": "54882E2EE3CADECFDE7EA1929DEC290993984696F8842DEA307C6934B0C16027",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-linux_amd64.tar.gz",
-      "checksum": "20F1C7D5D45BF50DD656D6F8E2E8C04EF814109AD7AAC1B3B5AE4DBE15F9550B",
+      "id": "github_release/github.com/junegunn/fzf/v0.54.2/fzf-0.54.2-windows_amd64.zip",
+      "checksum": "5C18EF1B09E75A1DFF218457245DFB4EFF78F16362D6F8BDED33C74640286673",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-linux_arm64.tar.gz",
-      "checksum": "B1225328DA4761F4C96A325CA34EAA94ED9D2AB3B639F3B00B5141873F2DEC8D",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-windows_amd64.zip",
-      "checksum": "AC9A189DA25D5EBF0EC1C8C34088F6763CBD22D35B285D40FDABD192F0EE7B40",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/junegunn/fzf/v0.54.1/fzf-0.54.1-windows_arm64.zip",
-      "checksum": "4C87EA56D65ADB6BBA475A4690A1385EB358CF3D4724FB6E30E45B79923F1FEB",
+      "id": "github_release/github.com/junegunn/fzf/v0.54.2/fzf-0.54.2-windows_arm64.zip",
+      "checksum": "9CB85BD2F8F6AD52A53D04E28C0F9A0A29EBD55162A0F1D7301133020CCD1378",
       "algorithm": "sha256"
     },
     {

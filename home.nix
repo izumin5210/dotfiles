@@ -87,6 +87,7 @@
     # tools
     pkgs._1password
     pkgs.bat
+    pkgs.btop
     pkgs.buf
     pkgs.ctop
     pkgs.diff-pdf

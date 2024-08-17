@@ -47,6 +47,7 @@ local lsp_actions_on_save = {
       vim.api.nvim_command("silent! EslintFixAll")
     end,
   },
+  denols = { format_sync },
   ["null-ls"] = { format_sync },
 }
 

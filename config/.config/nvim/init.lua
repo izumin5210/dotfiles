@@ -51,6 +51,9 @@ vim.g.loaded_matchparen = 1
 
 -- lsp
 vim.diagnostic.config({ virtual_text = false })
+vim.g.markdown_fenced_languages = {
+  "ts=typescript", -- https://github.com/neovim/nvim-lspconfig/blob/e6528f4/doc/server_configurations.md#denols
+}
 
 -----------------------------------
 -- Appearance

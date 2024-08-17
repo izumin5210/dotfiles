@@ -137,7 +137,7 @@ function M.setup()
       -- JavaScript
       null_ls.builtins.formatting.prettierd.with({
         condition = function(utils)
-          return not utils.root_has_file({ "biome.json", "biome.jsonc" })
+          return not utils.root_has_file({ "biome.json", "biome.jsonc", "deno.json", "deno.jsonc" })
         end,
       }),
       -- Protocol Buffers

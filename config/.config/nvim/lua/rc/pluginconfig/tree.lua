@@ -192,7 +192,7 @@ function M.setup()
       always_show_folders = false,
     },
     filters = {
-      custom = { ".git" },
+      custom = { "^\\.git$" },
     },
     on_attach = function(bufnr)
       local function opts(desc)

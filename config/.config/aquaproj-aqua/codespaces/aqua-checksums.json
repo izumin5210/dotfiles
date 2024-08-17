@@ -196,6 +196,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "A7A1EB31808AC1978D51EF589DB2D003A8746DC435DCB7A1A0B9D1A629ABEF02",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "316CDAF5C6EC7E8B0664914DF1DA21C511AEF2A023E13F8628354E60E0346DAC",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "25091FB18AB97134B1BCAA96413F0D0D253D0E85D51528AFFCE4C5F7F1E129C2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "F8FA73AA005E71598C1CDBB03AE6979FD016D5A8AAF92EE84ED6F8F186C58EAD",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/starship/starship/v1.20.1/starship-aarch64-apple-darwin.tar.gz",
       "checksum": "70AF040150D40E440B48C3BAA5EC19AB3027A5075ACEE16387CEB5A4BFE68F56",
       "algorithm": "sha256"

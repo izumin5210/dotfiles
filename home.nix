@@ -93,6 +93,7 @@
     pkgs.diff-pdf
     pkgs.direnv
     pkgs.eza
+    pkgs.fd
     pkgs.fzf
     pkgs.ghq
     pkgs.htop

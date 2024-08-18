@@ -62,7 +62,7 @@ function M.setup()
         local name = buf.name
         local bo = vim.bo[buf.bufnr]
         if bo and bo.readonly then
-          name = " " .. name
+          name = " " .. name -- nf-fa-lock
         end
 
         return name

@@ -311,11 +311,14 @@ require("lazy").setup({
     },
   },
   {
-    "b0o/incline.nvim",
+    "akinsho/bufferline.nvim",
     cond = not vim.g.vscode,
-    event = "VeryLazy",
+    event = "VimEnter",
+    version = "*",
     dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = require("rc.pluginconfig.incline").setup,
+    config = function()
+      require("rc.pluginconfig.bufferline").setup()
+    end,
   },
   {
     "folke/noice.nvim",

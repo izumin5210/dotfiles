@@ -56,6 +56,17 @@ function M.setup()
       right_mouse_command = nil,
       middle_mouse_command = close_command,
       indicator = { style = "none" },
+      ---@param buf { name: string, path: string, bufnr: number }
+      ---@return string
+      name_formatter = function(buf)
+        local name = buf.name
+        local bo = vim.bo[buf.bufnr]
+        if bo and bo.readonly then
+          name = " " .. name -- nf-fa-lock
+        end
+
+        return name
+      end,
       diagnostics = "nvim_lsp",
       diagnostics_indicator = diagnostics_indicator,
       offsets = {

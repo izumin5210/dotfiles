@@ -71,28 +71,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.17.0/delta-0.17.0-aarch64-apple-darwin.tar.gz",
-      "checksum": "2C62F44345E86AC12F75C097D0A5344B4AA90827D5E75DFCFE3FE843F51BB3CB",
+      "id": "github_release/github.com/dandavison/delta/0.18.0/delta-0.18.0-aarch64-apple-darwin.tar.gz",
+      "checksum": "5E5FBD0CB20C6834FEE4540C3EA44C7C832A2ED3926AA0C112945AF6A60240AA",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.17.0/delta-0.17.0-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "8318BB267AB3A01F4E7B9480C4C3B2A5895C0287ABFC5586306F5A2F2825882B",
+      "id": "github_release/github.com/dandavison/delta/0.18.0/delta-0.18.0-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "25F14C6CDBAFFAE45FAD127011141128251ED1C5AD86DFFCDAD3532F343D71CF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.17.0/delta-0.17.0-x86_64-apple-darwin.tar.gz",
-      "checksum": "E8B8107AA0725B7A0DEEE556C05BB655846F0F49BB8A8EC44CB1F78D4A3274FE",
+      "id": "github_release/github.com/dandavison/delta/0.18.0/delta-0.18.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "B9C1BB15395A6C91C0131040B7DAD9D6980822117451BC1212387EEAC017302A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.17.0/delta-0.17.0-x86_64-pc-windows-msvc.zip",
-      "checksum": "C3689AF10F95C764BEC75F0D42D3DFA7439EA2BC4D0881F1F8200E8F032081EE",
+      "id": "github_release/github.com/dandavison/delta/0.18.0/delta-0.18.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "E1DE841A7541D6AABDFD954CB18E3FF1EDA8145ADD6CFF043AC391C69BD69EED",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.17.0/delta-0.17.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "0CB2C2E196A78C84E47C303119AD561D3D4DEBFC8CC93D3AB5AE866FB7EFD126",
+      "id": "github_release/github.com/dandavison/delta/0.18.0/delta-0.18.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "B79086EAB8E5E58FDA8BF4B5EB605E2BECE5B4575FEE1166CBA0ABF8459857D7",
       "algorithm": "sha256"
     },
     {

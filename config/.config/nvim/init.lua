@@ -598,7 +598,7 @@ require("lazy").setup({
     cond = not vim.g.vscode,
     event = "VeryLazy",
     opts = {
-      retirementAgeMins = 480, -- 8h
+      retirementAgeMins = 20,
     },
   },
   -- Editor

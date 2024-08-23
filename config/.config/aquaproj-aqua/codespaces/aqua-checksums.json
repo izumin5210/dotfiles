@@ -41,33 +41,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_linux_amd64.tar.gz",
-      "checksum": "C4441B2ACFB63FEB5FC37A346B0A0A66080D657397F1EB81E3025961DCB06DD3",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_linux_amd64.tar.gz",
+      "checksum": "49700B3FEDB5BFCBEF696FE9F1F69091CEB9CAF2D40BD872B5028C451EFC52BC",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_linux_arm64.tar.gz",
-      "checksum": "A660E5AB768390FC1F328DF9604930AC06AD5CD7B98E96761BE667141FE19C7C",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_linux_arm64.tar.gz",
+      "checksum": "2D5D2B965E0122C41752E64873DC33C213B068C1E7A9C396CBD8F6895FB9685F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_macOS_amd64.zip",
-      "checksum": "862AF4B481952BB9141D946A84A765510C7C1F94850EDB14CD31FCBA5204C6DD",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_macOS_amd64.zip",
+      "checksum": "58448671A680C2B5245333BB44466305A28CF65E8F090C1FFD7EF5E729AF4463",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_macOS_arm64.zip",
-      "checksum": "1C8FCA680D3AF417614AB31261F551C435E86AA44746BB3436A185C486BDE765",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_macOS_arm64.zip",
+      "checksum": "11B60CEF134DA32E001DEC47C897FE7023AC2059B1327F71F04436D1F4B59459",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_windows_amd64.zip",
-      "checksum": "D3400B7E5C5A7F3912E8DA606A2DAF3376981D49F0BA0DEA0337725EAE25351D",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_windows_amd64.zip",
+      "checksum": "257B53CE362D2FAE73CF1FD0792B2C3F2971BE2C6C5C91F749D7FE75DD487FED",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/cli/cli/v2.54.0/gh_2.54.0_windows_arm64.zip",
-      "checksum": "976EFFAAF05B33427358C241531B034DF315D4FFF87A67FE4C7745180006C77F",
+      "id": "github_release/github.com/cli/cli/v2.55.0/gh_2.55.0_windows_arm64.zip",
+      "checksum": "11254C845820C0764FFE8B79A4799B39386191015E8CFEA02301EFAC92154419",
       "algorithm": "sha256"
     },
     {

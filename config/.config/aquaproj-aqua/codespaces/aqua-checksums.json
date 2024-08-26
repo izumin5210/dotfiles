@@ -196,23 +196,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "A7A1EB31808AC1978D51EF589DB2D003A8746DC435DCB7A1A0B9D1A629ABEF02",
+      "id": "github_release/github.com/sharkdp/fd/v10.2.0/fd-v10.2.0-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "6DE8BE7A3D8CA27954A6D1E22BC327AF4CF6FC7622791E68B820197F915C422B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-apple-darwin.tar.gz",
-      "checksum": "316CDAF5C6EC7E8B0664914DF1DA21C511AEF2A023E13F8628354E60E0346DAC",
+      "id": "github_release/github.com/sharkdp/fd/v10.2.0/fd-v10.2.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "991A648A58870230AF9547C1AE33E72CB5C5199A622FE5E540E162D6DBA82D48",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-pc-windows-msvc.zip",
-      "checksum": "25091FB18AB97134B1BCAA96413F0D0D253D0E85D51528AFFCE4C5F7F1E129C2",
+      "id": "github_release/github.com/sharkdp/fd/v10.2.0/fd-v10.2.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "92AC9E6B0A0C6ECDAB638FFE210DC786403FFF4C66373604CF70DF27BE45E4FE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/fd/v10.1.0/fd-v10.1.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "F8FA73AA005E71598C1CDBB03AE6979FD016D5A8AAF92EE84ED6F8F186C58EAD",
+      "id": "github_release/github.com/sharkdp/fd/v10.2.0/fd-v10.2.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "D9BFA25EC28624545C222992E1B00673B7C9CA5EB15393C40369F10B28F9C932",
       "algorithm": "sha256"
     },
     {

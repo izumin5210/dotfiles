@@ -50,7 +50,17 @@ vim.g.loaded_matchit = 1
 vim.g.loaded_matchparen = 1
 
 -- lsp
-vim.diagnostic.config({ virtual_text = false })
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = "󰅚 ",
+      [vim.diagnostic.severity.WARN] = "󰀪 ",
+      [vim.diagnostic.severity.HINT] = "󰌶 ",
+      [vim.diagnostic.severity.INFO] = " ",
+    },
+  },
+})
 vim.g.markdown_fenced_languages = {
   "ts=typescript", -- https://github.com/neovim/nvim-lspconfig/blob/e6528f4/doc/server_configurations.md#denols
 }
@@ -147,7 +157,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 -- Plugins
 -----------------------------------
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
+if not vim.uv.fs_stat(lazypath) then
   vim.fn.system({
     "git",
     "clone",

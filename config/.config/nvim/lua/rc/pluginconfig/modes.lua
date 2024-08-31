@@ -1,17 +1,21 @@
 local M = {}
 
 function M.setup()
-  local colors = require("rc.colors")
-  local palette = colors.palette
+  local palette = require("rc.colors").palette
 
   require("modes").setup({
     colors = {
-      copy = colors.alpha_blend(palette.yellow, palette.base, 0.2),
-      delete = colors.alpha_blend(palette.red, palette.base, 0.2),
-      insert = colors.alpha_blend(palette.sky, palette.base, 0.2),
-      visual = colors.alpha_blend(palette.mauve, palette.base, 0.2),
+      copy = palette.yellow,
+      delete = palette.red,
+      insert = palette.sky,
+      visual = palette.mauve,
     },
-    line_opacity = 1,
+    line_opacity = {
+      copy = 0.4,
+      delete = 0.4,
+      insert = 0.4,
+      visual = 0.4,
+    },
   })
 end
 

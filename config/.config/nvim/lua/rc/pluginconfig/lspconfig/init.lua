@@ -51,7 +51,7 @@ function M.init()
   })
 
   vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     signs = {
       text = {
         [vim.diagnostic.severity.ERROR] = "󰅚 ",

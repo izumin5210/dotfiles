@@ -38,8 +38,34 @@ local lsp_root_dir = {
 }
 
 function M.init()
+  local colors = require("rc.colors")
+  local palette = colors.palette
+
   require("rc.utils").force_set_highlights("lspconfig_hl", {
     LspInlayHint = { link = "DiagnosticHint" },
+    -- https://github.com/catppuccin/vscode/blob/catppuccin-vsc-v3.15.2/packages/catppuccin-vsc/src/theme/extensions/error-lens.ts
+    DiagnosticErrorLine = { bg = colors.alpha_blend(palette.red, palette.base, 0.15) },
+    DiagnosticWarnLine = { bg = colors.alpha_blend(palette.peach, palette.base, 0.15) },
+    DiagnosticHintLine = { bg = colors.alpha_blend(palette.green, palette.base, 0.15) },
+    DiagnosticInfoLine = { bg = colors.alpha_blend(palette.blue, palette.base, 0.15) },
+  })
+
+  vim.diagnostic.config({
+    virtual_text = false,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "󰅚 ",
+        [vim.diagnostic.severity.WARN] = "󰀪 ",
+        [vim.diagnostic.severity.HINT] = "󰌶 ",
+        [vim.diagnostic.severity.INFO] = " ",
+      },
+      linehl = {
+        [vim.diagnostic.severity.ERROR] = "DiagnosticErrorLine",
+        [vim.diagnostic.severity.WARN] = "DiagnosticWarnLine",
+        [vim.diagnostic.severity.HINT] = "DiagnosticHintLine",
+        [vim.diagnostic.severity.INFO] = "DiagnosticInfoLine",
+      },
+    },
   })
 end
 

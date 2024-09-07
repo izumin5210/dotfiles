@@ -21,6 +21,7 @@ local function get_keymaps(bufnr)
       else
         require("lspsaga.diagnostic"):goto_prev({ severity = severity_num })
       end
+      vim.api.nvim_feedkeys("zz", "n", false)
     end
   end
 

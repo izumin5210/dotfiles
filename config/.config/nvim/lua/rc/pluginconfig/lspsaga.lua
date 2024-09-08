@@ -11,6 +11,7 @@ end
 function M.opts()
   return {
     symbol_in_winbar = { enable = false },
+    lightbulb = { enable = false },
     code_action = { show_server_name = true },
     ui = {
       -- create padding around the floating window

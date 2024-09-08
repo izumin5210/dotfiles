@@ -13,24 +13,6 @@ M.keys = require("rc.utils").lazy_keymap({
   },
 })
 
-function M.setup_copilot_cmp()
-  require("copilot").setup({
-    suggestion = { enabled = false },
-    panel = { enabled = false },
-  })
-  require("copilot_cmp").setup({
-    method = "getCompletionsCycling",
-  })
-end
-
-function M.setup_lspkind()
-  require("lspkind").init({
-    symbol_map = {
-      Copilot = "",
-    },
-  })
-end
-
 function M.init()
   local palette = require("rc.colors").palette
 

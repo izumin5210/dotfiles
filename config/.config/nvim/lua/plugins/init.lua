@@ -27,30 +27,12 @@ return {
     "tpope/vim-repeat", -- required by leap.nvim
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
-  -- Completion
   {
-    "hrsh7th/nvim-cmp",
+    "folke/ts-comments.nvim",
     cond = not vim.g.vscode,
-    event = "InsertEnter",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      {
-        "zbirenbaum/copilot-cmp",
-        dependencies = { "zbirenbaum/copilot.lua" },
-        config = require("rc.pluginconfig.cmp").setup_copilot_cmp,
-      },
-      {
-        "onsails/lspkind.nvim",
-        config = require("rc.pluginconfig.cmp").setup_lspkind,
-      },
-    },
-    keys = require("rc.pluginconfig.cmp").keys,
-    init = require("rc.pluginconfig.cmp").init,
-    config = require("rc.pluginconfig.cmp").setup,
+    version = "*",
+    opts = {},
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
   -- Debugger
   {
@@ -108,125 +90,6 @@ return {
     },
   },
   -- Editor
-  {
-    "windwp/nvim-autopairs",
-    cond = not vim.g.vscode,
-    event = "InsertEnter",
-    config = true,
-  },
-  {
-    "folke/flash.nvim",
-    version = "*",
-    event = "VeryLazy",
-    ---@type Flash.Config
-    opts = {},
-    -- stylua: ignore
-    keys = {
-      { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
-      { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-      { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-      { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-      { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-    },
-  },
-  {
-    "folke/ts-comments.nvim",
-    version = "*",
-    opts = {},
-    event = "VeryLazy",
-  },
-  {
-    "numToStr/Comment.nvim",
-    cond = not vim.g.vscode,
-    keys = { { "<Leader>/", mode = { "n", "v" } } },
-    opts = {
-      toggler = {
-        line = "<Leader>/",
-      },
-      opleader = {
-        line = "<Leader>/",
-      },
-    },
-  },
-  {
-    "danymat/neogen",
-    version = "*",
-    cond = not vim.g.vscode,
-    keys = {
-      {
-        "<Leader>cd",
-        function()
-          require("neogen").generate()
-        end,
-        mode = "n",
-        desc = "Generate doc comment",
-      },
-    },
-    dependencies = { "nvim-treesitter" },
-    opts = {
-      snippet_engine = "vsnip",
-    },
-  },
-  {
-    "kylechui/nvim-surround",
-    version = "*",
-    event = { "CursorHold", "CursorHoldI" },
-    config = true,
-  },
-  {
-    "chrisgrieser/nvim-rip-substitute",
-    cond = not vim.g.vscode,
-    cmd = "RipSubstitute",
-    keys = {
-      {
-        "<leader>fs",
-        function()
-          require("rip-substitute").sub()
-        end,
-        mode = { "n", "x" },
-        desc = " rip substitute",
-      },
-    },
-    opts = {
-      popupWin = {
-        border = { " ", " ", " ", " ", " ", " ", " ", " " },
-      },
-      prefill = {
-        normal = false,
-      },
-    },
-  },
-  {
-    "monaqa/dial.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = require("rc.pluginconfig.dial").keys,
-    config = require("rc.pluginconfig.dial").setup,
-  },
-  {
-    "rapan931/lasterisk.nvim",
-    keys = {
-      {
-        "*",
-        function()
-          require("lasterisk").search()
-          if package.loaded["hlslens"] then
-            require("hlslens").start()
-          end
-        end,
-        mode = "n",
-      },
-      {
-        "g*",
-        function()
-          require("lasterisk").search({ is_whole = false })
-          if package.loaded["hlslens"] then
-            require("hlslens").start()
-          end
-        end,
-        mode = { "n", "x" },
-      },
-    },
-  },
   -- lang
   {
     "vuki656/package-info.nvim",

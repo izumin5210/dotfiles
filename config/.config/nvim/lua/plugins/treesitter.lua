@@ -122,4 +122,12 @@ return {
       },
     },
   },
+  {
+    "folke/ts-comments.nvim",
+    cond = not vim.g.vscode,
+    version = "*",
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    dependencies = { "nvim-treesitter" },
+    opts = {},
+  },
 }

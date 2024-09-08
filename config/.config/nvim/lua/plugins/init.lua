@@ -27,13 +27,6 @@ return {
     "tpope/vim-repeat", -- required by leap.nvim
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
-  {
-    "folke/ts-comments.nvim",
-    cond = not vim.g.vscode,
-    version = "*",
-    opts = {},
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-  },
   -- Debugger
   {
     "mfussenegger/nvim-dap",
@@ -89,7 +82,6 @@ return {
       },
     },
   },
-  -- Editor
   -- lang
   {
     "vuki656/package-info.nvim",

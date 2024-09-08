@@ -6,7 +6,7 @@ return {
     version = "*",
     dependencies = { "nvim-web-devicons" },
     opts = function()
-      return require("plugins.ui.bufferline").opts()
+      return require("plugins.ui.config.bufferline").opts()
     end,
   },
   {

@@ -45,7 +45,7 @@ return {
             },
             automatic_installation = false,
             handlers = {
-              require("plugins.lsp.lsp_setup"),
+              require("plugins.lsp.config.lsp_setup"),
             },
           }
         end,
@@ -85,13 +85,13 @@ return {
     end,
     config = function()
       local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
-      local utils = require("plugins.lsp.utils")
+      local utils = require("plugins.lsp.config.utils")
 
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         ---@param args { buf: integer }
         callback = function(args)
-          local actions = require("plugins.lsp.lsp_actions_on_save")
+          local actions = require("plugins.lsp.config.lsp_actions_on_save")
           utils.run_lsp_actions(actions, { buf = args.buf })
         end,
       })
@@ -99,7 +99,7 @@ return {
       -- language servers are installed manually
       local server_names = { "nixd" }
       for _, server_name in ipairs(server_names) do
-        require("plugins.lsp.lsp_setup")(server_name)
+        require("plugins.lsp.config.lsp_setup")(server_name)
       end
     end,
   },

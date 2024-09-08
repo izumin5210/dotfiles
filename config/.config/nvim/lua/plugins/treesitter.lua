@@ -126,7 +126,7 @@ return {
     "folke/ts-comments.nvim",
     cond = not vim.g.vscode,
     version = "*",
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "VeryLazy" },
     dependencies = { "nvim-treesitter" },
     opts = {},
   },

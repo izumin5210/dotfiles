@@ -2,7 +2,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     cond = not vim.g.vscode,
-    event = "VimEnter",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     version = "*",
     dependencies = { "nvim-web-devicons" },
     opts = function()
@@ -13,7 +13,7 @@ return {
     "folke/noice.nvim",
     version = "*",
     cond = not vim.g.vscode,
-    event = "VeryLazy",
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
     dependencies = {
       "nui.nvim",
       {
@@ -105,6 +105,7 @@ return {
   },
   {
     "nvimdev/dashboard-nvim",
+    lazy = false,
     cond = not vim.g.vscode,
     config = function()
       require("dashboard").setup({

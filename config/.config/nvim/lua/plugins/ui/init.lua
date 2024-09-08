@@ -4,7 +4,9 @@ return {
     cond = not vim.g.vscode,
     event = { "VeryLazy" },
     version = "*",
-    dependencies = { "nvim-web-devicons" },
+    dependencies = {
+      -- "nvim-web-devicons", -- depends but it will be load automatically
+    },
     opts = function()
       return require("plugins.ui.config.bufferline").opts()
     end,
@@ -122,6 +124,8 @@ return {
         },
       })
     end,
-    dependencies = { "nvim-web-devicons" },
+    dependencies = {
+      -- "nvim-web-devicons", -- depends but it will be load automatically
+    },
   },
 }

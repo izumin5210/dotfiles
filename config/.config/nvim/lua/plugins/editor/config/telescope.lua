@@ -1,6 +1,6 @@
 local M = {}
 
-local actions = {
+M.actions = {
   find_files = function()
     require("telescope.builtin").find_files()
   end,
@@ -25,19 +25,6 @@ local actions = {
     require("telescope").extensions["aerial"].aerial({ filter_kind = { "Function", "Method" } })
   end,
 }
-
-M.keys = require("rc.utils").lazy_keymap({
-  {
-    { "n", "<leader><leader>", actions.find_files, desc = "File: Go to ..." },
-    { "n", "<leader>gg", actions.grep, desc = "File: Grep" },
-    { "n", "<leader>gs", actions.git_status, desc = "File: Git Suatus" },
-    { "n", "<leader>gu", actions.conflicted_files, desc = "File: Git Unmerged Files" },
-    { "n", "<leader>gb", actions.buffers, desc = "File: Buffers" },
-    { "n", "<leader>ga", actions.alternate_files, desc = "File: Alternate" },
-    { "n", "<leader>gf", actions.aerial, desc = "LSP: Functions and Methods" },
-  },
-  common = { noremap = true },
-})
 
 function M.init()
   local palette = require("rc.colors").palette

@@ -52,41 +52,6 @@ return {
     init = require("rc.pluginconfig.cmp").init,
     config = require("rc.pluginconfig.cmp").setup,
   },
-  -- Treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    version = "*",
-    cond = not vim.g.vscode,
-    event = { "CursorHold", "CursorHoldI" },
-    dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter-context",
-        init = require("rc.pluginconfig.treesitter").init_treesitter_context,
-        config = require("rc.pluginconfig.treesitter").setup_treesitter_context,
-      },
-      "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
-      {
-        "haringsrob/nvim_context_vt",
-        init = require("rc.pluginconfig.treesitter").init_context_vt,
-        config = require("rc.pluginconfig.treesitter").setup_context_vt,
-      },
-      {
-        "andymass/vim-matchup",
-        version = "*",
-      },
-      {
-        "windwp/nvim-ts-autotag",
-        opts = {
-          opts = {
-            enable_close = true,
-            enable_rename = true,
-            enable_close_on_slash = true,
-          },
-        },
-      },
-    },
-    config = require("rc.pluginconfig.treesitter").setup,
-  },
   -- Fuzzy finder
   {
     "nvim-telescope/telescope.nvim",
@@ -134,7 +99,7 @@ return {
     dependencies = {
       { "nvim-neotest/nvim-nio", version = "*" },
       "nvim-lua/plenary.nvim",
-      "nvim-treesitter/nvim-treesitter",
+      "nvim-treesitter",
       -- adapters
       "nvim-neotest/neotest-go",
       "nvim-neotest/neotest-jest",
@@ -376,7 +341,7 @@ return {
         desc = "Generate doc comment",
       },
     },
-    dependencies = "nvim-treesitter/nvim-treesitter",
+    dependencies = { "nvim-treesitter" },
     opts = {
       snippet_engine = "vsnip",
     },

@@ -27,40 +27,6 @@ return {
     "tpope/vim-repeat", -- required by leap.nvim
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
-  -- Debugger
-  {
-    "mfussenegger/nvim-dap",
-    cond = not vim.g.vscode,
-    dependencies = {
-      {
-        "leoluz/nvim-dap-go",
-        ft = "go",
-        config = require("rc.pluginconfig.dap").setup_go,
-      },
-      {
-        "theHamsta/nvim-dap-virtual-text",
-        config = true,
-      },
-    },
-    keys = require("rc.pluginconfig.dap").keys,
-    config = require("rc.pluginconfig.dap").setup,
-  },
-  {
-    "nvim-neotest/neotest",
-    version = "*",
-    cond = not vim.g.vscode,
-    dependencies = {
-      { "nvim-neotest/nvim-nio", version = "*" },
-      "nvim-lua/plenary.nvim",
-      "nvim-treesitter",
-      -- adapters
-      "nvim-neotest/neotest-go",
-      "nvim-neotest/neotest-jest",
-      "marilari88/neotest-vitest",
-    },
-    config = require("rc.pluginconfig.neotest").setup,
-    keys = require("rc.pluginconfig.neotest").keys,
-  },
   -- Appearance
   {
     "catppuccin/nvim",

@@ -84,6 +84,39 @@ return {
     end,
   },
   {
+    "mfussenegger/nvim-dap",
+    cond = not vim.g.vscode,
+    dependencies = {
+      {
+        "leoluz/nvim-dap-go",
+        ft = "go",
+        config = require("plugins.editor.config.dap").setup_go,
+      },
+      {
+        "theHamsta/nvim-dap-virtual-text",
+        config = true,
+      },
+    },
+    keys = require("plugins.editor.config.dap").keys,
+    config = require("plugins.editor.config.dap").setup,
+  },
+  {
+    "nvim-neotest/neotest",
+    version = "*",
+    cond = not vim.g.vscode,
+    dependencies = {
+      { "nvim-neotest/nvim-nio", version = "*" },
+      "plenary.nvim",
+      "nvim-treesitter",
+      -- adapters
+      "nvim-neotest/neotest-go",
+      "nvim-neotest/neotest-jest",
+      "marilari88/neotest-vitest",
+    },
+    config = require("plugins.editor.config.neotest").setup,
+    keys = require("plugins.editor.config.neotest").keys,
+  },
+  {
     "folke/todo-comments.nvim",
     version = "*",
     cond = not vim.g.vscode,

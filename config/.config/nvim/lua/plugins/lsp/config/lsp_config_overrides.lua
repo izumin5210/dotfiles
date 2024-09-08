@@ -2,7 +2,7 @@
 local on_new_config_by_client_name = {
   -- use project-local biome
   biome = function(new_config)
-    local utils = require("rc.pluginconfig.lspconfig.utils")
+    local utils = require("plugins.lsp.config.utils")
     local pm = utils.detect_node_package_manager()
     if pm == nil then
       return

@@ -39,7 +39,7 @@ local actions = {
   end,
 }
 
-M.keys = require("rc.utils").lazy_keymap({
+M.keys = require("utils.keymap").lazy_keymap({
   {
     { "n", "<C-a>", actions.inc_normal, desc = "Increment" },
     { "n", "<C-x>", actions.dec_normal, desc = "Decrement" },

@@ -1,15 +1,17 @@
 local M = {}
 
-M.keys = {
-  {
-    "<C-h>",
-    function()
-      require("nvim-tree.api").tree.toggle({ find_file = true })
-    end,
-    desc = "File: Open Explorer",
-    silent = true,
-  },
-}
+function M.keys()
+  return {
+    {
+      "<C-h>",
+      function()
+        require("nvim-tree.api").tree.toggle({ find_file = true })
+      end,
+      desc = "File: Open Explorer",
+      silent = true,
+    },
+  }
+end
 
 -- https://github.com/nvim-tree/nvim-tree.lua/wiki/Recipes#find-file-from-node-in-telescope
 local function launch_telescope(func_name, opts)
@@ -182,8 +184,8 @@ local function tree_actions_menu(node)
     :find()
 end
 
-function M.setup()
-  require("nvim-tree").setup({
+function M.opts()
+  return {
     renderer = {
       highlight_opened_files = "all",
       special_files = {},
@@ -205,7 +207,7 @@ function M.setup()
 
       vim.keymap.set("n", "<Space>", tree_actions_menu, opts("Command Pallete"))
     end,
-  })
+  }
 end
 
 return M

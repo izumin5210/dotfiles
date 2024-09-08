@@ -42,7 +42,7 @@ local actions = {
   end,
 }
 
-M.keys = require("rc.utils").lazy_keymap({
+M.keys = require("utils.keymap").lazy_keymap({
   {
     { "n", "<Leader>dc", actions.continue, desc = "Continue" },
     { "n", "<Leader>do", actions.step_over, desc = "Step over" },

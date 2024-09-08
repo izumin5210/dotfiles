@@ -1,7 +1,7 @@
 local M = {}
 
 local function get_highlights()
-  local palette = require("rc.colors").palette
+  local palette = require("utils.colors").palette
   local inactive_hl = { fg = palette.surface2 }
   local active_hl = { bold = true }
   local custom_highlights = {
@@ -49,8 +49,8 @@ local function close_command(bufnum)
   require("bufdelete").bufdelete(bufnum, true)
 end
 
-function M.setup()
-  require("bufferline").setup({
+function M.opts()
+  return {
     highlights = get_highlights(),
     options = {
       right_mouse_command = nil,
@@ -81,7 +81,7 @@ function M.setup()
       separator_style = "thin",
       hover = { enabled = false },
     },
-  })
+  }
 end
 
 return M

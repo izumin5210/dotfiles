@@ -13,3 +13,4 @@ packages:
 - name: int128/ghcp@v1.13.3
 - name: JohnnyMorganz/StyLua@v0.20.0
 - name: mvdan/sh@v3.9.0
+- name: rhysd/vim-startuptime@v1.3.2

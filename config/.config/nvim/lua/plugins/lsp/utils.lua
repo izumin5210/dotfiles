@@ -50,4 +50,26 @@ function M.detect_node_package_manager()
   return detected and detected[1]
 end
 
+---@param fname string
+---@return {node_root: string|nil, deno_root: string|nil}
+function M.detect_node_or_deno_root(fname)
+  local util = require("lspconfig.util")
+  local node_root = util.root_pattern("tsconfig.json", "package.json", "jsconfig.json")(fname)
+  local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
+
+  if deno_root == nil then
+    return { node_root = node_root, deno_root = nil }
+  end
+
+  if node_root == nil then
+    return { node_root = nil, deno_root = deno_root }
+  end
+
+  if string.len(vim.fs.dirname(node_root)) > string.len(vim.fs.dirname(deno_root)) then
+    return { node_root = node_root, deno_root = nil }
+  end
+
+  return { node_root = nil, deno_root = deno_root }
+end
+
 return M

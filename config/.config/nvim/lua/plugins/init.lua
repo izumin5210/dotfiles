@@ -21,27 +21,6 @@ return {
     "tpope/vim-repeat", -- required by leap.nvim
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
-  -- LSP
-  {
-    "neovim/nvim-lspconfig",
-    cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    dependencies = {
-      { "williamboman/mason-lspconfig.nvim", version = "*" },
-      { "williamboman/mason.nvim", version = "*" },
-      { "nvimtools/none-ls.nvim" },
-      { "jayp0521/mason-null-ls.nvim", version = "*" },
-      {
-        "nvimdev/lspsaga.nvim",
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        event = { "LspAttach" },
-        init = require("rc.pluginconfig.lspsaga").init,
-        opts = require("rc.pluginconfig.lspsaga").opts,
-      },
-    },
-    init = require("rc.pluginconfig.lspconfig").init,
-    config = require("rc.pluginconfig.lspconfig").setup,
-  },
   -- Completion
   {
     "hrsh7th/nvim-cmp",

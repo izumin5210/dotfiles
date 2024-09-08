@@ -1,5 +1,5 @@
 if not vim.g.vscode then
-  require("rc.utils").set_highlights("hl_for_non_vscode", {
+  require("utils.highlight").set_highlights("hl_for_non_vscode", {
     -- clear statusline
     StatusLine = { link = "LineNr" },
     StatusLineNc = { link = "LineNr" },
@@ -11,7 +11,7 @@ if not vim.g.vscode then
     EndOfBuffer = { ctermbg = "none", bg = "none" },
   })
 
-  require("rc.utils").force_set_highlights("force_hl_for_non_vscode", {
+  require("utils.highlight").force_set_highlights("force_hl_for_non_vscode", {
     DiagnosticHint = { link = "LineNr" },
     -- reset semantic highlight
     ["@lsp.type.variable"] = {},
@@ -20,8 +20,8 @@ if not vim.g.vscode then
     ["@lsp.type.function"] = {},
   })
 
-  local palette = require("rc.colors").palette
-  require("rc.utils").set_highlights("catppuccin_hl", {
+  local palette = require("utils.colors").palette
+  require("utils.highlight").set_highlights("catppuccin_hl", {
     NormalFloat = { bg = palette.crust },
     FloatBorder = { bg = palette.crust },
   })

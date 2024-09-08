@@ -72,9 +72,9 @@ return {
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     init = function()
-      local palette = require("rc.colors").palette
+      local palette = require("utils.colors").palette
 
-      require("rc.utils").force_set_highlights("treesitter-context_hl", {
+      require("utils.highlight").force_set_highlights("treesitter-context_hl", {
         TreesitterContext = { bg = palette.surface1, blend = 10 },
       })
     end,
@@ -94,7 +94,7 @@ return {
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     init = function()
-      require("rc.utils").force_set_highlights("context_vt_hl", {
+      require("utils.highlight").force_set_highlights("context_vt_hl", {
         ContextVt = { link = "DiagnosticHint" },
       })
     end,

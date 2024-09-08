@@ -41,7 +41,7 @@ return {
       local function action(name)
         return require("plugins.editor.config.telescope").actions[name]
       end
-      return require("rc.utils").lazy_keymap({
+      return require("utils.keymap").lazy_keymap({
         {
           { "n", "<leader><leader>", action("find_files"), desc = "File: Go to ..." },
           { "n", "<leader>gg", action("grep"), desc = "File: Grep" },
@@ -166,7 +166,7 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = function()
-      local palette = require("rc.colors").palette
+      local palette = require("utils.colors").palette
       return {
         marks = {
           Search = { color_nr = "3", color = palette.yellow },
@@ -188,7 +188,7 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
-      require("rc.utils").force_set_highlights("nvim-hlslens_hl", {
+      require("utils.highlight").force_set_highlights("nvim-hlslens_hl", {
         HlSearchLens = { link = "DiagnosticHint" },
         HlSearchLensNear = { link = "DiagnosticInfo" },
       })
@@ -203,7 +203,7 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
-      require("rc.utils").force_set_highlights("gitsigns_hl", {
+      require("utils.highlight").force_set_highlights("gitsigns_hl", {
         SignColumn = { ctermbg = "none", bg = "none" },
         GitGutterAdd = { ctermbg = "none", bg = "none" },
         GitGutterChange = { ctermbg = "none", bg = "none" },
@@ -221,7 +221,7 @@ return {
     cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },
     opts = function()
-      local palette = require("rc.colors").palette
+      local palette = require("utils.colors").palette
       return {
         colors = {
           copy = palette.yellow,
@@ -244,7 +244,7 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = function()
-      local palette = require("rc.colors").palette
+      local palette = require("utils.colors").palette
       local exclude_filetypes = {
         aerial = true,
         dashboard = true,
@@ -293,8 +293,8 @@ return {
     cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },
     init = function()
-      local palette = require("rc.colors").palette
-      require("rc.utils").force_set_highlights("vim-illuminate_hl", {
+      local palette = require("utils.colors").palette
+      require("utils.highlight").force_set_highlights("vim-illuminate_hl", {
         IlluminatedWordText = { ctermbg = 238, bg = palette.surface1 },
         IlluminatedWordRead = { ctermbg = 238, bg = palette.surface1 },
         IlluminatedWordWrite = { ctermbg = 238, bg = palette.surface1 },
@@ -309,8 +309,8 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
-      local palette = require("rc.colors").palette
-      require("rc.utils").force_set_highlights("vim-better-whitespace_hl", {
+      local palette = require("utils.colors").palette
+      require("utils.highlight").force_set_highlights("vim-better-whitespace_hl", {
         ExtraWhitespace = { bg = palette.red },
       })
     end,

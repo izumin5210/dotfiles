@@ -55,7 +55,7 @@ return {
     dependencies = { "nui.nvim" },
     event = { "BufEnter package.json" },
     init = function()
-      require("rc.utils").force_set_highlights("package-info_hl", {
+      require("utils.highlight").force_set_highlights("package-info_hl", {
         PackageInfoOutdatedVersion = { link = "DiagnosticHint" },
         PackageInfoUpToDateVersion = { link = "DiagnosticHint" },
       })

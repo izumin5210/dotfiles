@@ -1,7 +1,7 @@
 local M = {}
 
 local function get_highlights()
-  local palette = require("rc.colors").palette
+  local palette = require("utils.colors").palette
   local inactive_hl = { fg = palette.surface2 }
   local active_hl = { bold = true }
   local custom_highlights = {

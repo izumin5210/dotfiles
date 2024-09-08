@@ -52,10 +52,10 @@ return {
       },
     },
     init = function()
-      local colors = require("rc.colors")
+      local colors = require("utils.colors")
       local palette = colors.palette
 
-      require("rc.utils").force_set_highlights("lspconfig_hl", {
+      require("utils.highlight").force_set_highlights("lspconfig_hl", {
         LspInlayHint = { link = "DiagnosticHint" },
         -- https://github.com/catppuccin/vscode/blob/catppuccin-vsc-v3.15.2/packages/catppuccin-vsc/src/theme/extensions/error-lens.ts
         DiagnosticErrorLine = { bg = colors.alpha_blend(palette.red, palette.base, 0.15) },
@@ -164,8 +164,8 @@ return {
     dependencies = { "nvim-web-devicons", "nvim-treesitter" },
     event = { "LspAttach" },
     init = function()
-      local palette = require("rc.colors").palette
-      require("rc.utils").set_highlights("lspsaga_hl", {
+      local palette = require("utils.colors").palette
+      require("utils.highlight").set_highlights("lspsaga_hl", {
         SagaNormal = { bg = palette.crust },
         SagaBorder = { bg = palette.crust },
       })

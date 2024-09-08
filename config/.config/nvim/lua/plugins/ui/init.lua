@@ -20,8 +20,8 @@ return {
         "rcarriga/nvim-notify",
         version = "*",
         init = function()
-          local palette = require("rc.colors").palette
-          require("rc.utils").set_highlights("nvim-notify_hl", {
+          local palette = require("utils.colors").palette
+          require("utils.highlight").set_highlights("nvim-notify_hl", {
             NotifyBackground = { bg = palette.base },
             NotifyERRORBorder = { bg = palette.base },
             NotifyERRORBody = { bg = palette.base },
@@ -93,9 +93,9 @@ return {
       },
     },
     init = function()
-      local palette = require("rc.colors").palette
+      local palette = require("utils.colors").palette
 
-      require("rc.utils").set_highlights("noice_hl", {
+      require("utils.highlight").set_highlights("noice_hl", {
         NoiceCmdlinePopupNormal = { link = "NormalFloat" },
         NoiceCmdlinePopupBorder = { link = "FloatBorder" },
         NoiceCmdlinePopupmenuNormal = { fg = palette.text, bg = palette.mantle },

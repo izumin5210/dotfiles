@@ -27,9 +27,9 @@ M.actions = {
 }
 
 function M.init()
-  local palette = require("rc.colors").palette
+  local palette = require("utils.colors").palette
 
-  require("rc.utils").set_highlights("teelscope_hl", {
+  require("utils.highlight").set_highlights("teelscope_hl", {
     TelescopeNormal = { bg = palette.mantle },
     TelescopeTitle = { bg = palette.mantle },
     TelescopePromptNormal = { bg = palette.crust },
@@ -37,7 +37,7 @@ function M.init()
     TelescopePromptTitle = { bg = palette.crust },
   })
 
-  require("rc.utils").force_set_highlights("telescope_hl_force", {
+  require("utils.highlight").force_set_highlights("telescope_hl_force", {
     TelescopeBorder = { bg = palette.mantle },
     TelescopePromptTitle = { bg = palette.crust, fg = palette.overlay0 },
     TelescopeTitle = { bg = palette.mantle, fg = palette.overlay0 },

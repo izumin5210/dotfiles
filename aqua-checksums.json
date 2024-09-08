@@ -66,6 +66,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_darwin_amd64.tar.gz",
+      "checksum": "050D3DE9F35537D73326A6BB0C81E9EAF229E4F63D98218A09C4CD07212760AB",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_darwin_arm64.tar.gz",
+      "checksum": "1B9D7F178DD025BF87371EAE4C8BC2FABD8CCFD1ED3C820053B975E18B6C35D4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_linux_amd64.tar.gz",
+      "checksum": "368FC3734ECFB734CB2D543925D268832FDA675E560315DA50DB4DAF62316D45",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_linux_arm64.tar.gz",
+      "checksum": "28EE09E727547444EC44B84AA738FA7F41967D89E7D579FEDACD859F9DFBC309",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_windows_amd64.zip",
+      "checksum": "7C45112E401E25C99DC6C01DD980DAA5F1757F07500DB0BECA576D1A9E2D2843",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_windows_arm64.zip",
+      "checksum": "EB6BBBAB34FD30A72BDFD0771D2E2C72F1647DB616A9542BD61D9016076F69F7",
+      "algorithm": "sha256"
+    },
+    {
       "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.219.0/registry.yaml",
       "checksum": "1DB65B303DF61A9A1AE98C86AB8E078CDA1D6231E5ED9133991D8BA5E3A3B181EF8C7CF6C77D1FA915193A953700EBFB275DA3133B6623FBE4C1221199593E75",
       "algorithm": "sha512"

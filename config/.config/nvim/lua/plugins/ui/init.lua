@@ -2,7 +2,7 @@ return {
   {
     "akinsho/bufferline.nvim",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    event = { "VeryLazy" },
     version = "*",
     dependencies = { "nvim-web-devicons" },
     opts = function()
@@ -13,7 +13,7 @@ return {
     "folke/noice.nvim",
     version = "*",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    event = { "VeryLazy" },
     dependencies = {
       "nui.nvim",
       {

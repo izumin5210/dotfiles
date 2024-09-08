@@ -120,7 +120,7 @@ return {
     "folke/todo-comments.nvim",
     version = "*",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "VeryLazy" },
     dependencies = { "plenary.nvim" },
     opts = {
       highlight = { after = "" },
@@ -307,7 +307,7 @@ return {
   {
     "ntpeters/vim-better-whitespace",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    event = { "VeryLazy" },
     init = function()
       local palette = require("utils.colors").palette
       require("utils.highlight").force_set_highlights("vim-better-whitespace_hl", {

@@ -44,7 +44,7 @@ return {
       return require("utils.keymap").lazy_keymap({
         {
           { "n", "<leader><leader>", action("find_files"), desc = "File: Go to ..." },
-          { "n", "<leader>gg", action("grep"), desc = "File: Grep" },
+          { "n", "<leader>g/", action("grep"), desc = "File: Grep" },
           { "n", "<leader>gs", action("git_status"), desc = "File: Git Suatus" },
           { "n", "<leader>gu", action("conflicted_files"), desc = "File: Git Unmerged Files" },
           { "n", "<leader>gb", action("buffers"), desc = "File: Buffers" },
@@ -125,6 +125,23 @@ return {
     opts = {
       highlight = { after = "" },
     },
+  },
+  {
+    "akinsho/toggleterm.nvim",
+    version = "*",
+    keys = {
+      {
+        "<leader>gg",
+        mode = "n",
+        noremap = true,
+        desc = "Git: open Lazygit",
+        function()
+          require("plugins.editor.config.toggleterm").toggle_lazygit()
+        end,
+      },
+    },
+    cmd = { "ToggleTerm" },
+    opts = {},
   },
   -- Buffers
   {

@@ -126,15 +126,6 @@ return {
       highlight = { after = "" },
     },
   },
-  {
-    "dinhhuy258/git.nvim",
-    cond = not vim.g.vscode,
-    keys = {
-      { "<Leader>go", desc = "Git: Open in GitHub" },
-      { "<Leader>gp", desc = "Git: Open Pull Request Page" },
-    },
-    config = true,
-  },
   -- Buffers
   {
     "famiu/bufdelete.nvim",
@@ -159,6 +150,15 @@ return {
     opts = {
       retirementAgeMins = 20,
     },
+  },
+  {
+    "linrongbin16/gitlinker.nvim",
+    cmd = "GitLink",
+    keys = {
+      { "<leader>gl", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Git: yank git permalink" },
+      { "<leader>gL", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Git: open git permalink" },
+    },
+    opts = {},
   },
   -- Highlight
   {

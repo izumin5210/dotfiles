@@ -36,6 +36,9 @@ mkdir -p ~/.config
 # fzf
 ./bin/ln-idempotently ./config/.config/fzf ~/.config/fzf
 
+# fzf
+./bin/ln-idempotently ./config/.config/lazygit ~/.config/lazygit
+
 # ripgrep
 ./bin/ln-idempotently ./config/.config/ripgrep ~/.config/ripgrep
 

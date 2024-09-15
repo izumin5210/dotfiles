@@ -1,7 +1,36 @@
 vim.g.mapleader = " "
 
--- search
-vim.keymap.set("n", "<Esc><Esc>", ":nohlsearch<CR><Esc>", { noremap = true, desc = "Search: Clear Search Highlight" })
+-- Edit
+----------------------------------------------------------------
+-- yank to end of line
+vim.keymap.set("n", "Y", "y$", { noremap = true, desc = "" })
+-- keep cursor position on visual copy
+vim.keymap.set("x", "y", "mzy`z", { noremap = true })
+-- do not change register on visual paste
+vim.keymap.set("x", "p", "P", { noremap = true })
+-- keep visual selection after indenting
+vim.keymap.set("x", "<gv", "<", { noremap = true })
+vim.keymap.set("x", ">gv", ">", { noremap = true })
+-- indent after paste and move cursor at the end of the pasted text
+vim.keymap.set("n", "p", "]p`]", { noremap = true })
+vim.keymap.set("n", "P", "]P`]", { noremap = true })
+-- jump to the next or prev blank line
+vim.keymap.set("n", "F<cr>", "{", { noremap = true })
+vim.keymap.set("n", "f<cr>", "}", { noremap = true })
+
+-- Text objects
+----------------------------------------------------------------
+-- inner space
+vim.keymap.set({ "o", "x" }, "i<space>", "iW", { noremap = true })
+
+-- Search
+----------------------------------------------------------------
+vim.keymap.set(
+  "n",
+  "<Esc><Esc>",
+  ":nohlsearch<CR><Esc>",
+  { noremap = true, silent = true, desc = "Search: Clear Search Highlight" }
+)
 -- center search results
 vim.keymap.set("n", "n", "nzz", { noremap = true, desc = "Search: Next" })
 vim.keymap.set("n", "N", "Nzz", { noremap = true, desc = "Search: Prev" })
@@ -10,13 +39,16 @@ vim.keymap.set("n", "#", "#zz", { noremap = true, desc = "Search: Prev" })
 vim.keymap.set("n", "g*", "g*zz", { noremap = true, desc = "Search: Next" })
 vim.keymap.set("n", "g#", "g#zz", { noremap = true, desc = "Search: Prev" })
 
--- buffers
+-- Buffers
+----------------------------------------------------------------
 vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true, desc = "Buffer: Prev" })
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true, desc = "Buffer: Next" })
 vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true, desc = "Buffer: Prev" })
 vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Buffer: Next" })
 -- <C-q> to delete buffer using bufdelete.nvim
 
+-- VSCode Neovim
+----------------------------------------------------------------
 if vim.g.vscode then
   vim.keymap.set("n", "gi", function()
     require("vscode-neovim").call("editor.action.goToImplementation")

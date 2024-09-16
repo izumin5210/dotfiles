@@ -34,6 +34,9 @@ local function lsp_setup(server_name)
     root_dir = lsp_root_dir[server_name],
     single_file_support = server_name ~= "tsserver" and nil or false,
     on_new_config = require("plugins.lsp.config.lsp_config_overrides")[server_name],
+    flags = {
+      debounce_text_changes = 500,
+    },
   })
 end
 

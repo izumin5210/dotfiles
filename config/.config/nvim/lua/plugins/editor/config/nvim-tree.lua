@@ -3,7 +3,7 @@ local M = {}
 function M.keys()
   return {
     {
-      "<C-h>",
+      "<leader>e",
       function()
         require("nvim-tree.api").tree.toggle({ find_file = true })
       end,

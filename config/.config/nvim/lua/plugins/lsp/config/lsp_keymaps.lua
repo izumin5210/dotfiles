@@ -32,7 +32,7 @@ local function get_keymaps(bufnr)
   ---@type { [1]: string|string[], [2]: string, [3]: string | function, desc: string }[]
   local keymaps = {
     -- see global mappings in https://github.com/neovim/nvim-lspconfig#suggested-configuration
-    { "n", "<space>e", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostics" },
+    { "n", "<space>cd", "<cmd>Lspsaga show_line_diagnostics<CR>", desc = "Show Line Diagnostics" },
     { "n", "[d", get_diagnostic_goto("prev"), desc = "Go to prev Diagnostic" },
     { "n", "]d", get_diagnostic_goto("next"), desc = "Go to next Diagnostic" },
     { "n", "[e", get_diagnostic_goto("prev", "ERROR"), desc = "Go to prev Error" },
@@ -47,10 +47,10 @@ local function get_keymaps(bufnr)
     { "n", "gi", ts_builtin.lsp_implementations, desc = "Go to Implementations" },
     { { "n", "i" }, "<C-k>", vim.lsp.buf.signature_help, desc = "Show Signature Help" },
     { "n", "<space>D", ts_builtin.lsp_type_definitions, desc = "Go to Type Definitions" },
-    { "n", "<space>rn", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename Symbol" },
+    { "n", "<space>cr", "<cmd>Lspsaga rename ++project<CR>", desc = "Rename Symbol" },
     { { "n", "v" }, "<space>.", "<cmd>Lspsaga code_action<CR>", desc = "Code Action" },
     { "n", "gr", ts_builtin.lsp_references, desc = "Go to References" },
-    { "n", "<space>f", format, desc = "Format Document" },
+    { "n", "<space>cf", format, desc = "Format Document" },
     -- custom mappings
     { "n", "gs", ts_builtin.lsp_document_symbols, desc = "Go to Symbols in Document" },
     { "n", "gS", ts_builtin.lsp_dynamic_workspace_symbols, desc = "Search Symbols in Workspace" },

@@ -26,6 +26,10 @@ end
 
 ---@param server_name string
 local function lsp_setup(server_name)
+  local init_optinos_by_server_name = {
+    volar = { vue = { hybridMode = false } },
+  }
+
   require("lspconfig")[server_name].setup({
     on_attach = on_attach_lsp,
     capabilities = require("cmp_nvim_lsp").default_capabilities(),
@@ -34,6 +38,7 @@ local function lsp_setup(server_name)
     root_dir = lsp_root_dir[server_name],
     single_file_support = server_name ~= "tsserver" and nil or false,
     on_new_config = require("plugins.lsp.config.lsp_config_overrides")[server_name],
+    init_options = init_optinos_by_server_name[server_name],
   })
 end
 

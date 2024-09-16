@@ -1,4 +1,43 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
 
+git:
+  branchPrefix: "izumin5210/"
+  paging:
+    externalDiffCommand: "difft --color=always"
+  mainBranches:
+    - "main"
+    - "master"
+    - "develop"
+  parseEmoji: true
+
+gui:
+  nerdFontsVersion: "3"
+  border: "single"
+  authorColors:
+    "renovate[bot]": "#737994"
+  theme:
+    activeBorderColor:
+      - "#ca9ee6"
+      - bold
+    inactiveBorderColor:
+      - "#737994"
+    optionsTextColor:
+      - "#8caaee"
+    selectedLineBgColor:
+      - "#414559"
+    cherryPickedCommitBgColor:
+      - "#51576d"
+    cherryPickedCommitFgColor:
+      - "#ca9ee6"
+    unstagedChangesColor:
+      - "#e78284"
+    defaultFgColor:
+      - "#c6d0f5"
+    searchingActiveBorderColor:
+      - "#e5c890"
+
 os:
   editPreset: "nvim-remote"
+
+confirmOnQuit: true
+quitOnTopLevelReturn: true

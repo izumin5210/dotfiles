@@ -41,3 +41,12 @@ os:
 
 confirmOnQuit: true
 quitOnTopLevelReturn: true
+
+customCommands:
+  - key: "<c-s>"
+    context: "global"
+    command: "gh home"
+  - key: "<c-r>"
+    command: "gh pr create --fill-first --web"
+    context: "global"
+    loadingText: "Creating pull request on GitHub"

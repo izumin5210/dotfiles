@@ -141,15 +141,18 @@ return {
       },
     },
     cmd = { "ToggleTerm" },
-    opts = {
-      highlights = {
-        NormalFloat = { link = "NormalFloat" },
-        FloatBorder = { link = "FloatBorder" },
-      },
-      float_opts = {
-        border = { " ", " ", " ", " ", " ", " ", " ", " " },
-      },
-    },
+    opts = function()
+      local palette = require("utils.colors").palette
+      return {
+        highlights = {
+          NormalFloat = { guifg = palette.text, guibg = palette.mantle },
+          FloatBorder = { guibg = palette.mantle },
+        },
+        float_opts = {
+          border = { " ", " ", " ", " ", " ", " ", " ", " " },
+        },
+      }
+    end,
   },
   -- Buffers
   {

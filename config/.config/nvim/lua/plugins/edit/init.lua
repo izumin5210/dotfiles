@@ -61,15 +61,24 @@ return {
   {
     "numToStr/Comment.nvim",
     cond = not vim.g.vscode,
-    keys = { { "<Leader>/", mode = { "n", "v" } } },
-    opts = {
-      toggler = {
-        line = "<Leader>/",
-      },
-      opleader = {
-        line = "<Leader>/",
-      },
+    dependencies = { "nvim-ts-context-commentstring" },
+    keys = {
+      { "<Leader>/", mode = { "n", "x" } },
+      { "<Leader>?", mode = { "n", "x" } },
     },
+    opts = function()
+      return {
+        toggler = {
+          line = "<Leader>/",
+          block = "<Leader>?",
+        },
+        opleader = {
+          line = "<Leader>/",
+          block = "<Leader>?",
+        },
+        pre_hook = require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook(),
+      }
+    end,
   },
   {
     "danymat/neogen",
@@ -77,7 +86,7 @@ return {
     cond = not vim.g.vscode,
     keys = {
       {
-        "<Leader>cd",
+        "<Leader>cn",
         function()
           require("neogen").generate()
         end,

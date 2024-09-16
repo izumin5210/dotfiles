@@ -57,9 +57,6 @@ return {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
-        context_commentstring = {
-          enable_autocmd = false,
-        },
         matchup = {
           enable = true,
         },
@@ -123,11 +120,8 @@ return {
     },
   },
   {
-    "folke/ts-comments.nvim",
-    cond = not vim.g.vscode,
-    version = "*",
-    event = { "VeryLazy" },
-    dependencies = { "nvim-treesitter" },
-    opts = {},
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    lazy = true,
+    opts = { enable_autocmd = false },
   },
 }

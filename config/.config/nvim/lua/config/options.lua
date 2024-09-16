@@ -71,3 +71,10 @@ vim.opt.cmdheight = 0
 -- clear statusline
 vim.opt.laststatus = 0
 vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
+
+vim.opt.shortmess:append({
+  W = true, -- don't give "written" or "[w]" when writing a file
+  I = true, -- don't give the intro message when starting
+  c = true, -- don't give ins-completion-menu messages
+  C = true, -- don't give messages while scanning for ins-completion items
+})

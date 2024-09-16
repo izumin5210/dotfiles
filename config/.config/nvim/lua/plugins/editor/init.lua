@@ -44,7 +44,7 @@ return {
       return require("utils.keymap").lazy_keymap({
         {
           { "n", "<leader><leader>", action("find_files"), desc = "File: Go to ..." },
-          { "n", "<leader>g/", action("grep"), desc = "File: Grep" },
+          { "n", "<leader>gg", action("grep"), desc = "File: Grep" },
           { "n", "<leader>gs", action("git_status"), desc = "File: Git Suatus" },
           { "n", "<leader>gu", action("conflicted_files"), desc = "File: Git Unmerged Files" },
           { "n", "<leader>gb", action("buffers"), desc = "File: Buffers" },
@@ -79,7 +79,7 @@ return {
         { "<leader>g", group = "+Go to File, Code or GitHub" },
         { "<leader>t", group = "+Test" },
         { "<leader>d", group = "+Debug" },
-        { "<leader>c", group = "+Comment" },
+        { "<leader>c", group = "+Comment, Code" },
       })
     end,
   },
@@ -131,7 +131,7 @@ return {
     version = "*",
     keys = {
       {
-        "<leader>gg",
+        "<leader>lg",
         mode = "n",
         noremap = true,
         desc = "Git: open Lazygit",

@@ -19,11 +19,11 @@ local actions = {
   set_bp_cond = function()
     require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
   end,
-  set_lp = function()
-    require("dap").set_breakpoint(nil, nil, vim.fn.input("Log point message: "))
+  toggle_repl = function()
+    require("dap").repl.toggle()
   end,
-  open_repl = function()
-    require("dap").repl.open()
+  run_to_cursor = function()
+    require("dap").run_to_cursor()
   end,
   run_last = function()
     require("dap").run_last()
@@ -37,26 +37,26 @@ local actions = {
   show_commands = function()
     require("telescope").extensions["dap"].commands()
   end,
-  close = function()
-    require("dap").close()
+  terminate = function()
+    require("dap").terminate()
   end,
 }
 
 M.keys = require("utils.keymap").lazy_keymap({
   {
     { "n", "<Leader>dc", actions.continue, desc = "Continue" },
-    { "n", "<Leader>do", actions.step_over, desc = "Step over" },
+    { "n", "<Leader>dC", actions.continue, desc = "Run to Curosr" },
+    { "n", "<Leader>dO", actions.step_over, desc = "Step over" },
     { "n", "<Leader>di", actions.step_into, desc = "Step into" },
-    { "n", "<Leader>du", actions.step_out, desc = "Step out" },
-    { "n", "<Leader>b", actions.toggle_bp, desc = "Toggle breakpoint" },
-    { "n", "<Leader>B", actions.set_bp_cond, desc = "Add conditional breakpoint" },
-    { "n", "<Leader>lp", actions.set_lp, desc = "Add Logpoint" },
-    { "n", "<Leader>dr", actions.open_repl, desc = "Open REPL" },
+    { "n", "<Leader>do", actions.step_out, desc = "Step out" },
+    { "n", "<Leader>db", actions.toggle_bp, desc = "Toggle breakpoint" },
+    { "n", "<Leader>dB", actions.set_bp_cond, desc = "Add conditional breakpoint" },
+    { "n", "<Leader>dr", actions.toggle_repl, desc = "Open REPL" },
     { "n", "<Leader>dl", actions.run_last, desc = "Re-run the last debug adapter" },
     { "n", "<Leader>dv", actions.show_variables, desc = "Show variables" },
     { "n", "<Leader>df", actions.show_frames, desc = "Show frames" },
     { "n", "<Leader>d<space>", actions.show_commands, desc = "Show commands" },
-    { "n", "<Leader>q", actions.close, desc = "Close" },
+    { "n", "<Leader>dt", actions.terminate, desc = "Close" },
   },
   desc_prefix = "Debug",
   common = { noremap = true, silent = true },

@@ -141,7 +141,15 @@ return {
       },
     },
     cmd = { "ToggleTerm" },
-    opts = {},
+    opts = {
+      highlights = {
+        NormalFloat = { link = "NormalFloat" },
+        FloatBorder = { link = "FloatBorder" },
+      },
+      float_opts = {
+        border = { " ", " ", " ", " ", " ", " ", " ", " " },
+      },
+    },
   },
   -- Buffers
   {

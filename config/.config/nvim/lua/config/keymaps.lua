@@ -9,8 +9,8 @@ vim.keymap.set("x", "y", "mzy`z", { noremap = true })
 -- do not change register on visual paste
 vim.keymap.set("x", "p", "P", { noremap = true })
 -- keep visual selection after indenting
-vim.keymap.set("x", "<gv", "<", { noremap = true })
-vim.keymap.set("x", ">gv", ">", { noremap = true })
+vim.keymap.set("x", "<", "<gv", { noremap = true })
+vim.keymap.set("x", ">", ">gv", { noremap = true })
 -- indent after paste and move cursor at the end of the pasted text
 vim.keymap.set("n", "p", "]p`]", { noremap = true })
 vim.keymap.set("n", "P", "]P`]", { noremap = true })

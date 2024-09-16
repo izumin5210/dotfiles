@@ -161,18 +161,18 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/rossmacarthur/sheldon/0.7.4/sheldon-0.7.4-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "FC178F308D678A6565CDF302B0284B2C21EC00A69AC85EC7A15EFBFF2EE95E37",
+      "id": "github_release/github.com/rossmacarthur/sheldon/0.8.0/sheldon-0.8.0-aarch64-apple-darwin.tar.gz",
+      "checksum": "19939277A2432E5DDD238C527646EC1E047C12FFFD9013FE81E3127D1E35DFD1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/rossmacarthur/sheldon/0.7.4/sheldon-0.7.4-x86_64-apple-darwin.tar.gz",
-      "checksum": "5DC09F05D54B39DB8E9297EEDC42C3E449E30F1317E623D0385BCBBF7222CA5E",
+      "id": "github_release/github.com/rossmacarthur/sheldon/0.8.0/sheldon-0.8.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "78CDB290F259B47BF97FE4E5705BB2257E85355CE7A6C659148E9CCA46761ACA",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/rossmacarthur/sheldon/0.7.4/sheldon-0.7.4-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "7FB370EB0F155987E92C586E4A4D1B61BD315934FE6B4FA3585295CB971C7281",
+      "id": "github_release/github.com/rossmacarthur/sheldon/0.8.0/sheldon-0.8.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "A1035B09640BB3F7F4FFCCA32E2C3875448A842517D8B6FCDCA7FC4513FC39FD",
       "algorithm": "sha256"
     },
     {

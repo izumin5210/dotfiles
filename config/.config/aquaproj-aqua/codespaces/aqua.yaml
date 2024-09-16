@@ -14,7 +14,7 @@ packages:
 - name: junegunn/fzf@v0.55.0
 - name: dandavison/delta@0.18.2
 - name: Wilfred/difftastic@0.60.0
-- name: rossmacarthur/sheldon@0.7.4
+- name: rossmacarthur/sheldon@0.8.0
 - name: BurntSushi/ripgrep@14.1.1
 - name: sharkdp/bat@v0.24.0
 - name: starship/starship@v1.20.1

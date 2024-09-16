@@ -16,6 +16,7 @@
 /config/.config/karabiner/*
 !/config/.config/karabiner/karabiner.json
 /config/.config/tmux/plugins
+/config/.config/irb/irbrc_history
 
 # Nix
 /result

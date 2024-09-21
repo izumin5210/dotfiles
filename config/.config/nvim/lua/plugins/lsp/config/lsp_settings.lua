@@ -1,5 +1,5 @@
 -- https://github.com/typescript-language-server/typescript-language-server#workspacedidchangeconfiguration
-local tsserver_settings = {
+local ts_ls_settings = {
   inlayHints = {
     includeInlayEnumMemberValueHints = true,
     -- includeInlayFunctionLikeReturnTypeHints = true,
@@ -26,11 +26,11 @@ local lsp_settings = {
       },
     },
   },
-  tsserver = {
-    javascript = tsserver_settings,
-    typescript = tsserver_settings,
-    javascriptreact = tsserver_settings,
-    typescriptreact = tsserver_settings,
+  ts_ls = {
+    javascript = ts_ls_settings,
+    typescript = ts_ls_settings,
+    javascriptreact = ts_ls_settings,
+    typescriptreact = ts_ls_settings,
   },
   lua_ls = {
     Lua = {

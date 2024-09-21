@@ -25,7 +25,7 @@ return {
               -- JS
               "biome",
               "eslint",
-              "tsserver",
+              "ts_ls",
               "volar",
               "prismals",
               "denols",

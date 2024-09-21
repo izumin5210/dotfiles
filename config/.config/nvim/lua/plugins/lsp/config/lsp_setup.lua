@@ -1,7 +1,7 @@
 local lsp_root_dir = {
   ---@param fname string
   ---@return string|nil
-  tsserver = function(fname)
+  ts_ls = function(fname)
     local res = require("plugins.lsp.config.utils").detect_node_or_deno_root(fname)
     return res.node_root
   end,
@@ -36,7 +36,6 @@ local function lsp_setup(server_name)
     settings = require("plugins.lsp.config.lsp_settings")[server_name],
     filetypes = require("plugins.lsp.config.lsp_filetypes")[server_name],
     root_dir = lsp_root_dir[server_name],
-    single_file_support = server_name ~= "tsserver" and nil or false,
     on_new_config = require("plugins.lsp.config.lsp_config_overrides")[server_name],
     init_options = init_optinos_by_server_name[server_name],
   })

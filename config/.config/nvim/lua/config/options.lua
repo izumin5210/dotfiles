@@ -70,7 +70,8 @@ vim.opt.cmdheight = 0
 
 -- clear statusline
 vim.opt.laststatus = 0
-vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
+vim.opt.statusline = "─"
+vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
 
 vim.opt.shortmess:append({
   W = true, -- don't give "written" or "[w]" when writing a file

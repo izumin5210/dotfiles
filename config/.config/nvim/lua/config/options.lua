@@ -41,6 +41,9 @@ vim.opt.shiftround = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- scroll
+vim.opt.scrolloff = 3
+
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1

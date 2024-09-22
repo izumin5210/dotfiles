@@ -38,6 +38,9 @@ function M.opts()
     local ft_icon, ft_color = devicons.get_icon_color(filename)
 
     local hasError = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity["ERROR"] }) > 0
+    local isReadonly = vim.bo[props.buf].readonly
+
+    local fg_filename_active = hasError and palette.red or (isReadonly and palette.yellow or fg_active)
 
     return {
       { get_diagnostic_label(props) },
@@ -46,8 +49,8 @@ function M.opts()
         guifg = props.focused and ft_color or fg_inactive,
       },
       {
-        filename,
-        guifg = props.focused and (hasError and palette.red or fg_active) or fg_inactive,
+        (isReadonly and " " or "") .. filename,
+        guifg = props.focused and fg_filename_active or fg_inactive,
         gui = props.focused and "bold" or "",
       },
       {

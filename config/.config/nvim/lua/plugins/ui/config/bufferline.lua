@@ -3,13 +3,16 @@ local M = {}
 local function get_highlights()
   local palette = require("utils.colors").palette
   local inactive_hl = { fg = palette.surface2 }
-  local active_hl = { bold = true }
+  local active_hl = { bold = true, fg = palette.pink }
   local custom_highlights = {
     background = inactive_hl,
     buffer_visible = inactive_hl,
     buffer_selected = active_hl,
     offset_separator = { fg = palette.surface1 },
     trunc_marker = { bg = "none", fg = palette.surface2 },
+    modified = inactive_hl,
+    modified_visible = inactive_hl,
+    modified_selected = { fg = palette.peach },
   }
   for _, lv in pairs({ "error", "warning", "info", "hint" }) do
     custom_highlights = vim.tbl_deep_extend("keep", custom_highlights, {

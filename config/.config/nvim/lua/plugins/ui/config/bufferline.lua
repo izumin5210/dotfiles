@@ -7,9 +7,12 @@ local function get_highlights()
   local custom_highlights = {
     background = inactive_hl,
     buffer_visible = inactive_hl,
-    buffer_selected = active_hl,
+    buffer_selected = vim.tbl_deep_extend("keep", active_hl, { fg = palette.pink }),
     offset_separator = { fg = palette.surface1 },
     trunc_marker = { bg = "none", fg = palette.surface2 },
+    modified = inactive_hl,
+    modified_visible = inactive_hl,
+    modified_selected = { fg = palette.peach },
   }
   for _, lv in pairs({ "error", "warning", "info", "hint" }) do
     custom_highlights = vim.tbl_deep_extend("keep", custom_highlights, {

@@ -181,6 +181,7 @@ return {
   },
   {
     "linrongbin16/gitlinker.nvim",
+    version = "*",
     cmd = "GitLink",
     keys = {
       { "<leader>gl", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Git: yank git permalink" },

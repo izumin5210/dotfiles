@@ -41,6 +41,9 @@ vim.opt.shiftround = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
+-- scroll
+vim.opt.scrolloff = 3
+
 -- disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
@@ -68,9 +71,18 @@ vim.opt.showtabline = 0
 -- hide cmdline
 vim.opt.cmdheight = 0
 
+-- reset cmdheight after restore sessions
+-- see https://github.com/neovim/neovim/issues/22449
+vim.api.nvim_create_autocmd("SessionLoadPost", {
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
+
 -- clear statusline
 vim.opt.laststatus = 0
-vim.opt.statusline = string.rep("─", vim.api.nvim_win_get_width(0))
+vim.opt.statusline = "─"
+vim.opt.fillchars:append({ stl = "─", stlnc = "─" })
 
 vim.opt.shortmess:append({
   W = true, -- don't give "written" or "[w]" when writing a file

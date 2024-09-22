@@ -1,26 +1,11 @@
 return {
   {
-    "akinsho/bufferline.nvim",
+    "b0o/incline.nvim",
     cond = not vim.g.vscode,
-    event = { "VeryLazy" },
-    version = "*",
-    dependencies = {
-      -- "nvim-web-devicons", -- depends but it will be load automatically
-    },
+    -- cond = not vim.g.vscode and false,
+    event = "VeryLazy",
     opts = function()
-      return require("plugins.ui.config.bufferline").opts()
-    end,
-    -- https://github.com/LazyVim/LazyVim/blob/v12.38.2/lua/lazyvim/plugins/ui.lua#L83-L94
-    config = function(_, opts)
-      require("bufferline").setup(opts)
-      -- Fix bufferline when restoring a session
-      vim.api.nvim_create_autocmd({ "BufAdd", "BufDelete" }, {
-        callback = function()
-          vim.schedule(function()
-            pcall(nvim_bufferline)
-          end)
-        end,
-      })
+      return require("plugins.ui.config.incline").opts()
     end,
   },
   {

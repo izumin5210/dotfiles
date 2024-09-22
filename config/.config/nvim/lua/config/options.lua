@@ -68,6 +68,14 @@ vim.opt.showtabline = 0
 -- hide cmdline
 vim.opt.cmdheight = 0
 
+-- reset cmdheight after restore sessions
+-- see https://github.com/neovim/neovim/issues/22449
+vim.api.nvim_create_autocmd("SessionLoadPost", {
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
+
 -- clear statusline
 vim.opt.laststatus = 0
 vim.opt.statusline = "─"

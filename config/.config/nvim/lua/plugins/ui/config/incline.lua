@@ -40,7 +40,7 @@ function M.opts()
     local hasError = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity["ERROR"] }) > 0
     local isReadonly = vim.bo[props.buf].readonly
 
-    local fg_filename_active = hasError and palette.red or (isReadonly and palette.yellow or fg_active)
+    local fg_filename_active = hasError and palette.red or (isReadonly and palette.overlay0 or fg_active)
 
     return {
       { get_diagnostic_label(props) },

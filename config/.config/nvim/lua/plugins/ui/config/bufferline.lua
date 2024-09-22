@@ -3,11 +3,11 @@ local M = {}
 local function get_highlights()
   local palette = require("utils.colors").palette
   local inactive_hl = { fg = palette.surface2 }
-  local active_hl = { bold = true, fg = palette.pink }
+  local active_hl = { bold = true }
   local custom_highlights = {
     background = inactive_hl,
     buffer_visible = inactive_hl,
-    buffer_selected = active_hl,
+    buffer_selected = vim.tbl_deep_extend("keep", active_hl, { fg = palette.pink }),
     offset_separator = { fg = palette.surface1 },
     trunc_marker = { bg = "none", fg = palette.surface2 },
     modified = inactive_hl,

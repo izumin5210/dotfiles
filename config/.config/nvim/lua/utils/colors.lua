@@ -10,7 +10,7 @@ M.palette = palette
 ---Converts a hex color code to RGB
 ---@param hex string Color code in '#RRGGBB' format
 ---@return RGB
-local function hex_to_rgb(hex)
+function M.hex_to_rgb(hex)
   hex = hex:gsub("^#", "")
   if #hex ~= 6 then
     error("Invalid hex color code. Must be in the format #RRGGBB")
@@ -24,7 +24,7 @@ end
 ---Converts RGB to a hex color code
 ---@param color RGB
 ---@return string Color code in '#RRGGBB' format
-local function rgb_to_hex(color)
+function M.rgb_to_hex(color)
   local function component_to_hex(c)
     return string.format("%02x", math.floor(c + 0.5))
   end
@@ -45,8 +45,8 @@ function M.alpha_blend(foreground, background, alpha)
     error("foreground and background must be strings in the format #RRGGBB")
   end
 
-  local fg = hex_to_rgb(foreground)
-  local bg = hex_to_rgb(background)
+  local fg = M.hex_to_rgb(foreground)
+  local bg = M.hex_to_rgb(background)
 
   -- Clamp alpha value between 0 and 1
   alpha = math.max(0, math.min(1, alpha))
@@ -55,7 +55,7 @@ function M.alpha_blend(foreground, background, alpha)
   local g = fg.g * alpha + bg.g * (1 - alpha)
   local b = fg.b * alpha + bg.b * (1 - alpha)
 
-  return rgb_to_hex({ r = r, g = g, b = b })
+  return M.rgb_to_hex({ r = r, g = g, b = b })
 end
 
 return M

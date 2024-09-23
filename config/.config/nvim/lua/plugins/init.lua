@@ -34,6 +34,7 @@ return {
     name = "catppuccin",
     cond = not vim.g.vscode,
     priority = 1000,
+    lazy = false,
     opts = {
       flavour = "frappe",
       transparent_background = true,
@@ -47,6 +48,10 @@ return {
         which_key = true,
       },
     },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme("catppuccin")
+    end,
   },
   -- misc
   {

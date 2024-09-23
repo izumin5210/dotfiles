@@ -31,6 +31,7 @@ local generic_filenames = vim.list_extend({
   "main.go",
   "index.vue",
   "package.json",
+  "schema.graphql",
 }, all_filenames(js_filenames, { "js", "jsx", "ts", "tsx" }))
 
 ---@param filename string

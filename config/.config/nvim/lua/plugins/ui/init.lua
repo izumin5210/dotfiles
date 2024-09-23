@@ -103,6 +103,32 @@ return {
     end,
   },
   {
+    "levouh/tint.nvim",
+    dependencies = { "catppuccin" },
+    cond = not vim.g.vscode,
+    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    opts = {
+      highlight_ignore_patterns = {
+        "VertSplit",
+        "StatusLine",
+        "StatusLineNC",
+      },
+      transforms = {
+        ---@param r number
+        ---@param g number
+        ---@param b number
+        ---@return number, number, number
+        function(r, g, b, hl_group_info)
+          local colors = require("utils.colors")
+          local palette = colors.palette
+          local hex = colors.alpha_blend(colors.rgb_to_hex({ r = r, g = g, b = b }), palette.base, 0.6)
+          local rgb = colors.hex_to_rgb(hex)
+          return rgb.r, rgb.g, rgb.b
+        end,
+      },
+    },
+  },
+  {
     "nvimdev/dashboard-nvim",
     lazy = false,
     cond = not vim.g.vscode,

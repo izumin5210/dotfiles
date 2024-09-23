@@ -3,6 +3,7 @@ local M = {}
 ---@param gname string group_name
 ---@param f fun()
 local function update_highlights(gname, f)
+  f()
   local group = vim.api.nvim_create_augroup(gname, { clear = true })
   vim.api.nvim_create_autocmd("ColorScheme", {
     pattern = "*",

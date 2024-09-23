@@ -2,11 +2,42 @@ return {
   {
     "b0o/incline.nvim",
     cond = not vim.g.vscode,
-    -- cond = not vim.g.vscode and false,
-    event = "VeryLazy",
+    event = { "VeryLazy" },
     opts = function()
       return require("plugins.ui.config.incline").opts()
     end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    version = "*",
+    lazy = true,
+    init = function()
+      local palette = require("utils.colors").palette
+      require("utils.highlight").set_highlights("nvim-notify_hl", {
+        NotifyBackground = { bg = palette.base },
+        NotifyERRORBorder = { bg = palette.base },
+        NotifyERRORBody = { bg = palette.base },
+        NotifyWARNBorder = { bg = palette.base },
+        NotifyWARNBody = { bg = palette.base },
+        NotifyINFOBorder = { bg = palette.base },
+        NotifyINFOBody = { bg = palette.base },
+        NotifyDEBUGBorder = { bg = palette.base },
+        NotifyDEBUGBody = { bg = palette.base },
+        NotifyTRACEBorder = { bg = palette.base },
+        NotifyTRACEBody = { bg = palette.base },
+      })
+    end,
+    opts = {
+      render = "wrapped-compact",
+      stages = "static",
+      timeout = 3000,
+      max_height = function()
+        return math.floor(vim.o.lines * 0.75)
+      end,
+      max_width = function()
+        return math.floor(vim.o.columns * 0.50)
+      end,
+    },
   },
   {
     "folke/noice.nvim",
@@ -15,37 +46,7 @@ return {
     event = { "VeryLazy" },
     dependencies = {
       "nui.nvim",
-      {
-        "rcarriga/nvim-notify",
-        version = "*",
-        init = function()
-          local palette = require("utils.colors").palette
-          require("utils.highlight").set_highlights("nvim-notify_hl", {
-            NotifyBackground = { bg = palette.base },
-            NotifyERRORBorder = { bg = palette.base },
-            NotifyERRORBody = { bg = palette.base },
-            NotifyWARNBorder = { bg = palette.base },
-            NotifyWARNBody = { bg = palette.base },
-            NotifyINFOBorder = { bg = palette.base },
-            NotifyINFOBody = { bg = palette.base },
-            NotifyDEBUGBorder = { bg = palette.base },
-            NotifyDEBUGBody = { bg = palette.base },
-            NotifyTRACEBorder = { bg = palette.base },
-            NotifyTRACEBody = { bg = palette.base },
-          })
-        end,
-        opts = {
-          render = "wrapped-compact",
-          stages = "static",
-          timeout = 3000,
-          max_height = function()
-            return math.floor(vim.o.lines * 0.75)
-          end,
-          max_width = function()
-            return math.floor(vim.o.columns * 0.50)
-          end,
-        },
-      },
+      "nvim-notify",
     },
     opts = {
       lsp = {
@@ -129,26 +130,127 @@ return {
     },
   },
   {
-    "nvimdev/dashboard-nvim",
-    lazy = false,
+    "mvllow/modes.nvim",
+    version = "*",
     cond = not vim.g.vscode,
-    config = function()
-      require("dashboard").setup({
-        theme = "hyper",
-        config = {
-          -- stylua: ignore
-          shortcut = {
-            { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
-          },
-          project = { enable = false },
-          mru = { cwd_only = true },
-          header = {},
-          footer = {},
+    event = { "CursorMoved", "CursorMovedI" },
+    opts = function()
+      local palette = require("utils.colors").palette
+      return {
+        colors = {
+          copy = palette.yellow,
+          delete = palette.red,
+          insert = palette.sky,
+          visual = palette.mauve,
         },
+        line_opacity = {
+          copy = 0.4,
+          delete = 0.4,
+          insert = 0.4,
+          visual = 0.4,
+        },
+      }
+    end,
+  },
+  {
+    "petertriho/nvim-scrollbar",
+    cond = not vim.g.vscode,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    opts = function()
+      local palette = require("utils.colors").palette
+      return {
+        marks = {
+          Search = { color_nr = "3", color = palette.yellow },
+          Error = { color_nr = "9", color = palette.red },
+          Warn = { color_nr = "11", color = palette.peach },
+        },
+        handlers = {
+          cursor = true,
+          diagnostic = true,
+          gitsigns = true,
+          handle = true,
+          search = true,
+        },
+      }
+    end,
+  },
+  {
+    "shellRaining/hlchunk.nvim",
+    version = "*",
+    cond = not vim.g.vscode,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    opts = function()
+      local palette = require("utils.colors").palette
+      local exclude_filetypes = {
+        aerial = true,
+        dashboard = true,
+        ["rip-substitute"] = true,
+        TelescopeResults = true,
+      }
+      return {
+        chunk = {
+          enable = true,
+          style = {
+            { fg = palette.sapphire },
+            { fg = palette.red },
+          },
+          delay = 0, -- disable animation
+          exclude_filetypes = exclude_filetypes,
+        },
+        indent = { enable = true, exclude_filetypes = exclude_filetypes },
+        line_num = { enable = false },
+        blank = { enable = false },
+      }
+    end,
+  },
+  {
+    "ntpeters/vim-better-whitespace",
+    cond = not vim.g.vscode,
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    init = function()
+      local palette = require("utils.colors").palette
+      require("utils.highlight").force_set_highlights("vim-better-whitespace_hl", {
+        ExtraWhitespace = { bg = palette.red },
       })
     end,
+    config = function()
+      vim.g.better_whitespace_enabled = 1
+      vim.g.strip_whitespace_on_save = 1
+      vim.g.strip_whitespace_confirm = 0
+      vim.g.better_whitespace_filetypes_blacklist = {
+        "dashboard",
+        "lazy",
+        -- default values
+        "diff",
+        "git",
+        "gitcommit",
+        "unite",
+        "qf",
+        "help",
+        "markdown",
+        "fugitive",
+      }
+    end,
+  },
+  {
+    "nvimdev/dashboard-nvim",
+    cond = not vim.g.vscode,
+    lazy = false,
     dependencies = {
       -- "nvim-web-devicons", -- depends but it will be load automatically
+    },
+    opts = {
+      theme = "hyper",
+      config = {
+        -- stylua: ignore
+        shortcut = {
+          { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
+        },
+        project = { enable = false },
+        mru = { cwd_only = true },
+        header = {},
+        footer = {},
+      },
     },
   },
 }

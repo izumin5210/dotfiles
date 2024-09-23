@@ -191,30 +191,9 @@ return {
   },
   -- Highlight
   {
-    "petertriho/nvim-scrollbar",
-    cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    opts = function()
-      local palette = require("utils.colors").palette
-      return {
-        marks = {
-          Search = { color_nr = "3", color = palette.yellow },
-          Error = { color_nr = "9", color = palette.red },
-          Warn = { color_nr = "11", color = palette.peach },
-        },
-        handlers = {
-          cursor = true,
-          diagnostic = true,
-          gitsigns = true,
-          handle = true,
-          search = true,
-        },
-      }
-    end,
-  },
-  {
     "kevinhwang91/nvim-hlslens",
     cond = not vim.g.vscode,
+    dependencies = { "nvim-scrollbar" },
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
       require("utils.highlight").force_set_highlights("nvim-hlslens_hl", {
@@ -229,6 +208,7 @@ return {
   {
     "lewis6991/gitsigns.nvim",
     version = "*",
+    dependencies = { "nvim-scrollbar" },
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
@@ -242,58 +222,6 @@ return {
     config = function()
       require("gitsigns").setup()
       require("scrollbar.handlers.gitsigns").setup()
-    end,
-  },
-  {
-    "mvllow/modes.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    event = { "CursorMoved", "CursorMovedI" },
-    opts = function()
-      local palette = require("utils.colors").palette
-      return {
-        colors = {
-          copy = palette.yellow,
-          delete = palette.red,
-          insert = palette.sky,
-          visual = palette.mauve,
-        },
-        line_opacity = {
-          copy = 0.4,
-          delete = 0.4,
-          insert = 0.4,
-          visual = 0.4,
-        },
-      }
-    end,
-  },
-  {
-    "shellRaining/hlchunk.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    opts = function()
-      local palette = require("utils.colors").palette
-      local exclude_filetypes = {
-        aerial = true,
-        dashboard = true,
-        ["rip-substitute"] = true,
-        TelescopeResults = true,
-      }
-      return {
-        chunk = {
-          enable = true,
-          style = {
-            { fg = palette.sapphire },
-            { fg = palette.red },
-          },
-          delay = 0, -- disable animation
-          exclude_filetypes = exclude_filetypes,
-        },
-        indent = { enable = true, exclude_filetypes = exclude_filetypes },
-        line_num = { enable = false },
-        blank = { enable = false },
-      }
     end,
   },
   {
@@ -331,35 +259,6 @@ return {
     end,
     config = function()
       require("illuminate").configure()
-    end,
-  },
-  {
-    "ntpeters/vim-better-whitespace",
-    cond = not vim.g.vscode,
-    event = { "VeryLazy" },
-    init = function()
-      local palette = require("utils.colors").palette
-      require("utils.highlight").force_set_highlights("vim-better-whitespace_hl", {
-        ExtraWhitespace = { bg = palette.red },
-      })
-    end,
-    config = function()
-      vim.g.better_whitespace_enabled = 1
-      vim.g.strip_whitespace_on_save = 1
-      vim.g.strip_whitespace_confirm = 0
-      vim.g.better_whitespace_filetypes_blacklist = {
-        "dashboard",
-        "lazy",
-        -- default values
-        "diff",
-        "git",
-        "gitcommit",
-        "unite",
-        "qf",
-        "help",
-        "markdown",
-        "fugitive",
-      }
     end,
   },
 }

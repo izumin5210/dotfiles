@@ -59,6 +59,7 @@ return {
         },
         matchup = {
           enable = true,
+          disable_virtual_text = true,
         },
       })
     end,
@@ -105,6 +106,9 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
+    config = function()
+      vim.g.matchup_matchparen_offscreen = {}
+    end,
   },
   {
     "windwp/nvim-ts-autotag",

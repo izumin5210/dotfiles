@@ -25,6 +25,4 @@ if not vim.g.vscode then
     NormalFloat = { bg = palette.crust },
     FloatBorder = { bg = palette.crust },
   })
-
-  vim.cmd.colorscheme("catppuccin")
 end

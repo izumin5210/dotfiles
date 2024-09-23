@@ -105,6 +105,9 @@ function M.setup()
         return kind
       end,
     },
+    performance = {
+      debounce = 500,
+    },
   })
 
   -- for nvim-autopairs

@@ -38,6 +38,9 @@ local function lsp_setup(server_name)
     root_dir = lsp_root_dir[server_name],
     on_new_config = require("plugins.lsp.config.lsp_config_overrides")[server_name],
     init_options = init_optinos_by_server_name[server_name],
+    flags = {
+      debounce_text_changes = 500,
+    },
   })
 end
 

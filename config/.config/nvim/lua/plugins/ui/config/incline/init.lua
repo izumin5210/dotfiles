@@ -1,65 +1,5 @@
 local M = {}
 
-local function all_filenames(filenames, extensions)
-  local combined = {}
-  for _, filename in ipairs(filenames) do
-    for _, extension in ipairs(extensions) do
-      table.insert(combined, filename .. "." .. extension)
-    end
-  end
-  return combined
-end
-
-local js_filenames = {
-  "index",
-  "main",
-  -- Next.js
-  -- https://nextjs.org/docs/getting-started/project-structure#app-routing-conventions
-  "layout",
-  "page",
-  "loading",
-  "not-found",
-  "error",
-  "global-error",
-  "route",
-  "template",
-  "default",
-}
-
-local generic_filenames = vim.list_extend({
-  "init.lua",
-  "main.go",
-  "index.vue",
-  "package.json",
-  "schema.graphql",
-}, all_filenames(js_filenames, { "js", "jsx", "ts", "tsx" }))
-
----@param filename string
----@return boolean
-local function is_generic_filename(filename)
-  return vim.list_contains(generic_filenames, filename)
-end
-
----@param buf number
----@return string, string|nil
-local function get_display_filename_and_dirname(buf)
-  local filepath = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(buf), ":.")
-  local filename = vim.fn.fnamemodify(filepath, ":t")
-
-  if filename == "" then
-    return "[No Name]", nil
-  end
-
-  if is_generic_filename(filename) then
-    local dirname = vim.fs.basename(vim.fs.dirname(filepath))
-    if dirname ~= "." then
-      return filename, dirname
-    end
-  end
-
-  return filename, nil
-end
-
 function M.opts()
   local devicons = require("nvim-web-devicons")
   local palette = require("utils.colors").palette
@@ -87,6 +27,8 @@ function M.opts()
     end
     return label
   end
+
+  local get_display_filename_and_dirname = require("plugins.ui.config.incline.get_display_filename_and_dirname")
 
   -- based on https://github.com/b0o/incline.nvim/discussions/32
   --- @param props { buf: number, win: number, focused: boolean }

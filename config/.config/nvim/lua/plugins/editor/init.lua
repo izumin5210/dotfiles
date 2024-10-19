@@ -265,13 +265,6 @@ return {
     "yetone/avante.nvim",
     event = "VeryLazy",
     version = "*",
-    opts = {
-      provider = "claude",
-      auto_suggestions_provider = "claude",
-      claude = {
-        model = "claude-3-5-sonnet-20240620",
-      },
-    },
     build = "make",
     dependencies = {
       "nvim-treesitter",
@@ -285,6 +278,14 @@ return {
           file_types = { "markdown", "Avante" },
         },
         ft = { "markdown", "Avante" },
+      },
+    },
+    opts = {
+      provider = "claude",
+      auto_suggestions_provider = "claude",
+      claude = {
+        model = "claude-3-5-sonnet-20240620",
+        api_key_name = { "op", "read", "op://Personal/anthropic-api-key-avante-nvim/credential" },
       },
     },
   },

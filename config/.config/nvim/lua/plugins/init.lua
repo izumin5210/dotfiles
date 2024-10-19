@@ -24,6 +24,11 @@ return {
     lazy = true,
   },
   {
+    "stevearc/dressing.nvim",
+    opts = {},
+    lazy = true,
+  },
+  {
     "tpope/vim-repeat", -- required by leap.nvim
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },

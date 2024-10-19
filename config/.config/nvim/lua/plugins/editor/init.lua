@@ -261,4 +261,31 @@ return {
       require("illuminate").configure()
     end,
   },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = "*",
+    opts = {
+      provider = "claude",
+      auto_suggestions_provider = "claude",
+      claude = {
+        model = "claude-3-5-sonnet-20240620",
+      },
+    },
+    build = "make",
+    dependencies = {
+      "nvim-treesitter",
+      "dressing.nvim",
+      "plenary.nvim",
+      "nui.nvim",
+      "nvim-web-devicons",
+      {
+        "MeanderingProgrammer/render-markdown.nvim",
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
+    },
+  },
 }

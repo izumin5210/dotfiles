@@ -48,6 +48,7 @@
     # other langs
     pkgs.php
     pkgs.ruby
+    pkgs.rustup
 
     # git
     pkgs.delta

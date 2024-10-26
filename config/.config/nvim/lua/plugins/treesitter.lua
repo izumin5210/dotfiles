@@ -102,7 +102,7 @@ return {
   },
   {
     "andymass/vim-matchup",
-    version = "*",
+    -- version = "*",
     cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },

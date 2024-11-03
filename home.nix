@@ -97,6 +97,7 @@
     pkgs.fd
     pkgs.fzf
     pkgs.ghq
+    pkgs.graphviz
     pkgs.htop
     pkgs.jq
     pkgs.ripgrep

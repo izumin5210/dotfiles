@@ -39,6 +39,7 @@ y = 2
 decorations = "buttonless"
 dynamic_padding = true
 opacity = 0.95
+option_as_alt = "OnlyLeft"
 
 [window.padding]
 x = 8

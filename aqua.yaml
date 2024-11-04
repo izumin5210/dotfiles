@@ -8,7 +8,7 @@ checksum:
   - all
 registries:
 - type: standard
-  ref: v4.236.0 # renovate: depName=aquaproj/aqua-registry
+  ref: v4.239.1 # renovate: depName=aquaproj/aqua-registry
 packages:
 - name: int128/ghcp@v1.13.4
 - name: JohnnyMorganz/StyLua@v0.20.0

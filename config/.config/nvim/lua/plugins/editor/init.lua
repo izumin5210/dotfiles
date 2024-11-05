@@ -274,6 +274,7 @@ return {
       "nvim-web-devicons",
       {
         "MeanderingProgrammer/render-markdown.nvim",
+        version = "*",
         opts = {
           file_types = { "markdown", "Avante" },
         },

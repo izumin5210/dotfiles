@@ -26,21 +26,6 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_darwin_amd64.zip",
-      "checksum": "6728BD668888A64C71BF01D9AFBA373F38D353B79D181B1401A4E5E4B329289D",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_linux_amd64.zip",
-      "checksum": "3C808E566F0B663182AD5B5DD6E6B05DC8346610EA5613EA8C22AB19F47A4493",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/int128/ghcp/v1.13.5/ghcp_windows_amd64.zip",
-      "checksum": "1A90AD7927F720EB8996AE143DF5D7AA2DF70689B7B5B9074D6FD32C244D688E",
-      "algorithm": "sha256"
-    },
-    {
       "id": "github_release/github.com/mvdan/sh/v3.10.0/shfmt_v3.10.0_darwin_amd64",
       "checksum": "EF8D970B3F695A7E8E7D40730EEDD2D935AB9599F78A365F319C515BC59D4C83",
       "algorithm": "sha256"

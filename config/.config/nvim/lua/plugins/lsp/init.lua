@@ -15,7 +15,6 @@ return {
           return {
             ensure_installed = {
               "bashls",
-              "bufls",
               "dockerls",
               "graphql",
               "jsonnet_ls",
@@ -97,7 +96,7 @@ return {
       })
 
       -- language servers are installed manually
-      local server_names = { "nixd" }
+      local server_names = { "buf_ls", "nixd" }
       for _, server_name in ipairs(server_names) do
         require("plugins.lsp.config.lsp_setup")(server_name)
       end

@@ -18,6 +18,21 @@ vim.keymap.set("n", "P", "]P`]", { noremap = true })
 vim.keymap.set("n", "F<cr>", "{", { noremap = true })
 vim.keymap.set("n", "f<cr>", "}", { noremap = true })
 
+--- @param n number
+local function jump_snip_safe(n)
+  local ls = package.loaded["luasnip"]
+  if ls and ls.jumpable(n) then
+    ls.jump(n)
+  end
+end
+
+vim.keymap.set({ "i", "s" }, "<C-f>", function()
+  jump_snip_safe(1)
+end, { silent = true })
+vim.keymap.set({ "i", "s" }, "<C-b>", function()
+  jump_snip_safe(-1)
+end, { silent = true })
+
 -- Text objects
 ----------------------------------------------------------------
 -- inner space

@@ -22,6 +22,7 @@ return {
           method = "getCompletionsCycling",
         },
       },
+      "Snikimonkd/cmp-go-pkgs",
       {
         "onsails/lspkind.nvim",
         config = function()

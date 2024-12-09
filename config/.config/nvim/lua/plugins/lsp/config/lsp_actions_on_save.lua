@@ -43,8 +43,13 @@ local lsp_actions_on_save = {
   rust_analyzer = { format_sync },
   biome = { fix_all_sync, organize_imports_sync, format_sync },
   eslint = {
-    function()
-      vim.api.nvim_command("silent! EslintFixAll")
+    function(client, buf)
+      local diag = vim.diagnostic.get(buf, {
+        namespace = vim.lsp.diagnostic.get_namespace(client.id),
+      })
+      if #diag > 0 then
+        vim.cmd("EslintFixAll")
+      end
     end,
   },
   denols = { format_sync },

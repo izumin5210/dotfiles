@@ -4,15 +4,9 @@ local M = {}
 ---@param args { buf: integer }
 function M.run_lsp_actions(actions_by_client_name, args)
   local bufnr = args.buf
-  local shouldSleep = false
   for _, client in pairs(vim.lsp.get_clients({ bufnr = bufnr })) do
     local actions = actions_by_client_name[client.name]
     for _, f in pairs(actions or {}) do
-      if shouldSleep then
-        vim.api.nvim_command("sleep 10ms")
-      else
-        shouldSleep = true
-      end
       f(client, bufnr)
     end
   end

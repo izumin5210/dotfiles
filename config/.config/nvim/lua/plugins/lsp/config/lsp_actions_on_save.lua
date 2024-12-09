@@ -15,7 +15,7 @@ end
 local function code_action_sync(client, bufnr, cmd)
   -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
   local params = vim.lsp.util.make_range_params()
-  params.context = { only = { cmd }, diagnostics = {} }
+  params.context = { only = { cmd } }
   local res = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
   for _, r in pairs(res and res.result or {}) do
     if r.edit then

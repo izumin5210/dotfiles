@@ -179,6 +179,10 @@ return {
           border = { " ", " ", " ", " ", " ", " ", " ", " " },
           kind = require("catppuccin.groups.integrations.lsp_saga").custom_kind(),
         },
+        scroll_preview = {
+          scroll_down = "<Down>",
+          scroll_up = "<Up>",
+        },
       }
     end,
   },

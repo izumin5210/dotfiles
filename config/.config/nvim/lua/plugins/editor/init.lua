@@ -27,7 +27,11 @@ return {
       {
         "prochri/telescope-all-recent.nvim",
         dependencies = { "kkharji/sqlite.lua" },
-        opts = {},
+        opts = {
+          scoring = {
+            boost_factor = 0.000001,
+          },
+        },
       },
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
       "otavioschwanck/telescope-alternate.nvim",
@@ -287,6 +291,9 @@ return {
       claude = {
         model = "claude-3-5-sonnet-20240620",
         api_key_name = { "op", "read", "op://Personal/anthropic-api-key-avante-nvim/credential" },
+      },
+      behaviour = {
+        auto_suggestions = true,
       },
     },
   },

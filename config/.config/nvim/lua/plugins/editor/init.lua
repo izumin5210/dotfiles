@@ -292,9 +292,6 @@ return {
         model = "claude-3-5-sonnet-20240620",
         api_key_name = { "op", "read", "op://Personal/anthropic-api-key-avante-nvim/credential" },
       },
-      behaviour = {
-        auto_suggestions = true,
-      },
     },
   },
 }

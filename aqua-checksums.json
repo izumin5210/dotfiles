@@ -6,8 +6,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-linux-x86_64.zip",
-      "checksum": "28EDDB9257BF85B20B1C337E536B7A3D16BA308863F067D447C1F4D24C6DEC64",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v0.20.0/stylua-linux-x86_64-musl.zip",
+      "checksum": "7AA4EA687EAE4732319FD618DE310D32A821B6E0AC75C030CF63BB6F572E9FE8",
       "algorithm": "sha256"
     },
     {
@@ -81,8 +81,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.269.0/registry.yaml",
-      "checksum": "B5FC38060F8713529F84C85C0BC93258B488CE0DBDC4B6F82B841C5DE4A711E539821C95D790E56E71D8689E23FFE793AC223C70BE40DB084AC3115C3D3F6684",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.275.0/registry.yaml",
+      "checksum": "94ABE5FF369FB2A6F0CC72BD05CE10F477F8D4832F9D8EFC5F148D080329C26039411C4FA6EACD437F2A3E4AB4AAA49D2CC593C1A35364289F589A457220EB4D",
       "algorithm": "sha512"
     }
   ]

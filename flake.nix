@@ -14,7 +14,14 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, nix-darwin, ... }:
+  outputs =
+    inputs@{
+      self,
+      nixpkgs,
+      home-manager,
+      nix-darwin,
+      ...
+    }:
     let
       system = "aarch64-darwin";
       pkgs = nixpkgs.legacyPackages.${system};
@@ -32,9 +39,12 @@
         }
       ];
 
-      genHomeConfigurations = usersList:
-        builtins.foldl' (acc: user:
-          acc // {
+      genHomeConfigurations =
+        usersList:
+        builtins.foldl' (
+          acc: user:
+          acc
+          // {
             "${user.username}" = home-manager.lib.homeManagerConfiguration {
               inherit pkgs;
               modules = [
@@ -45,17 +55,23 @@
                 ./home.nix
               ];
             };
-          }) { } usersList;
+          }
+        ) { } usersList;
 
-      genDarwinConfigurations = usersList:
-        builtins.foldl' (acc: user:
-          acc // {
+      genDarwinConfigurations =
+        usersList:
+        builtins.foldl' (
+          acc: user:
+          acc
+          // {
             "${user.hostname}" = nix-darwin.lib.darwinSystem {
               inherit pkgs;
               modules = [ ./darwin-configuration.nix ];
             };
-          }) { } usersList;
-    in {
+          }
+        ) { } usersList;
+    in
+    {
       homeConfigurations = genHomeConfigurations users;
       darwinConfigurations = genDarwinConfigurations users;
     };

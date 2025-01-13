@@ -133,6 +133,7 @@ return {
   {
     "akinsho/toggleterm.nvim",
     version = "*",
+    cond = not vim.g.vscode,
     keys = {
       {
         "<leader>lg",
@@ -185,6 +186,7 @@ return {
   },
   {
     "linrongbin16/gitlinker.nvim",
+    cond = not vim.g.vscode,
     version = "*",
     cmd = "GitLink",
     keys = {
@@ -267,8 +269,9 @@ return {
   },
   {
     "yetone/avante.nvim",
-    event = "VeryLazy",
     version = "*",
+    cond = not vim.g.vscode,
+    event = "VeryLazy",
     build = "make",
     dependencies = {
       "nvim-treesitter",

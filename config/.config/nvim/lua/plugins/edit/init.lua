@@ -62,6 +62,7 @@ return {
   {
     "folke/flash.nvim",
     version = "*",
+    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     ---@type Flash.Config
     opts = {},

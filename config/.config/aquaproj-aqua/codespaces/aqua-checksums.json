@@ -176,23 +176,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.24.0/bat-v0.24.0-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "FECCAE9A0576D97609C57E32D3914C5116136EAB0DF74C2AB74EF397D42C5B10",
+      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "D155DF218DC2D662DA191E2DACDDC71C90197B62EBE7E2923A659E5DD055D5CB",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.24.0/bat-v0.24.0-x86_64-apple-darwin.tar.gz",
-      "checksum": "7032E4A4EA3C3B54E5A4D11DB13859DDF75C3EDD895E37FB02DDB7777AFCC819",
+      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "B974AA834B6B65610090AED2BC7310D11C6F500105696D23A130AEE24FD8380F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.24.0/bat-v0.24.0-x86_64-pc-windows-msvc.zip",
-      "checksum": "1AA3733479D5980CB58C2B06ACA06CF19FF377E85622F96549F8849F47F9F486",
+      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "1D5CED071BA9C765E16F4065877C178CEFCFD2FE9581E9DDC92AF265B73991BD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.24.0/bat-v0.24.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "D39A21E3DA57FE6A3E07184B3C1DC245F8DBA379AF569D3668B6DCDFE75E3052",
+      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "93F47D76ABE328C402EF712E9AC92AA6D5BC84D5ADCBCAF0BBC5665E5275A941",
       "algorithm": "sha256"
     },
     {

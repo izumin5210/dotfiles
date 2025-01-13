@@ -125,6 +125,7 @@ return {
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
+    cond = not vim.g.vscode,
     lazy = true,
     opts = { enable_autocmd = false },
   },

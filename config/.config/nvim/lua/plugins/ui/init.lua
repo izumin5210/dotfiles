@@ -9,6 +9,7 @@ return {
   },
   {
     "rcarriga/nvim-notify",
+    cond = not vim.g.vscode,
     version = "*",
     lazy = true,
     init = function()

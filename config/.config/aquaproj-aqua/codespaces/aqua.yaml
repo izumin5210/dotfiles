@@ -19,5 +19,5 @@ packages:
 - name: sharkdp/bat@v0.24.0
 - name: starship/starship@v1.21.1
 - name: eza-community/eza@v0.20.11
-- name: neovim/neovim@v0.10.2
+- name: neovim/neovim@v0.10.3
 - name: sharkdp/fd@v10.2.0

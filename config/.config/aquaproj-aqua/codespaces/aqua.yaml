@@ -10,7 +10,7 @@ registries:
 - type: standard
   ref: v4.275.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-- name: cli/cli@v2.63.2
+- name: cli/cli@v2.65.0
 - name: junegunn/fzf@v0.57.0
 - name: dandavison/delta@0.18.2
 - name: Wilfred/difftastic@0.62.0

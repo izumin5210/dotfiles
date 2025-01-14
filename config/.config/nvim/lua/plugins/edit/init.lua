@@ -157,7 +157,7 @@ return {
       {
         "*",
         function()
-          require("lasterisk").search()
+          require("lasterisk").search({ is_whole = true, silent = true })
           if package.loaded["hlslens"] then
             require("hlslens").start()
           end
@@ -167,7 +167,7 @@ return {
       {
         "g*",
         function()
-          require("lasterisk").search({ is_whole = false })
+          require("lasterisk").search({ is_whole = false, silent = true })
           if package.loaded["hlslens"] then
             require("hlslens").start()
           end

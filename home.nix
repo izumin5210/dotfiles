@@ -7,7 +7,7 @@
 
 {
   nixpkgs.overlays = [
-    # (import ./overlays/sheldon.nix)
+    (import ./overlays/pnpm.nix)
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -47,6 +47,7 @@
     # javascript
     pkgs.deno
     pkgs.fnm
+    pkgs.pnpm
 
     # other langs
     pkgs.php

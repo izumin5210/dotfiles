@@ -21,3 +21,4 @@ packages:
 - name: eza-community/eza@v0.20.16
 - name: neovim/neovim@v0.10.3
 - name: sharkdp/fd@v10.2.0
+- name: pnpm/pnpm@v10.0.0

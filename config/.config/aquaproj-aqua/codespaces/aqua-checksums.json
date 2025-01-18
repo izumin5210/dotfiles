@@ -161,6 +161,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/pnpm/pnpm/v10.0.0/pnpm-linux-arm64",
+      "checksum": "9BB1B569890EEE8A7F535FADDA6F9A78FFEB818A780B8C591E92478089EAFAFD",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.0.0/pnpm-linux-x64",
+      "checksum": "E1025C55AE220C66A980272ECB343C4860B129687E4E1C41BC5F343EE127D455",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.0.0/pnpm-macos-arm64",
+      "checksum": "9F004217B7389DC8CF61B78B8D8590DE1090FA52AD66DB7C36A89A3BD3D1C29C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.0.0/pnpm-macos-x64",
+      "checksum": "83B41F7BCA9CDF5F1D38FA2494E619F2124F2254F31F3F7AB89C9F0BE0CBB992",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v10.0.0/pnpm-win-x64.exe",
+      "checksum": "A8235A8B4F1EFDDDD43E09C6D7DE72075E7416DDF76428311DAFFF17B025622F",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/rossmacarthur/sheldon/0.8.0/sheldon-0.8.0-aarch64-apple-darwin.tar.gz",
       "checksum": "19939277A2432E5DDD238C527646EC1E047C12FFFD9013FE81E3127D1E35DFD1",
       "algorithm": "sha256"

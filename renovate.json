@@ -10,5 +10,8 @@
       "extends": ["schedule:earlyMondays"]
     }
   ],
-  "minimumReleaseAge": "3 days"
+  "minimumReleaseAge": "3 days",
+  "nix": {
+    "enabled": true
+  }
 }

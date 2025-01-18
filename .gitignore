@@ -20,6 +20,3 @@
 
 # Nix
 /result
-
-# Node.js tools
-node_modules

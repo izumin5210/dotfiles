@@ -7,6 +7,7 @@
 
 {
   nixpkgs.overlays = [
+    (import ./overlays/gopls.nix)
     (import ./overlays/pnpm.nix)
   ];
 

@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
 {
+  system.stateVersion = 5;
+
   system.defaults = {
     NSGlobalDomain = {
       KeyRepeat = 1;

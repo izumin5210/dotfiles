@@ -42,10 +42,11 @@
     pkgs.gopls
     pkgs.delve
     pkgs.golangci-lint
+    pkgs.golangci-lint-langserver
 
     # javascript
-    pkgs.fnm
     pkgs.deno
+    pkgs.fnm
 
     # other langs
     pkgs.php
@@ -86,6 +87,14 @@
     pkgs.google-cloud-sdk
     pkgs.ngrok
     pkgs.stripe-cli
+
+    # linter, formatter, langauge server
+    pkgs.actionlint
+    pkgs.hadolint
+    pkgs.jsonnet-language-server
+    pkgs.lua-language-server
+    pkgs.shfmt
+    pkgs.stylua
 
     # tools
     pkgs._1password-cli

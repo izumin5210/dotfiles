@@ -20,3 +20,6 @@
 
 # Nix
 /result
+
+# Node.js
+node_modules

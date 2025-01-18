@@ -1,0 +1,18 @@
+{
+  "name": "@izumin5210/dotfiles-node-tools",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@fsouza/prettierd": "^0.26.0",
+    "@prisma/language-server": "^6.2.0",
+    "@tailwindcss/language-server": "^0.12.18",
+    "bash-language-server": "^5.4.3",
+    "dockerfile-language-server-nodejs": "^0.13.0",
+    "graphql-language-service-cli": "^3.5.0",
+    "typescript": "^5.7.3",
+    "typescript-language-server": "^4.3.3",
+    "vls": "^0.8.5",
+    "vscode-langservers-extracted": "^4.10.0",
+    "yaml-language-server": "^1.15.0"
+  }
+}

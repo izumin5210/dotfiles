@@ -8,6 +8,9 @@ cd $(dirname $0)/..
 
 mkdir -p ~/.config
 
+# nix
+./bin/ln-idempotently ./config/.config/nix ~/.config/nix
+
 # git
 ./bin/ln-idempotently ./config/.config/git ~/.config/git
 ./bin/ln-idempotently ./config/.config/gh ~/.config/gh

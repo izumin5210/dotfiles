@@ -8,6 +8,10 @@
     {
       "matchPackageNames": ["aquaproj/aqua-registry"],
       "extends": ["schedule:earlyMondays"]
+    },
+    {
+      "matchDepTypes": ["dependencies", "devDependencies"],
+      "rangeStrategy": "pin"
     }
   ],
   "minimumReleaseAge": "3 days",

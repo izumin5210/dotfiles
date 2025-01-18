@@ -6,37 +6,37 @@ settings:
 
 devDependencies:
   '@fsouza/prettierd':
-    specifier: ^0.26.0
+    specifier: 0.26.0
     version: 0.26.0(typescript@5.7.3)
   '@prisma/language-server':
-    specifier: ^6.2.0
+    specifier: 6.2.0
     version: 6.2.0
   '@tailwindcss/language-server':
-    specifier: ^0.12.18
+    specifier: 0.12.18
     version: 0.12.18
   bash-language-server:
-    specifier: ^5.4.3
+    specifier: 5.4.3
     version: 5.4.3
   dockerfile-language-server-nodejs:
-    specifier: ^0.13.0
+    specifier: 0.13.0
     version: 0.13.0
   graphql-language-service-cli:
-    specifier: ^3.5.0
+    specifier: 3.5.0
     version: 3.5.0(graphql@16.10.0)
   typescript:
-    specifier: ^5.7.3
+    specifier: 5.7.3
     version: 5.7.3
   typescript-language-server:
-    specifier: ^4.3.3
+    specifier: 4.3.3
     version: 4.3.3
   vls:
-    specifier: ^0.8.5
+    specifier: 0.8.5
     version: 0.8.5
   vscode-langservers-extracted:
-    specifier: ^4.10.0
+    specifier: 4.10.0
     version: 4.10.0
   yaml-language-server:
-    specifier: ^1.15.0
+    specifier: 1.15.0
     version: 1.15.0
 
 packages:
@@ -1205,7 +1205,7 @@ packages:
     engines: {node: ^10 || ^12.20.0 || ^14.13.0 || >=15.0.0}
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.1
     dev: true
 
   /css-what@6.1.0:
@@ -1272,7 +1272,7 @@ packages:
     resolution: {integrity: sha512-m3rH2qHHU2pSTCppXgJT+1KLxhvkdROOxVPof5Yz4IPGSw6K+x0B0/RFdYgXN5zsIUTlbOSRyfDCv3/uVhnNmg==}
     dependencies:
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.17.3
+      vscode-languageserver-types: 3.17.5
     dev: true
 
   /dockerfile-language-server-nodejs@0.13.0:

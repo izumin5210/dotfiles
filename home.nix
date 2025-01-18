@@ -86,7 +86,7 @@
     pkgs.stripe-cli
 
     # tools
-    pkgs._1password
+    pkgs._1password-cli
     pkgs.bat
     pkgs.btop
     pkgs.buf

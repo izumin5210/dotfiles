@@ -6,7 +6,9 @@
 }:
 
 {
-  nixpkgs.overlays = [ (import ./overlays/sheldon.nix) ];
+  nixpkgs.overlays = [
+    # (import ./overlays/sheldon.nix)
+  ];
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:

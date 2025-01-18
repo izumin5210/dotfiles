@@ -3,53 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    dependencies = { -- load after mason.nvim and mason-lspconfig.nvim
-      "mason.nvim",
-      {
-        "williamboman/mason-lspconfig.nvim",
-        cond = not vim.g.vscode,
-        event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-        dependencies = { "mason.nvim" }, -- load after mason.nvim
-        version = "*",
-        opts = function()
-          return {
-            ensure_installed = {
-              "bashls",
-              "dockerls",
-              "graphql",
-              "jsonnet_ls",
-              "rust_analyzer",
-              -- Ruby
-              "solargraph",
-              -- JS
-              "biome",
-              "eslint",
-              "ts_ls",
-              "volar",
-              "prismals",
-              "denols",
-              -- CSS
-              "cssls",
-              "tailwindcss",
-              -- Go
-              "gopls",
-              "golangci_lint_ls",
-              -- Python
-              "pyright",
-              -- Lua
-              "lua_ls",
-              -- JSON (JSON Schema)
-              "jsonls",
-              "yamlls",
-            },
-            automatic_installation = false,
-            handlers = {
-              require("plugins.lsp.config.lsp_setup"),
-            },
-          }
-        end,
-      },
-    },
+    dependencies = { "dotfiles-node-tools" },
     init = function()
       local colors = require("utils.colors")
       local palette = colors.palette
@@ -96,23 +50,43 @@ return {
       })
 
       -- language servers are installed manually
-      local server_names = { "buf_ls", "nixd" }
+      local server_names = {
+        -- Go
+        "gopls",
+        "golangci_lint_ls",
+        -- JavaScript
+        "denols",
+        "eslint",
+        "ts_ls",
+        "volar",
+        "prismals",
+        -- CSS
+        "cssls",
+        "tailwindcss",
+        -- Rust
+        "rust_analyzer",
+        -- JSON (JSON Schema)
+        "jsonls",
+        "jsonnet_ls",
+        "yamlls",
+        -- Others
+        "bashls",
+        "buf_ls",
+        "dockerls",
+        "graphql",
+        "lua_ls",
+        "nixd",
+      }
       for _, server_name in ipairs(server_names) do
         require("plugins.lsp.config.lsp_setup")(server_name)
       end
     end,
   },
   {
-    "williamboman/mason.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    cmd = "Mason",
-    opts = {},
-  },
-  {
     "nvimtools/none-ls.nvim",
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    dependencies = { "dotfiles-node-tools" },
     opts = function()
       local null_ls = require("null-ls")
       return {
@@ -141,21 +115,25 @@ return {
           -- Nix
           null_ls.builtins.formatting.nixfmt,
         },
-        debug = true,
       }
     end,
   },
   {
-    "jayp0521/mason-null-ls.nvim",
-    version = "*",
+    name = "dotfiles-node-tools",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    -- load after none-ls.nvim because primary source of truth is none-ls
-    dependencies = { "mason.nvim", "none-ls.nvim" },
-    opts = {
-      ensure_installed = nil,
-      automatic_installation = true,
-    },
+    lazy = true,
+    dir = vim.fn.fnamemodify(debug.getinfo(1).source:sub(2), ":h"),
+    dependencies = { "nvim-lua/plenary.nvim" },
+    build = "pnpm i",
+    -- https://zenn.dev/vim_jp/articles/f24212092323d9
+    config = function(spec)
+      local Path = require("plenary.path")
+      local dir = spec.dir
+      local BIN_DIR = Path:new(dir, "node_modules", ".bin")
+
+      vim.env.PATH = BIN_DIR:absolute() .. ":" .. vim.env.PATH
+      vim.system({ "pnpm", "i" }, { cwd = dir, text = true })
+    end,
   },
   {
     "nvimdev/lspsaga.nvim",

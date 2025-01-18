@@ -45,3 +45,16 @@ jobs:
         with:
           aqua_version: v2.42.2
       - run: ${{ matrix.cmd }}
+
+  node-tools-lockfile:
+    runs-on: ubuntu-latest
+    env:
+      WORK_DIR: config/.config/nvim/lua/plugins/lsp
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          package_json_file: ${{ env.WORK_DIR }}/package.json
+          run_install: |
+            cwd: ${{ env.WORK_DIR }}
+            args: [--frozen-lockfile, --strict-peer-dependencies]

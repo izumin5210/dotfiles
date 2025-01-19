@@ -55,8 +55,6 @@ function M.init()
     CmpItemKindInterface = { fg = palette.text, bg = palette.teal },
     CmpItemKindColor = { fg = palette.text, bg = palette.teal },
     CmpItemKindTypeParameter = { fg = palette.text, bg = palette.teal },
-
-    CmpItemKindCopilot = { fg = palette.text, bg = palette.lavender },
   })
 end
 
@@ -91,7 +89,6 @@ function M.setup()
       end),
     }),
     sources = cmp.config.sources({
-      { name = "copilot", group_index = 1, priority = 1000 },
       { name = "luasnip", group_index = 1, priority = 100 },
       { name = "nvim_lsp", group_index = 1, priority = 100 },
       { name = "go_pkgs", group_index = 1, priority = 100 },

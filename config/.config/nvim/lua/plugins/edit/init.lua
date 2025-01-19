@@ -10,19 +10,6 @@ return {
       "hrsh7th/cmp-vsnip",
       "hrsh7th/vim-vsnip",
       {
-        "zbirenbaum/copilot-cmp",
-        dependencies = {
-          "zbirenbaum/copilot.lua",
-          opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          },
-        },
-        opts = {
-          method = "getCompletionsCycling",
-        },
-      },
-      {
         "L3MON4D3/LuaSnip",
         version = "*",
         build = "make install_jsregexp",
@@ -38,16 +25,7 @@ return {
         opts = { friendly_snippets = true },
       },
       "Snikimonkd/cmp-go-pkgs",
-      {
-        "onsails/lspkind.nvim",
-        config = function()
-          require("lspkind").init({
-            symbol_map = {
-              Copilot = "",
-            },
-          })
-        end,
-      },
+      { "onsails/lspkind.nvim", opts = {} },
     },
     keys = require("plugins.edit.config.nvim-cmp").keys,
     init = require("plugins.edit.config.nvim-cmp").init,

@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@fsouza/prettierd": "0.26.0",
+    "@fsouza/prettierd": "0.26.1",
     "@prisma/language-server": "6.2.0",
     "@tailwindcss/language-server": "0.12.18",
     "bash-language-server": "5.4.3",

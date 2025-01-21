@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@fsouza/prettierd':
-        specifier: 0.26.0
-        version: 0.26.0(typescript@5.7.3)
+        specifier: 0.26.1
+        version: 0.26.1(typescript@5.7.3)
       '@prisma/language-server':
         specifier: 6.2.0
         version: 6.2.0
@@ -154,8 +154,8 @@ packages:
     resolution: {integrity: sha512-d9zaMRSTIKDLhctzH12MtXvJKSSUhaHcjV+2Z+GK+EEY7XKpP5yR4x+N3TAcHTcu963nIr+TMcCb4DBCYX1z6Q==}
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
 
-  '@fsouza/prettierd@0.26.0':
-    resolution: {integrity: sha512-cfZg/OVJwymsDLydr/z2h68X6WWHksgQ1YHKcCSuAclCcO35F4+ooG1lKpaMZUxDMaNVD6wLipN5E5sx6/U7mg==}
+  '@fsouza/prettierd@0.26.1':
+    resolution: {integrity: sha512-+UY6Zj2S4gVo58q1gSi5JAaeTmo33Qy4VZMFUC8pewJwwb16+EQMz1AZMXO6XR6vGUB5UlgKYakTkiSc9isFGw==}
     hasBin: true
 
   '@graphql-hive/gateway-abort-signal-any@0.0.3':
@@ -1909,7 +1909,7 @@ snapshots:
 
   '@eslint/js@8.57.1': {}
 
-  '@fsouza/prettierd@0.26.0(typescript@5.7.3)':
+  '@fsouza/prettierd@0.26.1(typescript@5.7.3)':
     dependencies:
       core_d: 6.1.0
       prettier: 3.4.2

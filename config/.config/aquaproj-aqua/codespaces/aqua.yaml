@@ -11,7 +11,7 @@ registries:
   ref: v4.297.0 # renovate: depName=aquaproj/aqua-registry
 packages:
 - name: cli/cli@v2.65.0
-- name: junegunn/fzf@v0.57.0
+- name: junegunn/fzf@v0.58.0
 - name: dandavison/delta@0.18.2
 - name: Wilfred/difftastic@0.62.0
 - name: rossmacarthur/sheldon@0.8.0

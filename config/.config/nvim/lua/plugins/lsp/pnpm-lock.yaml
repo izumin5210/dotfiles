@@ -12,8 +12,8 @@ importers:
         specifier: 0.26.1
         version: 0.26.1(typescript@5.7.3)
       '@prisma/language-server':
-        specifier: 6.2.0
-        version: 6.2.0
+        specifier: 6.2.1
+        version: 6.2.1
       '@tailwindcss/language-server':
         specifier: 0.14.1
         version: 0.14.1
@@ -329,8 +329,8 @@ packages:
   '@one-ini/wasm@0.1.1':
     resolution: {integrity: sha512-XuySG1E38YScSJoMlqovLru4KTUNSjgVTIjyh7qMX6aNN5HY5Ct5LhRJdxO79JtTzKfzV/bnWpz+zquYrISsvw==}
 
-  '@prisma/language-server@6.2.0':
-    resolution: {integrity: sha512-5qN2E0iB/QUzhaYLjNJHrwwy67ZORFoy8ObDg6Gj0j6Gw+5saCdAcQArva0ECI6HzJxkzWMsgdl0aafRJGDysw==}
+  '@prisma/language-server@6.2.1':
+    resolution: {integrity: sha512-nciwAOMC4BR4sG3pdOuxh0w/IWOb748oSXpbggXlFhBzaSAS5YYTEF/2RTRiwxaBeG8M1qVGDjITjpyVTKZSBQ==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -2160,7 +2160,7 @@ snapshots:
 
   '@one-ini/wasm@0.1.1': {}
 
-  '@prisma/language-server@6.2.0':
+  '@prisma/language-server@6.2.1':
     dependencies:
       '@prisma/prisma-schema-wasm': 6.2.0-14.4123509d24aa4dede1e864b46351bf2790323b69
       '@prisma/schema-files-loader': 6.2.0

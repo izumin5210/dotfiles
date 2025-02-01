@@ -67,6 +67,9 @@ jobs:
     uses: ./.github/workflows/_update-aqua-checksum.yml
     permissions:
       contents: read
+    secrets:
+      gh-app-id: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_ID}}
+      gh-app-private-key: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_PRIVATE_KEY}}
     if: github.event_name == 'pull_request'
 
   status-check:

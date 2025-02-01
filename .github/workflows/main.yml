@@ -67,6 +67,7 @@ jobs:
     uses: ./.github/workflows/_update-aqua-checksum.yml
     permissions:
       contents: read
+    if: github.event_name == 'pull_request'
 
   status-check:
     runs-on: ubuntu-latest
@@ -76,6 +77,6 @@ jobs:
       - node-tools-lockfile
       - update-aqua-checksums
     permissions: {}
-    if: failure()
     steps:
       - run: exit 1
+        if: failure()

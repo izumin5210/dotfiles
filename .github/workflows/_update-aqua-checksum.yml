@@ -20,7 +20,7 @@ jobs:
         id: dirs
         run: |
           git diff --name-only "origin/${{ github.event.pull_request.base.ref }}" \
-            | grep -E '/(aqua\.yaml|/aqua-checksums\.json)$' \
+            | grep -E '^(.*/)?(aqua\.yaml|aqua-checksums\.json)$' \
             | xargs dirname \
             | sort -u \
             | jq -R -s -c 'split("\n") | map(select(length > 0))' \

@@ -60,6 +60,7 @@ esac
 
 # aqua
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
+export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
 
 # LayerX
 export GOPRIVATE=github.com/LayerXcom/
@@ -68,9 +69,7 @@ export GOPRIVATE=github.com/LayerXcom/
 # overrides on codespaces
 # ================================================================
 if [ "$CODESPACES" = "true" ]; then
-  # use aqua.codespaces.yaml on codespaces
   export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml
-
   # set VSCode to $EDITOR on VSCode intergarted terminal
   if [ "$VSCODE_INJECTION" = "1" ]; then
     export EDITOR="code --wait"

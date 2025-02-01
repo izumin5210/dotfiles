@@ -1,0 +1,51 @@
+---
+# aqua - Declarative CLI Version Manager
+# https://aquaproj.github.io/
+checksum:
+  enabled: true
+  require_checksum: true
+  supported_envs:
+    - all
+registries:
+  - type: standard
+    ref: v4.300.0 # renovate: depName=aquaproj/aqua-registry
+packages:
+  # go
+  - name: golang/go@go1.23.5
+  - name: golang.org/x/tools/gopls@v0.17.1
+  - name: go-delve/delve@v1.24.0
+  - name: golangci/golangci-lint@v1.63.4
+  - name: nametake/golangci-lint-langserver@v0.0.10
+  # javascript
+  - name: pnpm/pnpm@v10.1.0
+  - name: denoland/deno@v2.1.9
+  - name: Schniz/fnm@v1.38.1
+  # git
+  - name: cli/cli@v2.65.0
+  - name: dandavison/delta@0.18.2
+  - name: Wilfred/difftastic@0.62.0
+  - name: x-motemen/ghq@v1.7.1
+  - name: jesseduffield/lazygit@v0.45.2
+  # vim
+  - name: neovim/neovim@v0.10.3
+  # shell
+  - name: starship/starship@v1.22.1
+  # linters, formatters, language servers
+  - name: bufbuild/buf@v1.50.0
+  - name: rhysd/actionlint@v1.7.7
+  - name: hadolint/hadolint@v2.12.0
+  - name: mvdan/sh@v3.10.0
+  - name: JohnnyMorganz/StyLua@v2.0.2
+  - name: grafana/jsonnet-language-server@v0.15.0
+  - name: LuaLS/lua-language-server@3.13.5
+  # tools
+  - name: junegunn/fzf@v0.58.0
+  - name: BurntSushi/ripgrep@14.1.1
+  - name: sharkdp/bat@v0.25.0
+  - name: eza-community/eza@v0.20.18
+  - name: sharkdp/fd@v10.2.0
+  - name: direnv/direnv@v2.35.0
+  # CLI for cloud services
+  - name: auth0/auth0-cli@v1.8.0
+  - name: aws/aws-cli@2.23.11
+  - name: stripe/stripe-cli@v1.23.10

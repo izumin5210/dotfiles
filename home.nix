@@ -7,8 +7,7 @@
 
 {
   nixpkgs.overlays = [
-    (import ./overlays/gopls.nix)
-    (import ./overlays/pnpm.nix)
+    # ...
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -38,33 +37,14 @@
     # # "Hello, world!" when run.
     # pkgs.hello
 
-    # go
-    pkgs.go
-    pkgs.gopls
-    pkgs.delve
-    pkgs.golangci-lint
-    pkgs.golangci-lint-langserver
-
-    # javascript
-    pkgs.deno
-    pkgs.fnm
-    pkgs.pnpm
-
     # other langs
     pkgs.php
     pkgs.ruby
     pkgs.rustup
 
     # git
-    pkgs.delta
-    pkgs.difftastic
-    pkgs.gh
     pkgs.git
     pkgs.git-secrets
-    pkgs.lazygit
-
-    # vim
-    pkgs.neovim
 
     # zsh
     pkgs.zsh
@@ -84,38 +64,18 @@
     pkgs.sqlite
 
     # CLIs for cloud services
-    pkgs.auth0-cli
-    pkgs.awscli2
     pkgs.google-cloud-sdk
     pkgs.ngrok
-    pkgs.stripe-cli
-
-    # linter, formatter, langauge server
-    pkgs.actionlint
-    pkgs.hadolint
-    pkgs.jsonnet-language-server
-    pkgs.lua-language-server
-    pkgs.shfmt
-    pkgs.stylua
 
     # tools
     pkgs._1password-cli
-    pkgs.bat
     pkgs.btop
-    pkgs.buf
     pkgs.ctop
     pkgs.diff-pdf
-    pkgs.direnv
-    pkgs.eza
-    pkgs.fd
-    pkgs.fzf
-    pkgs.ghq
     pkgs.graphviz
     pkgs.htop
     pkgs.jq
-    pkgs.ripgrep
     pkgs.semgrep
-    pkgs.starship
     pkgs.tree
     (pkgs.callPackage ./pkgs/aqua.nix { })
 

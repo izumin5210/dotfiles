@@ -47,12 +47,12 @@ vim.keymap.set(
   { noremap = true, silent = true, desc = "Search: Clear Search Highlight" }
 )
 -- center search results
-vim.keymap.set("n", "n", "nzz", { noremap = true, desc = "Search: Next" })
-vim.keymap.set("n", "N", "Nzz", { noremap = true, desc = "Search: Prev" })
-vim.keymap.set("n", "*", "*zz", { noremap = true, desc = "Search: Next" })
-vim.keymap.set("n", "#", "#zz", { noremap = true, desc = "Search: Prev" })
-vim.keymap.set("n", "g*", "g*zz", { noremap = true, desc = "Search: Next" })
-vim.keymap.set("n", "g#", "g#zz", { noremap = true, desc = "Search: Prev" })
+vim.keymap.set("n", "n", "nzz", { noremap = true, silent = true, desc = "Search: Next" })
+vim.keymap.set("n", "N", "Nzz", { noremap = true, silent = true, desc = "Search: Prev" })
+vim.keymap.set("n", "*", "*zz", { noremap = true, silent = true, desc = "Search: Next" })
+vim.keymap.set("n", "#", "#zz", { noremap = true, silent = true, desc = "Search: Prev" })
+vim.keymap.set("n", "g*", "g*zz", { noremap = true, silent = true, desc = "Search: Next" })
+vim.keymap.set("n", "g#", "g#zz", { noremap = true, silent = true, desc = "Search: Prev" })
 
 -- Buffers
 ----------------------------------------------------------------

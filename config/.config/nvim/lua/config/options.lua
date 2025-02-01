@@ -89,4 +89,7 @@ vim.opt.shortmess:append({
   I = true, -- don't give the intro message when starting
   c = true, -- don't give ins-completion-menu messages
   C = true, -- don't give messages while scanning for ins-completion items
+  s = true, -- don't give "search hit BOTTOM, continuing at TOP" messages
+  S = true, -- don't show search count message when searching
 })
+vim.opt.report = 9999

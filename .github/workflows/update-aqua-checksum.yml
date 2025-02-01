@@ -14,7 +14,11 @@ jobs:
       matrix:
         include:
           - { name: "Repository" }
-          - { name: "Codespaces", dir: "config/.config/aquaproj-aqua/codespaces" }
+          - { name: "Global", dir: "config/.config/aquaproj-aqua" }
+          - {
+              name: "Codespaces",
+              dir: "config/.config/aquaproj-aqua/codespaces",
+            }
     name: "Update aqua-checksums (${{ matrix.name }})"
     uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3
     permissions:

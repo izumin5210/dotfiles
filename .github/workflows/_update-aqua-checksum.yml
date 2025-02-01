@@ -11,7 +11,7 @@ jobs:
   check-aqua-updates:
     runs-on: ubuntu-latest
     outputs:
-      dirs: ${{ steps.dirs.outputs.dirs }}
+      dirs-json: ${{ steps.dirs.outputs.json }}
     steps:
       - uses: actions/checkout@v4
         with:
@@ -19,7 +19,7 @@ jobs:
       - name: Check aqua updates
         id: dirs
         run: |
-          git diff --name-only "${{ github.event.pull_request.base.ref }}" \
+          git diff --name-only "origin/${{ github.event.pull_request.base.ref }}" \
             | grep -E '/(aqua\.yaml|/aqua-checksums\.json)$' \
             | xargs dirname \
             | sort -u \
@@ -32,7 +32,7 @@ jobs:
     needs: [check-aqua-updates]
     strategy:
       matrix:
-        dir: ${{ fromJson(needs.check-aqua-updates.outputs.dirs.json) }}
+        dir: ${{ fromJson(needs.check-aqua-updates.outputs.dirs-json) }}
     name: "Update aqua-checksums (${{ matrix.dir }})"
     uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3
     with:

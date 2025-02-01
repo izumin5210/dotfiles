@@ -42,3 +42,4 @@ jobs:
     secrets:
       gh_app_id: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_ID}}
       gh_app_private_key: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_PRIVATE_KEY}}
+    if: needs.check-aqua-updates.outputs.dirs-json != '[]'

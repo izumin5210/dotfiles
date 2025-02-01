@@ -64,7 +64,6 @@ jobs:
             args: [--frozen-lockfile, --strict-peer-dependencies]
 
   update-aqua-checksums:
-    name: "Update aqua-checksums"
     uses: ./.github/workflows/_update-aqua-checksum.yml
     permissions:
       contents: read

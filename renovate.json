@@ -12,6 +12,12 @@
     {
       "matchDepTypes": ["dependencies", "devDependencies"],
       "rangeStrategy": "pin"
+    },
+    {
+      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "matchCurrentVersion": "!/^0\\./",
+      "automerge": true,
+      "platformAutomerge": true
     }
   ],
   "labels": ["dependencies"],

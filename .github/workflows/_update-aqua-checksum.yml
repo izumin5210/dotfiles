@@ -18,12 +18,17 @@ jobs:
       - name: Check aqua updates
         id: dirs
         run: |
-          git diff --name-only "${{ github.event.pull_request.base.ref }}" \
-            | grep -E '/(aqua\.yaml|/aqua-checksums\.json)$' \
-            | xargs dirname \
-            | sort -u \
-            | jq -R -s -c 'split("\n") | map(select(length > 0))' \
-            > update-dirs.json
+          if [[ "${{ github.event_name }}" == "pull_request" ]]; then
+            git diff --name-only "${{ github.event.pull_request.base.ref }}" \
+              | grep -E '/(aqua\.yaml|/aqua-checksums\.json)$' \
+              | xargs dirname \
+              | sort -u \
+              | jq -R -s -c 'split("\n") | map(select(length > 0))' \
+              > update-dirs.json
+          else
+            echo "json=[]" > update-dirs.json
+          fi
+
           echo "json=$(cat update-dirs.json)"
           echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT
 

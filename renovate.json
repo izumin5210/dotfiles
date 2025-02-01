@@ -14,7 +14,7 @@
       "rangeStrategy": "pin"
     },
     {
-      "matchUpdateTypes": ["patch", "pin", "digest"],
+      "matchUpdateTypes": ["patch", "pin", "digest", "lockFileMaintenance"],
       "matchCurrentVersion": "!/^0\\./",
       "automerge": true,
       "platformAutomerge": true
@@ -22,6 +22,10 @@
   ],
   "labels": ["dependencies"],
   "minimumReleaseAge": "3 days",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "extends": ["schedule:earlyMondays"]
+  },
   "nix": {
     "enabled": true
   }

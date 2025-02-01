@@ -1,6 +1,11 @@
 {
   "checksums": [
     {
+      "id": "github_content/github.com/awslabs/git-secrets/1.3.0/git-secrets",
+      "checksum": "DF9A5D2BEEDA1C83E23105F46EFE464BB4C97F8328E1E66754D7DAACFAF7272B",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/BurntSushi/ripgrep/14.1.1/ripgrep-14.1.1-aarch64-apple-darwin.tar.gz",
       "checksum": "24AD76777745FBFF131C8FBC466742B011F925BFA4FFFA2DED6DEF23B5B937BE",
       "algorithm": "sha256"

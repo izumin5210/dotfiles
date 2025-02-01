@@ -44,7 +44,6 @@
 
     # git
     pkgs.git
-    pkgs.git-secrets
 
     # zsh
     pkgs.zsh

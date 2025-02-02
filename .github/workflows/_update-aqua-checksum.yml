@@ -13,7 +13,7 @@ permissions:
   contents: read
 
 jobs:
-  check:
+  prepare:
     runs-on: ubuntu-latest
     outputs:
       dirs-json: ${{ steps.dirs.outputs.json }}
@@ -35,10 +35,10 @@ jobs:
           echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT
 
   update:
-    needs: [check]
+    needs: [prepare]
     strategy:
       matrix:
-        dir: ${{ fromJson(needs.check.outputs.dirs-json) }}
+        dir: ${{ fromJson(needs.prepare.outputs.dirs-json) }}
     name: "update (${{ matrix.dir }})"
     uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3
     with:
@@ -48,4 +48,4 @@ jobs:
     secrets:
       gh_app_id: ${{secrets.gh-app-id}}
       gh_app_private_key: ${{secrets.gh-app-private-key}}
-    if: needs.check.outputs.dirs-json != '[]'
+    if: needs.prepare.outputs.dirs-json != '[]'

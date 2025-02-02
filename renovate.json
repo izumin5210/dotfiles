@@ -1,9 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    "config:best-practices",
     ":timezone(Asia/Tokyo)",
     "github>aquaproj/aqua-renovate-config#2.6.0",
+    ":label(dependencies)",
+    ":pinAllExceptPeerDependencies",
+    ":maintainLockFilesWeekly",
     ":automergePatch",
     ":automergeStableNonMajor"
   ],
@@ -11,18 +14,9 @@
     {
       "matchPackageNames": ["aquaproj/aqua-registry"],
       "extends": ["schedule:earlyMondays"]
-    },
-    {
-      "matchDepTypes": ["dependencies", "devDependencies"],
-      "rangeStrategy": "pin"
     }
   ],
-  "labels": ["dependencies"],
   "minimumReleaseAge": "3 days",
-  "lockFileMaintenance": {
-    "enabled": true,
-    "extends": ["schedule:earlyMondays"]
-  },
   "nix": {
     "enabled": true
   }

@@ -12,19 +12,19 @@ jobs:
     env:
       IMAGE: ghcr.io/${{ github.repository_owner }}/dotfiles
     steps:
-      - uses: actions/checkout@v4
-      - uses: docker/login-action@v3
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: docker/login-action@9780b0c442fbb1117ed29e0efdff1e18412f7567 # v3
         with:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.CR_PAT }}
-      - uses: docker/setup-buildx-action@v3
-      - uses: docker/build-push-action@v6
+      - uses: docker/setup-buildx-action@6524bf65af31da8d45b59e8c27de4bd072b392f5 # v3
+      - uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6
         with:
           context: .
           push: true
           tags: ${{ env.IMAGE }}:${{ github.sha }}
-      - uses: docker/build-push-action@v6
+      - uses: docker/build-push-action@ca877d9245402d1537745e0e356eab47c3520991 # v6
         with:
           context: .
           push: true
@@ -44,8 +44,8 @@ jobs:
               shfmt -i 2 -d bin config/{.bin,.config/zsh} install
     name: format-${{ matrix.name }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: aquaproj/aqua-installer@v3.1.1
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+      - uses: aquaproj/aqua-installer@e2d0136abcf70b7a2f6f505720640750557c4b33 # v3.1.1
         with:
           aqua_version: v2.43.0
       - run: ${{ matrix.cmd }}
@@ -55,7 +55,7 @@ jobs:
     env:
       WORK_DIR: config/.config/nvim/lua/plugins/lsp
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
       - uses: pnpm/action-setup@v4
         with:
           package_json_file: ${{ env.WORK_DIR }}/package.json

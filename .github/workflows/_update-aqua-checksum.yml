@@ -25,8 +25,7 @@ jobs:
         id: dirs
         run: |
           ref="origin/${{ github.event.pull_request.base.ref }}"
-          linePrefix="$(git rev-parse --show-toplevel)/"
-          git diff --name-only "${ref}" --line-prefix="${linePrefix}" \
+          git diff --name-only "${ref}" \
             | grep -E '^(.*/)?(aqua\.yaml|aqua-checksums\.json)$' \
             | xargs dirname \
             | sort -u \

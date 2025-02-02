@@ -1,6 +1,10 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
 
 jobs:
   build:
@@ -58,3 +62,24 @@ jobs:
           run_install: |
             cwd: ${{ env.WORK_DIR }}
             args: [--frozen-lockfile, --strict-peer-dependencies]
+
+  update-aqua-checksums:
+    uses: ./.github/workflows/_update-aqua-checksum.yml
+    permissions:
+      contents: read
+    secrets:
+      gh-app-id: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_ID}}
+      gh-app-private-key: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_PRIVATE_KEY}}
+    if: github.event_name == 'pull_request'
+
+  status-check:
+    runs-on: ubuntu-latest
+    needs:
+      - build
+      - format
+      - node-tools-lockfile
+      - update-aqua-checksums
+    permissions: {}
+    if: failure()
+    steps:
+      - run: exit 1

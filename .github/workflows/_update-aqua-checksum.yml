@@ -1,0 +1,52 @@
+# https://aquaproj.github.io/docs/products/update-checksum-workflow/
+
+name: update-aqua-checksum
+on:
+  workflow_call:
+    secrets:
+      gh-app-id:
+        required: true
+      gh-app-private-key:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    outputs:
+      dirs-json: ${{ steps.dirs.outputs.json }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check aqua updates
+        id: dirs
+        run: |
+          ref="origin/${{ github.event.pull_request.base.ref }}"
+          git diff --name-only "${ref}" \
+            | grep -E '^(.*/)?(aqua\.yaml|aqua-checksums\.json)$' \
+            | xargs dirname \
+            | sort -u \
+            | jq -R -s -c 'split("\n") | map(select(length > 0))' \
+            > update-dirs.json
+          echo "json=$(cat update-dirs.json)"
+          echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT
+
+  update:
+    needs: [prepare]
+    strategy:
+      matrix:
+        dir: ${{ fromJson(needs.prepare.outputs.dirs-json) }}
+    name: "update (${{ matrix.dir }})"
+    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@8bce60cc4475128360bc32f00707abb874ca4a91 # v1.0.3
+    with:
+      aqua_version: v2.43.0
+      prune: true
+      # NOTE: GitHub Actions treats `''` as falsy, so the condition is negated
+      working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"
+    secrets:
+      gh_app_id: ${{secrets.gh-app-id}}
+      gh_app_private_key: ${{secrets.gh-app-private-key}}
+    if: needs.prepare.outputs.dirs-json != '[]'

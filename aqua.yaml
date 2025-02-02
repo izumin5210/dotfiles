@@ -13,4 +13,4 @@ packages:
   - name: JohnnyMorganz/StyLua@v2.0.2
   - name: mvdan/sh@v3.10.0
   - name: rhysd/vim-startuptime@v1.3.2
-  - name: neovim/neovim@v0.10.3
+  - name: neovim/neovim@v0.10.2

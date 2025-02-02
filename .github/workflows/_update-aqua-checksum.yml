@@ -30,7 +30,11 @@ jobs:
             | grep -E '^(.*/)?(aqua\.yaml|aqua-checksums\.json)$' \
             | xargs dirname \
             | sort -u \
-            | jq -R -s -c 'split("\n") | map(select(length > 0))' \
+            | jq -R -s -c '
+                split("\n")
+                | map(select(length > 0))
+                | map(if . == "." then "" else . end)
+              ' \
             > update-dirs.json
           echo "json=$(cat update-dirs.json)"
           echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT

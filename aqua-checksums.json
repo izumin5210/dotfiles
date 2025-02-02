@@ -51,6 +51,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/neovim/neovim/v0.10.2/nvim-linux64.tar.gz",
+      "checksum": "9F696E635D503B844E4E78E88A22BCF512A78F288BF471379AFC3D0004E15217",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/neovim/neovim/v0.10.2/nvim-macos-arm64.tar.gz",
+      "checksum": "CD3E2E97FEE285C41016CECE51E67E8174DF1DC577B89BC04063B2068CCDAEA0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/neovim/neovim/v0.10.2/nvim-macos-x86_64.tar.gz",
+      "checksum": "8BE3960D6ED843121A8D00AF38D47EF6757824FC05A50A9BC240D678D61A5463",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/neovim/neovim/v0.10.2/nvim-win64.zip",
+      "checksum": "3E11C4BED6F3D921AF03112C8056740CA6FCACDBF84066328193F058200531C2",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/rhysd/vim-startuptime/v1.3.2/vim-startuptime_1.3.2_darwin_amd64.tar.gz",
       "checksum": "050D3DE9F35537D73326A6BB0C81E9EAF229E4F63D98218A09C4CD07212760AB",
       "algorithm": "sha256"

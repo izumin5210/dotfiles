@@ -69,7 +69,6 @@
     # tools
     pkgs._1password-cli
     pkgs.btop
-    pkgs.ctop
     pkgs.diff-pdf
     pkgs.graphviz
     pkgs.htop

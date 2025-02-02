@@ -29,11 +29,7 @@ jobs:
             | grep -E '^(.*/)?(aqua\.yaml|aqua-checksums\.json)$' \
             | xargs dirname \
             | sort -u \
-            | jq -R -s -c '
-                split("\n")
-                | map(select(length > 0))
-                | map(if . == "." then "" else . end)
-              ' \
+            | jq -R -s -c 'split("\n") | map(select(length > 0))' \
             > update-dirs.json
           echo "json=$(cat update-dirs.json)"
           echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT
@@ -48,7 +44,7 @@ jobs:
     with:
       aqua_version: v2.43.0
       prune: true
-      working_directory: ${{ matrix.dir }}
+      working_directory: ${{ matrix.dir == '.' && '' || matrix.dir }}
     secrets:
       gh_app_id: ${{secrets.gh-app-id}}
       gh_app_private_key: ${{secrets.gh-app-private-key}}

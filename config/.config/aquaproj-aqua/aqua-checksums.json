@@ -736,33 +736,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.darwin-amd64.tar.gz",
-      "checksum": "D8B310B0B6BD6A630307579165CFAC8A37571483C7D6804A10DD73BBEFB0827F",
+      "id": "http/golang.org/dl/go1.23.6.darwin-amd64.tar.gz",
+      "checksum": "782DA50CE8EC5E98FAC2CD3CDC6A1D7130D093294FC310038F651444232A3FB0",
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.darwin-arm64.tar.gz",
-      "checksum": "047BFCE4FBD0DA6426BD30CD19716B35A466B1C15A45525CE65B9824ACB33285",
+      "id": "http/golang.org/dl/go1.23.6.darwin-arm64.tar.gz",
+      "checksum": "5CAE2450A1708AEB0333237A155640D5562ABAF195DEFEBC4306054565536221",
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.linux-amd64.tar.gz",
-      "checksum": "CBCAD4A6482107C7C7926DF1608106C189417163428200CE357695CC7E01D091",
+      "id": "http/golang.org/dl/go1.23.6.linux-amd64.tar.gz",
+      "checksum": "9379441EA310DE000F33A4DC767BD966E72AB2826270E038E78B2C53C2E7802D",
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.linux-arm64.tar.gz",
-      "checksum": "47C84D332123883653B70DA2DB7DD57D2A865921BA4724EFCDF56B5DA7021DB0",
+      "id": "http/golang.org/dl/go1.23.6.linux-arm64.tar.gz",
+      "checksum": "561C780E8F4A8955D32BF72E46AF0B5EE5E0DEBE1E4633DF9A03781878219202",
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.windows-amd64.zip",
-      "checksum": "96D74945D7DAEEB98A7978D0CF099321D7EB821B45F5C510373D545162D39C20",
+      "id": "http/golang.org/dl/go1.23.6.windows-amd64.zip",
+      "checksum": "53FEC1586850B2CF5AD6438341FF7ADC5F6700DD3EC1CFA3F5E8B141DF190243",
       "algorithm": "sha256"
     },
     {
-      "id": "http/golang.org/dl/go1.23.5.windows-arm64.zip",
-      "checksum": "4F20C2D8A5A387C227E3EF48C5506B22906139D8AFD8D66A78EF3DE8DDA1D1C3",
+      "id": "http/golang.org/dl/go1.23.6.windows-arm64.zip",
+      "checksum": "A2D2EC1B3759552BDD9CDF58858F91DFBFD6AB3A472F00B5255ACBED30B1AA41",
       "algorithm": "sha256"
     },
     {

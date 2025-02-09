@@ -3,7 +3,7 @@
   "extends": [
     "config:best-practices",
     ":timezone(Asia/Tokyo)",
-    "github>aquaproj/aqua-renovate-config#2.6.0",
+    "github>aquaproj/aqua-renovate-config#2.7.0",
     ":label(dependencies)",
     ":pinAllExceptPeerDependencies",
     ":maintainLockFilesWeekly",

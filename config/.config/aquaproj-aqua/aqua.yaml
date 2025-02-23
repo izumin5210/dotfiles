@@ -12,7 +12,7 @@ registries:
 packages:
   # go
   - name: golang/go@go1.24.0
-  - name: golang.org/x/tools/gopls@v0.17.1
+  - name: golang.org/x/tools/gopls@v0.18.0
   - name: go-delve/delve@v1.24.0
   - name: golangci/golangci-lint@v1.64.5
   - name: nametake/golangci-lint-langserver@v0.0.10

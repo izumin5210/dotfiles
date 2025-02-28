@@ -231,28 +231,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/denoland/deno/v2.2.1/deno-aarch64-apple-darwin.zip",
-      "checksum": "2E7029CCC30E7500963D9E7519A3E20FF29941FFE730C6901B61CF58421E6F4B",
+      "id": "github_release/github.com/denoland/deno/v2.2.2/deno-aarch64-apple-darwin.zip",
+      "checksum": "EC1F01B9D83E3D0C10702D437D3CE6B3DD9C66CBC437FF20DBB09745F689069C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/denoland/deno/v2.2.1/deno-aarch64-unknown-linux-gnu.zip",
-      "checksum": "2DE9AF6894D7E9EAEB5B140C341EE8A8670F27C673F381AE27E8EDC8E5DD45B7",
+      "id": "github_release/github.com/denoland/deno/v2.2.2/deno-aarch64-unknown-linux-gnu.zip",
+      "checksum": "8C72C81AD3E521ED4EFB89F7D21BB4C08A801479CF94B34525E6892CD5C4B4BB",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/denoland/deno/v2.2.1/deno-x86_64-apple-darwin.zip",
-      "checksum": "9D013233CF4A92CFF2CAE9217EC46A12D310D47CDB3564DEADE82A00850A63B6",
+      "id": "github_release/github.com/denoland/deno/v2.2.2/deno-x86_64-apple-darwin.zip",
+      "checksum": "A76CDA660FEA9E122BD845A9F9D691BE8B6CD93E4AC5688EDF2F4A520F9BF1A1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/denoland/deno/v2.2.1/deno-x86_64-pc-windows-msvc.zip",
-      "checksum": "BB99517243F6D1FE5B6A03275CFB28E34488A989A4AEC23A9C6144E21A9DE458",
+      "id": "github_release/github.com/denoland/deno/v2.2.2/deno-x86_64-pc-windows-msvc.zip",
+      "checksum": "561EBFEBD6D223CA33124BADC80F0CAFEAFC25E4A47FA7D76A60E9B727629C48",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/denoland/deno/v2.2.1/deno-x86_64-unknown-linux-gnu.zip",
-      "checksum": "2DE60CC65349BB4F97636DE26B32B1FF71E79A0E127F2E6B7397B1D89AA76EA4",
+      "id": "github_release/github.com/denoland/deno/v2.2.2/deno-x86_64-unknown-linux-gnu.zip",
+      "checksum": "CC47C1FA8B3CA23057B7C89C69511557A0F2EEFC94516C38BC96EA97D619B491",
       "algorithm": "sha256"
     },
     {

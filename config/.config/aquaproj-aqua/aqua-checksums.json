@@ -421,33 +421,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-darwin_amd64.tar.gz",
-      "checksum": "5BEEF67FA461B16FCF77FED4EAF35C31524B780042980CD194DE5FE1999E7358",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-darwin_amd64.tar.gz",
+      "checksum": "4A6E023C1622B6CB157384CA712A5742FD362E104ED765CBB944089EA1BA37D8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-darwin_arm64.tar.gz",
-      "checksum": "E38E749CF1EDAF723868247C31B7A441962DC16B08C9323EC84057A7F4480A20",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-darwin_arm64.tar.gz",
+      "checksum": "8564663DB38194ADDCD86F4868494BD2A6C375374718C6044443A108B636B6E7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-linux_amd64.tar.gz",
-      "checksum": "F459D9C0676EDFCD4A717EFC48EA7768D395D5745872D34AE338452017381839",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-linux_amd64.tar.gz",
+      "checksum": "2937A4F10B0F80E0C974D9459DF3BC049B068A97212B0D253C36C9DA5920B521",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-linux_arm64.tar.gz",
-      "checksum": "4D18F7E00AD43B690F2398A88023F78DD840722F01387E4FC5D3C9579ABCA47C",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-linux_arm64.tar.gz",
+      "checksum": "13DF4D556992938A4BEB340AC3B17C51C77E46DB978D3071429EB77A94C581C1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-windows_amd64.zip",
-      "checksum": "E1087D9FFE5DF96C7075EF86D3154E92040565D957DDFA142F847AE27A83DA7E",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-windows_amd64.zip",
+      "checksum": "1A0AA1407FFDEC7FAD404A6212C6E111C12CC791484DEF09843674DAE3537FAA",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/junegunn/fzf/v0.60.2/fzf-0.60.2-windows_arm64.zip",
-      "checksum": "C41FB03CB3FDD23A34E7A49C3507708885509A3FDC8BDF079B1EF0B1619104DC",
+      "id": "github_release/github.com/junegunn/fzf/v0.60.3/fzf-0.60.3-windows_arm64.zip",
+      "checksum": "AFD6351792B41D249E0A6F5CBE21600017BB430C2AAD617EC7B0025E28E7DA56",
       "algorithm": "sha256"
     },
     {

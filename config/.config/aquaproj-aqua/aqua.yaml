@@ -34,7 +34,7 @@ packages:
   - name: bufbuild/buf@v1.50.0
   - name: rhysd/actionlint@v1.7.7
   - name: hadolint/hadolint@v2.12.0
-  - name: mvdan/sh@v3.10.0
+  - name: mvdan/sh@v3.11.0
   - name: JohnnyMorganz/StyLua@v2.0.2
   - name: grafana/jsonnet-language-server@v0.15.0
   - name: LuaLS/lua-language-server@3.13.6

@@ -48,6 +48,6 @@ packages:
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.10.0
   - name: aws/aws-cli@2.24.27
-  - name: stripe/stripe-cli@v1.25.0
+  - name: stripe/stripe-cli@v1.25.1
   - name: awslabs/git-secrets@1.3.0
   - name: jesseduffield/lazydocker@v0.24.1

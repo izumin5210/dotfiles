@@ -15,8 +15,8 @@ importers:
         specifier: 6.5.0
         version: 6.5.0
       '@tailwindcss/language-server':
-        specifier: 0.14.9
-        version: 0.14.9
+        specifier: 0.14.10
+        version: 0.14.10
       bash-language-server:
         specifier: 5.4.3
         version: 5.4.3
@@ -490,8 +490,8 @@ packages:
   '@repeaterjs/repeater@3.0.6':
     resolution: {integrity: sha512-Javneu5lsuhwNCryN+pXH93VPQ8g0dBX7wItHFgYiwQmzE1sVdg5tWHiOgHywzL2W21XQopa7IwIEnNbmeUJYA==}
 
-  '@tailwindcss/language-server@0.14.9':
-    resolution: {integrity: sha512-t9tXYWWkLdfd3PrOZD+xF+B2a1tE5GI6VJu5dVw6wI5mSR3gmUPXEx4QF1vd7Ox7/tP+5a3faGhrp0BjCawPtw==}
+  '@tailwindcss/language-server@0.14.10':
+    resolution: {integrity: sha512-lDENN1hxld8Ks67Nm7Yi1EtIfP1/TUEjJ3H1ImfksWWzCjSDt8tE1F50n2iYGIsigMIUKMJ6hoEjO2kF/sScrg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -2424,7 +2424,7 @@ snapshots:
 
   '@repeaterjs/repeater@3.0.6': {}
 
-  '@tailwindcss/language-server@0.14.9': {}
+  '@tailwindcss/language-server@0.14.10': {}
 
   '@types/estree@1.0.6': {}
 

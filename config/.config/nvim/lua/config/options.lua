@@ -70,6 +70,10 @@ vim.opt.showtabline = 0
 
 -- hide cmdline
 vim.opt.cmdheight = 0
+if vim.g.vscode then
+  -- https://github.com/vscode-neovim/vscode-neovim/issues/2109
+  vim.opt.cmdheight = 1
+end
 
 -- reset cmdheight after restore sessions
 -- see https://github.com/neovim/neovim/issues/22449

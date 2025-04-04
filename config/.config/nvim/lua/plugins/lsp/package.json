@@ -15,5 +15,5 @@
     "vscode-langservers-extracted": "4.10.0",
     "yaml-language-server": "1.17.0"
   },
-  "packageManager": "pnpm@10.7.0"
+  "packageManager": "pnpm@10.7.1"
 }

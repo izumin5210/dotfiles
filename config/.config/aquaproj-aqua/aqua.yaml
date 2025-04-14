@@ -44,7 +44,7 @@ packages:
   - name: sharkdp/bat@v0.25.0
   - name: eza-community/eza@v0.21.0
   - name: sharkdp/fd@v10.2.0
-  - name: direnv/direnv@v2.35.0
+  - name: direnv/direnv@v2.36.0
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.11.0
   - name: aws/aws-cli@2.26.0

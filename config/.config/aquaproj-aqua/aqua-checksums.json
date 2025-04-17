@@ -531,28 +531,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.8.0/pnpm-linux-arm64",
-      "checksum": "FB2956D2BFE3BEEFC7486E6CB4D5F82D986B615D80E76A752D8A4EA34212F257",
+      "id": "github_release/github.com/pnpm/pnpm/v10.8.1/pnpm-linux-arm64",
+      "checksum": "F01B8A3BD14AD93771DBCDD517156A3543E03BFDBCEB63AC159EE3A1D49A978B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.8.0/pnpm-linux-x64",
-      "checksum": "E9897F74FC90E60040B47B6A76D973EDD17297FF4FBD435CAE420F672A6E38E8",
+      "id": "github_release/github.com/pnpm/pnpm/v10.8.1/pnpm-linux-x64",
+      "checksum": "11B81FBAD6333579AF6B03106D6A4F49CF669E9B96D68DB18E42DB17427F6660",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.8.0/pnpm-macos-arm64",
-      "checksum": "467E14216BDBFD76418753261176C2D375F49C3018699D5D5E5678B37D2E7349",
+      "id": "github_release/github.com/pnpm/pnpm/v10.8.1/pnpm-macos-arm64",
+      "checksum": "EC94E924D0ED63E273AAE2B9326A5C0E03C6F1883D820241B14EA1F6D9E9900B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.8.0/pnpm-macos-x64",
-      "checksum": "41B64589817CCED622F89F6DD7A50E446081DC48BE79167E6F79AFF497AE5169",
+      "id": "github_release/github.com/pnpm/pnpm/v10.8.1/pnpm-macos-x64",
+      "checksum": "BF4EABB466CE356547D62D89DF7CEE58DB072D5222CB710897AB8CCA771BB0E0",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.8.0/pnpm-win-x64.exe",
-      "checksum": "D0D10D19ECE1ACCD08D6213354E66A8D65127851F1E13499AE89D28A260F6DBC",
+      "id": "github_release/github.com/pnpm/pnpm/v10.8.1/pnpm-win-x64.exe",
+      "checksum": "E95CB87936D91C6E3D4F21BA0CD2A3E90C6E64F8F477402EBE0FA4DBBF13AA70",
       "algorithm": "sha256"
     },
     {

@@ -27,7 +27,7 @@ packages:
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.51.1
   # vim
-  - name: neovim/neovim@v0.11.0
+  - name: neovim/neovim@v0.11.2
   # shell
   - name: starship/starship@v1.23.0
   # linters, formatters, language servers

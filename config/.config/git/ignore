@@ -202,3 +202,5 @@ tags
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/intellij,linux,macos,vim,visualstudiocode
+
+**/.claude/settings.local.json

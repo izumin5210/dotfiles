@@ -10,6 +10,7 @@ export PATH="${HOME}/.local/bin:${PATH}"
 export PATH="/usr/local/bin:${PATH}"
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.bin:$PATH
+export PATH=$(ghq root)/github.com/izumin5210/dotfiles/node_modules/.bin:$PATH
 
 # Go
 export GOPATH="$XDG_DATA_HOME"/go

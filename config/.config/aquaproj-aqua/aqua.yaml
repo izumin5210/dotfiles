@@ -25,7 +25,7 @@ packages:
   - name: dandavison/delta@0.18.2
   - name: Wilfred/difftastic@0.63.0
   - name: x-motemen/ghq@v1.8.0
-  - name: jesseduffield/lazygit@v0.49.0
+  - name: jesseduffield/lazygit@v0.51.1
   # vim
   - name: neovim/neovim@v0.11.0
   # shell

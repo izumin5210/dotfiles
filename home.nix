@@ -47,7 +47,6 @@
 
     # zsh
     pkgs.zsh
-    pkgs.sheldon
 
     # tmux
     pkgs.tmux

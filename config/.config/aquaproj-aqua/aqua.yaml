@@ -29,7 +29,7 @@ packages:
   # vim
   - name: neovim/neovim@v0.11.0
   # shell
-  - name: starship/starship@v1.22.1
+  - name: starship/starship@v1.23.0
   # linters, formatters, language servers
   - name: bufbuild/buf@v1.52.1
   - name: rhysd/actionlint@v1.7.7

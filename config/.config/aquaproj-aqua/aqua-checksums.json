@@ -376,6 +376,11 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.1/lazydocker_0.24.1_Darwin_arm64.tar.gz",
+      "checksum": "55D8FF53D9BD36EE088393154442D3B93DB787118BE5AD0AE80C200D76311EC2",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.1/lazydocker_0.24.1_Darwin_x86_64.tar.gz",
       "checksum": "7B4C73C7B1B62B9702A701AC0A8A1D8913602173362E8EE96D4FC03EF556AD10",
       "algorithm": "sha256"
@@ -388,6 +393,11 @@
     {
       "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.1/lazydocker_0.24.1_Linux_x86_64.tar.gz",
       "checksum": "461CACF618E1020DFF1D7896248C1C1F2267D5C25FB529755E4B9C43C5D1D4A5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.1/lazydocker_0.24.1_Windows_arm64.zip",
+      "checksum": "8D965FF79409802FF620F744F91CB932BE52B25C2A5ED7AA5131387645151EB8",
       "algorithm": "sha256"
     },
     {
@@ -766,8 +776,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.336.1/registry.yaml",
-      "checksum": "696AC3BA19006B0147A9E3BC731201796305BC33324B7CCA30DD3B829214CFCC8E8F0FB2B0B89F2B4FEC129F7A558C580144D8B9F9F388AEEE1623F95933BDFC",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.346.1/registry.yaml",
+      "checksum": "8729CB962D4AE00656849A90215E5E81137305B6EB3D370DDFE84B18840BF5438C23E098F09898E3CE6465BBEEAF10F669E88575BDD64DE70959A2C14B3054BF",
       "algorithm": "sha512"
     }
   ]

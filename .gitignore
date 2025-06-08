@@ -199,3 +199,8 @@ dist
 
 # Nix
 /result
+
+# Claude Code
+/config/.claude/projects
+/config/.claude/statsig
+/config/.claude/todos

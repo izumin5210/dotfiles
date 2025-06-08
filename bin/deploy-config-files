@@ -59,3 +59,6 @@ mkdir -p ~/.config
 
 # hammerspoon
 ./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon
+
+# claude code
+./bin/ln-idempotently ./config/.claude ~/.claude

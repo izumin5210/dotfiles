@@ -9,16 +9,16 @@ importers:
   .:
     devDependencies:
       '@anthropic-ai/claude-code':
-        specifier: 1.0.37
-        version: 1.0.37
+        specifier: 1.0.38
+        version: 1.0.38
       '@upstash/context7-mcp':
         specifier: 1.0.14
         version: 1.0.14
 
 packages:
 
-  '@anthropic-ai/claude-code@1.0.37':
-    resolution: {integrity: sha512-QRuw8700pzRxGxmq2LPmy/YH6eNcdKGmfncVj2nAg/6VG8PFDQfxzOcYOp4YDAFjYAfcWLrNTxiLm5sT3PxUEA==}
+  '@anthropic-ai/claude-code@1.0.38':
+    resolution: {integrity: sha512-hPZbJCt7O8T872wbCXGiwF210DzMBo/k3EVKB6EZQB10b73ZQIEflAWGTC2ZvBcMp79qAR4F6c82V0+Cc6o0sg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -436,7 +436,7 @@ packages:
 
 snapshots:
 
-  '@anthropic-ai/claude-code@1.0.37':
+  '@anthropic-ai/claude-code@1.0.38':
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5

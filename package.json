@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-		"@anthropic-ai/claude-code": "1.0.38",
+		"@anthropic-ai/claude-code": "1.0.39",
 		"@upstash/context7-mcp": "1.0.14"
 	}
 }

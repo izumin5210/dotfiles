@@ -297,4 +297,44 @@ return {
       },
     },
   },
+  {
+    "greggh/claude-code.nvim",
+    dependencies = {
+      "plenary.nvim",
+    },
+    keys = {
+      { "<leader>cc", mode = "n" },
+      { "<leader>cC", mode = "n" },
+      { "<leader>cR", mode = "n" },
+    },
+    opts = {
+      window = { position = "botright vsplit" },
+      refresh = { enable = false },
+      git = { use_git_root = false },
+      keymaps = {
+        toggle = {
+          normal = "<leader>cc",
+          variants = {
+            continue = "<leader>cC",
+            resume = "<leader>cR",
+          },
+        },
+        window_navigation = false,
+      },
+    },
+    init = function()
+      local group = vim.api.nvim_create_augroup("claude-code.nvim", { clear = true })
+      vim.api.nvim_create_autocmd("TermOpen", {
+        group = group,
+        pattern = "term://*",
+        callback = function(args)
+          local bufnr = args.buf
+          local name = vim.api.nvim_buf_get_name(bufnr)
+          if name:match(":claude$") then
+            vim.bo[bufnr].filetype = "claude-code"
+          end
+        end,
+      })
+    end,
+  },
 }

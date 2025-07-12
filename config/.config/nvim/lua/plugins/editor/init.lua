@@ -268,36 +268,6 @@ return {
     end,
   },
   {
-    "yetone/avante.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    event = "VeryLazy",
-    build = "make",
-    dependencies = {
-      "nvim-treesitter",
-      "dressing.nvim",
-      "plenary.nvim",
-      "nui.nvim",
-      "nvim-web-devicons",
-      {
-        "MeanderingProgrammer/render-markdown.nvim",
-        version = "*",
-        opts = {
-          file_types = { "markdown", "Avante" },
-        },
-        ft = { "markdown", "Avante" },
-      },
-    },
-    opts = {
-      provider = "claude",
-      auto_suggestions_provider = "claude",
-      claude = {
-        model = "claude-3-5-sonnet-20240620",
-        api_key_name = { "op", "read", "op://Personal/anthropic-api-key-avante-nvim/credential" },
-      },
-    },
-  },
-  {
     "greggh/claude-code.nvim",
     dependencies = {
       "plenary.nvim",

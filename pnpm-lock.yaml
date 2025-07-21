@@ -18,8 +18,8 @@ importers:
         specifier: 1.0.14
         version: 1.0.14
       o3-search-mcp:
-        specifier: 0.0.3
-        version: 0.0.3(ws@8.18.2)
+        specifier: 0.0.5
+        version: 0.0.5(ws@8.18.2)
 
   config/.config/nvim/lua/plugins/lsp:
     devDependencies:
@@ -1491,8 +1491,8 @@ packages:
   nullthrows@1.1.1:
     resolution: {integrity: sha512-2vPPEi+Z7WqML2jZYddDIfy5Dqb0r2fze2zTxNNknZaFpVHU3mFB3R+DWeJWGVx0ecvttSGlJTI+WG+8Z4cDWw==}
 
-  o3-search-mcp@0.0.3:
-    resolution: {integrity: sha512-UE/dJYdFnJx/+BwgOOu+lEh4KHLfKWbjBvRBMAfyUJkKjQJhGEUmwk7I3su/39ftSDdzem8F3QV1I37S7A+NGA==}
+  o3-search-mcp@0.0.5:
+    resolution: {integrity: sha512-n6WasOElGseB5qx+RNC5Oa6OQ/RaOYsXwRr02bZdKVmouJkJ7sbByw4xf5nhpI8BoZ9oLOdGUliL3eGcE2MrpA==}
     hasBin: true
 
   object-assign@4.1.1:
@@ -3809,7 +3809,7 @@ snapshots:
 
   nullthrows@1.1.1: {}
 
-  o3-search-mcp@0.0.3(ws@8.18.2):
+  o3-search-mcp@0.0.5(ws@8.18.2):
     dependencies:
       '@modelcontextprotocol/sdk': 1.15.0
       minimist: 1.2.8

@@ -1,4 +1,9 @@
-{ pkgs, ... }:
+{
+  pkgs,
+  lib,
+  isWorkMac,
+  ...
+}:
 
 {
   system.stateVersion = 5;
@@ -34,6 +39,39 @@
 
   security.pam.enableSudoTouchIdAuth = true;
 
-  services.nix-daemon.enable = true;
-  nix.package = pkgs.nix;
+  homebrew = {
+    enable = true;
+    casks =
+      [
+        "alacritty"
+        "chatgpt"
+        "claude"
+        "dropbox"
+        "google-japanese-ime"
+        "hammerspoon"
+        "jordanbaird-ice"
+        "karabiner-elements"
+        "obsidian"
+        "raycast"
+        "setapp"
+        "spotify"
+        "visual-studio-code"
+      ]
+      ++ (lib.optionals (!isWorkMac) [
+        "1password"
+        "google-chrome"
+      ]);
+    masApps =
+      {
+        # ...
+      }
+      // (lib.optionalAttrs (!isWorkMac) {
+        "Slack for Desktop" = 803453959;
+      })
+      // (lib.optionalAttrs (isWorkMac) {
+        "Twingate" = 1501592214;
+      });
+  };
+
+  nix.enable = false;
 }

@@ -40,13 +40,27 @@
         };
     in
     {
+      # MacBook Air, M3 (personal)
       darwinConfigurations."fleur" = mkDarwinSystem {
         hostname = "fleur";
         username = "izumin";
       };
 
+      # Mac mini, M4 (personal)
+      darwinConfigurations."rabbithouse" = mkDarwinSystem {
+        hostname = "rabbithouse";
+        username = "izumin";
+      };
+
+      # MacBook Pro, M1 Pro (work)
       darwinConfigurations."CM2NX3M6CH" = mkDarwinSystem {
         hostname = "CM2NX3M6CH";
+        username = "masayuki.izumi";
+      };
+
+      # MacBook Pro, M4 Pro (work)
+      darwinConfigurations."GFW3CPVPT2" = mkDarwinSystem {
+        hostname = "GFW3CPVPT2";
         username = "masayuki.izumi";
       };
     };

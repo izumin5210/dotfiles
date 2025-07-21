@@ -301,6 +301,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Darwin_arm64.tar.gz",
+      "checksum": "377FEAE33BC66D4066AEF26AF293C33D364C69981D75445C15C9B830052A4FBE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Darwin_x86_64.tar.gz",
+      "checksum": "60A485DDF6A692AB0130F539EC56B5C0E948089AFA99500D9AA16C9FFA8E29BB",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Linux_arm64.tar.gz",
+      "checksum": "4905DE7258C179B3482166E7D1CA11E78947ED10B121242ADD497C01C8DC4138",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Linux_x86_64.tar.gz",
+      "checksum": "4EABDDA31AC63585287BF2EEFAF376008B7C4627E22987235532F8491E9D3734",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Windows_arm64.zip",
+      "checksum": "70EBE3954AAE7AC84A1AAA8C7498C5085BE331A15AFAD80050CD4BAD90B23863",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/github/github-mcp-server/v0.5.0/github-mcp-server_Windows_x86_64.zip",
+      "checksum": "A9CE45B36D7BF1811F9C31FA20400E5DE8CC26121B87F5C79750C4BC2C7BA441",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/golangci/golangci-lint/v1.64.8/golangci-lint-1.64.8-darwin-amd64.tar.gz",
       "checksum": "B52AEBB8CB51E00BFD5976099083FBE2C43EF556CEF9C87E58A8AE656E740444",
       "algorithm": "sha256"
@@ -433,6 +463,31 @@
     {
       "id": "github_release/github.com/jesseduffield/lazygit/v0.53.0/lazygit_0.53.0_Windows_x86_64.zip",
       "checksum": "E525C179600A94FC1DCA1B52CA57A281AD25196FF0A2AEE55013E1FE2DAEC943",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-linux-amd64",
+      "checksum": "020468DE7539CE70EF1BCEAF7CDE2E8C4F2CA6C3AFB84642AABC5C97D9FC2A0D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-linux-arm64",
+      "checksum": "6BC62F25981328EDD3CFCFE6FE51B073F2D7E7710D7EF7FCDAC28D4E384FC3D4",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-macos-amd64",
+      "checksum": "E80DBE0D2A2597E3C11C404F03337B981D74B4A8504B70586C354B7697A7C27F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-macos-arm64",
+      "checksum": "A9FE3EA2F86DFC72F6728417521EC9067B343277152B114F4E98D8CB0E263603",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/jqlang/jq/jq-1.8.1/jq-windows-amd64.exe",
+      "checksum": "23CB60A1354EED6BCC8D9B9735E8C7B388CD1FDCB75726B93BC299EF22DD9334",
       "algorithm": "sha256"
     },
     {

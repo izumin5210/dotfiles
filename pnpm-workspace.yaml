@@ -1,2 +1,4 @@
+packages:
+  - ./config/.config/nvim/lua/plugins/lsp
 onlyBuiltDependencies:
   - '@anthropic-ai/claude-code'

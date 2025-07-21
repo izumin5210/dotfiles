@@ -12,8 +12,8 @@ importers:
         specifier: 1.0.55
         version: 1.0.55
       '@playwright/mcp':
-        specifier: 0.0.29
-        version: 0.0.29(zod@3.25.76)
+        specifier: 0.0.31
+        version: 0.0.31(zod@3.25.76)
       '@upstash/context7-mcp':
         specifier: 1.0.14
         version: 1.0.14
@@ -430,8 +430,8 @@ packages:
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
 
-  '@playwright/mcp@0.0.29':
-    resolution: {integrity: sha512-tTwgNsn+xhRVXJ1OhkC34sD/ozFsC4kpZx4l9UwO2BpOIaNNSv72/CezP6Fxigh53VM7NRShptvxk4XRL42tVQ==}
+  '@playwright/mcp@0.0.31':
+    resolution: {integrity: sha512-5W025RAL23sybYT4tBA0YVJBTordsr3MlSRcMrKEWwc72hrtXA719vqT6r/Z0QZF+bRecJhgks+0+3410YnKhQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1586,13 +1586,13 @@ packages:
     resolution: {integrity: sha512-ueGLflrrnvwB3xuo/uGob5pd5FN7l0MsLf0Z87o/UQmRtwjvfylfc9MurIxRAWywCYTgrvpXBcqjV4OfCYGCIQ==}
     engines: {node: '>=16.20.0'}
 
-  playwright-core@1.53.0:
-    resolution: {integrity: sha512-mGLg8m0pm4+mmtB7M89Xw/GSqoNC+twivl8ITteqvAndachozYe2ZA7srU6uleV1vEdAHYqjq+SV8SNxRRFYBw==}
+  playwright-core@1.55.0-alpha-1752701791000:
+    resolution: {integrity: sha512-mQhzhjJMiqnGNnYZv7M4yk1OcNTt1E72jrTLO7EqZuoeat4+qpcU0/mbK+RcTEass5a9YheoVFh6OIhruFMGVg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.53.0:
-    resolution: {integrity: sha512-ghGNnIEYZC4E+YtclRn4/p6oYbdPiASELBIYkBXfaTVKreQUYbMUYQDwS12a8F0/HtIjr/CkGjtwABeFPGcS4Q==}
+  playwright@1.55.0-alpha-1752701791000:
+    resolution: {integrity: sha512-PA3TvDz7uQ+Pde0uaii5/WpU5vntRJsYFsaSPoBzywIqzYFO1ugk1ZZ0q6z4/xHq0ha1UClvsv3P77B+u1fi+w==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2638,16 +2638,20 @@ snapshots:
 
   '@one-ini/wasm@0.2.0': {}
 
-  '@playwright/mcp@0.0.29(zod@3.25.76)':
+  '@playwright/mcp@0.0.31(zod@3.25.76)':
     dependencies:
       '@modelcontextprotocol/sdk': 1.15.0
       commander: 13.1.0
       debug: 4.4.1
       mime: 4.0.7
-      playwright: 1.53.0
+      playwright: 1.55.0-alpha-1752701791000
+      playwright-core: 1.55.0-alpha-1752701791000
+      ws: 8.18.2
       zod-to-json-schema: 3.24.5(zod@3.25.76)
     transitivePeerDependencies:
+      - bufferutil
       - supports-color
+      - utf-8-validate
       - zod
 
   '@prisma/config@6.12.0':
@@ -3891,11 +3895,11 @@ snapshots:
 
   pkce-challenge@5.0.0: {}
 
-  playwright-core@1.53.0: {}
+  playwright-core@1.55.0-alpha-1752701791000: {}
 
-  playwright@1.53.0:
+  playwright@1.55.0-alpha-1752701791000:
     dependencies:
-      playwright-core: 1.53.0
+      playwright-core: 1.55.0-alpha-1752701791000
     optionalDependencies:
       fsevents: 2.3.2
 

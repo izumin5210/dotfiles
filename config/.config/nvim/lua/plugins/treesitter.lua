@@ -57,10 +57,6 @@ return {
           enable = true,
           additional_vim_regex_highlighting = false,
         },
-        matchup = {
-          enable = true,
-          disable_virtual_text = true,
-        },
       })
     end,
   },
@@ -102,7 +98,7 @@ return {
   },
   {
     "andymass/vim-matchup",
-    -- version = "*",
+    version = "*",
     cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },

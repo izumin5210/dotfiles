@@ -13,7 +13,7 @@ packages:
   # go
   - name: golang/go@go1.24.5
   - name: golang.org/x/tools/gopls@v0.19.1
-  - name: go-delve/delve@v1.25.0
+  - name: go-delve/delve@v1.25.1
   - name: golangci/golangci-lint@v1.64.8
   - name: nametake/golangci-lint-langserver@v0.0.11
   # javascript

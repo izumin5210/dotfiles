@@ -92,9 +92,9 @@ function M.setup()
     }),
     sources = cmp.config.sources({
       { name = "copilot", group_index = 1, priority = 1000 },
-      { name = "luasnip", group_index = 1, priority = 100 },
       { name = "nvim_lsp", group_index = 1, priority = 100 },
-      { name = "go_pkgs", group_index = 1, priority = 100 },
+      { name = "go_pkgs", group_index = 1, priority = 90 },
+      { name = "luasnip", group_index = 1, priority = 80 },
       { name = "path", group_index = 1, priority = 10 },
       { name = "buffer", group_index = 1, priority = 1 },
       { name = "lazydev", group_index = 0 },

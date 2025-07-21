@@ -26,6 +26,13 @@
     let
       mkDarwinSystem =
         { hostname, username }:
+        let
+          workHosts = [
+            "CM2NX3M6CH"
+            "GFW3CPVPT2"
+          ];
+          isWorkMac = builtins.elem hostname workHosts;
+        in
         nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
@@ -36,7 +43,7 @@
               home-manager.users.${username} = import ./home.nix;
             }
           ];
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs isWorkMac; };
         };
     in
     {

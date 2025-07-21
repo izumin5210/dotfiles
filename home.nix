@@ -14,7 +14,6 @@
     pkg:
     builtins.elem (lib.getName pkg) [
       "1password-cli"
-      "ngrok"
     ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
@@ -51,6 +50,10 @@
     # tmux
     pkgs.tmux
 
+    # docker
+    pkgs.docker
+    pkgs.colima
+
     # nix
     pkgs.nixd
     pkgs.nixfmt-rfc-style
@@ -63,7 +66,6 @@
 
     # CLIs for cloud services
     pkgs.google-cloud-sdk
-    pkgs.ngrok
 
     # tools
     pkgs._1password-cli
@@ -85,7 +87,6 @@
 
     # only darwin
     pkgs.blueutil
-    pkgs.mas
     pkgs.reattach-to-user-namespace
     pkgs.skhd
     pkgs.yabai

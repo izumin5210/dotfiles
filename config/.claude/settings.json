@@ -139,5 +139,29 @@
       "Write(/etc/sudoers)"
     ]
   },
-  "model": "opus"
+  "model": "opus",
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/notify-slack.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/notify-slack.sh"
+          }
+        ]
+      }
+    ]
+  }
 }

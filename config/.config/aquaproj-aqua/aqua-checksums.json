@@ -256,33 +256,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.darwin-amd64",
-      "checksum": "564C176B938AA45DD7C7EF10DB366402E8BC93239094E7B39C726E216BF1C433",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.darwin-amd64",
+      "checksum": "24FB9CE48B563D7E9FBDD3A4E3E836941654A31CE3E67EBA9EAAFC3DCD8AE73B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.darwin-arm64",
-      "checksum": "D644369085AE989C573E98D3B7AB1A4B0E2C0C012542B26ABE7D8F929B01B83D",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.darwin-arm64",
+      "checksum": "4F569F3A36732BFD8B8FEA7BFCC6AD87A59745C109022164D0CA4832451D5369",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.linux-amd64",
-      "checksum": "2D97CE8832569CA0975CDDB49C5625483B1EEA22D01FFC7D9C87A2C92BF6E9E5",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.linux-amd64",
+      "checksum": "1F1B93DD6F38523FDE26DFAC96151EF9D31A374E3005CD3345FB93555AE0C9B5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.linux-arm64",
-      "checksum": "C1135AD75471552FB030AD64737CA2EB42CA6A90331282FBBCE0B216077BAC76",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.linux-arm64",
+      "checksum": "2A9CEF8D73521D6A3EC3F2871C4B747B8C4CC038628C1B57A7EFA42B393A2D82",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.windows-amd64",
-      "checksum": "AD87E078809C930F97EACF84BED6D150EEAD62B084CA22F21900AF3C3D857192",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.windows-amd64",
+      "checksum": "D96FC8B7CF020C2D4C1DBBC2CCEC5FD1CAB05B51C491F02C8527A7FA6C50A1CD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/direnv/direnv/v2.37.0/direnv.windows-arm64",
-      "checksum": "040E70C039B8CCCE7A1D4F2550503AEC16F575BD3966CD84E88BC531B5CF0156",
+      "id": "github_release/github.com/direnv/direnv/v2.37.1/direnv.windows-arm64",
+      "checksum": "6802F722F5EF12562D6E3E15C26F39E34B337E5BE12EA22F17284552CD782298",
       "algorithm": "sha256"
     },
     {

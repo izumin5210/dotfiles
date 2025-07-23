@@ -65,6 +65,7 @@
       "mcp__context7__get-library-docs",
       "mcp__context7__resolve-library-id",
       "mcp__deepwiki__ask_question",
+      "mcp__deepwiki__read_wiki_contents",
       "mcp__deepwiki__read_wiki_structure",
       "mcp__github__create_pull_request",
       "mcp__github__get_issue",

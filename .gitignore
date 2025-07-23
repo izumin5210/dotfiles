@@ -201,4 +201,5 @@ dist
 /config/.claude/projects
 /config/.claude/statsig
 /config/.claude/todos
+/config/.claude/scripts/tmp
 !/config/.claude/scripts/tmp/.gitkeep

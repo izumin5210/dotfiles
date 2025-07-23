@@ -3,6 +3,6 @@
     "@anthropic-ai/claude-code": "1.0.56",
     "@upstash/context7-mcp": "1.0.14",
     "@playwright/mcp": "0.0.31",
-    "o3-search-mcp": "0.0.5"
+    "o3-search-mcp": "0.0.6"
 	}
 }

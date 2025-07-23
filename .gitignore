@@ -188,22 +188,17 @@ dist
 
 ### misc ###
 /bin/mitamae*
-/config/.zsh/secrets.zsh
-/config/.vim/view
-/config/.vim/plugged
-/config/.vim/autoload/plug.vim
 /config/.config/karabiner/*
 !/config/.config/karabiner/karabiner.json
 /config/.config/tmux/plugins
 /config/.config/irb/irbrc_history
+/config/.config/zsh/secrets.zsh
 
 # Nix
 /result
 
 # Claude Code
-/config/.config/claude/projects
-/config/.config/claude/statsig
-/config/.config/claude/todos
 /config/.claude/projects
 /config/.claude/statsig
 /config/.claude/todos
+!/config/.claude/scripts/tmp/.gitkeep

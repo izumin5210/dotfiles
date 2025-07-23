@@ -1,5 +1,13 @@
-source $HOME/.config/zsh/legacy/exports.zsh
-source $HOME/.config/zsh/legacy/aliases.zsh
+if [ ! -e "$ZDOTDIR/secrets.zsh" ] && type op >/dev/null 2>&1; then
+  op --account my.1password.com inject --in-file "${ZDOTDIR}/secrets.zsh.template" --out-file "${ZDOTDIR}/secrets.zsh"
+fi
+
+if [ -e "$ZDOTDIR/secrets.zsh" ]; then
+  source "${ZDOTDIR}/secrets.zsh"
+fi
+
+source "${ZDOTDIR}/legacy/exports.zsh"
+source "${ZDOTDIR}/legacy/aliases.zsh"
 
 ulimit -u 2048
 ulimit -n 16384

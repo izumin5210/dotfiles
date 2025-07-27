@@ -116,6 +116,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-aarch64-apple-darwin.tar.gz",
+      "checksum": "3D1EC4AF7F3D351629F500B432E6C735CAF3216AB3EAA76DBE8FFBC8F3006F5A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-aarch64-pc-windows-msvc.zip",
+      "checksum": "F1FB82EB558A50C43F635ABFE438BC7EE1620A9970959739CB5E9FDDF675821C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "078CC9CC8CEDB6C45EDB84C0F5BAD53518C610859C73BDB3009A52B89652C103",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-x86_64-apple-darwin.tar.gz",
+      "checksum": "CFA865FFD1BA87DF2962F40EBD80C366F1D2B484F0C05B6DA6B0104F50822F86",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-x86_64-pc-windows-msvc.zip",
+      "checksum": "15DBD23AE3D98E2A745D0E8E3F0292402F0A2269B47519B81A6E994BACA5DB2B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ajeetdsouza/zoxide/v0.9.8/zoxide-0.9.8-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "4092EE38AA1EFDE42E4EFB2F9C872DF5388198AACAE7F1A74E5EB5C3CC7F531C",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/auth0/auth0-cli/v1.16.0/auth0-cli_1.16.0_Darwin_arm64.tar.gz",
       "checksum": "CF7D3571232C33C6E618654F890BE61036553D83F71C50882C4CC803167DEBDF",
       "algorithm": "sha256"

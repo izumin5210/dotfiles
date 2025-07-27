@@ -122,6 +122,10 @@ if type fzf >/dev/null 2>&1; then
   eval "$(fzf --zsh)"
 fi
 
+if type zoxide  >/dev/null 2>&1; then
+  eval "$(zoxide init zsh)"
+fi
+
 # 1Password
 if [ -d "${HOME}/.config/op/plugins.sh" ]; then
   source "${HOME}/.config/op/plugins.sh"
@@ -131,6 +135,8 @@ fi
 if type aws_completer >/dev/null 2>&1; then
   complete -C $(which aws_completer) aws
 fi
+
+
 
 # Orbstack
 if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then

@@ -63,5 +63,8 @@ mkdir -p ~/.config
 # skhd
 ./bin/ln-idempotently ./config/.config/skhd ~/.config/skhd
 
+# aerospace
+./bin/ln-idempotently ./config/.config/aerospace ~/.config/aerospace
+
 # hammerspoon
 ./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon

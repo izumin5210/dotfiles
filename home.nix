@@ -84,6 +84,10 @@
     pkgs.gnugrep
     pkgs.gnused
 
+    # libs
+    pkgs.openssl # sheldon
+    pkgs.pcre2 # rg
+
     # only darwin
     pkgs.blueutil
     pkgs.reattach-to-user-namespace
@@ -130,6 +134,8 @@
   home.sessionVariables = {
     # https://github.com/kkharji/sqlite.lua/blob/d0ffd70/lua/sqlite/defs.lua#L18
     LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
+    HM_OPENSSL_PATH = "${pkgs.openssl.out}";
+    HM_PCRE2_PATH = "${pkgs.pcre2.out}";
   };
 
   # Let Home Manager install and manage itself.

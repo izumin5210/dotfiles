@@ -1,0 +1,26 @@
+# Font settings
+font-family = "HackGen Console NF"
+font-size = 13
+font-feature = "-calt, -liga, -dlig"
+font-thicken = true
+font-thicken-strength = 108
+alpha-blending = linear-corrected
+adjust-cell-width = 5%
+adjust-cell-height = 20%
+cursor-style = block
+
+# Color theme
+theme = catppuccin-frappe
+
+# Window settings
+background-opacity = 0.95
+window-padding-x = 8
+window-padding-y = 12
+
+# macOS specific settings
+macos-option-as-alt = left
+macos-titlebar-style = hidden
+macos-window-shadow = false
+
+# shell integration
+shell-integration-features = no-cursor

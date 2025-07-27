@@ -54,3 +54,4 @@ packages:
   - name: rossmacarthur/sheldon@0.8.4
   - name: github/github-mcp-server@v0.8.0
   - name: jqlang/jq@jq-1.8.1
+  - name: ajeetdsouza/zoxide@v0.9.8

@@ -47,6 +47,7 @@
         "chatgpt"
         "claude"
         "dropbox"
+        "ghostty"
         "google-japanese-ime"
         "hammerspoon"
         "jordanbaird-ice"

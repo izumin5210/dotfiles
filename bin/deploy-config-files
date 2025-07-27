@@ -36,6 +36,9 @@ mkdir -p ~/.config
 # alacritty
 ./bin/ln-idempotently ./config/.config/alacritty ~/.config/alacritty
 
+# ghostty
+./bin/ln-idempotently ./config/.config/ghostty ~/.config/ghostty
+
 # karabiner
 ./bin/ln-idempotently ./config/.config/karabiner ~/.config/karabiner
 

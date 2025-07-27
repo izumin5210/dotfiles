@@ -92,5 +92,20 @@
     });
   };
 
+  launchd.user.agents.colima-autostart = {
+    enable = true;
+    config = {
+      Label = "local.colima.autostart";
+      LimitLoadToSessionType = [ "Aqua" ];
+      ProgramArguments = [
+        "/bin/sh"
+        "-lc"
+        ''exec "$HOME/.nix-profile/bin/colima" start --cpu 2 --memory 8 --disk 100 --network-address''
+      ];
+      RunAtLoad = true;
+      KeepAlive = false;
+    };
+  };
+
   nix.enable = false;
 }

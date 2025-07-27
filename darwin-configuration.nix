@@ -69,12 +69,17 @@
       "raycast"
       "setapp"
       "spotify"
+      "tabtab"
+      "thebrowsercompany-dia"
       "visual-studio-code"
       "nikitabobko/tap/aerospace"
     ]
     ++ (lib.optionals (!isWorkMac) [
       "1password"
       "google-chrome"
+    ])
+    ++ (lib.optionals isWorkMac [
+      "notion"
     ]);
     masApps = {
       # ...

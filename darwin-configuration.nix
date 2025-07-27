@@ -1,12 +1,15 @@
 {
   pkgs,
   lib,
+  username,
   isWorkMac,
   ...
 }:
 
 {
   system.stateVersion = 5;
+
+  system.primaryUser = username;
 
   system.defaults = {
     NSGlobalDomain = {
@@ -36,8 +39,6 @@
       closeViewScrollWheelToggle = true;
     };
   };
-
-  security.pam.enableSudoTouchIdAuth = true;
 
   homebrew = {
     enable = true;

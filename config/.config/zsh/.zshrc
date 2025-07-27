@@ -83,6 +83,7 @@ fi
 if [ -e "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh" ]; then
   . "${HOME}/.nix-profile/etc/profile.d/hm-session-vars.sh"
 fi
+export DYLD_FALLBACK_LIBRARY_PATH="$HM_OPENSSL_PATH/lib:$HM_PCRE2_PATH/lib:$DYLD_FALLBACK_LIBRARY_PATH"
 
 # aqua
 if [ "${CODESPACES:-"false"}" = "true" ]; then

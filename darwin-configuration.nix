@@ -93,17 +93,17 @@
   };
 
   launchd.user.agents.colima-autostart = {
-    enable = true;
-    config = {
+    command = "colima start --cpu 2 --memory 8 --disk 100 --network-address --foreground";
+    serviceConfig = {
       Label = "local.colima.autostart";
-      LimitLoadToSessionType = [ "Aqua" ];
-      ProgramArguments = [
-        "/bin/sh"
-        "-lc"
-        ''exec "$HOME/.nix-profile/bin/colima" start --cpu 2 --memory 8 --disk 100 --network-address''
-      ];
       RunAtLoad = true;
-      KeepAlive = false;
+      KeepAlive = true;
+      StandardOutPath = "/tmp/colima-autostart.out.log";
+      StandardErrorPath = "/tmp/colima-autostart.err.log";
+      EnvironmentVariables = {
+        XDG_CONFIG_HOME = "$HOME/.config";
+        PATH = "${pkgs.colima}/bin:${pkgs.docker}/bin:$PATH";
+      };
     };
   };
 

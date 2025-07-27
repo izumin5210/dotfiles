@@ -73,7 +73,6 @@
     pkgs.diff-pdf
     pkgs.graphviz
     pkgs.htop
-    pkgs.jq
     pkgs.semgrep
     pkgs.tree
     (pkgs.callPackage ./pkgs/aqua.nix { })

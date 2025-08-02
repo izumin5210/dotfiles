@@ -1,11 +1,10 @@
 # Font settings
 font-family = "HackGen Console NF"
-font-size = 13
+font-synthetic-style = "no-bold, no-italic, no-bold-italic"
+font-size = 13.5
 font-feature = "-calt, -liga, -dlig"
 font-thicken = true
-font-thicken-strength = 108
-alpha-blending = linear-corrected
-adjust-cell-width = 5%
+font-thicken-strength = 48
 adjust-cell-height = 20%
 cursor-style = block
 

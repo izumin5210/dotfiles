@@ -74,6 +74,7 @@
     pkgs.graphviz
     pkgs.htop
     pkgs.semgrep
+    pkgs.tailscale
     pkgs.tree
     (pkgs.callPackage ./pkgs/aqua.nix { })
 

@@ -3,6 +3,7 @@
   lib,
   username,
   isWorkMac,
+  isHomeMac,
   ...
 }:
 
@@ -110,6 +111,8 @@
       StandardErrorPath = "/tmp/colima-autostart.err.log";
     };
   };
+
+  services.tailscale.enable = isHomeMac;
 
   nix.enable = false;
 }

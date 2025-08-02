@@ -32,7 +32,6 @@
             "GFW3CPVPT2"
           ];
           isWorkMac = builtins.elem hostname workHosts;
-          isHomeMac = hostname == "rabbithouse";
         in
         nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
@@ -45,12 +44,7 @@
             }
           ];
           specialArgs = {
-            inherit
-              inputs
-              username
-              isWorkMac
-              isHomeMac
-              ;
+            inherit inputs username isWorkMac;
           };
         };
     in

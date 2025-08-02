@@ -3,7 +3,6 @@
   lib,
   username,
   isWorkMac,
-  isHomeMac,
   ...
 }:
 
@@ -112,7 +111,7 @@
     };
   };
 
-  services.tailscale.enable = isHomeMac;
+  services.tailscale.enable = true;
 
   nix.enable = false;
 }

@@ -43,9 +43,7 @@
               home-manager.users.${username} = import ./home.nix;
             }
           ];
-          specialArgs = {
-            inherit inputs username isWorkMac;
-          };
+          specialArgs = { inherit inputs username isWorkMac; };
         };
     in
     {

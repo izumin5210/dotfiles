@@ -193,6 +193,7 @@ dist
 /config/.config/tmux/plugins
 /config/.config/irb/irbrc_history
 /config/.config/zsh/secrets.zsh
+/config/.config/zsh/.zcompdump
 
 # Nix
 /result
@@ -203,3 +204,4 @@ dist
 /config/.claude/todos
 /config/.claude/scripts/tmp
 !/config/.claude/scripts/tmp/.gitkeep
+

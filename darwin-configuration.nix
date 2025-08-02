@@ -85,5 +85,31 @@
     });
   };
 
+  launchd.daemons.colima = {
+    command = ''
+      ${pkgs.colima}/bin/colima start \
+        --foreground \
+        --vm-type=vz \
+        --cpu=2 --memory=8 --disk=100 \
+        --network-address
+    '';
+    serviceConfig = {
+      Label = "local.colima";
+      RunAtLoad = true;
+      KeepAlive = {
+        SuccessfulExit = false;
+        NetworkState = true;
+      };
+      UserName = username;
+      EnvironmentVariables = {
+        HOME = "/Users/${username}";
+        PATH = "${pkgs.colima}/bin:${pkgs.lima}/bin:${pkgs.docker}/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+      };
+      WorkingDirectory = "/Users/${username}";
+      StandardOutPath = "/tmp/colima-autostart.out.log";
+      StandardErrorPath = "/tmp/colima-autostart.err.log";
+    };
+  };
+
   nix.enable = false;
 }

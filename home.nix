@@ -92,8 +92,6 @@
     # only darwin
     pkgs.blueutil
     pkgs.reattach-to-user-namespace
-    pkgs.skhd
-    pkgs.yabai
     pkgs.jankyborders
 
     # fonts

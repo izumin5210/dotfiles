@@ -101,6 +101,16 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-aarch64-apple-darwin.tar.gz",
+      "checksum": "E1E59FF3CF6C0837C94DDD4910D43351EC14F8C169ABCFA51E63136D14C9E528",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "F657B0CC1BABA3B5BCDE4FDFBAFBC58F2131476ED53D01E4880898D34A1CB124",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-apple-darwin.tar.gz",
       "checksum": "D6B7F1C4A66495400F1F6E224EFDAF82AA66E8930FCB257BC9357D69D52DD69D",
       "algorithm": "sha256"
@@ -111,8 +121,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-unknown-linux-gnu.tar.gz",
-      "checksum": "9EC3AA9F784A54C8099D1AF71B6BC18D3AD12CE50055565FFA2979AFF93C5732",
+      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "06DD06DA5593EE29ED9753026310C6C45E0048CD37BB5807E7F07B8F90CFEA5E",
       "algorithm": "sha256"
     },
     {
@@ -881,9 +891,9 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.396.0/registry.yaml",
-      "checksum": "4D4906B4D3EDABCAC738262DF9A3B392418EA51DE48D0F71776C751235D910BF497954537DC5BAF44F2F68EF27F58283C89EC584A217E39DA0705D7E89B7CAEB",
-      "algorithm": "sha512"
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.397.0/registry.yaml",
+      "checksum": "317E6D5CDCDCEE8DFF2B68847BDA142A296CC0D8AF3BABCA7058AC7EF0DBD98F",
+      "algorithm": "sha256"
     }
   ]
 }

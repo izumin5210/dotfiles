@@ -8,7 +8,7 @@ checksum:
     - all
 registries:
   - type: standard
-    ref: v4.396.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.397.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   # go
   - name: golang/go@go1.24.5
@@ -23,7 +23,6 @@ packages:
   # git
   - name: cli/cli@v2.76.2
   - name: dandavison/delta@0.18.2
-  - name: Wilfred/difftastic@0.64.0
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.53.0
   # vim
@@ -55,3 +54,4 @@ packages:
   - name: github/github-mcp-server@v0.9.1
   - name: jqlang/jq@jq-1.8.1
   - name: ajeetdsouza/zoxide@v0.9.8
+  - name: Wilfred/difftastic@0.64.0

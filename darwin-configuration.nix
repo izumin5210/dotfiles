@@ -48,7 +48,6 @@
   homebrew = {
     enable = true;
     casks = [
-      "alacritty"
       "azookey"
       "chatgpt"
       "claude"

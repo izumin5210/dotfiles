@@ -33,9 +33,6 @@ mkdir -p ~/.config
 # ruby
 ./bin/ln-idempotently ./config/.config/irb ~/.config/irb
 
-# alacritty
-./bin/ln-idempotently ./config/.config/alacritty ~/.config/alacritty
-
 # ghostty
 ./bin/ln-idempotently ./config/.config/ghostty ~/.config/ghostty
 

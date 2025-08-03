@@ -111,5 +111,7 @@
     };
   };
 
+  services.tailscale.enable = true;
+
   nix.enable = false;
 }

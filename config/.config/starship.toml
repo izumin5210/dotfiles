@@ -60,7 +60,7 @@ style = 'bold red'
 [git_branch]
 format = '[[$symbol](white dimmed)$branch(:$remote_branch) ]($style)'
 symbol = ''
-style = 'bold white dimmed'
+style = 'white dimmed'
 
 [jobs]
 number_threshold = 1

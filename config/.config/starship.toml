@@ -3,6 +3,7 @@
 add_newline = true
 
 format = """
+$hostname\
 ${custom.git_repo}\
 $directory\
 $git_status\
@@ -28,8 +29,12 @@ truncate_to_repo = false
 truncation_length = 100
 format = '[$path ]($style)[$read_only]($read_only_style)'
 style = 'blue'
-repo_root_format = '[($path )]($style)[$read_only]($read_only_style)[-](black) '
+repo_root_format = '[($path )]($style)[$read_only]($read_only_style)[-](white dimmed) '
 repo_root_style = 'blue'
+
+[hostname]
+ssh_only = true
+format = "([$hostname](bold dimmed green)) [:](white dimmed) "
 
 [custom.git_repo]
 when = true
@@ -53,20 +58,20 @@ format = '[$state( $progress_current/$progress_total)]($style) '
 style = 'bold red'
 
 [git_branch]
-format = '[[$symbol](black)$branch(:$remote_branch) ]($style)'
+format = '[[$symbol](white dimmed)$branch(:$remote_branch) ]($style)'
 symbol = ''
-style = 'bold black'
+style = 'white dimmed'
 
 [jobs]
 number_threshold = 1
 style = 'purple'
 
 [status]
-format = '[[-](black) $status( SIG$signal_name)]($style) '
+format = '[[-](white dimmed) $status( SIG$signal_name)]($style) '
 disabled = false
 style = 'red'
 
 [cmd_duration]
-format = '[[-](black) 󱦟 $duration]($style) '
+format = '[[-](white dimmed) 󱦟 $duration]($style) '
 style = 'yellow'
 min_time = 10_000

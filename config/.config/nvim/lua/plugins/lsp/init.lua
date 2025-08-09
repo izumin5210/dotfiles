@@ -167,6 +167,29 @@ return {
   {
     "WilliamHsieh/overlook.nvim",
     opts = {},
+    init = function()
+      vim.api.nvim_create_autocmd("BufWinEnter", {
+        group = vim.api.nvim_create_augroup("overlook_enter_mapping", { clear = true }),
+        pattern = "*",
+        callback = function()
+          vim.schedule(function()
+            if vim.w.is_overlook_popup then
+              -- open in orig window on enter
+              vim.keymap.set("n", "<CR>", function()
+                require("overlook.api").open_in_original_window()
+              end, { buffer = true, desc = "Overlook: Open in original window" })
+
+              -- open in vsplit on ctrl+enter
+              for _, lhs in ipairs({ "<C-CR>", ";" }) do
+                vim.keymap.set("n", lhs, function()
+                  require("overlook.api").open_in_vsplit()
+                end, { buffer = true, desc = "Overlook: Open in vertical split" })
+              end
+            end
+          end)
+        end,
+      })
+    end,
     keys = {
       {
         "<leader>pu",

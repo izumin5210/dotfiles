@@ -80,7 +80,20 @@ return {
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     ---@type Flash.Config
-    opts = {},
+    opts = {
+      modes = {
+        char = {
+          keys = { "f", "F", "t", "T" },
+          char_actions = function(motion)
+            return {
+              -- only clever-f style
+              [motion:lower()] = "next",
+              [motion:upper()] = "prev",
+            }
+          end,
+        },
+      },
+    },
     -- stylua: ignore
     keys = {
       { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },

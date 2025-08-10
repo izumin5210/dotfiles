@@ -34,6 +34,8 @@ jq -r -n "{
 if [[ -z "${threadTs}" ]]; then
   payload=$(jq -r -s ".[-1] | {
     channel: \"${SLACK_CHANNEL_ID}\",
+    username: \"Claude Code\",
+    icon_emoji: \":claude:\",
     blocks: [
       {
         type: \"section\",
@@ -70,6 +72,8 @@ fi
 payload=$(jq -r -s ".[-1] | {
   channel: \"${SLACK_CHANNEL_ID}\",
   thread_ts: \"${threadTs}\",
+  username: \"Claude Code\",
+  icon_emoji: \":claude:\",
   blocks: [
     {
       type: \"section\",

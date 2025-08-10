@@ -55,6 +55,7 @@
       "ghostty"
       "hammerspoon"
       "jordanbaird-ice"
+      "logitune"
       "karabiner-elements"
       "obsidian"
       "raycast"

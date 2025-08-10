@@ -1,6 +1,6 @@
 {
 	"devDependencies": {
-    "@anthropic-ai/claude-code": "1.0.70",
+    "@anthropic-ai/claude-code": "1.0.71",
     "@upstash/context7-mcp": "1.0.14",
     "@playwright/mcp": "0.0.32",
     "o3-search-mcp": "0.0.7"

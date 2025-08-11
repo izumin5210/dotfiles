@@ -42,7 +42,7 @@ jobs:
     name: "update (${{ matrix.dir }})"
     uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@d248abb88efce715d50eb324100d9b29a20f7d18 # v1.0.4
     with:
-      aqua_version: v2.53.8
+      aqua_version: v2.53.9
       prune: true
       # NOTE: GitHub Actions treats `''` as falsy, so the condition is negated
       working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"

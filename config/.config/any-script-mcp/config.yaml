@@ -1,0 +1,19 @@
+tools:
+  # Delegate search to codex CLI. Inspired by https://github.com/yoshiko-pg/o3-search-mcp
+  - name: gpt-5-search
+    description: |
+      AI agent with web search for researching latest information, troubleshooting program errors, discussing complex problems and design decisions, exploring advanced library usage, and investigating upgrade paths.
+      Supports natural language queries.
+    inputs:
+      input:
+        type: string
+        description: |
+          What you want to search, analyze, or discuss with the AI agent
+    run: |
+      codex exec \
+        --model gpt-5 \
+        --sandbox workspace-write \
+        --config "sandbox_workspace_write.network_access=true" \
+        "$INPUTS__INPUT" \
+        --json \
+        | jq -sr 'map(select(.msg.type == "agent_message") | .msg.message) | last'

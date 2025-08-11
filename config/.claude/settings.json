@@ -62,6 +62,7 @@
       "Bash(git pull:*)",
       "Bash(git reset:*)",
       "Bash(git cherry-pick:*)",
+      "mcp__any-scripts",
       "mcp__context7__get-library-docs",
       "mcp__context7__resolve-library-id",
       "mcp__deepwiki__ask_question",

@@ -4,7 +4,7 @@
     "@openai/codex": "0.20.0",
     "@playwright/mcp": "0.0.32",
     "@upstash/context7-mcp": "1.0.14",
-    "any-script-mcp": "^0.0.1",
+    "any-script-mcp": "0.0.1",
     "o3-search-mcp": "0.0.7"
   }
 }

@@ -62,3 +62,6 @@ mkdir -p ~/.config
 
 # hammerspoon
 ./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon
+
+# any-script-mcp
+./bin/ln-idempotently ./config/.config/any-script-mcp ~/.config/any-script-mcp

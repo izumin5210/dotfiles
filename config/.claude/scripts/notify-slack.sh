@@ -18,6 +18,10 @@ eventName=$(echo $input | jq -r '.hook_event_name')
 
 threadTs=""
 
+if [ "${CLAUDE_CODE_HOOK_NOTIFY_SLACK_DISABLED}" = true ]; then
+  exit 0
+fi
+
 # get the thread timestamp if it exists
 if [ -e "${THREAD_TS_FILE}" ]; then
   threadTs=$(cat "${THREAD_TS_FILE}" | grep "${sessionId}" | awk '{print $2}')

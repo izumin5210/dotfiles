@@ -4,7 +4,7 @@
   "private": true,
   "devDependencies": {
     "@anthropic-ai/claude-code": "1.0.85",
-    "@github/copilot-language-server": "1.357.0",
+    "@github/copilot-language-server": "1.360.0",
     "@fsouza/prettierd": "0.26.1",
     "@openai/codex": "0.23.0",
     "@playwright/mcp": "0.0.34",

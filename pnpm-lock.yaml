@@ -15,8 +15,8 @@ importers:
         specifier: 0.26.1
         version: 0.26.1(typescript@5.9.2)
       '@github/copilot-language-server':
-        specifier: 1.357.0
-        version: 1.357.0
+        specifier: 1.360.0
+        version: 1.360.0
       '@openai/codex':
         specifier: 0.23.0
         version: 0.23.0
@@ -253,8 +253,8 @@ packages:
     resolution: {integrity: sha512-PaqNGvZLVsgq8RXfVb3/AgEDdzPtVIrVHyIqPbDpljSeO+JiluZhIN0tZAP4QMZDcNV3qiddjGZ17oJV9EuKBQ==}
     hasBin: true
 
-  '@github/copilot-language-server@1.357.0':
-    resolution: {integrity: sha512-kxGiClBSlmHHDnK62UhCcJafPR3PJPmYZcdhxuiEKsXfUoPCMo98n5V4iziWfWbFtkVQDaWP4fI3T/fT7lyeOQ==}
+  '@github/copilot-language-server@1.360.0':
+    resolution: {integrity: sha512-/aRJ3DZZJ+altvodRAYk7dgqag7a4N8ibbwXa0golJIjM7cd7H9p+uxYqDt+Ep+lpKHStVgYkX7F9RrdwRsEbA==}
     hasBin: true
 
   '@graphql-hive/signal@1.0.0':
@@ -2814,7 +2814,7 @@ snapshots:
     dependencies:
       vscode-languageserver-protocol: 3.17.5
 
-  '@github/copilot-language-server@1.357.0':
+  '@github/copilot-language-server@1.360.0':
     dependencies:
       vscode-languageserver-protocol: 3.17.5
 

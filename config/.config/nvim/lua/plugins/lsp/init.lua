@@ -69,7 +69,9 @@ return {
         -- "denols",
         "eslint",
         "prismals",
-        "ts_ls",
+        -- "ts_ls",
+        "vtsls",
+        "vue_ls",
 
         -- JSON (JSON Schema)
         "jsonls",

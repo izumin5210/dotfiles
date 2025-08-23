@@ -77,6 +77,7 @@ return {
         "yamlls",
 
         -- Others
+        "gh_actions_ls",
         "bashls",
         "buf_ls",
         "dockerls",

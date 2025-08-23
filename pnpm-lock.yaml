@@ -33,8 +33,8 @@ importers:
         specifier: 1.0.15
         version: 1.0.15
       any-script-mcp:
-        specifier: 0.0.1
-        version: 0.0.1
+        specifier: 0.1.0
+        version: 0.1.0
       bash-language-server:
         specifier: 5.6.0
         version: 5.6.0
@@ -676,8 +676,8 @@ packages:
     resolution: {integrity: sha512-zbB9rCJAT1rbjiVDb2hqKFHNYLxgtk8NURxZ3IZwD3F6NtxbXZQCnnSi1Lkx+IDohdPlFp222wVALIheZJQSEg==}
     engines: {node: '>=8'}
 
-  any-script-mcp@0.0.1:
-    resolution: {integrity: sha512-QhwNIDIarLbx9PztqvjM5HkHuXReYq7G4oEDKJSABC+tR41FFScBG0WxOcvt4jEpw6DoUzqW3sAczn4qbPOBUQ==}
+  any-script-mcp@0.1.0:
+    resolution: {integrity: sha512-YTT4PrENQRrUOB9a54kUhg9Zm1GqNlZkiBtr4o+9MaWrWNbr+R1bIuLVfF31RkbxvBGwX6iz7sgDZEN9rfraaw==}
     hasBin: true
 
   argparse@1.0.10:
@@ -3220,7 +3220,7 @@ snapshots:
     dependencies:
       color-convert: 2.0.1
 
-  any-script-mcp@0.0.1:
+  any-script-mcp@0.1.0:
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.2
       execa: 9.6.0

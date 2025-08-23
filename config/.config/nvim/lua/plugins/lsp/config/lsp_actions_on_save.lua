@@ -13,13 +13,12 @@ end
 ---@param bufnr integer
 ---@param cmd string
 local function code_action_sync(client, bufnr, cmd)
-  -- https://github.com/golang/tools/blob/gopls/v0.11.0/gopls/doc/vim.md#imports
-  local params = vim.lsp.util.make_range_params()
+  local enc = client and client.offset_encoding or "utf-16"
+  local params = vim.lsp.util.make_range_params(0, enc)
   params.context = { only = { cmd }, diagnostics = {} }
-  local res = client.request_sync("textDocument/codeAction", params, 3000, bufnr)
+  local res = client:request_sync("textDocument/codeAction", params, 3000, bufnr)
   for _, r in pairs(res and res.result or {}) do
     if r.edit then
-      local enc = (vim.lsp.get_client_by_id(client.id) or {}).offset_encoding or "utf-16"
       vim.lsp.util.apply_workspace_edit(r.edit, enc)
     end
   end
@@ -55,8 +54,35 @@ local lsp_actions_on_save = {
       }, nil, bufnr)
     end,
   },
-  denols = { format_sync },
-  ["null-ls"] = { format_sync },
+  buf_ls = { format_sync },
 }
 
-return lsp_actions_on_save
+local formatters_to_skip = {
+  "biome",
+}
+
+---@param args { buf: integer }
+local function run_on_save(args)
+  for _, client in pairs(vim.lsp.get_clients({ bufnr = args.buf })) do
+    local funcs = lsp_actions_on_save[client.name]
+    for _, f in pairs(funcs or {}) do
+      f(client, args.buf)
+    end
+  end
+
+  local conform = require("conform")
+  ---@type string[]
+  local formatter_names_to_run = {}
+  for _, formatter in pairs(conform.list_formatters_to_run(args.buf)) do
+    if not vim.tbl_contains(formatters_to_skip, formatter.name) then
+      table.insert(formatter_names_to_run, formatter.name)
+    end
+  end
+  conform.format({
+    bufnr = args.buf,
+    async = false,
+    formatters = formatter_names_to_run,
+  })
+end
+
+return run_on_save

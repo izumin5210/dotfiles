@@ -18,8 +18,8 @@ importers:
         specifier: 0.0.34
         version: 0.0.34
       '@upstash/context7-mcp':
-        specifier: 1.0.14
-        version: 1.0.14
+        specifier: 1.0.15
+        version: 1.0.15
       any-script-mcp:
         specifier: 0.0.1
         version: 0.0.1
@@ -413,10 +413,6 @@ packages:
   '@mixmark-io/domino@2.2.0':
     resolution: {integrity: sha512-Y28PR25bHXUg88kCV7nivXrP2Nj2RueZ3/l/jdx6J9f8J4nsEGcgX0Qe6lt7Pa+J79+kPiJU3LguR6O/6zrLOw==}
 
-  '@modelcontextprotocol/sdk@1.12.1':
-    resolution: {integrity: sha512-KG1CZhZfWg+u8pxeM/mByJDScJSrjjxLc8fwQqbsS8xCjBmQfMNEBTotYdNanKekepnfRI85GtgQlctLFpcYPw==}
-    engines: {node: '>=18'}
-
   '@modelcontextprotocol/sdk@1.17.1':
     resolution: {integrity: sha512-CPle1OQehbWqd25La9Ack5B07StKIxh4+Bf19qnpZKJC1oI22Y0czZHbifjw1UoczIfKBwBDAp/dFxvHG13B5A==}
     engines: {node: '>=18'}
@@ -526,8 +522,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@upstash/context7-mcp@1.0.14':
-    resolution: {integrity: sha512-3e+LpGFQ/p9YRVQMwMbcWns2sfXWO5Aifx904AhkzXfbbAhVnjiAmFkpXHJMhBVou6ewyodxLL6aCu7F+eF32Q==}
+  '@upstash/context7-mcp@1.0.15':
+    resolution: {integrity: sha512-WWdC+rWWsyIM4x29zelnKYzimo6CNjz9dPAD14wxxAWKivZ/i7Y540f7EuOMxzm6rSKvF7Gl941g2XXur0vDIg==}
     hasBin: true
 
   '@vscode/l10n@0.0.10':
@@ -2226,9 +2222,6 @@ packages:
   zod@3.24.2:
     resolution: {integrity: sha512-lY7CDW43ECgW9u1TcT3IoXHflywfVqDYze4waEz812jR/bZ8FHDsl7pFQoSZTz5N+2NqRXs8GBwnAwo3ZNxqhQ==}
 
-  zod@3.25.56:
-    resolution: {integrity: sha512-rd6eEF3BTNvQnR2e2wwolfTmUTnp70aUTqr0oaGbHifzC3BKJsoV+Gat8vxUMR1hwOKBs6El+qWehrHbCpW6SQ==}
-
   zod@3.25.76:
     resolution: {integrity: sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==}
 
@@ -2690,22 +2683,6 @@ snapshots:
 
   '@mixmark-io/domino@2.2.0': {}
 
-  '@modelcontextprotocol/sdk@1.12.1':
-    dependencies:
-      ajv: 6.12.6
-      content-type: 1.0.5
-      cors: 2.8.5
-      cross-spawn: 7.0.6
-      eventsource: 3.0.7
-      express: 5.1.0
-      express-rate-limit: 7.5.0(express@5.1.0)
-      pkce-challenge: 5.0.0
-      raw-body: 3.0.0
-      zod: 3.25.56
-      zod-to-json-schema: 3.24.5(zod@3.25.56)
-    transitivePeerDependencies:
-      - supports-color
-
   '@modelcontextprotocol/sdk@1.17.1':
     dependencies:
       ajv: 6.12.6
@@ -2865,11 +2842,11 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@upstash/context7-mcp@1.0.14':
+  '@upstash/context7-mcp@1.0.15':
     dependencies:
-      '@modelcontextprotocol/sdk': 1.12.1
+      '@modelcontextprotocol/sdk': 1.17.2
       commander: 14.0.0
-      zod: 3.25.56
+      zod: 3.25.76
     transitivePeerDependencies:
       - supports-color
 
@@ -4641,16 +4618,10 @@ snapshots:
 
   yoctocolors@2.1.1: {}
 
-  zod-to-json-schema@3.24.5(zod@3.25.56):
-    dependencies:
-      zod: 3.25.56
-
   zod-to-json-schema@3.24.5(zod@3.25.76):
     dependencies:
       zod: 3.25.76
 
   zod@3.24.2: {}
-
-  zod@3.25.56: {}
 
   zod@3.25.76: {}

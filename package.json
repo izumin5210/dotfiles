@@ -13,7 +13,7 @@
     "@upstash/context7-mcp": "1.0.15",
     "any-script-mcp": "0.0.1",
     "bash-language-server": "5.6.0",
-    "dockerfile-language-server-nodejs": "0.14.0",
+    "dockerfile-language-server-nodejs": "0.14.1",
     "graphql-language-service-cli": "3.5.0",
     "o3-search-mcp": "0.0.7",
     "typescript": "5.8.3",

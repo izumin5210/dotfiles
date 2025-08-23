@@ -39,8 +39,8 @@ importers:
         specifier: 5.6.0
         version: 5.6.0
       dockerfile-language-server-nodejs:
-        specifier: 0.14.0
-        version: 0.14.0
+        specifier: 0.14.1
+        version: 0.14.1
       graphql-language-service-cli:
         specifier: 3.5.0
         version: 3.5.0(@types/node@24.0.0)(graphql@16.11.0)
@@ -886,15 +886,29 @@ packages:
   dockerfile-ast@0.7.0:
     resolution: {integrity: sha512-HYpjuL0IEC2lYflTpWD0RLNSZYhQxLwYRYsoEjnCP7nu/OlFx1BVrU6X/Y8ETVsa2hojhG2OTJVxleH5Wrlq+Q==}
 
+  dockerfile-ast@0.7.1:
+    resolution: {integrity: sha512-oX/A4I0EhSkGqrFv0YuvPkBUSYp1XiY8O8zAKc8Djglx8ocz+JfOr8gP0ryRMC2myqvDLagmnZaU9ot1vG2ijw==}
+
   dockerfile-language-server-nodejs@0.14.0:
     resolution: {integrity: sha512-zbHDuaVHJrgnInOp+bGnMENikCDNGdEad8ro7WndQLGdRKjMC6Gndw2UKTv4WVlJTeAzwp8cOiu1VHkB4nmGgg==}
+    hasBin: true
+
+  dockerfile-language-server-nodejs@0.14.1:
+    resolution: {integrity: sha512-50bvRWmAemwJ9VJD2LIQYiKHyL1pW5WoA1Q7keJ4wT+fCGCVxz59kIJY3GXnnlTSXHh9niv3Wc4pFtmXfmILMg==}
     hasBin: true
 
   dockerfile-language-service@0.15.0:
     resolution: {integrity: sha512-DvfabBrOQWhPzFtO6GvuEyv4ojdh3sr7+0uPc+TM+azJRrd7+zWvf6F8/AFVfmd2Kvdl9nvikmKIwSLEp0Wowg==}
 
+  dockerfile-language-service@0.15.1:
+    resolution: {integrity: sha512-0iQBvt/3u8x6ZgYag7QyYPSY2M6Hfn0zB2soywAFZ5THX/13FGk+Vmksqw+a1l+uPDiA+yV7trUedKQ5R0A2aA==}
+
   dockerfile-utils@0.16.2:
     resolution: {integrity: sha512-0BHCYRYm5uk/xdL6jv1vLDxJ+FY812sQumRMkLB33f4FRB9VZsDk6ckUeSWlYOWHP9/VhmM0colmpXT/j2OTzA==}
+    hasBin: true
+
+  dockerfile-utils@0.16.3:
+    resolution: {integrity: sha512-BslaqRR6PzCnhu+toDbkVAjq0B0CEgrCltk+enJ/xwCmvAHB1QqpO9QhXVIzMg/iSuD4tzS0Ex9n4Ik5ffI7pA==}
     hasBin: true
 
   doctrine@3.0.0:
@@ -3244,10 +3258,22 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
 
+  dockerfile-ast@0.7.1:
+    dependencies:
+      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-types: 3.17.5
+
   dockerfile-language-server-nodejs@0.14.0:
     dependencies:
       dockerfile-language-service: 0.15.0
       dockerfile-utils: 0.16.2
+      vscode-languageserver: 8.0.2
+      vscode-languageserver-textdocument: 1.0.12
+
+  dockerfile-language-server-nodejs@0.14.1:
+    dependencies:
+      dockerfile-language-service: 0.15.1
+      dockerfile-utils: 0.16.3
       vscode-languageserver: 8.0.2
       vscode-languageserver-textdocument: 1.0.12
 
@@ -3258,9 +3284,22 @@ snapshots:
       vscode-languageserver-textdocument: 1.0.8
       vscode-languageserver-types: 3.17.3
 
+  dockerfile-language-service@0.15.1:
+    dependencies:
+      dockerfile-ast: 0.7.1
+      dockerfile-utils: 0.16.3
+      vscode-languageserver-textdocument: 1.0.8
+      vscode-languageserver-types: 3.17.3
+
   dockerfile-utils@0.16.2:
     dependencies:
       dockerfile-ast: 0.7.0
+      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-types: 3.17.5
+
+  dockerfile-utils@0.16.3:
+    dependencies:
+      dockerfile-ast: 0.7.1
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
 

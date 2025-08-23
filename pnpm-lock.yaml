@@ -51,8 +51,8 @@ importers:
         specifier: 5.8.3
         version: 5.8.3
       typescript-language-server:
-        specifier: 4.3.4
-        version: 4.3.4
+        specifier: 4.4.0
+        version: 4.4.0
       vls:
         specifier: 0.8.5
         version: 0.8.5
@@ -1992,6 +1992,11 @@ packages:
 
   typescript-language-server@4.3.4:
     resolution: {integrity: sha512-0pQ4ffAarsf10VwFhyyyqNJhuDd4r6f4dSsQN38WdbQ3WVxqi08p/bI//v1VnOV5CSVd4AeOUY/jfJYheHTQPQ==}
+    engines: {node: '>=18'}
+    hasBin: true
+
+  typescript-language-server@4.4.0:
+    resolution: {integrity: sha512-enWhplhHX7PA0q+IcKHBMpTQh9I2Bmb3L45rwnkATHMsZ7YLduyyCdOmVUWJSYZfkWaBMiKwi/e2FQo4xsKeWw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4389,6 +4394,11 @@ snapshots:
       mime-types: 3.0.1
 
   typescript-language-server@4.3.4:
+    dependencies:
+      vscode-jsonrpc: 5.0.1
+      vscode-languageserver-protocol: 3.17.5
+
+  typescript-language-server@4.4.0:
     dependencies:
       vscode-jsonrpc: 5.0.1
       vscode-languageserver-protocol: 3.17.5

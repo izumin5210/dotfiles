@@ -42,9 +42,7 @@ return {
         group = augroup,
         ---@param args { buf: integer }
         callback = function(args)
-          local utils = require("plugins.lsp.config.utils")
-          local actions = require("plugins.lsp.config.lsp_actions_on_save")
-          utils.run_lsp_actions(actions, { buf = args.buf })
+          require("plugins.lsp.config.lsp_actions_on_save")({ buf = args.buf })
         end,
       })
 
@@ -89,39 +87,26 @@ return {
     end,
   },
   {
-    "nvimtools/none-ls.nvim",
-    cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    opts = function()
-      local null_ls = require("null-ls")
-      return {
-        -- Primary Source of Truth is null-ls.
-        sources = {
-          -- JavaScript
-          null_ls.builtins.formatting.prettierd.with({
-            condition = function(utils)
-              return not utils.root_has_file({ "biome.json", "biome.jsonc", "deno.json", "deno.jsonc" })
-            end,
-          }),
-          -- Protocol Buffers
-          null_ls.builtins.diagnostics.buf,
-          null_ls.builtins.formatting.buf,
-          -- Dockerfile
-          null_ls.builtins.diagnostics.hadolint,
-          -- GitHub Actions
-          null_ls.builtins.diagnostics.actionlint,
-          -- ShellScript
-          null_ls.builtins.formatting.shfmt.with({
-            extra_args = { "-i", "2" },
-          }),
-          -- Lua
-          null_ls.builtins.formatting.stylua,
-          -- not supported by mason
-          -- Nix
-          null_ls.builtins.formatting.nixfmt,
-        },
-      }
-    end,
+    "stevearc/conform.nvim",
+    lazy = true,
+    opts = {
+      formatters = {
+        shfmt = { append_args = { "-i", "2" } },
+      },
+      -- stylua: ignore
+      formatters_by_ft = {
+        javascript      = { "biome", "prettierd", stop_after_first = true },
+        typescript      = { "biome", "prettierd", stop_after_first = true },
+        javascriptreact = { "biome", "prettierd", stop_after_first = true },
+        typescriptreact = { "biome", "prettierd", stop_after_first = true },
+        json            = { "biome", "prettierd", stop_after_first = true },
+        jsonc           = { "biome", "prettierd", stop_after_first = true },
+        lua             = { "stylua" },
+        sh              = { "shfmt" },
+        zsh             = { "shfmt" },
+        nix             = { "nixfmt" },
+      },
+    },
   },
   {
     "nvimdev/lspsaga.nvim",

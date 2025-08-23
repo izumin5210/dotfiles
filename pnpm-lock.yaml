@@ -33,10 +33,10 @@ importers:
         specifier: 1.0.15
         version: 1.0.15
       '@vtsls/language-server':
-        specifier: ^0.2.9
+        specifier: 0.2.9
         version: 0.2.9
       '@vue/language-server':
-        specifier: ^3.0.6
+        specifier: 3.0.6
         version: 3.0.6(typescript@5.9.2)
       any-script-mcp:
         specifier: 0.1.0

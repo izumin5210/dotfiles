@@ -11,21 +11,57 @@ importers:
       '@anthropic-ai/claude-code':
         specifier: 1.0.85
         version: 1.0.85
+      '@fsouza/prettierd':
+        specifier: 0.26.1
+        version: 0.26.1(typescript@5.8.3)
+      '@github/copilot-language-server':
+        specifier: 1.354.0
+        version: 1.354.0
       '@openai/codex':
         specifier: 0.20.0
         version: 0.20.0
       '@playwright/mcp':
         specifier: 0.0.34
         version: 0.0.34
+      '@prisma/language-server':
+        specifier: 6.12.0
+        version: 6.12.0
+      '@tailwindcss/language-server':
+        specifier: 0.14.24
+        version: 0.14.24
       '@upstash/context7-mcp':
         specifier: 1.0.15
         version: 1.0.15
       any-script-mcp:
         specifier: 0.0.1
         version: 0.0.1
+      bash-language-server:
+        specifier: 5.6.0
+        version: 5.6.0
+      dockerfile-language-server-nodejs:
+        specifier: 0.14.0
+        version: 0.14.0
+      graphql-language-service-cli:
+        specifier: 3.5.0
+        version: 3.5.0(@types/node@24.0.0)(graphql@16.11.0)
       o3-search-mcp:
         specifier: 0.0.7
         version: 0.0.7(ws@8.18.2)
+      typescript:
+        specifier: 5.8.3
+        version: 5.8.3
+      typescript-language-server:
+        specifier: 4.3.4
+        version: 4.3.4
+      vls:
+        specifier: 0.8.5
+        version: 0.8.5
+      vscode-langservers-extracted:
+        specifier: 4.10.0
+        version: 4.10.0
+      yaml-language-server:
+        specifier: 1.18.0
+        version: 1.18.0
 
   config/.config/nvim/lua/plugins/lsp:
     devDependencies:
@@ -3166,7 +3202,7 @@ snapshots:
   css-tree@2.3.1:
     dependencies:
       mdn-data: 2.0.30
-      source-map-js: 1.0.2
+      source-map-js: 1.2.1
 
   css-what@6.1.0: {}
 

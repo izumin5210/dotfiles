@@ -3,7 +3,6 @@ return {
     "neovim/nvim-lspconfig",
     cond = not vim.g.vscode,
     -- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
-    dependencies = { "dotfiles-node-tools" },
     init = function()
       local colors = require("utils.colors")
       local palette = colors.palette
@@ -93,7 +92,6 @@ return {
     "nvimtools/none-ls.nvim",
     cond = not vim.g.vscode,
     event = { "BufReadPost", "BufWritePost", "BufNewFile" },
-    dependencies = { "dotfiles-node-tools" },
     opts = function()
       local null_ls = require("null-ls")
       return {
@@ -123,50 +121,6 @@ return {
           null_ls.builtins.formatting.nixfmt,
         },
       }
-    end,
-  },
-  {
-    name = "dotfiles-node-tools",
-    cond = not vim.g.vscode,
-    lazy = true,
-    dir = vim.fn.fnamemodify(debug.getinfo(1).source:sub(2), ":h"),
-    dependencies = { "nvim-lua/plenary.nvim" },
-    build = "pnpm i",
-    -- https://zenn.dev/vim_jp/articles/f24212092323d9
-    config = function(spec)
-      local Path = require("plenary.path")
-      local dir = spec.dir
-      local BIN_DIR = Path:new(dir, "node_modules", ".bin")
-      vim.env.PATH = BIN_DIR:absolute() .. ":" .. vim.env.PATH
-
-      local uname = vim.uv.os_uname()
-      local os, arch = uname.sysname, uname.machine
-      local copilot_ls_dir
-      if os == "Darwin" then
-        if arch == "arm64" then
-          copilot_ls_dir = "darwin-arm64"
-        else
-          copilot_ls_dir = "darwin-x64"
-        end
-      elseif os == "Linux" then
-        if arch == "aarch64" or arch == "arm64" then
-          copilot_ls_dir = "linux-arm64"
-        else
-          copilot_ls_dir = "linux-x64"
-        end
-      elseif os:match("Windows") or os:match("MINGW") or os:match("MSYS") or os:match("CYGWIN") then
-        copilot_ls_dir = "win32-x64"
-      else
-        -- no-op
-      end
-
-      if copilot_ls_dir then
-        vim.env.PATH = Path:new(dir, "node_modules", "@github", "copilot-language-server", "native", copilot_ls_dir)
-          .. ":"
-          .. vim.env.PATH
-      end
-
-      -- vim.system({ "pnpm", "i" }, { cwd = dir, text = true })
     end,
   },
   {

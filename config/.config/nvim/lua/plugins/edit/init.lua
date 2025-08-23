@@ -56,7 +56,6 @@ return {
   {
     "copilotlsp-nvim/copilot-lsp",
     cond = not vim.g.vscode,
-    dependencies = { "dotfiles-node-tools" },
     init = function()
       vim.g.copilot_nes_debounce = 500
       vim.lsp.enable("copilot_ls")

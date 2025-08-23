@@ -70,19 +70,19 @@ export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 uname_s=$(uname -s)
 uname_m=$(uname -m)
 case "$uname_s" in
-  Darwin)
-    case "$uname_m" in
-      arm64)   copilot_ls_dir="darwin-arm64" ;;
-      x86_64)  copilot_ls_dir="darwin-x64" ;;
-    esac
-    ;;
-  Linux)
-    case "$uname_m" in
-      aarch64|arm64) copilot_ls_dir="linux-arm64" ;;
-      x86_64)        copilot_ls_dir="linux-x64" ;;
-    esac
-    ;;
-  MINGW*|MSYS*|CYGWIN*|Windows_NT) copilot_ls_dir="win32-x64" ;;
+Darwin)
+  case "$uname_m" in
+  arm64) copilot_ls_dir="darwin-arm64" ;;
+  x86_64) copilot_ls_dir="darwin-x64" ;;
+  esac
+  ;;
+Linux)
+  case "$uname_m" in
+  aarch64 | arm64) copilot_ls_dir="linux-arm64" ;;
+  x86_64) copilot_ls_dir="linux-x64" ;;
+  esac
+  ;;
+MINGW* | MSYS* | CYGWIN* | Windows_NT) copilot_ls_dir="win32-x64" ;;
 esac
 
 if [ -n "$copilot_ls_dir" ]; then

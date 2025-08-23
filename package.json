@@ -8,7 +8,7 @@
     "@fsouza/prettierd": "0.26.1",
     "@openai/codex": "0.20.0",
     "@playwright/mcp": "0.0.34",
-    "@prisma/language-server": "6.12.0",
+    "@prisma/language-server": "6.14.0",
     "@tailwindcss/language-server": "0.14.26",
     "@upstash/context7-mcp": "1.0.15",
     "any-script-mcp": "0.0.1",

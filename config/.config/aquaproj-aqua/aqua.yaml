@@ -51,7 +51,7 @@ packages:
   - name: awslabs/git-secrets@1.3.0
   - name: jesseduffield/lazydocker@v0.24.1
   - name: rossmacarthur/sheldon@0.8.5
-  - name: github/github-mcp-server@v0.11.0
+  - name: github/github-mcp-server@v0.12.1
   - name: jqlang/jq@jq-1.8.1
   - name: ajeetdsouza/zoxide@v0.9.8
   - name: Wilfred/difftastic@0.64.0

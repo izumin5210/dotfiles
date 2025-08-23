@@ -42,7 +42,7 @@ importers:
         specifier: 0.14.1
         version: 0.14.1
       gh-actions-language-server:
-        specifier: ^0.0.3
+        specifier: 0.0.3
         version: 0.0.3(typescript@5.9.2)
       graphql-language-service-cli:
         specifier: 3.5.0

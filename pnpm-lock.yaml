@@ -15,8 +15,8 @@ importers:
         specifier: 0.20.0
         version: 0.20.0
       '@playwright/mcp':
-        specifier: 0.0.33
-        version: 0.0.33
+        specifier: 0.0.34
+        version: 0.0.34
       '@upstash/context7-mcp':
         specifier: 1.0.14
         version: 1.0.14
@@ -445,8 +445,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@playwright/mcp@0.0.33':
-    resolution: {integrity: sha512-/rKAyty60sCP4nsUi8z1d+nY76MPVtncqUc6Oyxh8qaN4neifwKB5KTjo68v/d61sKaOhNJIxQjXeVUvnYRF+Q==}
+  '@playwright/mcp@0.0.34':
+    resolution: {integrity: sha512-ii83Sz3GmB9a0PrU/u9U2sAAHNo5FHuJMZw64uTzivlRgnLBhVFPp33RYiaqSyHlvs5M04XITUHsdVUBgbX/+Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1656,13 +1656,13 @@ packages:
     resolution: {integrity: sha512-ueGLflrrnvwB3xuo/uGob5pd5FN7l0MsLf0Z87o/UQmRtwjvfylfc9MurIxRAWywCYTgrvpXBcqjV4OfCYGCIQ==}
     engines: {node: '>=16.20.0'}
 
-  playwright-core@1.55.0-alpha-2025-08-07:
-    resolution: {integrity: sha512-NUuC6R0/dLk1QKiYoJL8NUsQAC6Je0C2BpuIg5h4wcvBwJ5TFldslmik17Txg3TXBSqwgG76DAl4Q6UdHGn54Q==}
+  playwright-core@1.55.0-alpha-2025-08-12:
+    resolution: {integrity: sha512-4uxOd9xmeF6gqdsORzzlXd7p795vcACOiAGVHHEiTuFXsD83LYH+0C/SYLWB0Z+fAq4LdKGsy0qEfTm0JkY8Ig==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.55.0-alpha-2025-08-07:
-    resolution: {integrity: sha512-rH8kdQOZzhjxC6FOL9zSEDwPl88ZqQq9QEvRDONWhzKwRQ/jOXlEZRxm8QRCBdrLqBMTGHx/YOaP7MIV//rtIA==}
+  playwright@1.55.0-alpha-2025-08-12:
+    resolution: {integrity: sha512-daZPM5gX0VTG6ae3/qOpEKc9NxoavkM2lfL0UIzTG0k+yK8ZeSPYo63iewZhVANsWRm0BT+XQ1NniAUOwWQ+xA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2756,15 +2756,15 @@ snapshots:
 
   '@openai/codex@0.20.0': {}
 
-  '@playwright/mcp@0.0.33':
+  '@playwright/mcp@0.0.34':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.2
       commander: 13.1.0
       debug: 4.4.1
       dotenv: 17.2.1
       mime: 4.0.7
-      playwright: 1.55.0-alpha-2025-08-07
-      playwright-core: 1.55.0-alpha-2025-08-07
+      playwright: 1.55.0-alpha-2025-08-12
+      playwright-core: 1.55.0-alpha-2025-08-12
       ws: 8.18.2
       zod: 3.25.76
       zod-to-json-schema: 3.24.5(zod@3.25.76)
@@ -4070,11 +4070,11 @@ snapshots:
 
   pkce-challenge@5.0.0: {}
 
-  playwright-core@1.55.0-alpha-2025-08-07: {}
+  playwright-core@1.55.0-alpha-2025-08-12: {}
 
-  playwright@1.55.0-alpha-2025-08-07:
+  playwright@1.55.0-alpha-2025-08-12:
     dependencies:
-      playwright-core: 1.55.0-alpha-2025-08-07
+      playwright-core: 1.55.0-alpha-2025-08-12
     optionalDependencies:
       fsevents: 2.3.2
 

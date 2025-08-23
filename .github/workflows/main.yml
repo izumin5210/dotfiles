@@ -50,19 +50,6 @@ jobs:
           aqua_version: v2.53.9
       - run: ${{ matrix.cmd }}
 
-  node-tools-lockfile:
-    runs-on: ubuntu-latest
-    env:
-      WORK_DIR: config/.config/nvim/lua/plugins/lsp
-    steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
-      - uses: pnpm/action-setup@a7487c7e89a18df4991f7f222e4898a00d66ddda # v4
-        with:
-          package_json_file: ${{ env.WORK_DIR }}/package.json
-          run_install: |
-            cwd: ${{ env.WORK_DIR }}
-            args: [--frozen-lockfile, --strict-peer-dependencies]
-
   update-aqua-checksums:
     uses: ./.github/workflows/_update-aqua-checksum.yml
     permissions:
@@ -77,7 +64,6 @@ jobs:
     needs:
       - build
       - format
-      - node-tools-lockfile
       - update-aqua-checksums
     permissions: {}
     if: failure()

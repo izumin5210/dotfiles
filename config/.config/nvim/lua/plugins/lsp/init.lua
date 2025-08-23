@@ -130,9 +130,36 @@ return {
       local Path = require("plenary.path")
       local dir = spec.dir
       local BIN_DIR = Path:new(dir, "node_modules", ".bin")
-
       vim.env.PATH = BIN_DIR:absolute() .. ":" .. vim.env.PATH
-      vim.system({ "pnpm", "i" }, { cwd = dir, text = true })
+
+      local uname = vim.uv.os_uname()
+      local os, arch = uname.sysname, uname.machine
+      local copilot_ls_dir
+      if os == "Darwin" then
+        if arch == "arm64" then
+          copilot_ls_dir = "darwin-arm64"
+        else
+          copilot_ls_dir = "darwin-x64"
+        end
+      elseif os == "Linux" then
+        if arch == "aarch64" or arch == "arm64" then
+          copilot_ls_dir = "linux-arm64"
+        else
+          copilot_ls_dir = "linux-x64"
+        end
+      elseif os:match("Windows") or os:match("MINGW") or os:match("MSYS") or os:match("CYGWIN") then
+        copilot_ls_dir = "win32-x64"
+      else
+        -- no-op
+      end
+
+      if copilot_ls_dir then
+        vim.env.PATH = Path:new(dir, "node_modules", "@github", "copilot-language-server", "native", copilot_ls_dir)
+          .. ":"
+          .. vim.env.PATH
+      end
+
+      -- vim.system({ "pnpm", "i" }, { cwd = dir, text = true })
     end,
   },
   {

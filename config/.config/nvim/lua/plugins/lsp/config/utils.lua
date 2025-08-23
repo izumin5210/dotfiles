@@ -1,5 +1,12 @@
 local M = {}
 
+---@param server_name string
+---@param filetypes string[]
+---@return string[]
+function M.append_filetypes(server_name, filetypes)
+  return vim.list_extend(require("lspconfig.configs." .. server_name).default_config.filetypes, filetypes)
+end
+
 ---@param actions_by_client_name table<string, fun(client: vim.lsp.Client, bufnr: integer)[]>
 ---@param args { buf: integer }
 function M.run_lsp_actions(actions_by_client_name, args)
@@ -24,52 +31,6 @@ function M.register_keymaps(keymaps, args)
   for _, km in pairs(keymaps) do
     vim.keymap.set(km[1], km[2], km[3], { noremap = true, silent = true, buffer = args.buf, desc = "LSP: " .. km.desc })
   end
-end
-
----@return "npm"|"yarn"|"pnpm"|nil
-function M.detect_node_package_manager()
-  local lspconfig = require("lspconfig")
-
-  local startpath = vim.api.nvim_buf_get_name(0)
-  local npm = lspconfig.util.root_pattern("package-lock.json")(startpath)
-  local yarn = lspconfig.util.root_pattern("yarn.lock")(startpath)
-  local pnpm = lspconfig.util.root_pattern("pnpm-lock.yml", "pnpm-lock.yaml")(startpath)
-
-  ---@type { [1]: "npm"|"yarn"|"pnpm", [2]: number } | nil
-  local detected = nil
-  for _, cmd in pairs({
-    { "npm", string.len(npm or "") },
-    { "yarn", string.len(yarn or "") },
-    { "pnpm", string.len(pnpm or "") },
-  }) do
-    if cmd[2] > 0 and (detected == nil or cmd[2] > detected[2]) then
-      detected = cmd
-    end
-  end
-
-  return detected and detected[1]
-end
-
----@param fname string
----@return {node_root: string|nil, deno_root: string|nil}
-function M.detect_node_or_deno_root(fname)
-  local util = require("lspconfig.util")
-  local node_root = util.root_pattern("tsconfig.json", "package.json", "jsconfig.json")(fname)
-  local deno_root = util.root_pattern("deno.json", "deno.jsonc")(fname)
-
-  if deno_root == nil then
-    return { node_root = node_root, deno_root = nil }
-  end
-
-  if node_root == nil then
-    return { node_root = nil, deno_root = deno_root }
-  end
-
-  if string.len(vim.fs.dirname(node_root)) > string.len(vim.fs.dirname(deno_root)) then
-    return { node_root = node_root, deno_root = nil }
-  end
-
-  return { node_root = nil, deno_root = deno_root }
 end
 
 return M

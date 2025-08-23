@@ -2,7 +2,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufWritePost", "BufNewFile" },
+    -- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = { "dotfiles-node-tools" },
     init = function()
       local colors = require("utils.colors")
@@ -38,37 +38,47 @@ return {
     end,
     config = function()
       local augroup = vim.api.nvim_create_augroup("neovim_lspconfig_setup", { clear = true })
-      local utils = require("plugins.lsp.config.utils")
 
       vim.api.nvim_create_autocmd("BufWritePre", {
         group = augroup,
         ---@param args { buf: integer }
         callback = function(args)
+          local utils = require("plugins.lsp.config.utils")
           local actions = require("plugins.lsp.config.lsp_actions_on_save")
           utils.run_lsp_actions(actions, { buf = args.buf })
         end,
       })
 
-      -- language servers are installed manually
-      local server_names = {
+      vim.lsp.config("*", {
+        on_attach = function(client, bufnr)
+          local utils = require("plugins.lsp.config.utils")
+
+          -- enable inlay hints by default
+          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+          local keymaps = require("plugins.lsp.config.lsp_keymaps").get_keymaps(bufnr)
+          utils.register_keymaps(keymaps, { buf = bufnr })
+        end,
+        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+      })
+
+      vim.lsp.enable({
         -- Go
         "gopls",
-        "golangci_lint_ls",
+        -- "golangci_lint_ls",
+
         -- JavaScript
-        "denols",
+        "biome",
+        -- "denols",
         "eslint",
-        "ts_ls",
-        "volar",
         "prismals",
-        -- CSS
-        "cssls",
-        "tailwindcss",
-        -- Rust
-        "rust_analyzer",
+        "ts_ls",
+
         -- JSON (JSON Schema)
         "jsonls",
         "jsonnet_ls",
         "yamlls",
+
         -- Others
         "bashls",
         "buf_ls",
@@ -76,10 +86,7 @@ return {
         "graphql",
         "lua_ls",
         "nixd",
-      }
-      for _, server_name in ipairs(server_names) do
-        require("plugins.lsp.config.lsp_setup")(server_name)
-      end
+      })
     end,
   },
   {

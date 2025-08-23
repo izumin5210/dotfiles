@@ -3,7 +3,7 @@
     "@anthropic-ai/claude-code": "1.0.85",
     "@openai/codex": "0.20.0",
     "@playwright/mcp": "0.0.34",
-    "@upstash/context7-mcp": "1.0.14",
+    "@upstash/context7-mcp": "1.0.15",
     "any-script-mcp": "0.0.1",
     "o3-search-mcp": "0.0.7"
   }

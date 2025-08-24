@@ -199,6 +199,7 @@ dist
 /result
 
 # Claude Code
+/config/.claude/ide
 /config/.claude/projects
 /config/.claude/plugins
 /config/.claude/shell-snapshots

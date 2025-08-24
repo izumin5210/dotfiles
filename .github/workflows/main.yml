@@ -12,7 +12,7 @@ jobs:
     env:
       IMAGE: ghcr.io/${{ github.repository_owner }}/dotfiles
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
         with:
           registry: ghcr.io
@@ -44,7 +44,7 @@ jobs:
               shfmt -i 2 -d bin config/{.bin,.config/zsh} install
     name: format-${{ matrix.name }}
     steps:
-      - uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
       - uses: aquaproj/aqua-installer@d1fe50798dbadd4eb5b98957290ca175f6b4870f # v4.0.2
         with:
           aqua_version: v2.53.9

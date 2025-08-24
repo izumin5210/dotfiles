@@ -240,43 +240,21 @@ return {
     end,
   },
   {
-    "greggh/claude-code.nvim",
-    dependencies = {
-      "plenary.nvim",
-    },
+    "coder/claudecode.nvim",
+    dependencies = { "folke/snacks.nvim" },
+    config = true,
     keys = {
-      { "<leader>cc", mode = "n" },
-      { "<leader>cC", mode = "n" },
-      { "<leader>cR", mode = "n" },
+      { "<leader>a", nil, desc = "AI/Claude Code" },
+      { "<leader>ac", "<cmd>ClaudeCode<cr>", desc = "Toggle Claude" },
+      { "<leader>af", "<cmd>ClaudeCodeFocus<cr>", desc = "Focus Claude" },
+      { "<leader>ar", "<cmd>ClaudeCode --resume<cr>", desc = "Resume Claude" },
+      { "<leader>aC", "<cmd>ClaudeCode --continue<cr>", desc = "Continue Claude" },
+      { "<leader>am", "<cmd>ClaudeCodeSelectModel<cr>", desc = "Select Claude model" },
+      { "<leader>ab", "<cmd>ClaudeCodeAdd %<cr>", desc = "Add current buffer" },
+      { "<leader>as", "<cmd>ClaudeCodeSend<cr>", mode = "v", desc = "Send to Claude" },
+      -- Diff management
+      { "<leader>aa", "<cmd>ClaudeCodeDiffAccept<cr>", desc = "Accept diff" },
+      { "<leader>ad", "<cmd>ClaudeCodeDiffDeny<cr>", desc = "Deny diff" },
     },
-    opts = {
-      window = { position = "botright vsplit" },
-      refresh = { enable = false },
-      git = { use_git_root = false },
-      keymaps = {
-        toggle = {
-          normal = "<leader>cc",
-          variants = {
-            continue = "<leader>cC",
-            resume = "<leader>cR",
-          },
-        },
-        window_navigation = false,
-      },
-    },
-    init = function()
-      local group = vim.api.nvim_create_augroup("claude-code.nvim", { clear = true })
-      vim.api.nvim_create_autocmd("TermOpen", {
-        group = group,
-        pattern = "term://*",
-        callback = function(args)
-          local bufnr = args.buf
-          local name = vim.api.nvim_buf_get_name(bufnr)
-          if name:match(":claude$") then
-            vim.bo[bufnr].filetype = "claude-code"
-          end
-        end,
-      })
-    end,
   },
 }

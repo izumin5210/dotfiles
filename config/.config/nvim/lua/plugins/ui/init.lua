@@ -176,33 +176,32 @@ return {
     end,
   },
   {
-    "shellRaining/hlchunk.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    opts = function()
-      local palette = require("utils.colors").palette
-      local exclude_filetypes = {
-        aerial = true,
-        dashboard = true,
-        ["rip-substitute"] = true,
-        TelescopeResults = true,
-      }
-      return {
-        chunk = {
-          enable = true,
-          style = {
-            { fg = palette.sapphire },
-            { fg = palette.red },
+    {
+      "folke/snacks.nvim",
+      version = "*",
+      cond = not vim.g.vscode,
+      event = { "BufReadPost", "BufAdd", "BufNewFile" },
+      ---@type snacks.Config
+      opts = {
+        indent = {
+          enabled = true,
+          animate = {
+            enabled = true,
+            duration = { total = 300 },
           },
-          delay = 0, -- disable animation
-          exclude_filetypes = exclude_filetypes,
+          scope = { enabeld = true },
+          chunk = { enabled = true },
         },
-        indent = { enable = true, exclude_filetypes = exclude_filetypes },
-        line_num = { enable = false },
-        blank = { enable = false },
-      }
-    end,
+      },
+      init = function()
+        local colors = require("utils.colors")
+        local palette = require("utils.colors").palette
+        require("utils.highlight").set_highlights("snacks_hl", {
+          SnacksIndent = { fg = palette.surface0 },
+          SnacksIndentScope = { fg = colors.alpha_blend(palette.sapphire, palette.base, 0.75) },
+        })
+      end,
+    },
   },
   {
     "ntpeters/vim-better-whitespace",

@@ -68,7 +68,6 @@
   "telescope-dap.nvim": { "branch": "master", "commit": "783366bd6c1e7fa0a5c59c07db37f49c805a28df" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "1f08ed60cafc8f6168b72b80be2b2ea149813e55" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
-  "tint.nvim": { "branch": "master", "commit": "02bd0527a315a80e4e25bb2dd7b6994fb0daae01" },
   "todo-comments.nvim": { "branch": "main", "commit": "ae0a2afb47cf7395dc400e5dc4e05274bf4fb9e0" },
   "toggleterm.nvim": { "branch": "main", "commit": "50ea089fc548917cc3cc16b46a8211833b9e3c7c" },
   "vim-better-whitespace": { "branch": "master", "commit": "de99b55a6fe8c96a69f9376f16b1d5d627a56e81" },
@@ -76,5 +75,6 @@
   "vim-matchup": { "branch": "master", "commit": "ea01ae7b54ed82d01aac03b796905e5ea0e28f1e" },
   "vim-mdx-js": { "branch": "master", "commit": "17179d7f2a73172af5f9a8d65b01a3acf12ddd50" },
   "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
+  "vimade": { "branch": "master", "commit": "f63ca5cb9cf811b2c526694e820b87fe2238deb6" },
   "which-key.nvim": { "branch": "main", "commit": "fcbf4eea17cb299c02557d576f0d568878e354a4" }
 }

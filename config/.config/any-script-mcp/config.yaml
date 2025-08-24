@@ -1,4 +1,4 @@
-# yaml-language-server: $schema=https://raw.githubusercontent.com/izumin5210/any-script-mcp/feat/add-config-schema-generation/config.schema.json
+# yaml-language-server: $schema=https://raw.githubusercontent.com/izumin5210/any-script-mcp/main/config.schema.json
 tools:
   # Delegate search to codex CLI. Inspired by https://github.com/yoshiko-pg/o3-search-mcp
   - name: gpt-5-search

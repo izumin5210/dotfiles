@@ -10,6 +10,9 @@ return {
     "mortepau/codicons.nvim", -- required by config function for nvim-dap
     cond = not vim.g.vscode,
     lazy = true,
+    init = function()
+      vim.g.codicons_extension_cmp_disable = true
+    end,
   },
   {
     "nvim-lua/plenary.nvim",

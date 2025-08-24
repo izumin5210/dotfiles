@@ -1,43 +1,11 @@
 return {
   {
-    "hrsh7th/nvim-cmp",
+    "saghen/blink.cmp",
+    version = "1.*",
     cond = not vim.g.vscode,
     event = "InsertEnter",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-      {
-        "zbirenbaum/copilot-cmp",
-        dependencies = {
-          "zbirenbaum/copilot.lua",
-          opts = {
-            suggestion = { enabled = false },
-            panel = { enabled = false },
-          },
-        },
-        opts = {
-          method = "getCompletionsCycling",
-        },
-      },
-      {
-        "L3MON4D3/LuaSnip",
-        version = "*",
-        build = "make install_jsregexp",
-        dependencies = {
-          "saadparwaiz1/cmp_luasnip",
-          {
-            "rafamadriz/friendly-snippets",
-            config = function()
-              require("luasnip.loaders.from_vscode").lazy_load()
-            end,
-          },
-        },
-        opts = { friendly_snippets = true },
-      },
-      "Snikimonkd/cmp-go-pkgs",
+      "rafamadriz/friendly-snippets",
       {
         "onsails/lspkind.nvim",
         config = function()
@@ -48,10 +16,128 @@ return {
           })
         end,
       },
+      {
+        "fang2hou/blink-copilot",
+      },
+      {
+        "zbirenbaum/copilot.lua",
+        cmd = "Copilot",
+        event = "InsertEnter",
+        opts = {
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+          filetypes = {
+            markdown = true,
+            help = true,
+          },
+        },
+      },
     },
-    keys = require("plugins.edit.config.nvim-cmp").keys,
-    init = require("plugins.edit.config.nvim-cmp").init,
-    config = require("plugins.edit.config.nvim-cmp").setup,
+    init = function()
+      local palette = require("utils.colors").palette
+      -- https://github.com/hrsh7th/nvim-cmp/wiki/Menu-Appearance#how-to-get-types-on-the-left-and-offset-the-menu
+      require("utils.highlight").force_set_highlights("blink_cmp_hl", {
+        BlinkCmpMenu = { fg = palette.text, bg = palette.surface0 },
+      })
+    end,
+    ---@module 'blink.cmp'
+    ---@type blink.cmp.Config
+    opts = {
+      keymap = { preset = "default" },
+      appearance = {
+        nerd_font_variant = "mono",
+      },
+      completion = {
+        documentation = { auto_show = true },
+        ghost_text = {
+          enabled = true,
+        },
+        menu = {
+          draw = {
+            padding = 2,
+            gap = 2,
+            columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind_name" } },
+            components = {
+              kind_name = {
+                width = { max = 30 },
+                text = function(ctx)
+                  return ctx.kind
+                end,
+                highlight = "BlinkCmpSource",
+              },
+
+              kind_icon = {
+                text = function(ctx)
+                  local icon = ctx.kind_icon
+                  if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, _ = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      icon = dev_icon
+                    end
+                  else
+                    icon = require("lspkind").symbolic(ctx.kind, {
+                      mode = "symbol",
+                    })
+                  end
+
+                  if ctx.item.source_name == "LSP" then
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr ~= "" then
+                      icon = color_item.abbr
+                    end
+                  end
+
+                  return icon .. ctx.icon_gap
+                end,
+
+                highlight = function(ctx)
+                  local hl = ctx.kind_hl
+                  if vim.tbl_contains({ "Path" }, ctx.source_name) then
+                    local dev_icon, dev_hl = require("nvim-web-devicons").get_icon(ctx.label)
+                    if dev_icon then
+                      hl = dev_hl
+                    end
+                  end
+
+                  if ctx.item.source_name == "LSP" then
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr_hl_group then
+                      hl = color_item.abbr_hl_group
+                    end
+                  end
+
+                  return hl
+                end,
+              },
+            },
+          },
+        },
+      },
+
+      sources = {
+        default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
+        providers = {
+          copilot = {
+            name = "copilot",
+            module = "blink-copilot",
+            score_offset = 100,
+            async = true,
+          },
+          lazydev = {
+            name = "LazyDev",
+            module = "lazydev.integrations.blink",
+            score_offset = 100,
+          },
+        },
+      },
+
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+
+      cmdline = { enabled = false },
+    },
+    opts_extend = { "sources.default" },
   },
   {
     "copilotlsp-nvim/copilot-lsp",

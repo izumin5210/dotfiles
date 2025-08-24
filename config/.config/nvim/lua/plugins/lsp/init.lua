@@ -70,7 +70,7 @@ return {
         -- "denols",
         "eslint",
         "prismals",
-        -- "ts_ls",
+        "tailwindcss",
         "vtsls",
         "vue_ls",
 

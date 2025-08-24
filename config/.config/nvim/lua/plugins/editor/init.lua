@@ -130,35 +130,6 @@ return {
       highlight = { after = "" },
     },
   },
-  {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    keys = {
-      {
-        "<leader>lg",
-        mode = "n",
-        noremap = true,
-        desc = "Git: open Lazygit",
-        function()
-          require("plugins.editor.config.toggleterm").toggle_lazygit()
-        end,
-      },
-    },
-    cmd = { "ToggleTerm" },
-    opts = function()
-      local palette = require("utils.colors").palette
-      return {
-        highlights = {
-          NormalFloat = { guifg = palette.text, guibg = palette.mantle },
-          FloatBorder = { guibg = palette.mantle },
-        },
-        float_opts = {
-          border = { " ", " ", " ", " ", " ", " ", " ", " " },
-        },
-      }
-    end,
-  },
   -- Buffers
   {
     "famiu/bufdelete.nvim",

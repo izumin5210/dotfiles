@@ -178,6 +178,26 @@ return {
           scope = { enabeld = true },
           chunk = { enabled = true },
         },
+        lazygit = {
+          enable = true,
+          configure = false,
+        },
+        styles = {
+          lazygit = {
+            border = { " ", " ", " ", " ", " ", " ", " ", " " },
+          },
+        },
+      },
+      keys = {
+        {
+          "<leader>lg",
+          mode = "n",
+          noremap = true,
+          desc = "Git: open Lazygit",
+          function()
+            require("snacks").lazygit.open()
+          end,
+        },
       },
       init = function()
         local colors = require("utils.colors")

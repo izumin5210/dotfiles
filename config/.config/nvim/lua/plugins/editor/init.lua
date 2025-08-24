@@ -242,12 +242,13 @@ return {
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = {
       render = "virtual",
-      virtual_symbol = " ■",
+      virtual_symbol = "■",
       enable_named_colors = false,
       enable_tailwind = true,
       exclude_filetypes = {
         "dashboard",
         "lazy",
+        "blink-cmp-menu",
       },
     },
   },

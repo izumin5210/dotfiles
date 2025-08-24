@@ -3,6 +3,7 @@ return {
     "neovim/nvim-lspconfig",
     cond = not vim.g.vscode,
     -- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    dependencies = { "blink.cmp" },
     init = function()
       local colors = require("utils.colors")
       local palette = colors.palette
@@ -56,7 +57,7 @@ return {
           local keymaps = require("plugins.lsp.config.lsp_keymaps").get_keymaps(bufnr)
           utils.register_keymaps(keymaps, { buf = bufnr })
         end,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        capabilities = require("blink.cmp").get_lsp_capabilities(),
       })
 
       vim.lsp.enable({

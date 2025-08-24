@@ -5,7 +5,7 @@ font-size = 13.5
 font-feature = "-calt, -liga, -dlig"
 font-thicken = true
 font-thicken-strength = 48
-adjust-cell-height = 20%
+adjust-cell-height = 6
 cursor-style = block
 
 # Color theme

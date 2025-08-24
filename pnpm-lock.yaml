@@ -30,8 +30,8 @@ importers:
         specifier: 0.14.26
         version: 0.14.26
       '@upstash/context7-mcp':
-        specifier: 1.0.15
-        version: 1.0.15
+        specifier: 1.0.16
+        version: 1.0.16
       '@vtsls/language-server':
         specifier: 0.2.9
         version: 0.2.9
@@ -746,8 +746,8 @@ packages:
   '@ungap/structured-clone@1.3.0':
     resolution: {integrity: sha512-WmoN8qaIAo7WTYWbAZuG8PYEhn5fkz7dZrqTBZ7dtt//lL2Gwms1IcnQ5yHqjDfX8Ft5j4YzDM23f87zBfDe9g==}
 
-  '@upstash/context7-mcp@1.0.15':
-    resolution: {integrity: sha512-WWdC+rWWsyIM4x29zelnKYzimo6CNjz9dPAD14wxxAWKivZ/i7Y540f7EuOMxzm6rSKvF7Gl941g2XXur0vDIg==}
+  '@upstash/context7-mcp@1.0.16':
+    resolution: {integrity: sha512-5zcHtnWzVGv7zLoRWYt7LV2wm8MeaIrvXKCkS6PvRyUQNXiiAeaHwrdeQ/3JdMZGibnOAgDet5cS7mibslm64A==}
     hasBin: true
 
   '@volar/language-core@2.4.23':
@@ -2450,6 +2450,10 @@ packages:
   undici-types@7.8.0:
     resolution: {integrity: sha512-9UJ2xGDvQ43tYyVMpuHlsgApydB8ZKfVYTsLDhXkFL/6gfkp+U8xTGdh8pMJv1SpZna0zxG1DwsKZsreLbXBxw==}
 
+  undici@6.21.3:
+    resolution: {integrity: sha512-gBLkYIlEnSp8pFbT64yFgGE6UIB9tAkhukC23PmMDCe5Nd+cRqKxSjw5y54MK2AZMgZfJWMaNE4nYUHgi1XEOw==}
+    engines: {node: '>=18.17'}
+
   unicorn-magic@0.3.0:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
     engines: {node: '>=18'}
@@ -3669,10 +3673,11 @@ snapshots:
 
   '@ungap/structured-clone@1.3.0': {}
 
-  '@upstash/context7-mcp@1.0.15':
+  '@upstash/context7-mcp@1.0.16':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.2
       commander: 14.0.0
+      undici: 6.21.3
       zod: 3.25.76
     transitivePeerDependencies:
       - supports-color
@@ -5516,6 +5521,8 @@ snapshots:
   typescript@5.9.2: {}
 
   undici-types@7.8.0: {}
+
+  undici@6.21.3: {}
 
   unicorn-magic@0.3.0: {}
 

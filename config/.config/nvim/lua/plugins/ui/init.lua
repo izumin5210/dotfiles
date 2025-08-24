@@ -186,6 +186,11 @@ return {
           lazygit = {
             border = { " ", " ", " ", " ", " ", " ", " ", " " },
           },
+          terminal = {
+            keys = {
+              term_normal = false, -- disable <ESC><ESC> for claudecode
+            },
+          },
         },
       },
       keys = {

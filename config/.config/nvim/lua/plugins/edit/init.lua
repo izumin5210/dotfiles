@@ -304,19 +304,7 @@ return {
       mappings = {
         i = { j = { k = "<ESC>" } },
         t = {
-          j = {
-            k = function()
-              local bufname = vim.api.nvim_buf_get_name(0)
-              local filetype = vim.bo.filetype
-              if filetype == "claude-code" then
-                vim.api.nvim_input("<Cmd>ClaudeCode<CR>")
-              elseif bufname:match(":lazygit;") then
-                vim.api.nvim_input("<ESC>")
-              else
-                vim.api.nvim_input("<C-\\><C-n>")
-              end
-            end,
-          },
+          j = { k = "<C-\\><C-n>" },
         },
       },
     },

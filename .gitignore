@@ -200,6 +200,8 @@ dist
 
 # Claude Code
 /config/.claude/projects
+/config/.claude/plugins
+/config/.claude/shell-snapshots
 /config/.claude/statsig
 /config/.claude/todos
 /config/.claude/scripts/tmp

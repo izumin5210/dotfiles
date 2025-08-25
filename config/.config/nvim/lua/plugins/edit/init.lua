@@ -56,6 +56,7 @@ return {
           draw = {
             padding = 2,
             gap = 2,
+            treesitter = { "lsp" },
             columns = { { "kind_icon" }, { "label", "label_description", gap = 1 }, { "kind_name" } },
             components = {
               kind_name = {

@@ -22,6 +22,8 @@ local ts_ls_settings = {
   },
 }
 
+local utils = require("plugins.lsp.config.utils")
+
 ---@type vim.lsp.Config
 local config = {
   settings = {
@@ -45,14 +47,14 @@ local config = {
     javascriptreact = ts_ls_settings,
     typescriptreact = ts_ls_settings,
   },
-  on_attach = function(client, bufnr)
+  on_attach = utils.wrap_on_attach(function(client, bufnr)
     if vim.bo.filetype == "vue" then
       client.server_capabilities.semanticTokensProvider.full = false
     else
       client.server_capabilities.semanticTokensProvider.full = true
     end
-  end,
-  filetypes = require("plugins.lsp.config.utils").append_filetypes("vtsls", { "vue" }),
+  end),
+  filetypes = utils.append_filetypes("vtsls", { "vue" }),
 }
 
 return config

@@ -27,9 +27,28 @@ end
 
 ---@param keymaps { [1]: string|string[], [2]: string, [3]: string | function, desc: string }[]
 ---@param args { buf: integer }
-function M.register_keymaps(keymaps, args)
+local function register_keymaps(keymaps, args)
   for _, km in pairs(keymaps) do
     vim.keymap.set(km[1], km[2], km[3], { noremap = true, silent = true, buffer = args.buf, desc = "LSP: " .. km.desc })
+  end
+end
+
+---@param client vim.lsp.Client
+---@param bufnr integer
+function M.on_attach_common(client, bufnr)
+  -- enable inlay hints by default
+  vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+  local keymaps = require("plugins.lsp.config.lsp_keymaps").get_keymaps(bufnr)
+  register_keymaps(keymaps, { buf = bufnr })
+end
+
+---@param on_attach fun(client: vim.lsp.Client, bufnr: integer)
+---@return fun(client: vim.lsp.Client, bufnr: integer)
+function M.wrap_on_attach(on_attach)
+  return function(client, bufnr)
+    M.on_attach_common(client, bufnr)
+    on_attach(client, bufnr)
   end
 end
 

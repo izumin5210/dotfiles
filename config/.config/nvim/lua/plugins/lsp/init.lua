@@ -48,15 +48,7 @@ return {
       })
 
       vim.lsp.config("*", {
-        on_attach = function(client, bufnr)
-          local utils = require("plugins.lsp.config.utils")
-
-          -- enable inlay hints by default
-          vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
-
-          local keymaps = require("plugins.lsp.config.lsp_keymaps").get_keymaps(bufnr)
-          utils.register_keymaps(keymaps, { buf = bufnr })
-        end,
+        on_attach = require("plugins.lsp.config.utils").on_attach_common,
         capabilities = require("blink.cmp").get_lsp_capabilities({
           textDocument = {
             foldingRange = {

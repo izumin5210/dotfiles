@@ -43,7 +43,11 @@ return {
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
     opts = {
-      keymap = { preset = "default" },
+      keymap = {
+        preset = "enter",
+        ["<C-y>"] = { "select_and_accept" },
+        ["<C-n>"] = { "select_next", "show", "fallback_to_mappings" },
+      },
       appearance = {
         nerd_font_variant = "mono",
       },

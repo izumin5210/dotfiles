@@ -9,7 +9,7 @@ vim.opt.fileencoding = "utf-8"
 vim.opt.wrap = false
 
 -- completion
-vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.completeopt = "menu,menuone,noinsert"
 
 -- show whitespace chars
 vim.opt.list = true

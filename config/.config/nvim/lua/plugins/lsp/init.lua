@@ -57,7 +57,14 @@ return {
           local keymaps = require("plugins.lsp.config.lsp_keymaps").get_keymaps(bufnr)
           utils.register_keymaps(keymaps, { buf = bufnr })
         end,
-        capabilities = require("blink.cmp").get_lsp_capabilities(),
+        capabilities = require("blink.cmp").get_lsp_capabilities({
+          textDocument = {
+            foldingRange = {
+              dynamicRegistration = false,
+              lineFoldingOnly = true,
+            },
+          },
+        }),
       })
 
       vim.lsp.enable({

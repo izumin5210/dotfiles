@@ -49,8 +49,9 @@ return {
       },
       completion = {
         documentation = { auto_show = true },
-        ghost_text = {
-          enabled = true,
+        ghost_text = { enabled = true },
+        list = {
+          selection = { preselect = true },
         },
         menu = {
           draw = {

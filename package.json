@@ -7,7 +7,7 @@
     "@fsouza/prettierd": "0.26.1",
     "@github/copilot-language-server": "1.362.0",
     "@openai/codex": "0.23.0",
-    "@playwright/mcp": "0.0.34",
+    "@playwright/mcp": "0.0.35",
     "@prisma/language-server": "6.14.0",
     "@tailwindcss/language-server": "0.14.26",
     "@upstash/context7-mcp": "1.0.16",

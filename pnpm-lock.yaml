@@ -12,8 +12,8 @@ importers:
         specifier: 1.0.90
         version: 1.0.90
       '@fsouza/prettierd':
-        specifier: 0.26.1
-        version: 0.26.1(typescript@5.9.2)
+        specifier: 0.26.2
+        version: 0.26.2(typescript@5.9.2)
       '@github/copilot-language-server':
         specifier: 1.362.0
         version: 1.362.0
@@ -217,8 +217,8 @@ packages:
   '@fastify/busboy@3.2.0':
     resolution: {integrity: sha512-m9FVDXU3GT2ITSe0UaMA5rU3QkfC/UXtCU8y0gSN/GugTqtVldOBWIB5V6V3sbmenVZUIpU6f+mPEO2+m5iTaA==}
 
-  '@fsouza/prettierd@0.26.1':
-    resolution: {integrity: sha512-+UY6Zj2S4gVo58q1gSi5JAaeTmo33Qy4VZMFUC8pewJwwb16+EQMz1AZMXO6XR6vGUB5UlgKYakTkiSc9isFGw==}
+  '@fsouza/prettierd@0.26.2':
+    resolution: {integrity: sha512-IU1n7wB0rRRZ7QZYHHrzRJug44xoPKEEHR0vsN1E4xDFn5ST2ZCUjTon1MWY4QNE88eMnQWgnmnevuV9oT9qGg==}
     hasBin: true
 
   '@github/copilot-language-server@1.362.0':
@@ -2575,7 +2575,7 @@ snapshots:
 
   '@fastify/busboy@3.2.0': {}
 
-  '@fsouza/prettierd@0.26.1(typescript@5.9.2)':
+  '@fsouza/prettierd@0.26.2(typescript@5.9.2)':
     dependencies:
       core_d: 6.1.1
       prettier: 3.6.2

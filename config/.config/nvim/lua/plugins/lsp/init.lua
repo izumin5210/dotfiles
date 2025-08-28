@@ -86,6 +86,7 @@ return {
         "graphql",
         "lua_ls",
         "nixd",
+        "pyright",
       })
     end,
   },

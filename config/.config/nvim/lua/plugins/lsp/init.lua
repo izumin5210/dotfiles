@@ -92,6 +92,7 @@ return {
   },
   {
     "stevearc/conform.nvim",
+    version = "*",
     lazy = true,
     opts = {
       formatters = {

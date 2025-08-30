@@ -5,7 +5,7 @@
   "devDependencies": {
     "@anthropic-ai/claude-code": "1.0.93",
     "@fsouza/prettierd": "0.26.2",
-    "@github/copilot-language-server": "1.362.0",
+    "@github/copilot-language-server": "1.363.0",
     "@openai/codex": "0.23.0",
     "@playwright/mcp": "0.0.35",
     "@prisma/language-server": "6.14.0",

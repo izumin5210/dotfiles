@@ -40,6 +40,7 @@
     pkgs.php
     pkgs.ruby
     pkgs.rustup
+    pkgs.pyright
 
     # git
     pkgs.git

@@ -38,6 +38,15 @@ gui:
 
 os:
   editPreset: "nvim-remote"
+  edit: >
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
+    | lua _G._SNACKS_LG_CLOSE()"
+  editAtLine: >
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
+    | {{line}} | lua _G._SNACKS_LG_CLOSE()"
+  editAtLineAndWait: >
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
+    | {{line}} | lua _G._SNACKS_LG_CLOSE()" --remote-wait-silent
 
 confirmOnQuit: true
 quitOnTopLevelReturn: true

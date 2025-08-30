@@ -74,6 +74,7 @@
     pkgs.diff-pdf
     pkgs.graphviz
     pkgs.htop
+    pkgs.neovim-remote
     pkgs.semgrep
     pkgs.tailscale
     pkgs.tree

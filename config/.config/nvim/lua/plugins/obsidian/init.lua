@@ -56,6 +56,18 @@ return {
           enable_conceal_only_in_vault(args.buf)
         end,
       })
+
+      vim.api.nvim_create_autocmd({ "BufReadPost", "FileType" }, {
+        group = grp,
+        callback = function(args)
+          local utils = require("plugins.obsidian.utils")
+          if utils.is_md(args.buf) and utils.is_in_vault(args.buf) then
+            vim.schedule(function()
+              require("plugins.obsidian.fold_frontmatter")(args.buf)
+            end)
+          end
+        end,
+      })
     end,
     keys = {
       { "<leader>o", desc = "+Obsidian" },

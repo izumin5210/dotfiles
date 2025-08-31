@@ -13,24 +13,15 @@ end
 
 ---@param bufnr number
 local function enable_conceal_only_in_vault(bufnr)
-  if not vim.api.nvim_buf_is_valid(bufnr) then
+  local utils = require("plugins.obsidian.utils")
+  if not utils.is_md(bufnr) then
     return
   end
-  if vim.bo[bufnr].filetype ~= "markdown" then
-    return
-  end
-
-  local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":p")
-  local enable = string.match(path, "^" .. vim.pesc(Obsidian.dir.filename) .. "/")
 
   -- enable render-markdown and cnoceallevel only if in Obsidian vaults
   vim.api.nvim_buf_call(bufnr, function()
     vim.opt_local.wrap = true
-    if enable then
-      vim.opt_local.conceallevel = 2
-    else
-      vim.opt_local.conceallevel = 0
-    end
+    vim.opt_local.conceallevel = utils.is_in_vault(bufnr) and 2 or 0
   end)
 end
 

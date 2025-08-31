@@ -33,6 +33,7 @@ return {
 
           -- enable render-markdown and cnoceallevel only if in Obsidian vaults
           vim.api.nvim_buf_call(bufnr, function()
+            vim.opt_local.wrap = true
             if enable then
               vim.opt_local.conceallevel = 2
               require("render-markdown").buf_enable()

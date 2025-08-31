@@ -33,6 +33,14 @@ vim.keymap.set({ "i", "s" }, "<C-b>", function()
   jump_snip_safe(-1)
 end, { silent = true })
 
+vim.keymap.set("n", "<CR>", function()
+  if vim.fn.foldclosed(".") ~= -1 then
+    return "zo"
+  else
+    return "<CR>"
+  end
+end, { expr = true, noremap = true })
+
 -- Text objects
 ----------------------------------------------------------------
 -- inner space

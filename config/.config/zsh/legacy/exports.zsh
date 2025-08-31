@@ -66,6 +66,9 @@ export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-a
 export DOTFILES_DIR="$(ghq root)/github.com/izumin5210/dotfiles"
 export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
+# Osidian vault
+export OBSIDIAN_VAULT_DIR="$(ghq root)/github.com/izumin5210/private-notes"
+
 # copilot-language-server
 uname_s=$(uname -s)
 uname_m=$(uname -m)

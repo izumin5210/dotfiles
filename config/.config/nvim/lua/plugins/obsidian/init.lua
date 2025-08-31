@@ -11,6 +11,29 @@ local function open_in_scratch(path_or_note)
   })
 end
 
+---@param bufnr number
+local function enable_conceal_only_in_vault(bufnr)
+  if not vim.api.nvim_buf_is_valid(bufnr) then
+    return
+  end
+  if vim.bo[bufnr].filetype ~= "markdown" then
+    return
+  end
+
+  local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":p")
+  local enable = string.match(path, "^" .. vim.pesc(Obsidian.dir.filename) .. "/")
+
+  -- enable render-markdown and cnoceallevel only if in Obsidian vaults
+  vim.api.nvim_buf_call(bufnr, function()
+    vim.opt_local.wrap = true
+    if enable then
+      vim.opt_local.conceallevel = 2
+    else
+      vim.opt_local.conceallevel = 0
+    end
+  end)
+end
+
 return {
   {
     "obsidian-nvim/obsidian.nvim",
@@ -39,30 +62,10 @@ return {
       }, {
         group = grp,
         callback = function(args)
-          local bufnr = args.buf
-          if not vim.api.nvim_buf_is_valid(bufnr) then
-            return
-          end
-          if vim.bo[bufnr].filetype ~= "markdown" then
-            return
-          end
-
-          local path = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(bufnr), ":p")
-          local enable = string.match(path, "^" .. vim.pesc(Obsidian.dir.filename) .. "/")
-
-          -- enable render-markdown and cnoceallevel only if in Obsidian vaults
-          vim.api.nvim_buf_call(bufnr, function()
-            vim.opt_local.wrap = true
-            if enable then
-              vim.opt_local.conceallevel = 2
-            else
-              vim.opt_local.conceallevel = 0
-            end
-          end)
+          enable_conceal_only_in_vault(args.buf)
         end,
       })
     end,
-
     keys = {
       { "<leader>o", desc = "+Obsidian" },
       {

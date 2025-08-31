@@ -61,6 +61,7 @@ return {
       daily_notes = {
         folder = "daily",
       },
+      completion = { nvim_cmp = false, blink = true },
     },
     cmd = "Obsidian",
     keys = {

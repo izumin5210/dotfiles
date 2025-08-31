@@ -1,7 +1,14 @@
 ---@param path_or_note obsidian.Note|string
 local function open_in_scratch(path_or_note)
   local filename = type(path_or_note) == "string" and path_or_note or path_or_note.path.filename
-  require("snacks.scratch").open({ file = filename, ft = "markdown" })
+  require("snacks.scratch").open({
+    file = filename,
+    ft = "markdown",
+    win = {
+      width = 0.9,
+      height = 0.9,
+    },
+  })
 end
 
 return {

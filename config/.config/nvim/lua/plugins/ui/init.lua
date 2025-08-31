@@ -182,6 +182,7 @@ return {
           enable = true,
           configure = false,
         },
+        scratch = { enable = true },
         styles = {
           lazygit = {
             border = { " ", " ", " ", " ", " ", " ", " ", " " },
@@ -189,6 +190,11 @@ return {
           terminal = {
             keys = {
               term_normal = false, -- disable <ESC><ESC> for claudecode
+            },
+          },
+          scratch = {
+            wo = {
+              winhighlight = "", -- use usual NormalFloat
             },
           },
         },

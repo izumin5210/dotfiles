@@ -21,8 +21,8 @@ importers:
         specifier: 0.25.0
         version: 0.25.0
       '@playwright/mcp':
-        specifier: 0.0.35
-        version: 0.0.35
+        specifier: 0.0.36
+        version: 0.0.36
       '@prisma/language-server':
         specifier: 6.15.0
         version: 6.15.0
@@ -570,8 +570,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@playwright/mcp@0.0.35':
-    resolution: {integrity: sha512-//bbcKZVKahxmbrXBu2DViVFhIl9BRkn3cWavwP1H+HdUgjGRAfxd2I16idRGCc9Vtk3BGrZ4hnZxMw+52VT0g==}
+  '@playwright/mcp@0.0.36':
+    resolution: {integrity: sha512-dcW3V2xHZ1RD28+E4lb7+fwBluk6A0rWODA0g+slogWaw+O9Ly99+I+kDvlf8Ii6QvDqpmzOw7LlyVBvBCtYcg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1793,13 +1793,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.55.0-alpha-2025-08-12:
-    resolution: {integrity: sha512-4uxOd9xmeF6gqdsORzzlXd7p795vcACOiAGVHHEiTuFXsD83LYH+0C/SYLWB0Z+fAq4LdKGsy0qEfTm0JkY8Ig==}
+  playwright-core@1.56.0-alpha-1756505518000:
+    resolution: {integrity: sha512-qeM+G9jA+PkA3dSYZmqKrARnIgd53B+7Lm3e52wH3rPyZJ+IBhRvhW369iN8tVJunbmsr7fkU1+05K2c7q9y0g==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.55.0-alpha-2025-08-12:
-    resolution: {integrity: sha512-daZPM5gX0VTG6ae3/qOpEKc9NxoavkM2lfL0UIzTG0k+yK8ZeSPYo63iewZhVANsWRm0BT+XQ1NniAUOwWQ+xA==}
+  playwright@1.56.0-alpha-1756505518000:
+    resolution: {integrity: sha512-aChIG1Hly/pxzVdwOMArmOMNz4Wo2VyWBxLaMvLJaGWRPPB9+Sl1N8PRm6oH1CbbpFGpPvIeXl83LomkibShRA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3047,15 +3047,15 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@playwright/mcp@0.0.35':
+  '@playwright/mcp@0.0.36':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.4
       commander: 13.1.0
       debug: 4.4.1
       dotenv: 17.2.1
       mime: 4.0.7
-      playwright: 1.55.0-alpha-2025-08-12
-      playwright-core: 1.55.0-alpha-2025-08-12
+      playwright: 1.56.0-alpha-1756505518000
+      playwright-core: 1.56.0-alpha-1756505518000
       ws: 8.18.3
       zod: 3.25.76
       zod-to-json-schema: 3.24.6(zod@3.25.76)
@@ -4429,11 +4429,11 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  playwright-core@1.55.0-alpha-2025-08-12: {}
+  playwright-core@1.56.0-alpha-1756505518000: {}
 
-  playwright@1.55.0-alpha-2025-08-12:
+  playwright@1.56.0-alpha-1756505518000:
     dependencies:
-      playwright-core: 1.55.0-alpha-2025-08-12
+      playwright-core: 1.56.0-alpha-1756505518000
     optionalDependencies:
       fsevents: 2.3.2
 

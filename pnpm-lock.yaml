@@ -30,8 +30,8 @@ importers:
         specifier: 0.14.26
         version: 0.14.26
       '@upstash/context7-mcp':
-        specifier: 1.0.16
-        version: 1.0.16
+        specifier: 1.0.17
+        version: 1.0.17
       '@vtsls/language-server':
         specifier: 0.2.9
         version: 0.2.9
@@ -682,8 +682,8 @@ packages:
     resolution: {integrity: sha512-+GeGMebMCy0elMNg67LRNoVnUFPIm37iu5CmHESVx56/9Jsfdpsvbv605DQ81Pi/x11IdKUsS5nzgTYbCQU9fg==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@upstash/context7-mcp@1.0.16':
-    resolution: {integrity: sha512-5zcHtnWzVGv7zLoRWYt7LV2wm8MeaIrvXKCkS6PvRyUQNXiiAeaHwrdeQ/3JdMZGibnOAgDet5cS7mibslm64A==}
+  '@upstash/context7-mcp@1.0.17':
+    resolution: {integrity: sha512-nQARr98rS7dRTghqP/KQhJ0+s7FhUbABYp7TledJlK8o6hDQAlZVormjjcVmQYGbXsT9863u0ASdDKS+j8YaZQ==}
     hasBin: true
 
   '@volar/language-core@2.4.23':
@@ -3219,7 +3219,7 @@ snapshots:
       eslint-visitor-keys: 4.2.1
     optional: true
 
-  '@upstash/context7-mcp@1.0.16':
+  '@upstash/context7-mcp@1.0.17':
     dependencies:
       '@modelcontextprotocol/sdk': 1.17.4
       commander: 14.0.0

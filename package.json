@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@anthropic-ai/claude-code": "1.0.106",
+    "@anthropic-ai/claude-code": "1.0.107",
     "@fsouza/prettierd": "0.26.2",
     "@github/copilot-language-server": "1.367.0",
     "@openai/codex": "0.25.0",

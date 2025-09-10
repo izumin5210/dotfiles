@@ -456,23 +456,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.12.0/hadolint-Darwin-x86_64",
-      "checksum": "2A5B7AFCAB91645C39A7CEBEFCD835B865F7488E69BE24567F433DFC3D41CD27",
+      "id": "github_release/github.com/hadolint/hadolint/v2.13.1/hadolint-linux-arm64",
+      "checksum": "CA77A6010454826AB90335095ADD1B9B84F2D72D44581B6C2DBE08CEC46B0165",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.12.0/hadolint-Linux-arm64",
-      "checksum": "5798551BF19F33951881F15EB238F90AEF023F11E7EC7E9F4C37961CB87C5DF6",
+      "id": "github_release/github.com/hadolint/hadolint/v2.13.1/hadolint-linux-x86_64",
+      "checksum": "F8B05E4C724CDEB84C0DCA07E40936C3D875C0AF5D120A27C94026A0F370B2CF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.12.0/hadolint-Linux-x86_64",
-      "checksum": "56DE6D5E5EC427E17B74FA48D51271C7FC0D61244BF5C90E828AAB8362D55010",
+      "id": "github_release/github.com/hadolint/hadolint/v2.13.1/hadolint-macos-arm64",
+      "checksum": "0A3EB44BB5E496184DBEA71BE142A9BE8D70C11B48302AE851E6274EF09AE407",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.12.0/hadolint-Windows-x86_64.exe",
-      "checksum": "ED89A156290E15452276B2B4C84EFA688A5183D3B578BFAEC7CFDF986F0632A8",
+      "id": "github_release/github.com/hadolint/hadolint/v2.13.1/hadolint-macos-x86_64",
+      "checksum": "D39DE79513B8BE68BD807664F1FC9FE328D95977EBA996E2D7BDA2BFEEAE753A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/hadolint/hadolint/v2.13.1/hadolint-windows-x86_64.exe",
+      "checksum": "397BCB18F76F6C112A5E0D3B3579BA8ADF9E2EF71596387DF7DFDBE5C06E0E53",
       "algorithm": "sha256"
     },
     {

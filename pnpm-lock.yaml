@@ -21,8 +21,8 @@ importers:
         specifier: 0.30.0
         version: 0.30.0
       '@playwright/mcp':
-        specifier: 0.0.36
-        version: 0.0.36
+        specifier: 0.0.37
+        version: 0.0.37
       '@prisma/language-server':
         specifier: 6.15.0
         version: 6.15.0
@@ -595,8 +595,8 @@ packages:
     engines: {node: '>=20'}
     hasBin: true
 
-  '@playwright/mcp@0.0.36':
-    resolution: {integrity: sha512-dcW3V2xHZ1RD28+E4lb7+fwBluk6A0rWODA0g+slogWaw+O9Ly99+I+kDvlf8Ii6QvDqpmzOw7LlyVBvBCtYcg==}
+  '@playwright/mcp@0.0.37':
+    resolution: {integrity: sha512-BnI2Ijim1rhIGhoFKJRCa+MaWtNr7M2lnLeDldDsR0n+ZB2G7zjt+MAMqy5eRD/mMiWsTaQsXlzZmXeixqBdsA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1109,10 +1109,6 @@ packages:
     resolution: {integrity: sha512-uBq4egWHTcTt33a72vpSG0z3HnPuIl6NqYcTrKEg2azoEyl2hpW0zqlxysq2pK9HlDIHyHyakeYaYnSAwd8bow==}
     engines: {node: '>=12'}
 
-  dotenv@17.2.1:
-    resolution: {integrity: sha512-kQhDYKZecqnM0fCnzI5eIv5L4cAe/iRI+HqMbO/hbRdTAeXDG+M9FjipUxNfbARuEg4iHIbhnhs78BCHNbSxEQ==}
-    engines: {node: '>=12'}
-
   dset@3.1.4:
     resolution: {integrity: sha512-2QF/g9/zTaPDc3BjNcVTGoBbXBgYfMTTceLaYcFJ/W9kggFUkhxD/hMEeuLKbugyef9SqAx8cpgwlIP/jinUTA==}
     engines: {node: '>=4'}
@@ -1616,11 +1612,6 @@ packages:
     resolution: {integrity: sha512-xRc4oEhT6eaBpU1XF7AjpOFD+xQmXNB5OVKwp4tqCuBpHLS/ZbBDrc07mYTDqVMg6PfxUjjNp85O6Cd2Z/5HWA==}
     engines: {node: '>= 0.6'}
 
-  mime@4.0.7:
-    resolution: {integrity: sha512-2OfDPL+e03E0LrXaGYOtTFIYhiuzep94NSsuhrNULq+stylcJedcHdzHtz0atMUuGwJfFYs0YL5xeC/Ca2x0eQ==}
-    engines: {node: '>=16'}
-    hasBin: true
-
   minimatch@10.0.1:
     resolution: {integrity: sha512-ethXTt3SGGR+95gudmqJ1eNhRO7eGEGIgYA9vnPatK4/etz2MEVDno5GMCibdMTuBMyElzIlgxMna3K94XDIDQ==}
     engines: {node: 20 || >=22}
@@ -1818,13 +1809,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.56.0-alpha-1756505518000:
-    resolution: {integrity: sha512-qeM+G9jA+PkA3dSYZmqKrARnIgd53B+7Lm3e52wH3rPyZJ+IBhRvhW369iN8tVJunbmsr7fkU1+05K2c7q9y0g==}
+  playwright-core@1.56.0-alpha-2025-09-06:
+    resolution: {integrity: sha512-B2s/cuqYuu+mT4hIHG8gIOXjCSKh0Np1gJNCp0CrDk/UTLB74gThwXiyPAJU0fADIQH6Dv1glv8ZvKTDVT8Fng==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.56.0-alpha-1756505518000:
-    resolution: {integrity: sha512-aChIG1Hly/pxzVdwOMArmOMNz4Wo2VyWBxLaMvLJaGWRPPB9+Sl1N8PRm6oH1CbbpFGpPvIeXl83LomkibShRA==}
+  playwright@1.56.0-alpha-2025-09-06:
+    resolution: {integrity: sha512-suVjiF5eeUtIqFq5E/5LGgkV0/bRSik87N+M7uLsjPQrKln9QHbZt3cy7Zybicj3ZqTBWWHvpN9b4cnpg6hS0g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3093,22 +3084,10 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  '@playwright/mcp@0.0.36':
+  '@playwright/mcp@0.0.37':
     dependencies:
-      '@modelcontextprotocol/sdk': 1.17.4
-      commander: 13.1.0
-      debug: 4.4.1
-      dotenv: 17.2.1
-      mime: 4.0.7
-      playwright: 1.56.0-alpha-1756505518000
-      playwright-core: 1.56.0-alpha-1756505518000
-      ws: 8.18.3
-      zod: 3.25.76
-      zod-to-json-schema: 3.24.6(zod@3.25.76)
-    transitivePeerDependencies:
-      - bufferutil
-      - supports-color
-      - utf-8-validate
+      playwright: 1.56.0-alpha-2025-09-06
+      playwright-core: 1.56.0-alpha-2025-09-06
 
   '@prisma/config@6.15.0':
     dependencies:
@@ -3757,8 +3736,6 @@ snapshots:
 
   dotenv@16.6.1: {}
 
-  dotenv@17.2.1: {}
-
   dset@3.1.4: {}
 
   dunder-proto@1.0.1:
@@ -4305,8 +4282,6 @@ snapshots:
     dependencies:
       mime-db: 1.54.0
 
-  mime@4.0.7: {}
-
   minimatch@10.0.1:
     dependencies:
       brace-expansion: 2.0.2
@@ -4475,11 +4450,11 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  playwright-core@1.56.0-alpha-1756505518000: {}
+  playwright-core@1.56.0-alpha-2025-09-06: {}
 
-  playwright@1.56.0-alpha-1756505518000:
+  playwright@1.56.0-alpha-2025-09-06:
     dependencies:
-      playwright-core: 1.56.0-alpha-1756505518000
+      playwright-core: 1.56.0-alpha-2025-09-06
     optionalDependencies:
       fsevents: 2.3.2
 

@@ -181,33 +181,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Darwin_arm64.tar.gz",
-      "checksum": "C2F84A20DEC30DCBAD56D21BFA5A31F6ADDD46E741807FE0F911A505945EB437",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Darwin_arm64.tar.gz",
+      "checksum": "133D3A680B984F19CF9601C5951EF85D9956D6A4C3DE551FB7EF7314C4BFE830",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Darwin_x86_64.tar.gz",
-      "checksum": "32BE9A9FD677541E6963DC026EC0223EE6019E735837DC01599FFFEE27964782",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Darwin_x86_64.tar.gz",
+      "checksum": "532672B36A40D17292AE2D60B43E954B3D4BBEE02BDD80F13DDD2BF9AEBB7D66",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Linux_arm64.tar.gz",
-      "checksum": "563116B794724D757C1B7FE1853759CB158C7AA3DA2EC324B19EB41AB6C88E92",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Linux_arm64.tar.gz",
+      "checksum": "8773E67B52A5278BEF51CFF0F445E7615CF3E0E906D93A7416408B91CD6CB7D1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Linux_x86_64.tar.gz",
-      "checksum": "84B6205DEE895EDE44E986EB3DF2B22419F2C00A03B84D71D0A6A227711C16EB",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Linux_x86_64.tar.gz",
+      "checksum": "4A95958E7D269E0A66602C5F34D3AB7759344438DFDEB14C38837B2BB002F008",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Windows_arm64.zip",
-      "checksum": "79D181268295E15267E19AB4C2A191DB3E572F6DAC06B7406AF3EF1D362E8639",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Windows_arm64.zip",
+      "checksum": "323178BC8BAE9BE5A12652CD38774578B93B2F6E454C9422E7F327A66BB7850F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/auth0/auth0-cli/v1.18.0/auth0-cli_1.18.0_Windows_x86_64.zip",
-      "checksum": "49377DD282E5A5CF3C78C21452A7C3F54AB189861D6643BA7C1D578B20B16200",
+      "id": "github_release/github.com/auth0/auth0-cli/v1.19.0/auth0-cli_1.19.0_Windows_x86_64.zip",
+      "checksum": "B6354240069823E4D7DBD9BCB8BE6DD26CCBD729F48DF9AE4EAD80FA8A391B98",
       "algorithm": "sha256"
     },
     {

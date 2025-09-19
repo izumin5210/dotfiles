@@ -15,8 +15,8 @@ importers:
         specifier: 0.26.2
         version: 0.26.2(typescript@5.9.2)
       '@github/copilot-language-server':
-        specifier: 1.372.0
-        version: 1.372.0
+        specifier: 1.373.0
+        version: 1.373.0
       '@openai/codex':
         specifier: 0.34.0
         version: 0.34.0
@@ -221,33 +221,33 @@ packages:
     resolution: {integrity: sha512-IU1n7wB0rRRZ7QZYHHrzRJug44xoPKEEHR0vsN1E4xDFn5ST2ZCUjTon1MWY4QNE88eMnQWgnmnevuV9oT9qGg==}
     hasBin: true
 
-  '@github/copilot-language-server-darwin-arm64@1.372.0':
-    resolution: {integrity: sha512-U2HUsBeOFDrDryGSP6lmwthk5GX5OD5ojf0KRDr3/C1AY9WMaHzUzEWISickIXGREkGOgB0+LxILZA6UbzT9tA==}
+  '@github/copilot-language-server-darwin-arm64@1.373.0':
+    resolution: {integrity: sha512-pzZZnQX3jIYmQ0/LgcB54xfnbFTmCmymSL1v5OemH9qpG3Xi4ekTnRy/YRGStxHAbM5mvPX9QDJJ+/CFTvSBGg==}
     cpu: [arm64]
     os: [darwin]
 
-  '@github/copilot-language-server-darwin-x64@1.372.0':
-    resolution: {integrity: sha512-f6POi8P78g4udsQI0JtIeYIVIhE080dwu858Q00UyrVsjejVaR1bAj3cW5gdYFgUcNklBD/upoSTbe0FP0CNxg==}
+  '@github/copilot-language-server-darwin-x64@1.373.0':
+    resolution: {integrity: sha512-1yfXy5cum7it3jUJ43ruymtj9StERUPEEY2nM9lCGgtv+Wn7ip0k2IFQvzfp/ql0FCivH0O954pqkrHO7GUYZg==}
     cpu: [x64]
     os: [darwin]
 
-  '@github/copilot-language-server-linux-arm64@1.372.0':
-    resolution: {integrity: sha512-S+q4xWqBeMTvzq0piyBFZlC3c7NkWbBUrj3E/6N5FpuDfSedGod5WWeRGg88DQd8u1vH15Khl91skx5WfYESAQ==}
+  '@github/copilot-language-server-linux-arm64@1.373.0':
+    resolution: {integrity: sha512-dijhk5AlP3SQuECFXEHyNlzGxV0HClWM3yP54pod8Wu3Yb6Xo5Ek9ClEiNPc1f0FOiVT3DJ0ldmtm6Tb2/2xTA==}
     cpu: [arm64]
     os: [linux]
 
-  '@github/copilot-language-server-linux-x64@1.372.0':
-    resolution: {integrity: sha512-Vvrn3lmYkt4l/dqCplOcDsk2xWIf7xBH1xuIe9M9etvvnz5Fzawh0IH2GvNfE6ovxhRbyRLGKSxyyjUt4w9wFg==}
+  '@github/copilot-language-server-linux-x64@1.373.0':
+    resolution: {integrity: sha512-YCjhxglxPEneJUAycT90GWpNpswWsl1/RCYe7hG7lxKN6At0haE9XF/i/bisvwyqSBB9vUOFp2TB/XhwD9dQWg==}
     cpu: [x64]
     os: [linux]
 
-  '@github/copilot-language-server-win32-x64@1.372.0':
-    resolution: {integrity: sha512-aZLxF7GRCjVMinjSaUCuDMZMVwQTCaRyu4OYmEdD3c45w+4lyG1iQsbfToko/sXd5CJ4X0quaqIvr7vBNnCDEw==}
+  '@github/copilot-language-server-win32-x64@1.373.0':
+    resolution: {integrity: sha512-lxMIjKwVbpg2JAgo11Ddwv7i0FSgCxjC+2XG6f/3ItG8M0dRkGzJzVNl9sQaTbZPria8T4vNB9nRM0Lpe92LUA==}
     cpu: [x64]
     os: [win32]
 
-  '@github/copilot-language-server@1.372.0':
-    resolution: {integrity: sha512-vohr36M+kauxDXTHyIZ/6kQdFhSI3kOBy1RQEsVAW0yzP+7pSyIBN+iAmGNW7FXoq8g3Q6jeN5LvkAgwlwl/yg==}
+  '@github/copilot-language-server@1.373.0':
+    resolution: {integrity: sha512-tcRyxEvm36M30x5v3u/OuPnPENZJsmbMkcY+6A45Fsr0ZtUJF7BtAS/Si/2QTCVJndA2Oi7taicIuqSDucAR/Q==}
     hasBin: true
 
   '@graphql-hive/signal@1.0.0':
@@ -2621,30 +2621,30 @@ snapshots:
       - supports-color
       - typescript
 
-  '@github/copilot-language-server-darwin-arm64@1.372.0':
+  '@github/copilot-language-server-darwin-arm64@1.373.0':
     optional: true
 
-  '@github/copilot-language-server-darwin-x64@1.372.0':
+  '@github/copilot-language-server-darwin-x64@1.373.0':
     optional: true
 
-  '@github/copilot-language-server-linux-arm64@1.372.0':
+  '@github/copilot-language-server-linux-arm64@1.373.0':
     optional: true
 
-  '@github/copilot-language-server-linux-x64@1.372.0':
+  '@github/copilot-language-server-linux-x64@1.373.0':
     optional: true
 
-  '@github/copilot-language-server-win32-x64@1.372.0':
+  '@github/copilot-language-server-win32-x64@1.373.0':
     optional: true
 
-  '@github/copilot-language-server@1.372.0':
+  '@github/copilot-language-server@1.373.0':
     dependencies:
       vscode-languageserver-protocol: 3.17.5
     optionalDependencies:
-      '@github/copilot-language-server-darwin-arm64': 1.372.0
-      '@github/copilot-language-server-darwin-x64': 1.372.0
-      '@github/copilot-language-server-linux-arm64': 1.372.0
-      '@github/copilot-language-server-linux-x64': 1.372.0
-      '@github/copilot-language-server-win32-x64': 1.372.0
+      '@github/copilot-language-server-darwin-arm64': 1.373.0
+      '@github/copilot-language-server-darwin-x64': 1.373.0
+      '@github/copilot-language-server-linux-arm64': 1.373.0
+      '@github/copilot-language-server-linux-x64': 1.373.0
+      '@github/copilot-language-server-win32-x64': 1.373.0
 
   '@graphql-hive/signal@1.0.0': {}
 

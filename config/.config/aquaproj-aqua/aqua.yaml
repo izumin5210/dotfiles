@@ -30,7 +30,7 @@ packages:
   # shell
   - name: starship/starship@v1.23.0
   # linters, formatters, language servers
-  - name: bufbuild/buf@v1.57.0
+  - name: bufbuild/buf@v1.57.1
   - name: rhysd/actionlint@v1.7.7
   - name: hadolint/hadolint@v2.13.1
   - name: mvdan/sh@v3.12.0

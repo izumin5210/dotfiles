@@ -194,6 +194,7 @@ dist
 /config/.config/irb/irbrc_history
 /config/.config/zsh/secrets.zsh
 /config/.config/zsh/.zcompdump
+/config/.config/yazi/flavors
 
 # Nix
 /result

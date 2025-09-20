@@ -42,7 +42,10 @@ mkdir -p ~/.config
 # fzf
 ./bin/ln-idempotently ./config/.config/fzf ~/.config/fzf
 
-# fzf
+# yazi
+./bin/ln-idempotently ./config/.config/yazi ~/.config/yazi
+
+# lazygit
 ./bin/ln-idempotently ./config/.config/lazygit ~/.config/lazygit
 
 # ripgrep

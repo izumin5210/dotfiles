@@ -1,0 +1,4 @@
+[mgr]
+prepend_keymap = [
+  { on = ["g", "r"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"' },
+]

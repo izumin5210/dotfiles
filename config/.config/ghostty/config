@@ -5,16 +5,17 @@ font-size = 13.5
 font-feature = "-calt, -liga, -dlig"
 font-thicken = true
 font-thicken-strength = 48
-adjust-cell-height = 6
+adjust-cell-height = 8
 cursor-style = block
 
 # Color theme
-theme = catppuccin-frappe
+theme = "Catppuccin Frappe"
 
 # Window settings
 background-opacity = 0.95
 window-padding-x = 8
 window-padding-y = 12
+confirm-close-surface = false
 
 # macOS specific settings
 macos-option-as-alt = left

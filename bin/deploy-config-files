@@ -60,9 +60,6 @@ mkdir -p ~/.config
 # aerospace
 ./bin/ln-idempotently ./config/.config/aerospace ~/.config/aerospace
 
-# jankyborders
-./bin/ln-idempotently ./config/.config/borders ~/.config/borders
-
 # hammerspoon
 ./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon
 

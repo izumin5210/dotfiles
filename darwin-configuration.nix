@@ -111,6 +111,14 @@
   };
 
   services.tailscale.enable = true;
+  services.jankyborders = {
+    enable = true;
+    hidpi = true;
+    width = 8.0;
+    active_color = "gradient(top_right=0xfff4b8e4,bottom_left=0xff85c1dc)";
+    inactive_color = "0x00000000";
+    order = "above";
+  };
 
   nix.enable = false;
 }

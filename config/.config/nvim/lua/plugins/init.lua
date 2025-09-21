@@ -54,6 +54,35 @@ return {
   },
   -- misc
   {
+    "folke/snacks.nvim",
+    version = "*",
+    event = { "BufReadPost", "BufAdd", "BufNewFile" },
+    -- lazy = false,
+    -- priority = 1000,
+    ---@type snacks.Config
+    opts = {
+      scratch = { enable = true },
+      styles = {
+        scratch = {
+          wo = {
+            winhighlight = "", -- use usual NormalFloat
+          },
+        },
+        terminal = {
+          keys = {
+            term_normal = false, -- disable <ESC><ESC> for claudecode
+          },
+        },
+      },
+    },
+    config = function(_, opts)
+      for _, fn in ipairs(opts._inits or {}) do
+        pcall(fn)
+      end
+      require("snacks").setup(opts)
+    end,
+  },
+  {
     "folke/persistence.nvim",
     version = "*",
     event = "BufReadPre", -- this will only start session saving when an actual file was opened

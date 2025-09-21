@@ -36,53 +36,6 @@ return {
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    version = "*",
-    cond = not vim.g.vscode,
-    dependencies = {
-      "plenary.nvim",
-      {
-        "prochri/telescope-all-recent.nvim",
-        dependencies = { "kkharji/sqlite.lua" },
-        opts = {
-          scoring = {
-            boost_factor = 0.000001,
-          },
-        },
-      },
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
-      "otavioschwanck/telescope-alternate.nvim",
-      "aerial.nvim",
-      "nvim-telescope/telescope-dap.nvim",
-    },
-    cmd = "Telescope",
-    keys = function()
-      ---@param name string
-      ---@return function
-      local function action(name)
-        return require("plugins.editor.config.telescope").actions[name]
-      end
-      return require("utils.keymap").lazy_keymap({
-        {
-          { "n", "<leader><leader>", action("find_files"), desc = "File: Go to ..." },
-          { "n", "<leader>gg", action("grep"), desc = "File: Grep" },
-          { "n", "<leader>gs", action("git_status"), desc = "File: Git Suatus" },
-          { "n", "<leader>gu", action("conflicted_files"), desc = "File: Git Unmerged Files" },
-          { "n", "<leader>gb", action("buffers"), desc = "File: Buffers" },
-          { "n", "<leader>ga", action("alternate_files"), desc = "File: Alternate" },
-          { "n", "<leader>gf", action("aerial"), desc = "LSP: Functions and Methods" },
-        },
-        common = { noremap = true },
-      })
-    end,
-    init = function()
-      require("plugins.editor.config.telescope").init()
-    end,
-    config = function()
-      require("plugins.editor.config.telescope").setup()
-    end,
-  },
-  {
     "folke/which-key.nvim",
     version = "*",
     cond = not vim.g.vscode,

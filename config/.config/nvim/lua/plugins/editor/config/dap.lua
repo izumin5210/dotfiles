@@ -28,15 +28,15 @@ local actions = {
   run_last = function()
     require("dap").run_last()
   end,
-  show_variables = function()
-    require("telescope").extensions["dap"].variables()
-  end,
-  show_frames = function()
-    require("telescope").extensions["dap"].frames()
-  end,
-  show_commands = function()
-    require("telescope").extensions["dap"].commands()
-  end,
+  -- show_variables = function()
+  --   require("telescope").extensions["dap"].variables()
+  -- end,
+  -- show_frames = function()
+  --   require("telescope").extensions["dap"].frames()
+  -- end,
+  -- show_commands = function()
+  --   require("telescope").extensions["dap"].commands()
+  -- end,
   terminate = function()
     require("dap").terminate()
   end,
@@ -53,9 +53,9 @@ M.keys = require("utils.keymap").lazy_keymap({
     { "n", "<Leader>dB", actions.set_bp_cond, desc = "Add conditional breakpoint" },
     { "n", "<Leader>dr", actions.toggle_repl, desc = "Open REPL" },
     { "n", "<Leader>dl", actions.run_last, desc = "Re-run the last debug adapter" },
-    { "n", "<Leader>dv", actions.show_variables, desc = "Show variables" },
-    { "n", "<Leader>df", actions.show_frames, desc = "Show frames" },
-    { "n", "<Leader>d<space>", actions.show_commands, desc = "Show commands" },
+    -- { "n", "<Leader>dv", actions.show_variables, desc = "Show variables" },
+    -- { "n", "<Leader>df", actions.show_frames, desc = "Show frames" },
+    -- { "n", "<Leader>d<space>", actions.show_commands, desc = "Show commands" },
     { "n", "<Leader>dt", actions.terminate, desc = "Close" },
   },
   desc_prefix = "Debug",

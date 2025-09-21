@@ -2,7 +2,6 @@ return {
   {
     "stevearc/aerial.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     lazy = true,
     config = true,
   },
@@ -38,7 +37,6 @@ return {
   {
     "folke/which-key.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     config = function()
       local wk = require("which-key")
@@ -59,7 +57,6 @@ return {
   },
   {
     "mfussenegger/nvim-dap",
-    cond = not vim.g.vscode,
     dependencies = {
       {
         "leoluz/nvim-dap-go",
@@ -77,7 +74,6 @@ return {
   {
     "nvim-neotest/neotest",
     version = "*",
-    cond = not vim.g.vscode,
     dependencies = {
       { "nvim-neotest/nvim-nio", version = "*" },
       "plenary.nvim",
@@ -93,7 +89,6 @@ return {
   {
     "folke/todo-comments.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "VeryLazy" },
     dependencies = { "plenary.nvim" },
     opts = {
@@ -103,7 +98,6 @@ return {
   -- Buffers
   {
     "famiu/bufdelete.nvim",
-    cond = not vim.g.vscode,
     lazy = true,
     keys = {
       {
@@ -119,7 +113,6 @@ return {
   },
   {
     "chrisgrieser/nvim-early-retirement",
-    cond = not vim.g.vscode,
     event = "VeryLazy",
     opts = {
       retirementAgeMins = 20,
@@ -127,7 +120,6 @@ return {
   },
   {
     "linrongbin16/gitlinker.nvim",
-    cond = not vim.g.vscode,
     version = "*",
     cmd = "GitLink",
     keys = {
@@ -139,7 +131,6 @@ return {
   -- Highlight
   {
     "kevinhwang91/nvim-hlslens",
-    cond = not vim.g.vscode,
     dependencies = { "nvim-scrollbar" },
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
@@ -156,7 +147,6 @@ return {
     "lewis6991/gitsigns.nvim",
     version = "*",
     dependencies = { "nvim-scrollbar" },
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
       require("utils.highlight").force_set_highlights("gitsigns_hl", {
@@ -173,13 +163,11 @@ return {
   },
   {
     "zbirenbaum/neodim",
-    cond = not vim.g.vscode,
     event = "LspAttach",
     config = true,
   },
   {
     "brenoprata10/nvim-highlight-colors",
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = {
       render = "virtual",
@@ -195,7 +183,6 @@ return {
   },
   {
     "RRethy/vim-illuminate",
-    cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },
     init = function()
       local palette = require("utils.colors").palette

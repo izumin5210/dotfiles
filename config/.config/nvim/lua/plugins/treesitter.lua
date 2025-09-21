@@ -2,7 +2,6 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -62,7 +61,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     init = function()
@@ -78,13 +76,11 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects", -- required by nvim-surround
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
   },
   {
     "haringsrob/nvim_context_vt",
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     init = function()
@@ -99,7 +95,6 @@ return {
   {
     "andymass/vim-matchup",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     config = function()
@@ -108,7 +103,6 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
-    cond = not vim.g.vscode,
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     opts = {
@@ -121,7 +115,6 @@ return {
   },
   {
     "JoosepAlviste/nvim-ts-context-commentstring",
-    cond = not vim.g.vscode,
     lazy = true,
     opts = { enable_autocmd = false },
   },

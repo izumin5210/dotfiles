@@ -2,7 +2,6 @@ return {
   {
     "saghen/blink.cmp",
     version = "1.*",
-    cond = not vim.g.vscode,
     event = "InsertEnter",
     dependencies = {
       "rafamadriz/friendly-snippets",
@@ -147,7 +146,6 @@ return {
   },
   {
     "copilotlsp-nvim/copilot-lsp",
-    cond = not vim.g.vscode,
     init = function()
       vim.g.copilot_nes_debounce = 500
       vim.lsp.enable("copilot_ls")
@@ -168,14 +166,12 @@ return {
   },
   {
     "windwp/nvim-autopairs",
-    cond = not vim.g.vscode,
     event = "InsertEnter",
     config = true,
   },
   {
     "folke/flash.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     ---@type Flash.Config
     opts = {
@@ -203,7 +199,6 @@ return {
   },
   {
     "numToStr/Comment.nvim",
-    cond = not vim.g.vscode,
     dependencies = { "nvim-ts-context-commentstring" },
     keys = {
       { "<Leader>/", mode = { "n", "x" } },
@@ -226,7 +221,6 @@ return {
   {
     "danymat/neogen",
     version = "*",
-    cond = not vim.g.vscode,
     keys = {
       {
         "<Leader>cn",
@@ -250,7 +244,6 @@ return {
   },
   {
     "chrisgrieser/nvim-rip-substitute",
-    cond = not vim.g.vscode,
     cmd = "RipSubstitute",
     keys = {
       {
@@ -273,12 +266,14 @@ return {
   },
   {
     "monaqa/dial.nvim",
+    vscode = true,
     dependencies = { "nvim-lua/plenary.nvim" },
     keys = require("plugins.edit.config.dial").keys,
     config = require("plugins.edit.config.dial").setup,
   },
   {
     "rapan931/lasterisk.nvim",
+    vscode = true,
     keys = {
       {
         "*",

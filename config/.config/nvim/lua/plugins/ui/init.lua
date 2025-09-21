@@ -1,7 +1,6 @@
 return {
   {
     "b0o/incline.nvim",
-    cond = not vim.g.vscode,
     event = { "VeryLazy" },
     opts = function()
       return require("plugins.ui.config.incline").opts()
@@ -9,7 +8,6 @@ return {
   },
   {
     "rcarriga/nvim-notify",
-    cond = not vim.g.vscode,
     version = "*",
     lazy = true,
     init = function()
@@ -43,7 +41,6 @@ return {
   {
     "folke/noice.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "VeryLazy" },
     dependencies = {
       "nui.nvim",
@@ -108,7 +105,6 @@ return {
     "tadaa/vimade",
     version = "*",
     dependencies = { "catppuccin" },
-    cond = not vim.g.vscode,
     opts = function()
       return {
         fadelevel = 0.6,
@@ -119,7 +115,6 @@ return {
   {
     "mvllow/modes.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = { "CursorMoved", "CursorMovedI" },
     opts = function()
       local palette = require("utils.colors").palette
@@ -141,7 +136,6 @@ return {
   },
   {
     "petertriho/nvim-scrollbar",
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = function()
       local palette = require("utils.colors").palette
@@ -165,7 +159,6 @@ return {
     {
       "folke/snacks.nvim",
       version = "*",
-      cond = not vim.g.vscode,
       event = { "BufReadPost", "BufAdd", "BufNewFile" },
       ---@type snacks.Config
       opts = {
@@ -302,7 +295,6 @@ return {
   },
   {
     "ntpeters/vim-better-whitespace",
-    cond = not vim.g.vscode,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     init = function()
       local palette = require("utils.colors").palette
@@ -331,7 +323,6 @@ return {
   },
   {
     "nvimdev/dashboard-nvim",
-    cond = not vim.g.vscode,
     lazy = false,
     dependencies = {
       -- "nvim-web-devicons", -- depends but it will be load automatically

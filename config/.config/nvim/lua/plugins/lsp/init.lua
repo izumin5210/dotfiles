@@ -1,7 +1,6 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    cond = not vim.g.vscode,
     -- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     dependencies = { "blink.cmp" },
     init = function()
@@ -115,7 +114,6 @@ return {
   },
   {
     "nvimdev/lspsaga.nvim",
-    cond = not vim.g.vscode,
     dependencies = { "nvim-web-devicons", "nvim-treesitter" },
     event = { "LspAttach" },
     init = function()

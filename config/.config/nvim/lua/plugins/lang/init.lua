@@ -2,7 +2,6 @@ return {
   -- lang
   {
     "vuki656/package-info.nvim",
-    cond = not vim.g.vscode,
     dependencies = { "nui.nvim" },
     event = { "BufEnter package.json" },
     init = function()
@@ -23,11 +22,9 @@ return {
   -- Syntax Highlighting
   {
     "jxnblk/vim-mdx-js",
-    cond = not vim.g.vscode,
   },
   {
     "direnv/direnv.vim",
-    cond = not vim.g.vscode,
     ft = "direnv",
   },
 }

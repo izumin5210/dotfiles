@@ -2,13 +2,11 @@ return {
   -- Libraries
   {
     "nvim-tree/nvim-web-devicons",
-    cond = not vim.g.vscode,
     lazy = true,
     config = true,
   },
   {
     "mortepau/codicons.nvim", -- required by config function for nvim-dap
-    cond = not vim.g.vscode,
     lazy = true,
     init = function()
       vim.g.codicons_extension_cmp_disable = true
@@ -16,24 +14,22 @@ return {
   },
   {
     "nvim-lua/plenary.nvim",
-    cond = not vim.g.vscode,
     lazy = true,
     version = "*",
   },
   {
     "MunifTanjim/nui.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     lazy = true,
   },
   {
     "stevearc/dressing.nvim",
-    cond = not vim.g.vscode,
     opts = {},
     lazy = true,
   },
   {
     "tpope/vim-repeat", -- required by leap.nvim
+    vscode = true,
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
   },
   -- Appearance
@@ -41,7 +37,6 @@ return {
     "catppuccin/nvim",
     version = "*",
     name = "catppuccin",
-    cond = not vim.g.vscode,
     priority = 1000,
     lazy = false,
     opts = {
@@ -66,13 +61,11 @@ return {
   {
     "folke/persistence.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {},
   },
   {
     "alexghergh/nvim-tmux-navigation",
-    cond = not vim.g.vscode,
     keys = {
       {
         "<C-w>h",
@@ -130,7 +123,6 @@ return {
   {
     "folke/lazydev.nvim",
     version = "*",
-    cond = not vim.g.vscode,
     ft = "lua",
     dependencies = {
       { "Bilal2453/luvit-meta", lazy = true }, -- optional `vim.uv` typings

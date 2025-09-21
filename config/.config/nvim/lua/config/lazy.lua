@@ -15,7 +15,12 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+  defaults = {
+    cond = function(plugin)
+      return (not vim.g.vscode) or (plugin.vscode == true)
+    end,
+  },
   spec = {
-    { import = "plugins" }, -- load `plugins/init.lua`
+    { import = "plugins" },
   },
 })

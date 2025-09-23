@@ -57,3 +57,4 @@ packages:
   - name: Wilfred/difftastic@0.64.0
   - name: astral-sh/uv@0.8.19
   - name: sxyazi/yazi@v25.5.31
+  - name: github/copilot-language-server-release@1.374.0

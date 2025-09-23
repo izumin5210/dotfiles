@@ -63,17 +63,21 @@ return {
       function()
         local picker = require("snacks").picker
         local root = require("snacks.git").get_root()
-        if root == nil then
-          picker.files({
-            matcher = { frecency = true },
-          })
-        else
-          picker.git_files({
-            untracked = true,
-            matcher = { frecency = true },
-            cwd = vim.uv.cwd(),
-          })
-        end
+        local sources = require("snacks.picker.config.sources")
+
+        local files = root == nil
+            and vim.tbl_deep_extend("force", sources.git_files, {
+              untracked = true,
+            })
+          or sources.files
+
+        picker({
+          multi = { "buffers", "recent", files },
+          format = "file",
+          matcher = { frecency = true, sort_empty = true },
+          filter = { cwd = true },
+          transform = "unique_file",
+        })
       end,
     },
     {

@@ -56,9 +56,7 @@ return {
   {
     "folke/snacks.nvim",
     version = "*",
-    event = { "BufReadPost", "BufAdd", "BufNewFile" },
-    -- lazy = false,
-    -- priority = 1000,
+    lazy = false, -- for dashboard
     ---@type snacks.Config
     opts = {
       scratch = { enable = true },

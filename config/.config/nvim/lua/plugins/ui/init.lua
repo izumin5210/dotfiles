@@ -81,24 +81,4 @@ return {
       }
     end,
   },
-  {
-    "nvimdev/dashboard-nvim",
-    lazy = false,
-    dependencies = {
-      -- "nvim-web-devicons", -- depends but it will be load automatically
-    },
-    opts = {
-      theme = "hyper",
-      config = {
-        -- stylua: ignore
-        shortcut = {
-          { action = 'lua require("persistence").load()', desc = " Restore Session", icon = " ", key = "s" },
-        },
-        project = { enable = false },
-        mru = { cwd_only = true },
-        header = {},
-        footer = {},
-      },
-    },
-  },
 }

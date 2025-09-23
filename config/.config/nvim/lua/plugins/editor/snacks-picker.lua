@@ -65,11 +65,10 @@ return {
         local root = require("snacks.git").get_root()
         local sources = require("snacks.picker.config.sources")
 
-        local files = root == nil
-            and vim.tbl_deep_extend("force", sources.git_files, {
-              untracked = true,
-            })
-          or sources.files
+        local files = root == nil and sources.files
+          or vim.tbl_deep_extend("force", sources.git_files, {
+            untracked = true,
+          })
 
         picker({
           multi = { "buffers", "recent", files },

@@ -4,6 +4,16 @@ return {
     version = "*",
     lazy = true,
     config = true,
+    keys = {
+      {
+        "<leader>cs",
+        mode = "n",
+        function()
+          require("aerial").snacks_picker()
+        end,
+        desc = "Code: Toggle Symbols Outline",
+      },
+    },
   },
   {
     "folke/which-key.nvim",

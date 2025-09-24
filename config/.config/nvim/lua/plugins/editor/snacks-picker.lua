@@ -68,6 +68,7 @@ return {
         local files = root == nil and sources.files
           or vim.tbl_deep_extend("force", sources.git_files, {
             untracked = true,
+            cwd = vim.uv.cwd(),
           })
 
         picker({

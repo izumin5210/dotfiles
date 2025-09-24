@@ -63,8 +63,8 @@ importers:
         specifier: 4.10.0
         version: 4.10.0
       yaml-language-server:
-        specifier: 1.18.0
-        version: 1.18.0
+        specifier: 1.19.0
+        version: 1.19.0
 
 packages:
 
@@ -681,6 +681,9 @@ packages:
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
 
+  '@vscode/l10n@0.0.9':
+    resolution: {integrity: sha512-unov9NybrIXlIlmbDYzkxwigwLfogYpo4DqE+lb7dd6LoocaUEp0L1ghvqFm2UPYfUGJpUV4iS2osxcJsJNQMw==}
+
   '@vscode/ripgrep@1.15.14':
     resolution: {integrity: sha512-/G1UJPYlm+trBWQ6cMO3sv6b8D1+G16WaJH1/DSqw32JOVlzgZbLkDxRyzIpTpv30AcYGMkCf5tUqGlW6HbDWw==}
 
@@ -781,6 +784,14 @@ packages:
   agent-base@7.1.4:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
+
+  ajv-draft-04@1.0.0:
+    resolution: {integrity: sha512-mv00Te6nmYbRp5DCwclxtt7yV/joXJPGS7nM+97GdxvuttCOfgI3K4U25zboyeX0O+myI8ERluxQe5wljMmVIw==}
+    peerDependencies:
+      ajv: ^8.5.0
+    peerDependenciesMeta:
+      ajv:
+        optional: true
 
   ajv@6.12.6:
     resolution: {integrity: sha512-j3fVLgvTo527anyYyJOGTYJbG+vnnQYvE0m5mmkc1TK+nxAppkCLMIL0aZ4dblVCNoGShhm+kzE4ZUykBoMg4g==}
@@ -2336,13 +2347,14 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-language-server@1.18.0:
-    resolution: {integrity: sha512-N1g0S7IcA+1PXDNNfnNHB+jQkwWh33Id7yhWLLmTyAsf3HSFdTYTbqnUaVrhiz5MrCUbiKtZjiAVxrn/N4HKLg==}
+  yaml-language-server@1.19.0:
+    resolution: {integrity: sha512-ZKf5swgRYDqyB/Aj6QMShMhO5xuxJbPjBxoOmGqcgLY1w5PdAv93FyZzzm8/DxbEUtsnXe4mF2XoB82sLbdBpA==}
     hasBin: true
 
-  yaml@2.2.2:
-    resolution: {integrity: sha512-CBKFWExMn46Foo4cldiChEzn7S7SRV+wqiluAb6xmueD/fGyRHIhX8m14vVGgeFWjN540nKCNVj6P21eQjgTuA==}
+  yaml@2.7.1:
+    resolution: {integrity: sha512-10ULxpnOCQXxJvBgxsn9ptjq6uviG/htZKk9veJGhlqn3w/DxQ631zFF+nlQXLwmImeS5amR2dl2U8sg6U9jsQ==}
     engines: {node: '>= 14'}
+    hasBin: true
 
   yaml@2.8.1:
     resolution: {integrity: sha512-lcYcMxX2PO9XMGvAJkJ3OsNMw+/7FKes7/hgerGUYWIoWu5j/+YQqcZr5JnPZWzOsEBgMbSbiSTn/dv/69Mkpw==}
@@ -3217,6 +3229,8 @@ snapshots:
 
   '@vscode/l10n@0.0.18': {}
 
+  '@vscode/l10n@0.0.9': {}
+
   '@vscode/ripgrep@1.15.14':
     dependencies:
       https-proxy-agent: 7.0.6
@@ -3383,6 +3397,10 @@ snapshots:
   acorn@8.15.0: {}
 
   agent-base@7.1.4: {}
+
+  ajv-draft-04@1.0.0(ajv@8.17.1):
+    optionalDependencies:
+      ajv: 8.17.1
 
   ajv@6.12.6:
     dependencies:
@@ -3666,7 +3684,7 @@ snapshots:
   dockerfile-ast@0.7.1:
     dependencies:
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.17.3
+      vscode-languageserver-types: 3.17.5
 
   dockerfile-language-server-nodejs@0.14.1:
     dependencies:
@@ -4969,9 +4987,11 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml-language-server@1.18.0:
+  yaml-language-server@1.19.0:
     dependencies:
+      '@vscode/l10n': 0.0.9
       ajv: 8.17.1
+      ajv-draft-04: 1.0.0(ajv@8.17.1)
       lodash: 4.17.21
       prettier: 3.6.2
       request-light: 0.5.8
@@ -4979,11 +4999,10 @@ snapshots:
       vscode-languageserver: 9.0.1
       vscode-languageserver-textdocument: 1.0.12
       vscode-languageserver-types: 3.17.5
-      vscode-nls: 5.2.0
       vscode-uri: 3.1.0
-      yaml: 2.2.2
+      yaml: 2.7.1
 
-  yaml@2.2.2: {}
+  yaml@2.7.1: {}
 
   yaml@2.8.1: {}
 

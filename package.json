@@ -21,7 +21,7 @@
     "typescript": "5.9.2",
     "typescript-language-server": "5.0.0",
     "vscode-langservers-extracted": "4.10.0",
-    "yaml-language-server": "1.18.0"
+    "yaml-language-server": "1.19.0"
   },
   "packageManager": "pnpm@10.17.0"
 }

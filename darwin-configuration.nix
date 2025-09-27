@@ -57,6 +57,7 @@
       "jordanbaird-ice"
       "logitune"
       "karabiner-elements"
+      "microsoft-edge"
       "obsidian"
       "raycast"
       "setapp"

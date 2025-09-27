@@ -1,3 +1,23 @@
+local function smart_files()
+  local picker = require("snacks").picker
+  local root = require("snacks.git").get_root()
+  local sources = require("snacks.picker.config.sources")
+
+  local files = root == nil and sources.files
+    or vim.tbl_deep_extend("force", sources.git_files, {
+      untracked = true,
+      cwd = vim.uv.cwd(),
+    })
+
+  picker({
+    multi = { "buffers", "recent", files },
+    format = "file",
+    matcher = { frecency = true, sort_empty = true },
+    filter = { cwd = true },
+    transform = "unique_file",
+  })
+end
+
 return {
   "snacks.nvim",
   ---@type snacks.Config
@@ -55,29 +75,23 @@ return {
   },
   opts_extend = { "_inits" },
   keys = {
+    { "<leader><leader>", mode = "n", noremap = true, desc = "Files: Open files", smart_files },
     {
-      "<leader><leader>",
+      "<leader>gf",
       mode = "n",
       noremap = true,
-      desc = "Files: Open files",
+      desc = "Files: Open files (only git-files)",
       function()
-        local picker = require("snacks").picker
-        local root = require("snacks.git").get_root()
-        local sources = require("snacks.picker.config.sources")
-
-        local files = root == nil and sources.files
-          or vim.tbl_deep_extend("force", sources.git_files, {
-            untracked = true,
-            cwd = vim.uv.cwd(),
-          })
-
-        picker({
-          multi = { "buffers", "recent", files },
-          format = "file",
-          matcher = { frecency = true, sort_empty = true },
-          filter = { cwd = true },
-          transform = "unique_file",
-        })
+        require("snacks").picker.git_files()
+      end,
+    },
+    {
+      "<leader>gs",
+      mode = "n",
+      noremap = true,
+      desc = "Git: Status",
+      function()
+        require("snacks").picker.git_status()
       end,
     },
     {
@@ -87,6 +101,23 @@ return {
       desc = "Files: Grep",
       function()
         require("snacks").picker.grep({ hidden = true })
+      end,
+    },
+    {
+      "<leader>sd",
+      mode = "n",
+      noremap = true,
+      desc = "Search: Diagnostics",
+      function()
+        require("snacks").picker.diagnostics()
+      end,
+    },
+    {
+      "<leader>sD",
+      desc = "Search: Buffer Diagnostics",
+      noremap = true,
+      function()
+        require("snacks").picker.diagnostics()
       end,
     },
   },

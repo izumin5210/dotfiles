@@ -15,8 +15,8 @@ importers:
         specifier: 0.26.2
         version: 0.26.2(typescript@5.9.2)
       '@openai/codex':
-        specifier: 0.39.0
-        version: 0.39.0
+        specifier: 0.40.0
+        version: 0.40.0
       '@playwright/mcp':
         specifier: 0.0.39
         version: 0.0.39
@@ -561,8 +561,8 @@ packages:
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
 
-  '@openai/codex@0.39.0':
-    resolution: {integrity: sha512-UEcswDFZ9dwmMWuZlECff3CDTj1lEVO3Vm3mqqJrY7azLMIa2PLmC2+qHkF94RIQBD8/tkgAmKxiSnUQMr8Lgw==}
+  '@openai/codex@0.40.0':
+    resolution: {integrity: sha512-X3beD0F7Y/lMF5XHgTM2f7JtfQ7wcL3OOrj2TXqnvieh85fbunlFGHFH/dgzIPuhNDh7KUz5IyMPTfUfVcjjJQ==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3060,7 +3060,7 @@ snapshots:
 
   '@one-ini/wasm@0.2.0': {}
 
-  '@openai/codex@0.39.0':
+  '@openai/codex@0.40.0':
     dependencies:
       '@vscode/ripgrep': 1.15.14
     transitivePeerDependencies:

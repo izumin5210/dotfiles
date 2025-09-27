@@ -63,8 +63,8 @@ importers:
         specifier: 4.10.0
         version: 4.10.0
       yaml-language-server:
-        specifier: 1.19.0
-        version: 1.19.0
+        specifier: 1.19.1
+        version: 1.19.1
 
 packages:
 
@@ -680,9 +680,6 @@ packages:
 
   '@vscode/l10n@0.0.18':
     resolution: {integrity: sha512-KYSIHVmslkaCDyw013pphY+d7x1qV8IZupYfeIfzNA+nsaWHbn5uPuQRvdRFsa9zFzGeudPuoGoZ1Op4jrJXIQ==}
-
-  '@vscode/l10n@0.0.9':
-    resolution: {integrity: sha512-unov9NybrIXlIlmbDYzkxwigwLfogYpo4DqE+lb7dd6LoocaUEp0L1ghvqFm2UPYfUGJpUV4iS2osxcJsJNQMw==}
 
   '@vscode/ripgrep@1.15.14':
     resolution: {integrity: sha512-/G1UJPYlm+trBWQ6cMO3sv6b8D1+G16WaJH1/DSqw32JOVlzgZbLkDxRyzIpTpv30AcYGMkCf5tUqGlW6HbDWw==}
@@ -2350,8 +2347,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-language-server@1.19.0:
-    resolution: {integrity: sha512-ZKf5swgRYDqyB/Aj6QMShMhO5xuxJbPjBxoOmGqcgLY1w5PdAv93FyZzzm8/DxbEUtsnXe4mF2XoB82sLbdBpA==}
+  yaml-language-server@1.19.1:
+    resolution: {integrity: sha512-EO07kunMFvRQHnhSmtf9xU0if7yRndhsv9GD4uBYC0nzzSBeb/CkLWN7EjWNJ9+0OysMBx/GnGQiGTyKsnfNFg==}
     hasBin: true
 
   yaml@2.7.1:
@@ -3231,8 +3228,6 @@ snapshots:
   '@vscode/l10n@0.0.10': {}
 
   '@vscode/l10n@0.0.18': {}
-
-  '@vscode/l10n@0.0.9': {}
 
   '@vscode/ripgrep@1.15.14':
     dependencies:
@@ -4993,9 +4988,9 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml-language-server@1.19.0:
+  yaml-language-server@1.19.1:
     dependencies:
-      '@vscode/l10n': 0.0.9
+      '@vscode/l10n': 0.0.18
       ajv: 8.17.1
       ajv-draft-04: 1.0.0(ajv@8.17.1)
       lodash: 4.17.21

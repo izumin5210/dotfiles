@@ -101,28 +101,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-aarch64-apple-darwin.tar.gz",
-      "checksum": "E1E59FF3CF6C0837C94DDD4910D43351EC14F8C169ABCFA51E63136D14C9E528",
+      "id": "github_release/github.com/Wilfred/difftastic/0.65.0/difft-aarch64-apple-darwin.tar.gz",
+      "checksum": "B5D565F9586519F7E91799C6E3752B7CACF6110DD855B4CF019816E63C7C7F5F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "F657B0CC1BABA3B5BCDE4FDFBAFBC58F2131476ED53D01E4880898D34A1CB124",
+      "id": "github_release/github.com/Wilfred/difftastic/0.65.0/difft-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "7930428E178BE78370B32DCDF71405AD08DE1065864424141D1D19ECF80469B2",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-apple-darwin.tar.gz",
-      "checksum": "D6B7F1C4A66495400F1F6E224EFDAF82AA66E8930FCB257BC9357D69D52DD69D",
+      "id": "github_release/github.com/Wilfred/difftastic/0.65.0/difft-x86_64-apple-darwin.tar.gz",
+      "checksum": "69CF21CB0629C63DADA7229F6BFE7E91A809335299B25ED14ABEB1080547C692",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-pc-windows-msvc.zip",
-      "checksum": "1AC0113ADF9ADE9417EE133BED38EFE3085B7CCBB32AB620BDC36C4A9B365276",
+      "id": "github_release/github.com/Wilfred/difftastic/0.65.0/difft-x86_64-pc-windows-msvc.zip",
+      "checksum": "2C8382ECC453F905408728BF901AA98289306625FE1F4E37549E90936CBC9D11",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Wilfred/difftastic/0.64.0/difft-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "06DD06DA5593EE29ED9753026310C6C45E0048CD37BB5807E7F07B8F90CFEA5E",
+      "id": "github_release/github.com/Wilfred/difftastic/0.65.0/difft-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "F439A90CB3188BACB77E1EA2BFF636355A5377324C3421D3F2920E10022FD48C",
       "algorithm": "sha256"
     },
     {

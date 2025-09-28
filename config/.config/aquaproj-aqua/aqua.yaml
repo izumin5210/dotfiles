@@ -54,7 +54,7 @@ packages:
   - name: github/github-mcp-server@v0.15.0
   - name: jqlang/jq@jq-1.8.1
   - name: ajeetdsouza/zoxide@v0.9.8
-  - name: Wilfred/difftastic@0.64.0
+  - name: Wilfred/difftastic@0.65.0
   - name: astral-sh/uv@0.8.22
   - name: sxyazi/yazi@v25.5.31
   - name: github/copilot-language-server-release@1.375.0

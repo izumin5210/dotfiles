@@ -391,33 +391,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Darwin_arm64.tar.gz",
-      "checksum": "96EEEF3F477323E4F52D79D4EC67A0828FF3E62783C04053D52488277545FFA0",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Darwin_arm64.tar.gz",
+      "checksum": "8B133ED4783BA101521A4C7F910F17EC4807402460C00BC88AAAB92B9D8DA0C8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Darwin_x86_64.tar.gz",
-      "checksum": "5957BA8638CB1BCA8E5E27D37C5A6B7C611C6E29DCFADC4E157E382A0F555ED2",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Darwin_x86_64.tar.gz",
+      "checksum": "5DBD930D0737F4135FB824658C51FE0ED3924CCBC1ABA05A6B335B9A31D873CB",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Linux_arm64.tar.gz",
-      "checksum": "857F3009DAFC3310064C6294D39783C2F05E1956AA9AC93002C8F59F244B7948",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Linux_arm64.tar.gz",
+      "checksum": "A3C7C37EBA2521421576F54DBC80643D4AA3F2844F80B4EB1D6E582E1F704B75",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Linux_x86_64.tar.gz",
-      "checksum": "14B72EE93F2ADFBE330BE116BC2387845AB2C46B9E686E5659214D7FE75A422B",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Linux_x86_64.tar.gz",
+      "checksum": "B35CDA6B1C529F0B8CEDD0AF971EDC3B436A4CF6E866B3343CFE4A7EC47A3459",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Windows_arm64.zip",
-      "checksum": "5D24A2AB57A4DFC401928279013888A62DC23DB0D401CA117F367F66C5EC4D1B",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Windows_arm64.zip",
+      "checksum": "3456EC5F3FB479EBA39F4545B12C57606CA980608A5BDA32ED991985E765F2D2",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.15.0/github-mcp-server_Windows_x86_64.zip",
-      "checksum": "B1ACA59602B6E703B3166CEB7C54429F346AE9D3F40B9FFDF5273DE33F563E4D",
+      "id": "github_release/github.com/github/github-mcp-server/v0.16.0/github-mcp-server_Windows_x86_64.zip",
+      "checksum": "4BB512D7BE7285AB8B5A001AC13B54621DCA4D8E234A1FA699FA8D4EF2861BF2",
       "algorithm": "sha256"
     },
     {

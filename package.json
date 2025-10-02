@@ -18,7 +18,7 @@
     "gh-actions-language-server": "0.0.3",
     "graphql-language-service-cli": "3.5.0",
     "o3-search-mcp": "0.0.9",
-    "typescript": "5.9.2",
+    "typescript": "5.9.3",
     "typescript-language-server": "5.0.0",
     "vscode-langservers-extracted": "4.10.0",
     "yaml-language-server": "1.19.1"

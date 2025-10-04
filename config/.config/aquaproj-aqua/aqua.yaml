@@ -21,7 +21,7 @@ packages:
   - name: denoland/deno@v2.5.2
   - name: Schniz/fnm@v1.38.1
   # git
-  - name: cli/cli@v2.80.0
+  - name: cli/cli@v2.81.0
   - name: dandavison/delta@0.18.2
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.55.1

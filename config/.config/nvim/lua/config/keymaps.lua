@@ -75,7 +75,6 @@ vim.keymap.set("n", "<S-h>", ":bprevious<CR>", { noremap = true, silent = true, 
 vim.keymap.set("n", "<S-l>", ":bnext<CR>", { noremap = true, silent = true, desc = "Buffer: Next" })
 vim.keymap.set("n", "[b", ":bprevious<CR>", { noremap = true, silent = true, desc = "Buffer: Prev" })
 vim.keymap.set("n", "]b", ":bnext<CR>", { noremap = true, silent = true, desc = "Buffer: Next" })
--- <C-q> to delete buffer using bufdelete.nvim
 
 -- VSCode Neovim
 ----------------------------------------------------------------

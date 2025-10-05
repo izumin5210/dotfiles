@@ -14,22 +14,7 @@ return {
         })
       end,
     },
-    {
-      "fang2hou/blink-copilot",
-    },
-    {
-      "zbirenbaum/copilot.lua",
-      cmd = "Copilot",
-      event = "InsertEnter",
-      opts = {
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-        filetypes = {
-          markdown = true,
-          help = true,
-        },
-      },
-    },
+    { "fang2hou/blink-copilot" },
   },
   init = function()
     local palette = require("utils.colors").palette

@@ -3,84 +3,98 @@ return {
   vscode = true,
   dependencies = { "plenary.nvim" },
   keys = function()
-    local switch_groups = {
-      go = "switch_go",
-      javascript = "switch_js",
-      javascriptreact = "switch_js",
-      typescript = "switch_js",
-      typescriptreact = "switch_js",
-    }
-
-    local function get_switch_group()
-      return switch_groups[vim.bo.filetype] or "switch"
+    ---@param dir "inc"|"dec"
+    ---@param g ''|'g'
+    local manipulate_func = function(dir, g)
+      return function()
+        local m = vim.fn.mode(true)
+        local is_visual = m == "v" or m == "V" or m == "\22"
+        local mode = g .. (is_visual and "visual" or "normal")
+        local group_name = require("dial.config").augends.group[vim.bo.filetype] and vim.bo.filetype or "default"
+        return require("dial.map").manipulate(dir .. "rement", mode, group_name)
+      end
     end
 
-    local actions = {
-      inc_normal = function()
-        return require("dial.map").inc_normal()
-      end,
-      dec_normal = function()
-        return require("dial.map").dec_normal()
-      end,
-      inc_visual = function()
-        return require("dial.map").inc_visual()
-      end,
-      dec_visual = function()
-        return require("dial.map").dec_visual()
-      end,
-      inc_gvisual = function()
-        return require("dial.map").inc_gvisual()
-      end,
-      dec_gvisual = function()
-        return require("dial.map").dec_gvisual()
-      end,
-      inc_custom = function()
-        return require("dial.map").inc_normal(get_switch_group())
-      end,
-      dec_custom = function()
-        return require("dial.map").dec_normal(get_switch_group())
-      end,
+    return {
+      { "<C-a>", manipulate_func("inc", ""), mode = { "n", "x" }, desc = "Edit: Increment" },
+      { "<C-x>", manipulate_func("dec", ""), mode = { "n", "x" }, desc = "Edit: Decrement" },
+      { "g<C-a>", manipulate_func("inc", "g"), mode = { "n", "x" }, desc = "Edit: Increment" },
+      { "g<C-x>", manipulate_func("inc", "g"), mode = { "n", "x" }, desc = "Edit: Decrement" },
     }
-
-    return require("utils.keymap").lazy_keymap({
-      {
-        { "n", "<C-a>", actions.inc_normal, desc = "Increment" },
-        { "n", "<C-x>", actions.dec_normal, desc = "Decrement" },
-        { "v", "<C-a>", actions.inc_visual, desc = "Increment" },
-        { "v", "<C-x>", actions.dec_visual, desc = "Decrement" },
-        { "v", "g<C-a>", actions.inc_gvisual, desc = "Increment" },
-        { "v", "g<C-x>", actions.dec_gvisual, desc = "Decrement" },
-        { "n", "<leader>a", actions.inc_custom, desc = "Switch prev" },
-        { "n", "<leader>x", actions.dec_custom, desc = "Switch next" },
-      },
-      desc_prefix = "Edit",
-      common = { expr = true, noremap = true },
-    })
   end,
   config = function()
     local augend = require("dial.augend")
-    local switch_common = {
+
+    local weekdays = augend.constant.new({
+      elements = {
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+        "Sunday",
+      },
+      word = true,
+      cyclic = true,
+    })
+
+    local months = augend.constant.new({
+      elements = {
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      },
+      word = true,
+      cyclic = true,
+    })
+
+    local default = {
+      augend.integer.alias.decimal,
+      augend.integer.alias.hex,
+      augend.date.alias["%Y/%m/%d"],
+      augend.date.alias["%Y-%m-%d"],
+      augend.constant.alias.ja_weekday_full,
+      weekdays,
+      months,
       augend.constant.alias.bool,
       augend.constant.new({ elements = { "&&", "||" }, word = false, cyclic = true }),
       augend.constant.new({ elements = { "==", "!=" }, word = false, cyclic = true }),
-      augend.case.new({
-        types = { "camelCase", "snake_case", "kebab-case" },
-        cyclic = true,
-      }),
-      augend.case.new({
-        types = { "PascalCase", "SCREAMING_SNAKE_CASE" },
-        cyclic = true,
-      }),
+      augend.case.new({ types = { "camelCase", "snake_case" }, cyclic = true }),
+      augend.case.new({ types = { "PascalCase", "SCREAMING_SNAKE_CASE" }, cyclic = true }),
     }
+
+    local group_go = vim.list_extend({
+      augend.constant.new({ elements = { "=", ":=" }, word = false, cyclic = true }),
+      augend.constant.new({ elements = { "var", "const" }, cyclic = true }),
+    }, default)
+
+    local group_js = vim.list_extend({
+      augend.paren.new({
+        patterns = { { '"', '"' }, { "'", "'" }, { "`", "`" } },
+        nested = false,
+        escape_char = [[\]],
+        cyclic = true,
+      }),
+      augend.constant.new({ elements = { "let", "const" }, cyclic = true }),
+    }, default)
+
     require("dial.config").augends:register_group({
-      switch = switch_common,
-      switch_go = vim.list_extend({
-        augend.constant.new({ elements = { "=", ":=" }, word = false, cyclic = true }),
-        augend.constant.new({ elements = { "var", "const" }, cyclic = true }),
-      }, switch_common),
-      switch_js = vim.list_extend({
-        augend.constant.new({ elements = { "let", "const" }, cyclic = true }),
-      }, switch_common),
+      default = default,
+      go = group_go,
+      javascript = group_js,
+      javascriptreact = group_js,
+      typescript = group_js,
+      typescriptreact = group_js,
     })
   end,
 }

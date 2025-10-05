@@ -105,6 +105,7 @@ return {
         typescriptreact = { "biome", "prettierd", stop_after_first = true },
         json            = { "biome", "prettierd", stop_after_first = true },
         jsonc           = { "biome", "prettierd", stop_after_first = true },
+        graphql         = { "biome", "prettierd", stop_after_first = true },
         lua             = { "stylua" },
         sh              = { "shfmt" },
         zsh             = { "shfmt" },

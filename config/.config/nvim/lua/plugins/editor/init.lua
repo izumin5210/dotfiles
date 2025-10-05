@@ -47,21 +47,6 @@ return {
   },
   -- Buffers
   {
-    "famiu/bufdelete.nvim",
-    lazy = true,
-    keys = {
-      {
-        "<C-q>",
-        function()
-          require("bufdelete").bufdelete(0, false)
-        end,
-        mode = "n",
-        noremap = true,
-        desc = "Buffer: Delete",
-      },
-    },
-  },
-  {
     "chrisgrieser/nvim-early-retirement",
     event = "VeryLazy",
     opts = {

@@ -57,8 +57,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       typescript-language-server:
-        specifier: 5.0.0
-        version: 5.0.0
+        specifier: 5.0.1
+        version: 5.0.1
       vscode-langservers-extracted:
         specifier: 4.10.0
         version: 4.10.0
@@ -2046,8 +2046,8 @@ packages:
   typescript-auto-import-cache@0.3.6:
     resolution: {integrity: sha512-RpuHXrknHdVdK7wv/8ug3Fr0WNsNi5l5aB8MYYuXhq2UH5lnEB1htJ1smhtD5VeCsGr2p8mUDtd83LCQDFVgjQ==}
 
-  typescript-language-server@5.0.0:
-    resolution: {integrity: sha512-Glr+4Ss9g6AupBPj3tnk3mrlSH1ROS2Zmr5h0Vmy3DA+MVq+5qq4tv4+SogB8VsEZ13Z9xU01zm54MMyI7Gdzw==}
+  typescript-language-server@5.0.1:
+    resolution: {integrity: sha512-+qwfddk3LvEbMRlcdDJya58A6pn0tO9nuBp6hRHfBwwGBm8KTkkf3V9iQLM2lgIEUc3vnuMmfzFG/dCFF/whvg==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3639,7 +3639,7 @@ snapshots:
   dockerfile-ast@0.7.1:
     dependencies:
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.17.3
+      vscode-languageserver-types: 3.17.5
 
   dockerfile-language-server-nodejs@0.14.1:
     dependencies:
@@ -4654,7 +4654,7 @@ snapshots:
     dependencies:
       semver: 7.7.2
 
-  typescript-language-server@5.0.0:
+  typescript-language-server@5.0.1:
     dependencies:
       vscode-jsonrpc: 5.0.1
       vscode-languageserver-protocol: 3.17.5

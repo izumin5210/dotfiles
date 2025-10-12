@@ -2,6 +2,7 @@ return {
   {
     "tadaa/vimade",
     version = "*",
+    event = { "BufReadPre", "BufWritePre", "BufNewFile" },
     dependencies = { "catppuccin" },
     opts = function()
       return {

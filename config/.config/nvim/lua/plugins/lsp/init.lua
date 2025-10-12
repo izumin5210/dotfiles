@@ -1,7 +1,7 @@
 return {
   {
     "neovim/nvim-lspconfig",
-    -- event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+    event = { "BufReadPre", "BufWritePre", "BufNewFile" },
     dependencies = { "blink.cmp" },
     init = function()
       local colors = require("utils.colors")

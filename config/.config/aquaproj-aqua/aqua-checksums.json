@@ -391,36 +391,6 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Darwin_arm64.tar.gz",
-      "checksum": "07FD9E30E2E5F7FAB882C0188FCB966A978C629EABE776D51ECA00B9E0783898",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Darwin_x86_64.tar.gz",
-      "checksum": "D2BEA98C21141FAA89350FF672CEDB551F36922E2A6C3C69DC5557C5F4149AD0",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Linux_arm64.tar.gz",
-      "checksum": "62AFAC25F8E7AD4FC2C53D906C5B702093B19BF4993F713691773A0073A43F5E",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Linux_x86_64.tar.gz",
-      "checksum": "56675D45907C042C03F50E7256CEE3FFB1EBEDC0D4CA69C896257E7F48A13D3D",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Windows_arm64.zip",
-      "checksum": "D0FC1C3DAE252CAB28F9EFBB7D3B8514D337A3AEBFE793A7A03C15B2CB26748B",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/github-mcp-server/v0.17.1/github-mcp-server_Windows_x86_64.zip",
-      "checksum": "879824FB81E8ECBA22F969CABB43DA0CDACE689150EFF1B759F5BE79FDAE7030",
-      "algorithm": "sha256"
-    },
-    {
       "id": "github_release/github.com/golangci/golangci-lint/v1.64.8/golangci-lint-1.64.8-darwin-amd64.tar.gz",
       "checksum": "B52AEBB8CB51E00BFD5976099083FBE2C43EF556CEF9C87E58A8AE656E740444",
       "algorithm": "sha256"

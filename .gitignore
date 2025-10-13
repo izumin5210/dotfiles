@@ -206,6 +206,10 @@ dist
 /config/.claude/shell-snapshots
 /config/.claude/statsig
 /config/.claude/todos
+/config/.claude/debug
+/config/.claude/file-history
+/config/.claude/.update.lock
+/config/.claude/history.jsonl
 /config/.claude/scripts/tmp
 !/config/.claude/scripts/tmp/.gitkeep
 

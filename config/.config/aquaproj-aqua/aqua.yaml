@@ -17,7 +17,7 @@ packages:
   - name: golangci/golangci-lint@v1.64.8
   - name: nametake/golangci-lint-langserver@v0.0.11
   # javascript
-  - name: pnpm/pnpm@v10.18.1
+  - name: pnpm/pnpm@v10.18.2
   - name: denoland/deno@v2.5.4
   - name: Schniz/fnm@v1.38.1
   # python

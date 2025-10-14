@@ -34,7 +34,7 @@ packages:
   - name: rossmacarthur/sheldon@0.8.5
   # linters, formatters, language servers
   - name: bufbuild/buf@v1.58.0
-  - name: rhysd/actionlint@v1.7.7
+  - name: rhysd/actionlint@v1.7.8
   - name: hadolint/hadolint@v2.14.0
   - name: mvdan/sh@v3.12.0
   - name: JohnnyMorganz/StyLua@v2.3.0

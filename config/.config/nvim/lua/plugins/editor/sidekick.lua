@@ -6,6 +6,7 @@ return {
     cli = {
       win = {
         keys = {
+          prompt = false,
           -- override default window navigation to use <c-w>h/j/k/l from <c-h/j/k/l>
           nav_left = { "<c-w>h", "nav_left", expr = true, desc = "navigate to the left window" },
           nav_down = { "<c-w>j", "nav_down", expr = true, desc = "navigate to the below window" },

@@ -4,6 +4,15 @@ return {
   ---@class sidekick.Config
   opts = {
     cli = {
+      win = {
+        keys = {
+          -- override default window navigation to use <c-w>h/j/k/l from <c-h/j/k/l>
+          nav_left = { "<c-w>h", "nav_left", expr = true, desc = "navigate to the left window" },
+          nav_down = { "<c-w>j", "nav_down", expr = true, desc = "navigate to the below window" },
+          nav_up = { "<c-w>k", "nav_up", expr = true, desc = "navigate to the above window" },
+          nav_right = { "<c-w>l", "nav_right", expr = true, desc = "navigate to the right window" },
+        },
+      },
       mux = { backend = "tmux", enabled = false },
     },
   },

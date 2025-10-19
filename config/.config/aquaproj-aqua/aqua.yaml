@@ -23,7 +23,7 @@ packages:
   # python
   - name: astral-sh/uv@0.9.3
   # git
-  - name: cli/cli@v2.81.0
+  - name: cli/cli@v2.82.0
   - name: dandavison/delta@0.18.2
   - name: x-motemen/ghq@v1.8.0
   - name: jesseduffield/lazygit@v0.55.1

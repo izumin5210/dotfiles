@@ -18,8 +18,8 @@ importers:
         specifier: 0.46.0
         version: 0.46.0
       '@playwright/mcp':
-        specifier: 0.0.42
-        version: 0.0.42
+        specifier: 0.0.43
+        version: 0.0.43
       '@prisma/language-server':
         specifier: 6.17.1
         version: 6.17.1
@@ -573,8 +573,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  '@playwright/mcp@0.0.42':
-    resolution: {integrity: sha512-oYkZnxq6vSPAVUD7Wjensok3IO8m7quCoJLPkRBk4VGx8MGA7zyGTgqjB/fpqB4PABa96TW7dkT/psln0tLipg==}
+  '@playwright/mcp@0.0.43':
+    resolution: {integrity: sha512-MqZ7AljsV/Z0t02L/IXFbb+uMSRLpoIJanXkFHT62MQSVj92qTyQt/9yey5KlRpBuqOkOw5LoTyGEUqCF4l/lQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1990,13 +1990,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.57.0-alpha-2025-10-09:
-    resolution: {integrity: sha512-K6BwJMLn+2wLRu/iqk0l4MJ1Ou1tObap3UMX+sVoXrgAOBG1/L5RTe70NVTB1ROrsgZYxaqFGMyo53bBN/uw5Q==}
+  playwright-core@1.57.0-alpha-2025-10-16:
+    resolution: {integrity: sha512-QfB4sdxqkxN3mrBii/Fqh65qSggrPbcDMJcsqjwsShn1lxbX48P8WuNNSdF05lwDfgS3BsQBkay3SdY3caueAg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.57.0-alpha-2025-10-09:
-    resolution: {integrity: sha512-43vX0bt/YQANmKuWMDJSQMtic5iKBgqD6YMFgM045hELzFE5/mbRKRZI+iPVrFbKsvyClWzd/HVIvluwkbJVqg==}
+  playwright@1.57.0-alpha-2025-10-16:
+    resolution: {integrity: sha512-a1527pq+d/EQRwfoUpnTfjZqA04qs5y3A3HedQZiU6Vicc35VcIIpYin99pklFQdyBd1M9oj9oKFsHbilflo6g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -3344,10 +3344,10 @@ snapshots:
 
   '@openai/codex@0.46.0': {}
 
-  '@playwright/mcp@0.0.42':
+  '@playwright/mcp@0.0.43':
     dependencies:
-      playwright: 1.57.0-alpha-2025-10-09
-      playwright-core: 1.57.0-alpha-2025-10-09
+      playwright: 1.57.0-alpha-2025-10-16
+      playwright-core: 1.57.0-alpha-2025-10-16
 
   '@prisma/config@6.17.1':
     dependencies:
@@ -4915,11 +4915,11 @@ snapshots:
       exsolve: 1.0.7
       pathe: 2.0.3
 
-  playwright-core@1.57.0-alpha-2025-10-09: {}
+  playwright-core@1.57.0-alpha-2025-10-16: {}
 
-  playwright@1.57.0-alpha-2025-10-09:
+  playwright@1.57.0-alpha-2025-10-16:
     dependencies:
-      playwright-core: 1.57.0-alpha-2025-10-09
+      playwright-core: 1.57.0-alpha-2025-10-16
     optionalDependencies:
       fsevents: 2.3.2
 

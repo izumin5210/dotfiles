@@ -15,7 +15,7 @@
     "any-script-mcp": "0.3.0",
     "bash-language-server": "5.6.0",
     "chrome-devtools-mcp": "0.8.1",
-    "dockerfile-language-server-nodejs": "0.14.1",
+    "dockerfile-language-server-nodejs": "0.15.0",
     "gh-actions-language-server": "0.0.3",
     "graphql-language-service-cli": "3.5.0",
     "o3-search-mcp": "0.0.9",

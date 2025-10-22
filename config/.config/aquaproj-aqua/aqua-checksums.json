@@ -741,28 +741,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-aarch64-apple-darwin.tar.gz",
-      "checksum": "B3ED5A7515545445881F1036F0CC1B708C2B86CBCE01C1B4033F38E0CFCC7B3C",
+      "id": "github_release/github.com/sharkdp/bat/v0.26.0/bat-v0.26.0-aarch64-apple-darwin.tar.gz",
+      "checksum": "0B66666577B551E2ADBA9CDCF35A265AE595C5B8D4B500ACB85817C4678D2F85",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "EE0F12CF6006A79CF4CCF75D2DDCF9F6BA124644503244B1AF909C2F72A2A9F7",
+      "id": "github_release/github.com/sharkdp/bat/v0.26.0/bat-v0.26.0-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "6EE11BD8A520C514E230669156D9298F0DD2B5AFC788C0952A4B14FCEC51EAEE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-apple-darwin.tar.gz",
-      "checksum": "B974AA834B6B65610090AED2BC7310D11C6F500105696D23A130AEE24FD8380F",
+      "id": "github_release/github.com/sharkdp/bat/v0.26.0/bat-v0.26.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "24D5A93D50CBAEEB977484C63CE88208DD0436B6AAA751562ADD1DAA9B295F21",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-pc-windows-msvc.zip",
-      "checksum": "1D5CED071BA9C765E16F4065877C178CEFCFD2FE9581E9DDC92AF265B73991BD",
+      "id": "github_release/github.com/sharkdp/bat/v0.26.0/bat-v0.26.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "A8A6862F14698B45E101B0932C69BC47A007F4C0456F3A129FDCEF54D443D501",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sharkdp/bat/v0.25.0/bat-v0.25.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "93F47D76ABE328C402EF712E9AC92AA6D5BC84D5ADCBCAF0BBC5665E5275A941",
+      "id": "github_release/github.com/sharkdp/bat/v0.26.0/bat-v0.26.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "26A683B038FBC526C6DF4166DB693DDC9E431E5BDC285D45CCD6B72F3CFF5FFD",
       "algorithm": "sha256"
     },
     {

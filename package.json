@@ -5,7 +5,7 @@
   "devDependencies": {
     "@anthropic-ai/claude-code": "2.0.25",
     "@fsouza/prettierd": "0.26.2",
-    "@openai/codex": "0.47.0",
+    "@openai/codex": "0.50.0",
     "@playwright/mcp": "0.0.43",
     "@prisma/language-server": "6.18.0",
     "@tailwindcss/language-server": "0.14.29",

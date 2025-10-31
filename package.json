@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@anthropic-ai/claude-code": "2.0.27",
+    "@anthropic-ai/claude-code": "2.0.28",
     "@fsouza/prettierd": "0.26.2",
     "@openai/codex": "0.50.0",
     "@playwright/mcp": "0.0.44",

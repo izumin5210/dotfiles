@@ -56,6 +56,6 @@ customCommands:
     context: "global"
     command: "gh home"
   - key: "<c-r>"
-    command: "gh pr create --fill-first --web"
+    command: "git pr"
     context: "global"
     loadingText: "Creating pull request on GitHub"

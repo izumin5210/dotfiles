@@ -23,7 +23,8 @@
     fetch-default-branch = "!f() { git ls-remote --symref $(git remote get-url origin) HEAD | grep 'refs/heads' | awk '$0=$2' | sed 's/refs\\/heads\\///'; }; f"
     refresh-default-branch= "!f() { git set-branch-cache default $(git fetch-default-branch); }; f"
     default-branch = "!f() { git get-branch-cache default || (git refresh-default-branch; git get-branch-cache default); }; f"
-    pr = "gh pr create --web"
+    base-branch = "!f() { git show-branch | grep '*' | grep -v "$(git rev-parse --abbrev-ref HEAD)" | head -1 | awk -F'[]~^[]' '{print $2}'; }; f"
+    pr = "!f() { gh pr create --web --fill-first --base $(base="$(git base-branch)"; [ -n "$base" ] && printf '%s\n' "$base" || git default-branch); }; f"
     dft = difftool
 [push]
     default = current

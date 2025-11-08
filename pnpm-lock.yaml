@@ -15,8 +15,8 @@ importers:
         specifier: 0.26.2
         version: 0.26.2(typescript@5.9.3)
       '@openai/codex':
-        specifier: 0.53.0
-        version: 0.53.0
+        specifier: 0.55.0
+        version: 0.55.0
       '@playwright/mcp':
         specifier: 0.0.45
         version: 0.0.45
@@ -564,8 +564,8 @@ packages:
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
 
-  '@openai/codex@0.53.0':
-    resolution: {integrity: sha512-p9FxjMQuEU1LQ+YG2HPci1fafNAAvL2q8mXJkfTsPLUU1/uTsOohemtbvjC+LYTHd99Y6WseaAdmm1JBXqGsHw==}
+  '@openai/codex@0.55.0':
+    resolution: {integrity: sha512-6YPwBebKIpwR0WjyO66yThSaMyi9yRizFGIfrQ6eSVUxrI3jFtm0Zhzb0RgSRNgSUFHMOJs2urkRctiLdSXADQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -3021,7 +3021,7 @@ snapshots:
 
   '@one-ini/wasm@0.2.0': {}
 
-  '@openai/codex@0.53.0': {}
+  '@openai/codex@0.55.0': {}
 
   '@playwright/mcp@0.0.45':
     dependencies:

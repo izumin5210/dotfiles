@@ -60,8 +60,8 @@ importers:
         specifier: 5.9.3
         version: 5.9.3
       typescript-language-server:
-        specifier: 5.1.0
-        version: 5.1.0
+        specifier: 5.1.1
+        version: 5.1.1
       vscode-langservers-extracted:
         specifier: 4.10.0
         version: 4.10.0
@@ -2034,8 +2034,8 @@ packages:
   typescript-auto-import-cache@0.3.6:
     resolution: {integrity: sha512-RpuHXrknHdVdK7wv/8ug3Fr0WNsNi5l5aB8MYYuXhq2UH5lnEB1htJ1smhtD5VeCsGr2p8mUDtd83LCQDFVgjQ==}
 
-  typescript-language-server@5.1.0:
-    resolution: {integrity: sha512-wXzJBK4S8laS31RvqZ9H5EAAhWtBXLYBIuO3fESGyNJg6Az7vHd6M1IjiYBPUJfoDWP/m49yCEEvY8mN5zS7Vw==}
+  typescript-language-server@5.1.1:
+    resolution: {integrity: sha512-KFOvyFxN5YCTrS1i3tl543kF+yjA3Ih7IQbWZm9b5LZ21LBdSigSduMgqqMDXmfkm/fIkm3XR914lC3mPAuMag==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4622,7 +4622,7 @@ snapshots:
     dependencies:
       semver: 7.7.3
 
-  typescript-language-server@5.1.0:
+  typescript-language-server@5.1.1:
     dependencies:
       vscode-jsonrpc: 5.0.1
       vscode-languageserver-protocol: 3.17.5

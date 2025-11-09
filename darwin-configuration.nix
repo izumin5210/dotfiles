@@ -22,6 +22,12 @@
       orientation = "right";
       show-recents = false;
       tilesize = 48;
+      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-mission-control
+      expose-group-apps = true;
+    };
+    spaces = {
+      # https://nikitabobko.github.io/AeroSpace/guide#a-note-on-displays-have-separate-spaces
+      spans-displays = true;
     };
     finder = {
       AppleShowAllExtensions = true;

@@ -25,14 +25,11 @@
     }:
     let
       mkDarwinSystem =
-        { hostname, username }:
-        let
-          workHosts = [
-            "CM2NX3M6CH"
-            "GFW3CPVPT2"
-          ];
-          isWorkMac = builtins.elem hostname workHosts;
-        in
+        {
+          hostname,
+          username,
+          isWorkMac,
+        }:
         nix-darwin.lib.darwinSystem {
           system = "aarch64-darwin";
           modules = [
@@ -51,24 +48,21 @@
       darwinConfigurations."fleur" = mkDarwinSystem {
         hostname = "fleur";
         username = "izumin";
+        isWorkMac = false;
       };
 
       # Mac mini, M4 (personal)
       darwinConfigurations."rabbithouse" = mkDarwinSystem {
         hostname = "rabbithouse";
         username = "izumin";
-      };
-
-      # MacBook Pro, M1 Pro (work)
-      darwinConfigurations."CM2NX3M6CH" = mkDarwinSystem {
-        hostname = "CM2NX3M6CH";
-        username = "masayuki.izumi";
+        isWorkMac = false;
       };
 
       # MacBook Pro, M4 Pro (work)
       darwinConfigurations."GFW3CPVPT2" = mkDarwinSystem {
         hostname = "GFW3CPVPT2";
         username = "masayuki.izumi";
+        isWorkMac = true;
       };
     };
 }

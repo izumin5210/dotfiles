@@ -40,7 +40,7 @@ packages:
   - name: JohnnyMorganz/StyLua@v2.3.1
   - name: grafana/jsonnet-language-server@v0.16.0
   - name: LuaLS/lua-language-server@3.15.0
-  - name: github/copilot-language-server-release@1.393.0
+  - name: github/copilot-language-server-release@1.394.0
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.22.0
   - name: aws/aws-cli@2.31.32

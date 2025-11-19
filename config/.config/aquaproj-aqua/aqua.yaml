@@ -56,5 +56,5 @@ packages:
   - name: jesseduffield/lazydocker@v0.24.2
   - name: jqlang/jq@jq-1.8.1
   - name: ajeetdsouza/zoxide@v0.9.8
-  - name: Wilfred/difftastic@0.65.0
+  - name: Wilfred/difftastic@0.67.0
   - name: sxyazi/yazi@v25.5.31

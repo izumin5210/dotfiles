@@ -33,7 +33,7 @@ packages:
   - name: starship/starship@v1.24.1
   - name: rossmacarthur/sheldon@0.8.5
   # linters, formatters, language servers
-  - name: bufbuild/buf@v1.60.0
+  - name: bufbuild/buf@v1.61.0
   - name: rhysd/actionlint@v1.7.9
   - name: hadolint/hadolint@v2.14.0
   - name: mvdan/sh@v3.12.0

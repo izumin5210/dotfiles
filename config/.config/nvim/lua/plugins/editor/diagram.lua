@@ -1,7 +1,7 @@
 return {
   "3rd/diagram.nvim",
   dependencies = {
-    { "3rd/image.nvim", opts = {} },
+    { "3rd/image.nvim", build = false, opts = {} },
   },
   opts = {
     -- Disable automatic rendering for manual-only workflow

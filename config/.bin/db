@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+#
+
+set -euo pipefail
+
+MYSQL_URL="mysql://root:password@127.0.0.1:3306"
+POSTGRES_URL="postgres://postgres:password@localhost:5432?sslmode=disable"
+
+listMysqlDatabases() {
+  mysql -u root -ppassword -h 127.0.0.1 -P 3306 -N -e "SHOW DATABASES;" 2>/dev/null |
+    while read -r db; do
+      printf "\e[0;33m%-10s\e[m%s\n" "mysql" "$db"
+    done
+}
+
+listPostgresDatabases() {
+  psql "$POSTGRES_URL" -t -c "SELECT datname FROM pg_database WHERE datistemplate = false;" 2>/dev/null |
+    while read -r db; do
+      db=$(echo "$db" | xargs)
+      if [[ -n "$db" ]]; then
+        printf "\e[0;34m%-10s\e[m%s\n" "postgres" "$db"
+      fi
+    done
+}
+
+listDatabases() {
+  listMysqlDatabases
+  listPostgresDatabases
+}
+
+main() {
+  local selected
+  selected=$(listDatabases | fzf --no-hscroll --no-multi --ansi)
+
+  local db_type db_name url
+  db_type=$(echo "$selected" | awk '{print $1}')
+  db_name=$(echo "$selected" | awk '{print $2}')
+
+  case "$db_type" in
+  mysql)
+    url="${MYSQL_URL}/${db_name}"
+    ;;
+  postgres)
+    url="${POSTGRES_URL%\?*}/${db_name}?sslmode=disable"
+    ;;
+  *)
+    echo "Unknown database type: $db_type" >&2
+    exit 1
+    ;;
+  esac
+
+  exec lazysql "$url"
+}
+
+main

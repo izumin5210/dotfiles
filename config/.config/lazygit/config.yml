@@ -2,14 +2,13 @@
 
 git:
   branchPrefix: "izumin5210/"
-  paging:
-    externalDiffCommand: "difft --color=always"
+  pagers:
+    - externalDiffCommand: "difft --color=always"
   mainBranches:
     - "main"
     - "master"
     - "develop"
   parseEmoji: true
-
 gui:
   nerdFontsVersion: "3"
   border: "single"
@@ -35,22 +34,19 @@ gui:
       - "#c6d0f5"
     searchingActiveBorderColor:
       - "#e5c890"
-
 os:
   editPreset: "nvim-remote"
   edit: >
-    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
-    | lua _G._SNACKS_LG_CLOSE()"
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}') | lua _G._SNACKS_LG_CLOSE()"
+
   editAtLine: >
-    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
-    | {{line}} | lua _G._SNACKS_LG_CLOSE()"
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}') | {{line}} | lua _G._SNACKS_LG_CLOSE()"
+
   editAtLineAndWait: >
-    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}')
-    | {{line}} | lua _G._SNACKS_LG_CLOSE()" --remote-wait-silent
+    nvr -cc "execute 'wincmd p | drop ' . fnameescape('{{filename}}') | {{line}} | lua _G._SNACKS_LG_CLOSE()" --remote-wait-silent
 
 confirmOnQuit: true
 quitOnTopLevelReturn: true
-
 customCommands:
   - key: "<c-s>"
     context: "global"

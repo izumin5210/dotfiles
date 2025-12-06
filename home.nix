@@ -74,6 +74,7 @@
     pkgs.diff-pdf
     pkgs.graphviz
     pkgs.htop
+    pkgs.imagemagick
     pkgs.neovim-remote
     pkgs.semgrep
     pkgs.tailscale

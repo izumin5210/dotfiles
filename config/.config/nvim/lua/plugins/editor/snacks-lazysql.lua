@@ -21,7 +21,7 @@ local function list_databases(on_done)
   -- MySQL
   vim.system(
     { "mysql", "-u", "root", "-ppassword", "-h", "127.0.0.1", "-P", "3306", "-N", "-e", "SHOW DATABASES;" },
-    { text = true },
+    { text = true, timeout = 1000 },
     function(result)
       if result.code == 0 and result.stdout then
         for db in result.stdout:gmatch("[^\r\n]+") do
@@ -39,7 +39,7 @@ local function list_databases(on_done)
   -- PostgreSQL
   vim.system(
     { "psql", POSTGRES_URL, "-t", "-c", "SELECT datname FROM pg_database WHERE datistemplate = false;" },
-    { text = true },
+    { text = true, timeout = 1000 },
     function(result)
       if result.code == 0 and result.stdout then
         for db in result.stdout:gmatch("[^\r\n]+") do

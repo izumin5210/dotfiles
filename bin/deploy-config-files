@@ -48,6 +48,9 @@ mkdir -p ~/.config
 # lazygit
 ./bin/ln-idempotently ./config/.config/lazygit ~/.config/lazygit
 
+# lazygit
+./bin/ln-idempotently ./config/.config/lazysql ~/.config/lazysql
+
 # ripgrep
 ./bin/ln-idempotently ./config/.config/ripgrep ~/.config/ripgrep
 

@@ -6,8 +6,10 @@ return {
     dependencies = { "catppuccin" },
     opts = function()
       return {
+        recipe = { "minimalist", { animate = true } },
         fadelevel = 0.6,
         basebg = require("utils.colors").palette.base,
+        ncmode = "windows",
       }
     end,
   },

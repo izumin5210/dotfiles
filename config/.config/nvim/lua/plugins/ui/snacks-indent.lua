@@ -4,12 +4,16 @@ return {
   opts = {
     indent = {
       enabled = true,
-      animate = {
+      animate = { enabled = true },
+      scope = { enabeld = true, only_current = true },
+      chunk = {
         enabled = true,
-        duration = { total = 300 },
+        only_current = true,
+        char = {
+          corner_top = "╭",
+          corner_bottom = "╰",
+        },
       },
-      scope = { enabeld = true },
-      chunk = { enabled = true },
     },
     _inits = {
       function()

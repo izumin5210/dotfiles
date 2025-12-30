@@ -76,7 +76,6 @@
     ++ (lib.optionals (!isWorkMac) [
       "1password"
       "google-chrome"
-      "steam"
     ])
     ++ (lib.optionals isWorkMac [
       "notion"

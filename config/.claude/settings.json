@@ -175,7 +175,11 @@
     "reflexion@context-engineering-kit": true,
     "sadd@context-engineering-kit": true,
     "changelog-generator@awesome-claude-skills": true,
-    "webapp-testing@awesome-claude-skills": true
+    "webapp-testing@awesome-claude-skills": true,
+    "Notion@claude-plugins-official": true,
+    "content-research-writer@awesome-claude-skills": true,
+    "docs@context-engineering-kit": true,
+    "tech-stack@context-engineering-kit": true
   },
   "extraKnownMarketplaces": {
     "awesome-claude-skills": {

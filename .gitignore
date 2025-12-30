@@ -200,16 +200,9 @@ dist
 /result
 
 # Claude Code
-/config/.claude/ide
-/config/.claude/projects
-/config/.claude/plugins
-/config/.claude/shell-snapshots
-/config/.claude/statsig
-/config/.claude/todos
-/config/.claude/debug
-/config/.claude/file-history
-/config/.claude/.update.lock
-/config/.claude/history.jsonl
+/config/.claude
+!/config/.claude/CLAUDE.md
+!/config/.claude/scripts
 /config/.claude/scripts/tmp
 !/config/.claude/scripts/tmp/.gitkeep
-
+!/config/.claude/settings.json

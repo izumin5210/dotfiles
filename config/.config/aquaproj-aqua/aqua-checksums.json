@@ -56,28 +56,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/LuaLS/lua-language-server/3.15.0/lua-language-server-3.15.0-darwin-arm64.tar.gz",
-      "checksum": "050F5F493F65112AFC116E31281A9F73918546782D3696485DC052724838F58B",
+      "id": "github_release/github.com/LuaLS/lua-language-server/3.16.4/lua-language-server-3.16.4-darwin-arm64.tar.gz",
+      "checksum": "54EB1C78408922FF7DB997BE2939A8F873E5D9D8975D2E075305511626B45021",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/LuaLS/lua-language-server/3.15.0/lua-language-server-3.15.0-darwin-x64.tar.gz",
-      "checksum": "01D28A31E264434E51662814A68F584AF068393CAECFA158C4DF5F7FDC3CA2F7",
+      "id": "github_release/github.com/LuaLS/lua-language-server/3.16.4/lua-language-server-3.16.4-darwin-x64.tar.gz",
+      "checksum": "84428D774A06B90B863A851EFA1ED46D149EF102102BC32B7F9939A395FC8A96",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/LuaLS/lua-language-server/3.15.0/lua-language-server-3.15.0-linux-arm64.tar.gz",
-      "checksum": "7DFF8EDFED4F34CF6325FF384791287D95F9A8DD9615A5279C7C6AF81CF8C45D",
+      "id": "github_release/github.com/LuaLS/lua-language-server/3.16.4/lua-language-server-3.16.4-linux-arm64.tar.gz",
+      "checksum": "43C0EA3634258280CA635E0494E8F75E6A8B0E59E993D530824D97B3A6C695F1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/LuaLS/lua-language-server/3.15.0/lua-language-server-3.15.0-linux-x64.tar.gz",
-      "checksum": "4877B874C52FB7587707898DA9026CC3A6C854D9BBAB115EF49AC4E6A1B88007",
+      "id": "github_release/github.com/LuaLS/lua-language-server/3.16.4/lua-language-server-3.16.4-linux-x64.tar.gz",
+      "checksum": "93D9F29FB4E4E98BDDF329223A90387CC1E84057902F9455D56FDB98E4E89560",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/LuaLS/lua-language-server/3.15.0/lua-language-server-3.15.0-win32-x64.zip",
-      "checksum": "76A10C05E8C947A448F00A61ACEAD4240484CD1E2E8C66D54401C67D99B77535",
+      "id": "github_release/github.com/LuaLS/lua-language-server/3.16.4/lua-language-server-3.16.4-win32-x64.zip",
+      "checksum": "712439CE616676A18EE212A49F5D8F4C5AC39B11132A718BFC6E3A427ADF0EDF",
       "algorithm": "sha256"
     },
     {

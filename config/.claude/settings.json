@@ -163,16 +163,6 @@
       }
     ]
   },
-  "extraKnownMarketplaces": {
-    "awesome-claude-skills": {
-      "source": "github",
-      "repo": "ComposioHQ/awesome-claude-skills"
-    },
-    "context-engineering-kit": {
-      "source": "github",
-      "repo": "NeoLabHQ/context-engineering-kit"
-    }
-  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
@@ -186,5 +176,19 @@
     "sadd@context-engineering-kit": true,
     "changelog-generator@awesome-claude-skills": true,
     "webapp-testing@awesome-claude-skills": true
+  },
+  "extraKnownMarketplaces": {
+    "awesome-claude-skills": {
+      "source": {
+        "source": "github",
+        "repo": "ComposioHQ/awesome-claude-skills"
+      }
+    },
+    "context-engineering-kit": {
+      "source": {
+        "source": "github",
+        "repo": "NeoLabHQ/context-engineering-kit"
+      }
+    }
   }
 }

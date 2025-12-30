@@ -64,18 +64,19 @@
       "logitune"
       "karabiner-elements"
       "microsoft-edge"
+      "nani"
       "obsidian"
       "raycast"
       "setapp"
       "spotify"
       "tabtab"
-      "thebrowsercompany-dia"
       "visual-studio-code"
       "nikitabobko/tap/aerospace"
     ]
     ++ (lib.optionals (!isWorkMac) [
       "1password"
       "google-chrome"
+      "steam"
     ])
     ++ (lib.optionals isWorkMac [
       "notion"

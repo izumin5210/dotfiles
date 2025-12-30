@@ -58,4 +58,4 @@ packages:
   - name: ajeetdsouza/zoxide@v0.9.8
   - name: Wilfred/difftastic@0.67.0
   - name: sxyazi/yazi@v25.5.31
-  - name: jorgerojas26/lazysql@v0.4.3
+  - name: jorgerojas26/lazysql@v0.4.5

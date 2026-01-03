@@ -28,25 +28,12 @@ interface StatusInput {
 }
 
 const COLORS = {
-  white: "\x1b[37m",
-  brightCyan: "\x1b[96m",
-  yellow: "\x1b[33m",
-  blue: "\x1b[34m",
   gray: "\x1b[90m",
   reset: "\x1b[0m",
 } as const;
 
 function colorize(text: string, color: keyof typeof COLORS): string {
   return `${COLORS[color]}${text}${COLORS.reset}`;
-}
-
-async function getGhqRoot(): Promise<string | null> {
-  try {
-    const result = await $`ghq root`.quiet();
-    return result.text().trim();
-  } catch {
-    return null;
-  }
 }
 
 async function getGitRepoRoot(cwd: string): Promise<string | null> {
@@ -63,13 +50,6 @@ async function formatPath(cwd: string): Promise<string | null> {
   const gitRoot = await getGitRepoRoot(cwd);
 
   if (gitRoot) {
-    const ghqRoot = await getGhqRoot();
-
-    // 通常の git リポジトリ
-    const repoName =
-      ghqRoot && gitRoot.startsWith(ghqRoot)
-        ? gitRoot.slice(ghqRoot.length + 1).replace(/^github\.com\//, "")
-        : (gitRoot.split("/").pop() ?? gitRoot);
     if (cwd === gitRoot) {
       return null;
     }

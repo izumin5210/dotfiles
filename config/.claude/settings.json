@@ -194,5 +194,9 @@
         "repo": "NeoLabHQ/context-engineering-kit"
       }
     }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bun run ~/.claude/scripts/statusline.ts"
   }
 }

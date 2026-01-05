@@ -901,28 +901,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v25.5.31/yazi-aarch64-apple-darwin.zip",
-      "checksum": "8BDF137E8F84CD11F9DD866FF2B68E4886D1055AB21FE2E0C6F6A0515D2BFD70",
+      "id": "github_release/github.com/sxyazi/yazi/v25.12.29/yazi-aarch64-apple-darwin.zip",
+      "checksum": "20AC3D7AA2371645E1E1A95FCD25172AB16A338D3EBAAA661E61A35F2F524BA8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v25.5.31/yazi-aarch64-unknown-linux-musl.zip",
-      "checksum": "9A838FF2D028C70D4EB4C502A75FC963AD92D2E1353133F20D9F6D5CAFB9C4D6",
+      "id": "github_release/github.com/sxyazi/yazi/v25.12.29/yazi-aarch64-unknown-linux-musl.zip",
+      "checksum": "112E0DF24C2D24668B322B1A9BAC97A239085DD25893FFAE32AAE86722BC7524",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v25.5.31/yazi-x86_64-apple-darwin.zip",
-      "checksum": "2AAF4D7427914877596476242CBF1A5BDF7796A6002A0D3034A5506CA54F813B",
+      "id": "github_release/github.com/sxyazi/yazi/v25.12.29/yazi-x86_64-apple-darwin.zip",
+      "checksum": "738299849DCA452C90CF548E5BEFAD1E6997EB4526A90BE736EEB7721CE4FAEC",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v25.5.31/yazi-x86_64-pc-windows-msvc.zip",
-      "checksum": "79524A2B48BB7021078E0314D3C75AAF5AE9D69DEE2947CD7A705CBAA95D3BB9",
+      "id": "github_release/github.com/sxyazi/yazi/v25.12.29/yazi-x86_64-pc-windows-msvc.zip",
+      "checksum": "B4508AFABB008EB8BD30807B4BF74C940C2BA3B8BF8C9B8AD8E8FF5083F1CB94",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v25.5.31/yazi-x86_64-unknown-linux-musl.zip",
-      "checksum": "A2FDC9C35719FA72D94820893EB2FEDD93FD1C418C2CF568702643526C358F7A",
+      "id": "github_release/github.com/sxyazi/yazi/v25.12.29/yazi-x86_64-unknown-linux-musl.zip",
+      "checksum": "F2C5164811C56A0E6FF0D7DE6DBE8B33CF8A603C2185686AC8523D37FC81E718",
       "algorithm": "sha256"
     },
     {

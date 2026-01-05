@@ -58,5 +58,5 @@ packages:
   - name: ajeetdsouza/zoxide@v0.9.8
   - name: Wilfred/difftastic@0.67.0
   - name: sxyazi/yazi@v25.12.29
-  - name: jorgerojas26/lazysql@v0.4.5
+  - name: jorgerojas26/lazysql@v0.4.6
   - name: oven-sh/bun@bun-v1.3.5

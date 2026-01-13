@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:18@sha256:b870e6b96354b3ed4b8737382093b22e5db2bf48b2fd97c009d3a85697cd0949
+    image: postgres:18@sha256:2d417d4c88058c9707bd19d45f95c1db2b087507b89d44f669d43f596781614e
     container_name: the-postgres
     environment:
       - POSTGRES_USER=postgres

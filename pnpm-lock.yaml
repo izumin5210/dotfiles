@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@anthropic-ai/claude-code':
-        specifier: 2.1.6
-        version: 2.1.6
+        specifier: 2.1.7
+        version: 2.1.7
       '@fsouza/prettierd':
         specifier: 0.26.2
         version: 0.26.2(typescript@5.9.3)
@@ -102,8 +102,8 @@ packages:
   '@antfu/install-pkg@1.1.0':
     resolution: {integrity: sha512-MGQsmw10ZyI+EJo45CdSER4zEb+p31LpDAFp2Z3gkSd1yqVZGi0Ebx++YTEMonJy4oChEMLsxZ64j8FH6sSqtQ==}
 
-  '@anthropic-ai/claude-code@2.1.6':
-    resolution: {integrity: sha512-RbaTsxnetnS99RnKFmraLC+WlW8nmPRxjjXBA5iGmMevK8F6r3KrBrNBCOWVLltu4kUQBjtJCog8+dIW6Fr0QA==}
+  '@anthropic-ai/claude-code@2.1.7':
+    resolution: {integrity: sha512-nETDGeuXk/pwUpja/dlVY8dch4doTtue381BjaNqWiMPSqpY4PPg8dDbTqAYpbkIi1sgli7met+okAeDsXVTpg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
 
@@ -3735,7 +3735,7 @@ snapshots:
       package-manager-detector: 1.6.0
       tinyexec: 1.0.2
 
-  '@anthropic-ai/claude-code@2.1.6':
+  '@anthropic-ai/claude-code@2.1.7':
     optionalDependencies:
       '@img/sharp-darwin-arm64': 0.33.5
       '@img/sharp-darwin-x64': 0.33.5

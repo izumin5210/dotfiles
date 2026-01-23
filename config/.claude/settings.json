@@ -186,17 +186,15 @@
     "plugin-dev@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
-    "reflexion@context-engineering-kit": true,
-    "sadd@context-engineering-kit": true,
-    "changelog-generator@awesome-claude-skills": true,
-    "webapp-testing@awesome-claude-skills": true,
     "Notion@claude-plugins-official": true,
-    "content-research-writer@awesome-claude-skills": true,
-    "docs@context-engineering-kit": true,
-    "tech-stack@context-engineering-kit": true,
     "security-guidance@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true
+    "code-simplifier@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "claude-code-setup@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "claude-md-management@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "awesome-claude-skills": {

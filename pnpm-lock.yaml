@@ -18,8 +18,8 @@ importers:
         specifier: 0.89.0
         version: 0.89.0
       '@playwright/mcp':
-        specifier: 0.0.58
-        version: 0.0.58
+        specifier: 0.0.61
+        version: 0.0.61
       '@prisma/language-server':
         specifier: 7.1.3
         version: 7.1.3
@@ -615,8 +615,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  '@playwright/mcp@0.0.58':
-    resolution: {integrity: sha512-GS6T6QLGV0ImFr8dGpaHrIFW6zJxWQh3cX/cZb4yV3PIcmaQr3uM5XGZZB7DtrXu84+oMBKDiu0gn/7WPpbbCQ==}
+  '@playwright/mcp@0.0.61':
+    resolution: {integrity: sha512-pj6QvE0j9sDQexykZ6KGs4iEvxl+Vc6G3/jgCgxPMMPgnNnG4vzWKsSHRjhmpef43b0J1Q5ilsqgzKvHEf9hEg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2448,9 +2448,6 @@ packages:
     resolution: {integrity: sha512-G6T0ZX48xgozx7587koeX9Ys2NYy6Gmv//P89sEte9V9whIapMNF4idKxnW2QtCcLiTWlb/wfCabAtAFWhhBow==}
     engines: {node: '>=16 || 14 >=14.17'}
 
-  minimist@1.2.8:
-    resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
-
   mitt@3.0.1:
     resolution: {integrity: sha512-vKivATfr97l2/QBCYAkXYDbrIWPM2IIKEl7YPhjCvKlG3kE2gm+uBo6nEXK3M5/Ffh/FLpKExzOQ3JJoJGFKBw==}
 
@@ -2715,13 +2712,13 @@ packages:
   pkg-types@1.3.1:
     resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
 
-  playwright-core@1.59.0-alpha-1769217009000:
-    resolution: {integrity: sha512-SgO5N9ekEmHnLZh8aTgYt8oA0kaX5aoTbWopLdgJRYYoFPYudcT2a+7yYaVV/hykfVRUXWf+e2lOmr+wl9m8eg==}
+  playwright-core@1.59.0-alpha-1769452054000:
+    resolution: {integrity: sha512-JulA7CBOf/Ks/MrXVpylMn9NLKRI933ZOR7A6lqW+VsAgSxrAE+j5BsxArSBaO1dUI1EfrVl0hDzVs4ftnWhaw==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.59.0-alpha-1769217009000:
-    resolution: {integrity: sha512-A3TJU5XFNGH7urDr7o170352oCVmlLeo5kJSNeLGtzxcejgIdpBWA2WGP01Fw2WhRk1OrXroAEWD7iA8cMrahg==}
+  playwright@1.59.0-alpha-1769452054000:
+    resolution: {integrity: sha512-emHM/Pt6ACb0zZOOZNNQg6ahAbpiRKgWxmXeqhcmXWYbZ8zk+GIXavyBHYe5O3KC7GEHizECu83x1EldD3vs7Q==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4359,11 +4356,10 @@ snapshots:
 
   '@openai/codex@0.89.0': {}
 
-  '@playwright/mcp@0.0.58':
+  '@playwright/mcp@0.0.61':
     dependencies:
-      minimist: 1.2.8
-      playwright: 1.59.0-alpha-1769217009000
-      playwright-core: 1.59.0-alpha-1769217009000
+      playwright: 1.59.0-alpha-1769452054000
+      playwright-core: 1.59.0-alpha-1769452054000
 
   '@prisma/language-server@7.1.3':
     dependencies:
@@ -6427,8 +6423,6 @@ snapshots:
       brace-expansion: 2.0.2
     optional: true
 
-  minimist@1.2.8: {}
-
   mitt@3.0.1: {}
 
   mkdirp@1.0.4: {}
@@ -6700,11 +6694,11 @@ snapshots:
       mlly: 1.8.0
       pathe: 2.0.3
 
-  playwright-core@1.59.0-alpha-1769217009000: {}
+  playwright-core@1.59.0-alpha-1769452054000: {}
 
-  playwright@1.59.0-alpha-1769217009000:
+  playwright@1.59.0-alpha-1769452054000:
     dependencies:
-      playwright-core: 1.59.0-alpha-1769217009000
+      playwright-core: 1.59.0-alpha-1769452054000
     optionalDependencies:
       fsevents: 2.3.2
 

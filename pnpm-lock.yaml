@@ -42,8 +42,8 @@ importers:
         specifier: 5.6.0
         version: 5.6.0
       chrome-devtools-mcp:
-        specifier: 0.13.0
-        version: 0.13.0
+        specifier: 0.14.0
+        version: 0.14.0
       dockerfile-language-server-nodejs:
         specifier: 0.15.0
         version: 0.15.0
@@ -1246,8 +1246,8 @@ packages:
     resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
 
-  chrome-devtools-mcp@0.13.0:
-    resolution: {integrity: sha512-CgotJczVYe6wG2b5cqwNFq7n4VXIM8qfvfutdzVlABPKf0b99b0TDPuRsWrviCthigSHzhpMyFQW03P5Utt1Fg==}
+  chrome-devtools-mcp@0.14.0:
+    resolution: {integrity: sha512-JsnA8tApxOZHAUwduMsGFk0Mc3aQF0MX58fo9LoPxJFkyKdq34QonGPGNG38rWXJVQ2X70eI8wosJbOrXN79dQ==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
     hasBin: true
 
@@ -5190,7 +5190,7 @@ snapshots:
     optionalDependencies:
       fsevents: 2.3.3
 
-  chrome-devtools-mcp@0.13.0: {}
+  chrome-devtools-mcp@0.14.0: {}
 
   chromium-bidi@0.11.0(devtools-protocol@0.0.1367902):
     dependencies:

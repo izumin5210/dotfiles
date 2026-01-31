@@ -51,6 +51,15 @@
 
 ---
 
+## Git Rules
+
+- **Conventional commit**: `feat:`, `fix:`, `build:`, `chore:`, `ci:`, `docs:`, `refactor:`, `perf:`, `test:`
+- **Never work directly on main branch** - Create pull requests for each feature/fix
+- Make small, frequent commits per logical unit of work
+- **History rewriting is prohibited**: Do not use `--amend`, `--force`, or any commands that alter commit history
+
+---
+
 ## Always Follow
 
 ### Use Latest Practices

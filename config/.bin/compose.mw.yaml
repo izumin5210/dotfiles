@@ -20,7 +20,7 @@ services:
     ports:
       - 3306:3306
   redis:
-    image: redis:8@sha256:73dad4271642c5966db88db7a7585fae7cf10b685d1e48006f31e0294c29fdd7
+    image: redis:8@sha256:e59abdb114af4c9106fc16d4c2e9d9ad408db8c7db333ae05055949a5f3df41e
     container_name: the-redis
     volumes:
       - the-redis:/data

@@ -7,7 +7,7 @@
     "@mermaid-js/mermaid-cli": "11.12.0",
     "@openai/codex": "0.89.0",
     "@playwright/mcp": "0.0.62",
-    "@prisma/language-server": "7.1.3",
+    "@prisma/language-server": "31.4.0",
     "@tailwindcss/language-server": "0.14.29",
     "@upstash/context7-mcp": "2.1.0",
     "@vtsls/language-server": "0.3.0",

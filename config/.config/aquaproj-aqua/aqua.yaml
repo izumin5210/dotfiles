@@ -60,4 +60,4 @@ packages:
   - name: sxyazi/yazi@v26.1.4
   - name: jorgerojas26/lazysql@v0.4.6
   - name: oven-sh/bun@bun-v1.3.6
-  - name: anthropics/claude-code@v2.1.17
+  - name: anthropics/claude-code@v2.1.27

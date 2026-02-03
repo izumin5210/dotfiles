@@ -15,8 +15,8 @@ importers:
         specifier: 11.12.0
         version: 11.12.0(@babel/core@7.28.6)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@5.9.3))(yaml@2.8.2)
       '@openai/codex':
-        specifier: 0.89.0
-        version: 0.89.0
+        specifier: 0.93.0
+        version: 0.93.0
       '@playwright/mcp':
         specifier: 0.0.62
         version: 0.0.62
@@ -602,8 +602,8 @@ packages:
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
 
-  '@openai/codex@0.89.0':
-    resolution: {integrity: sha512-mIX0FLKTT26sWqLcpwb2GvRI89snDNvUbgTxEtrPMP/wXRtYasTLROY0UBL1qLHVrm532mU4RLepNITqBPvAOQ==}
+  '@openai/codex@0.93.0':
+    resolution: {integrity: sha512-3skVlzRN3bApbyCX3zeEK6umGb4OfaTa/lsuJ9syng+NxUGptDMFsrOoC+rMU1uYeFtt+OjYttjpfHY2xE1DAQ==}
     engines: {node: '>=16'}
     hasBin: true
 
@@ -4196,7 +4196,7 @@ snapshots:
 
   '@one-ini/wasm@0.2.0': {}
 
-  '@openai/codex@0.89.0': {}
+  '@openai/codex@0.93.0': {}
 
   '@playwright/mcp@0.0.62':
     dependencies:

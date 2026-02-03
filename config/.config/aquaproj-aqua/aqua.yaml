@@ -43,7 +43,7 @@ packages:
   - name: github/copilot-language-server-release@1.418.0
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.25.1
-  - name: aws/aws-cli@2.32.34
+  - name: aws/aws-cli@2.33.12
   - name: stripe/stripe-cli@v1.34.0
   # tools
   - name: junegunn/fzf@v0.67.0

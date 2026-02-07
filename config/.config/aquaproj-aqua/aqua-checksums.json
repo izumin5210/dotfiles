@@ -701,6 +701,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/openai/codex/rust-v0.98.0/codex-aarch64-apple-darwin.zst",
+      "checksum": "E97E1674CDD6B7361A4EBD078B485FE06F971C7EA6F682163F83010C566E680C",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/openai/codex/rust-v0.98.0/codex-aarch64-unknown-linux-musl.zst",
+      "checksum": "7D2336DDA4BF0DAE951932E79E7ECED19383A1ADE057E2892ABE1DA1D972C315",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/openai/codex/rust-v0.98.0/codex-x86_64-apple-darwin.zst",
+      "checksum": "DCF7E8B48B2614BFF5D752B4B990EE9F92FFDF25268291196FF7CEE05AC7DB9A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/openai/codex/rust-v0.98.0/codex-x86_64-pc-windows-msvc.exe.zst",
+      "checksum": "3488A20BED651CB974237923A78E0FB292D512EA2EE8FD68F524B2AD51BC6CB9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/openai/codex/rust-v0.98.0/codex-x86_64-unknown-linux-musl.zst",
+      "checksum": "C49EF319F39CDF9DC8D8AD3D7F2D6F388CDA8C9DFB01F7D807A83760B998AAE7",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/oven-sh/bun/bun-v1.3.8/bun-darwin-aarch64.zip",
       "checksum": "672A0A9A7B744D085A1D2219CA907E3E26F5579FCA9E783A9510A4F98A36212F",
       "algorithm": "sha256"

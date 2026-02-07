@@ -18,8 +18,8 @@ importers:
         specifier: 0.93.0
         version: 0.93.0
       '@playwright/mcp':
-        specifier: 0.0.62
-        version: 0.0.62
+        specifier: 0.0.63
+        version: 0.0.63
       '@prisma/language-server':
         specifier: 31.4.0
         version: 31.4.0
@@ -607,8 +607,8 @@ packages:
     engines: {node: '>=16'}
     hasBin: true
 
-  '@playwright/mcp@0.0.62':
-    resolution: {integrity: sha512-JX1zsrwNBnjoMFXxFPpspt7tqzDODDUe0IM4d5/tNVC/TPnZwNRfxmFaHK5HxCmlLAG7ptaYSg4rjagpLCXYGw==}
+  '@playwright/mcp@0.0.63':
+    resolution: {integrity: sha512-J4K9KPNu59wGOfLxLlIHSw6iv9nYinmwhhSdCPd7KXhewdtiVeAlY/tKn57ND7qZEgjy6QkAc9UaqsKKrkUGRg==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -1957,7 +1957,7 @@ packages:
 
   glob@7.2.3:
     resolution: {integrity: sha512-nFR0zLpU2YCaRxwoCJvL6UvCH2JFyFVIvwTLsIf21AuHlMskA1hhTdk+LlYJtOlYt9v6dvszD2BGRqBL+iQK9Q==}
-    deprecated: Glob versions prior to v9 are no longer supported
+    deprecated: Old versions of glob are not supported, and contain widely publicized security vulnerabilities, which have been fixed in the current version. Please update. Support for old versions may be purchased (at exorbitant rates) by contacting i@izs.me
 
   globby@11.1.0:
     resolution: {integrity: sha512-jhIXaOzy1sb8IyocaruWSn1TjmnBVs8Ayhcy83rmxNJ8q2uWKCAj3CnJY+KpGSXCueAPc0i05kVvVKtP1t9S3g==}
@@ -2623,13 +2623,13 @@ packages:
   pkg-types@2.3.0:
     resolution: {integrity: sha512-SIqCzDRg0s9npO5XQ3tNZioRY1uK06lA41ynBC1YmFTmnY6FjUjVt6s4LoADmwoig1qqD0oK8h1p/8mlMx8Oig==}
 
-  playwright-core@1.59.0-alpha-1769819922000:
-    resolution: {integrity: sha512-mHxFU9XPUiC1HWkZWuTG1tbZxjSWkjHhsHFyrxRs3KDTBsSrsRwaa/lw6awSzubLqDI7OsuqXptnO/AB7ozhoQ==}
+  playwright-core@1.59.0-alpha-1770157258000:
+    resolution: {integrity: sha512-D+3ARZYNY7/i6LyV6DKsPQHkzfmuMXMdKdyW981i5CHA4GmXY2NTt1F7cEL4fGYJFpwPqTfQ17Qhas8dnirPkg==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.59.0-alpha-1769819922000:
-    resolution: {integrity: sha512-SVy14jHP15zyxPHfQSnpA628sRG/dX5SSR9VymG6aI9tRUlBhInQgmeW0YcX65aaMrmhIdo50BUYtDn+kcjYEQ==}
+  playwright@1.59.0-alpha-1770157258000:
+    resolution: {integrity: sha512-jGMgi+61xaC9Pf7cIalsgKy4g0oAreA8U4/Lr8E0xhYl3pWd/U3F6s/m7GBWxJHHEiQcIdnP3mUdy1FTOyl8SQ==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4221,10 +4221,10 @@ snapshots:
 
   '@openai/codex@0.93.0': {}
 
-  '@playwright/mcp@0.0.62':
+  '@playwright/mcp@0.0.63':
     dependencies:
-      playwright: 1.59.0-alpha-1769819922000
-      playwright-core: 1.59.0-alpha-1769819922000
+      playwright: 1.59.0-alpha-1770157258000
+      playwright-core: 1.59.0-alpha-1770157258000
 
   '@prisma/config@7.3.0':
     dependencies:
@@ -6461,11 +6461,11 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
-  playwright-core@1.59.0-alpha-1769819922000: {}
+  playwright-core@1.59.0-alpha-1770157258000: {}
 
-  playwright@1.59.0-alpha-1769819922000:
+  playwright@1.59.0-alpha-1770157258000:
     dependencies:
-      playwright-core: 1.59.0-alpha-1769819922000
+      playwright-core: 1.59.0-alpha-1770157258000
     optionalDependencies:
       fsevents: 2.3.2
 

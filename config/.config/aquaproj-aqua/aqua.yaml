@@ -61,3 +61,4 @@ packages:
   - name: jorgerojas26/lazysql@v0.4.6
   - name: oven-sh/bun@bun-v1.3.8
   - name: anthropics/claude-code@v2.1.33
+  - name: openai/codex@rust-v0.98.0

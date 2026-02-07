@@ -14,9 +14,6 @@ importers:
       '@mermaid-js/mermaid-cli':
         specifier: 11.12.0
         version: 11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@5.9.3))(yaml@2.8.2)
-      '@openai/codex':
-        specifier: 0.93.0
-        version: 0.93.0
       '@playwright/mcp':
         specifier: 0.0.63
         version: 0.0.63
@@ -601,11 +598,6 @@ packages:
 
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
-
-  '@openai/codex@0.93.0':
-    resolution: {integrity: sha512-3skVlzRN3bApbyCX3zeEK6umGb4OfaTa/lsuJ9syng+NxUGptDMFsrOoC+rMU1uYeFtt+OjYttjpfHY2xE1DAQ==}
-    engines: {node: '>=16'}
-    hasBin: true
 
   '@playwright/mcp@0.0.63':
     resolution: {integrity: sha512-J4K9KPNu59wGOfLxLlIHSw6iv9nYinmwhhSdCPd7KXhewdtiVeAlY/tKn57ND7qZEgjy6QkAc9UaqsKKrkUGRg==}
@@ -4218,8 +4210,6 @@ snapshots:
       '@octokit/openapi-types': 18.1.1
 
   '@one-ini/wasm@0.2.0': {}
-
-  '@openai/codex@0.93.0': {}
 
   '@playwright/mcp@0.0.63':
     dependencies:

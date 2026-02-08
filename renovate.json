@@ -17,7 +17,7 @@
     },
     {
       "matchPackageNames": ["anthropics/claude-code", "openai/codex"],
-      "minimumReleaseAge": "0 days"
+      "minimumReleaseAge": "12 hours"
     }
   ],
   "minimumReleaseAge": "3 days",

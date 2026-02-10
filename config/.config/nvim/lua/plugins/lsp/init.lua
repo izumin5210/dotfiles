@@ -78,7 +78,6 @@ return {
         "yamlls",
 
         -- Others
-        "copilot",
         "gh_actions_ls",
         "bashls",
         "buf_ls",

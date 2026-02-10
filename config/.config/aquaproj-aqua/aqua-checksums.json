@@ -366,31 +366,6 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.421.0/copilot-language-server-darwin-arm64-1.421.0.zip",
-      "checksum": "F42D35A5D4192D61367B0306A7305A88C83E052D07CE8BFB9A4465A3EBC9AC23",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.421.0/copilot-language-server-darwin-x64-1.421.0.zip",
-      "checksum": "7426E26A72D1773B3D666FBA6DE59ED88C3DBCC507CD61A11D52E7101A010F5B",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.421.0/copilot-language-server-linux-arm64-1.421.0.zip",
-      "checksum": "10CC81AC279188F18F7EBDE05C7A509495DCEBE7D70F64A70503E63CAC9DFB8D",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.421.0/copilot-language-server-linux-x64-1.421.0.zip",
-      "checksum": "F264C56632A0AA75FC9E3AE6CAD6F25CC08EC30A3EDE781BB547C317CF65FA12",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.421.0/copilot-language-server-win32-x64-1.421.0.zip",
-      "checksum": "78B8484F74365173751FD10AB9719B1321FD6B29E21A0799EE914FC562BE5CEA",
-      "algorithm": "sha256"
-    },
-    {
       "id": "github_release/github.com/golangci/golangci-lint/v2.8.0/golangci-lint-2.8.0-darwin-amd64.tar.gz",
       "checksum": "164C72806D0E31AB19DA4F08FFF748A3FDC57E241851279B666C945ED9B91830",
       "algorithm": "sha256"

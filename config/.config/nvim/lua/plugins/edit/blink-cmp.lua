@@ -7,14 +7,9 @@ return {
     {
       "onsails/lspkind.nvim",
       config = function()
-        require("lspkind").init({
-          symbol_map = {
-            Copilot = "",
-          },
-        })
+        require("lspkind").init({})
       end,
     },
-    { "fang2hou/blink-copilot" },
   },
   init = function()
     local palette = require("utils.colors").palette
@@ -106,14 +101,8 @@ return {
     },
 
     sources = {
-      default = { "copilot", "lazydev", "lsp", "path", "snippets", "buffer" },
+      default = { "lazydev", "lsp", "path", "snippets", "buffer" },
       providers = {
-        copilot = {
-          name = "copilot",
-          module = "blink-copilot",
-          score_offset = 100,
-          async = true,
-        },
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",

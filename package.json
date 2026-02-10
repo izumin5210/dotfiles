@@ -3,7 +3,7 @@
   "type": "module",
   "private": true,
   "devDependencies": {
-    "@fsouza/prettierd": "0.26.2",
+    "@fsouza/prettierd": "0.27.0",
     "@mermaid-js/mermaid-cli": "11.12.0",
     "@playwright/mcp": "0.0.64",
     "@prisma/language-server": "31.4.0",

@@ -9,8 +9,8 @@ importers:
   .:
     devDependencies:
       '@fsouza/prettierd':
-        specifier: 0.26.2
-        version: 0.26.2(typescript@5.9.3)
+        specifier: 0.27.0
+        version: 0.27.0(typescript@5.9.3)
       '@mermaid-js/mermaid-cli':
         specifier: 11.12.0
         version: 11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@5.9.3))(yaml@2.8.2)
@@ -261,8 +261,8 @@ packages:
   '@floating-ui/utils@0.2.10':
     resolution: {integrity: sha512-aGTxbpbg8/b5JfU1HXSrbH3wXZuLPJcNEcZQFMxLs3oSzgtVu6nFPkbbGGUvBcUjKV2YyB9Wxxabo+HEH9tcRQ==}
 
-  '@fsouza/prettierd@0.26.2':
-    resolution: {integrity: sha512-IU1n7wB0rRRZ7QZYHHrzRJug44xoPKEEHR0vsN1E4xDFn5ST2ZCUjTon1MWY4QNE88eMnQWgnmnevuV9oT9qGg==}
+  '@fsouza/prettierd@0.27.0':
+    resolution: {integrity: sha512-JZo+H8gIcEAJ6AFlAOH9uqYS8GLawWtgFZvf1BbeJh1NEWMeHK0kaUjDyKCi6PJccRN8G5iG9Qy41cM1xN/flA==}
     hasBin: true
 
   '@graphql-hive/signal@1.0.0':
@@ -3703,7 +3703,7 @@ snapshots:
 
   '@floating-ui/utils@0.2.10': {}
 
-  '@fsouza/prettierd@0.26.2(typescript@5.9.3)':
+  '@fsouza/prettierd@0.27.0(typescript@5.9.3)':
     dependencies:
       core_d: 6.1.1
       prettier: 3.8.1

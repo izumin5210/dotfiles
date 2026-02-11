@@ -28,7 +28,7 @@ isInsideGitRepo() {
 }
 
 showRepoSlug() {
-  git rev-parse --show-toplevel |
+  dirname $(git rev-parse --path-format=absolute --git-common-dir) |
     sed -e "s,^$HOME,~," |
     sed -e "s,^~/src/\(github.com/\)\?,," |
     shorten "slug" |

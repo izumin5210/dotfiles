@@ -6,6 +6,7 @@ set -euo pipefail
 changeSession() {
   local change
   [[ -n "${TMUX:-""}" ]] && change="switch-client" || change="attach-session"
+  tmux set-environment -g SSH_CONNECTION "$SSH_CONNECTION" 2>/dev/null
   tmux $change -t "$1"
 }
 

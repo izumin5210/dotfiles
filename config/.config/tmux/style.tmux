@@ -38,7 +38,7 @@ main() {
   tmux set -g status-left-style "none,fg=${thm_black4},align=right"
 
   git_info="cd #{pane_current_path} && git rev-parse --is-inside-work-tree >/dev/null 2>&1 && echo \"  \$(git info slug -s) ${separator}   \$(git info branch --max-len 24 --short) ${separator}\""
-  session_info="cd #{pane_current_path} && git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test \"#S\" \!= \"\$(git info slug -s)\" && echo \" #S ${separator} \""
+  session_info="cd #{pane_current_path} && git rev-parse --is-inside-work-tree >/dev/null 2>&1 && test \"#S\" \!= \"\$(git info repo)\" && echo \" #S ${separator} \""
   ssh_info="test -n \"\$SSH_CONNECTION\" && echo \" #h ${separator} \""
   tmux set -g status-left "#(${ssh_info})#(${session_info})#(${git_info})"
 

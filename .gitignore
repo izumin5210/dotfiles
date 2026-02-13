@@ -206,3 +206,8 @@ dist
 /config/.claude/scripts/tmp
 !/config/.claude/scripts/tmp/.gitkeep
 !/config/.claude/settings.json
+
+# Codex
+/config/.codex/*
+!/config/.codex/config.toml
+!/config/.codex/AGENTS.md

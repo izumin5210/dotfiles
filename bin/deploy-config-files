@@ -30,6 +30,9 @@ mkdir -p ~/.config
 # claude
 ./bin/ln-idempotently ./config/.claude ~/.claude
 
+# codex
+./bin/ln-idempotently ./config/.codex ~/.codex
+
 # ruby
 ./bin/ln-idempotently ./config/.config/irb ~/.config/irb
 

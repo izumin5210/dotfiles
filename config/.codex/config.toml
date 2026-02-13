@@ -1,0 +1,60 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+################################################################################
+# Core Model Selection
+################################################################################
+
+# Primary model used by Codex. Default: "gpt-5.2-codex" on all platforms.
+model = "gpt-5.3-codex"
+
+# Default communication style for supported models. Default: "friendly".
+# Allowed values: none | friendly | pragmatic
+personality = "pragmatic"
+
+# Optional model override for /review. Default: unset (uses current session model).
+# review_model = "gpt-5.2-codex"
+
+# Provider id selected from [model_providers]. Default: "openai".
+model_provider = "openai"
+
+################################################################################
+# Reasoning & Verbosity (Responses API capable models)
+################################################################################
+
+# Reasoning effort: minimal | low | medium | high | xhigh (default: medium; xhigh on gpt-5.2-codex and gpt-5.2)
+model_reasoning_effort = "medium"
+
+# Reasoning summary: auto | concise | detailed | none (default: auto)
+model_reasoning_summary = "auto"
+
+# Text verbosity for GPT-5 family (Responses API): low | medium | high (default: medium)
+model_verbosity = "medium"
+
+# Force-enable reasoning summaries for current model (default: false)
+model_supports_reasoning_summaries = false
+
+################################################################################
+# Approval & Sandbox
+################################################################################
+
+approval_policy = "on-request"
+sandbox_mode = "workspace-write"
+
+################################################################################
+# UI, Notifications, and Misc (tables)
+################################################################################
+
+[tui]
+notifications = ["agent-turn-complete", "approval-requested"]
+
+################################################################################
+# Define MCP servers under this table. Leave empty to disable.
+################################################################################
+
+[mcp_servers]
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+
+[mcp_servers.deepwiki]
+url = "https://mcp.deepwiki.com/mcp"

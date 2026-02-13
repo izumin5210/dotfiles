@@ -75,6 +75,7 @@ return {
         -- JSON (JSON Schema)
         "jsonls",
         "jsonnet_ls",
+        "tombi", -- toml
         "yamlls",
 
         -- Others

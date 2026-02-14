@@ -18,8 +18,8 @@ importers:
         specifier: 0.0.64
         version: 0.0.64
       '@prisma/language-server':
-        specifier: 31.4.19
-        version: 31.4.19
+        specifier: 31.4.20
+        version: 31.4.20
       '@tailwindcss/language-server':
         specifier: 0.14.29
         version: 0.14.29
@@ -607,8 +607,8 @@ packages:
   '@prisma/config@7.4.0-dev.19':
     resolution: {integrity: sha512-i6pnyra/UphuNYC0QADZMMPfeyHW2CCN3D3ZjwNIw4679ayolBKX8iHUWEzfuFsWajtH7lFHpXAjZAbmGJYuKg==}
 
-  '@prisma/language-server@31.4.19':
-    resolution: {integrity: sha512-JbzdePDzqBZwoCAohywQpmZOCxCHqaSNPXpAGzRZvJOQRwiqGtp76AdtIl4Cea4TTp+haptpJDLMchpAXTwEbw==}
+  '@prisma/language-server@31.4.20':
+    resolution: {integrity: sha512-Ebcf06Gc6pnP4Tgx3UHwM7Xc7+6Wmch8U8rh75fcUM+czyiMCe2QMRUEq1+FmHVpje/vec1+G+8BnUyUTkpyMA==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4229,7 +4229,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@prisma/language-server@31.4.19':
+  '@prisma/language-server@31.4.20':
     dependencies:
       '@prisma/config': 7.4.0-dev.19
       '@prisma/prisma-schema-wasm': 7.4.0-16.d0314091cdd30494eefc61d346f8c09aca20dfca

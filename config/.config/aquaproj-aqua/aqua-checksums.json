@@ -421,33 +421,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_darwin_amd64",
-      "checksum": "F37D57FCF851E18FECC3B3867A8E06305EE315E01A9430BF5448438EFF86736C",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_darwin_amd64",
+      "checksum": "2AFE97DA19E829E07DEBF4D6BA24B2E5DDC4CCE837D80ECC6365A51201CB814B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_darwin_arm64",
-      "checksum": "8B6E642374D3004C3AC35254874ED1D14203A85C979F6684FC6218F58A8072D4",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_darwin_arm64",
+      "checksum": "C9637366323551ED149AFBC1C3BE72C7B82BCF0DA57A786046080109294A7FA5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_linux_amd64",
-      "checksum": "42C7D38515E5A2008DE26D678140E2D7FD1825EB977D78023FE997913E3DC2BE",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_linux_amd64",
+      "checksum": "1D4327C93505570D9E5BFE43C3B14DA669C2E929C4ADA3FCD6B4BF97C7CFF34E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_linux_arm64",
-      "checksum": "155933CBBDA25E9D89B6E14F1C2C52089CDFE82700FDA60D8EBAABAD2C409F18",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_linux_arm64",
+      "checksum": "6CFC48E9BCEA7EBFAF85FCD51B4C09D8E26F93978BC352EEF6B3AEA4FB844440",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_windows_amd64.exe",
-      "checksum": "53D233A1927AFA52F39A2AE5396DC7FFEB13283B5F13EDFA6DFDC1F41E71199B",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_windows_amd64.exe",
+      "checksum": "805B70884D202ED6F8568607D4D94A3BFE0318EA6902E904C673BE0C43D3CD41",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.16.0/jsonnet-language-server_0.16.0_windows_arm64.exe",
-      "checksum": "8DAC64BB1E1F215988E3EA8FD2FBFE575251E3B07BA95E9BE3BC3EA3175E3522",
+      "id": "github_release/github.com/grafana/jsonnet-language-server/v0.17.0/jsonnet-language-server_0.17.0_windows_arm64.exe",
+      "checksum": "E6897D77CD9614BB42E7A2E9CF2A96A8D2B1963D99486B7C68583A3DC1639B37",
       "algorithm": "sha256"
     },
     {

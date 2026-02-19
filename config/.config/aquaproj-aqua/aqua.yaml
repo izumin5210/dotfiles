@@ -42,7 +42,7 @@ packages:
   - name: LuaLS/lua-language-server@3.17.1
   - name: github/copilot-language-server-release@1.430.0
   # CLI for cloud services
-  - name: auth0/auth0-cli@v1.27.1
+  - name: auth0/auth0-cli@v1.27.2
   - name: aws/aws-cli@2.33.22
   - name: stripe/stripe-cli@v1.35.0
   # tools

@@ -9,6 +9,9 @@ checksum:
 registries:
   - type: standard
     ref: v4.468.0 # renovate: depName=aquaproj/aqua-registry
+  - name: local
+    type: local
+    path: aqua-registry.yaml
 packages:
   # go
   - name: golang/go@go1.26.0
@@ -63,3 +66,6 @@ packages:
   - name: anthropics/claude-code@v2.1.45
   - name: openai/codex@rust-v0.101.0
   - name: tombi-toml/tombi@v0.7.28
+  # local
+  - name: tmux/tmux-builds@v3.6a
+    registry: local

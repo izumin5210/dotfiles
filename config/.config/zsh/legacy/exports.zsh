@@ -61,6 +61,7 @@ esac
 # aqua
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
+export AQUA_POLICY_CONFIG="${AQUA_POLICY_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
 
 # dotfiles
 export DOTFILES_DIR="$(ghq root)/github.com/izumin5210/dotfiles"

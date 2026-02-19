@@ -3,6 +3,7 @@
 [user]
     name = izumin5210
     email = m@izum.in
+	signingkey = ~/.ssh/id_ed25519.pub
 [core]
     autocrlf = input
     editor = $EDITOR
@@ -64,3 +65,7 @@
     defaultBranch = main
 [url "https://github.com/"]
     insteadOf = git@github.com:
+[gpg]
+	format = ssh
+[commit]
+	gpgsign = true

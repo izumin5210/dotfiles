@@ -48,9 +48,6 @@
     # zsh
     pkgs.zsh
 
-    # tmux
-    pkgs.tmux
-
     # docker
     pkgs.docker
     pkgs.colima

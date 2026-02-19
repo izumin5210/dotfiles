@@ -951,6 +951,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-linux-arm64.tar.gz",
+      "checksum": "BB5AFD9D646DF54A7D7C66E198AA22C7D293C7453534F1670F7C540534DB8B5E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-linux-x86_64.tar.gz",
+      "checksum": "C0A772A5E6CA8F129B0111D10029A52E02BCBC8352D5A8C0D3DE8466A1E59C2E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-macos-arm64.tar.gz",
+      "checksum": "12B5B9F8696E1286897D946649C0A80D0169DD76E018D34476A1FBD34DE89A0F",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-macos-x86_64.tar.gz",
+      "checksum": "B9B12EAEBA43ACF5671ACF3857D947525440B544185A8DB34EA557199A090251",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/tombi-toml/tombi/v0.7.28/tombi-cli-0.7.28-aarch64-apple-darwin.gz",
       "checksum": "8C3B905339793B7F9BFF7C7A055E523111BA6F957781FFB2D37AF928EF4E9AF2",
       "algorithm": "sha256"

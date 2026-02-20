@@ -69,6 +69,7 @@ export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
 # Osidian vault
 export OBSIDIAN_VAULT_DIR="$(ghq root)/github.com/izumin5210/private-notes"
+export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # LayerX
 export GOPRIVATE=github.com/LayerXcom/

@@ -61,7 +61,7 @@ packages:
   - name: ajeetdsouza/zoxide@v0.9.9
   - name: Wilfred/difftastic@0.67.0
   - name: sxyazi/yazi@v26.1.22
-  - name: jorgerojas26/lazysql@v0.4.6
+  - name: jorgerojas26/lazysql@v0.4.8
   - name: oven-sh/bun@bun-v1.3.9
   - name: anthropics/claude-code@v2.1.49
   - name: openai/codex@rust-v0.104.0

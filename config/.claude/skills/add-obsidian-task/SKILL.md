@@ -10,10 +10,10 @@ Add a new task note to Obsidian with project/context tags and metadata via `obsi
 ## Available Projects and Contexts
 
 ### Projects
-!`obsidian tags | grep "^#task/pj/" | sed 's|#task/pj/||'`
+!`${SKILL_DIR}/scripts/list-projects.sh`
 
 ### Contexts
-!`obsidian tags | grep "^#task/ctx/" | sed 's|#task/ctx/||'`
+!`${SKILL_DIR}/scripts/list-contexts.sh`
 
 ## Workflow
 

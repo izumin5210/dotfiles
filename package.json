@@ -6,7 +6,7 @@
     "@fsouza/prettierd": "0.27.0",
     "@mermaid-js/mermaid-cli": "11.12.0",
     "@playwright/mcp": "0.0.68",
-    "@prisma/language-server": "31.5.5",
+    "@prisma/language-server": "31.5.8",
     "@tailwindcss/language-server": "0.14.29",
     "@upstash/context7-mcp": "2.1.1",
     "@vtsls/language-server": "0.3.0",

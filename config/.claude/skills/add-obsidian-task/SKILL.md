@@ -10,10 +10,10 @@ Add a new task note to Obsidian with project/context tags and metadata via `obsi
 ## Available Projects and Contexts
 
 ### Projects
-!`${SKILL_DIR}/scripts/list-projects.sh`
+!`~/.claude/skills/add-obsidian-task/scripts/list-projects.sh`
 
 ### Contexts
-!`${SKILL_DIR}/scripts/list-contexts.sh`
+!`~/.claude/skills/add-obsidian-task/scripts/list-contexts.sh`
 
 ## Workflow
 
@@ -50,7 +50,7 @@ Use `AskUserQuestion` with three questions in a single call:
 Run `scripts/add-task.sh` with positional arguments:
 
 ```bash
-bash "${SKILL_DIR}/scripts/add-task.sh" '<title>' '<project>' '<context>' '<status>' '<content>'
+bash ~/.claude/skills/add-obsidian-task/scripts/add-task.sh '<title>' '<project>' '<context>' '<status>' '<content>'
 ```
 
 The script:

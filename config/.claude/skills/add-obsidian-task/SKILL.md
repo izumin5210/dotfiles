@@ -1,6 +1,7 @@
 ---
 name: add-obsidian-task
 description: Use when the user wants to add a task, create a new task, or record work to do in Obsidian. Triggers on phrases like "タスクを追加", "タスクを作成", "タスクを登録", "add a task", "create a task", or any request to record a new task item.
+allowed-tools: Bash(~/.claude/skills/add-obsidian-task/scripts/*)
 ---
 
 # Add Obsidian Task

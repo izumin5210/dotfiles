@@ -14,19 +14,31 @@ context="$3"
 status="$4"
 content="$5"
 
-file=$(obsidian unique name="tasks/${project} - ${title}" content="${content}")
+path="tasks"
 
-existing_tags=$(obsidian tags file="${file}" 2>/dev/null || echo "")
-if [ -n "${existing_tags}" ]; then
-    new_tags="${existing_tags} #task/ctx/${context} #task/pj/${project} #task/status/${status}"
-else
-    new_tags="#task/ctx/${context} #task/pj/${project} #task/status/${status}"
-fi
-obsidian property:set name="tags" type="list" value="${new_tags}" file="${file}"
+tmpfile=$(obsidian unique name="${project} - ${title}")
+
+obsidian move path="${tmpfile}" to="${path}"
+
+file="${path}/$(basename "${tmpfile}")"
+
+new_tags_json=$(obsidian properties file="${file}" format=json |
+  jq -c --arg ctx "task/ctx/${context}" --arg pj "task/pj/${project}" --arg st "task/status/${status}" '
+      def as_array:
+        if . == null then []
+        elif type == "array" then .
+        elif type == "string" then [.]
+        else []
+        end;
+      (.tags | as_array) + [$ctx, $pj, $st] | unique
+    ')
+obsidian property:set name="tags" type="list" value="${new_tags_json}" file="${file}"
 
 if [ "${status}" = "planned" ]; then
-    review_date=$(date -v+7d +%Y-%m-%d)
-    obsidian property:set name="task_review_date" type="date" value="${review_date}" file="${file}"
+  review_date=$(date -v+7d +%Y-%m-%d)
+  obsidian property:set name="task_review_date" type="date" value="${review_date}" file="${file}"
 fi
+
+obsidian append file="${file}" content="# ${title}\n\nproject: [[${project}]]\n\n${content}"
 
 echo "${file}"

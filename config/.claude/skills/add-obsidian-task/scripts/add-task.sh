@@ -35,7 +35,7 @@ new_tags_json=$(obsidian properties file="${file}" format=json |
 obsidian property:set name="tags" type="list" value="${new_tags_json}" file="${file}"
 
 if [ "${status}" = "planned" ]; then
-  review_date=$(date -v+7d +%Y-%m-%d)
+  review_date=$(date -d '+7 days' +%Y-%m-%d)
   obsidian property:set name="task_review_date" type="date" value="${review_date}" file="${file}"
 fi
 

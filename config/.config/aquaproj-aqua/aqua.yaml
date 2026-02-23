@@ -20,7 +20,7 @@ packages:
   - name: golangci/golangci-lint@v2.10.1
   - name: nametake/golangci-lint-langserver@v0.0.11
   # javascript
-  - name: pnpm/pnpm@v10.30.0
+  - name: pnpm/pnpm@v10.30.1
   - name: denoland/deno@v2.6.10
   - name: Schniz/fnm@v1.38.1
   # python

@@ -49,7 +49,7 @@ packages:
   - name: aws/aws-cli@2.33.26
   - name: stripe/stripe-cli@v1.35.1
   # tools
-  - name: junegunn/fzf@v0.67.0
+  - name: junegunn/fzf@v0.68.0
   - name: BurntSushi/ripgrep@15.1.0
   - name: sharkdp/bat@v0.26.1
   - name: eza-community/eza@v0.23.4

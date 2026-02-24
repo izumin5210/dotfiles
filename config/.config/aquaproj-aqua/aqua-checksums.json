@@ -1076,23 +1076,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.51/darwin-arm64/claude",
-      "checksum": "450ED08049FF085E48ADA3045880411A38968305A22276DF54E555D0E29B18B9",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.52/darwin-arm64/claude",
+      "checksum": "21E8C49B3111FA69E88F450A94EE4E88DF69312823017BBF61FF86A461FCFC23",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.51/darwin-x64/claude",
-      "checksum": "178521D4E6F957DE57F55DEC72A47F9CAEE6240AF57304274BCA67D78138298E",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.52/darwin-x64/claude",
+      "checksum": "447A6FA3238AA7007BFFCC599104DC438DE61D0C80FFAAC42D1D4E8EB6EB97C0",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.51/linux-arm64/claude",
-      "checksum": "127D33A582633470B32639ECABAF47D29E60FAA1713CA6793AC441A5D32EC81B",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.52/linux-arm64/claude",
+      "checksum": "AFE081990936550A98EDC680860E6F16CD9FAD300FB53B4AB27C7071C70968F2",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.51/linux-x64/claude",
-      "checksum": "874C8A92AE7D88381751E97E7D782B2A583641DA07AFC99328F785E4340455C7",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.52/linux-x64/claude",
+      "checksum": "70C1F9881B7C091C49F3695C94C381D9CCA0AF094BCBC99CB9F463E44D97CE9C",
       "algorithm": "sha256"
     },
     {

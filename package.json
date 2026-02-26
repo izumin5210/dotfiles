@@ -8,7 +8,7 @@
     "@playwright/mcp": "0.0.68",
     "@prisma/language-server": "31.5.15",
     "@tailwindcss/language-server": "0.14.29",
-    "@upstash/context7-mcp": "2.1.1",
+    "@upstash/context7-mcp": "2.1.2",
     "@vtsls/language-server": "0.3.0",
     "@vue/language-server": "3.2.5",
     "any-script-mcp": "0.3.0",

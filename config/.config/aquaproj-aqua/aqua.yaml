@@ -62,6 +62,6 @@ packages:
   - name: sxyazi/yazi@v26.1.22
   - name: jorgerojas26/lazysql@v0.4.8
   - name: oven-sh/bun@bun-v1.3.9
-  - name: anthropics/claude-code@v2.1.56
+  - name: anthropics/claude-code@v2.1.58
   - name: openai/codex@rust-v0.105.0
   - name: tombi-toml/tombi@v0.7.32

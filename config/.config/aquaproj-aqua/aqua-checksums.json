@@ -646,33 +646,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Darwin_arm64.tar.gz",
-      "checksum": "D9F704E6AE3BA63B8F452DFEC3C9B2B418652AD3BA3A1D0B92AE70FD2C74D2B1",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Darwin_arm64.tar.gz",
+      "checksum": "E630712320BCC1C75A1584F2B46A5C7EE7B15E603BB180B8B42C2932302D2A95",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Darwin_x86_64.tar.gz",
-      "checksum": "FA6629E251FD7F82E330FF85D3E63AF3D1986374AD538A6A26D4A855B3E3009F",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Darwin_x86_64.tar.gz",
+      "checksum": "3BA8589115BB1B0D5DF70F8139D774120830BF9DC9F716B60F5E0FB3269C504F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Linux_arm64.tar.gz",
-      "checksum": "7D3695A366E653569A375D209516B3FA8CA184B92FC5ACBFEDFAEE9AD3C97C21",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Linux_arm64.tar.gz",
+      "checksum": "4B1B582213978803BB215A36C88C2FBBD14E26BF15E0377C74F04DBE424C1063",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Linux_x86_64.tar.gz",
-      "checksum": "B4EFA95267C29CA4D08E0A977E90E7C6A8A606BAFE1DCEDFD5E48E952536B331",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Linux_x86_64.tar.gz",
+      "checksum": "7C4A200F34AF3DE4188A792BA676994CE5FDB181DD4731E10CD3CC501E722B28",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Windows_arm64.zip",
-      "checksum": "4DEEF94143C5C45D9513B7D1507B118FC989D360612FB440811CFFD39028E872",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Windows_arm64.zip",
+      "checksum": "E88B352400B9E6AFEC86CFA11E2CFDADEB79522A6A833F0AEDA98886594AF801",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.11/golangci-lint-langserver_Windows_x86_64.zip",
-      "checksum": "6A4620EE48D94406BA1E0E986D4F9F1D926BBAB2212B3F5D9D106F80A67A3037",
+      "id": "github_release/github.com/nametake/golangci-lint-langserver/v0.0.12/golangci-lint-langserver_Windows_x86_64.zip",
+      "checksum": "39B900B6B18BDC0328A9A58539AF2BFC0BDAAD9C2F217C1AFA7921717D11E4D6",
       "algorithm": "sha256"
     },
     {

@@ -35,7 +35,7 @@ packages:
   # tmux
   - name: tmux/tmux-builds@v3.6a
   # linters, formatters, language servers
-  - name: bufbuild/buf@v1.65.0
+  - name: bufbuild/buf@v1.66.0
   - name: rhysd/actionlint@v1.7.11
   - name: hadolint/hadolint@v2.14.0
   - name: mvdan/sh@v3.12.0

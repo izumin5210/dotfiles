@@ -67,8 +67,7 @@ export AQUA_POLICY_CONFIG="${AQUA_POLICY_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-a
 export DOTFILES_DIR="$(ghq root)/github.com/izumin5210/dotfiles"
 export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
-# Osidian vault
-export OBSIDIAN_VAULT_DIR="$(ghq root)/github.com/izumin5210/private-notes"
+# Osidian
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
 # LayerX

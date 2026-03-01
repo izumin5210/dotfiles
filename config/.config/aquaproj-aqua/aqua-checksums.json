@@ -901,28 +901,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.35.1/stripe_1.35.1_linux_arm64.tar.gz",
-      "checksum": "1EEA9B8787C8101ACEBD7BCA512A4EF244C17A9410D875773084DBAD5EB79DDB",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.37.1/stripe_1.37.1_linux_arm64.tar.gz",
+      "checksum": "A38C8E3E0DFD8667ADC3FC2EF3130DDF38F81EF9276B9138861FFF1C06891CE9",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.35.1/stripe_1.35.1_linux_x86_64.tar.gz",
-      "checksum": "3FE4E0D12E53A1ED502FE237CFBE338BE5D1111356AAB47946319A484E66E416",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.37.1/stripe_1.37.1_linux_x86_64.tar.gz",
+      "checksum": "CDED4AF8A93262E3D664C9D122A0BC502D073A836E64836D738A1DF5ECCEB86C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.35.1/stripe_1.35.1_mac-os_arm64.tar.gz",
-      "checksum": "69C549B08F15EB035481D90BC39BE4E97A249E14E681A850011623C0068FE1A3",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.37.1/stripe_1.37.1_mac-os_arm64.tar.gz",
+      "checksum": "4AEAE2635A43A39F9E42EF655B3FFD29B49AA443955E7AACB8A86D026B8BBAE0",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.35.1/stripe_1.35.1_mac-os_x86_64.tar.gz",
-      "checksum": "9A2515F11D27092C570ABA3D9949BB2CFF20A2FB147835011BB2112CDBF898A9",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.37.1/stripe_1.37.1_mac-os_x86_64.tar.gz",
+      "checksum": "CFEEF3282247C31803DE5E44CD0F09F3885C6203DCDD04D6E4EFFCCC87460DA5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.35.1/stripe_1.35.1_windows_x86_64.zip",
-      "checksum": "6E9582D605C8793889D73F43CA773B2F68794CD16B241E5CB0AF274C4269C436",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.37.1/stripe_1.37.1_windows_x86_64.zip",
+      "checksum": "49E9DA5D37ABD1F674256623B234DD992B6DDEED3EC5D21277EB31E944496D8B",
       "algorithm": "sha256"
     },
     {

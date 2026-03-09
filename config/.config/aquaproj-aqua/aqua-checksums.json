@@ -81,23 +81,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Schniz/fnm/v1.38.1/fnm-arm64.zip",
-      "checksum": "69FEDA9455931C26C84BE9F95F5E6F69E8B64686E68069FAB7CFC34756CD2944",
+      "id": "github_release/github.com/Schniz/fnm/v1.39.0/fnm-arm64.zip",
+      "checksum": "4EAFF58B2C5BF30D0934027572DD0B5BBB60D2A1AF309230B53662D4B1D45599",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Schniz/fnm/v1.38.1/fnm-linux.zip",
-      "checksum": "B69E5C9A05C1E17E4A7DE9A17DF14BA430D049F2591AF791A6F850A170296069",
+      "id": "github_release/github.com/Schniz/fnm/v1.39.0/fnm-linux.zip",
+      "checksum": "7807664F39D39FC518DA1C35BA0181E4B3267603C4B1DEDEB4B5FC6AE440A224",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Schniz/fnm/v1.38.1/fnm-macos.zip",
-      "checksum": "80DEB3DB3DB45598F25AEA594C10936A7658F70826104FE37E33B4072A5E11F9",
+      "id": "github_release/github.com/Schniz/fnm/v1.39.0/fnm-macos.zip",
+      "checksum": "F046483E85C53B3278EFE49A3620C8680F22EFA58A8DABFD03EAFC6B59B31A25",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/Schniz/fnm/v1.38.1/fnm-windows.zip",
-      "checksum": "377796E8F2F51EB8B5DE8983974CAA8922B83C167197B68B33962775703AD4A0",
+      "id": "github_release/github.com/Schniz/fnm/v1.39.0/fnm-windows.zip",
+      "checksum": "8183BED4348CB78FDFD8ABB3D1247FBEAB7B2082F941363929C61E747C001E10",
       "algorithm": "sha256"
     },
     {

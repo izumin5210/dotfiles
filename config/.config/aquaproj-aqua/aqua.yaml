@@ -64,4 +64,4 @@ packages:
   - name: oven-sh/bun@bun-v1.3.10
   - name: anthropics/claude-code@v2.1.72
   - name: openai/codex@rust-v0.113.0
-  - name: tombi-toml/tombi@v0.9.2
+  - name: tombi-toml/tombi@v0.9.3

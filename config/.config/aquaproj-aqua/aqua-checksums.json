@@ -701,28 +701,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.113.0/codex-aarch64-apple-darwin.zst",
-      "checksum": "C1203770C38148289E747227CC22A19F13618C6E95F7AA523BCF6A60687FE940",
+      "id": "github_release/github.com/openai/codex/rust-v0.114.0/codex-aarch64-apple-darwin.zst",
+      "checksum": "50BC0CF8B0AE35E74A3FCC5BA7D3AFB8B90A3DFE26C8D4BB775D3B721B6E7DB6",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.113.0/codex-aarch64-unknown-linux-musl.zst",
-      "checksum": "914F582ABA68649854698F4CA9726228265E4295248FFF1445C4848D5DC22458",
+      "id": "github_release/github.com/openai/codex/rust-v0.114.0/codex-aarch64-unknown-linux-musl.zst",
+      "checksum": "5AC9B03134E44A10AB58A567626D0C059AC3C03111FD4CB406F191BB89F5390E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.113.0/codex-x86_64-apple-darwin.zst",
-      "checksum": "01FFB136A604B1FF792C53E34E007A8B3F952ECF5225C9780CA8F84900B3B798",
+      "id": "github_release/github.com/openai/codex/rust-v0.114.0/codex-x86_64-apple-darwin.zst",
+      "checksum": "EAC810D901BCA56B6F9A935C37F9C5B9557C53C1022D05C9AEDE173E244B8A90",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.113.0/codex-x86_64-pc-windows-msvc.exe.zst",
-      "checksum": "DF7D6994DD19C9309A2C7E6F9E67C8256FDC27A9F14C0AFC70D1271B514BB72D",
+      "id": "github_release/github.com/openai/codex/rust-v0.114.0/codex-x86_64-pc-windows-msvc.exe.zst",
+      "checksum": "FAC12AD842BA76FB727ACBDD11BB551ADBE5DEF5250EB3C020293CC54C2B5C21",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.113.0/codex-x86_64-unknown-linux-musl.zst",
-      "checksum": "AE4555100D001C7D65871900DCCA058AC2C6A3223FAAA1836E000D034CE5E5C4",
+      "id": "github_release/github.com/openai/codex/rust-v0.114.0/codex-x86_64-unknown-linux-musl.zst",
+      "checksum": "91BF62D55C608F488795CE1EF35D922DDDA7CD3A417848DDA073A235D130DDA3",
       "algorithm": "sha256"
     },
     {

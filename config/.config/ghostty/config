@@ -4,7 +4,8 @@ font-synthetic-style = "no-bold, no-italic, no-bold-italic"
 font-size = 13.5
 font-feature = "-calt, -liga, -dlig"
 font-thicken = true
-font-thicken-strength = 48
+font-thicken-strength = 64
+adjust-cell-width = 1
 adjust-cell-height = 8
 cursor-style = block
 

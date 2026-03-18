@@ -1,0 +1,22 @@
+{
+  "any-scripts": {
+    "command": "any-script-mcp"
+  },
+  "deepwiki": {
+    "type": "http",
+    "url": "https://mcp.deepwiki.com/mcp"
+  },
+  "playwright": {
+    "command": "playwright-mcp",
+    "args": ["--extension"]
+  },
+  "o3-search": {
+    "command": "o3-search-mcp",
+    "env": {
+      "OPENAI_API_KEY": "${O3_SEARCH_MCP_OPENAI_API_KEY}",
+      "OPENAI_API_TIMEOUT": "300000",
+      "SEARCH_CONTEXT_SIZE": "medium",
+      "REASONING_EFFORT": "medium"
+    }
+  }
+}

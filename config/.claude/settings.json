@@ -149,7 +149,6 @@
     ],
     "defaultMode": "acceptEdits"
   },
-  "model": "opus",
   "hooks": {
     "Notification": [
       {
@@ -191,10 +190,17 @@
     "code-simplifier@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
-    "playwright@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true
+    "skill-creator@claude-plugins-official": true,
+    "mcp-tools@izumin5210-dotfiles": true
   },
-  "extraKnownMarketplaces": {},
+  "extraKnownMarketplaces": {
+    "izumin5210-dotfiles": {
+      "source": {
+        "source": "github",
+        "repo": "izumin5210/dotfiles"
+      }
+    }
+  },
   "language": "japanese"
 }

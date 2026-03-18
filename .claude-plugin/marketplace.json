@@ -1,0 +1,17 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "izumin5210-dotfiles",
+  "description": "Personal Claude Code plugins for izumin5210's dotfiles",
+  "owner": {
+    "name": "izumin5210"
+  },
+  "plugins": [
+    {
+      "name": "mcp-tools",
+      "description": "Personal MCP servers (any-script-mcp, o3-search, deepwiki)",
+      "version": "1.0.0",
+      "source": "./claude-plugins/mcp-tools",
+      "category": "productivity"
+    }
+  ]
+}

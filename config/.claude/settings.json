@@ -197,8 +197,8 @@
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {
       "source": {
-        "source": "directory",
-        "path": "$HOME/src/github.com/izumin5210/dotfiles"
+        "source": "github",
+        "path": "izumin5210/dotfiles"
       }
     }
   },

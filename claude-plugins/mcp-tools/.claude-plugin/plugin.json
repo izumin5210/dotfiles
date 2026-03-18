@@ -1,0 +1,8 @@
+{
+  "name": "mcp-tools",
+  "description": "Personal MCP servers for Claude Code",
+  "version": "1.0.0",
+  "author": {
+    "name": "izumin5210"
+  }
+}

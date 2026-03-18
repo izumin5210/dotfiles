@@ -476,33 +476,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Darwin_arm64.tar.gz",
-      "checksum": "4D0E6C42B34962713C0A22C5A841901C58B54A8D0791BA2AE8E4906985BAC7F3",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Darwin_arm64.tar.gz",
+      "checksum": "55F0573847BBFA68B0129E7E6922F5766F300EA3411F8B41E34044F86111FA1A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Darwin_x86_64.tar.gz",
-      "checksum": "9E6BB0C2EC758114E14D5FA5F6AA6342CC026D5F7458AD0B125F728E24E3C0DC",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Darwin_x86_64.tar.gz",
+      "checksum": "0209A85ADC5A6530E452DDFBA6F4DDC735BBE953E2A7DE76F555684933B01D65",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Linux_arm64.tar.gz",
-      "checksum": "0FCF85B736895F46DAA38EEC5871EF1CA3D1E38B20201B2811B26258FACCF1C7",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Linux_arm64.tar.gz",
+      "checksum": "75BF3DF5EE3BFD8F20A98C009D6F6787D009F03385D0D56B2A2AEA26BDB7C287",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Linux_x86_64.tar.gz",
-      "checksum": "C47E6F4B61DEBDE5422183C7EB446A704A92C58B4C35BBD128C722D8BF269A86",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Linux_x86_64.tar.gz",
+      "checksum": "9C17B1458B214AF50168F5F5E981F1F9C4B34D13A22734B7318BF9A05132FF3D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Windows_arm64.zip",
-      "checksum": "CF9A632F1D1CA0A948116C467616C8B4CFD38CEB6826EC2ACE41B559FFC94BB3",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Windows_arm64.zip",
+      "checksum": "BC9B4F616D205C9A8332B263933A3147BB2639452F8E7950AE4847038E8123C0",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/jesseduffield/lazydocker/v0.24.4/lazydocker_0.24.4_Windows_x86_64.zip",
-      "checksum": "CA316F4F994A0AF5C71525398A34192D01BBF6AC05097B39D96DB1842855F349",
+      "id": "github_release/github.com/jesseduffield/lazydocker/v0.25.0/lazydocker_0.25.0_Windows_x86_64.zip",
+      "checksum": "2AF0B2516CD006B1849F2CDAE4CD82ABBF5D1C2D49B88563DAFFAA1FB4AC46BB",
       "algorithm": "sha256"
     },
     {

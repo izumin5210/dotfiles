@@ -198,7 +198,7 @@
     "izumin5210-dotfiles": {
       "source": {
         "source": "github",
-        "path": "izumin5210/dotfiles"
+        "repo": "izumin5210/dotfiles"
       }
     }
   },

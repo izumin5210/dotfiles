@@ -3,8 +3,8 @@
 pkgs.stdenv.mkDerivation {
   name = "aqua";
   src = pkgs.fetchurl {
-    url = "https://github.com/aquaproj/aqua/releases/download/v2.42.2/aqua_darwin_arm64.tar.gz";
-    sha256 = "sha256-J0xiA78+8Iallnp8ChGh3Pf37OnF1TkJE1xPLPDEpnc=";
+    url = "https://github.com/aquaproj/aqua/releases/download/v2.57.1/aqua_darwin_arm64.tar.gz";
+    sha256 = "sha256-gfkIyTJjuoO8BrqB114llDkLZ26hMbs/dpGg1FdZSOQ=";
   };
 
   sourceRoot = ".";

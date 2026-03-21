@@ -15,6 +15,12 @@
     builtins.elem (lib.getName pkg) [
       "1password-cli"
     ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+    "lima-full-1.2.2"
+    "lima-additional-guestagents-1.2.2"
+  ];
+
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;

@@ -6,7 +6,9 @@
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.11";
+      # TODO: Switch back to the stable release branch once release-26.05 is available.
+      # Track master temporarily so services.colima can be used before it lands in a stable release.
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {

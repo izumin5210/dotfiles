@@ -12,28 +12,116 @@ changeSession() {
 
 createSessionIfNeeded() {
   local name=$1
-  [[ -n "$2" ]] && dir=$2 || dir=$(pwd)
-  tmux list-sessions -F "#{session_name}" |
+  [[ -n "${2:-}" ]] && dir=$2 || dir=$(pwd)
+  tmux list-sessions -F "#{session_name}" 2>/dev/null |
     grep -q -E "^${name}$" ||
     tmux new-session -d -c "${dir}" -s "${name}"
 }
 
-selectRepo() {
-  echo "$(ghq root)/$(ghq list | fzf)"
+attachRemoteSession() {
+  local host=$1 name=$2
+  if [[ -n "${TMUX:-""}" ]]; then
+    tmux detach-client -E "ssh ${host} -t \"zsh -lic \\\"tmux attach-session -t ${name}\\\"\""
+  else
+    ssh "$host" -t "zsh -lic \"tmux attach-session -t $name\""
+  fi
+}
+
+listLocalSessions() {
+  tmux list-sessions -F '#{session_name}' 2>/dev/null |
+    while IFS= read -r session; do
+      printf "\e[0;32m%-10s\e[m\t%-20s\t%s\n" "tmux" "local" "$session"
+    done
+}
+
+listRemoteSessions() {
+  local hosts="${TM_REMOTE_HOSTS:-""}"
+  [[ -z "$hosts" ]] && return 0
+
+  local pids=()
+  local tmpdir
+  tmpdir=$(mktemp -d)
+
+  IFS=',' read -ra host_list <<< "$hosts"
+  for host in "${host_list[@]}"; do
+    (
+      ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
+        'zsh -lic "tmux list-sessions -F \"#{session_name}\""' 2>/dev/null |
+        while IFS= read -r session; do
+          printf "\e[0;33m%-10s\e[m\t%-20s\t%s\n" "tmux" "$host" "$session"
+        done > "$tmpdir/$host"
+    ) &
+    pids+=($!)
+  done
+
+  for pid in "${pids[@]}"; do
+    wait "$pid" 2>/dev/null || true
+  done
+
+  cat "$tmpdir"/* 2>/dev/null || true
+  rm -rf "$tmpdir"
+}
+
+listRepos() {
+  local existing_sessions
+  existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null || true)
+
+  ghq list | while IFS= read -r repo; do
+    local basename="${repo##*/}"
+    if echo "$existing_sessions" | grep -q -E "^${basename}$"; then
+      continue
+    fi
+    local full_path
+    full_path="$(ghq root)/$repo"
+    printf "\e[0;34m%-10s\e[m\t%-20s\t%s\t%s\n" "repo" "-" "$basename" "$full_path"
+  done
+}
+
+buildList() {
+  listLocalSessions
+  listRemoteSessions
+  listRepos
+}
+
+selectAndDispatch() {
+  local selected
+  selected=$(buildList | fzf --delimiter=$'\t' --with-nth=1,2,3 \
+    --no-hscroll --no-multi --ansi) || true
+  [[ -z "$selected" ]] && exit 0
+
+  local kind host name full_path
+  kind=$(echo "$selected" | awk -F'\t' '{print $1}' | xargs)
+  host=$(echo "$selected" | awk -F'\t' '{print $2}' | xargs)
+  name=$(echo "$selected" | awk -F'\t' '{print $3}' | xargs)
+  full_path=$(echo "$selected" | awk -F'\t' '{print $4}' | xargs)
+
+  case "$kind" in
+    tmux)
+      if [[ "$host" == "local" ]]; then
+        changeSession "$name"
+      else
+        attachRemoteSession "$host" "$name"
+      fi
+      ;;
+    repo)
+      createSessionIfNeeded "$name" "$full_path"
+      changeSession "$name"
+      ;;
+    *)
+      echo "Unknown type: $kind" >&2
+      exit 1
+      ;;
+  esac
 }
 
 main() {
   if [ $# -eq 1 ]; then
-    createSessionIfNeeded $1
-    changeSession $1
+    createSessionIfNeeded "$1"
+    changeSession "$1"
     exit
   fi
 
-  local repo="$(selectRepo)"
-  local session="$(echo "$repo" | awk -F/ '{ print $NF }')"
-
-  createSessionIfNeeded $session $repo
-  changeSession $session
+  selectAndDispatch
 }
 
-main
+main "$@"

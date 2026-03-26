@@ -90,9 +90,17 @@ listRepos() {
 }
 
 buildList() {
+  local remote_out
+  remote_out=$(mktemp)
+  listRemoteSessions > "$remote_out" &
+  local remote_pid=$!
+
   listLocalSessions
-  listRemoteSessions
   listRepos
+
+  wait "$remote_pid" 2>/dev/null || true
+  cat "$remote_out"
+  rm -f "$remote_out"
 }
 
 selectAndDispatch() {

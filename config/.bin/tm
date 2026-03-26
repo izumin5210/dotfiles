@@ -96,9 +96,14 @@ buildList() {
 }
 
 selectAndDispatch() {
+  local popup=${1:-false}
+  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi)
+  if [[ "$popup" == "true" ]]; then
+    fzf_opts+=(--no-border)
+  fi
+
   local selected
-  selected=$(buildList | fzf --delimiter=$'\t' --with-nth=1 \
-    --no-hscroll --no-multi --ansi) || true
+  selected=$(buildList | fzf "${fzf_opts[@]}") || true
   [[ -z "$selected" ]] && exit 0
 
   local kind name full_path host
@@ -122,13 +127,21 @@ selectAndDispatch() {
 }
 
 main() {
+  local popup=false
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --popup) popup=true; shift ;;
+      *) break ;;
+    esac
+  done
+
   if [ $# -eq 1 ]; then
     createSessionIfNeeded "$1"
     changeSession "$1"
     exit
   fi
 
-  selectAndDispatch
+  selectAndDispatch "$popup"
 }
 
 main "$@"

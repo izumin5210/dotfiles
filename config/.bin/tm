@@ -3,6 +3,11 @@
 
 set -euo pipefail
 
+# Nerd Font icons (matching tmux status line)
+ICON_TMUX=$'\uebc8'
+ICON_CLOUD=$'\uf4ac'
+ICON_GITHUB=$'\uf408'
+
 changeSession() {
   local change
   [[ -n "${TMUX:-""}" ]] && change="switch-client" || change="attach-session"
@@ -28,9 +33,16 @@ attachRemoteSession() {
 }
 
 listLocalSessions() {
+  local current_session
+  current_session=$(tmux display-message -p '#{session_name}' 2>/dev/null || true)
+
   tmux list-sessions -F '#{session_name}' 2>/dev/null |
     while IFS= read -r session; do
-      printf "\e[0;32m%-10s\e[m\t%-20s\t%s\n" "tmux" "local" "$session"
+      local marker=" "
+      if [[ "$session" == "$current_session" ]]; then
+        marker="\e[1;38;5;208m*\e[m"
+      fi
+      printf "\e[0;32m${ICON_TMUX}\e[m ${marker} %s\tlocal\t%s\n" "$session" "$session"
     done
 }
 
@@ -48,7 +60,7 @@ listRemoteSessions() {
       ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
         'zsh -lic "tmux list-sessions -F \"#{session_name}\""' 2>/dev/null |
         while IFS= read -r session; do
-          printf "\e[0;33m%-10s\e[m\t%-20s\t%s\n" "tmux" "$host" "$session"
+          printf "\e[0;33m${ICON_CLOUD}\e[m   %s (%s)\t%s\t%s\n" "$session" "$host" "$host" "$session"
         done > "$tmpdir/$host"
     ) &
     pids+=($!)
@@ -73,7 +85,7 @@ listRepos() {
     fi
     local full_path
     full_path="$(ghq root)/$repo"
-    printf "\e[0;34m%-10s\e[m\t%-20s\t%s\t%s\n" "repo" "-" "$basename" "$full_path"
+    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$basename" "$basename" "$full_path"
   done
 }
 
@@ -85,31 +97,26 @@ buildList() {
 
 selectAndDispatch() {
   local selected
-  selected=$(buildList | fzf --delimiter=$'\t' --with-nth=1,2,3 \
+  selected=$(buildList | fzf --delimiter=$'\t' --with-nth=1 \
     --no-hscroll --no-multi --ansi) || true
   [[ -z "$selected" ]] && exit 0
 
-  local kind host name full_path
-  kind=$(echo "$selected" | awk -F'\t' '{print $1}' | xargs)
-  host=$(echo "$selected" | awk -F'\t' '{print $2}' | xargs)
+  local kind name full_path host
+  kind=$(echo "$selected" | awk -F'\t' '{print $2}' | xargs)
   name=$(echo "$selected" | awk -F'\t' '{print $3}' | xargs)
   full_path=$(echo "$selected" | awk -F'\t' '{print $4}' | xargs)
 
   case "$kind" in
-    tmux)
-      if [[ "$host" == "local" ]]; then
-        changeSession "$name"
-      else
-        attachRemoteSession "$host" "$name"
-      fi
+    local)
+      changeSession "$name"
       ;;
     repo)
       createSessionIfNeeded "$name" "$full_path"
       changeSession "$name"
       ;;
     *)
-      echo "Unknown type: $kind" >&2
-      exit 1
+      # kind is a remote hostname
+      attachRemoteSession "$kind" "$name"
       ;;
   esac
 }

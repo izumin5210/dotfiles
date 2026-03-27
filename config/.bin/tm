@@ -54,14 +54,14 @@ listRemoteSessions() {
   local tmpdir
   tmpdir=$(mktemp -d)
 
-  IFS=',' read -ra host_list <<< "$hosts"
+  IFS=',' read -ra host_list <<<"$hosts"
   for host in "${host_list[@]}"; do
     (
       ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
         'zsh -lic "tmux list-sessions -F \"#{session_name}\""' 2>/dev/null |
         while IFS= read -r session; do
           printf "\e[0;33m${ICON_CLOUD}\e[m   %s (%s)\t%s\t%s\n" "$session" "$host" "$host" "$session"
-        done > "$tmpdir/$host"
+        done >"$tmpdir/$host"
     ) &
     pids+=($!)
   done
@@ -92,7 +92,7 @@ listRepos() {
 buildList() {
   local remote_out
   remote_out=$(mktemp)
-  listRemoteSessions > "$remote_out" &
+  listRemoteSessions >"$remote_out" &
   local remote_pid=$!
 
   listLocalSessions
@@ -104,11 +104,7 @@ buildList() {
 }
 
 selectAndDispatch() {
-  local popup=${1:-false}
-  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi)
-  if [[ "$popup" == "true" ]]; then
-    fzf_opts+=(--no-border)
-  fi
+  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90%)
 
   local selected
   selected=$(buildList | fzf "${fzf_opts[@]}") || true
@@ -120,36 +116,28 @@ selectAndDispatch() {
   full_path=$(echo "$selected" | awk -F'\t' '{print $4}' | xargs)
 
   case "$kind" in
-    local)
-      changeSession "$name"
-      ;;
-    repo)
-      createSessionIfNeeded "$name" "$full_path"
-      changeSession "$name"
-      ;;
-    *)
-      # kind is a remote hostname
-      attachRemoteSession "$kind" "$name"
-      ;;
+  local)
+    changeSession "$name"
+    ;;
+  repo)
+    createSessionIfNeeded "$name" "$full_path"
+    changeSession "$name"
+    ;;
+  *)
+    # kind is a remote hostname
+    attachRemoteSession "$kind" "$name"
+    ;;
   esac
 }
 
 main() {
-  local popup=false
-  while [[ $# -gt 0 ]]; do
-    case "$1" in
-      --popup) popup=true; shift ;;
-      *) break ;;
-    esac
-  done
-
   if [ $# -eq 1 ]; then
     createSessionIfNeeded "$1"
     changeSession "$1"
     exit
   fi
 
-  selectAndDispatch "$popup"
+  selectAndDispatch
 }
 
 main "$@"

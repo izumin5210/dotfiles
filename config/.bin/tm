@@ -75,18 +75,17 @@ listRemoteSessions() {
 }
 
 listRepos() {
-  local existing_sessions
+  local existing_sessions ghq_root
   existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null || true)
+  ghq_root=$(ghq root)
 
   ghq list | while IFS= read -r repo; do
     local basename="${repo##*/}"
     if echo "$existing_sessions" | grep -q -E "^${basename}$"; then
       continue
     fi
-    local full_path
-    full_path="$(ghq root)/$repo"
     local display_name="${repo##github.com/}"
-    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$display_name" "$basename" "$full_path"
+    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$display_name" "$basename" "$ghq_root/$repo"
   done
 }
 
@@ -96,8 +95,12 @@ buildList() {
   listRemoteSessions >"$remote_out" &
   local remote_pid=$!
 
-  listLocalSessions
-  listRepos
+  local local_out
+  local_out=$(
+    listLocalSessions
+    listRepos
+  )
+  [[ -n "$local_out" ]] && printf '%s\n' "$local_out"
 
   wait "$remote_pid" 2>/dev/null || true
   cat "$remote_out"

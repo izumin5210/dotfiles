@@ -3,6 +3,11 @@
 
 set -euo pipefail
 
+# Nerd Font icons (matching tmux status line)
+ICON_TMUX=$'\uebc8'
+ICON_CLOUD=$'\uf4ac'
+ICON_GITHUB=$'\uf408'
+
 changeSession() {
   local change
   [[ -n "${TMUX:-""}" ]] && change="switch-client" || change="attach-session"
@@ -12,28 +17,131 @@ changeSession() {
 
 createSessionIfNeeded() {
   local name=$1
-  [[ -n "$2" ]] && dir=$2 || dir=$(pwd)
-  tmux list-sessions -F "#{session_name}" |
+  [[ -n "${2:-}" ]] && dir=$2 || dir=$(pwd)
+  tmux list-sessions -F "#{session_name}" 2>/dev/null |
     grep -q -E "^${name}$" ||
     tmux new-session -d -c "${dir}" -s "${name}"
 }
 
-selectRepo() {
-  echo "$(ghq root)/$(ghq list | fzf)"
+attachRemoteSession() {
+  local host=$1 name=$2
+  if [[ -n "${TMUX:-""}" ]]; then
+    tmux detach-client -E "ssh ${host} -t \"zsh -lic \\\"tmux attach-session -t ${name}\\\"\""
+  else
+    ssh "$host" -t "zsh -lic \"tmux attach-session -t $name\""
+  fi
+}
+
+listLocalSessions() {
+  local current_session
+  current_session=$(tmux display-message -p '#{session_name}' 2>/dev/null || true)
+
+  tmux list-sessions -F '#{session_name}' 2>/dev/null |
+    while IFS= read -r session; do
+      local marker=" "
+      if [[ "$session" == "$current_session" ]]; then
+        marker="\e[1;38;5;208m*\e[m"
+      fi
+      printf "\e[0;32m${ICON_TMUX}\e[m ${marker} %s\tlocal\t%s\n" "$session" "$session"
+    done
+}
+
+listRemoteSessions() {
+  local hosts="${TM_REMOTE_HOSTS:-""}"
+  [[ -z "$hosts" ]] && return 0
+
+  local pids=()
+  local tmpdir
+  tmpdir=$(mktemp -d)
+
+  IFS=',' read -ra host_list <<<"$hosts"
+  for host in "${host_list[@]}"; do
+    (
+      ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
+        'zsh -lic "tmux list-sessions -F \"#{session_name}\""' 2>/dev/null |
+        while IFS= read -r session; do
+          printf "\e[0;33m${ICON_CLOUD}\e[m   %s (%s)\t%s\t%s\n" "$session" "$host" "$host" "$session"
+        done >"$tmpdir/$host"
+    ) &
+    pids+=($!)
+  done
+
+  for pid in "${pids[@]}"; do
+    wait "$pid" 2>/dev/null || true
+  done
+
+  cat "$tmpdir"/* 2>/dev/null || true
+  rm -rf "$tmpdir"
+}
+
+listRepos() {
+  local existing_sessions ghq_root
+  existing_sessions=$(tmux list-sessions -F '#{session_name}' 2>/dev/null || true)
+  ghq_root=$(ghq root)
+
+  ghq list | while IFS= read -r repo; do
+    local basename="${repo##*/}"
+    if echo "$existing_sessions" | grep -q -E "^${basename}$"; then
+      continue
+    fi
+    local display_name="${repo##github.com/}"
+    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$display_name" "$basename" "$ghq_root/$repo"
+  done
+}
+
+buildList() {
+  local remote_out
+  remote_out=$(mktemp)
+  listRemoteSessions >"$remote_out" &
+  local remote_pid=$!
+
+  local local_out
+  local_out=$(
+    listLocalSessions
+    listRepos
+  )
+  [[ -n "$local_out" ]] && printf '%s\n' "$local_out"
+
+  wait "$remote_pid" 2>/dev/null || true
+  cat "$remote_out"
+  rm -f "$remote_out"
+}
+
+selectAndDispatch() {
+  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90% --color bg:#292c3c)
+
+  local selected
+  selected=$(buildList | fzf "${fzf_opts[@]}") || true
+  [[ -z "$selected" ]] && exit 0
+
+  local kind name full_path host
+  kind=$(echo "$selected" | awk -F'\t' '{print $2}' | xargs)
+  name=$(echo "$selected" | awk -F'\t' '{print $3}' | xargs)
+  full_path=$(echo "$selected" | awk -F'\t' '{print $4}' | xargs)
+
+  case "$kind" in
+  local)
+    changeSession "$name"
+    ;;
+  repo)
+    createSessionIfNeeded "$name" "$full_path"
+    changeSession "$name"
+    ;;
+  *)
+    # kind is a remote hostname
+    attachRemoteSession "$kind" "$name"
+    ;;
+  esac
 }
 
 main() {
   if [ $# -eq 1 ]; then
-    createSessionIfNeeded $1
-    changeSession $1
+    createSessionIfNeeded "$1"
+    changeSession "$1"
     exit
   fi
 
-  local repo="$(selectRepo)"
-  local session="$(echo "$repo" | awk -F/ '{ print $NF }')"
-
-  createSessionIfNeeded $session $repo
-  changeSession $session
+  selectAndDispatch
 }
 
-main
+main "$@"

@@ -73,6 +73,11 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 # LayerX
 export GOPRIVATE=github.com/LayerXcom/
 
+# misc
+if [ "$(hostname -s)" != 'rabbithouse' ]; then
+  export TM_REMOTE_HOSTS=rabbithouse
+fi
+
 # ================================================================
 # overrides on codespaces
 # ================================================================

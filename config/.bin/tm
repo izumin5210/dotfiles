@@ -85,7 +85,8 @@ listRepos() {
     fi
     local full_path
     full_path="$(ghq root)/$repo"
-    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$basename" "$basename" "$full_path"
+    local display_name="${repo##github.com/}"
+    printf "\e[0;34m${ICON_GITHUB}\e[m   %s\trepo\t%s\t%s\n" "$display_name" "$basename" "$full_path"
   done
 }
 

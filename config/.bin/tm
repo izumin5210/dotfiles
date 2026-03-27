@@ -104,7 +104,7 @@ buildList() {
 }
 
 selectAndDispatch() {
-  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90%)
+  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90% --color bg:#292c3c)
 
   local selected
   selected=$(buildList | fzf "${fzf_opts[@]}") || true

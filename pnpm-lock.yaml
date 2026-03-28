@@ -18,8 +18,8 @@ importers:
         specifier: 0.0.68
         version: 0.0.68
       '@prisma/language-server':
-        specifier: 31.6.10
-        version: 31.6.10
+        specifier: 31.6.11
+        version: 31.6.11
       '@tailwindcss/language-server':
         specifier: 0.14.29
         version: 0.14.29
@@ -604,19 +604,19 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@prisma/config@7.6.0-dev.10':
-    resolution: {integrity: sha512-Y1z7TITxN7lLaXXDQumdpwqQsn1I0BCh+2dJ+8Xmr7KmGs9HK5KbnTihTGcQ5/z0/49o+6bD/OE5Txl/GEF2GA==}
+  '@prisma/config@7.6.0-dev.12':
+    resolution: {integrity: sha512-bGpXlVjuWsesjfo0+V+2leeZZ4jweisGigIONJPaOsB3E9WZbaeO3F3aKeXmQT9BjDazamllk5ZnA0CVYCaFMQ==}
 
-  '@prisma/language-server@31.6.10':
-    resolution: {integrity: sha512-IQ2km9U0dRaNeCxc+SHOzys/n06IdzEINI0h8rygKCWfKMxYaVN4OYKStOxSm+rO9WmmPMJY9ViBCJ7WgeHOSw==}
+  '@prisma/language-server@31.6.11':
+    resolution: {integrity: sha512-RDI97FnQvTluy0e4K6Cbf0FSi7xtEqUqTlBJ/8LNrmRkSQHWpDBN7b/2WnNZweCgxXpPqBZpfxiCxnEAIcwbiw==}
     engines: {node: '>=20'}
     hasBin: true
 
   '@prisma/prisma-schema-wasm@7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711':
     resolution: {integrity: sha512-sGWZsHVJlxX/lDZiwFg00kyZGwZo3vwN4v5jaMus+7j1763SsXjrW1MSykDUZoy8W1Ent9kCyPRpu9dy/ajnIg==}
 
-  '@prisma/schema-files-loader@7.6.0-dev.10':
-    resolution: {integrity: sha512-egttfFndfO3ccSS6HSV9NabWpnOpjPqpONjtvAP+VSeaqaqmh1HUzSTlyjl7hfUlm5B34UyWXjZLLKagN0gjKA==}
+  '@prisma/schema-files-loader@7.6.0-dev.12':
+    resolution: {integrity: sha512-ki7kYdxjnYkcHAlkj3mVmIA7rQ/r3ImlfifQTjQEsARljDZ4b6ybnIGNe+t8P3ukNdaixJMIE+/lt3IvZbVZcg==}
 
   '@puppeteer/browsers@2.6.1':
     resolution: {integrity: sha512-aBSREisdsGH890S2rQqK82qmQYU3uFpSH8wcZWHgHzl3LfzsxAKbLNiAG9mO8v1Y0UICBeClICxPJvyr0rcuxg==}
@@ -4199,7 +4199,7 @@ snapshots:
       playwright: 1.59.0-alpha-1771104257000
       playwright-core: 1.59.0-alpha-1771104257000
 
-  '@prisma/config@7.6.0-dev.10':
+  '@prisma/config@7.6.0-dev.12':
     dependencies:
       c12: 3.1.0
       deepmerge-ts: 7.1.5
@@ -4208,11 +4208,11 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@prisma/language-server@31.6.10':
+  '@prisma/language-server@31.6.11':
     dependencies:
-      '@prisma/config': 7.6.0-dev.10
+      '@prisma/config': 7.6.0-dev.12
       '@prisma/prisma-schema-wasm': 7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711
-      '@prisma/schema-files-loader': 7.6.0-dev.10
+      '@prisma/schema-files-loader': 7.6.0-dev.12
       '@types/js-levenshtein': 1.1.3
       js-levenshtein: 1.1.6
       klona: 2.0.6
@@ -4224,7 +4224,7 @@ snapshots:
 
   '@prisma/prisma-schema-wasm@7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711': {}
 
-  '@prisma/schema-files-loader@7.6.0-dev.10':
+  '@prisma/schema-files-loader@7.6.0-dev.12':
     dependencies:
       '@prisma/prisma-schema-wasm': 7.6.0-1.75cbdc1eb7150937890ad5465d861175c6624711
       fs-extra: 11.3.0

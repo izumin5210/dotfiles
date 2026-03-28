@@ -107,8 +107,34 @@ buildList() {
   rm -f "$remote_out"
 }
 
+previewGitLog() {
+  local kind=$1 name=$2 full_path=${3:-}
+  local dir=""
+
+  case "$kind" in
+  local)
+    dir=$(tmux display-message -t "$name" -p '#{pane_current_path}' 2>/dev/null) || return 0
+    ;;
+  repo)
+    dir="$full_path"
+    ;;
+  *)
+    echo "(remote session)"
+    return 0
+    ;;
+  esac
+
+  git -C "$dir" rev-parse --is-inside-work-tree &>/dev/null || { echo "(not a git repo)"; return 0; }
+
+  local branch
+  branch=$(git -C "$dir" symbolic-ref --short HEAD 2>/dev/null || git -C "$dir" rev-parse --short HEAD)
+  printf "\e[1;36m%s\e[m\n\n" "$branch"
+
+  git -C "$dir" log --first-parent --color=always --format='%C(yellow)%h %C(green)%cd%C(auto)%d%n  %C(reset)%s' --date=format:'%Y-%m-%d %H:%M' -n 30
+}
+
 selectAndDispatch() {
-  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90% --color bg:#292c3c)
+  local fzf_opts=(--delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi --tmux 90% --color bg:#292c3c --preview "$0 __preview {2} {3} {4}" --preview-window right:60%)
 
   local selected
   selected=$(buildList | fzf "${fzf_opts[@]}") || true
@@ -135,6 +161,12 @@ selectAndDispatch() {
 }
 
 main() {
+  if [[ "${1:-}" == "__preview" ]]; then
+    shift
+    previewGitLog "$@"
+    exit 0
+  fi
+
   if [ $# -eq 1 ]; then
     createSessionIfNeeded "$1"
     changeSession "$1"

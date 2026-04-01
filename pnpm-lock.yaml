@@ -10,10 +10,10 @@ importers:
     devDependencies:
       '@fsouza/prettierd':
         specifier: 0.27.0
-        version: 0.27.0(typescript@5.9.3)
+        version: 0.27.0(typescript@6.0.2)
       '@mermaid-js/mermaid-cli':
         specifier: 11.12.0
-        version: 11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@5.9.3))(yaml@2.8.2)
+        version: 11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.2))(yaml@2.8.2)
       '@playwright/mcp':
         specifier: 0.0.68
         version: 0.0.68
@@ -31,7 +31,7 @@ importers:
         version: 0.3.0
       '@vue/language-server':
         specifier: 3.2.6
-        version: 3.2.6(typescript@5.9.3)
+        version: 3.2.6(typescript@6.0.2)
       any-script-mcp:
         specifier: 0.3.0
         version: 0.3.0
@@ -46,7 +46,7 @@ importers:
         version: 0.15.0
       gh-actions-language-server:
         specifier: 0.0.3
-        version: 0.0.3(typescript@5.9.3)
+        version: 0.0.3(typescript@6.0.2)
       graphql-language-service-cli:
         specifier: 3.5.0
         version: 3.5.0(@types/node@25.5.0)(graphql@16.13.1)
@@ -54,8 +54,8 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(ws@8.19.0)
       typescript:
-        specifier: 5.9.3
-        version: 5.9.3
+        specifier: 6.0.2
+        version: 6.0.2
       typescript-language-server:
         specifier: 5.1.3
         version: 5.1.3
@@ -3099,6 +3099,11 @@ packages:
     engines: {node: '>=14.17'}
     hasBin: true
 
+  typescript@6.0.2:
+    resolution: {integrity: sha512-bGdAIrZ0wiGDo5l8c++HWtbaNCWTS4UTv7RaTH/ThVIgjkveJt83m74bBHMJkuCbslY8ixgLBVZJIOiQlQTjfQ==}
+    engines: {node: '>=14.17'}
+    hasBin: true
+
   ufo@1.6.3:
     resolution: {integrity: sha512-yDJTmhydvl5lJzBmy/hyOAA0d+aqCBuwl818haVdYCRrWV84o7YyeVm4QlVHStqNrrJSTb6jKuFAVqAFsr+K3Q==}
 
@@ -3687,13 +3692,13 @@ snapshots:
 
   '@floating-ui/utils@0.2.11': {}
 
-  '@fsouza/prettierd@0.27.0(typescript@5.9.3)':
+  '@fsouza/prettierd@0.27.0(typescript@6.0.2)':
     dependencies:
       core_d: 6.1.1
       prettier: 3.8.1
     optionalDependencies:
       '@babel/parser': 7.29.0
-      '@typescript-eslint/typescript-estree': 8.57.0(typescript@5.9.3)
+      '@typescript-eslint/typescript-estree': 8.57.0(typescript@6.0.2)
     transitivePeerDependencies:
       - supports-color
       - typescript
@@ -3955,14 +3960,14 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mermaid-js/mermaid-cli@11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@5.9.3))(yaml@2.8.2)':
+  '@mermaid-js/mermaid-cli@11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.2))(yaml@2.8.2)':
     dependencies:
       '@mermaid-js/mermaid-zenuml': 0.2.2(@babel/core@7.29.0)(@babel/template@7.28.6)(mermaid@11.13.0)(yaml@2.8.2)
       chalk: 5.6.2
       commander: 14.0.3
       import-meta-resolve: 4.2.0
       mermaid: 11.13.0
-      puppeteer: 23.11.1(typescript@5.9.3)
+      puppeteer: 23.11.1(typescript@6.0.2)
     transitivePeerDependencies:
       - '@babel/core'
       - '@babel/template'
@@ -4500,36 +4505,36 @@ snapshots:
       '@types/node': 25.5.0
     optional: true
 
-  '@typescript-eslint/project-service@8.57.0(typescript@5.9.3)':
+  '@typescript-eslint/project-service@8.57.0(typescript@6.0.2)':
     dependencies:
-      '@typescript-eslint/tsconfig-utils': 8.57.0(typescript@5.9.3)
+      '@typescript-eslint/tsconfig-utils': 8.57.0(typescript@6.0.2)
       '@typescript-eslint/types': 8.57.0
       debug: 4.4.3
-      typescript: 5.9.3
+      typescript: 6.0.2
     transitivePeerDependencies:
       - supports-color
     optional: true
 
-  '@typescript-eslint/tsconfig-utils@8.57.0(typescript@5.9.3)':
+  '@typescript-eslint/tsconfig-utils@8.57.0(typescript@6.0.2)':
     dependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
     optional: true
 
   '@typescript-eslint/types@8.57.0':
     optional: true
 
-  '@typescript-eslint/typescript-estree@8.57.0(typescript@5.9.3)':
+  '@typescript-eslint/typescript-estree@8.57.0(typescript@6.0.2)':
     dependencies:
-      '@typescript-eslint/project-service': 8.57.0(typescript@5.9.3)
-      '@typescript-eslint/tsconfig-utils': 8.57.0(typescript@5.9.3)
+      '@typescript-eslint/project-service': 8.57.0(typescript@6.0.2)
+      '@typescript-eslint/tsconfig-utils': 8.57.0(typescript@6.0.2)
       '@typescript-eslint/types': 8.57.0
       '@typescript-eslint/visitor-keys': 8.57.0
       debug: 4.4.3
       minimatch: 10.2.4
       semver: 7.7.4
       tinyglobby: 0.2.15
-      ts-api-utils: 2.4.0(typescript@5.9.3)
-      typescript: 5.9.3
+      ts-api-utils: 2.4.0(typescript@6.0.2)
+      typescript: 6.0.2
     transitivePeerDependencies:
       - supports-color
     optional: true
@@ -4668,13 +4673,13 @@ snapshots:
       pug-parser: 6.0.0
       vscode-languageserver-textdocument: 1.0.12
 
-  '@vue/language-server@3.2.6(typescript@5.9.3)':
+  '@vue/language-server@3.2.6(typescript@6.0.2)':
     dependencies:
       '@volar/language-server': 2.4.28
       '@vue/language-core': 3.2.6
       '@vue/language-service': 3.2.6
-      '@vue/typescript-plugin': 3.2.6(typescript@5.9.3)
-      typescript: 5.9.3
+      '@vue/typescript-plugin': 3.2.6(typescript@6.0.2)
+      typescript: 6.0.2
       vscode-uri: 3.1.0
 
   '@vue/language-service@3.2.6':
@@ -4709,7 +4714,7 @@ snapshots:
       '@vue/shared': 3.5.30
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.30(vue@3.5.30(typescript@5.9.3))':
+  '@vue/server-renderer@3.5.30(vue@3.5.30(typescript@6.0.2))':
     dependencies:
       '@vue/compiler-ssr': 3.5.30
       '@vue/shared': 3.5.30
@@ -4717,13 +4722,13 @@ snapshots:
 
   '@vue/shared@3.5.30': {}
 
-  '@vue/typescript-plugin@3.2.6(typescript@5.9.3)':
+  '@vue/typescript-plugin@3.2.6(typescript@6.0.2)':
     dependencies:
       '@volar/typescript': 2.4.28
       '@vue/language-core': 3.2.6
       '@vue/shared': 3.5.30
       path-browserify: 1.0.1
-      vue-component-meta: 3.2.6(typescript@5.9.3)
+      vue-component-meta: 3.2.6(typescript@6.0.2)
     transitivePeerDependencies:
       - typescript
 
@@ -5156,14 +5161,14 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  cosmiconfig@9.0.1(typescript@5.9.3):
+  cosmiconfig@9.0.1(typescript@6.0.2):
     dependencies:
       env-paths: 2.2.1
       import-fresh: 3.3.1
       js-yaml: 4.1.1
       parse-json: 5.2.0
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
 
   cronstrue@2.59.0: {}
 
@@ -5767,13 +5772,13 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  gh-actions-language-server@0.0.3(typescript@5.9.3):
+  gh-actions-language-server@0.0.3(typescript@6.0.2):
     dependencies:
       '@actions/languageserver': 0.3.47
       '@actions/workflow-parser': 0.3.47
       '@octokit/rest': 19.0.13
       '@octokit/types': 9.3.2
-      typescript: 5.9.3
+      typescript: 6.0.2
       vscode-languageserver: 8.1.0
       vscode-languageserver-textdocument: 1.0.12
       yaml: 2.8.2
@@ -6537,11 +6542,11 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  puppeteer@23.11.1(typescript@5.9.3):
+  puppeteer@23.11.1(typescript@6.0.2):
     dependencies:
       '@puppeteer/browsers': 2.6.1
       chromium-bidi: 0.11.0(devtools-protocol@0.0.1367902)
-      cosmiconfig: 9.0.1(typescript@5.9.3)
+      cosmiconfig: 9.0.1(typescript@6.0.2)
       devtools-protocol: 0.0.1367902
       puppeteer-core: 23.11.1
       typed-query-selector: 2.12.1
@@ -6947,9 +6952,9 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  ts-api-utils@2.4.0(typescript@5.9.3):
+  ts-api-utils@2.4.0(typescript@6.0.2):
     dependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
     optional: true
 
   ts-dedent@2.2.0: {}
@@ -6982,6 +6987,8 @@ snapshots:
   typescript@4.9.5: {}
 
   typescript@5.9.3: {}
+
+  typescript@6.0.2: {}
 
   ufo@1.6.3: {}
 
@@ -7207,20 +7214,20 @@ snapshots:
 
   vscode-uri@3.1.0: {}
 
-  vue-component-meta@3.2.6(typescript@5.9.3):
+  vue-component-meta@3.2.6(typescript@6.0.2):
     dependencies:
       '@volar/typescript': 2.4.28
       '@vue/language-core': 3.2.6
       path-browserify: 1.0.1
     optionalDependencies:
-      typescript: 5.9.3
+      typescript: 6.0.2
 
   vue@3.5.30(typescript@5.9.3):
     dependencies:
       '@vue/compiler-dom': 3.5.30
       '@vue/compiler-sfc': 3.5.30
       '@vue/runtime-dom': 3.5.30
-      '@vue/server-renderer': 3.5.30(vue@3.5.30(typescript@5.9.3))
+      '@vue/server-renderer': 3.5.30(vue@3.5.30(typescript@6.0.2))
       '@vue/shared': 3.5.30
     optionalDependencies:
       typescript: 5.9.3

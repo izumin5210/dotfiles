@@ -35,6 +35,8 @@
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
 
+  home.enableNixpkgsReleaseCheck = false;
+
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
@@ -142,6 +144,38 @@
     LIBSQLITE = "${pkgs.sqlite.out}/lib/libsqlite3.dylib";
     HM_OPENSSL_PATH = "${pkgs.openssl.out}";
     HM_PCRE2_PATH = "${pkgs.pcre2.out}";
+  };
+
+  # Colima currently uses the template file when creating a new instance.
+  home.file."${config.xdg.configHome}/colima/_templates/default.yaml".text = ''
+    arch: aarch64
+    cpu: 2
+    disk: 160
+    memory: 8
+    mountType: virtiofs
+    portForwarder: ssh
+    runtime: docker
+    network:
+      address: true
+      interface: en0
+      mode: shared
+    vmType: vz
+  '';
+
+  services.colima = {
+    enable = true;
+    colimaHomeDir = "${config.xdg.configHome}/colima";
+    profiles.default = {
+      isActive = true;
+      isService = true;
+      setDockerHost = true;
+      # Home Manager writes profile settings to ~/.config/colima/default/colima.yaml,
+      # but Colima 0.9.x initializes new instances from
+      # ~/.config/colima/_templates/default.yaml. Keeping this empty avoids
+      # generating a partially-populated profile config with blank string values
+      # such as runtime: "" on first boot.
+      settings = { };
+    };
   };
 
   # Let Home Manager install and manage itself.

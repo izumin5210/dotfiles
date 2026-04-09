@@ -28,7 +28,7 @@ packages:
   - name: x-motemen/ghq@v1.9.4
   - name: jesseduffield/lazygit@v0.60.0
   # vim
-  - name: neovim/neovim@v0.12.0
+  - name: neovim/neovim@v0.12.1
   # shell
   - name: starship/starship@v1.24.2
   - name: rossmacarthur/sheldon@0.8.5

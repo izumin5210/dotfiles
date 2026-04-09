@@ -996,6 +996,31 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-darwin-arm64",
+      "checksum": "07E3522F2EB3105D7E9CFD2B39FE891A91C8B0298ECF824562ABE8D7AD55C5B2",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-darwin-x64",
+      "checksum": "6BA8B6E4D22741099CC0B090C449724BF5F627C2E03FC64299D613C5DCC210C1",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-linux-arm64",
+      "checksum": "71DF06610BCB43ECD83EE0E22A186A76C785F2F48C581506F8368BD98E3E839A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-linux-musl-x64",
+      "checksum": "FFB50D01054A775146E997D04069513D5430E2E4768A6477C122307AA9B6573E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-win32-x64.exe",
+      "checksum": "0E95D9B8DF7DCFC1DF1CF392D583AB4355CA112B3850ED7AF55FA4D009627796",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/x-motemen/ghq/v1.9.4/ghq_darwin_amd64.zip",
       "checksum": "48A46820F3DE2D3C84FE3B3958A4216D2724B87F",
       "algorithm": "sha1"

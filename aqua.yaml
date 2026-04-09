@@ -10,6 +10,6 @@ registries:
   - type: standard
     ref: v4.491.0 # renovate: depName=aquaproj/aqua-registry
 packages:
-  - name: JohnnyMorganz/StyLua@v2.4.0
+  - name: JohnnyMorganz/StyLua@v2.4.1
   - name: mvdan/sh@v3.13.0
   - name: rhysd/vim-startuptime@v1.3.2

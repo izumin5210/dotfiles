@@ -5,15 +5,6 @@ return {
     lazy = false, -- main branch does not support lazy-loading
     build = ":TSUpdate",
     config = function()
-      -- main branch stores queries under runtime/queries/, which lazy.nvim
-      -- doesn't add to rtp. Without this, vim.treesitter.start() can't find
-      -- highlight queries for most languages.
-      local plugin_dir = vim.fn.fnamemodify(
-        vim.api.nvim_get_runtime_file("lua/nvim-treesitter/init.lua", false)[1],
-        ":h:h:h"
-      )
-      vim.opt.runtimepath:append(plugin_dir .. "/runtime")
-
       require("nvim-treesitter").install({
         "bash",
         "css",

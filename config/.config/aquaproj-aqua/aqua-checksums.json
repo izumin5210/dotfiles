@@ -996,6 +996,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-linux-arm64.gz",
+      "checksum": "E339D6533B20830DD1666FE320AFF85D301B3F59964A3836870B77F4827F9A17",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-linux-x64.gz",
+      "checksum": "9754A32800F0B970152782DF177B4A47C711E34E651A7ACEB384D8BD29FA136E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-macos-arm64.gz",
+      "checksum": "024E2CEE34723524D62D41BDE4D2B4AF23C8BBE0236E116C79C0B37D9575889E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-macos-x64.gz",
+      "checksum": "D0DAA279054C1D1CEDB08F5CA784B451CEB1F0E6B083B112D07317958AE77FE0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-windows-arm64.gz",
+      "checksum": "7E276C740A1D47D3326F2450C91A40165265D4BB3097F5DF584285F8460A307D",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.8/tree-sitter-windows-x64.gz",
+      "checksum": "28301A969412066BF4818C30C71D9C313091A9B9DC24B53A14DDDA3A8E2CC2BB",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/vercel-labs/agent-browser/v0.25.3/agent-browser-darwin-arm64",
       "checksum": "07E3522F2EB3105D7E9CFD2B39FE891A91C8B0298ECF824562ABE8D7AD55C5B2",
       "algorithm": "sha256"

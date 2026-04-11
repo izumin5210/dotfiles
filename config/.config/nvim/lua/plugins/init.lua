@@ -37,6 +37,10 @@ return {
     opts = {
       flavour = "frappe",
       transparent_background = true,
+      float = {
+        transparent = true,
+        solid = true,
+      },
       integrations = {
         dap = true,
         dap_ui = true,
@@ -55,7 +59,7 @@ return {
     },
     config = function(_, opts)
       require("catppuccin").setup(opts)
-      vim.cmd.colorscheme("catppuccin")
+      vim.cmd.colorscheme("catppuccin-nvim")
     end,
   },
   -- misc

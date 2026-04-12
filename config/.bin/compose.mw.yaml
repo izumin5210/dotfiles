@@ -1,6 +1,6 @@
 services:
   postgres:
-    image: postgres:18@sha256:a9abf4275f9e99bff8e6aed712b3b7dfec9cac1341bba01c1ffdfce9ff9fc34a
+    image: postgres:18@sha256:52e6ffd11fddd081ae63880b635b2a61c14008c17fc98cdc7ce5472265516dd0
     container_name: the-postgres
     environment:
       - POSTGRES_USER=postgres
@@ -20,7 +20,7 @@ services:
     ports:
       - 3306:3306
   redis:
-    image: redis:8@sha256:315270d166080f537bbdf1b489b603aaaa213cb55a544acfa51feb7481abb1c0
+    image: redis:8@sha256:1f073813b641755b70b0200da64131bbeeb4ec5b633ca67772229b49820caafa
     container_name: the-redis
     volumes:
       - the-redis:/data

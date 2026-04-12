@@ -192,7 +192,8 @@
     "claude-code-setup@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "mcp-tools@izumin5210-dotfiles": true
+    "mcp-tools@izumin5210-dotfiles": true,
+    "codex@openai-codex": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {
@@ -200,7 +201,20 @@
         "source": "github",
         "repo": "izumin5210/dotfiles"
       }
+    },
+    "openai-codex": {
+      "source": {
+        "source": "github",
+        "repo": "openai/codex-plugin-cc"
+      }
     }
   },
-  "language": "japanese"
+  "language": "japanese",
+  "sandbox": {
+    "filesystem": {
+      "allowWrite": [
+        "~/.local/share/pnpm"
+      ]
+    }
+  }
 }

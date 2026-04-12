@@ -8,51 +8,52 @@ checksum:
     - all
 registries:
   - type: standard
-    ref: v4.482.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.491.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   # go
-  - name: golang/go@go1.26.1
+  - name: golang/go@go1.26.2
   - name: golang.org/x/tools/gopls@v0.21.1
   - name: go-delve/delve@v1.26.1
-  - name: golangci/golangci-lint@v2.11.3
+  - name: golangci/golangci-lint@v2.11.4
   - name: nametake/golangci-lint-langserver@v0.0.12
   # javascript
-  - name: pnpm/pnpm@v10.32.1
-  - name: denoland/deno@v2.7.5
+  - name: pnpm/pnpm@v10.33.0
+  - name: denoland/deno@v2.7.11
   - name: Schniz/fnm@v1.39.0
   # python
-  - name: astral-sh/uv@0.10.11
+  - name: astral-sh/uv@0.11.5
   # git
-  - name: cli/cli@v2.88.1
-  - name: dandavison/delta@0.18.2
+  - name: cli/cli@v2.89.0
+  - name: dandavison/delta@0.19.2
   - name: x-motemen/ghq@v1.9.4
-  - name: jesseduffield/lazygit@v0.60.0
+  - name: jesseduffield/lazygit@v0.61.0
   # vim
-  - name: neovim/neovim@v0.11.6
+  - name: neovim/neovim@v0.12.1
+  - name: tree-sitter/tree-sitter@v0.26.8
   # shell
   - name: starship/starship@v1.24.2
   - name: rossmacarthur/sheldon@0.8.5
   # tmux
   - name: tmux/tmux-builds@v3.6a
   # linters, formatters, language servers
-  - name: bufbuild/buf@v1.66.1
-  - name: rhysd/actionlint@v1.7.11
+  - name: bufbuild/buf@v1.67.0
+  - name: rhysd/actionlint@v1.7.12
   - name: hadolint/hadolint@v2.14.0
-  - name: mvdan/sh@v3.13.0
-  - name: JohnnyMorganz/StyLua@v2.4.0
+  - name: mvdan/sh@v3.13.1
+  - name: JohnnyMorganz/StyLua@v2.4.1
   - name: grafana/jsonnet-language-server@v0.17.0
-  - name: LuaLS/lua-language-server@3.17.1
-  - name: github/copilot-language-server-release@1.457.0
+  - name: LuaLS/lua-language-server@3.18.1
+  - name: github/copilot-language-server-release@1.465.0
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.28.0
-  - name: aws/aws-cli@2.34.11
-  - name: stripe/stripe-cli@v1.37.8
+  - name: aws/aws-cli@2.34.27
+  - name: stripe/stripe-cli@v1.40.3
   # tools
-  - name: junegunn/fzf@v0.70.0
+  - name: junegunn/fzf@v0.71.0
   - name: BurntSushi/ripgrep@15.1.0
   - name: sharkdp/bat@v0.26.1
   - name: eza-community/eza@v0.23.4
-  - name: sharkdp/fd@v10.3.0
+  - name: sharkdp/fd@v10.4.2
   - name: direnv/direnv@v2.37.1
   - name: awslabs/git-secrets@1.3.0
   - name: jesseduffield/lazydocker@v0.25.0
@@ -62,6 +63,7 @@ packages:
   - name: sxyazi/yazi@v26.1.22
   - name: jorgerojas26/lazysql@v0.4.8
   - name: oven-sh/bun@bun-v1.3.11
-  - name: anthropics/claude-code@v2.1.80
-  - name: openai/codex@rust-v0.116.0
-  - name: tombi-toml/tombi@v0.9.7
+  - name: anthropics/claude-code@v2.1.101
+  - name: openai/codex@rust-v0.120.0
+  - name: tombi-toml/tombi@v0.9.16
+  - name: vercel-labs/agent-browser@v0.25.3

@@ -721,28 +721,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.11/bun-darwin-aarch64.zip",
-      "checksum": "6F5A3467ED9CAEC4795BF78CD476507D9F870C7D57B86C945FCB338126772FFC",
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.12/bun-darwin-aarch64.zip",
+      "checksum": "6C4BB87DD013ED1A8D6A16E357A3D094959FD5530B4D7061F7F3680C3C7CEA1C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.11/bun-darwin-x64.zip",
-      "checksum": "C4FE2B9247218B0295F24E895AAEC8FEE62E74452679A9026B67EACBD611A286",
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.12/bun-darwin-x64.zip",
+      "checksum": "0F58C53A3E7947F1E626D2F8D285F97C14B7CADCCA9C09EBAFC0AE9D35B58C3D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.11/bun-linux-aarch64.zip",
-      "checksum": "D13944DA12A53ECC74BF6A720BD1D04C4555C038DFE422365356A7BE47691FDF",
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.12/bun-linux-aarch64.zip",
+      "checksum": "C40BC0EBCA11BDE7D75AF497A654A874D0C7FD8D6A8D6031C173C10C9064297B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.11/bun-linux-x64.zip",
-      "checksum": "8611BA935AF886F05A6F38740A15160326C15E5D5D07ADEF966130B4493607ED",
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.12/bun-linux-x64.zip",
+      "checksum": "11DC3EE11BC1695E149737C6CA3D5619302CF4346E6B8A6EC7988967EF01DDC5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.11/bun-windows-x64.zip",
-      "checksum": "066F8694F8B7D8DF592452746D18F01710D4053E93030922DBC6E8C34A8C4B9F",
+      "id": "github_release/github.com/oven-sh/bun/bun-v1.3.12/bun-windows-x64.zip",
+      "checksum": "841FF9C5DFFCAA3A2620D1E3F87EE500F32A4CA830B001CADE7A3479609D4A89",
       "algorithm": "sha256"
     },
     {

@@ -21,7 +21,7 @@ confirm-close-surface = true
 # macOS specific settings
 macos-option-as-alt = left
 macos-titlebar-style = hidden
-macos-window-shadow = false
+# macos-window-shadow = true
 
 # shell integration
 shell-integration-features = no-cursor

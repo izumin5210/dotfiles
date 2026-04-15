@@ -94,7 +94,6 @@ return {
   },
   {
     "andymass/vim-matchup",
-    version = "*",
     event = { "BufReadPre" },
     dependencies = { "nvim-treesitter" },
     config = function()

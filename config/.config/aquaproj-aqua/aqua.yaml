@@ -42,7 +42,7 @@ packages:
   - name: mvdan/sh@v3.13.1
   - name: JohnnyMorganz/StyLua@v2.4.1
   - name: grafana/jsonnet-language-server@v0.17.0
-  - name: LuaLS/lua-language-server@3.18.1
+  - name: LuaLS/lua-language-server@3.18.2
   - name: github/copilot-language-server-release@1.469.0
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.28.0

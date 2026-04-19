@@ -66,4 +66,4 @@ packages:
   - name: anthropics/claude-code@v2.1.114
   - name: openai/codex@rust-v0.121.0
   - name: tombi-toml/tombi@v0.9.16
-  - name: vercel-labs/agent-browser@v0.25.4
+  - name: vercel-labs/agent-browser@v0.25.5

@@ -28,7 +28,7 @@ packages:
   - name: x-motemen/ghq@v1.10.1
   - name: jesseduffield/lazygit@v0.61.1
   # vim
-  - name: neovim/neovim@v0.12.1
+  - name: neovim/neovim@v0.12.2
   - name: tree-sitter/tree-sitter@v0.26.8
   # shell
   - name: starship/starship@v1.25.0

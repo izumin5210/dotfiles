@@ -65,5 +65,5 @@ packages:
   - name: oven-sh/bun@bun-v1.3.13
   - name: anthropics/claude-code@v2.1.120
   - name: openai/codex@rust-v0.125.0
-  - name: tombi-toml/tombi@v0.9.21
+  - name: tombi-toml/tombi@v0.9.22
   - name: vercel-labs/agent-browser@v0.26.0

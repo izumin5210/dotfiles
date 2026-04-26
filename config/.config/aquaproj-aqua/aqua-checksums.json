@@ -386,6 +386,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_darwin_amd64.tar.gz",
+      "checksum": "34916B89E18866ABD3834E0FF7E51FD67D72BC2926DDC70FEAA52493CB0DEAEF",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_darwin_arm64.tar.gz",
+      "checksum": "B7D77539C268DFA04868731495003B454E42429BD114A1336FB7A8BC920AF22B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_linux_amd64.tar.gz",
+      "checksum": "79CE15863847BF3F5686AAB88A5B8394125F913CD1F3152FB83C626CCE96FF54",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_linux_arm64.tar.gz",
+      "checksum": "D0F603BB7245EB178D25313E8EC85E82238FE847BA810F42296506B2CF56B4FE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_windows_amd64.zip",
+      "checksum": "977532C201D0EF7270B19BDB7BF551E819F7B522E11E3CC303F37863989AC3B9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_windows_arm64.zip",
+      "checksum": "F474C3F0737874F0FE5806990C98F0718E6497DB2EC2052B171C6E70689B7783",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/golangci/golangci-lint/v2.11.4/golangci-lint-2.11.4-darwin-amd64.tar.gz",
       "checksum": "C900D4048DB75D1EDFD550FD11CF6A9B3008E7CAA8E119FCDDBC700412D63E60",
       "algorithm": "sha256"
@@ -1146,8 +1176,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.494.1/registry.yaml",
-      "checksum": "BA94F7BB7A80AF07CD73ED588935345E75D232703959FA90988E4414CF8C12B06F05CA8B47BAA33C5C970C83667C027A7D2FE453E52C75924830573CD78FAF48",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.497.0/registry.yaml",
+      "checksum": "371396DB3E3464928F2000A715F5ACCBC013CBCB7996C52B5DFE283CC14DC8CD1846F888326425A5CF19D206E9856C2404F05BBDA127E60CB18CEA8D59B073E5",
       "algorithm": "sha512"
     }
   ]

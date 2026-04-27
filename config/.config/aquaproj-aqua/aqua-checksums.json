@@ -976,6 +976,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/tak848/ccgate/v0.5.3/ccgate-darwin-amd64.tar.gz",
+      "checksum": "0FAF2FB9CC7D8C25A0D11CE6DA8FD18F1BCEB88B2517FA80227BFD3E11180295",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tak848/ccgate/v0.5.3/ccgate-darwin-arm64.tar.gz",
+      "checksum": "AF63CEA73D493ECB12332DE9C7615970B3FD9C40233A1F56537FB33C7A7FF9D5",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tak848/ccgate/v0.5.3/ccgate-linux-amd64.tar.gz",
+      "checksum": "064E1B578F4E3B8A5CAA86E7E952C1F4F3F462EC9E587134474D47BF30D34C4A",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/tak848/ccgate/v0.5.3/ccgate-linux-arm64.tar.gz",
+      "checksum": "F8B9F582492EE1DF88688E4D2361CAA8A40978BC369CBE4B3792FCFF6BEB84FC",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-linux-arm64.tar.gz",
       "checksum": "BB5AFD9D646DF54A7D7C66E198AA22C7D293C7453534F1670F7C540534DB8B5E",
       "algorithm": "sha256"

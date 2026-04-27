@@ -166,6 +166,17 @@
     "defaultMode": "acceptEdits"
   },
   "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "ccgate"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "matcher": "",

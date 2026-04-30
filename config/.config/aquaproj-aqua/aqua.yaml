@@ -21,7 +21,7 @@ packages:
   - name: denoland/deno@v2.7.13
   - name: Schniz/fnm@v1.39.0
   # python
-  - name: astral-sh/uv@0.11.7
+  - name: astral-sh/uv@0.11.8
   # git
   - name: cli/cli@v2.91.0
   - name: dandavison/delta@0.19.2

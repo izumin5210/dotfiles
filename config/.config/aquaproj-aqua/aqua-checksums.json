@@ -386,33 +386,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_darwin_amd64.tar.gz",
-      "checksum": "34916B89E18866ABD3834E0FF7E51FD67D72BC2926DDC70FEAA52493CB0DEAEF",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_darwin_amd64.tar.gz",
+      "checksum": "6827A438473167A1E0805B4546E5BF2D53401530F694DEB35E41C6E7B46E27C8",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_darwin_arm64.tar.gz",
-      "checksum": "B7D77539C268DFA04868731495003B454E42429BD114A1336FB7A8BC920AF22B",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_darwin_arm64.tar.gz",
+      "checksum": "7F28483A42F0A911F29B236AA40D24D7099F1B0EC54C56C4D439A6903D478A3D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_linux_amd64.tar.gz",
-      "checksum": "79CE15863847BF3F5686AAB88A5B8394125F913CD1F3152FB83C626CCE96FF54",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_linux_amd64.tar.gz",
+      "checksum": "CDD4D6B2A638D8F26468D82A76B766DF594641490BEA566629305D90FBCCC06E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_linux_arm64.tar.gz",
-      "checksum": "D0F603BB7245EB178D25313E8EC85E82238FE847BA810F42296506B2CF56B4FE",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_linux_arm64.tar.gz",
+      "checksum": "5B03FD74895D676C4435BEC1AADE0863BE1489A4BE1BB5C9269C6EF389BF5D2D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_windows_amd64.zip",
-      "checksum": "977532C201D0EF7270B19BDB7BF551E819F7B522E11E3CC303F37863989AC3B9",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_windows_amd64.zip",
+      "checksum": "F9E15B8F3628E4C7BFE481011BEA458DF754D0E75C6FF4AB01C71294165950FD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/go-delve/delve/v1.26.2/dlv_1.26.2_windows_arm64.zip",
-      "checksum": "F474C3F0737874F0FE5806990C98F0718E6497DB2EC2052B171C6E70689B7783",
+      "id": "github_release/github.com/go-delve/delve/v1.26.3/dlv_1.26.3_windows_arm64.zip",
+      "checksum": "906E942B9FE00FC43770151F378B2E3CFF2777030D70E338E7B51ED77CEB588B",
       "algorithm": "sha256"
     },
     {

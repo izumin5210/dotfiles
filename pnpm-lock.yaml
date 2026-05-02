@@ -12,8 +12,8 @@ importers:
         specifier: 0.27.0
         version: 0.27.0(typescript@6.0.3)
       '@mermaid-js/mermaid-cli':
-        specifier: 11.12.0
-        version: 11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.3))(yaml@2.8.3)
+        specifier: 11.14.0
+        version: 11.14.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.3))(yaml@2.8.3)
       '@playwright/mcp':
         specifier: 0.0.71
         version: 0.0.71
@@ -450,12 +450,17 @@ packages:
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
 
-  '@mermaid-js/mermaid-cli@11.12.0':
-    resolution: {integrity: sha512-a0swOS6PByXKi0dZnLQQIhbtUEu7ubc6bojmIqXqvUPq7mIJukCNEvVBTv6IAbuEWqB3Ti8QntupoGdz3ej+kg==}
+  '@mermaid-js/layout-elk@0.2.1':
+    resolution: {integrity: sha512-MX9jwhMyd5zDcFsYcl3duDUkKhjVRUCGEQrdCeNV5hCIR6+3FuDDbRbFmvVbAu15K1+juzsYGG+K8MDvCY1Amg==}
+    peerDependencies:
+      mermaid: ^11.0.2
+
+  '@mermaid-js/mermaid-cli@11.14.0':
+    resolution: {integrity: sha512-8tURXUFVSc1x4i0fmgJOUleT8w3KyW3Jixt9YLJ2zQVfaVArViIXD7DuJLRlYds1tdExsnvSK/qf6pCNdyU+Vw==}
     engines: {node: ^18.19 || >=20.0}
     hasBin: true
     peerDependencies:
-      puppeteer: ^23
+      puppeteer: ^23 || ^24
 
   '@mermaid-js/mermaid-zenuml@0.2.2':
     resolution: {integrity: sha512-sUjwk4NWUpy9uaHypYSIGJDks10ZaZo5CHH9lx9xcmyqv9w7yvd4vecUmlUQxmlHStYO+aqSkYKX5/gFjDfypw==}
@@ -1678,6 +1683,9 @@ packages:
 
   electron-to-chromium@1.5.340:
     resolution: {integrity: sha512-908qahOGocRMinT2nM3ajCEM99H4iPdv84eagPP3FfZy/1ZGeOy2CZYzjhms81ckOPCXPlW7LkY4XpxD8r1DrA==}
+
+  elkjs@0.9.3:
+    resolution: {integrity: sha512-f/ZeWvW/BCXbhGEf1Ujp29EASo/lk1FDnETgNKwJrsVvGZhUWCZyg3xLJjAsxfOmt8KjswHmI5EwCQcPMpOYhQ==}
 
   emmet@2.4.11:
     resolution: {integrity: sha512-23QPJB3moh/U9sT4rQzGgeyyGIrcM+GH5uVYg2C6wZIxAIJq7Ng3QLT79tl8FUwDXhyq9SusfknOrofAKqvgyQ==}
@@ -3948,11 +3956,18 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@mermaid-js/mermaid-cli@11.12.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.3))(yaml@2.8.3)':
+  '@mermaid-js/layout-elk@0.2.1(mermaid@11.14.0)':
     dependencies:
+      d3: 7.9.0
+      elkjs: 0.9.3
+      mermaid: 11.14.0
+
+  '@mermaid-js/mermaid-cli@11.14.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@23.11.1(typescript@6.0.3))(yaml@2.8.3)':
+    dependencies:
+      '@mermaid-js/layout-elk': 0.2.1(mermaid@11.14.0)
       '@mermaid-js/mermaid-zenuml': 0.2.2(@babel/core@7.29.0)(@babel/template@7.28.6)(mermaid@11.14.0)(yaml@2.8.3)
       chalk: 5.6.2
-      commander: 14.0.3
+      commander: 13.1.0
       import-meta-resolve: 4.2.0
       mermaid: 11.14.0
       puppeteer: 23.11.1(typescript@6.0.3)
@@ -5455,6 +5470,8 @@ snapshots:
       fast-check: 3.23.2
 
   electron-to-chromium@1.5.340: {}
+
+  elkjs@0.9.3: {}
 
   emmet@2.4.11:
     dependencies:

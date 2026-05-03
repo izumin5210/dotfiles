@@ -211,33 +211,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Darwin-arm64.tar.gz",
-      "checksum": "ECC19E911E286EB7BF631F9F082FA1E2E86160608E4FA94DEB9DFF3568ADC2F2",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Darwin-arm64.tar.gz",
+      "checksum": "246534674239F326DD1AD2642E57865DD56DC4E98C4857D13DA6ECA4D3A168AD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Darwin-x86_64.tar.gz",
-      "checksum": "974A31E0E7F4A6C63D305F81A394C3C38A2D3ECBAB55FE8C5F6EE6DA5E2745D2",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Darwin-x86_64.tar.gz",
+      "checksum": "570458723A1E400D654E916CC54A98E78A9C23D72775AFDE9EF12ABCDEBD37A1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Linux-aarch64.tar.gz",
-      "checksum": "99E2C63CF6ED3230837C005240BD9318E8CEA47961EED7F8ED768DEB14F32F44",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Linux-aarch64.tar.gz",
+      "checksum": "28B258CB4EE7A1224A61E1DD91AE5935F1C86C23E8E67BCFA23C8B096B0AD478",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Linux-x86_64.tar.gz",
-      "checksum": "1ED9EAAB096EF2F32D4182C1E0C97DDF78CFACF209A8EABF7836E00B425A7706",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Linux-x86_64.tar.gz",
+      "checksum": "2B1F9CFB5E17D50C10DEA9202979FFD28CA7FF7A6F4E51E801A9463986690B03",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Windows-arm64.zip",
-      "checksum": "999468E8FBCAE9BB197195D7D93A2EBF8C6ED33B594C52813B24633BD15D22DE",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Windows-arm64.zip",
+      "checksum": "214E9BC6A6593641EB0CAF7FA6A92F2D05D97D34FCC63050E2ACF0C166277772",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/bufbuild/buf/v1.68.4/buf-Windows-x86_64.zip",
-      "checksum": "36A9367D1BBA1ED0C28C60EB99B24F93D16323AED050A335D05033509BCBD322",
+      "id": "github_release/github.com/bufbuild/buf/v1.69.0/buf-Windows-x86_64.zip",
+      "checksum": "55AD1B4662003406050D76BC812E5954DD3D3D23A9B62AB6BDBED1670A6292C4",
       "algorithm": "sha256"
     },
     {

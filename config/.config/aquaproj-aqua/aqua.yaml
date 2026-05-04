@@ -31,7 +31,7 @@ packages:
   - name: neovim/neovim@v0.12.2
   - name: tree-sitter/tree-sitter@v0.26.8
   # shell
-  - name: starship/starship@v1.25.0
+  - name: starship/starship@v1.25.1
   - name: rossmacarthur/sheldon@0.8.5
   # tmux
   - name: tmux/tmux-builds@v3.6a

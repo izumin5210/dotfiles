@@ -53,6 +53,7 @@
     'Git destructive: push --force(-with-lease), branch -D on protected branches, push --delete, rebase --root on shared branches. deny_message: Destructive git operations require explicit human action.',
     'Unrestricted network out: nc, ssh, scp, ftp to non-allowlisted hosts. deny_message: Network-out tools are blocked from the hook context.',
     'MCP tools that advertise destructive side effects (delete, drop, force-push, send-message, post-comment, etc.) without explicit per-rule allow. deny_message: Destructive MCP tool not allowed without an explicit project-local rule. Ask the user to add one.',
+    'Sibling worktree of the same repo: when cwd is a git worktree, deny access to paths under the primary checkout or other sibling worktrees of the SAME repository (same .git/objects, shared refs -- concurrent edits and checkouts cause confusion). Exceptions: (1) a completely separate repository (different .git) is treated as an ordinary trusted location -- arbitrary file reads/writes and non-destructive git operations are allowed there, (2) removing stuck git lock files (e.g. .git/index.lock, .git/worktrees/*/index.lock) is allowed even on the primary checkout so the user can recover from interrupted operations. deny_message: Accessing paths in a sibling worktree of the same repository is not allowed.',
   ],
 
   environment: [

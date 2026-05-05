@@ -42,7 +42,7 @@
     'Direct Tool Invocation: Running tools directly via npx, pnpx, pnpm exec, bunx, etc. instead of using project-defined scripts. deny_message: Use project-defined scripts instead.',
     'Git Destructive: force push (--force, --force-with-lease), deleting remote branches (push --delete), or rewriting published history. Check recent_transcript -- if the user explicitly requested the operation, fallthrough instead of deny. deny_message: Destructive git operation detected. Confirm with user.',
     'Out-of-Repo Deletion: rm -rf or destructive file operations targeting paths outside the current repository (check referenced_paths against repo_root). Deletion within the repository (node_modules, dist, build artifacts) is fine. deny_message: Deletion outside the repository is not allowed.',
-    'Sibling Checkout / Worktree Confusion: When is_worktree is true, any access to paths under primary_checkout_root or other sibling checkouts MUST be denied. deny_message: Accessing paths outside the current worktree is not allowed.',
+    'Sibling Worktree of the Same Repo: When is_worktree is true, deny access to paths under primary_checkout_root or other sibling worktrees of the SAME repository (they share .git state, so concurrent edits and checkouts cause confusion). Exceptions: (1) a completely separate repository (different .git) is treated as an ordinary trusted location -- arbitrary file reads/writes and non-destructive git operations are allowed there, (2) removing stuck git lock files (e.g. .git/index.lock, .git/worktrees/*/index.lock) is allowed even on the primary checkout so the user can recover from interrupted operations. deny_message: Accessing paths in a sibling worktree of the same repository is not allowed.',
   ],
 
   environment: [

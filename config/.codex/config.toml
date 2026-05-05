@@ -58,3 +58,22 @@ url = "https://mcp.context7.com/mcp"
 
 [mcp_servers.deepwiki]
 url = "https://mcp.deepwiki.com/mcp"
+
+################################################################################
+# Hooks
+################################################################################
+
+[[hooks.PermissionRequest]]
+matcher = ""
+
+[[hooks.PermissionRequest.hooks]]
+type    = "command"
+command = "ccgate codex"
+statusMessage = "ccgate evaluating request"
+
+################################################################################
+# Features
+################################################################################
+
+[features]
+codex_hooks = true

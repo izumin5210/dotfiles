@@ -172,7 +172,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "ccgate"
+            "command": "ccgate claude"
           }
         ]
       }

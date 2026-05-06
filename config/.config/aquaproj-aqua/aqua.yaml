@@ -63,7 +63,7 @@ packages:
   - name: sxyazi/yazi@v26.1.22
   - name: jorgerojas26/lazysql@v0.4.8
   - name: oven-sh/bun@bun-v1.3.13
-  - name: anthropics/claude-code@v2.1.128
+  - name: anthropics/claude-code@v2.1.129
   - name: openai/codex@rust-v0.128.0
   - name: tombi-toml/tombi@v0.10.2
   - name: vercel-labs/agent-browser@v0.26.0

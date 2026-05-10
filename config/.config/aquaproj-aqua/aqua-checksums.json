@@ -156,28 +156,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.10/uv-aarch64-apple-darwin.tar.gz",
-      "checksum": "E93D6AF7DFFF7071EDD16342BA9EECCFC28D8A7DEAA5707EFEECF63A63A74453",
+      "id": "github_release/github.com/astral-sh/uv/0.11.11/uv-aarch64-apple-darwin.tar.gz",
+      "checksum": "3A185BF8F46A7B7C8B910D111825907B1638D0AE503CB3C333AE205772354046",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.10/uv-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "14C21BEF6B54D268C6583D851095A543E6CB03A8E4BDCA9A44AB91532B14CBC2",
+      "id": "github_release/github.com/astral-sh/uv/0.11.11/uv-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "0FC9A49B3900F77FFACCF3FF69A70DDBC1D479E70AC5D8FD6416A7577B03C5A1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.10/uv-x86_64-apple-darwin.tar.gz",
-      "checksum": "8FD091211089973F528E147166E3AF683AB4ECEBD4312A55D0D17D87ADBDE67A",
+      "id": "github_release/github.com/astral-sh/uv/0.11.11/uv-x86_64-apple-darwin.tar.gz",
+      "checksum": "57A1A8085B4088FBCBD5080C0C30723BA6D0692C89CD071C08A4209E8DA602D1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.10/uv-x86_64-pc-windows-msvc.zip",
-      "checksum": "7A0C424C7BC55A74751F13592235953EBBE182FA00355F7AE3FB7AB734A51638",
+      "id": "github_release/github.com/astral-sh/uv/0.11.11/uv-x86_64-pc-windows-msvc.zip",
+      "checksum": "2F75A0DB2C3530B6B3C24434DC38137F61FF1F4E5F2D7B4DDC5BCD142CF58B65",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.10/uv-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "E3E78E7698D72C133C5CE851A6D60EE83AFDC4C0EDCED382AF9FD1F8E11D0105",
+      "id": "github_release/github.com/astral-sh/uv/0.11.11/uv-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "80521F18BA83109ACD17E0730BD8FF898C3426AA62252C627D63418B353E788A",
       "algorithm": "sha256"
     },
     {

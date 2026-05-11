@@ -15,8 +15,8 @@ importers:
         specifier: 11.14.0
         version: 11.14.0(@babel/core@7.29.0)(@babel/template@7.28.6)(puppeteer@24.42.0(typescript@6.0.3))(yaml@2.8.4)
       '@playwright/mcp':
-        specifier: 0.0.74
-        version: 0.0.74
+        specifier: 0.0.75
+        version: 0.0.75
       '@prisma/language-server':
         specifier: 31.10.0
         version: 31.10.0
@@ -613,8 +613,8 @@ packages:
   '@one-ini/wasm@0.2.0':
     resolution: {integrity: sha512-n+L/BvrwKUn7q5O3wHGo+CJZAqfewh38+37sk+eBzv/39lM9pPgPRd4sOZRvSRzo0ukLxzyXso4WlGj2oKZ5hA==}
 
-  '@playwright/mcp@0.0.74':
-    resolution: {integrity: sha512-A3m79sbTrfntopzjskvyLQil9c1PJeQmBzroHpofJXp/8Ivzc6NdQBXg5R56zsbBK+Emag+6Tz7ToF6kK66VCA==}
+  '@playwright/mcp@0.0.75':
+    resolution: {integrity: sha512-oBjzVXfEGZ9Ev45tKKQULNDVdF83B82lg0uPejEK3xsp/zWmdNdNVnPi032fmd/o20ZZXs+LX7cr77qRNbV4VA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -2591,13 +2591,13 @@ packages:
   pkg-types@2.3.1:
     resolution: {integrity: sha512-y+ichcgc2LrADuhLNAx8DFjVfgz91pRxfZdI3UDhxHvcVEZsenLO+7XaU5vOp0u/7V/wZ+plyuQxtrDlZJ+yeg==}
 
-  playwright-core@1.60.0-alpha-1778101408000:
-    resolution: {integrity: sha512-qZj4IYvTOBbM63N+nR24IidgS5pPuManZfafRf15ugQNma//w5ikpZFWIH/SjP89jTSH8s5ai7jIwyhBYgSrng==}
+  playwright-core@1.61.0-alpha-1778188671000:
+    resolution: {integrity: sha512-nsw2Crz0uZS3IRHiEcOXUt+RaKB/Hna+GAD4oD6cPqCHfJfW77cJdgktC0jzp3Ndyv23EJI3bcWSqFIiqSNE5A==}
     engines: {node: '>=18'}
     hasBin: true
 
-  playwright@1.60.0-alpha-1778101408000:
-    resolution: {integrity: sha512-GbACwe8/0+2vKk/bKrjPrcWt0LbJXU2wt3Vu4c+gzAeg75PhQE4DXVh8Zs7JeD8x0c8chNFE7tlvGkoZJG3qIQ==}
+  playwright@1.61.0-alpha-1778188671000:
+    resolution: {integrity: sha512-A6fFc7ExLRmvm0ZHqCyY2uHXSvEdpb8W+/HyIPK4ecRqNil8Mc1Vig1WFYoqk82x3+U9Qb571fQE95wgKqIQ1g==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4199,10 +4199,10 @@ snapshots:
 
   '@one-ini/wasm@0.2.0': {}
 
-  '@playwright/mcp@0.0.74':
+  '@playwright/mcp@0.0.75':
     dependencies:
-      playwright: 1.60.0-alpha-1778101408000
-      playwright-core: 1.60.0-alpha-1778101408000
+      playwright: 1.61.0-alpha-1778188671000
+      playwright-core: 1.61.0-alpha-1778188671000
 
   '@prisma/config@7.8.0':
     dependencies:
@@ -6367,11 +6367,11 @@ snapshots:
       exsolve: 1.0.8
       pathe: 2.0.3
 
-  playwright-core@1.60.0-alpha-1778101408000: {}
+  playwright-core@1.61.0-alpha-1778188671000: {}
 
-  playwright@1.60.0-alpha-1778101408000:
+  playwright@1.61.0-alpha-1778188671000:
     dependencies:
-      playwright-core: 1.60.0-alpha-1778101408000
+      playwright-core: 1.61.0-alpha-1778188671000
     optionalDependencies:
       fsevents: 2.3.2
 

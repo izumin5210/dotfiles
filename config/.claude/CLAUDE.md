@@ -53,10 +53,26 @@
 
 ## Git Rules
 
-- **Conventional commit**: `feat:`, `fix:`, `build:`, `chore:`, `ci:`, `docs:`, `refactor:`, `perf:`, `test:`
+### Workflow
+
 - **Never work directly on main branch** - Create pull requests for each feature/fix
 - Make small, frequent commits per logical unit of work
 - **History rewriting is prohibited**: Do not use `--amend`, `--force`, or any commands that alter commit history
+
+### Writing commit messages and PRs (applies to both)
+
+- **Conventional commit prefix**: `feat:`, `fix:`, `build:`, `chore:`, `ci:`, `docs:`, `refactor:`, `perf:`, `test:`
+- **Language**: Follow the rules and conventions of the repository
+- Prose must add what the diff / code does not convey. If a sentence only narrates what the artifact already shows, delete it.
+
+### Pull Request specifics
+
+- PR descriptions must include:
+    - `Why`: reason for the change.
+    - `What`: outline of the change plus the important / watch-out points. Do not exhaustively list every file or implementation detail — the diff already shows them.
+- Optional `Notes for reviewers` to highlight places where the code alone does not convey intent, areas that need especially careful review (e.g. complex logic, domain-critical changes), or follow-up work. Keep it brief.
+- Do not add a `Test plan` section.
+- If `Why` is unknown, ask the user before finalizing the PR description.
 
 ---
 

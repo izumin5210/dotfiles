@@ -216,28 +216,29 @@
     "command": "bun run ~/.claude/scripts/statusline.ts"
   },
   "enabledPlugins": {
-    "context7@claude-plugins-official": true,
-    "frontend-design@claude-plugins-official": true,
-    "feature-dev@claude-plugins-official": true,
-    "code-review@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "pr-review-toolkit@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "commit-commands@claude-plugins-official": true,
     "claude-code-setup@claude-plugins-official": true,
     "claude-md-management@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "mcp-tools@izumin5210-dotfiles": true,
-    "codex@openai-codex": true,
-    "linear@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
-    "session-report@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "context7@claude-plugins-official": true,
     "datadog@claude-plugins-official": true,
+    "feature-dev@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "linear@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
-    "agent-browser@agent-browser": true
+    "session-report@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "mcp-tools@izumin5210-dotfiles": true,
+    "agent-browser@agent-browser": true,
+    "codex@openai-codex": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {
@@ -262,9 +263,7 @@
   "language": "japanese",
   "sandbox": {
     "filesystem": {
-      "allowWrite": [
-        "~/.local/share/pnpm"
-      ]
+      "allowWrite": ["~/.local/share/pnpm"]
     }
   },
   "effortLevel": "xhigh"

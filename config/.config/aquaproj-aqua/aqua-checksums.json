@@ -776,28 +776,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.33.2/pnpm-linux-arm64",
-      "checksum": "0828E5EE23BE89D22BD53CC36E93C181CE9D5C47D75F9FE9BF4BDC7A65C66322",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-darwin-arm64.tar.gz",
+      "checksum": "A24F12A75B371ACFBB69CEE3FFD54DD7865DAA25323D4F12BB22BE12EDFF0ED2",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.33.2/pnpm-linux-x64",
-      "checksum": "39D7B6600239712BC9581EA219B17FFEF46BA60998779CB717BE2E068BE029EF",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-darwin-x64.tar.gz",
+      "checksum": "C05A97ABD756B6CD8CA1C1E70BCA14EDDC1B129B4E5B8CD2131474615E57483A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.33.2/pnpm-macos-arm64",
-      "checksum": "A99A4D5D0E6BD3728949C24FF74A2F2F2D07F73BC48FD308E4EEA75D8E72ACDC",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-linux-arm64.tar.gz",
+      "checksum": "1BD8FFDDBBD1D7EA179351C8C1DC620990A17550A8597E8961D08C64C9854D55",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.33.2/pnpm-macos-x64",
-      "checksum": "3B66ABB865F4E7A82393861F0F3784D67A704A31A4021739874D4B7910793DCA",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-linux-x64.tar.gz",
+      "checksum": "5C236F22568453E76F05C2C0A37B483D326DDB3C7759F3B7A7F13A8860109771",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v10.33.2/pnpm-win-x64.exe",
-      "checksum": "3D1AF71E9DA7081EFD58F95942E1F7E2107BF8FCDAE03EB2331C0B6CEA59510B",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-win32-arm64.zip",
+      "checksum": "DFC87561C72EBBE8BA01FBABED64EFB495CECE9CF35B4582225D1CE8C2DDA2B6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-win32-x64.zip",
+      "checksum": "1ACAB0C306C08E26BE5B702C19466D14F6AA44797A7166191E81138F50291741",
       "algorithm": "sha256"
     },
     {

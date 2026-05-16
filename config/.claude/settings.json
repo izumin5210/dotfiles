@@ -236,7 +236,8 @@
     "session-report@claude-plugins-official": true,
     "datadog@claude-plugins-official": true,
     "ralph-loop@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true
+    "security-guidance@claude-plugins-official": true,
+    "agent-browser@agent-browser": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {
@@ -250,12 +251,20 @@
         "source": "github",
         "repo": "openai/codex-plugin-cc"
       }
+    },
+    "agent-browser": {
+      "source": {
+        "source": "github",
+        "repo": "vercel-labs/agent-browser"
+      }
     }
   },
   "language": "japanese",
   "sandbox": {
     "filesystem": {
-      "allowWrite": ["~/.local/share/pnpm"]
+      "allowWrite": [
+        "~/.local/share/pnpm"
+      ]
     }
   },
   "effortLevel": "xhigh"

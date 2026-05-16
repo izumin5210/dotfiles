@@ -166,6 +166,17 @@
     "defaultMode": "acceptEdits"
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Skill",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "jq -c 'if (.tool_input.skill // \"\" | test(\"^superpowers:(using-git-worktrees|finishing-a-development-branch)$\")) then {hookSpecificOutput:{hookEventName:\"PreToolUse\",permissionDecision:\"deny\",permissionDecisionReason:\"This skill is disabled by user settings.\"}} else {} end'"
+          }
+        ]
+      }
+    ],
     "PermissionRequest": [
       {
         "matcher": "",
@@ -212,7 +223,6 @@
     "typescript-lsp@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "security-guidance@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "code-simplifier@claude-plugins-official": true,
     "commit-commands@claude-plugins-official": true,
@@ -220,7 +230,14 @@
     "claude-md-management@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
     "mcp-tools@izumin5210-dotfiles": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "linear@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "session-report@claude-plugins-official": true,
+    "datadog@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {
@@ -239,9 +256,8 @@
   "language": "japanese",
   "sandbox": {
     "filesystem": {
-      "allowWrite": [
-        "~/.local/share/pnpm"
-      ]
+      "allowWrite": ["~/.local/share/pnpm"]
     }
-  }
+  },
+  "effortLevel": "xhigh"
 }

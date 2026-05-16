@@ -232,7 +232,6 @@
     "mcp-tools@izumin5210-dotfiles": true,
     "codex@openai-codex": true,
     "linear@claude-plugins-official": true,
-    "pyright-lsp@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "session-report@claude-plugins-official": true,
     "datadog@claude-plugins-official": true,

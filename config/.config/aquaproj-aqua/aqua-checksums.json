@@ -776,33 +776,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-darwin-arm64.tar.gz",
-      "checksum": "A24F12A75B371ACFBB69CEE3FFD54DD7865DAA25323D4F12BB22BE12EDFF0ED2",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.9/pnpm-darwin-arm64.tar.gz",
+      "checksum": "B7264BFDCBCEE37D8FB302256FAE799DD067F4E8996D7202FCB4A5A3EE2665F7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-darwin-x64.tar.gz",
-      "checksum": "C05A97ABD756B6CD8CA1C1E70BCA14EDDC1B129B4E5B8CD2131474615E57483A",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.9/pnpm-linux-arm64.tar.gz",
+      "checksum": "EEB0CCC8652AA21F87EBF656724F1F3A0553E898C35699B0040698252262823E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-linux-arm64.tar.gz",
-      "checksum": "1BD8FFDDBBD1D7EA179351C8C1DC620990A17550A8597E8961D08C64C9854D55",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.9/pnpm-linux-x64.tar.gz",
+      "checksum": "EC84B7750ED24A47E55B71FBA528499862BDDAF8D9770B2F58A294B8692A8CBF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-linux-x64.tar.gz",
-      "checksum": "5C236F22568453E76F05C2C0A37B483D326DDB3C7759F3B7A7F13A8860109771",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.9/pnpm-win32-arm64.zip",
+      "checksum": "C7C823246345541EA512A417028C4F682DEB05954D19D945E290A4A174D2BD3C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-win32-arm64.zip",
-      "checksum": "DFC87561C72EBBE8BA01FBABED64EFB495CECE9CF35B4582225D1CE8C2DDA2B6",
-      "algorithm": "sha256"
-    },
-    {
-      "id": "github_release/github.com/pnpm/pnpm/v11.0.3/pnpm-win32-x64.zip",
-      "checksum": "1ACAB0C306C08E26BE5B702C19466D14F6AA44797A7166191E81138F50291741",
+      "id": "github_release/github.com/pnpm/pnpm/v11.0.9/pnpm-win32-x64.zip",
+      "checksum": "608C56DC746444F133CA901A5A0A32BE779D28DCBCF4E7D7BF48372B005B907A",
       "algorithm": "sha256"
     },
     {

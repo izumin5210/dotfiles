@@ -1,28 +1,28 @@
 {
   "checksums": [
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.4.1/stylua-linux-aarch64.zip",
-      "checksum": "CE8363CF77FB88F31E5CD8FE4CD8A61FF63AC0483BC5E38A1E24C5A894F04035",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.5.2/stylua-linux-aarch64.zip",
+      "checksum": "0EF2EBF0B7E5A652B65C4CB96C6D9FFB3981A98547DE3C764465BBF54A8D761A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.4.1/stylua-linux-x86_64-musl.zip",
-      "checksum": "CB9280D967A3F83E443B354A6497B562DE4ACC1DACCF4456DF0F7232653D3843",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.5.2/stylua-linux-x86_64-musl.zip",
+      "checksum": "CA6F1CF52EAF69E6632B81ACEF9C197AA24B85EB30D2455A35E7DBE28AE77C72",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.4.1/stylua-macos-aarch64.zip",
-      "checksum": "C1680C337C8D799B4226A10E8AC6744606FD00B01EB3046120B5226E31306809",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.5.2/stylua-macos-aarch64.zip",
+      "checksum": "92FF0889E16324801BC072692974BB67F8161E62010FC90F96C62A17F81F32C7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.4.1/stylua-macos-x86_64.zip",
-      "checksum": "985DC2C791EF5F0BFBAEA99F18B01322613F5C6985979A8346C346A341043331",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.5.2/stylua-macos-x86_64.zip",
+      "checksum": "53C50A1605D0A6345D160A1A5A21DB40BCF2BF9CD23C17F7C277A63A1BFF3A7F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.4.1/stylua-windows-x86_64.zip",
-      "checksum": "9B1627B6034AA7EA0CE80485D2A07E777447548839A40ACDA6E30824A2BBA07A",
+      "id": "github_release/github.com/JohnnyMorganz/StyLua/v2.5.2/stylua-windows-x86_64.zip",
+      "checksum": "E77D0EA1226B8B389B43F702240091249A96EEA25857281F90EA24D0EB9EB969",
       "algorithm": "sha256"
     },
     {

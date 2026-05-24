@@ -24,8 +24,8 @@ importers:
         specifier: 0.14.29
         version: 0.14.29
       '@upstash/context7-mcp':
-        specifier: 2.2.5
-        version: 2.2.5
+        specifier: 2.3.0
+        version: 2.3.0
       '@vtsls/language-server':
         specifier: 0.3.0
         version: 0.3.0
@@ -929,8 +929,8 @@ packages:
   '@upsetjs/venn.js@2.0.0':
     resolution: {integrity: sha512-WbBhLrooyePuQ1VZxrJjtLvTc4NVfpOyKx0sKqioq9bX1C1m7Jgykkn8gLrtwumBioXIqam8DLxp88Adbue6Hw==}
 
-  '@upstash/context7-mcp@2.2.5':
-    resolution: {integrity: sha512-0TdLOtFmgu5oHu3xlkAoVuNYKsleh9+mjgu7gFfQcHCmaESaEoQOsKZ/hMvTybEz/D1S65vbkKZ2QoucknH4nw==}
+  '@upstash/context7-mcp@2.3.0':
+    resolution: {integrity: sha512-RhSCftWWlMEPDmIApAawszSlbM9GuFwA0vL6vjZPYtrGzHdD8OuV2Q/z6iHQvdFg0fgw1/S9437hFT37deqNQg==}
     hasBin: true
 
   '@volar/language-core@2.4.28':
@@ -4623,7 +4623,7 @@ snapshots:
       d3-selection: 3.0.0
       d3-transition: 3.0.1(d3-selection@3.0.0)
 
-  '@upstash/context7-mcp@2.2.5':
+  '@upstash/context7-mcp@2.3.0':
     dependencies:
       '@modelcontextprotocol/sdk': 1.29.0(zod@4.4.3)
       '@types/express': 5.0.6

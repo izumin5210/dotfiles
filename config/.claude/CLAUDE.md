@@ -35,6 +35,7 @@
 - Follow the repository's language conventions
 - Prose must add what the diff does not already convey — delete sentences that just narrate the diff
 - **History-rewriting operations (`--amend`, `--force`, `reset --hard`, etc.) are blocked by the harness.** Stack a new commit for fixes; for already-published commits, use `revert`
+- Create PRs as **draft** by default (`gh pr create --draft`). Open as ready-for-review only when the user explicitly asks
 - PR description must include `Why` and `What` (change outline + watch-out points)
   - If `Why` is unknown, confirm with the user before finalizing
   - Optionally add a brief `Notes for reviewers` (complex logic, domain-critical areas, follow-ups)

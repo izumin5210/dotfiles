@@ -50,14 +50,26 @@ jobs:
           aqua_version: v2.59.1
       - run: ${{ matrix.cmd }}
 
+  # https://aquaproj.github.io/docs/guides/checksum#recommend-autofixci-or-securefix-action-instead-of-update-checksum-action-and-update-checksum-workflow
+  # Requires the autofix.ci GitHub App to be installed on this repository: https://autofix.ci/
   update-aqua-checksums:
-    uses: ./.github/workflows/_update-aqua-checksum.yml
-    permissions:
-      contents: read
-    secrets:
-      gh-app-id: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_ID}}
-      gh-app-private-key: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_PRIVATE_KEY}}
+    runs-on: ubuntu-latest
+    permissions: {}
+    timeout-minutes: 15
     if: github.event_name == 'pull_request'
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
+        with:
+          aqua_version: v2.59.1
+      - name: Update aqua-checksums.json
+        run: |
+          git ls-files 'aqua.yaml' '**/aqua.yaml' | while read -r f; do
+            (cd "$(dirname "$f")" && aqua upc -prune)
+          done
+      - uses: autofix-ci/action@c5b2d67aa2274e7b5a18224e8171550871fc7e4a # v1.3.4
 
   status-check:
     runs-on: ubuntu-latest

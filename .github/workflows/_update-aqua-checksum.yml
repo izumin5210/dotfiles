@@ -34,19 +34,58 @@ jobs:
           echo "json=$(cat update-dirs.json)"
           echo "json=$(cat update-dirs.json)" >> $GITHUB_OUTPUT
 
+  # NOTE:
+  # The aquaproj/update-checksum-workflow v1.0.5 + update-checksum-action v0.2.7
+  # combination has a bug: the reusable workflow passes the App token only via
+  # `env.GITHUB_TOKEN`, while the action's `github_token` input defaults to
+  # `${{github.token}}`, which is always non-empty and therefore always wins
+  # the OR expression that selects which token to forward to the nested
+  # commit-action. As a result the App token never reaches commit-action and
+  # `POST /git/trees` fails with 403 "Resource not accessible by integration".
+  # Inline the equivalent logic here so we can pass the App token to the
+  # action's `github_token` input explicitly. Revert to the reusable workflow
+  # once the upstream issue is fixed.
   update:
     needs: [prepare]
+    if: needs.prepare.outputs.dirs-json != '[]'
     strategy:
       matrix:
         dir: ${{ fromJson(needs.prepare.outputs.dirs-json) }}
     name: "update (${{ matrix.dir }})"
-    uses: aquaproj/update-checksum-workflow/.github/workflows/update-checksum.yaml@eba908314cdc3b2ab7fb7546950c05a666effbc0 # v1.0.5
-    with:
-      aqua_version: v2.59.1
-      prune: true
-      # NOTE: GitHub Actions treats `''` as falsy, so the condition is negated
-      working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"
-    secrets:
-      gh_app_id: ${{secrets.gh-app-id}}
-      gh_app_private_key: ${{secrets.gh-app-private-key}}
-    if: needs.prepare.outputs.dirs-json != '[]'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 30
+    steps:
+      - name: Generate App token
+        id: token
+        uses: suzuki-shunsuke/github-token-action@350d7506222e3a0016491abe85b5c4dd475b67d1 # v0.2.1
+        with:
+          github_app_id: ${{ secrets.gh-app-id }}
+          github_app_private_key: ${{ secrets.gh-app-private-key }}
+          github_app_permissions: >-
+            {
+              "contents": "write"
+            }
+
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+
+      - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
+        with:
+          aqua_version: v2.59.1
+          # NOTE: GitHub Actions treats `''` as falsy, so the condition is negated
+          working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"
+        env:
+          AQUA_GITHUB_TOKEN: ${{ steps.token.outputs.token }}
+
+      - uses: aquaproj/update-checksum-action@c5df5a5c2a897a9b807068f062140506d092e7ac # v0.2.7
+        with:
+          prune: true
+          working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"
+          # IMPORTANT: must be set explicitly. The action's default
+          # (${{github.token}}) wins the internal OR otherwise, and the App
+          # token never reaches the nested commit-action.
+          github_token: ${{ steps.token.outputs.token }}

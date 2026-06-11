@@ -11,7 +11,7 @@ registries:
     ref: v4.512.1 # renovate: depName=aquaproj/aqua-registry
 packages:
   # go
-  - name: golang/go@go1.26.3
+  - name: golang/go@go1.26.4
   - name: golang.org/x/tools/gopls@v0.22.0
   - name: go-delve/delve@v1.26.3
   - name: golangci/golangci-lint@v2.12.2

@@ -75,7 +75,7 @@ jobs:
 
       - uses: aquaproj/aqua-installer@11dd79b4e498d471a9385aa9fb7f62bb5f52a73c # v4.0.4
         with:
-          aqua_version: v2.59.1
+          aqua_version: v2.60.0
           # NOTE: GitHub Actions treats `''` as falsy, so the condition is negated
           working_directory: "${{ matrix.dir != '.' && matrix.dir || '' }}"
         env:

@@ -926,28 +926,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.42.10/stripe_1.42.10_linux_arm64.tar.gz",
-      "checksum": "33A0F04B4011658316C5CDFF6F87842DEAB9F488BF42F1B682DC05CE73EFF72A",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.42.11/stripe_1.42.11_linux_arm64.tar.gz",
+      "checksum": "AE6AEB90C1A14D85C24B605094C421B90E16CC119B56804079F63643CF7BBD4D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.42.10/stripe_1.42.10_linux_x86_64.tar.gz",
-      "checksum": "0472DE5BB686B4FBD371874FDA15A6CB98553755A0D281D7DACA75D07CFCD3F2",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.42.11/stripe_1.42.11_linux_x86_64.tar.gz",
+      "checksum": "CFF2EBBA5E537FD57E1D7478596125A14565F22573F5A1963910441F4B09A322",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.42.10/stripe_1.42.10_mac-os_arm64.tar.gz",
-      "checksum": "8A5D22841829FD62DD3018455B9982DE73D25970E067DD9F9428E07804C37C43",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.42.11/stripe_1.42.11_mac-os_arm64.tar.gz",
+      "checksum": "550B92574D9964996CFEAD66415795809DD876A88EDB6FA6F5A582383D722ED7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.42.10/stripe_1.42.10_mac-os_x86_64.tar.gz",
-      "checksum": "82CD3D683D5FECA3A2CC3BFFF7E8D391A8D2FFAA0C77C2393C6FB170CAD61899",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.42.11/stripe_1.42.11_mac-os_x86_64.tar.gz",
+      "checksum": "7DF32E77211C733BF8F81EB6023C547291CB257E5DF55D5ED95B44E056ACF113",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/stripe/stripe-cli/v1.42.10/stripe_1.42.10_windows_x86_64.zip",
-      "checksum": "D99285AC8B5AF6297A02AAB36D882DB7029D760AC429F19E5C731703184CFB6A",
+      "id": "github_release/github.com/stripe/stripe-cli/v1.42.11/stripe_1.42.11_windows_x86_64.zip",
+      "checksum": "7625E3D8CC0D66E347271FC13F7F5E9DE4D27517288EBB88B422BD80C6A6DF12",
       "algorithm": "sha256"
     },
     {

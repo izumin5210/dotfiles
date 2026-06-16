@@ -24,8 +24,8 @@ importers:
         specifier: 0.14.29
         version: 0.14.29
       '@upstash/context7-mcp':
-        specifier: 3.2.0
-        version: 3.2.0
+        specifier: 3.2.1
+        version: 3.2.1
       '@vtsls/language-server':
         specifier: 0.3.0
         version: 0.3.0
@@ -929,8 +929,8 @@ packages:
   '@upsetjs/venn.js@2.0.0':
     resolution: {integrity: sha512-WbBhLrooyePuQ1VZxrJjtLvTc4NVfpOyKx0sKqioq9bX1C1m7Jgykkn8gLrtwumBioXIqam8DLxp88Adbue6Hw==}
 
-  '@upstash/context7-mcp@3.2.0':
-    resolution: {integrity: sha512-xXl6wI0YXc6S1VHfed1GmUDak2ndjqVNR3dWEHKsITGL1bRgA3Kyh1DOpio+2nA0j1dDKBFnTx3tKDZFujTkhw==}
+  '@upstash/context7-mcp@3.2.1':
+    resolution: {integrity: sha512-ZVh1OAeOd5C4ORvPKYUgZSIwm+ofmofLyXS8p2Vvm0WH29axgNwhcc7sCr3aMzNX7oPKL9zH+1lb17W+AeMKtQ==}
     hasBin: true
 
   '@upstash/redis@1.38.0':
@@ -1350,10 +1350,6 @@ packages:
   commander@13.1.0:
     resolution: {integrity: sha512-/rFeCpNJQbhSZjGVwO9RFV3xPqbnERS8MmIQzCtD/zl6gpJuV/bMLuN92oG3F7d8oDEHHRrujSXNUr8fpjntKw==}
     engines: {node: '>=18'}
-
-  commander@14.0.3:
-    resolution: {integrity: sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==}
-    engines: {node: '>=20'}
 
   commander@4.1.1:
     resolution: {integrity: sha512-NOKm8xhkzAjzFx8B2v5OAHT+u5pRQc2UCa2Vq9jYL/31o2wi9mxBA7LIFs3sV5VSC49z6pEhfbMULvShKj26WA==}
@@ -3158,9 +3154,9 @@ packages:
   undici-types@7.24.6:
     resolution: {integrity: sha512-WRNW+sJgj5OBN4/0JpHFqtqzhpbnV0GuB+OozA9gCL7a993SmU+1JBZCzLNxYsbMfIeDL+lTsphD5jN5N+n0zg==}
 
-  undici@7.27.2:
-    resolution: {integrity: sha512-uZsKNuzQxDMUY6M3pIMvy5tvlGmtq8XJ2oLAkfRKGNu+1VQAIvLy2xIVG5ATZl5wDXl/tddByAWCizRbOme+TA==}
-    engines: {node: '>=20.18.1'}
+  undici@6.27.0:
+    resolution: {integrity: sha512-YmfV3YnEDzXRC5lZ2jWtWWHKGUm1zIt8AhesR1tens+HTNv+YZlN/dp6G727LOvMJ8xjP9Be7Y2Sdr96LDm+pg==}
+    engines: {node: '>=18.17'}
 
   unicorn-magic@0.3.0:
     resolution: {integrity: sha512-+QBBXBCvifc56fsbuxZQ6Sic3wqqc3WWaqxs58gvJrcOuN83HGTCwz3oS5phzU9LthRNE9VrJCFCLUgHeeFnfA==}
@@ -4629,15 +4625,15 @@ snapshots:
       d3-selection: 3.0.0
       d3-transition: 3.0.1(d3-selection@3.0.0)
 
-  '@upstash/context7-mcp@3.2.0':
+  '@upstash/context7-mcp@3.2.1':
     dependencies:
       '@modelcontextprotocol/sdk': 1.29.0(zod@4.4.3)
       '@types/express': 5.0.6
       '@upstash/redis': 1.38.0
-      commander: 14.0.3
+      commander: 13.1.0
       express: 5.2.1
       jose: 6.2.3
-      undici: 7.27.2
+      undici: 6.27.0
       zod: 4.4.3
     transitivePeerDependencies:
       - '@cfworker/json-schema'
@@ -5162,8 +5158,6 @@ snapshots:
       color-name: 2.1.0
 
   commander@13.1.0: {}
-
-  commander@14.0.3: {}
 
   commander@4.1.1: {}
 
@@ -7043,7 +7037,7 @@ snapshots:
 
   undici-types@7.24.6: {}
 
-  undici@7.27.2: {}
+  undici@6.27.0: {}
 
   unicorn-magic@0.3.0: {}
 

@@ -1176,23 +1176,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.191/darwin-arm64/claude",
-      "checksum": "99FDFB552A5260E649AEDD06C024D0A4105B09CEFEC0BF67D558E017EE66C400",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.193/darwin-arm64/claude",
+      "checksum": "F7513A30385AD9019C237226FD6EC46508B3062EBEFCA8AEDBE397D111A818FF",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.191/darwin-x64/claude",
-      "checksum": "6E83AAD5FC4FD459FD74539CDA06D2279105EAC2BEFC603D2FBA6494974CB2A4",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.193/darwin-x64/claude",
+      "checksum": "CBA5C3BDCA8AB5F8E7590406702D418F6114D9B39F48F16876680E881ABF1EE8",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.191/linux-arm64/claude",
-      "checksum": "1A31A7CBCFD784F8C073BFC8A0A1583FB6E93E60EF70B76D7FCF663FFED8949B",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.193/linux-arm64/claude",
+      "checksum": "39454CE62E795EEB4871A81F6453CDA96E926E2DB9A4DD41D0EC1B60B0153448",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.191/linux-x64/claude",
-      "checksum": "1038DBA88BDF1B80941DC3E383E93B088325B00497329AC50DA460C8786D5BEE",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.193/linux-x64/claude",
+      "checksum": "C9F04D929F18BD9A101F3897F27DE4E1E0F15EBE8400D4AAF02983D73DD66B1D",
       "algorithm": "sha256"
     },
     {

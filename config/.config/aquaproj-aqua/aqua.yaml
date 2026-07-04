@@ -67,4 +67,4 @@ packages:
   - name: openai/codex@rust-v0.142.5
   - name: tombi-toml/tombi@v0.11.7
   - name: vercel-labs/agent-browser@v0.29.1
-  - name: tak848/ccgate@v0.9.4
+  - name: tak848/ccgate@v0.9.5

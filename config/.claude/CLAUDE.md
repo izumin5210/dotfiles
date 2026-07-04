@@ -1,3 +1,9 @@
+## 言語
+
+Think in English, interact with the user in Japanese.
+
+---
+
 ## Core Principles
 
 ### 1. Plan Before Execute

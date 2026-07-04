@@ -260,7 +260,6 @@
       }
     }
   },
-  "language": "japanese",
   "sandbox": {
     "filesystem": {
       "allowWrite": ["~/.local/share/pnpm"]

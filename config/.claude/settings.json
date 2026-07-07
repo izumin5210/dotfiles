@@ -234,15 +234,12 @@
     "plugin-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
     "pyright-lsp@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "session-report@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "superpowers@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": true,
-    "mcp-tools@izumin5210-dotfiles": true,
-    "agent-browser@agent-browser": true,
-    "codex@openai-codex": true
+    "codex@openai-codex": true,
+    "mcp-tools@izumin5210-dotfiles": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {

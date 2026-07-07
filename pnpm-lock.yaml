@@ -53,6 +53,9 @@ importers:
       o3-search-mcp:
         specifier: 0.0.9
         version: 0.0.9(ws@8.21.0)
+      skills:
+        specifier: ^1.5.14
+        version: 1.5.14
       typescript:
         specifier: 6.0.3
         version: 6.0.3
@@ -2587,6 +2590,11 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+  skills@1.5.14:
+    resolution: {integrity: sha512-oA0Wv2cfUnLaFHeDU+IwHfrbfyP42H1UTjjEZYnOtgujkMGL6uXKzmmIx8/6jPhqJiK1v7HbvRPBmhowg9N2lA==}
+    engines: {node: '>=18'}
+    hasBin: true
+
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -4350,7 +4358,7 @@ snapshots:
       '@vue/shared': 3.5.39
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@6.0.3))':
+  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@5.9.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.39
       '@vue/shared': 3.5.39
@@ -5977,6 +5985,10 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
+  skills@1.5.14:
+    dependencies:
+      yaml: 2.9.0
+
   slash@3.0.0: {}
 
   source-map-js@1.0.2: {}
@@ -6341,7 +6353,7 @@ snapshots:
       '@vue/compiler-dom': 3.5.39
       '@vue/compiler-sfc': 3.5.39
       '@vue/runtime-dom': 3.5.39
-      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@6.0.3))
+      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@5.9.3))
       '@vue/shared': 3.5.39
     optionalDependencies:
       typescript: 5.9.3

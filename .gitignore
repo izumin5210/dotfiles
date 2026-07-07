@@ -213,3 +213,6 @@ dist
 !/config/.codex/config.toml
 !/config/.codex/AGENTS.md
 !/config/.codex/ccgate.jsonnet
+
+# ignore installed by `skills`
+/config/.agents/skills/*

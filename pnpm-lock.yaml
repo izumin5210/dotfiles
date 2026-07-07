@@ -54,7 +54,7 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(ws@8.21.0)
       skills:
-        specifier: ^1.5.14
+        specifier: 1.5.14
         version: 1.5.14
       typescript:
         specifier: 6.0.3
@@ -4363,7 +4363,7 @@ snapshots:
       '@vue/shared': 3.5.39
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@5.9.3))':
+  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@6.0.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.39
       '@vue/shared': 3.5.39
@@ -6358,7 +6358,7 @@ snapshots:
       '@vue/compiler-dom': 3.5.39
       '@vue/compiler-sfc': 3.5.39
       '@vue/runtime-dom': 3.5.39
-      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@5.9.3))
+      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@6.0.3))
       '@vue/shared': 3.5.39
     optionalDependencies:
       typescript: 5.9.3

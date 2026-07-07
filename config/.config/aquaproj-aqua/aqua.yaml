@@ -58,7 +58,7 @@ packages:
   - name: awslabs/git-secrets@1.3.0
   - name: jesseduffield/lazydocker@v0.25.2
   - name: jqlang/jq@jq-1.8.2
-  - name: ajeetdsouza/zoxide@v0.9.9
+  - name: ajeetdsouza/zoxide@v0.10.0
   - name: Wilfred/difftastic@0.69.0
   - name: sxyazi/yazi@v26.5.6
   - name: jorgerojas26/lazysql@v0.5.5

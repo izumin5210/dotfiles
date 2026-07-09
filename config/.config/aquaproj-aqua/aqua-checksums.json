@@ -726,28 +726,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-aarch64-apple-darwin.zst",
-      "checksum": "7A1516C96538CBA9138A21AE6F2529E99E990A88D91673CFD6209D83A95CB3A0",
+      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-package-aarch64-apple-darwin.tar.gz",
+      "checksum": "448DF9B8DB0244CF56D001B37136595A514118DCB473F59A0CEB2D0279BFB087",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-aarch64-unknown-linux-musl.zst",
-      "checksum": "D7F976747EA10E2BD2C8D2830D31A7D1D9FD5A69FD0AA3713692EEC69B8C805E",
+      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "12E6E5DB0528DD9001097F9C360EF70ABCC97DDB762D290E8BCC299C53F90D80",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-x86_64-apple-darwin.zst",
-      "checksum": "EB3985E02631EF6D28AD67F75E9BFAA687B2C6FCF73947E59A66ED58E462EE8F",
+      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-package-x86_64-apple-darwin.tar.gz",
+      "checksum": "F3D9FFC5FF720919BB351941C8507AAF8597B8660D734521BAC56F4799CE302A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-x86_64-pc-windows-msvc.exe.zst",
-      "checksum": "C5BD928642B5AA31CD3CA1203D6A4AECDFD39C6E5709A00E2014AB42160BA6D5",
+      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
+      "checksum": "2A9BA513652DDCF7DD1C784A044A60919B0B964A46B511E774CCE1838A54F7F3",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-x86_64-unknown-linux-musl.zst",
-      "checksum": "883E417CA716BF8514F0751917D33B8682A7A423FC08C1E76E90BA71FE8D4F6B",
+      "id": "github_release/github.com/openai/codex/rust-v0.143.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "BC5E36DBB2CAEB34B48DBFBAB92E7593A4FA3B47DC0A39B9F30403E2C18E25BD",
       "algorithm": "sha256"
     },
     {
@@ -1196,8 +1196,8 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.531.0/registry.yaml",
-      "checksum": "6809CBCF3DB5C26072A32B2F2A9C5CABD2636874AA633BBBA6C463385BD1B35E",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.532.0/registry.yaml",
+      "checksum": "4BC50C3528E60AAC911B959924FA2A04070D27F55CE2C4A023730D65B0CC859F",
       "algorithm": "sha256"
     }
   ]

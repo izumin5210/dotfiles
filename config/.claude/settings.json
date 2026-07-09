@@ -229,7 +229,7 @@
     "datadog@claude-plugins-official": true,
     "feature-dev@claude-plugins-official": true,
     "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": false,
     "linear@claude-plugins-official": true,
     "plugin-dev@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
@@ -237,9 +237,11 @@
     "security-guidance@claude-plugins-official": true,
     "session-report@claude-plugins-official": true,
     "skill-creator@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": false,
     "codex@openai-codex": true,
-    "mcp-tools@izumin5210-dotfiles": true
+    "mcp-tools@izumin5210-dotfiles": true,
+    "typescript-native-lsp@izumin5210-dotfiles": true,
+    "gopls-lazy-lsp@izumin5210-dotfiles": true
   },
   "extraKnownMarketplaces": {
     "izumin5210-dotfiles": {

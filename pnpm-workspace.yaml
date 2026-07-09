@@ -1,2 +1,9 @@
 onlyBuiltDependencies:
   - puppeteer
+# TypeScript 7 (tsgo) native packages are first-party (Microsoft) and needed
+# promptly for the `tsc --lsp` language server; exempt them from pnpm's default
+# 1-day minimumReleaseAge supply-chain guard. (glob + version union is rejected
+# by pnpm, so the per-platform binaries are matched by name pattern.)
+minimumReleaseAgeExclude:
+  - typescript@7.0.2
+  - "@typescript/typescript-*"

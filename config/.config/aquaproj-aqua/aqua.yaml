@@ -8,7 +8,7 @@ checksum:
     - all
 registries:
   - type: standard
-    ref: v4.532.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.533.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   # go
   - name: golang/go@go1.26.4
@@ -68,3 +68,4 @@ packages:
   - name: tombi-toml/tombi@v0.11.7
   - name: vercel-labs/agent-browser@v0.31.1
   - name: tak848/ccgate@v0.9.5
+  - name: sivchari/gopls-lazy@v0.3.0

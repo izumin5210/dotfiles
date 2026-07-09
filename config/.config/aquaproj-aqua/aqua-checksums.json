@@ -896,6 +896,36 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_darwin_amd64.tar.gz",
+      "checksum": "D7F66742D55F74A49A97DD4210364E581EB3D00557D217D3D804FC11E15F78CE",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_darwin_arm64.tar.gz",
+      "checksum": "1DE34443F58EA3C054F86A2B1F9D0775FEDB0F02A0B92B34742E2E28BE210F5B",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_linux_amd64.tar.gz",
+      "checksum": "0CD8D8C8BBDCDB6B664645317C90F6B499B9A4DC16EC4137971160326C9B6559",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_linux_arm64.tar.gz",
+      "checksum": "D880C47541F2C998331851B05B65F106BBF1ACC4A0B1C877CBD920FE9E6C4075",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_windows_amd64.zip",
+      "checksum": "C28B0469A62A2A6E25D82A42119F379F4037E97BA2885048918C69C85C0E2259",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_windows_arm64.zip",
+      "checksum": "463E5168166991B44B43BC6AF86B5C7177A1C8F8B32B13CE6A36BC3C158D2E8A",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/starship/starship/v1.26.0/starship-aarch64-apple-darwin.tar.gz",
       "checksum": "C40B27B11F580411E068F2FA6C1BE7830A387C0BC47A94D1D37F32B054C5361D",
       "algorithm": "sha256"
@@ -1196,9 +1226,9 @@
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.532.0/registry.yaml",
-      "checksum": "4BC50C3528E60AAC911B959924FA2A04070D27F55CE2C4A023730D65B0CC859F",
-      "algorithm": "sha256"
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.533.0/registry.yaml",
+      "checksum": "6961EAE1302EC0EFD16814B6C6BB4BEB26484C0E607E6370F770975C41A1E1D9446ACBCE92B286EDA1E5533F9D4D3EDC80F7D21E48CE8A30F06E008D591E956A",
+      "algorithm": "sha512"
     }
   ]
 }

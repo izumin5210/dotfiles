@@ -24,8 +24,8 @@ importers:
         specifier: 0.14.29
         version: 0.14.29
       '@upstash/context7-mcp':
-        specifier: 3.2.2
-        version: 3.2.2
+        specifier: 3.2.3
+        version: 3.2.3
       '@vtsls/language-server':
         specifier: 0.3.0
         version: 0.3.0
@@ -54,8 +54,8 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(ws@8.21.0)
       skills:
-        specifier: 1.5.14
-        version: 1.5.14
+        specifier: 1.5.15
+        version: 1.5.15
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -1051,8 +1051,8 @@ packages:
   '@upsetjs/venn.js@2.0.0':
     resolution: {integrity: sha512-WbBhLrooyePuQ1VZxrJjtLvTc4NVfpOyKx0sKqioq9bX1C1m7Jgykkn8gLrtwumBioXIqam8DLxp88Adbue6Hw==}
 
-  '@upstash/context7-mcp@3.2.2':
-    resolution: {integrity: sha512-qWq0K4oHiByZSWpRfzlhmltRpUCjA8kSFFgGbvli1C+XGRL+qaflbbAzoHXOr2lOtknXK88NRH8GWHfnLy51Dw==}
+  '@upstash/context7-mcp@3.2.3':
+    resolution: {integrity: sha512-9L/9ufypc6lvlmiGxMLw/O94c8UcTCIvBI+o1R+FHVTgRw2lzg9FPGwcrKWuIOsAXH0+6pWFWm4dJWHbCm92sw==}
     hasBin: true
 
   '@upstash/redis@1.38.0':
@@ -2715,8 +2715,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skills@1.5.14:
-    resolution: {integrity: sha512-oA0Wv2cfUnLaFHeDU+IwHfrbfyP42H1UTjjEZYnOtgujkMGL6uXKzmmIx8/6jPhqJiK1v7HbvRPBmhowg9N2lA==}
+  skills@1.5.15:
+    resolution: {integrity: sha512-qOjkxQ+Bbua6UWx71XSbkEpAFQpBLvOFc26PDMHkT7BSnwud1/CyyyWyF2HElHyt51GN32GQ1ZDPrGhsNG47GA==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4376,7 +4376,7 @@ snapshots:
       d3-selection: 3.0.0
       d3-transition: 3.0.1(d3-selection@3.0.0)
 
-  '@upstash/context7-mcp@3.2.2':
+  '@upstash/context7-mcp@3.2.3':
     dependencies:
       '@modelcontextprotocol/sdk': 1.29.0(zod@4.4.3)
       '@types/express': 5.0.6
@@ -6170,7 +6170,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skills@1.5.14:
+  skills@1.5.15:
     dependencies:
       yaml: 2.9.0
 

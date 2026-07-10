@@ -64,7 +64,7 @@ packages:
   - name: jorgerojas26/lazysql@v0.5.5
   - name: oven-sh/bun@bun-v1.3.14
   - name: anthropics/claude-code@v2.1.205
-  - name: openai/codex@rust-v0.143.0
+  - name: openai/codex@rust-v0.144.0
   - name: tombi-toml/tombi@v0.11.7
   - name: vercel-labs/agent-browser@v0.31.1
   - name: tak848/ccgate@v0.9.5

@@ -66,8 +66,8 @@ importers:
         specifier: 4.10.0
         version: 4.10.0
       yaml-language-server:
-        specifier: 1.23.0
-        version: 1.23.0
+        specifier: 1.24.0
+        version: 1.24.0
 
 packages:
 
@@ -2972,10 +2972,6 @@ packages:
   vscode-html-languageservice@5.6.2:
     resolution: {integrity: sha512-ulCrSnFnfQ16YzvwnYUgEbUEl/ZG7u2eV27YhvLObSHKkb8fw1Z9cgsnUwjTEeDIdJDoTDTDpxuhQwoenoLNMg==}
 
-  vscode-json-languageservice@4.1.8:
-    resolution: {integrity: sha512-0vSpg6Xd9hfV+eZAaYN63xVVMOTmJ4GgHxXnkLCh+9RsQBkWKIghzLhW2B9ebfG+LQQg8uLtsQ2aUKjTgE+QOg==}
-    engines: {npm: '>=7.0.0'}
-
   vscode-json-languageservice@5.7.2:
     resolution: {integrity: sha512-WtKRDtJfFEmLrgtu+ODexOHm/6/krRF0k6t+uvkKIKW1Jh9ZIyxZQwJJwB3qhrEgvAxa37zbUg+vn+UyUK/U2w==}
 
@@ -3144,8 +3140,8 @@ packages:
   yallist@4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
 
-  yaml-language-server@1.23.0:
-    resolution: {integrity: sha512-3qVyCOexLCWw06PQa5kRPwvMWMZ/eZeCRWUvgD6a0OkqL/4iCnxy2WumbWifa937Uo5xhyWJ0uxlU39ljhNh7A==}
+  yaml-language-server@1.24.0:
+    resolution: {integrity: sha512-+HGcwu4M7IC+UDhDZScTZR8qsl2MMj/X1E5e83QcWzWn2pctj0fv8HHdrHHcbc1KB3CuRPJ4gc1Nm36D0iCu0g==}
     hasBin: true
 
   yaml@2.8.3:
@@ -5119,7 +5115,7 @@ snapshots:
   dockerfile-ast@0.7.1:
     dependencies:
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.17.3
+      vscode-languageserver-types: 3.18.0
 
   dockerfile-language-server-nodejs@0.15.0:
     dependencies:
@@ -6436,14 +6432,6 @@ snapshots:
       vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0
 
-  vscode-json-languageservice@4.1.8:
-    dependencies:
-      jsonc-parser: 3.3.1
-      vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.18.0
-      vscode-nls: 5.2.0
-      vscode-uri: 3.1.0
-
   vscode-json-languageservice@5.7.2:
     dependencies:
       '@vscode/l10n': 0.0.18
@@ -6607,18 +6595,19 @@ snapshots:
 
   yallist@4.0.0: {}
 
-  yaml-language-server@1.23.0:
+  yaml-language-server@1.24.0:
     dependencies:
       '@vscode/l10n': 0.0.18
       ajv: 8.20.0
       ajv-draft-04: 1.0.0(ajv@8.20.0)
       ajv-i18n: 4.2.0(ajv@8.20.0)
+      jsonc-parser: 3.3.1
+      picomatch: 4.0.5
       prettier: 3.9.4
       request-light: 0.5.8
-      vscode-json-languageservice: 4.1.8
       vscode-languageserver: 9.0.1
       vscode-languageserver-textdocument: 1.0.12
-      vscode-languageserver-types: 3.18.0
+      vscode-languageserver-types: 3.17.5
       vscode-uri: 3.1.0
       yaml: 2.8.3
 

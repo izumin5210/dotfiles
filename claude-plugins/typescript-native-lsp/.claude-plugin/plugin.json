@@ -1,0 +1,8 @@
+{
+  "name": "typescript-native-lsp",
+  "description": "TypeScript 7 native (tsgo) language server via `tsc --lsp`",
+  "version": "1.0.0",
+  "author": {
+    "name": "izumin5210"
+  }
+}

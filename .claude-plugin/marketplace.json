@@ -12,6 +12,50 @@
       "version": "1.0.0",
       "source": "./claude-plugins/mcp-tools",
       "category": "productivity"
+    },
+    {
+      "name": "typescript-native-lsp",
+      "description": "TypeScript 7 native (tsgo) language server via `tsc --lsp`",
+      "version": "1.0.0",
+      "source": "./claude-plugins/typescript-native-lsp",
+      "category": "development",
+      "strict": false,
+      "lspServers": {
+        "typescript": {
+          "command": "tsc",
+          "args": ["--lsp", "--stdio"],
+          "env": {
+            "GOMAXPROCS": "2",
+            "GOMEMLIMIT": "6GiB"
+          },
+          "extensionToLanguage": {
+            ".ts": "typescript",
+            ".tsx": "typescriptreact",
+            ".js": "javascript",
+            ".jsx": "javascriptreact",
+            ".mts": "typescript",
+            ".cts": "typescript",
+            ".mjs": "javascript",
+            ".cjs": "javascript"
+          }
+        }
+      }
+    },
+    {
+      "name": "gopls-lazy-lsp",
+      "description": "Go language server using the gopls-lazy proxy",
+      "version": "1.0.0",
+      "source": "./claude-plugins/gopls-lazy-lsp",
+      "category": "development",
+      "strict": false,
+      "lspServers": {
+        "gopls-lazy": {
+          "command": "gopls-lazy",
+          "extensionToLanguage": {
+            ".go": "go"
+          }
+        }
+      }
     }
   ]
 }

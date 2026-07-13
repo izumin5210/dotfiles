@@ -131,4 +131,10 @@ return {
       require("illuminate").configure()
     end,
   },
+  {
+    "izumin5210/diffly.nvim",
+    version = "*",
+    cmd = "Diffly",
+    opts = {},
+  },
 }

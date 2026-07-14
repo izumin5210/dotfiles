@@ -54,8 +54,8 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(ws@8.21.0)
       skills:
-        specifier: 1.5.15
-        version: 1.5.15
+        specifier: 1.5.16
+        version: 1.5.16
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -2715,8 +2715,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skills@1.5.15:
-    resolution: {integrity: sha512-qOjkxQ+Bbua6UWx71XSbkEpAFQpBLvOFc26PDMHkT7BSnwud1/CyyyWyF2HElHyt51GN32GQ1ZDPrGhsNG47GA==}
+  skills@1.5.16:
+    resolution: {integrity: sha512-O+pjcrnm5WkSSBD3WJxjdDssE+oynm7k1LnKMjXvsVeQdmKmY/a+gi6WUOhyGVIYptkFmBBEho/zyf22UtN6cw==}
     engines: {node: '>=18'}
     hasBin: true
 
@@ -4539,7 +4539,7 @@ snapshots:
       '@vue/shared': 3.5.39
       csstype: 3.2.3
 
-  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@7.0.2))':
+  '@vue/server-renderer@3.5.39(vue@3.5.39(typescript@5.9.3))':
     dependencies:
       '@vue/compiler-ssr': 3.5.39
       '@vue/shared': 3.5.39
@@ -6166,7 +6166,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skills@1.5.15:
+  skills@1.5.16:
     dependencies:
       yaml: 2.9.0
 
@@ -6547,7 +6547,7 @@ snapshots:
       '@vue/compiler-dom': 3.5.39
       '@vue/compiler-sfc': 3.5.39
       '@vue/runtime-dom': 3.5.39
-      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@7.0.2))
+      '@vue/server-renderer': 3.5.39(vue@3.5.39(typescript@5.9.3))
       '@vue/shared': 3.5.39
     optionalDependencies:
       typescript: 5.9.3

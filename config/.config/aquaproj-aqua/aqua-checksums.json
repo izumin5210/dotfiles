@@ -156,28 +156,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.28/uv-aarch64-apple-darwin.tar.gz",
-      "checksum": "33540EB7C883AB857EFF79BD5AC2AA31FE27B595ABECB4A9C003A2C998447232",
+      "id": "github_release/github.com/astral-sh/uv/0.11.29/uv-aarch64-apple-darwin.tar.gz",
+      "checksum": "61C04ACC52A33EF0F331E494BDFBEDCDB6C26C6970C022ED3699E5860F8930E3",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.28/uv-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "DA10CDFA7D92212B7ACB62021A0FD61BCF8580C58C3632EC915D10C3A1A7906B",
+      "id": "github_release/github.com/astral-sh/uv/0.11.29/uv-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "593D79A797ECE3F1DFAAF3E0A973263422A135D9262C7DBC6CD75D9C11ACC0B4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.28/uv-x86_64-apple-darwin.tar.gz",
-      "checksum": "2AD79983127FFCA7D77B77CE6A24278D7E4F7B817A1ACF72FEA5F8124B4AAC5E",
+      "id": "github_release/github.com/astral-sh/uv/0.11.29/uv-x86_64-apple-darwin.tar.gz",
+      "checksum": "C4C4DE482DA9CCDD076DC4FB5CFE7B740609029385C72F58606BE3153602387D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.28/uv-x86_64-pc-windows-msvc.zip",
-      "checksum": "0A23463216D09C6A72FF80EF5DC5A795F07DC1575CB84D24596C2F124A441B7B",
+      "id": "github_release/github.com/astral-sh/uv/0.11.29/uv-x86_64-pc-windows-msvc.zip",
+      "checksum": "A047D55651BC3E0CA24595B25EC4CFCB10F9DCA9FB56514E661269B37D4FAE68",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.28/uv-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "F02146B371C35C287D860F003ECE7345C86E358A3FD70A9B63700CD141EE7FB4",
+      "id": "github_release/github.com/astral-sh/uv/0.11.29/uv-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "46711858ADB2A3ACAA9CEE00F9060688AD1FD5706AECC005B96A6A7F285A00B7",
       "algorithm": "sha256"
     },
     {

@@ -6,28 +6,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/BurntSushi/ripgrep/15.1.0/ripgrep-15.1.0-aarch64-apple-darwin.tar.gz",
-      "checksum": "378E973289176CA0C6054054EE7F631A065874A352BF43F0FA60EF079B6BA715",
+      "id": "github_release/github.com/BurntSushi/ripgrep/15.2.0/ripgrep-15.2.0-aarch64-apple-darwin.tar.gz",
+      "checksum": "3750B2E93F37E0C692657DA574D7019A101C0084DA05A790C83FD335BAD973E4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/BurntSushi/ripgrep/15.1.0/ripgrep-15.1.0-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "2B661C6EF508E902F388E9098D9C4C5ACA72C87B55922D94ABDBA830B4DC885E",
+      "id": "github_release/github.com/BurntSushi/ripgrep/15.2.0/ripgrep-15.2.0-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "A740B91C82EAF9914CFEDD353572F2791CBE0162C84101EE0951058F4DCBC90D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/BurntSushi/ripgrep/15.1.0/ripgrep-15.1.0-x86_64-apple-darwin.tar.gz",
-      "checksum": "64811CB24E77CAC3057D6C40B63AC9BECF9082EEDD54CA411B475B755D334882",
+      "id": "github_release/github.com/BurntSushi/ripgrep/15.2.0/ripgrep-15.2.0-x86_64-apple-darwin.tar.gz",
+      "checksum": "AF7825FCC69A2AFC7A7AEA55FC9AF90E26421D8F20FE59DF32E233C0B8A231C1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/BurntSushi/ripgrep/15.1.0/ripgrep-15.1.0-x86_64-pc-windows-msvc.zip",
-      "checksum": "124510B94B6BAA3380D051FDF4650EAA80A302C876D611E9DBA0B2E18D87493A",
+      "id": "github_release/github.com/BurntSushi/ripgrep/15.2.0/ripgrep-15.2.0-x86_64-pc-windows-msvc.zip",
+      "checksum": "71B2FEF860ABE467217A538FF31DE02F5258807C0129F771846F87BD029AAFC5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/BurntSushi/ripgrep/15.1.0/ripgrep-15.1.0-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "1C9297BE4A084EEA7ECAEDF93EB03D058D6FAAE29BBC57ECDAF5063921491599",
+      "id": "github_release/github.com/BurntSushi/ripgrep/15.2.0/ripgrep-15.2.0-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "33E15BCF1624B25CDD2A55813A47A2F95DBE126268203E76AA6A585D1E7B149C",
       "algorithm": "sha256"
     },
     {

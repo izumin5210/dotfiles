@@ -54,8 +54,8 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(ws@8.21.1)
       skills:
-        specifier: 1.5.18
-        version: 1.5.18
+        specifier: 1.5.19
+        version: 1.5.19
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -2716,9 +2716,9 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skills@1.5.18:
-    resolution: {integrity: sha512-WwQuqIhmS2nrn1H3HAbE2tGe7e2npc1cwMcucMKqmkBdqzm7nxzcZBTqXiHjUKhpalQLE/nNPtEdcx3QYX4TTw==}
-    engines: {node: '>=18'}
+  skills@1.5.19:
+    resolution: {integrity: sha512-SR05cbNk+R17GfaCFv94Hlq5EXDpUCbG0ZL9+EYi5UEHzUPAAl+kls2LxCT+67wAWlOAanUwzZekIVQvpCmp5w==}
+    engines: {node: '>=22.20.0'}
     hasBin: true
 
   slash@3.0.0:
@@ -6170,7 +6170,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skills@1.5.18:
+  skills@1.5.19:
     dependencies:
       yaml: 2.9.0
 

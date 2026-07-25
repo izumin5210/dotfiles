@@ -196,6 +196,10 @@ dist
 /config/.config/zsh/.zcompdump
 /config/.config/yazi/flavors
 
+# herdr
+/config/.config/herdr/*
+!/config/.config/herdr/config.toml
+
 # Nix
 /result
 

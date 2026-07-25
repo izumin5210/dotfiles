@@ -27,6 +27,9 @@ mkdir -p ~/.config
 # tmux
 ./bin/ln-idempotently ./config/.config/tmux ~/.config/tmux
 
+# herdr
+./bin/ln-idempotently ./config/.config/herdr ~/.config/herdr
+
 # claude
 ./bin/ln-idempotently ./config/.claude ~/.claude
 

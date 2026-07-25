@@ -106,10 +106,12 @@ settings = "prefix+shift+s"
 # close_tab = "prefix+shift+x"
 # rename_pane = "prefix+shift+p"
 # edit_scrollback = "prefix+e"
-# focus_pane_left = "prefix+h"
-# focus_pane_down = "prefix+j"
-# focus_pane_up = "prefix+k"
-# focus_pane_right = "prefix+l"
+# prefix+hjkl は下の herdr-nav (nvim 対応版) に譲るため組み込みの focus_pane_* を無効化する。
+# config check は同一キーの衝突を報告しないので、空文字で明示的に外しておく必要がある。
+focus_pane_left = ""
+focus_pane_down = ""
+focus_pane_up = ""
+focus_pane_right = ""
 # cycle_pane_next = "prefix+tab"
 # cycle_pane_previous = "prefix+shift+tab"
 # last_pane = ""          # optional, unset by default; bind e.g. "prefix+tab" for global back-and-forth
@@ -173,6 +175,34 @@ command = "herdr pane resize --current --direction up --amount 0.05"
 key = "prefix+shift+l"
 type = "shell"
 command = "herdr pane resize --current --direction right --amount 0.05"
+
+# tmux の NAVIGATOR キーテーブル相当。herdr にはユーザー定義キーテーブルが無いため、
+# tmux で C-w が担っていた「nvim の分割と herdr のペインを区別なく 1 段ずつ移動する」役割を
+# prefix+hjkl に移している。nvim ペインでは <C-w>hjkl を転送して nvim に判断を委ね、
+# nvim が端にいれば nvim 側が herdr pane focus を呼び返す。
+[[keys.command]]
+key = "prefix+h"
+type = "shell"
+command = "herdr-nav left"
+description = "Focus pane left (nvim-aware)"
+
+[[keys.command]]
+key = "prefix+j"
+type = "shell"
+command = "herdr-nav down"
+description = "Focus pane down (nvim-aware)"
+
+[[keys.command]]
+key = "prefix+k"
+type = "shell"
+command = "herdr-nav up"
+description = "Focus pane up (nvim-aware)"
+
+[[keys.command]]
+key = "prefix+l"
+type = "shell"
+command = "herdr-nav right"
+description = "Focus pane right (nvim-aware)"
 
 # Legacy indexed shortcut config is still parsed for compatibility.
 # Prefer switch_tab, switch_workspace, and focus_agent for new configs.

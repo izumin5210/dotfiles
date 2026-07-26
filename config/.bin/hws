@@ -20,8 +20,36 @@ ICON_GITHUB=$''
 
 in_herdr() { [[ -n "${HERDR_ENV:-}" ]]; }
 
+# popup はコマンドの終了と同時に閉じてしまい、stderr に書くだけでは読む間がない。
+die() {
+  printf 'hws: %s\n' "$@" >&2
+  if [[ -t 0 ]]; then
+    read -rsn1 -p 'press any key to close...' _ || true
+    printf '\n' >&2
+  fi
+  exit 1
+}
+
+herdr_server_running() { pgrep -f 'herdr[^/ ]* server$' >/dev/null 2>&1; }
+
+# herdr の socket は「最後に bind したサーバー」に張り替わる。到達できないのにサーバーが
+# 生きている状態で `herdr server` を足すと、UI を描いているサーバーと CLI が別サーバーを
+# 向き、workspace focus が成功するのに画面が変わらなくなる。しかも増えたサーバーは終了時に
+# 自分の socket を消すので次の疎通も失敗し、ゴーストサーバーが際限なく増える。
+# 自力で復旧しようとせず、人間に古いサーバーを落としてもらう。
+die_split_brain() {
+  die "$1" \
+    "server が二重起動している可能性があります。次で確認して古い方を kill -9 し、herdr を再接続してください:" \
+    "  ps ax -o pid,lstart,command | grep 'herdr.* server'"
+}
+
 ensure_server() {
   herdr workspace list >/dev/null 2>&1 && return 0
+  # herdr の中にいる (= サーバーは必ず存在する) / すでにサーバーが動いている場合に
+  # 到達できないのは socket の張り替えなので、サーバーを足しても悪化するだけ。
+  if in_herdr || herdr_server_running; then
+    die_split_brain "herdr server に到達できません (socket: ${HERDR_SOCKET_PATH:-default})"
+  fi
   nohup herdr server </dev/null >/dev/null 2>&1 &
   disown
   local i
@@ -29,13 +57,41 @@ ensure_server() {
     herdr workspace list >/dev/null 2>&1 && return 0
     sleep 0.1
   done
-  return 1
+  die "failed to reach herdr server"
+}
+
+# 疎通できても、それが自分を起動したサーバーとは限らない。socket が張り替わっていても
+# 既存の client 接続は生きたままなので、画面は動くのに CLI だけ別サーバーに届く。
+# popup には HERDR_PANE_ID / HERDR_WORKSPACE_ID が渡らない (herdr は popup に pane
+# identity を持たせない) ため、呼び出し元ペインの HERDR_ACTIVE_PANE_ID で代用する。
+assert_same_server() {
+  local mine="${HERDR_PANE_ID:-${HERDR_ACTIVE_PANE_ID:-}}"
+  [[ -n "$mine" ]] || return 0
+  herdr pane list 2>/dev/null |
+    jq -e --arg P "$mine" 'any(.result.panes[]?; .pane_id == $P)' >/dev/null && return 0
+  die_split_brain "到達した herdr server は呼び出し元のペイン ($mine) を知りません"
 }
 
 workspaces_json() { herdr workspace list 2>/dev/null; }
 
+workspace_id_for_label() {
+  workspaces_json |
+    jq -r --arg L "$1" 'first(.result.workspaces[] | select(.label==$L) | .workspace_id) // ""'
+}
+
+# focus が本当に反映されたか読み戻す。届いていない場合に黙って閉じないための保険。
+focus_workspace() {
+  local id=$1 focused
+  herdr workspace focus "$id" >/dev/null
+  focused=$(workspaces_json |
+    jq -r 'first(.result.workspaces[] | select(.focused) | .workspace_id) // ""')
+  [[ "$focused" == "$id" ]] && return 0
+  die "workspace $id への切り替えが反映されませんでした (現在: ${focused:-unknown})"
+}
+
 list_local_workspaces() {
-  local current="${HERDR_WORKSPACE_ID:-}"
+  # popup には HERDR_WORKSPACE_ID が渡らないので、呼び出し元ペイン側の値にフォールバックする。
+  local current="${HERDR_WORKSPACE_ID:-${HERDR_ACTIVE_WORKSPACE_ID:-}}"
   workspaces_json |
     jq -r '.result.workspaces[] | [.workspace_id, .label] | @tsv' |
     while IFS=$'\t' read -r id label; do
@@ -122,14 +178,13 @@ preview_git_log() {
 focus_or_create() {
   local label=$1 cwd=${2:-$PWD}
   local id
-  id=$(workspaces_json |
-    jq -r --arg L "$label" '.result.workspaces[] | select(.label==$L) | .workspace_id' |
-    head -1)
-  if [[ -n "$id" ]]; then
-    herdr workspace focus "$id" >/dev/null
-  else
+  id=$(workspace_id_for_label "$label")
+  if [[ -z "$id" ]]; then
     herdr workspace create --cwd "$cwd" --label "$label" --focus >/dev/null
+    id=$(workspace_id_for_label "$label")
+    [[ -n "$id" ]] || die "workspace $label を作成できませんでした"
   fi
+  focus_workspace "$id"
 }
 
 select_and_dispatch() {
@@ -151,7 +206,7 @@ select_and_dispatch() {
 
   case "$kind" in
     local)
-      herdr workspace focus "$name" >/dev/null
+      focus_workspace "$name"
       in_herdr || exec herdr
       ;;
     repo)
@@ -172,10 +227,8 @@ main() {
     return 0
   fi
 
-  ensure_server || {
-    echo "hws: failed to reach herdr server" >&2
-    exit 1
-  }
+  ensure_server
+  assert_same_server
 
   if [[ $# -eq 1 ]]; then
     focus_or_create "$1"

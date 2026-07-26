@@ -78,10 +78,15 @@ export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
 export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
 export AQUA_POLICY_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
 
+# ghq
+# GHQ_ROOT は git config の ghq.root より優先される。ここを実行時の唯一の値に
+# しておくと、`ghq root` を fork せずに参照でき、両者が食い違うこともない。
+# (git config 側の ghq.root は zsh を経由しない文脈のためのフォールバック)
+export GHQ_ROOT="$HOME/src"
+
 # dotfiles
-# `ghq root` を呼ばないのは全 zsh 起動での fork を避けるため。
 # 別の場所に clone している環境では DOTFILES_DIR を先に設定して上書きする。
-export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/src/github.com/izumin5210/dotfiles}"
+export DOTFILES_DIR="${DOTFILES_DIR:-$GHQ_ROOT/github.com/izumin5210/dotfiles}"
 export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
 # Osidian

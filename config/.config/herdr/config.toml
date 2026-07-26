@@ -78,7 +78,7 @@ prefix = "ctrl+t"
 
 # Prefix-mode actions
 # help = "prefix+?"
-# tmux 流に `prefix+s` を hws (ワークスペースピッカー) に譲るため settings を退避
+# tmux 流に `prefix+s` を ws (ワークスペースピッカー) に譲るため settings を退避
 settings = "prefix+shift+s"
 # detach = "prefix+q"
 # reload_config = "prefix+shift+r"
@@ -145,12 +145,12 @@ split_horizontal = "prefix+minus"
 # width = "80%"
 # height = "80%"
 
-# tmux の `bind s run-shell "tm"` 相当。hws は herdr workspace + ghq リポジトリ +
+# tmux の `bind s run-shell "tm"` 相当。ws は herdr workspace + ghq リポジトリ +
 # remote SSH ホストを fzf で横断選択して切替/作成する。
 [[keys.command]]
 key = "prefix+s"
 type = "popup"
-command = "hws"
+command = "ws"
 width = "90%"
 height = "80%"
 

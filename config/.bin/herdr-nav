@@ -18,14 +18,14 @@ dir="${1:?usage: herdr-nav <left|down|up|right>}"
 herdr="${HERDR_BIN_PATH:-herdr}"
 
 case "$dir" in
-  left) key=h ;;
-  down) key=j ;;
-  up) key=k ;;
-  right) key=l ;;
-  *)
-    echo "herdr-nav: unknown direction: $dir" >&2
-    exit 2
-    ;;
+left) key=h ;;
+down) key=j ;;
+up) key=k ;;
+right) key=l ;;
+*)
+  echo "herdr-nav: unknown direction: $dir" >&2
+  exit 2
+  ;;
 esac
 
 # tmux.conf の is_vim と同じ対象集合 (vi/vim/nvim/view/gvim/*diff)

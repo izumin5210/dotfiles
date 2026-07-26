@@ -148,20 +148,23 @@ preview_git_log() {
   local kind=$1 name=$2 path=${3:-}
   local dir=""
   case "$kind" in
-    local)
-      dir=$(herdr pane list 2>/dev/null |
-        jq -r --arg W "$name" '.result.panes[] | select(.workspace_id==$W) | .cwd' |
-        head -1)
-      ;;
-    repo)
-      dir="$path"
-      ;;
-    *)
-      echo "(remote workspace)"
-      return 0
-      ;;
+  local)
+    dir=$(herdr pane list 2>/dev/null |
+      jq -r --arg W "$name" '.result.panes[] | select(.workspace_id==$W) | .cwd' |
+      head -1)
+    ;;
+  repo)
+    dir="$path"
+    ;;
+  *)
+    echo "(remote workspace)"
+    return 0
+    ;;
   esac
-  [[ -n "$dir" ]] || { echo "(no cwd)"; return 0; }
+  [[ -n "$dir" ]] || {
+    echo "(no cwd)"
+    return 0
+  }
   git -C "$dir" rev-parse --is-inside-work-tree &>/dev/null || {
     echo "(not a git repo)"
     return 0
@@ -205,18 +208,18 @@ select_and_dispatch() {
   path=$(awk -F'\t' '{print $4}' <<<"$selected" | xargs)
 
   case "$kind" in
-    local)
-      focus_workspace "$name"
-      in_herdr || exec herdr
-      ;;
-    repo)
-      focus_or_create "$name" "$path"
-      in_herdr || exec herdr
-      ;;
-    *)
-      # kind == remote hostname
-      exec herdr --remote "$kind"
-      ;;
+  local)
+    focus_workspace "$name"
+    in_herdr || exec herdr
+    ;;
+  repo)
+    focus_or_create "$name" "$path"
+    in_herdr || exec herdr
+    ;;
+  *)
+    # kind == remote hostname
+    exec herdr --remote "$kind"
+    ;;
   esac
 }
 

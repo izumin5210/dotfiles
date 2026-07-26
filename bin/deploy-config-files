@@ -25,9 +25,9 @@ mkdir -p ~/.config
 ./bin/ln-idempotently ./config/.config/starship.toml ~/.config/starship.toml
 
 # bash / sh
-./bin/ln-idempotently ./config/.bashrc ~/.bashrc
-./bin/ln-idempotently ./config/.bash_profile ~/.bash_profile
-./bin/ln-idempotently ./config/.profile ~/.profile
+./bin/ln-idempotently --backup ./config/.bashrc ~/.bashrc
+./bin/ln-idempotently --backup ./config/.bash_profile ~/.bash_profile
+./bin/ln-idempotently --backup ./config/.profile ~/.profile
 
 # vim
 ./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim

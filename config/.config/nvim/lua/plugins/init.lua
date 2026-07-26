@@ -98,11 +98,12 @@ return {
   },
   {
     "alexghergh/nvim-tmux-navigation",
+    -- hjkl は utils.navigate 経由で tmux / herdr を出し分ける。このプラグインは tmux 経路専用。
     keys = {
       {
         "<C-w>h",
         function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateLeft()
+          require("utils.navigate").navigate("h")
         end,
         mode = "n",
         noremap = true,
@@ -110,7 +111,7 @@ return {
       {
         "<C-w>j",
         function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateDown()
+          require("utils.navigate").navigate("j")
         end,
         mode = "n",
         noremap = true,
@@ -118,7 +119,7 @@ return {
       {
         "<C-w>k",
         function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateUp()
+          require("utils.navigate").navigate("k")
         end,
         mode = "n",
         noremap = true,
@@ -126,7 +127,7 @@ return {
       {
         "<C-w>l",
         function()
-          require("nvim-tmux-navigation").NvimTmuxNavigateRight()
+          require("utils.navigate").navigate("l")
         end,
         mode = "n",
         noremap = true,

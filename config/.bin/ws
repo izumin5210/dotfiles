@@ -1,0 +1,245 @@
+#!/usr/bin/env bash
+#
+# hws — herdr workspace picker (tm の herdr 版)
+#
+# fzf でローカル workspace + ghq リポジトリ + remote SSH ホストを横断選択して
+# workspace を切替/作成する。
+#
+# Usage:
+#   hws           対話ピッカーを起動
+#   hws <name>    <name> と一致する workspace を focus。無ければ $PWD で作成
+#
+# 環境変数:
+#   HWS_REMOTE_HOSTS  カンマ区切りの SSH ホスト名 (未設定なら TM_REMOTE_HOSTS を継承)
+
+set -euo pipefail
+
+ICON_HERDR=$''
+ICON_CLOUD=$''
+ICON_GITHUB=$''
+
+in_herdr() { [[ -n "${HERDR_ENV:-}" ]]; }
+
+# popup はコマンドの終了と同時に閉じてしまい、stderr に書くだけでは読む間がない。
+die() {
+  printf 'hws: %s\n' "$@" >&2
+  if [[ -t 0 ]]; then
+    read -rsn1 -p 'press any key to close...' _ || true
+    printf '\n' >&2
+  fi
+  exit 1
+}
+
+herdr_server_running() { pgrep -f 'herdr[^/ ]* server$' >/dev/null 2>&1; }
+
+# herdr の socket は「最後に bind したサーバー」に張り替わる。到達できないのにサーバーが
+# 生きている状態で `herdr server` を足すと、UI を描いているサーバーと CLI が別サーバーを
+# 向き、workspace focus が成功するのに画面が変わらなくなる。しかも増えたサーバーは終了時に
+# 自分の socket を消すので次の疎通も失敗し、ゴーストサーバーが際限なく増える。
+# 自力で復旧しようとせず、人間に古いサーバーを落としてもらう。
+die_split_brain() {
+  die "$1" \
+    "server が二重起動している可能性があります。次で確認して古い方を kill -9 し、herdr を再接続してください:" \
+    "  ps ax -o pid,lstart,command | grep 'herdr.* server'"
+}
+
+ensure_server() {
+  herdr workspace list >/dev/null 2>&1 && return 0
+  # herdr の中にいる (= サーバーは必ず存在する) / すでにサーバーが動いている場合に
+  # 到達できないのは socket の張り替えなので、サーバーを足しても悪化するだけ。
+  if in_herdr || herdr_server_running; then
+    die_split_brain "herdr server に到達できません (socket: ${HERDR_SOCKET_PATH:-default})"
+  fi
+  nohup herdr server </dev/null >/dev/null 2>&1 &
+  disown
+  local i
+  for i in {1..30}; do
+    herdr workspace list >/dev/null 2>&1 && return 0
+    sleep 0.1
+  done
+  die "failed to reach herdr server"
+}
+
+# 疎通できても、それが自分を起動したサーバーとは限らない。socket が張り替わっていても
+# 既存の client 接続は生きたままなので、画面は動くのに CLI だけ別サーバーに届く。
+# popup には HERDR_PANE_ID / HERDR_WORKSPACE_ID が渡らない (herdr は popup に pane
+# identity を持たせない) ため、呼び出し元ペインの HERDR_ACTIVE_PANE_ID で代用する。
+assert_same_server() {
+  local mine="${HERDR_PANE_ID:-${HERDR_ACTIVE_PANE_ID:-}}"
+  [[ -n "$mine" ]] || return 0
+  herdr pane list 2>/dev/null |
+    jq -e --arg P "$mine" 'any(.result.panes[]?; .pane_id == $P)' >/dev/null && return 0
+  die_split_brain "到達した herdr server は呼び出し元のペイン ($mine) を知りません"
+}
+
+workspaces_json() { herdr workspace list 2>/dev/null; }
+
+workspace_id_for_label() {
+  workspaces_json |
+    jq -r --arg L "$1" 'first(.result.workspaces[] | select(.label==$L) | .workspace_id) // ""'
+}
+
+# focus が本当に反映されたか読み戻す。届いていない場合に黙って閉じないための保険。
+focus_workspace() {
+  local id=$1 focused
+  herdr workspace focus "$id" >/dev/null
+  focused=$(workspaces_json |
+    jq -r 'first(.result.workspaces[] | select(.focused) | .workspace_id) // ""')
+  [[ "$focused" == "$id" ]] && return 0
+  die "workspace $id への切り替えが反映されませんでした (現在: ${focused:-unknown})"
+}
+
+list_local_workspaces() {
+  # popup には HERDR_WORKSPACE_ID が渡らないので、呼び出し元ペイン側の値にフォールバックする。
+  local current="${HERDR_WORKSPACE_ID:-${HERDR_ACTIVE_WORKSPACE_ID:-}}"
+  workspaces_json |
+    jq -r '.result.workspaces[] | [.workspace_id, .label] | @tsv' |
+    while IFS=$'\t' read -r id label; do
+      local marker=" "
+      [[ "$id" == "$current" ]] && marker=$'\e[1;38;5;208m*\e[m'
+      printf "\e[0;32m%s\e[m %b %s\tlocal\t%s\n" "$ICON_HERDR" "$marker" "$label" "$id"
+    done
+}
+
+list_repos() {
+  command -v ghq >/dev/null 2>&1 || return 0
+  local existing ghq_root
+  existing=$(workspaces_json | jq -r '.result.workspaces[].label' 2>/dev/null || true)
+  ghq_root=$(ghq root 2>/dev/null) || return 0
+  ghq list | while IFS= read -r repo; do
+    local basename="${repo##*/}"
+    grep -qxF "$basename" <<<"$existing" && continue
+    local display="${repo##github.com/}"
+    printf "\e[0;34m%s\e[m   %s\trepo\t%s\t%s\n" "$ICON_GITHUB" "$display" "$basename" "$ghq_root/$repo"
+  done
+}
+
+list_remote() {
+  local hosts="${HWS_REMOTE_HOSTS:-${TM_REMOTE_HOSTS:-}}"
+  [[ -z "$hosts" ]] && return 0
+  local tmpdir
+  tmpdir=$(mktemp -d)
+  IFS=',' read -ra host_list <<<"$hosts"
+  local host
+  for host in "${host_list[@]}"; do
+    (
+      ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
+        'zsh -lic "herdr workspace list"' 2>/dev/null |
+        jq -r '.result.workspaces[]?.label' 2>/dev/null |
+        while IFS= read -r label; do
+          printf "\e[0;33m%s\e[m   %s (%s)\t%s\t%s\n" "$ICON_CLOUD" "$label" "$host" "$host" "$label"
+        done >"$tmpdir/$host"
+    ) &
+  done
+  wait
+  cat "$tmpdir"/* 2>/dev/null || true
+  rm -rf "$tmpdir"
+}
+
+build_list() {
+  {
+    list_local_workspaces
+    list_repos
+  }
+  list_remote
+}
+
+preview_git_log() {
+  local kind=$1 name=$2 path=${3:-}
+  local dir=""
+  case "$kind" in
+  local)
+    dir=$(herdr pane list 2>/dev/null |
+      jq -r --arg W "$name" '.result.panes[] | select(.workspace_id==$W) | .cwd' |
+      head -1)
+    ;;
+  repo)
+    dir="$path"
+    ;;
+  *)
+    echo "(remote workspace)"
+    return 0
+    ;;
+  esac
+  [[ -n "$dir" ]] || {
+    echo "(no cwd)"
+    return 0
+  }
+  git -C "$dir" rev-parse --is-inside-work-tree &>/dev/null || {
+    echo "(not a git repo)"
+    return 0
+  }
+  local branch
+  branch=$(git -C "$dir" symbolic-ref --short HEAD 2>/dev/null ||
+    git -C "$dir" rev-parse --short HEAD)
+  printf "\e[1;36m%s\e[m\n\n" "$branch"
+  git -C "$dir" log --first-parent --color=always \
+    --format='%C(yellow)%h %C(green)%cd%C(auto)%d%n  %C(reset)%s' \
+    --date=format:'%Y-%m-%d %H:%M' -n 30
+}
+
+focus_or_create() {
+  local label=$1 cwd=${2:-$PWD}
+  local id
+  id=$(workspace_id_for_label "$label")
+  if [[ -z "$id" ]]; then
+    herdr workspace create --cwd "$cwd" --label "$label" --focus >/dev/null
+    id=$(workspace_id_for_label "$label")
+    [[ -n "$id" ]] || die "workspace $label を作成できませんでした"
+  fi
+  focus_workspace "$id"
+}
+
+select_and_dispatch() {
+  local fzf_opts=(
+    --delimiter=$'\t' --with-nth=1 --no-hscroll --no-multi --ansi
+    --color 'bg:#303446'
+    --preview "$0 __preview {2} {3} {4}"
+    --preview-window right:60%
+  )
+
+  local selected
+  selected=$(build_list | fzf "${fzf_opts[@]}") || true
+  [[ -z "$selected" ]] && return 0
+
+  local kind name path
+  kind=$(awk -F'\t' '{print $2}' <<<"$selected" | xargs)
+  name=$(awk -F'\t' '{print $3}' <<<"$selected" | xargs)
+  path=$(awk -F'\t' '{print $4}' <<<"$selected" | xargs)
+
+  case "$kind" in
+  local)
+    focus_workspace "$name"
+    in_herdr || exec herdr
+    ;;
+  repo)
+    focus_or_create "$name" "$path"
+    in_herdr || exec herdr
+    ;;
+  *)
+    # kind == remote hostname
+    exec herdr --remote "$kind"
+    ;;
+  esac
+}
+
+main() {
+  if [[ "${1:-}" == "__preview" ]]; then
+    shift
+    preview_git_log "$@"
+    return 0
+  fi
+
+  ensure_server
+  assert_same_server
+
+  if [[ $# -eq 1 ]]; then
+    focus_or_create "$1"
+    in_herdr || exec herdr
+    return 0
+  fi
+
+  select_and_dispatch
+}
+
+main "$@"

@@ -726,6 +726,26 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.7.5/herdr-linux-aarch64",
+      "checksum": "32E763A1499A6B694B1D708E4F062B743BE1DA9F34FCFA4D212D6DB6FE09A8B9",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.7.5/herdr-linux-x86_64",
+      "checksum": "3DC83288073E4C2D3C679A30E7BE97BCCA9141C6FD17DBBB9219142E95C59253",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.7.5/herdr-macos-aarch64",
+      "checksum": "37350546B0012555943B92EAF962665DE4E264395BAEB44227B8015E8FF5B0D6",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.7.5/herdr-macos-x86_64",
+      "checksum": "3FE50C4A63DC8102306B1322178628DDB3655CD3AE56D784F094153408D69E62",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-aarch64-apple-darwin.tar.gz",
       "checksum": "ECE937169D4C9E910D60826A6EA4AE7848A16C089403D122E70E7DA4AC41BA34",
       "algorithm": "sha256"

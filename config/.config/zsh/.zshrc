@@ -1,11 +1,11 @@
 # ここは対話シェル専用。環境変数と PATH は .zshenv -> env.zsh に置くこと
 # (そうしないと `ssh host 'cmd'` や `zsh -c` に何も渡らない)。
 
-# secrets.zsh の読み込みは .zshenv 側。生成だけは 1Password の認証が要るので
+# secrets.sh の読み込みは .zshenv 側。生成だけは 1Password の認証が要るので
 # 対話シェル限定でここに置く (ssh のコマンド実行でプロンプトを出さないため)。
-if [ ! -e "$ZDOTDIR/secrets.zsh" ] && type op >/dev/null 2>&1; then
-  (umask 077 && op --account my.1password.com inject --in-file "${ZDOTDIR}/secrets.zsh.template" --out-file "${ZDOTDIR}/secrets.zsh")
-  source "${ZDOTDIR}/secrets.zsh"
+if [ ! -e "$HOME/.config/shell/secrets.sh" ] && type op >/dev/null 2>&1; then
+  (umask 077 && op --account my.1password.com inject --in-file "$HOME/.config/shell/secrets.sh.template" --out-file "$HOME/.config/shell/secrets.sh")
+  source "$HOME/.config/shell/secrets.sh"
 fi
 
 source "${ZDOTDIR}/legacy/aliases.zsh"

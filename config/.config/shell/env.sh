@@ -1,15 +1,18 @@
-# どの zsh でも必要な環境変数と PATH。.zshenv から読まれる。
+# どのシェルでも必要な環境変数と PATH。
+# zsh は .zshenv から、bash は .bashrc から、sh は .profile から読む。
 #
 # ここは対話シェル以外 (`ssh host 'cmd'`, `zsh -c`, スクリプト) でも実行される。
 # 守るべき制約:
-#   - 外部コマンドを呼ばない (全 zsh 起動に fork のコストが乗る)
-#   - 副作用を持たない (mkdir などは .zshrc へ)
-#   - 冪等に書く (ネストした zsh で値が伸びない)
-# 対話シェル専用の設定 (alias, プロンプト, 補完, plugin) は .zshrc に置くこと。
+#   - POSIX sh の範囲で書く (特定シェルの機能を使わない)
+#   - 外部コマンドを呼ばない (全シェル起動に fork のコストが乗る)
+#   - 副作用を持たない (mkdir などは各シェルの rc へ)
+#   - 冪等に書く (ネストしたシェルで値が伸びない)
+# シェル固有の設定は .zshenv / .bashrc へ、対話シェル専用の設定は .zshrc へ置くこと。
 
-# 重複を自動で除去する。ネストした zsh でも PATH が伸び続けない。
-# `export PATH=...` は属性を貼り直すので、tie されたスカラ側にも -U が要る。
-typeset -U path PATH fpath FPATH
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
 
 export LANG=en_US.UTF-8
 export EDITOR=nvim
@@ -59,12 +62,12 @@ export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/config
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
-# uname(1) ではなく zsh 組み込みの $OSTYPE を使う (fork を避ける)
-case "$OSTYPE" in
-darwin*)
+# $OSTYPE は zsh/bash の変数。持たないシェルのときだけ uname を呼ぶ
+case "${OSTYPE:-$(uname)}" in
+[Dd]arwin*)
   export GIT_CREDENTIAL_HELPER="osxkeychain"
   ;;
-linux*)
+[Ll]inux*)
   # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
   export GIT_CREDENTIAL_HELPER="store"
   ;;
@@ -96,10 +99,12 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 export GOPRIVATE=github.com/LayerXcom/
 
 # misc
-# hostname(1) ではなく zsh 組み込みの $HOST を使う (fork を避ける)
-if [ "${HOST%%.*}" != 'rabbithouse' ]; then
+# ホスト名は zsh が $HOST、bash が $HOSTNAME。どちらも無いシェルでだけ uname を呼ぶ
+_host=${HOSTNAME:-${HOST:-$(uname -n)}}
+if [ "${_host%%.*}" != 'rabbithouse' ]; then
   export TM_REMOTE_HOSTS=rabbithouse
 fi
+unset _host
 
 # ================================================================
 # overrides on codespaces

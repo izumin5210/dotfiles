@@ -156,28 +156,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.30/uv-aarch64-apple-darwin.tar.gz",
-      "checksum": "9BED3567D496D8DAB84ECF7A1247551AC94EF1BAAEBB7B65DF008DD93E9DC357",
+      "id": "github_release/github.com/astral-sh/uv/0.11.31/uv-aarch64-apple-darwin.tar.gz",
+      "checksum": "B2B93E82A6786F9C7CB89FD4CA0E859A147B292AE8F6F95784F9742F0EFEC39E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.30/uv-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "7562A40E4E08B1BFD566BD6AECA55A16EE5AC45211554543E8CDB3C395B47416",
+      "id": "github_release/github.com/astral-sh/uv/0.11.31/uv-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "49CB5FFCE40CC9C85355CAA8104F7B61C40A8DAAC7334F4BC841CAD1A7BB359E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.30/uv-x86_64-apple-darwin.tar.gz",
-      "checksum": "CE285FBBFBE294B1E1BC6C87C8B59D9622B85383B88B2B132A2DF5C73E83D7C1",
+      "id": "github_release/github.com/astral-sh/uv/0.11.31/uv-x86_64-apple-darwin.tar.gz",
+      "checksum": "33EE6BD62B57FCD77A499DEB54E4432DC1E1A2F3D34930BA987AD8B43F9C7BC7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.30/uv-x86_64-pc-windows-msvc.zip",
-      "checksum": "BE8D78C992312212E5CC05E9F9DE3FA996DB73B7C86A186DFB9231EB9F91D33E",
+      "id": "github_release/github.com/astral-sh/uv/0.11.31/uv-x86_64-pc-windows-msvc.zip",
+      "checksum": "410C2FD3126FF621C9450A21CFC200002C7540DC48D130069A8F619CDB0A811B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/astral-sh/uv/0.11.30/uv-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "023FDD3B59FCCFB67B365C69FB34182AAAED1D685D367A57571E3C1468A4C70C",
+      "id": "github_release/github.com/astral-sh/uv/0.11.31/uv-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "89048B7E30A6C459FA7E8F2E91CFDC413DC004DCBDDC6C2AF5E09DF123E3246D",
       "algorithm": "sha256"
     },
     {
@@ -751,23 +751,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.144.6/codex-package-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "B4359896BB548E02FDD72EA0CB3395FE8A88D20D3A4A421C4481E504F8E8927F",
+      "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-aarch64-apple-darwin.tar.gz",
+      "checksum": "ECE937169D4C9E910D60826A6EA4AE7848A16C089403D122E70E7DA4AC41BA34",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.144.6/codex-package-x86_64-apple-darwin.tar.gz",
-      "checksum": "DAA3DF37C8A041280F52A2198DBE7ACBEAD64936B23F8B660EDF9D886DF5F9DA",
+      "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "54F79A05ABA6F9ABF8EF988ABCAE8BF2FCEFBA20BEB549B4FF2B3ACDB2CB6F54",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.144.6/codex-package-x86_64-pc-windows-msvc.tar.gz",
-      "checksum": "81948EF44EB00F499F32BCD38CE326F59F5A132CA4CD6EC2559FB5FC7CFD90A7",
+      "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-x86_64-apple-darwin.tar.gz",
+      "checksum": "9D402C9CA814655FDDC07B548D7086491C0AFCEBE1F746CDEBA1045FD6F62646",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.144.6/codex-package-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "99AE48E4743DA6C530ECD998AB2F7E66572C092F4190C88DCA8236C07B06CE1D",
+      "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
+      "checksum": "8D0D281346AEDF63C4CC3922997DF822FBB8881F7FFB2B57416F48E8C52A734E",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/openai/codex/rust-v0.145.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "71A28D362C96AC9829BF8203A2C71BE451AEB726ADB843167FDAF0EAE8FE7DD9",
       "algorithm": "sha256"
     },
     {
@@ -1126,28 +1131,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.3/agent-browser-darwin-arm64",
-      "checksum": "B639605F496B629EBB2CDAB30F1E070E004EFD945B9CD0BAF1981ACFAB64A151",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.4/agent-browser-darwin-arm64",
+      "checksum": "15360460F2FA682BB17CBF27AE92EE42972296C39D452A9C8AAFFB90F29CD8B3",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.3/agent-browser-darwin-x64",
-      "checksum": "190DE038807079DE7C20CB133F874658750A0887DA30FE563DBE7F35F593CE29",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.4/agent-browser-darwin-x64",
+      "checksum": "349293D5973461DF37C2ECFC12A36EF82AF8DE9D347D4B7ACB0A5B6C5CDE02E3",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.3/agent-browser-linux-arm64",
-      "checksum": "87FD2EFB67995FC433569F0383260BFEE44A785D6D45CA07C77179C45B70DE18",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.4/agent-browser-linux-arm64",
+      "checksum": "E65C546B3B0C5F863BFDB29FE3848F66EB36482596894E693AF2D1EDB23F598A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.3/agent-browser-linux-musl-x64",
-      "checksum": "FB11C463EF1EBC5D626355040218EB25AF685774F2EE022B2DF70DEACBD34BF4",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.4/agent-browser-linux-musl-x64",
+      "checksum": "4A10CA2313E2D5B8E0C6F4F007E4A7F9E785F5D28B08640095D425B26DD951BE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.3/agent-browser-win32-x64.exe",
-      "checksum": "D27F77CB4ED7120A25F0B60030B306FE6788BE0997F5A6BAAD74F74A2C0EC627",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.32.4/agent-browser-win32-x64.exe",
+      "checksum": "CF390D5E1ACA9C834EFF6AC0F1C129B54F7F06B4DF471DEBDB3823EE3C802506",
       "algorithm": "sha256"
     },
     {
@@ -1181,48 +1186,48 @@
       "algorithm": "sha1"
     },
     {
-      "id": "http/awscli.amazonaws.com/AWSCLIV2-2.36.4.pkg",
-      "checksum": "DCD2F9F9FB92917E0B1C88C329F2AAF9125698DAA508F2358CD4AF26FA46C365",
+      "id": "http/awscli.amazonaws.com/AWSCLIV2-2.36.6.pkg",
+      "checksum": "7BF251173209370D1A5DA910305B80BD23BEC253A6D4C2B0A9EDEBF2134F9F2D",
       "algorithm": "sha256"
     },
     {
-      "id": "http/awscli.amazonaws.com/awscli-exe-linux-aarch64-2.36.4.zip",
-      "checksum": "E6880C6AF36347440E3F9597B97C45FA6C143BBDB574BB29497E3AB3A7589A95",
+      "id": "http/awscli.amazonaws.com/awscli-exe-linux-aarch64-2.36.6.zip",
+      "checksum": "8A8D1A1B2C48636A526FABB5EA4D7163114DF25FFE40579DA0A7E46296A6CF33",
       "algorithm": "sha256"
     },
     {
-      "id": "http/awscli.amazonaws.com/awscli-exe-linux-x86_64-2.36.4.zip",
-      "checksum": "86C1820B04C6A95350D6E9101FC727C5B12C87BBF8964FDDDF6E2E162F36942B",
+      "id": "http/awscli.amazonaws.com/awscli-exe-linux-x86_64-2.36.6.zip",
+      "checksum": "1BFEC455A394AE18E1B89CCE7ACF38BB85CF6B7B24E31305C3CFDE079534827F",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/darwin/amd64/kubectl",
-      "checksum": "CE6C5E55CD17559E87E4FB5E73EBBBC2511BCF2B695D7A40C1B1461A9817D4B3",
+      "id": "http/dl.k8s.io/v1.36.3/bin/darwin/amd64/kubectl",
+      "checksum": "158B3B46CF74E8B6BD9B1D7CD30F665E3EFB2BC1EC3C843EC925BCFDD2930DE0",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/darwin/arm64/kubectl",
-      "checksum": "4408C85C83FD3A31ADAA555BDF3C7A6C81F74B19449A9060BA31AB91926F023D",
+      "id": "http/dl.k8s.io/v1.36.3/bin/darwin/arm64/kubectl",
+      "checksum": "FC8582ACDE13869A606730A79379D6515F30C68AFCCED0B5AC8789D5D002B7D6",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/linux/amd64/kubectl",
-      "checksum": "1E9045EC32BEA85DA43DE85F0065358529EA7C7A152ECA78154FBA5B58C27D82",
+      "id": "http/dl.k8s.io/v1.36.3/bin/linux/amd64/kubectl",
+      "checksum": "EBBD080E7C2E275093B55915722043257EB24004363E20ACB3C4D71919F88336",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/linux/arm64/kubectl",
-      "checksum": "C957EB8C4BEA27A3BB35B269EDD9082E27F027F7B76B20B5BF4AFEBC726C6D3E",
+      "id": "http/dl.k8s.io/v1.36.3/bin/linux/arm64/kubectl",
+      "checksum": "3D86F24401C41AE5A46AC50EEF8865FE891D3647D324A0836F6C63757A126E62",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/windows/amd64/kubectl.exe",
-      "checksum": "DF04D82234B28FFBDCD36E79D596B85DA6E9C736E1A7A55FF6910C648FF47AF2",
+      "id": "http/dl.k8s.io/v1.36.3/bin/windows/amd64/kubectl.exe",
+      "checksum": "BA76657B79D0EBCC3C029C171FC83C96351BA5CE0E71D185F1E5B8B873360A5F",
       "algorithm": "sha256"
     },
     {
-      "id": "http/dl.k8s.io/v1.36.2/bin/windows/arm64/kubectl.exe",
-      "checksum": "64F3C5A7F9961287C421DF4CB4BD565226C01BA15A662B9FAAAB4933B77C090E",
+      "id": "http/dl.k8s.io/v1.36.3/bin/windows/arm64/kubectl.exe",
+      "checksum": "883D4B060CFF6D95DF9C80A5C13E4FC8DA473AF0D03F3B2FA407EE8D0810A9D6",
       "algorithm": "sha256"
     },
     {
@@ -1256,28 +1261,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.218/darwin-arm64/claude",
-      "checksum": "71ABAFF59312C9A9B6A1D818365048B42E4E95CC521A823660EDED3E0880D9B7",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.220/darwin-arm64/claude",
+      "checksum": "8ADDC857F3FE64D5A0368AF9EE50321B50AFB4A6918BA3EF018AB84F5DBBE081",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.218/darwin-x64/claude",
-      "checksum": "9862B74A083E8A4ED572F99CBD4895185E0DD5A0A601AFFB0FB8E43D8D1F40E6",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.220/darwin-x64/claude",
+      "checksum": "DCA7BE0AA7D3D924836D440E0C6D8E3D47EF3C8E61FA5809B54B9017170CE2F3",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.218/linux-arm64/claude",
-      "checksum": "295FD30481BD03B38450FDEC2A6E25BB6472C2074F04B0C4A566CD5988F230BF",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.220/linux-arm64/claude",
+      "checksum": "159E4A51D796F3BF14677577100F7EFB845611B1CEAF0C30CBD8D4650D942185",
       "algorithm": "sha256"
     },
     {
-      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.218/linux-x64/claude",
-      "checksum": "E12071751A9336B8AF1012C103358FF04AC18F9AAFF4A738CFF7BA5CDFAF63F2",
+      "id": "http/storage.googleapis.com/claude-code-dist-86c565f3-f756-42ad-8dfa-d59b1c096819/claude-code-releases/2.1.220/linux-x64/claude",
+      "checksum": "674F61F20FF306F3100CF9200E4C36C4B70278B5BEF2884549819B942A89C863",
       "algorithm": "sha256"
     },
     {
-      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.538.0/registry.yaml",
-      "checksum": "2BDF2310CD8DFD9AE2015014A90554485DB37EDD0902B0AA6873023F99F53CF7",
+      "id": "registries/github_content/github.com/aquaproj/aqua-registry/v4.540.0/registry.yaml",
+      "checksum": "90525C31FA88F20E65C812B7F3098046F4EA8BFE8B68D7DAE8296748D2AD34A8",
       "algorithm": "sha256"
     }
   ]

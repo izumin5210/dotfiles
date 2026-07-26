@@ -10,7 +10,7 @@
     "@tailwindcss/language-server": "0.16.0",
     "@upstash/context7-mcp": "3.2.4",
     "@vtsls/language-server": "0.3.0",
-    "@vue/language-server": "3.3.7",
+    "@vue/language-server": "3.3.8",
     "any-script-mcp": "0.3.0",
     "bash-language-server": "5.6.0",
     "chrome-devtools-mcp": "1.6.0",
@@ -18,11 +18,11 @@
     "gh-actions-language-server": "0.0.3",
     "graphql-language-service-cli": "3.5.0",
     "o3-search-mcp": "0.0.9",
-    "skills": "1.5.19",
+    "skills": "1.5.20",
     "typescript": "7.0.2",
     "typescript-language-server": "5.3.0",
     "vscode-langservers-extracted": "4.10.0",
     "yaml-language-server": "1.24.0"
   },
-  "packageManager": "pnpm@11.15.1"
+  "packageManager": "pnpm@11.16.0"
 }

@@ -8,7 +8,7 @@ checksum:
     - all
 registries:
   - type: standard
-    ref: v4.538.0 # renovate: depName=aquaproj/aqua-registry
+    ref: v4.540.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   # go
   - name: golang/go@go1.26.5
@@ -21,7 +21,7 @@ packages:
   - name: denoland/deno@v2.9.3
   - name: Schniz/fnm@v1.39.0
   # python
-  - name: astral-sh/uv@0.11.30
+  - name: astral-sh/uv@0.11.31
   # git
   - name: cli/cli@v2.96.0
   - name: dandavison/delta@0.19.2
@@ -46,7 +46,7 @@ packages:
   - name: github/copilot-language-server-release@1.523.1
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.32.0
-  - name: aws/aws-cli@2.36.4
+  - name: aws/aws-cli@2.36.6
   - name: stripe/stripe-cli@v1.44.0
   # tools
   - name: junegunn/fzf@v0.74.1
@@ -63,11 +63,11 @@ packages:
   - name: sxyazi/yazi@v26.5.6
   - name: jorgerojas26/lazysql@v0.5.5
   - name: oven-sh/bun@bun-v1.3.14
-  - name: anthropics/claude-code@v2.1.218
-  - name: openai/codex@rust-v0.144.6
+  - name: anthropics/claude-code@v2.1.220
+  - name: openai/codex@rust-v0.145.0
   - name: tombi-toml/tombi@v0.11.7
-  - name: vercel-labs/agent-browser@v0.32.3
+  - name: vercel-labs/agent-browser@v0.32.4
   - name: tak848/ccgate@v0.9.6
   - name: sivchari/gopls-lazy@v0.3.0
-  - name: kubernetes/kubernetes/kubectl@v1.36.2
+  - name: kubernetes/kubernetes/kubectl@v1.36.3
   - name: ogulcancelik/herdr@v0.7.5

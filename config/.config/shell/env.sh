@@ -1,6 +1,5 @@
 # すべてのシェルの全起動で読まれる (zsh: .zshenv / bash: .bashrc / sh: .profile)。
 # POSIX sh の範囲で書き、外部コマンドの実行・副作用・非冪等な追記を持ち込まないこと。
-# シェル固有の設定は .zshenv / .bashrc へ、対話シェル専用の設定は .zshrc へ。
 
 export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
 export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
@@ -55,7 +54,6 @@ export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/config
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
-# $OSTYPE を持たないシェルでだけ uname を呼ぶ
 case "${OSTYPE:-$(uname)}" in
 [Dd]arwin*)
   export GIT_CREDENTIAL_HELPER="osxkeychain"
@@ -87,7 +85,6 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 export GOPRIVATE=github.com/LayerXcom/
 
 # misc
-# ホスト名は zsh が $HOST、bash が $HOSTNAME
 _host=${HOSTNAME:-${HOST:-$(uname -n)}}
 if [ "${_host%%.*}" != 'rabbithouse' ]; then
   export TM_REMOTE_HOSTS=rabbithouse

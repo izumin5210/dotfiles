@@ -1,13 +1,17 @@
-if [ ! -e "$ZDOTDIR/secrets.zsh" ] && type op >/dev/null 2>&1; then
-  op --account my.1password.com inject --in-file "${ZDOTDIR}/secrets.zsh.template" --out-file "${ZDOTDIR}/secrets.zsh"
-fi
+# ここは対話シェル専用。環境変数と PATH は .zshenv -> env.zsh に置くこと
+# (そうしないと `ssh host 'cmd'` や `zsh -c` に何も渡らない)。
 
-if [ -e "$ZDOTDIR/secrets.zsh" ]; then
+# secrets.zsh の読み込みは .zshenv 側。生成だけは 1Password の認証が要るので
+# 対話シェル限定でここに置く (ssh のコマンド実行でプロンプトを出さないため)。
+if [ ! -e "$ZDOTDIR/secrets.zsh" ] && type op >/dev/null 2>&1; then
+  (umask 077 && op --account my.1password.com inject --in-file "${ZDOTDIR}/secrets.zsh.template" --out-file "${ZDOTDIR}/secrets.zsh")
   source "${ZDOTDIR}/secrets.zsh"
 fi
 
-source "${ZDOTDIR}/legacy/exports.zsh"
 source "${ZDOTDIR}/legacy/aliases.zsh"
+
+# env.zsh は副作用を持てないので、環境変数が指すディレクトリの作成はここで行う
+mkdir -p "$XDG_DATA_HOME"/redis
 
 ulimit -u 2048
 ulimit -n 16384
@@ -143,4 +147,4 @@ if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
   source "${HOME}/.orbstack/shell/init.zsh"
 fi
 
-source $HOME/.config/zsh/legacy/functions.zsh
+source "${ZDOTDIR}/legacy/functions.zsh"

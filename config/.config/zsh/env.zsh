@@ -1,5 +1,17 @@
+# どの zsh でも必要な環境変数と PATH。.zshenv から読まれる。
+#
+# ここは対話シェル以外 (`ssh host 'cmd'`, `zsh -c`, スクリプト) でも実行される。
+# 守るべき制約:
+#   - 外部コマンドを呼ばない (全 zsh 起動に fork のコストが乗る)
+#   - 副作用を持たない (mkdir などは .zshrc へ)
+#   - 冪等に書く (ネストした zsh で値が伸びない)
+# 対話シェル専用の設定 (alias, プロンプト, 補完, plugin) は .zshrc に置くこと。
+
+# 重複を自動で除去する。ネストした zsh でも PATH が伸び続けない。
+# `export PATH=...` は属性を貼り直すので、tie されたスカラ側にも -U が要る。
+typeset -U path PATH fpath FPATH
+
 export LANG=en_US.UTF-8
-export TERM=xterm-256color
 export EDITOR=nvim
 
 # ================================================================
@@ -29,8 +41,7 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 # PostgreSQL
 export PSQL_HISTORY="$XDG_STATE_HOME"/psql_history
 
-# Redis
-mkdir -p "$XDG_DATA_HOME"/redis
+# Redis (ディレクトリ作成は副作用なので .zshrc 側で行う)
 export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
 export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
 
@@ -48,23 +59,29 @@ export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/config
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
-case "$(uname)" in
-"Darwin")
+# uname(1) ではなく zsh 組み込みの $OSTYPE を使う (fork を避ける)
+case "$OSTYPE" in
+darwin*)
   export GIT_CREDENTIAL_HELPER="osxkeychain"
   ;;
-"Linux")
+linux*)
   # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
   export GIT_CREDENTIAL_HELPER="store"
   ;;
 esac
 
 # aqua
+# bin/* は aqua-proxy への symlink なので、PATH だけでなく AQUA_GLOBAL_CONFIG が
+# 無いとツールを解決できない (`aqua failed ... command is not found` になる)。
+# 追記形式にすると zsh をネストするたび値が伸びるので絶対値で設定する。
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
-export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
-export AQUA_POLICY_CONFIG="${AQUA_POLICY_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
+export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
+export AQUA_POLICY_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
 
 # dotfiles
-export DOTFILES_DIR="$(ghq root)/github.com/izumin5210/dotfiles"
+# `ghq root` を呼ばないのは全 zsh 起動での fork を避けるため。
+# 別の場所に clone している環境では DOTFILES_DIR を先に設定して上書きする。
+export DOTFILES_DIR="${DOTFILES_DIR:-$HOME/src/github.com/izumin5210/dotfiles}"
 export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
 # Osidian
@@ -74,7 +91,8 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 export GOPRIVATE=github.com/LayerXcom/
 
 # misc
-if [ "$(hostname -s)" != 'rabbithouse' ]; then
+# hostname(1) ではなく zsh 組み込みの $HOST を使う (fork を避ける)
+if [ "${HOST%%.*}" != 'rabbithouse' ]; then
   export TM_REMOTE_HOSTS=rabbithouse
 fi
 
@@ -82,7 +100,7 @@ fi
 # overrides on codespaces
 # ================================================================
 if [ "$CODESPACES" = "true" ]; then
-  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml
+  export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml"
   # set VSCode to $EDITOR on VSCode intergarted terminal
   if [ "$VSCODE_INJECTION" = "1" ]; then
     export EDITOR="code --wait"

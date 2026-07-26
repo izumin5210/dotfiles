@@ -1,17 +1,12 @@
-# ここは対話シェル専用。環境変数と PATH は .zshenv -> env.zsh に置くこと
-# (そうしないと `ssh host 'cmd'` や `zsh -c` に何も渡らない)。
+# 対話シェル専用。環境変数と PATH は .zshenv -> ~/.config/shell/env.sh に置くこと。
 
-# secrets.sh の読み込みは .zshenv 側。生成だけは 1Password の認証が要るので
-# 対話シェル限定でここに置く (ssh のコマンド実行でプロンプトを出さないため)。
+# 読み込みは .zshenv 側。生成は 1Password の認証が要るので対話シェル限定にする。
 if [ ! -e "$HOME/.config/shell/secrets.sh" ] && type op >/dev/null 2>&1; then
   (umask 077 && op --account my.1password.com inject --in-file "$HOME/.config/shell/secrets.sh.template" --out-file "$HOME/.config/shell/secrets.sh")
   source "$HOME/.config/shell/secrets.sh"
 fi
 
 source "${ZDOTDIR}/legacy/aliases.zsh"
-
-# env.zsh は副作用を持てないので、環境変数が指すディレクトリの作成はここで行う
-mkdir -p "$XDG_DATA_HOME"/redis
 
 ulimit -u 2048
 ulimit -n 16384
@@ -28,7 +23,7 @@ setopt interactive_comments
 setopt extended_glob
 
 # ---- Histroy ----
-mkdir -p "$XDG_STATE_HOME"/zsh "$XDG_CACHE_HOME"/zsh
+mkdir -p "$XDG_STATE_HOME"/zsh "$XDG_CACHE_HOME"/zsh "$XDG_DATA_HOME"/redis
 
 HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=10000    # メモリに保存される履歴の件数

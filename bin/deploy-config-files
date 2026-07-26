@@ -15,7 +15,7 @@ mkdir -p ~/.config
 ./bin/ln-idempotently ./config/.config/git ~/.config/git
 ./bin/ln-idempotently ./config/.config/gh ~/.config/gh
 
-# shell (zsh/bash/sh 共通の環境変数)
+# shell
 ./bin/ln-idempotently ./config/.config/shell ~/.config/shell
 
 # zsh

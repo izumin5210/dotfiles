@@ -24,6 +24,4 @@ macos-titlebar-style = hidden
 # macos-window-shadow = true
 
 # shell integration
-# ssh-terminfo/ssh-env: リモートに xterm-ghostty の terminfo を入れ、入らない場合だけ
-# xterm-256color にフォールバックする。zsh 側で TERM を一律上書きする代わりの措置。
 shell-integration-features = no-cursor,ssh-env,ssh-terminfo

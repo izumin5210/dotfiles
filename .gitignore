@@ -193,7 +193,7 @@ dist
 /config/.config/tmux/plugins
 /config/.config/irb/irbrc_history
 /config/.config/shell/secrets.sh
-# 移行前の場所。既存環境に残っているファイルを誤ってコミットしないよう残しておく
+# 移行前の場所 (既存環境に残っているファイルを誤ってコミットしないため)
 /config/.config/zsh/secrets.zsh
 /config/.config/zsh/.zcompdump
 /config/.config/yazi/flavors

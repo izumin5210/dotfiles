@@ -1,5 +1,12 @@
+# すべてのシェルの全起動で読まれる (zsh: .zshenv / bash: .bashrc / sh: .profile)。
+# POSIX sh の範囲で書き、外部コマンドの実行・副作用・非冪等な追記を持ち込まないこと。
+
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
+export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
+export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
+
 export LANG=en_US.UTF-8
-export TERM=xterm-256color
 export EDITOR=nvim
 
 # ================================================================
@@ -30,7 +37,6 @@ export MYSQL_HISTFILE="$XDG_DATA_HOME"/mysql_history
 export PSQL_HISTORY="$XDG_STATE_HOME"/psql_history
 
 # Redis
-mkdir -p "$XDG_DATA_HOME"/redis
 export REDISCLI_HISTFILE="$XDG_DATA_HOME"/redis/rediscli_history
 export REDISCLI_RCFILE="$XDG_CONFIG_HOME"/redis/redisclirc
 
@@ -48,23 +54,28 @@ export FZF_DEFAULT_OPTS_FILE="$XDG_CONFIG_HOME"/fzf/config
 export RIPGREP_CONFIG_PATH="$XDG_CONFIG_HOME"/ripgrep/config
 
 # git
-case "$(uname)" in
-"Darwin")
+case "${OSTYPE:-$(uname)}" in
+[Dd]arwin*)
   export GIT_CREDENTIAL_HELPER="osxkeychain"
   ;;
-"Linux")
+[Ll]inux*)
   # NOTE: gnome-keyring and libsecret do not work on my Pixelbook...
   export GIT_CREDENTIAL_HELPER="store"
   ;;
 esac
 
 # aqua
+# bin/* は aqua-proxy への symlink なので、PATH だけでは解決できず設定も要る
 export PATH="${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/bin:$PATH"
-export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
-export AQUA_POLICY_CONFIG="${AQUA_POLICY_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
+export AQUA_GLOBAL_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua.yaml"
+export AQUA_POLICY_CONFIG="${XDG_CONFIG_HOME}/aquaproj-aqua/aqua-policy.yaml"
+
+# ghq
+# git config の ghq.root より優先されるので、ここが実行時の値になる
+export GHQ_ROOT="$HOME/src"
 
 # dotfiles
-export DOTFILES_DIR="$(ghq root)/github.com/izumin5210/dotfiles"
+export DOTFILES_DIR="${DOTFILES_DIR:-$GHQ_ROOT/github.com/izumin5210/dotfiles}"
 export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 
 # Osidian
@@ -74,15 +85,17 @@ export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 export GOPRIVATE=github.com/LayerXcom/
 
 # misc
-if [ "$(hostname -s)" != 'rabbithouse' ]; then
+_host=${HOSTNAME:-${HOST:-$(uname -n)}}
+if [ "${_host%%.*}" != 'rabbithouse' ]; then
   export TM_REMOTE_HOSTS=rabbithouse
 fi
+unset _host
 
 # ================================================================
 # overrides on codespaces
 # ================================================================
 if [ "$CODESPACES" = "true" ]; then
-  export AQUA_GLOBAL_CONFIG=${AQUA_GLOBAL_CONFIG:-}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml
+  export AQUA_GLOBAL_CONFIG="${AQUA_GLOBAL_CONFIG}:${XDG_CONFIG_HOME}/aquaproj-aqua/codespaces/aqua.yaml"
   # set VSCode to $EDITOR on VSCode intergarted terminal
   if [ "$VSCODE_INJECTION" = "1" ]; then
     export EDITOR="code --wait"

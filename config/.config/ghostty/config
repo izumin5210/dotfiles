@@ -24,4 +24,4 @@ macos-titlebar-style = hidden
 # macos-window-shadow = true
 
 # shell integration
-shell-integration-features = no-cursor
+shell-integration-features = no-cursor,ssh-env,ssh-terminfo

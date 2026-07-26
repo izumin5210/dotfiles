@@ -1,12 +1,11 @@
-if [ ! -e "$ZDOTDIR/secrets.zsh" ] && type op >/dev/null 2>&1; then
-  op --account my.1password.com inject --in-file "${ZDOTDIR}/secrets.zsh.template" --out-file "${ZDOTDIR}/secrets.zsh"
+# 対話シェル専用。環境変数と PATH は .zshenv -> ~/.config/shell/env.sh に置くこと。
+
+# 読み込みは .zshenv 側。生成は 1Password の認証が要るので対話シェル限定にする。
+if [ ! -e "$HOME/.config/shell/secrets.sh" ] && type op >/dev/null 2>&1; then
+  (umask 077 && op --account my.1password.com inject --in-file "$HOME/.config/shell/secrets.sh.template" --out-file "$HOME/.config/shell/secrets.sh")
+  source "$HOME/.config/shell/secrets.sh"
 fi
 
-if [ -e "$ZDOTDIR/secrets.zsh" ]; then
-  source "${ZDOTDIR}/secrets.zsh"
-fi
-
-source "${ZDOTDIR}/legacy/exports.zsh"
 source "${ZDOTDIR}/legacy/aliases.zsh"
 
 ulimit -u 2048
@@ -24,7 +23,7 @@ setopt interactive_comments
 setopt extended_glob
 
 # ---- Histroy ----
-mkdir -p "$XDG_STATE_HOME"/zsh "$XDG_CACHE_HOME"/zsh
+mkdir -p "$XDG_STATE_HOME"/zsh "$XDG_CACHE_HOME"/zsh "$XDG_DATA_HOME"/redis
 
 HISTFILE="$XDG_STATE_HOME"/zsh/history
 HISTSIZE=10000    # メモリに保存される履歴の件数
@@ -143,4 +142,4 @@ if [ -f "${HOME}/.orbstack/shell/init.zsh" ]; then
   source "${HOME}/.orbstack/shell/init.zsh"
 fi
 
-source $HOME/.config/zsh/legacy/functions.zsh
+source "${ZDOTDIR}/legacy/functions.zsh"

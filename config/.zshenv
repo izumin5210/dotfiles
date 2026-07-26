@@ -2,7 +2,11 @@ setopt no_global_rcs  # disable path helper
 
 export ZDOTDIR="$HOME"/.config/zsh
 
-export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:="$HOME/.config"}
-export XDG_CACHE_HOME=${XDG_CACHE_HOME:="$HOME/.cache"}
-export XDG_DATA_HOME=${XDG_DATA_HOME:="$HOME/.local/share"}
-export XDG_STATE_HOME=${XDG_STATE_HOME:="$HOME/.local/state"}
+# `export PATH=...` は属性を貼り直すので、tie されたスカラ側にも -U が要る
+typeset -U path PATH fpath FPATH
+
+. "$HOME/.config/shell/env.sh"
+
+if [ -r "$HOME/.config/shell/secrets.sh" ]; then
+  . "$HOME/.config/shell/secrets.sh"
+fi

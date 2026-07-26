@@ -15,11 +15,19 @@ mkdir -p ~/.config
 ./bin/ln-idempotently ./config/.config/git ~/.config/git
 ./bin/ln-idempotently ./config/.config/gh ~/.config/gh
 
+# shell
+./bin/ln-idempotently ./config/.config/shell ~/.config/shell
+
 # zsh
 ./bin/ln-idempotently ./config/.zshenv ~/.zshenv
 ./bin/ln-idempotently ./config/.config/zsh ~/.config/zsh
 ./bin/ln-idempotently ./config/.config/sheldon ~/.config/sheldon
 ./bin/ln-idempotently ./config/.config/starship.toml ~/.config/starship.toml
+
+# bash / sh
+./bin/ln-idempotently --backup ./config/.bashrc ~/.bashrc
+./bin/ln-idempotently --backup ./config/.bash_profile ~/.bash_profile
+./bin/ln-idempotently --backup ./config/.profile ~/.profile
 
 # vim
 ./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim

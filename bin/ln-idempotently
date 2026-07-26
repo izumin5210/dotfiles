@@ -4,8 +4,14 @@ set -euo pipefail
 
 cd $(dirname $0)/..
 
+backup=false
+if [ "${1:-}" = "--backup" ]; then
+  backup=true
+  shift
+fi
+
 if [ "$#" -ne 2 ]; then
-  echo "Usage: $0 target_path link_path"
+  echo "Usage: $0 [--backup] target_path link_path"
   exit 1
 fi
 
@@ -28,8 +34,19 @@ if [ -L "${link_path}" ]; then
 fi
 
 if [ -e "${link_path}" ]; then
-  echo "Error: A different file or link already exists at '${link_path}'."
-  exit 1
+  # ディストリが /etc/skel から配る .bashrc などは --backup で退避してから置き換える
+  if [ "${backup}" != true ]; then
+    echo "Error: A different file or link already exists at '${link_path}'."
+    exit 1
+  fi
+
+  if [ -e "${link_path}.bak" ]; then
+    echo "Error: Backup path '${link_path}.bak' already exists."
+    exit 1
+  fi
+
+  mv "${link_path}" "${link_path}.bak"
+  echo "Existing file moved: ${link_path} -> ${link_path}.bak"
 fi
 
 ln -s "${target_path}" "${link_path}"

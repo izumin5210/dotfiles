@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #
-# hws — herdr workspace picker (tm の herdr 版)
+# ws — herdr workspace picker (tm の herdr 版)
 #
 # fzf でローカル workspace + ghq リポジトリ + remote SSH ホストを横断選択して
 # workspace を切替/作成する。
 #
 # Usage:
-#   hws           対話ピッカーを起動
-#   hws <name>    <name> と一致する workspace を focus。無ければ $PWD で作成
+#   ws            対話ピッカーを起動
+#   ws <name>     <name> と一致する workspace を focus。無ければ $PWD で作成
 #
 # 環境変数:
 #   HWS_REMOTE_HOSTS  カンマ区切りの SSH ホスト名 (未設定なら TM_REMOTE_HOSTS を継承)
@@ -22,7 +22,7 @@ in_herdr() { [[ -n "${HERDR_ENV:-}" ]]; }
 
 # popup はコマンドの終了と同時に閉じてしまい、stderr に書くだけでは読む間がない。
 die() {
-  printf 'hws: %s\n' "$@" >&2
+  printf 'ws: %s\n' "$@" >&2
   if [[ -t 0 ]]; then
     read -rsn1 -p 'press any key to close...' _ || true
     printf '\n' >&2
@@ -43,6 +43,25 @@ die_split_brain() {
     "  ps ax -o pid,lstart,command | grep 'herdr.* server'"
 }
 
+# herdr 自身がサーバを起動するときは setsid でセッションを分離している。同じ形で
+# 起動しないと、`herdr --remote` の attach 時に「SSH が切れるとサーバごと落ちうる」
+# として再起動を促される。
+spawn_server() {
+  local bin
+  bin=$(command -v herdr) || die "herdr not found in PATH"
+
+  if command -v setsid >/dev/null 2>&1; then
+    setsid "$bin" server </dev/null >/dev/null 2>&1 &
+  elif command -v perl >/dev/null 2>&1; then
+    # macOS には setsid(1) が無い。先に fork するのは、プロセスグループリーダーだと
+    # setsid(2) が EPERM で失敗するため。
+    perl -e 'use POSIX qw(setsid); fork && exit 0; setsid() or die "setsid: $!\n"; exec @ARGV or die "exec: $!\n"' \
+      "$bin" server </dev/null >/dev/null 2>&1 &
+  else
+    nohup "$bin" server </dev/null >/dev/null 2>&1 &
+  fi
+}
+
 ensure_server() {
   herdr workspace list >/dev/null 2>&1 && return 0
   # herdr の中にいる (= サーバーは必ず存在する) / すでにサーバーが動いている場合に
@@ -50,8 +69,7 @@ ensure_server() {
   if in_herdr || herdr_server_running; then
     die_split_brain "herdr server に到達できません (socket: ${HERDR_SOCKET_PATH:-default})"
   fi
-  nohup herdr server </dev/null >/dev/null 2>&1 &
-  disown
+  spawn_server
   local i
   for i in {1..30}; do
     herdr workspace list >/dev/null 2>&1 && return 0
@@ -124,7 +142,7 @@ list_remote() {
   for host in "${host_list[@]}"; do
     (
       ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
-        'zsh -lic "herdr workspace list"' 2>/dev/null |
+        'herdr workspace list' 2>/dev/null |
         jq -r '.result.workspaces[]?.label' 2>/dev/null |
         while IFS= read -r label; do
           printf "\e[0;33m%s\e[m   %s (%s)\t%s\t%s\n" "$ICON_CLOUD" "$label" "$host" "$host" "$label"

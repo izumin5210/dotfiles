@@ -85,14 +85,20 @@ settings = "prefix+shift+s"
 # open_notification_target = "prefix+o"
 # workspace_picker = "prefix+w"
 # goto = "prefix+g"
-# new_workspace = "prefix+shift+n"
+# prefix+shift+n を next_workspace に譲るための退避先。
+# new_tab = "prefix+c" に shift を足した形になり、「shift = 一階層上」の規則に揃う。
+new_workspace = "prefix+shift+c"
 # new_worktree = "prefix+shift+g"
 # open_worktree = ""    # optional, unset by default
 # remove_worktree = ""  # optional, unset by default; opens confirmation
 # rename_workspace = "prefix+shift+w"
 # close_workspace = "prefix+shift+d"
-# previous_workspace = "" # optional, unset by default
-# next_workspace = ""     # optional, unset by default
+# tmux の `prefix+(` / `prefix+)` (switch-client -p/-n) 相当。tmux が記号キーで表していた
+# 「window より一つ上の階層の前後」を、herdr 既定の close_pane=prefix+x →
+# close_tab=prefix+shift+x と同じ「shift = 一階層上」の規則で表す。
+# つまり tab の prefix+p/n に shift を足したものが workspace の前後になる。
+previous_workspace = "prefix+shift+p"
+next_workspace = "prefix+shift+n"
 # previous_agent = ""     # optional, unset by default
 # next_agent = ""         # optional, unset by default
 # focus_agent = ""        # optional indexed binding, e.g. "prefix+alt+1..9"
@@ -104,7 +110,9 @@ settings = "prefix+shift+s"
 # switch_tab = "prefix+1..9"
 # switch_workspace = ""   # optional indexed binding, e.g. "prefix+shift+1..9"
 # close_tab = "prefix+shift+x"
-# rename_pane = "prefix+shift+p"
+# prefix+shift+p を previous_workspace に譲るための退避先。tmux の `prefix+,`
+# (rename-window) に寄せる。
+rename_pane = "prefix+comma"
 # edit_scrollback = "prefix+e"
 # prefix+hjkl は下の herdr-nav (nvim 対応版) に譲るため組み込みの focus_pane_* を無効化する。
 # config check は同一キーの衝突を報告しないので、空文字で明示的に外しておく必要がある。

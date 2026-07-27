@@ -33,6 +33,16 @@ _tmux_session() {
 
 _register_keycommand '^tm' _tmux_session
 
+_herdr_workspace() {
+  _buffer_replace <<<"ws"
+  zle accept-line
+  zle reset-prompt
+}
+
+# herdr のセッション切り替え (config.toml の prefix+s) と揃える。herdr の中では
+# ctrl+t が prefix に食われてこの chord は発火しないが、そちらは popup が担当する。
+_register_keycommand '^ts' _herdr_workspace
+
 #  git interactive operations
 #--------------------------------
 _git_interactive_add() {

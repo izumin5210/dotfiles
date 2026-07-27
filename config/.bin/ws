@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 #
-# hws — herdr workspace picker (tm の herdr 版)
+# ws — herdr workspace picker (tm の herdr 版)
 #
 # fzf でローカル workspace + ghq リポジトリ + remote SSH ホストを横断選択して
 # workspace を切替/作成する。
 #
 # Usage:
-#   hws           対話ピッカーを起動
-#   hws <name>    <name> と一致する workspace を focus。無ければ $PWD で作成
+#   ws            対話ピッカーを起動
+#   ws <name>     <name> と一致する workspace を focus。無ければ $PWD で作成
 #
 # 環境変数:
 #   HWS_REMOTE_HOSTS  カンマ区切りの SSH ホスト名 (未設定なら TM_REMOTE_HOSTS を継承)
@@ -22,7 +22,7 @@ in_herdr() { [[ -n "${HERDR_ENV:-}" ]]; }
 
 # popup はコマンドの終了と同時に閉じてしまい、stderr に書くだけでは読む間がない。
 die() {
-  printf 'hws: %s\n' "$@" >&2
+  printf 'ws: %s\n' "$@" >&2
   if [[ -t 0 ]]; then
     read -rsn1 -p 'press any key to close...' _ || true
     printf '\n' >&2

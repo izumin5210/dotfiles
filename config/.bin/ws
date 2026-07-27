@@ -142,7 +142,7 @@ list_remote() {
   for host in "${host_list[@]}"; do
     (
       ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
-        'zsh -lic "herdr workspace list"' 2>/dev/null |
+        'herdr workspace list' 2>/dev/null |
         jq -r '.result.workspaces[]?.label' 2>/dev/null |
         while IFS= read -r label; do
           printf "\e[0;33m%s\e[m   %s (%s)\t%s\t%s\n" "$ICON_CLOUD" "$label" "$host" "$host" "$label"

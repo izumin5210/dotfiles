@@ -1,3 +1,10 @@
+// Machine-local overrides live in ccgate.local.libsonnet (untracked;
+// `bin/deploy-config-files` seeds `{}` when missing). jsonnet fails to
+// evaluate when the import target is missing, so the seed is mandatory.
+// Use `provider+:` there to patch provider fields without repeating the
+// whole block.
+local overrides = import 'ccgate.local.libsonnet';
+
 {
   ['$schema']: 'https://raw.githubusercontent.com/tak848/ccgate/main/schemas/claude.schema.json',
 
@@ -48,4 +55,4 @@
   environment: [
     '**Trusted repo**: The git repository the session started in.',
   ],
-}
+} + overrides

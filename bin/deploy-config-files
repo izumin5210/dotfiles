@@ -40,6 +40,8 @@ mkdir -p ~/.config
 
 # claude
 ./bin/ln-idempotently ./config/.claude ~/.claude
+# ccgate.jsonnet imports this machine-local file; jsonnet errors when it is missing
+[ -f ./config/.claude/ccgate.local.libsonnet ] || echo '{}' >./config/.claude/ccgate.local.libsonnet
 
 # codex
 ./bin/ln-idempotently ./config/.codex ~/.codex

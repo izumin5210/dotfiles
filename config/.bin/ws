@@ -135,13 +135,21 @@ list_repos() {
 list_remote() {
   local hosts="${HWS_REMOTE_HOSTS:-${TM_REMOTE_HOSTS:-}}"
   [[ -z "$hosts" ]] && return 0
+
+  # ssh の -o ConnectTimeout は TCP connect とハンドシェイクにしか効かず、名前解決は
+  # 対象外。Tailscale が落ちていると *.ts.net の scoped resolver (100.100.100.100) が
+  # 無応答になり、getaddrinfo が macOS 既定の 30 秒まで粘る。外から丸ごと打ち切るしかない。
+  # 5 秒は ConnectTimeout の 3 秒 + リモートの herdr が応答するまでの猶予。
+  local ssh_timeout=()
+  command -v timeout >/dev/null 2>&1 && ssh_timeout=(timeout 5)
+
   local tmpdir
   tmpdir=$(mktemp -d)
   IFS=',' read -ra host_list <<<"$hosts"
   local host
   for host in "${host_list[@]}"; do
     (
-      ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
+      "${ssh_timeout[@]}" ssh -o ConnectTimeout=3 -o BatchMode=yes "$host" \
         'herdr workspace list' 2>/dev/null |
         jq -r '.result.workspaces[]?.label' 2>/dev/null |
         while IFS= read -r label; do
@@ -216,8 +224,12 @@ select_and_dispatch() {
     --preview-window right:60%
   )
 
+  # $(producer | fzf) は fzf が抜けても producer の終了まで待つ。list_remote は ssh の
+  # 結果を一時ファイルに溜めてから出すので、fzf が閉じても SIGPIPE で死なない。つまり
+  # 一覧の先頭を即決しても remote プローブぶん焦らされる。プロセス置換なら待ち対象が
+  # fzf だけになり、残った ssh は孤児として勝手に片付く。
   local selected
-  selected=$(build_list | fzf "${fzf_opts[@]}") || true
+  selected=$(fzf "${fzf_opts[@]}" < <(build_list)) || true
   [[ -z "$selected" ]] && return 0
 
   local kind name path

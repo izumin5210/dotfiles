@@ -93,7 +93,6 @@ return {
   },
   {
     "stevearc/conform.nvim",
-    version = "*",
     lazy = true,
     opts = {
       formatters = {
@@ -101,13 +100,13 @@ return {
       },
       -- stylua: ignore
       formatters_by_ft = {
-        javascript      = { "biome", "prettierd", stop_after_first = true },
-        typescript      = { "biome", "prettierd", stop_after_first = true },
-        javascriptreact = { "biome", "prettierd", stop_after_first = true },
-        typescriptreact = { "biome", "prettierd", stop_after_first = true },
-        json            = { "biome", "prettierd", stop_after_first = true },
-        jsonc           = { "biome", "prettierd", stop_after_first = true },
-        graphql         = { "biome", "prettierd", stop_after_first = true },
+        javascript      = { "biome", "oxfmt", "prettierd", stop_after_first = true },
+        typescript      = { "biome", "oxfmt","prettierd", stop_after_first = true },
+        javascriptreact = { "biome", "oxfmt","prettierd", stop_after_first = true },
+        typescriptreact = { "biome", "oxfmt","prettierd", stop_after_first = true },
+        json            = { "biome", "oxfmt","prettierd", stop_after_first = true },
+        jsonc           = { "biome", "oxfmt","prettierd", stop_after_first = true },
+        graphql         = { "biome", "oxfmt","prettierd", stop_after_first = true },
         lua             = { "stylua" },
         sh              = { "shfmt" },
         zsh             = { "shfmt" },

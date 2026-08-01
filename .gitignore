@@ -220,3 +220,6 @@ dist
 
 # ignore installed by `skills`
 /config/.agents/skills/*
+
+# lazysql
+/config/.config/lazysql/history

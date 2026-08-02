@@ -476,28 +476,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-linux-arm64",
-      "checksum": "331F1D3511B84A4F1E3D18D52FEC284723E4019552F4F47B19322A53CE9A40ED",
+      "id": "github_release/github.com/hadolint/hadolint/v2.15.0/hadolint-linux-arm64",
+      "checksum": "17993ABF41A0A4DA7F2E08970B4F4BAF3F95E5E79B9AC80BA6B2AAC1960CA71C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-linux-x86_64",
-      "checksum": "6BF226944684F56C84DD014E8B979D27425C0148F61B3BD99BCC6F39E9DC5A47",
+      "id": "github_release/github.com/hadolint/hadolint/v2.15.0/hadolint-linux-x86_64",
+      "checksum": "EB8EB4DD06A068CCE65CB84743FBA69F09ED12A36FF13D58F9AF090D6D696970",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-macos-arm64",
-      "checksum": "3625E2E9F43DCFE7BD38738A5F5520ED50CE39ED28485266E6803DD7BC197B10",
+      "id": "github_release/github.com/hadolint/hadolint/v2.15.0/hadolint-macos-arm64",
+      "checksum": "1D701A41D2760EC88F8EFF8D93F78B743D6ED57C53146EF274DBEB540816E563",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-macos-x86_64",
-      "checksum": "2B69A853433F1ECA522FFB921CD490BD1321424D03331FD8390F93B7FB4A02E9",
+      "id": "github_release/github.com/hadolint/hadolint/v2.15.0/hadolint-macos-x86_64",
+      "checksum": "1D701A41D2760EC88F8EFF8D93F78B743D6ED57C53146EF274DBEB540816E563",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/hadolint/hadolint/v2.14.0/hadolint-windows-x86_64.exe",
-      "checksum": "8E0EE174F88EDB14F207A68430C7A53C2883ED509CDBDE9A3A26FFFA140FA5E4",
+      "id": "github_release/github.com/hadolint/hadolint/v2.15.0/hadolint-windows-x86_64.exe",
+      "checksum": "8A155B50A75D7AFB26A03BD29E7C67F32D83F2E5992D918010B1832FCB5866C6",
       "algorithm": "sha256"
     },
     {

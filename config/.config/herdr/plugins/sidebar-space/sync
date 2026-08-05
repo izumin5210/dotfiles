@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# sync — worktree space の label を `<repo> / <branch>` に整える
+#
+# herdr の worktree space は `<repo>-izumin5210-<branch>` というディレクトリ名が
+# そのまま label になり、サイドバーに読みにくいまま出る。
+#
+# サイドバーの行設定には文字列変換が無いので、当初は metadata トークンを push して
+# `$space` として描画させた。しかしカスタムトークンは配色が別扱いで、ビルトインの
+# workspace が持つフォーカス連動 (フォーカス中は text+bold、非フォーカスは subtext0) を
+# 設定側で表現する手段が無い (fg/bold/dim は静的値のみ)。そのため label 自体を
+# 書き換えて、ビルトインの workspace トークンをそのまま使う形にしている。
+#
+# label が変わればフォーカス連動の配色も agents 行も自動で追従する。
+#
+# 冪等: 整形後の label は `-izumin5210-` を含まないので再実行しても二度は変換されない。
+# 手で付けた名前を奪わないよう、変換するのはパターンに一致するものだけ。
+
+set -euo pipefail
+
+HERDR=${HERDR_BIN_PATH:-herdr}
+
+"$HERDR" workspace list | jq -r '
+  # "<repo>-izumin5210-<rest>" を "<repo> / <rest>" にする。最初の区切りで分割し、
+  # 左右どちらかが空になる形 (先頭/末尾が区切り) は対象外として何も返さない。
+  .result.workspaces[]
+  | . as $w
+  | ($w.label | index("-izumin5210-")) as $i
+  | select($i != null and $i > 0)
+  | ($w.label[$i + 12:]) as $rest
+  | select($rest != "")
+  | [$w.workspace_id, "\($w.label[:$i]) / \($rest)"]
+  | @tsv
+' | while IFS=$'\t' read -r id label; do
+  "$HERDR" workspace rename "$id" "$label" >/dev/null
+done

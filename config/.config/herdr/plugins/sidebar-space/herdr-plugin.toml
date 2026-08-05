@@ -1,0 +1,29 @@
+id = "sidebar-space"
+name = "Sidebar space name"
+version = "0.1.0"
+description = "Render worktree spaces as '<repo> / <branch>' in the sidebar"
+min_herdr_version = "0.7.5"
+platforms = ["macos", "linux"]
+
+# rename 自体は herdr が custom_name として永続化するので復元は不要だが、
+# プラグインを止めていた間に作られた space を拾い直すために走らせる。
+[[startup]]
+command = ["./sync"]
+
+# space が生まれた瞬間だけ整えればよい。label はその後変わらない。
+#
+# workspace.renamed は載せない。手で付け直した名前と綱引きになる。
+# pane 系や pane.agent_status_changed のような高頻度イベントも、label に影響しない上に
+# herdr 側のプラグインコマンドレート制限 (plugin_command_limit_reached) に当たるので載せない。
+
+[[events]]
+on = "workspace.created"
+command = ["./sync"]
+
+[[events]]
+on = "worktree.created"
+command = ["./sync"]
+
+[[events]]
+on = "worktree.opened"
+command = ["./sync"]

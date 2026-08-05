@@ -199,6 +199,9 @@ dist
 # herdr
 /config/.config/herdr/*
 !/config/.config/herdr/config.toml
+# plugins ディレクトリ自体を除外解除すれば配下は追跡される。
+# レジストリ (plugins.json) と .plugins.lock はマシンローカルなので無視のまま。
+!/config/.config/herdr/plugins
 
 # Nix
 /result

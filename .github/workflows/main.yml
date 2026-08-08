@@ -59,6 +59,15 @@ jobs:
       gh-app-private-key: ${{secrets.UPDATE_AQUA_CHECKSUM_APP_PRIVATE_KEY}}
     if: github.event_name == 'pull_request'
 
+  # NOTE:
+  # This is the only required status check of the "CI" ruleset, so it must
+  # never report `skipped` -- a skipped required check counts as satisfied.
+  # With `if: failure()` that conclusion was overloaded: it meant both "every
+  # dependency passed" and "GitHub never scheduled me". On 2026-08-06 an
+  # Actions outage made jobs die while resolving their actions, `failure()`
+  # did not fire, and #2783 and #3010 were auto-merged over a red CI.
+  # `always()` keeps the conclusion binary, and skipped dependencies stay
+  # acceptable so path- or event-filtered jobs can still opt out.
   status-check:
     runs-on: ubuntu-latest
     needs:
@@ -66,6 +75,7 @@ jobs:
       - format
       - update-aqua-checksums
     permissions: {}
-    if: failure()
+    if: ${{ always() }}
     steps:
-      - run: exit 1
+      - if: ${{ contains(needs.*.result, 'failure') || contains(needs.*.result, 'cancelled') }}
+        run: exit 1

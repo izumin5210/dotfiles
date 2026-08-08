@@ -199,12 +199,6 @@ dist
 # herdr
 /config/.config/herdr/*
 !/config/.config/herdr/config.toml
-# plugins ディレクトリ自体を除外解除すれば配下は追跡される。
-# レジストリ (plugins.json) と .plugins.lock はマシンローカルなので無視のまま。
-!/config/.config/herdr/plugins
-# herdr が plugin ごとに掘る設定ディレクトリ (HERDR_PLUGIN_CONFIG_DIR)。
-# plugin 本体のコピーが置かれるが herdr 管理のマシンローカル状態で、更新も追従しない。
-/config/.config/herdr/plugins/config
 
 # Nix
 /result

@@ -92,6 +92,26 @@ assert_same_server() {
 
 workspaces_json() { herdr workspace list 2>/dev/null; }
 
+# herdr の worktree ディレクトリは `<repo>-<ブランチの / を - にしたもの>` になる。
+# ブランチはほぼ `izumin5210/` 始まりなので、そのままだと全 space に同じ語が並び、
+# しかも repo 名とブランチ名の境目が読み取れない。`<repo> / <branch>` に均す。
+#
+# label は workspace の同一性そのもの (workspace_id_for_label / list_repos の重複排除) なので、
+# 引くときと作るときで必ずこの関数を通すこと。片側だけ素の名前で扱うと、同じディレクトリに
+# 二つ目の workspace ができる。
+#
+# 変換後は `-izumin5210-` を含まないので、二度掛けしても結果は変わらない。
+space_name() {
+  local name=$1
+  local repo=${name%%-izumin5210-*}
+  local branch=${name#*-izumin5210-}
+  if [[ "$repo" != "$name" && -n "$repo" && -n "$branch" ]]; then
+    printf '%s / %s' "$repo" "$branch"
+  else
+    printf '%s' "$name"
+  fi
+}
+
 workspace_id_for_label() {
   workspaces_json |
     jq -r --arg L "$1" 'first(.result.workspaces[] | select(.label==$L) | .workspace_id) // ""'
@@ -125,10 +145,13 @@ list_repos() {
   existing=$(workspaces_json | jq -r '.result.workspaces[].label' 2>/dev/null || true)
   ghq_root=$(ghq root 2>/dev/null) || return 0
   ghq list | while IFS= read -r repo; do
-    local basename="${repo##*/}"
-    grep -qxF "$basename" <<<"$existing" && continue
+    local label
+    label=$(space_name "${repo##*/}")
+    grep -qxF "$label" <<<"$existing" && continue
+    # 一覧では ghq のパスをそのまま見せる。まだ開いていない項目なので、
+    # 整形後の名前より実ディレクトリが分かるほうが選ぶ手がかりになる。
     local display="${repo##github.com/}"
-    printf "\e[0;34m%s\e[m   %s\trepo\t%s\t%s\n" "$ICON_GITHUB" "$display" "$basename" "$ghq_root/$repo"
+    printf "\e[0;34m%s\e[m   %s\trepo\t%s\t%s\n" "$ICON_GITHUB" "$display" "$label" "$ghq_root/$repo"
   done
 }
 
@@ -205,7 +228,8 @@ preview_git_log() {
 }
 
 focus_or_create() {
-  local label=$1 cwd=${2:-$PWD}
+  local label cwd=${2:-$PWD}
+  label=$(space_name "$1")
   local id
   id=$(workspace_id_for_label "$label")
   if [[ -z "$id" ]]; then

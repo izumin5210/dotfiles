@@ -18,6 +18,11 @@
     {
       "matchPackageNames": ["anthropics/claude-code", "openai/codex"],
       "minimumReleaseAge": "12 hours"
+    },
+    {
+      "description": "delve stopped publishing release assets again at v1.27.0, but aqua-registry only routes <=1.26.1 to go_install and still resolves newer versions via github_release. `aqua update-checksum` therefore fails on the missing checksums.txt and blocks every aqua PR. Drop this rule once the registry covers v1.27+.",
+      "matchPackageNames": ["go-delve/delve"],
+      "allowedVersions": "<=1.26.3"
     }
   ],
   "minimumReleaseAge": "3 days",

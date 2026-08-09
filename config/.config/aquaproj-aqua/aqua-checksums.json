@@ -916,33 +916,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_darwin_amd64.tar.gz",
-      "checksum": "D7F66742D55F74A49A97DD4210364E581EB3D00557D217D3D804FC11E15F78CE",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_darwin_amd64.tar.gz",
+      "checksum": "3B1E8F71506F568025FE2B6A9781ECBF8E01C331BB84CF843E28099846C51788",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_darwin_arm64.tar.gz",
-      "checksum": "1DE34443F58EA3C054F86A2B1F9D0775FEDB0F02A0B92B34742E2E28BE210F5B",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_darwin_arm64.tar.gz",
+      "checksum": "738DAEDA2923B00E8B0963CF4D4AD92D510B8D41545AA2CBFA3DE6B5B27E1CBD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_linux_amd64.tar.gz",
-      "checksum": "0CD8D8C8BBDCDB6B664645317C90F6B499B9A4DC16EC4137971160326C9B6559",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_linux_amd64.tar.gz",
+      "checksum": "B047CF54EB7CE2D8650CC8DA0841F4EF13A486970B4A60B9082BB6CCED18FE05",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_linux_arm64.tar.gz",
-      "checksum": "D880C47541F2C998331851B05B65F106BBF1ACC4A0B1C877CBD920FE9E6C4075",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_linux_arm64.tar.gz",
+      "checksum": "80D133224D7B3FD332404652D3E6E7A9311E1B77EDFE2D81626573CC1ACCFF65",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_windows_amd64.zip",
-      "checksum": "C28B0469A62A2A6E25D82A42119F379F4037E97BA2885048918C69C85C0E2259",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_windows_amd64.zip",
+      "checksum": "C02164BEBECEE5CE73CF85E3C4ACEC252202187EA76D259D40D6FC0DC7E744BE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sivchari/gopls-lazy/v0.3.0/gopls-lazy_0.3.0_windows_arm64.zip",
-      "checksum": "463E5168166991B44B43BC6AF86B5C7177A1C8F8B32B13CE6A36BC3C158D2E8A",
+      "id": "github_release/github.com/sivchari/gopls-lazy/v0.4.0/gopls-lazy_0.4.0_windows_arm64.zip",
+      "checksum": "172CA408BBE939A5B6EEA90D920D4CF068FE63112E821126484DDF0EAE05AC32",
       "algorithm": "sha256"
     },
     {

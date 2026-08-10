@@ -100,6 +100,22 @@ if type aqua >/dev/null 2>&1; then
   aqua install --all --only-link
 fi
 
+# herdr は aqua 管理下にあるので、更新ではバイナリだけが差し替わり、動作中のサーバが
+# protocol_mismatch で取り残される。live handoff で pane を保ったまま引き継げるので、
+# 差し替えを検知したら herdr-sync に渡す (確認プロンプトもそちら)。aqua install の直後に
+# 置くこと。判定に `herdr status` を使うと 28ms 掛かるが、state ファイルが監視対象より
+# 新しい間は何も起きていないので、組み込みのファイル比較だけで打ち切る (~0.07ms)。
+() {
+  local pkg_dir=${AQUA_ROOT_DIR:-${XDG_DATA_HOME}/aquaproj-aqua}/pkgs/github_release/github.com/ogulcancelik/herdr
+  # Codespaces では AQUA_GLOBAL_CONFIG が : 区切りで複数持つ。herdr を宣言しているのは先頭。
+  local aqua_yaml=${${AQUA_GLOBAL_CONFIG:-$XDG_CONFIG_HOME/aquaproj-aqua/aqua.yaml}%%:*}
+  local state=$XDG_STATE_HOME/herdr/aqua-sync-checked
+
+  [[ -d $pkg_dir ]] || return 0
+  [[ -f $state && $state -nt $pkg_dir && $state -nt $aqua_yaml ]] && return 0
+  herdr-sync
+}
+
 # Sheldon
 eval "$(sheldon source)"
 

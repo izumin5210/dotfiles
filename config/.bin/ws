@@ -32,6 +32,14 @@ die() {
 
 herdr_server_running() { pgrep -f 'herdr[^/ ]* server$' >/dev/null 2>&1; }
 
+# aqua が herdr を更新するとバイナリだけが差し替わり、CLI は新しく・サーバは古いままになる。
+# socket は生きているのに全コマンドが protocol_mismatch で落ちるので、到達不能や二重起動と
+# 症状が重なる。原因が違うので先に切り分ける。
+server_incompatible() {
+  herdr status --json 2>/dev/null |
+    jq -e '.server.running == true and .server.compatible == false' >/dev/null
+}
+
 # herdr の socket は「最後に bind したサーバー」に張り替わる。到達できないのにサーバーが
 # 生きている状態で `herdr server` を足すと、UI を描いているサーバーと CLI が別サーバーを
 # 向き、workspace focus が成功するのに画面が変わらなくなる。しかも増えたサーバーは終了時に
@@ -64,6 +72,21 @@ spawn_server() {
 
 ensure_server() {
   herdr workspace list >/dev/null 2>&1 && return 0
+
+  # バージョン不整合なら pane を保ったまま引き継げる。判断と確認は herdr-sync に任せる。
+  if server_incompatible; then
+    local rc=0
+    herdr-sync || rc=$?
+    case "$rc" in
+    0)
+      herdr workspace list >/dev/null 2>&1 && return 0
+      die "handoff 後も herdr server に到達できません" "  herdr status"
+      ;;
+    10) die "herdr のバージョン不整合が未解消です。解消するには:" "  herdr-sync" ;;
+    *) die "herdr-sync に失敗しました (exit $rc)" ;;
+    esac
+  fi
+
   # herdr の中にいる (= サーバーは必ず存在する) / すでにサーバーが動いている場合に
   # 到達できないのは socket の張り替えなので、サーバーを足しても悪化するだけ。
   if in_herdr || herdr_server_running; then

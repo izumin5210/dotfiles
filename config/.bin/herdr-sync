@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+#
+# herdr-sync — aqua が差し替えた herdr バイナリへ、動作中のサーバを引き継がせる
+#
+# herdr 本来の更新は `herdr update --handoff` で、PTY の master fd を新サーバへ渡してから
+# 旧サーバが終了する。pane のプロセスは殺されない。ところが herdr を aqua に管理させると
+# renovate がバイナリだけを差し替えるので、この経路が丸ごと迂回される。結果 CLI だけが
+# 新しくなり、以降 `herdr workspace list` 等が protocol_mismatch で全滅する。herdr が
+# 自力で検出するパッケージマネージャは Homebrew / mise / Nix だけなので、aqua では塞がらない。
+#
+# `herdr server live-handoff` は CLI の互換性ガードを迂回して旧サーバに届く。まさに
+# 「外からバイナリを差し替えられた」場合のリカバリ経路なので、ここではそれを呼ぶ。
+#
+# 注意: handoff はアタッチ中の TUI クライアントを切断する。pane と中のプロセス (coding
+# agent 含む) は生き残るが、完了後に `herdr` で貼り直す必要がある。
+#
+# Usage:
+#   herdr-sync         必要なら確認して handoff
+#   herdr-sync --yes   確認せず handoff
+#
+# Exit:
+#   0   同期済み (不要だった / handoff 成功)
+#   10  要 handoff だが実行しなかった (断られた / 聞ける端末がない / 別プロセスが処理中)
+#   1   エラー
+
+set -euo pipefail
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/herdr"
+# .zshrc の fast path はこのファイルの mtime だけを見る。判定が済んだら結論に関わらず必ず触ること。
+STATE_FILE="$STATE_DIR/aqua-sync-checked"
+LOCK_DIR="$STATE_DIR/aqua-sync.lock"
+
+log() { printf 'herdr-sync: %s\n' "$@" >&2; }
+
+mark_checked() {
+  mkdir -p "$STATE_DIR"
+  : >"$STATE_FILE"
+}
+
+release_lock() { rm -rf "$LOCK_DIR" 2>/dev/null || true; }
+
+# 更新直後は複数の pane が一斉にシェルを起動する。全部が同じことを聞き始めたり handoff が
+# 多重に走ったりしないよう、最初の 1 つだけを通す。
+acquire_lock() {
+  mkdir -p "$STATE_DIR"
+  if ! mkdir "$LOCK_DIR" 2>/dev/null; then
+    # 異常終了で取り残されたロックを踏むと、以降ずっと同期できなくなる。持ち主の生死で判定する。
+    local pid=""
+    [[ -r "$LOCK_DIR/pid" ]] && read -r pid <"$LOCK_DIR/pid" 2>/dev/null || true
+    if [[ -n "$pid" ]] && kill -0 "$pid" 2>/dev/null; then
+      return 1
+    fi
+    rm -rf "$LOCK_DIR"
+    mkdir "$LOCK_DIR" 2>/dev/null || return 1
+  fi
+  printf '%s\n' "$$" >"$LOCK_DIR/pid"
+  # handoff 中は旧サーバの終了に巻き込まれてシグナルで落とされうる (実測)。EXIT だけだと
+  # ロックが残り、次の起動が「他が処理中」と誤認して譲り続ける。
+  trap release_lock EXIT HUP INT TERM PIPE
+}
+
+in_herdr() { [[ -n "${HERDR_ENV:-}" ]]; }
+
+confirm() {
+  local server_ver=$1 client_ver=$2
+
+  # popup や非対話の呼び出しから来ると聞けない。黙って handoff するほうが害が大きい。
+  # /dev/tty はノードが在っても開けるとは限らない (制御端末を持たない文脈)。パーミッション
+  # ビットではなく実際に開いて確かめる。exec の失敗でシェルごと落ちないよう subshell で試す。
+  (exec 3<>/dev/tty) 2>/dev/null || return 1
+
+  {
+    printf '\n'
+    printf 'herdr: サーバ v%s / CLI v%s で protocol が食い違っています。\n' "$server_ver" "$client_ver"
+    printf '       aqua がバイナリだけを差し替えたため、サーバが取り残されています。\n'
+    printf '       live handoff なら pane と中のプロセスを保ったままサーバを差し替えられます。\n'
+    printf '       ただし herdr の画面はいったん切断され、`herdr` で貼り直しが必要です。\n'
+    if in_herdr; then
+      printf '       ※ いま herdr の中にいるので、実行するとこの画面が閉じます。\n'
+      printf '          貼り直しは外側のターミナルから行ってください。\n'
+    fi
+    printf '引き継ぎますか? [y/N] '
+  } >/dev/tty
+
+  local ans=""
+  read -r -n 1 ans </dev/tty || true
+  printf '\n' >/dev/tty
+  [[ "$ans" == [yY] ]]
+}
+
+main() {
+  local assume_yes=false
+  case "${1:-}" in
+  --yes) assume_yes=true ;;
+  "") ;;
+  *)
+    log "unknown option: $1"
+    return 1
+    ;;
+  esac
+
+  # herdr が入っていない環境 (Codespaces 等) では黙って終わる。
+  command -v herdr >/dev/null 2>&1 || {
+    mark_checked
+    return 0
+  }
+  command -v jq >/dev/null 2>&1 || {
+    log "jq が見つかりません"
+    return 1
+  }
+
+  acquire_lock || return 10
+
+  local json
+  json=$(herdr status --json 2>/dev/null) || {
+    log "herdr status を取得できませんでした"
+    return 1
+  }
+
+  # 真偽値に jq の `//` は使えない。左辺が false のときも右辺に落ちるので、
+  # `.server.compatible // true` は不整合を「整合」に化かしてしまう。明示比較で組み立てる。
+  # 判定は「不整合だと確信できたときだけ動く」向きに倒し、キーが無い版では何もしない。
+  local needs_handoff handoff_ok server_ver client_ver client_proto new_exe
+  IFS=$'\t' read -r needs_handoff handoff_ok server_ver client_ver client_proto new_exe < <(
+    jq -r '[(.server.running == true and .server.compatible == false),
+            (.server.capabilities.live_handoff == true),
+            (.server.version // "unknown"),
+            (.client.version // "unknown"),
+            (.client.protocol // 0),
+            (.client.binary // "")] | @tsv' <<<"$json"
+  )
+
+  # サーバが居ない (次の起動で新しいバイナリが使われる) か、既に噛み合っているなら何もしない。
+  if [[ "$needs_handoff" != true ]]; then
+    mark_checked
+    return 0
+  fi
+
+  if [[ "$handoff_ok" != true ]]; then
+    log "動作中のサーバ (v$server_ver) は live handoff に対応していません。" \
+      "pane を保ったままの更新はできないので、手動で対応してください:" \
+      "  herdr server stop   # pane のプロセスも終了します"
+    mark_checked
+    return 10
+  fi
+
+  # --import-exe には実バイナリを渡す。PATH 上の herdr は aqua-proxy の symlink で、
+  # herdr が current_exe から自己解決すると proxy を掴みかねない。
+  if [[ -z "$new_exe" || ! -x "$new_exe" ]]; then
+    log "新しい herdr バイナリを解決できませんでした: ${new_exe:-(empty)}"
+    mark_checked
+    return 1
+  fi
+
+  if [[ "$assume_yes" != true ]] && ! confirm "$server_ver" "$client_ver"; then
+    log "見送りました。あとで引き継ぐには: herdr-sync"
+    mark_checked
+    return 10
+  fi
+
+  # 判定済みの印は handoff を始める前に付ける。旧サーバが終了する瞬間にこのプロセス自身が
+  # シグナルで落とされることがあり、後で付ける作りだと引き継ぎが成功しても印が残らない。
+  # 成功でも失敗でも印を付ける方針なので、前倒ししても意味は変わらない。
+  mark_checked
+
+  log "live handoff を実行します (v$server_ver -> v$client_ver)..."
+  # expected-* は旧サーバ側の検証用。渡した exe が意図したバージョンでなければ handoff を
+  # 始める前に弾いてもらえる。
+  if herdr server live-handoff \
+    --import-exe "$new_exe" \
+    --expected-version "$client_ver" \
+    --expected-protocol "$client_proto"; then
+    log "完了しました。サーバは v$client_ver です。"
+    return 0
+  fi
+
+  # commit 前に失敗した場合は旧サーバがロールバックして生き残る。pane は無事なはず。
+  log "handoff に失敗しました。旧サーバ (v$server_ver) が動き続けているか確認してください:" \
+    "  herdr status" \
+    "再試行するには: herdr-sync"
+  return 1
+}
+
+main "$@"

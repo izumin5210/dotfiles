@@ -1096,33 +1096,33 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-linux-arm64.gz",
-      "checksum": "E47DD59BF2F21AD7C15771546A724464EE3C008A60FBB61C6860BD19A44B3060",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-linux-arm64.gz",
+      "checksum": "CFBF3D9AAD8E326878AB1846885A9C2B782A0333273591616F34BF556D525586",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-linux-x64.gz",
-      "checksum": "8DAC3C89BB632EECE700EA7A261AD963B251F2228C4AEF3B58458EBEA8DBE4EB",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-linux-x64.gz",
+      "checksum": "D00AC0DAEFC4BF8C4B57842A5C0509927232FAAD1D83157B64FBAD4E2E8D9A8B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-macos-arm64.gz",
-      "checksum": "0BB646B2A29007233BD44855F00D0B8E238084D5B442F097D841B476318C2C90",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-macos-arm64.gz",
+      "checksum": "A7DDEFF2507391EBDFD0B8FA0DFE91BABED291EA00D86426CB0E6CFADE891697",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-macos-x64.gz",
-      "checksum": "0DA547D2622BA1583E4C748BB44DB5B79AF56462DA41ACF377B9FDC2EB2CD49F",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-macos-x64.gz",
+      "checksum": "6827B218BCE4D5403CB76AE3C269BC836D3124B75BB3477197EE9A8C8F6E79DC",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-windows-arm64.gz",
-      "checksum": "436C5FD1F1B999FEDB6BA007C43F73BDFEE01549A965420C0CEE6A7F6C7F1A44",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-windows-arm64.gz",
+      "checksum": "251E2FED7A0D2A66306C9484B8364162080DBBED0C31D370CE63FA3429C1137D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.11/tree-sitter-windows-x64.gz",
-      "checksum": "9D836A8C405ED50CEA6B3410905576DE3BFF2B42CA12EDC1E825EC86FE918A5F",
+      "id": "github_release/github.com/tree-sitter/tree-sitter/v0.26.12/tree-sitter-windows-x64.gz",
+      "checksum": "3445CF022EFBC3FFCC391A55CCB29A3CE277EEA91C719247C2DAD4DD9DAC70F6",
       "algorithm": "sha256"
     },
     {

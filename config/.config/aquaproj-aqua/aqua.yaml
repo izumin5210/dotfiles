@@ -47,7 +47,7 @@ packages:
   # CLI for cloud services
   - name: auth0/auth0-cli@v1.32.0
   - name: aws/aws-cli@2.36.21
-  - name: stripe/stripe-cli@v1.45.1
+  - name: stripe/stripe-cli@v1.45.2
   # tools
   - name: junegunn/fzf@v0.74.2
   - name: BurntSushi/ripgrep@15.2.0

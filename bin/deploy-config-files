@@ -56,12 +56,20 @@ ln_idempotently ./config/.config/tmux ~/.config/tmux
 ln_idempotently ./config/.config/herdr ~/.config/herdr
 
 # claude
-ln_idempotently ./config/.claude ~/.claude
+mkdir -p ~/.claude
 # ccgate.jsonnet imports this machine-local file; jsonnet errors when it is missing
 [ -f ./config/.claude/ccgate.local.libsonnet ] || echo '{}' >./config/.claude/ccgate.local.libsonnet
+ln_idempotently ./config/.claude/CLAUDE.md ~/.claude/CLAUDE.md
+ln_idempotently ./config/.claude/settings.json ~/.claude/settings.json
+ln_idempotently ./config/.claude/ccgate.jsonnet ~/.claude/ccgate.jsonnet
+ln_idempotently ./config/.claude/ccgate.local.libsonnet ~/.claude/ccgate.local.libsonnet
+ln_idempotently ./config/.claude/scripts ~/.claude/scripts
 
 # codex
-ln_idempotently ./config/.codex ~/.codex
+mkdir -p ~/.codex
+ln_idempotently --backup ./config/.codex/config.toml ~/.codex/config.toml
+ln_idempotently --backup ./config/.codex/AGENTS.md ~/.codex/AGENTS.md
+ln_idempotently --backup ./config/.codex/ccgate.jsonnet ~/.codex/ccgate.jsonnet
 
 # ruby
 ln_idempotently ./config/.config/irb ~/.config/irb

@@ -4,87 +4,110 @@ set -euo pipefail
 
 cd $(dirname $0)/..
 
-./bin/ln-idempotently ./config/.bin ~/.bin
+fail_fast=false
+if [ "${1:-}" = "--fail-fast" ]; then
+  fail_fast=true
+  shift
+fi
+
+failed=()
+ln_idempotently() {
+  if ! ./bin/ln-idempotently "$@"; then
+    if [ "${fail_fast}" = true ]; then
+      exit 1
+    fi
+    echo "Warning: failed to link: ${*: -1}" >&2
+    failed+=("${*: -1}")
+  fi
+}
+
+ln_idempotently ./config/.bin ~/.bin
 
 mkdir -p ~/.config
 
 # nix
-./bin/ln-idempotently ./config/.config/nix ~/.config/nix
+ln_idempotently ./config/.config/nix ~/.config/nix
 
 # git
-./bin/ln-idempotently ./config/.config/git ~/.config/git
-./bin/ln-idempotently ./config/.config/gh ~/.config/gh
+ln_idempotently ./config/.config/git ~/.config/git
+ln_idempotently ./config/.config/gh ~/.config/gh
 
 # shell
-./bin/ln-idempotently ./config/.config/shell ~/.config/shell
+ln_idempotently ./config/.config/shell ~/.config/shell
 
 # zsh
-./bin/ln-idempotently ./config/.zshenv ~/.zshenv
-./bin/ln-idempotently ./config/.config/zsh ~/.config/zsh
-./bin/ln-idempotently ./config/.config/sheldon ~/.config/sheldon
-./bin/ln-idempotently ./config/.config/starship.toml ~/.config/starship.toml
+ln_idempotently ./config/.zshenv ~/.zshenv
+ln_idempotently ./config/.config/zsh ~/.config/zsh
+ln_idempotently ./config/.config/sheldon ~/.config/sheldon
+ln_idempotently ./config/.config/starship.toml ~/.config/starship.toml
 
 # bash / sh
-./bin/ln-idempotently --backup ./config/.bashrc ~/.bashrc
-./bin/ln-idempotently --backup ./config/.bash_profile ~/.bash_profile
-./bin/ln-idempotently --backup ./config/.profile ~/.profile
+ln_idempotently --backup ./config/.bashrc ~/.bashrc
+ln_idempotently --backup ./config/.bash_profile ~/.bash_profile
+ln_idempotently --backup ./config/.profile ~/.profile
 
 # vim
-./bin/ln-idempotently ./config/.config/nvim ~/.config/nvim
+ln_idempotently ./config/.config/nvim ~/.config/nvim
 
 # tmux
-./bin/ln-idempotently ./config/.config/tmux ~/.config/tmux
+ln_idempotently ./config/.config/tmux ~/.config/tmux
 
 # herdr
-./bin/ln-idempotently ./config/.config/herdr ~/.config/herdr
+ln_idempotently ./config/.config/herdr ~/.config/herdr
 
 # claude
-./bin/ln-idempotently ./config/.claude ~/.claude
+ln_idempotently ./config/.claude ~/.claude
 # ccgate.jsonnet imports this machine-local file; jsonnet errors when it is missing
 [ -f ./config/.claude/ccgate.local.libsonnet ] || echo '{}' >./config/.claude/ccgate.local.libsonnet
 
 # codex
-./bin/ln-idempotently ./config/.codex ~/.codex
+ln_idempotently ./config/.codex ~/.codex
 
 # ruby
-./bin/ln-idempotently ./config/.config/irb ~/.config/irb
+ln_idempotently ./config/.config/irb ~/.config/irb
 
 # ghostty
-./bin/ln-idempotently ./config/.config/ghostty ~/.config/ghostty
+ln_idempotently ./config/.config/ghostty ~/.config/ghostty
 
 # karabiner
-./bin/ln-idempotently ./config/.config/karabiner ~/.config/karabiner
+ln_idempotently ./config/.config/karabiner ~/.config/karabiner
 
 # fzf
-./bin/ln-idempotently ./config/.config/fzf ~/.config/fzf
+ln_idempotently ./config/.config/fzf ~/.config/fzf
 
 # yazi
-./bin/ln-idempotently ./config/.config/yazi ~/.config/yazi
+ln_idempotently ./config/.config/yazi ~/.config/yazi
 
 # lazygit
-./bin/ln-idempotently ./config/.config/lazygit ~/.config/lazygit
+ln_idempotently ./config/.config/lazygit ~/.config/lazygit
 
 # lazygit
-./bin/ln-idempotently ./config/.config/lazysql ~/.config/lazysql
+ln_idempotently ./config/.config/lazysql ~/.config/lazysql
 
 # ripgrep
-./bin/ln-idempotently ./config/.config/ripgrep ~/.config/ripgrep
-./bin/ln-idempotently ./config/.rgignore ~/.rgignore
+ln_idempotently ./config/.config/ripgrep ~/.config/ripgrep
+ln_idempotently ./config/.rgignore ~/.rgignore
 
 # bat
-./bin/ln-idempotently ./config/.config/bat ~/.config/bat
+ln_idempotently ./config/.config/bat ~/.config/bat
 
 # aqua
-./bin/ln-idempotently ./config/.config/aquaproj-aqua ~/.config/aquaproj-aqua
+ln_idempotently ./config/.config/aquaproj-aqua ~/.config/aquaproj-aqua
 
 # aerospace
-./bin/ln-idempotently ./config/.config/aerospace ~/.config/aerospace
+ln_idempotently ./config/.config/aerospace ~/.config/aerospace
 
 # jankyborders
-./bin/ln-idempotently ./config/.config/borders ~/.config/borders
+ln_idempotently ./config/.config/borders ~/.config/borders
 
 # hammerspoon
-./bin/ln-idempotently ./config/.hammerspoon ~/.hammerspoon
+ln_idempotently ./config/.hammerspoon ~/.hammerspoon
 
 # any-script-mcp
-./bin/ln-idempotently ./config/.config/any-script-mcp ~/.config/any-script-mcp
+ln_idempotently ./config/.config/any-script-mcp ~/.config/any-script-mcp
+
+if [ "${#failed[@]}" -gt 0 ]; then
+  echo "Warning: ${#failed[@]} link(s) failed:" >&2
+  printf '  %s\n' "${failed[@]}" >&2
+  exit 1
+fi

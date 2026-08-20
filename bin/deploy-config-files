@@ -55,6 +55,9 @@ ln_idempotently ./config/.config/tmux ~/.config/tmux
 # herdr
 ln_idempotently ./config/.config/herdr ~/.config/herdr
 
+# vim
+ln_idempotently ./config/.agents ~/.agents
+
 # claude
 mkdir -p ~/.claude
 # ccgate.jsonnet imports this machine-local file; jsonnet errors when it is missing

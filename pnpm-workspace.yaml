@@ -7,3 +7,6 @@ onlyBuiltDependencies:
 minimumReleaseAgeExclude:
   - typescript@7.0.2
   - "@typescript/typescript-*"
+allowBuilds:
+  core-js: true
+  puppeteer: true

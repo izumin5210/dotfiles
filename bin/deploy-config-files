@@ -120,5 +120,4 @@ ln_idempotently ./config/.config/any-script-mcp ~/.config/any-script-mcp
 if [ "${#failed[@]}" -gt 0 ]; then
   echo "Warning: ${#failed[@]} link(s) failed:" >&2
   printf '  %s\n' "${failed[@]}" >&2
-  exit 1
 fi

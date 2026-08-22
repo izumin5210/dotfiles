@@ -81,6 +81,7 @@
     pkgs.htop
     pkgs.imagemagick
     pkgs.neovim-remote
+    pkgs.poppler-utils
     pkgs.semgrep
     pkgs.tailscale
     pkgs.tree

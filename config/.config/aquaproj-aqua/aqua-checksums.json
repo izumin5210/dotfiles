@@ -701,28 +701,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/neovim/neovim/v0.12.4/nvim-linux-arm64.tar.gz",
-      "checksum": "CEB7E88C6B681F0515D135DCDFAD54F5EB4373B25CE6172197CD9A69C758063F",
+      "id": "github_release/github.com/neovim/neovim/v0.12.5/nvim-linux-arm64.tar.gz",
+      "checksum": "1AA5CA085249580AE0F91EB14F27EC0919773FF2D99A163D03F3D6C21AC29725",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/neovim/neovim/v0.12.4/nvim-linux-x86_64.tar.gz",
-      "checksum": "012BF3FCAC5ADE43914DF3F174668BF64D05E049A4F032A388C027B1EBD78628",
+      "id": "github_release/github.com/neovim/neovim/v0.12.5/nvim-linux-x86_64.tar.gz",
+      "checksum": "BCE0F56EDA1F1B1DB6EEE8F4133D7A38813EA07933837DD1777411CA384C6875",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/neovim/neovim/v0.12.4/nvim-macos-arm64.tar.gz",
-      "checksum": "51AB83AFA66D663627C2AB1BE43209B0F4E81360D4598B53EFAA4D8195F24C89",
+      "id": "github_release/github.com/neovim/neovim/v0.12.5/nvim-macos-arm64.tar.gz",
+      "checksum": "65FB000099E47CA1B762584C484CC833F40E30851A0EC450D4174E16317C1F9B",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/neovim/neovim/v0.12.4/nvim-macos-x86_64.tar.gz",
-      "checksum": "03FE16F8DD9F1E9EAF52D5E294913A39917B9E2FAEA30D7FB0FB385FBD36FE59",
+      "id": "github_release/github.com/neovim/neovim/v0.12.5/nvim-macos-x86_64.tar.gz",
+      "checksum": "81F4518622CB059B450EE2E498C6A1082A222F6BD89589DE5BBCF0C6A68AA3FD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/neovim/neovim/v0.12.4/nvim-win64.zip",
-      "checksum": "9FC3572829FFD13DEBB6E32555DA2C8CC02555568260A9FC4CF1F65BBCCA319C",
+      "id": "github_release/github.com/neovim/neovim/v0.12.5/nvim-win64.zip",
+      "checksum": "DE8625BA8CF65EBF40EB80A388BA1EC8E9C15B30218821E2C639119B05920DE1",
       "algorithm": "sha256"
     },
     {

@@ -39,8 +39,8 @@ importers:
         specifier: 5.6.0
         version: 5.6.0
       chrome-devtools-mcp:
-        specifier: 1.7.0
-        version: 1.7.0
+        specifier: 1.8.0
+        version: 1.8.0
       dockerfile-language-server-nodejs:
         specifier: 0.15.0
         version: 0.15.0
@@ -1375,13 +1375,13 @@ packages:
     resolution: {integrity: sha512-+IxzY9BZOQd/XuYPRmrvEVjF/nqj5kgT4kEq7VofrDoM1MxoRjEWkrCC3EtLi59TVawxTAn+orJwFQcrqEN1+g==}
     engines: {node: '>=18'}
 
-  chrome-devtools-mcp@1.7.0:
-    resolution: {integrity: sha512-6xFW7oiUxTxZuHcfyYBkKQtmttjCbfifKZMSEk5CV8H2FucvKweYiJr8CblddYHtYjA4C14K9VAs1r49906RBA==}
+  chrome-devtools-mcp@1.8.0:
+    resolution: {integrity: sha512-Wrm9z0/5WbVs778apjWgYRkpe9bvYQWjK2zVRwqoPAtz1IHQ5+GvotM07UGXJcfrA0rj6Gt1Pnn5+w/Tf1nU4w==}
     engines: {node: ^20.19.0 || ^22.12.0 || >=23}
     hasBin: true
     peerDependencies:
       '@blackwell-systems/gcf': ^2.2.2
-      '@toon-format/toon': ^2.2.0
+      '@toon-format/toon': ^4.1.0
     peerDependenciesMeta:
       '@blackwell-systems/gcf':
         optional: true
@@ -4866,7 +4866,7 @@ snapshots:
 
   chownr@3.0.0: {}
 
-  chrome-devtools-mcp@1.7.0: {}
+  chrome-devtools-mcp@1.8.0: {}
 
   chromium-bidi@17.0.2(devtools-protocol@0.0.1653615):
     dependencies:

@@ -1026,23 +1026,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tak848/ccgate/v0.10.0/ccgate-darwin-amd64.tar.gz",
-      "checksum": "B6FB854DB251829C7346C86B5E0EAD29EBD60D8B917653F7971457D26A51262E",
+      "id": "github_release/github.com/tak848/ccgate/v0.10.1/ccgate-darwin-amd64.tar.gz",
+      "checksum": "215B3A6F445F9A42433E3EBA19A364287D3672054C56D2F1BD524E79EFC8D63C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tak848/ccgate/v0.10.0/ccgate-darwin-arm64.tar.gz",
-      "checksum": "E5D20CD382A1E5318B71E7E49D3D50165B72CF71A5D8B295051ADDFC39F50601",
+      "id": "github_release/github.com/tak848/ccgate/v0.10.1/ccgate-darwin-arm64.tar.gz",
+      "checksum": "126E0A360D9B4BB053A42DFC9532D1E6165E8E7F39EA6B8C6828F28DBEFF7496",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tak848/ccgate/v0.10.0/ccgate-linux-amd64.tar.gz",
-      "checksum": "15F8871F8EC01CDFFCF68A0301D9A2F3D733FF86D41A8BDD2038A407776A2081",
+      "id": "github_release/github.com/tak848/ccgate/v0.10.1/ccgate-linux-amd64.tar.gz",
+      "checksum": "1FC1EB51186B8D437A4ECD2F5695BF6C1CFA877FBA833360FAB06D8E424B70BD",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tak848/ccgate/v0.10.0/ccgate-linux-arm64.tar.gz",
-      "checksum": "377C9766AB8A0AD472CF1B341E565B09292E394D422D6BB7C4E24D8C68EAE585",
+      "id": "github_release/github.com/tak848/ccgate/v0.10.1/ccgate-linux-arm64.tar.gz",
+      "checksum": "5952A05B84F06ED8D9182B3EF9739FDCE5748D04DEAA2C2E63F42B565FB2991A",
       "algorithm": "sha256"
     },
     {

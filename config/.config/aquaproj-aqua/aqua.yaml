@@ -67,7 +67,7 @@ packages:
   - name: openai/codex@rust-v0.152.1
   - name: tombi-toml/tombi@v0.11.7
   - name: vercel-labs/agent-browser@v0.34.0
-  - name: tak848/ccgate@v0.10.0
+  - name: tak848/ccgate@v0.10.1
   - name: sivchari/gopls-lazy@v0.4.1
   - name: kubernetes/kubernetes/kubectl@v1.36.4
   - name: ogulcancelik/herdr@v0.8.2

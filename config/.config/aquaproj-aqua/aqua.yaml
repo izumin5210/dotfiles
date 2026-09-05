@@ -14,7 +14,7 @@ packages:
   - name: golang/go@go1.27.1
   - name: golang.org/x/tools/gopls@v0.23.0
   - name: go-delve/delve@v1.26.3
-  - name: golangci/golangci-lint@v2.12.2
+  - name: golangci/golangci-lint@v2.13.2
   - name: nametake/golangci-lint-langserver@v0.0.12
   # javascript
   - name: pnpm/pnpm@v11.21.0

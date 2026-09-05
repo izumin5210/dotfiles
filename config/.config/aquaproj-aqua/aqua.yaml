@@ -69,5 +69,5 @@ packages:
   - name: vercel-labs/agent-browser@v0.34.0
   - name: tak848/ccgate@v0.10.1
   - name: sivchari/gopls-lazy@v0.4.1
-  - name: kubernetes/kubernetes/kubectl@v1.36.4
+  - name: kubernetes/kubernetes/kubectl@v1.37.0
   - name: ogulcancelik/herdr@v0.8.2

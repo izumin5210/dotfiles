@@ -11,5 +11,5 @@ registries:
     ref: v4.545.0 # renovate: depName=aquaproj/aqua-registry
 packages:
   - name: JohnnyMorganz/StyLua@v2.5.2
-  - name: mvdan/sh@v3.13.1
+  - name: mvdan/sh@v3.14.0
   - name: rhysd/vim-startuptime@v1.3.2

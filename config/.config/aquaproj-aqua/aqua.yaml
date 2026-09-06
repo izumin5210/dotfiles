@@ -60,7 +60,7 @@ packages:
   - name: jqlang/jq@jq-1.8.2
   - name: ajeetdsouza/zoxide@v0.10.0
   - name: Wilfred/difftastic@0.70.0
-  - name: sxyazi/yazi@v26.5.6
+  - name: sxyazi/yazi@v26.9.1
   - name: jorgerojas26/lazysql@v0.5.6
   - name: oven-sh/bun@bun-v1.4.0
   - name: anthropics/claude-code@v2.1.261

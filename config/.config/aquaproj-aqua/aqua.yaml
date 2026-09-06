@@ -53,7 +53,7 @@ packages:
   - name: BurntSushi/ripgrep@15.2.0
   - name: sharkdp/bat@v0.26.1
   - name: eza-community/eza@v0.23.5
-  - name: sharkdp/fd@v10.4.2
+  - name: sharkdp/fd@v10.5.0
   - name: direnv/direnv@v2.37.1
   - name: awslabs/git-secrets@1.3.0
   - name: jesseduffield/lazydocker@v0.25.2

@@ -1001,28 +1001,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v26.5.6/yazi-aarch64-apple-darwin.zip",
-      "checksum": "7ABD71725E2FE27BED036BECBF6CE79FA17964EB68491D34190011C94B8C7CA8",
+      "id": "github_release/github.com/sxyazi/yazi/v26.9.1/yazi-aarch64-apple-darwin.zip",
+      "checksum": "3921182A21CCEB0A505E5DAC578E1487D48104CAA5F114E9F8ADF40B5A7289A9",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v26.5.6/yazi-aarch64-unknown-linux-musl.zip",
-      "checksum": "DFF4A6774069BDDE616C3CD145275B462A5887229CD9BF6341E78063DA37E84F",
+      "id": "github_release/github.com/sxyazi/yazi/v26.9.1/yazi-aarch64-unknown-linux-musl.zip",
+      "checksum": "DD569DAECAAE914185F295634109295CCD25C1B42B02EB89A74F651970024F2E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v26.5.6/yazi-x86_64-apple-darwin.zip",
-      "checksum": "6846066F992C1688D8EC77431A3AB53F5EF268019FCEF86E5649B8C27010868D",
+      "id": "github_release/github.com/sxyazi/yazi/v26.9.1/yazi-x86_64-apple-darwin.zip",
+      "checksum": "36E09036FCC446488D876D139A5E303F2443B82CFB6AC7DFCB43892D6FE6FA20",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v26.5.6/yazi-x86_64-pc-windows-msvc.zip",
-      "checksum": "6C6C52A4B2648E179F917BDAA7C57E793D18561B380A8BFA025F10CD1B9B2AD1",
+      "id": "github_release/github.com/sxyazi/yazi/v26.9.1/yazi-x86_64-pc-windows-msvc.zip",
+      "checksum": "7C033E5F2DE6355FD03D865319053FC97DB780275974ED17653C057F5D0F8D21",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/sxyazi/yazi/v26.5.6/yazi-x86_64-unknown-linux-musl.zip",
-      "checksum": "1031A02560D053301537195A6661D227C15CB4CE5C30481050B31E2B88681BFF",
+      "id": "github_release/github.com/sxyazi/yazi/v26.9.1/yazi-x86_64-unknown-linux-musl.zip",
+      "checksum": "9B9C39DECCCF8CB0FF53A7D637D38F8A79D93BBD0099F4EA9C619EF6BB392F5D",
       "algorithm": "sha256"
     },
     {

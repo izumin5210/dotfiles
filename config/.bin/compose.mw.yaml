@@ -11,7 +11,7 @@ services:
     ports:
       - 5432:5432
   mysql:
-    image: mysql:8@sha256:b3b90af2a6552ae30c266fdb7d5dd55f3afb72404bb78d37fe8a23eb857fd3fb
+    image: mysql:26@sha256:4b40b165f348c3a1d959a222bd6c7773503f202554fd140db3de74ed9136b7b8
     container_name: the-mysql
     environment:
       - MYSQL_ALLOW_EMPTY_PASSWORD=yes

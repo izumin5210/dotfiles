@@ -70,4 +70,4 @@ packages:
   - name: tak848/ccgate@v0.10.1
   - name: sivchari/gopls-lazy@v0.4.1
   - name: kubernetes/kubernetes/kubectl@v1.37.0
-  - name: ogulcancelik/herdr@v0.8.2
+  - name: ogulcancelik/herdr@v0.9.0

@@ -67,6 +67,8 @@ ln_idempotently ./config/.claude/settings.json ~/.claude/settings.json
 ln_idempotently ./config/.claude/ccgate.jsonnet ~/.claude/ccgate.jsonnet
 ln_idempotently ./config/.claude/ccgate.local.libsonnet ~/.claude/ccgate.local.libsonnet
 ln_idempotently ./config/.claude/scripts ~/.claude/scripts
+mkdir -p ~/.claude/skills
+ln_idempotently ./config/.agents/skills/code-comments ~/.claude/skills/code-comments
 
 # codex
 mkdir -p ~/.codex

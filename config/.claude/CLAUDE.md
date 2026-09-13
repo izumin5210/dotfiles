@@ -48,8 +48,8 @@ Think in English, interact with the user in Japanese.
   - Do not add a `Test plan` section
 
 ### Comments
-- Document **Why** (intent and reasoning)
-- Skip self-evident **What** comments. Exception: multi-line complex processing or intricate control flow
+- Comments state the **present-tense Why / Why-not** of the code — never change history, migration notes, or anything self-evident
+- Read the `code-comments` skill before writing or editing code comments
 
 ### JavaScript / TypeScript
 - Run via the project's `packageManager`

@@ -65,9 +65,8 @@
 
 ## Comment Rules
 
-- Write comments for why, invariants, and tradeoffs
-- Avoid comments that restate obvious code behavior
-- Add concise notes only where future maintainers would otherwise guess intent
+- Comments state the present-tense why / why-not of the code — never change history, migration notes, or anything self-evident
+- Read `~/.agents/skills/code-comments/SKILL.md` before writing or editing code comments, and follow it
 
 ---
 

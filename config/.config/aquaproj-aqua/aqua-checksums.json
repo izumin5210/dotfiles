@@ -726,23 +726,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.0/herdr-linux-aarch64",
-      "checksum": "9C8DB20FB7E7427B138D5367113F1621FFD319F2F65D6F009E2594029115F0D2",
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.1/herdr-linux-aarch64",
+      "checksum": "F4CCF4DE745F2CB9A39A983E9BA3703DAD50EC2A58DEA83026CEAB721BBD8D9E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.0/herdr-linux-x86_64",
-      "checksum": "4FA1A01158DD8043DA92D31B270780B0DCC10603038D9B61CAC4D81AB63FB71F",
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.1/herdr-linux-x86_64",
+      "checksum": "2A02FED16BEB651EF006E1D43F048F652CA4DC58AD053CD2D44450563D5C54B7",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.0/herdr-macos-aarch64",
-      "checksum": "32B53DF09872628059C789A69F02A6B8E29E14DDF26711421F3463F70C1AEF17",
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.1/herdr-macos-aarch64",
+      "checksum": "5FC7A7E7ADFACA56FA80AA89DCB025693357268DAB8285B9CE2D08A2313C89DE",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.0/herdr-macos-x86_64",
-      "checksum": "D0C920B2A126A74809FA1491411C9A097A44786CAC9C2CA51B818A995581CF16",
+      "id": "github_release/github.com/ogulcancelik/herdr/v0.9.1/herdr-macos-x86_64",
+      "checksum": "053BE0639935FE54AB5EFBDB46651054E4F6A753A5B43153C88BD6912BCE1E94",
       "algorithm": "sha256"
     },
     {

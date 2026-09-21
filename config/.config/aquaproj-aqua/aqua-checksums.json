@@ -361,28 +361,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.546.0/copilot-language-server-darwin-arm64-1.546.0.zip",
-      "checksum": "31E878739E530F1DDDE5527BCFFB5F0B335AA52659C8FA040AF654074D68C930",
+      "id": "github_release/github.com/github/copilot-language-server-release/1.547.0/copilot-language-server-darwin-arm64-1.547.0.zip",
+      "checksum": "6601DADBF686505B28002C99F2968211FD8FD1A9FE72DD884103B2EF4D9C4A7A",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.546.0/copilot-language-server-darwin-x64-1.546.0.zip",
-      "checksum": "A8F5A5E4FEFCFFD415BE12CE83DE602803879B3BBCEA6C476945B382DBB4761F",
+      "id": "github_release/github.com/github/copilot-language-server-release/1.547.0/copilot-language-server-darwin-x64-1.547.0.zip",
+      "checksum": "FA092FA9127A6902C760BEFC0B40AD2361FCD6C5C6AA929A0F360C8452F2092C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.546.0/copilot-language-server-linux-arm64-1.546.0.zip",
-      "checksum": "692AA9BAA832F31BAFA87B3075781642C3BB8CB578E8AA3142EDCD088BC4F559",
+      "id": "github_release/github.com/github/copilot-language-server-release/1.547.0/copilot-language-server-linux-arm64-1.547.0.zip",
+      "checksum": "EFF76D913CF2785C0B063DFE00C4CFB49DFEFA1B8D5F9BFAA7C79AC9E2E82439",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.546.0/copilot-language-server-linux-x64-1.546.0.zip",
-      "checksum": "6EBD4328D9BBC0A9167F7F0DF11ACDAFCA8514584C4CB7D827551D7242A5C674",
+      "id": "github_release/github.com/github/copilot-language-server-release/1.547.0/copilot-language-server-linux-x64-1.547.0.zip",
+      "checksum": "EF09049DF1028605C3496F7B2AD154664EF1376A231EA4D1345286D965CB8B61",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/github/copilot-language-server-release/1.546.0/copilot-language-server-win32-x64-1.546.0.zip",
-      "checksum": "39ACCA6EF83642ACE1D709BCAEE108C07D5C40EFE25D267B9C476BB564F74B12",
+      "id": "github_release/github.com/github/copilot-language-server-release/1.547.0/copilot-language-server-win32-x64-1.547.0.zip",
+      "checksum": "99BC342C4A9B84D58DED6BF38B83F231819FE0C8C43054841009BC25724BE04A",
       "algorithm": "sha256"
     },
     {

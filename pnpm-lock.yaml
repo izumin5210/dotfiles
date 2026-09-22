@@ -36,8 +36,8 @@ importers:
         specifier: 0.3.0
         version: 0.3.0(supports-color@8.1.1)
       bash-language-server:
-        specifier: 5.8.0
-        version: 5.8.0
+        specifier: 5.8.1
+        version: 5.8.1
       chrome-devtools-mcp:
         specifier: 1.9.0
         version: 1.9.0
@@ -1296,8 +1296,8 @@ packages:
     engines: {node: '>=6.0.0'}
     hasBin: true
 
-  bash-language-server@5.8.0:
-    resolution: {integrity: sha512-zdbIsxWTZcDipT/qsU6qw1GP25ORdvI7XFvplZR5eR0S+x5cBuodYjASUq+ca+s9GPXZYGQ2TRG8cZAHYKAjcQ==}
+  bash-language-server@5.8.1:
+    resolution: {integrity: sha512-F3g0hKZhCiKbLUf9wkrST6+ZypsHvJqaJxw/+J7WK2ywhFyc8+7jSHSTU1UDYncZkyWgbKV6+eZy5qWTZtoXww==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -3283,14 +3283,14 @@ snapshots:
       '@octokit/rest': 21.1.1
       '@octokit/types': 9.3.2
       vscode-languageserver: 8.1.0
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       yaml: 2.9.0
 
   '@actions/languageservice@0.3.61':
     dependencies:
       '@actions/expressions': 0.3.61
       '@actions/workflow-parser': 0.3.61
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0
       yaml: 2.9.0
@@ -4505,8 +4505,8 @@ snapshots:
   '@volar/language-service@2.4.28(typescript@7.0.2)':
     dependencies:
       '@volar/language-core': 2.4.28
-      vscode-languageserver-protocol: 3.18.2
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-protocol: 3.18.3
+      vscode-languageserver-textdocument: 1.0.14
       vscode-uri: 3.1.0
     optionalDependencies:
       typescript: 7.0.2
@@ -4525,7 +4525,7 @@ snapshots:
     dependencies:
       emmet: 2.4.11
       jsonc-parser: 2.3.1
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-languageserver-types: 3.18.0
       vscode-uri: 3.1.0
 
@@ -4596,7 +4596,7 @@ snapshots:
       muggle-string: 0.4.1
       pug-lexer: 5.0.1
       pug-parser: 6.0.0
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
 
   '@vue/language-server@3.3.11(typescript@7.0.2)':
     dependencies:
@@ -4776,7 +4776,7 @@ snapshots:
 
   baseline-browser-mapping@2.11.13: {}
 
-  bash-language-server@5.8.0:
+  bash-language-server@5.8.1:
     dependencies:
       editorconfig: 3.0.2
       fast-glob: 3.3.3
@@ -5215,7 +5215,7 @@ snapshots:
 
   dockerfile-ast@0.7.1:
     dependencies:
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-languageserver-types: 3.17.3
 
   dockerfile-language-server-nodejs@0.15.0:
@@ -6479,7 +6479,7 @@ snapshots:
   volar-service-css@0.0.71(@volar/language-service@2.4.28(typescript@7.0.2)):
     dependencies:
       vscode-css-languageservice: 6.3.10
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-uri: 3.1.0
     optionalDependencies:
       '@volar/language-service': 2.4.28(typescript@7.0.2)
@@ -6496,7 +6496,7 @@ snapshots:
   volar-service-html@0.0.71(@volar/language-service@2.4.28(typescript@7.0.2)):
     dependencies:
       vscode-html-languageservice: 5.6.2
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-uri: 3.1.0
     optionalDependencies:
       '@volar/language-service': 2.4.28(typescript@7.0.2)
@@ -6520,7 +6520,7 @@ snapshots:
       '@vue/language-plugin-pug': 3.2.9
       volar-service-html: 0.0.71(@volar/language-service@2.4.28(typescript@7.0.2))
       vscode-html-languageservice: 5.6.2
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
     transitivePeerDependencies:
       - typescript
 
@@ -6529,7 +6529,7 @@ snapshots:
       path-browserify: 1.0.1
       semver: 7.8.5
       typescript-auto-import-cache: 0.3.6
-      vscode-languageserver-textdocument: 1.0.12
+      vscode-languageserver-textdocument: 1.0.14
       vscode-nls: 5.2.0
       vscode-uri: 3.1.0
     optionalDependencies:

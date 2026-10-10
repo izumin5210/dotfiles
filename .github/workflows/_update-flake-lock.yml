@@ -1,0 +1,64 @@
+name: update-flake-lock
+on:
+  workflow_call:
+    secrets:
+      gh-app-id:
+        required: true
+      gh-app-private-key:
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  update:
+    # Renovate rewrites flake input URLs (e.g. the hermes-agent tag) but cannot run nix to relock.
+    # Fork PRs get no secrets, and their flake.nix must not be evaluated next to an App token anyway.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Check flake.nix changes
+        id: changed
+        env:
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
+        run: |
+          if git diff --quiet "origin/${BASE_REF}" -- flake.nix; then
+            echo "flake=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "flake=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - uses: DeterminateSystems/determinate-nix-action@d0c908e6cbe9f89f36ed8205a3ab6f092636916a # v3.23.1
+        if: steps.changed.outputs.flake == 'true'
+
+      # Only inputs whose spec changed are relocked; the other inputs keep their locked revisions.
+      - run: nix flake lock
+        if: steps.changed.outputs.flake == 'true'
+
+      - name: Generate App token
+        id: token
+        if: steps.changed.outputs.flake == 'true'
+        uses: suzuki-shunsuke/github-token-action@350d7506222e3a0016491abe85b5c4dd475b67d1 # v0.2.1
+        with:
+          github_app_id: ${{ secrets.gh-app-id }}
+          github_app_private_key: ${{ secrets.gh-app-private-key }}
+          github_app_permissions: >-
+            {
+              "contents": "write"
+            }
+
+      - uses: suzuki-shunsuke/commit-action@5eaa5ecce3ffe93d09a85b946dc5136e3713b1b7 # v1.1.0
+        if: steps.changed.outputs.flake == 'true'
+        with:
+          github_token: ${{ steps.token.outputs.token }}
+          files: flake.lock
+          commit_message: "chore(nix): update flake.lock"

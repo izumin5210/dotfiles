@@ -212,8 +212,8 @@ importers:
         specifier: 0.0.9
         version: 0.0.9(supports-color@8.1.1)(ws@8.21.3)
       skills:
-        specifier: 1.7.0
-        version: 1.7.0
+        specifier: 1.7.4
+        version: 1.7.4
       typescript:
         specifier: 7.0.2
         version: 7.0.2
@@ -2916,8 +2916,8 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
-  skills@1.7.0:
-    resolution: {integrity: sha512-OfePnDft+Xt9/tCoHdCUe5fkM8i+Q3QOSQO53hm7mKtsXyvc+CKOAAliVWZ484HS3cWx+6r+ob0AArixs3jYXw==}
+  skills@1.7.4:
+    resolution: {integrity: sha512-lHZJksE8UImNAr+LL6unqq7jERjdFw5EJasm17srycwL7rXHGdCmgu1L1ttLxUO9i3rdH+QQig+px0icHqLmRw==}
     engines: {node: '>=22.20.0'}
     hasBin: true
 
@@ -4007,7 +4007,7 @@ snapshots:
     dependencies:
       '@hono/node-server': 2.1.0(hono@4.13.1)
       ajv: 8.20.0
-      ajv-formats: 3.0.1(ajv@8.20.0)
+      ajv-formats: 3.0.1
       content-type: 1.0.5
       cors: 2.8.6
       cross-spawn: 7.0.6
@@ -4029,7 +4029,7 @@ snapshots:
     dependencies:
       '@hono/node-server': 2.1.0(hono@4.13.1)
       ajv: 8.20.0
-      ajv-formats: 3.0.1(ajv@8.20.0)
+      ajv-formats: 3.0.1
       content-type: 1.0.5
       cors: 2.8.6
       cross-spawn: 7.0.6
@@ -4876,8 +4876,8 @@ snapshots:
     optionalDependencies:
       ajv: 8.20.0
 
-  ajv-formats@3.0.1(ajv@8.20.0):
-    optionalDependencies:
+  ajv-formats@3.0.1:
+    dependencies:
       ajv: 8.20.0
 
   ajv-i18n@4.2.0(ajv@8.20.0):
@@ -6425,7 +6425,7 @@ snapshots:
 
   signal-exit@4.1.0: {}
 
-  skills@1.7.0:
+  skills@1.7.4:
     dependencies:
       tar: 7.5.22
       yaml: 2.9.0

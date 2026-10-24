@@ -1216,34 +1216,34 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_darwin_amd64.zip",
-      "checksum": "3CA71E44BC393B399ACD0EF039FF2904B7BB9D24",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_darwin_amd64.zip",
+      "checksum": "ABFE6B378EC8B59DD441A7EB13BC0F0F5B38B76DBDC78BD034DF826302004639",
+      "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_darwin_arm64.zip",
-      "checksum": "E65585D6AFD5AD5E27933BB471DC71C64211D267",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_darwin_arm64.zip",
+      "checksum": "8317F8EA5671BCCB31E7747EB0A892A77A472DBC7C988F9D47CDFC969A59E242",
+      "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_linux_amd64.zip",
-      "checksum": "B0F0CC8775481F2793B58B610616C7612591B488",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_linux_amd64.zip",
+      "checksum": "EFA5C1DE4E763565B71649229449D8123CEB7131A8D0ED25755AAEE73969CDF1",
+      "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_linux_arm64.zip",
-      "checksum": "B9C0CE104F1782D877C1B4F5639B71B9DB911040",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_linux_arm64.zip",
+      "checksum": "0A083C5D5B214DD0F4F693CF8839B15F6B5CC4E2D91B0CB4ABB8748DCDB353C9",
+      "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_windows_amd64.zip",
-      "checksum": "A244BC16EC43D7626042D05978FDD9AD9C86BAFE",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_windows_amd64.zip",
+      "checksum": "7AB0E759AC9F117F0B5EEEA0985C58E693ECB8D2E29B7BCFBCE657CAAC31BCE8",
+      "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/x-motemen/ghq/v1.10.1/ghq_windows_arm64.zip",
-      "checksum": "67F7E45DEB730336ACD539F710C59B8444E92ADD",
-      "algorithm": "sha1"
+      "id": "github_release/github.com/x-motemen/ghq/v1.11.2/ghq_windows_arm64.zip",
+      "checksum": "9D0BEF6DA668FD9F1A2DB3261EB2F7086F779AA3B0040FEA39E1EA028BC25A35",
+      "algorithm": "sha256"
     },
     {
       "id": "http/awscli.amazonaws.com/AWSCLIV2-2.36.49.pkg",

@@ -541,28 +541,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/herdrdev/herdr/v0.9.1/herdr-linux-aarch64",
-      "checksum": "F4CCF4DE745F2CB9A39A983E9BA3703DAD50EC2A58DEA83026CEAB721BBD8D9E",
+      "id": "github_release/github.com/herdrdev/herdr/v0.9.5/herdr-linux-aarch64",
+      "checksum": "17D7536F2DA50859523680EF279DFFCAC8E4A235F4E46FE8DA6C2EC44141897C",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/herdrdev/herdr/v0.9.1/herdr-linux-x86_64",
-      "checksum": "2A02FED16BEB651EF006E1D43F048F652CA4DC58AD053CD2D44450563D5C54B7",
+      "id": "github_release/github.com/herdrdev/herdr/v0.9.5/herdr-linux-x86_64",
+      "checksum": "14D9E8BC8B4A9E0118D77C32266F76D461F09B40342EB23752960BD89F59929D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/herdrdev/herdr/v0.9.1/herdr-macos-aarch64",
-      "checksum": "5FC7A7E7ADFACA56FA80AA89DCB025693357268DAB8285B9CE2D08A2313C89DE",
+      "id": "github_release/github.com/herdrdev/herdr/v0.9.5/herdr-macos-aarch64",
+      "checksum": "FB77C2232A05A8035421382C894392F4174E4E38A18E48AF3DD0290157C3A7E2",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/herdrdev/herdr/v0.9.1/herdr-macos-x86_64",
-      "checksum": "053BE0639935FE54AB5EFBDB46651054E4F6A753A5B43153C88BD6912BCE1E94",
+      "id": "github_release/github.com/herdrdev/herdr/v0.9.5/herdr-macos-x86_64",
+      "checksum": "5FB0A908EC7F6745E3E245738B06BFAD56C46391C391AB3C0955FBEAD01F1369",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/herdrdev/herdr/v0.9.1/herdr-windows-x86_64.zip",
-      "checksum": "04CE380CAC5AF27BFCF75D0951AC49B7AFE4C984AEE8852985806D4F71F93A6E",
+      "id": "github_release/github.com/herdrdev/herdr/v0.9.5/herdr-windows-x86_64.zip",
+      "checksum": "D2C6C9C971C43A0BFDDE8C692A9A1A7A45C3E4807CD01AE45662B4734FAC1CBF",
       "algorithm": "sha256"
     },
     {

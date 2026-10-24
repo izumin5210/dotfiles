@@ -23,6 +23,23 @@
       "description": "delve stopped publishing release assets again at v1.27.0, but aqua-registry only routes <=1.26.1 to go_install and still resolves newer versions via github_release. `aqua update-checksum` therefore fails on the missing checksums.txt and blocks every aqua PR. Drop this rule once the registry covers v1.27+.",
       "matchPackageNames": ["go-delve/delve"],
       "allowedVersions": "<=1.26.3"
+    },
+    {
+      "description": "hermes-agent switched from date tags (v2026.9.24) to semver at v0.21.6, so the older date tags compare as newer. Automerge stays off because the agent runs unattended with broad local access and upstream treats its Nix flake as best-effort.",
+      "matchPackageNames": ["NousResearch/hermes-agent"],
+      "allowedVersions": "<1000.0.0",
+      "automerge": false
+    }
+  ],
+  "customManagers": [
+    {
+      "description": "The nix manager cannot bump a tag pinned in a flake input URL (and is disabled here), so track it as a GitHub release. flake.lock is refreshed by the update-flake-lock workflow.",
+      "customType": "regex",
+      "managerFilePatterns": ["/^flake\\.nix$/"],
+      "matchStrings": [
+        "\"github:(?<depName>NousResearch/hermes-agent)/(?<currentValue>v[^\"/]+)\""
+      ],
+      "datasourceTemplate": "github-releases"
     }
   ],
   "minimumReleaseAge": "3 days",

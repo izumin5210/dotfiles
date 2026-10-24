@@ -18,7 +18,7 @@
     # Pinned to a release tag because upstream treats Nix as best-effort and main may break.
     # nixpkgs is not followed: hermes requires the Python minor version pinned in its own lock,
     # which nixos-25.11 may not provide.
-    hermes-agent.url = "github:NousResearch/hermes-agent/v0.21.6";
+    hermes-agent.url = "github:NousResearch/hermes-agent/v0.21.7";
   };
 
   outputs =

@@ -66,7 +66,7 @@ packages:
   - name: anthropics/claude-code@v2.1.310
   - name: openai/codex@rust-v0.164.0
   - name: tombi-toml/tombi@v0.11.7
-  - name: vercel-labs/agent-browser@v0.39.1
+  - name: vercel-labs/agent-browser@v0.39.2
   - name: tak848/ccgate@v0.11.0
   - name: sivchari/gopls-lazy@v0.4.1
   - name: kubernetes/kubernetes/kubectl@v1.37.1

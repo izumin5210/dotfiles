@@ -37,7 +37,7 @@ jobs:
             echo "flake=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - uses: DeterminateSystems/determinate-nix-action@d0c908e6cbe9f89f36ed8205a3ab6f092636916a # v3.23.1
+      - uses: DeterminateSystems/determinate-nix-action@96c5ee93a9dddf2830d31e1da6ec719077336c28 # v3.23.3
         if: steps.changed.outputs.flake == 'true'
 
       # Only inputs whose spec changed are relocked; the other inputs keep their locked revisions.

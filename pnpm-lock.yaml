@@ -176,8 +176,8 @@ importers:
         specifier: 0.0.83
         version: 0.0.83
       '@prisma/language-server':
-        specifier: 31.12.17
-        version: 31.12.17
+        specifier: 31.13.0
+        version: 31.13.0
       '@tailwindcss/language-server':
         specifier: 0.16.0
         version: 0.16.0
@@ -862,8 +862,8 @@ packages:
   '@prisma/config@7.9.0-dev.4':
     resolution: {integrity: sha512-/8Oq1I48iCEXjkwsXvwTrVQmH+I7s6FSRvYomm5VEMh7L9ZtNZkwElVek/Eaxjv+iRu2J3upDTrQuLmL/Vq7AQ==}
 
-  '@prisma/language-server@31.12.17':
-    resolution: {integrity: sha512-xziTdv+Vf2HBkLl6OTsfkEWq4s/xH1MLwUdOZP1ylfgQS2t3rkw0u4FxVU6d9iYKcSy479A/ow3ehfjGC6gZZQ==}
+  '@prisma/language-server@31.13.0':
+    resolution: {integrity: sha512-3ATe7MSnR4mFBCaiDyvNDrjWtfbz15y0guzGQ8oXOzJDBnHE4AzVxGobP7PgrWxsqry1CCY0x7/FfExZzAHKAA==}
     engines: {node: '>=20'}
     hasBin: true
 
@@ -4272,7 +4272,7 @@ snapshots:
     transitivePeerDependencies:
       - magicast
 
-  '@prisma/language-server@31.12.17':
+  '@prisma/language-server@31.13.0':
     dependencies:
       '@prisma/config': 7.9.0-dev.4
       '@prisma/prisma-schema-wasm': 7.8.0-6.3c6e192761c0362d496ed980de936e2f3cebcd3a

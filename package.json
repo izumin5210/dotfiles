@@ -11,7 +11,7 @@
     "@tailwindcss/language-server": "0.16.0",
     "@upstash/context7-mcp": "3.2.5",
     "@vtsls/language-server": "0.3.0",
-    "@vue/language-server": "3.3.13",
+    "@vue/language-server": "3.3.14",
     "any-script-mcp": "0.3.0",
     "bash-language-server": "5.8.1",
     "chrome-devtools-mcp": "1.9.0",

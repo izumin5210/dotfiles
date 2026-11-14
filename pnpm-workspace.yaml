@@ -7,23 +7,6 @@ onlyBuiltDependencies:
 minimumReleaseAgeExclude:
   - typescript@7.0.2
   - "@typescript/typescript-*"
-  # The pinned pnpm release must work before the default 1-day release-age cutoff.
-  - "@pnpm/exe.android-arm64@12.21.0"
-  - "@pnpm/exe.android-x64@12.21.0"
-  - "@pnpm/exe.darwin-arm64@12.21.0"
-  - "@pnpm/exe.darwin-x64@12.21.0"
-  - "@pnpm/exe.freebsd-x64@12.21.0"
-  - "@pnpm/exe.linux-arm64-musl@12.21.0"
-  - "@pnpm/exe.linux-arm64@12.21.0"
-  - "@pnpm/exe.linux-ppc64@12.21.0"
-  - "@pnpm/exe.linux-riscv64@12.21.0"
-  - "@pnpm/exe.linux-s390x@12.21.0"
-  - "@pnpm/exe.linux-x64-musl@12.21.0"
-  - "@pnpm/exe.linux-x64@12.21.0"
-  - "@pnpm/exe.netbsd-x64@12.21.0"
-  - "@pnpm/exe.win32-arm64@12.21.0"
-  - "@pnpm/exe.win32-x64@12.21.0"
-  - pnpm@12.21.0
 allowBuilds:
   core-js: true
   protobufjs: true

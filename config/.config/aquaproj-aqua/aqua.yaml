@@ -29,7 +29,7 @@ packages:
   - name: jesseduffield/lazygit@v0.66.2
   # vim
   - name: neovim/neovim@v0.12.6
-  - name: tree-sitter/tree-sitter@v0.27.1
+  - name: tree-sitter/tree-sitter@v0.27.2
   # shell
   - name: starship/starship@v1.27.0
   - name: rossmacarthur/sheldon@0.8.5

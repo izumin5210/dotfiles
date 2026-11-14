@@ -37,6 +37,7 @@ return {
   },
   {
     "petertriho/nvim-scrollbar",
+    branch = "v1",
     event = { "BufReadPost", "BufAdd", "BufNewFile" },
     opts = function()
       local palette = require("utils.colors").palette

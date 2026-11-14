@@ -57,6 +57,7 @@
   "package-info.nvim": { "branch": "master", "commit": "8f7e89744b6f882737207b17155511d04d104ca1" },
   "persistence.nvim": { "branch": "main", "commit": "c45ff862b53ce07a853a753fb0b33e148dbb99d2" },
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
+  "quint": { "branch": "main", "commit": "3eaa85fc01820ea25bd7cb7baee0bb8d5c02c8b0" },
   "sidekick.nvim": { "branch": "main", "commit": "53a2d3afa61e5fd2e17b270b5fa72e5493808304" },
   "snacks.nvim": { "branch": "main", "commit": "e6fd58c82f2f3fcddd3fe81703d47d6d48fc7b9f" },
   "tabout.nvim": { "branch": "master", "commit": "9a3499480a8e53dcaa665e2836f287e3b7764009" },

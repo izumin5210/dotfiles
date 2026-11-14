@@ -9,4 +9,8 @@ minimumReleaseAgeExclude:
   - "@typescript/typescript-*"
 allowBuilds:
   core-js: true
+  protobufjs: true
   puppeteer: true
+overrides:
+  "@informalsystems/quint>adm-zip": 0.6.1
+  "@informalsystems/quint>tar": 7.5.22

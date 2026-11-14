@@ -24,6 +24,11 @@ return {
     "jxnblk/vim-mdx-js",
   },
   {
+    "quint-co/quint",
+    version = "*",
+    ft = "quint",
+  },
+  {
     "direnv/direnv.vim",
     ft = "direnv",
   },

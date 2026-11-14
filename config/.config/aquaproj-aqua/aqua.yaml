@@ -26,7 +26,7 @@ packages:
   - name: cli/cli@v2.103.3
   - name: dandavison/delta@0.20.1
   - name: x-motemen/ghq@v1.11.2
-  - name: jesseduffield/lazygit@v0.66.2
+  - name: jesseduffield/lazygit@v0.66.3
   # vim
   - name: neovim/neovim@v0.12.6
   - name: tree-sitter/tree-sitter@v0.27.2

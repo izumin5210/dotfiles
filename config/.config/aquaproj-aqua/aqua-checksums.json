@@ -1111,23 +1111,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-linux-arm64.tar.gz",
-      "checksum": "BB5AFD9D646DF54A7D7C66E198AA22C7D293C7453534F1670F7C540534DB8B5E",
+      "id": "github_release/github.com/tmux/tmux-builds/v3.8/tmux-3.8-linux-arm64.tar.gz",
+      "checksum": "F399311B1159705E69839EAF4F6F68C8B8540DC3A8538B87C30DEDB9C3C7FC23",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-linux-x86_64.tar.gz",
-      "checksum": "C0A772A5E6CA8F129B0111D10029A52E02BCBC8352D5A8C0D3DE8466A1E59C2E",
+      "id": "github_release/github.com/tmux/tmux-builds/v3.8/tmux-3.8-linux-x86_64.tar.gz",
+      "checksum": "147849FF18B62A8AA3D5D8F75DD07C3F9FDFAD529F932236AFDEC838FC1D15E1",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-macos-arm64.tar.gz",
-      "checksum": "12B5B9F8696E1286897D946649C0A80D0169DD76E018D34476A1FBD34DE89A0F",
+      "id": "github_release/github.com/tmux/tmux-builds/v3.8/tmux-3.8-macos-arm64.tar.gz",
+      "checksum": "EC926BBF28DDF55D0DC7C9791D43E03E251DDAB392D763F7FBB38D4B8408D051",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/tmux/tmux-builds/v3.6a/tmux-3.6a-macos-x86_64.tar.gz",
-      "checksum": "B9B12EAEBA43ACF5671ACF3857D947525440B544185A8DB34EA557199A090251",
+      "id": "github_release/github.com/tmux/tmux-builds/v3.8/tmux-3.8-macos-x86_64.tar.gz",
+      "checksum": "E7B92E51D9E9610CE80D1C477DA1E6FF6A6398EA6B6B4D4FF7B19CF60F594555",
       "algorithm": "sha256"
     },
     {

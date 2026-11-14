@@ -851,8 +851,18 @@
       "algorithm": "sha256"
     },
     {
+      "id": "github_release/github.com/pnpm/pnpm/v12.20.0/pnpm-linux-arm64-musl.tar.gz",
+      "checksum": "D77D6C79501AE0DA6CCD7B793AE397868AB5183370646333D82053ADF4F723C7",
+      "algorithm": "sha256"
+    },
+    {
       "id": "github_release/github.com/pnpm/pnpm/v12.20.0/pnpm-linux-arm64.tar.gz",
       "checksum": "E6EDBF380EE2299BE4CDE0F5B8F7183529A8963916637896DD6B3AC71A216AE0",
+      "algorithm": "sha256"
+    },
+    {
+      "id": "github_release/github.com/pnpm/pnpm/v12.20.0/pnpm-linux-x64-musl.tar.gz",
+      "checksum": "A841763C8D5BEAEAD1EB99CDA0A389EB1FC319521EBB327C1B40B0BD52FB2FBF",
       "algorithm": "sha256"
     },
     {

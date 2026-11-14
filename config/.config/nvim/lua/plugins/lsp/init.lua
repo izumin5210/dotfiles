@@ -88,6 +88,7 @@ return {
         "lua_ls",
         "nixd",
         "pyright",
+        "quint",
       })
     end,
   },

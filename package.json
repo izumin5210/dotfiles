@@ -5,7 +5,7 @@
   "devDependencies": {
     "@fsouza/prettierd": "0.29.0",
     "@informalsystems/quint-language-server": "0.19.0",
-    "@mermaid-js/mermaid-cli": "11.17.0",
+    "@mermaid-js/mermaid-cli": "11.17.1",
     "@playwright/mcp": "0.0.85",
     "@prisma/language-server": "31.13.0",
     "@tailwindcss/language-server": "0.16.0",

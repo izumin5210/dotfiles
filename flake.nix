@@ -2,22 +2,20 @@
   description = "Home Manager configuration of masayuki.izumi";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
+    # Pick up Go security fixes for Tailscale promptly from the stable release branch.
+    nixpkgs.url = "github:NixOS/nixpkgs/release-26.05";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
 
     home-manager = {
-      # TODO: Switch back to the stable release branch once release-26.05 is available.
-      # Track master temporarily so services.colima can be used before it lands in a stable release.
-      url = "github:nix-community/home-manager/master";
+      url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-darwin = {
-      url = "github:LnL7/nix-darwin/nix-darwin-25.11";
+      url = "github:nix-darwin/nix-darwin/nix-darwin-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     # Pinned to a release tag because upstream treats Nix as best-effort and main may break.
-    # nixpkgs is not followed: hermes requires the Python minor version pinned in its own lock,
-    # which nixos-25.11 may not provide.
+    # nixpkgs is not followed: hermes requires the Python minor version pinned in its own lock.
     hermes-agent.url = "github:NousResearch/hermes-agent/v0.21.6";
   };
 

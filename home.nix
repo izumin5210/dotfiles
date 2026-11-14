@@ -16,11 +16,6 @@
       "1password-cli"
     ];
 
-  nixpkgs.config.permittedInsecurePackages = [
-    "lima-full-1.2.2"
-    "lima-additional-guestagents-1.2.2"
-  ];
-
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   # home.username = user.name;
@@ -34,8 +29,6 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "24.11"; # Please read the comment before changing.
-
-  home.enableNixpkgsReleaseCheck = false;
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
@@ -62,11 +55,11 @@
 
     # nix
     pkgs.nixd
-    pkgs.nixfmt-rfc-style
+    pkgs.nixfmt
 
     # middlewares
     pkgs.postgresql_16
-    pkgs.mysql80
+    pkgs.mysql84
     pkgs.redis
     pkgs.sqlite
 

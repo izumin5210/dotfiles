@@ -13,4 +13,4 @@ allowBuilds:
   puppeteer: true
 overrides:
   "@informalsystems/quint>adm-zip": 0.6.1
-  "@informalsystems/quint>tar": 7.5.22
+  "@informalsystems/quint>tar": 7.5.23

@@ -40,7 +40,7 @@ packages:
   - name: rhysd/actionlint@v1.7.12
   - name: hadolint/hadolint@v2.15.1
   - name: mvdan/sh@v3.14.1
-  - name: JohnnyMorganz/StyLua@v2.5.2
+  - name: JohnnyMorganz/StyLua@v2.6.0
   - name: grafana/jsonnet-language-server@v0.17.0
   - name: LuaLS/lua-language-server@3.19.2
   - name: github/copilot-language-server-release@1.569.0

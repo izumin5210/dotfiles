@@ -1191,28 +1191,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.39.4/agent-browser-darwin-arm64",
-      "checksum": "0317CE35172905C775C25B393914BC259701A464877AAB9753EC8896F6E38BF7",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.43.0/agent-browser-darwin-arm64",
+      "checksum": "05338A8EEDDF0B3F9EBF0C87A6C21AEDC10685608C68618E1A8483C43EAE9C3F",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.39.4/agent-browser-darwin-x64",
-      "checksum": "21522A8EC34063FA294B0C928AD03D3485F1821EBE22F9DA2B47B89963F731AF",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.43.0/agent-browser-darwin-x64",
+      "checksum": "49A5AB27297213C1BC0005701A6A4542399ABFC9D2CB7520AB519EBB94B8B13D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.39.4/agent-browser-linux-arm64",
-      "checksum": "922B60DBD9F5C8B5C0F39B453BFE8CBF61B83ABD487344028A508E8C4DCA7883",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.43.0/agent-browser-linux-arm64",
+      "checksum": "34BE55C2B92D8D199FB9D1D62A905EE5B6AC5B1F3E8C24E5B20597F370D905E5",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.39.4/agent-browser-linux-musl-x64",
-      "checksum": "34A8BE7C062A99164FC02322F22AC5F42870206CC7B59BB40EF045958AD3705B",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.43.0/agent-browser-linux-musl-x64",
+      "checksum": "10B3B1D5FA8F53F7BC44273BCEFAA64299AB77071BC83E75D96DE5ED66025C89",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/vercel-labs/agent-browser/v0.39.4/agent-browser-win32-x64.exe",
-      "checksum": "BE19A109A004F84C367D7913C22B8046390B3E0E5241F9F6C7E83C7BACD22AAE",
+      "id": "github_release/github.com/vercel-labs/agent-browser/v0.43.0/agent-browser-win32-x64.exe",
+      "checksum": "EBCEF5EBEA93C7CCF0FE3F8C18EEE908AE9174DFEF8E52A3DDA6F24A59F630DC",
       "algorithm": "sha256"
     },
     {

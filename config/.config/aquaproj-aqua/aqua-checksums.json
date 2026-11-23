@@ -311,23 +311,23 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.20.1/delta-0.20.1-aarch64-apple-darwin.tar.gz",
-      "checksum": "BC1839CEA69288D4673A24FAFFBB825D408CA907E0F7D33B1678C9E6CDD5E58E",
+      "id": "github_release/github.com/dandavison/delta/0.21.2/delta-0.21.2-aarch64-apple-darwin.tar.gz",
+      "checksum": "AC78B8953C5087852437BFA0ABFCC7908DB1F7A7B7AB0E39E114A9454BB335A4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.20.1/delta-0.20.1-aarch64-unknown-linux-gnu.tar.gz",
-      "checksum": "DA7F4338F593572FF426AE153E0870E2FDC72729416EFF551B40CDEB67940DB8",
+      "id": "github_release/github.com/dandavison/delta/0.21.2/delta-0.21.2-aarch64-unknown-linux-gnu.tar.gz",
+      "checksum": "36DCA3DDB293D2FA635AA2BF9C53C0BA2D38DCD749290D81C6685974CF3799C4",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.20.1/delta-0.20.1-x86_64-pc-windows-msvc.zip",
-      "checksum": "C9AF7484B33F1DBC1312A892FC7D5753A6D3365140A4000D49E575A2DE742C25",
+      "id": "github_release/github.com/dandavison/delta/0.21.2/delta-0.21.2-x86_64-pc-windows-msvc.zip",
+      "checksum": "494AF2013670F0304320D5E3AB5496274E5DD95CB1CE442181E3CE677F56AF3D",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/dandavison/delta/0.20.1/delta-0.20.1-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "69DCB4043F55C29118F408C6EFD30115E0A4E0A6709253343B8C8FA814AB4A31",
+      "id": "github_release/github.com/dandavison/delta/0.21.2/delta-0.21.2-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "D4C55C9B9991C308CAD84412E8A8AFDC990779E4DD021F6EBB277A4249719B9F",
       "algorithm": "sha256"
     },
     {

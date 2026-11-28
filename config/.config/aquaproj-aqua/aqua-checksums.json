@@ -796,28 +796,28 @@
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.170.0/codex-package-aarch64-apple-darwin.tar.gz",
-      "checksum": "975524BF13AEDD1B122D8D0E00C09EE67091B8F688C0B374943DBB3CF22C7893",
+      "id": "github_release/github.com/openai/codex/rust-v0.172.0/codex-package-aarch64-apple-darwin.tar.gz",
+      "checksum": "0970016D48209A09C4039139629ED79B4A31C5E3D864E792C043419D98FA6466",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.170.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
-      "checksum": "3F7E1AE38C4FE27322E082B855E8EEC936D08FA538D62B71C07E2A53F34E8847",
+      "id": "github_release/github.com/openai/codex/rust-v0.172.0/codex-package-aarch64-unknown-linux-musl.tar.gz",
+      "checksum": "FAF17B8071927F33346A805DC8CB45DE4E08C0D75CF0E5E68CECDDCA28B8861E",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.170.0/codex-package-x86_64-apple-darwin.tar.gz",
-      "checksum": "2E971524460A570B913DBDC9B49E5E9C14556E44E7F62F00B95B4A8F1E2CDF25",
+      "id": "github_release/github.com/openai/codex/rust-v0.172.0/codex-package-x86_64-apple-darwin.tar.gz",
+      "checksum": "B5E94828F45171F13D81DE2B96CAE05C0B7E6A7F2F7D3C9D4E748BE3D3906C02",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.170.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
-      "checksum": "6FF4B22C63645FFD83AED9B722CBB0B9E5B79DC6E8916F50E362B3015FB327A9",
+      "id": "github_release/github.com/openai/codex/rust-v0.172.0/codex-package-x86_64-pc-windows-msvc.tar.gz",
+      "checksum": "B723674D7CAF26A3F55121A02D6CAD8F3AC8DDF5860747A6EDDE1C904CF593AF",
       "algorithm": "sha256"
     },
     {
-      "id": "github_release/github.com/openai/codex/rust-v0.170.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
-      "checksum": "A77FF87BE7BA809D715728270A78F5CE3527DC07529416D1EF8929B90B8475EB",
+      "id": "github_release/github.com/openai/codex/rust-v0.172.0/codex-package-x86_64-unknown-linux-musl.tar.gz",
+      "checksum": "63E3B00065ED7F62166D0522E17F663CB866A31D80D03E63365482ED34A1D991",
       "algorithm": "sha256"
     },
     {

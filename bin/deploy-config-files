@@ -55,6 +55,9 @@ ln_idempotently ./config/.config/tmux ~/.config/tmux
 # herdr
 ln_idempotently ./config/.config/herdr ~/.config/herdr
 
+# rex
+ln_idempotently ./config/.config/rex ~/.config/rex
+
 # vim
 ln_idempotently ./config/.agents ~/.agents
 

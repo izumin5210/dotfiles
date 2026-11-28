@@ -81,6 +81,12 @@ export PATH="${DOTFILES_DIR}/node_modules/.bin":$PATH
 # Osidian
 export PATH="$PATH:/Applications/Obsidian.app/Contents/MacOS"
 
+# Rex
+# Rex は自分の端末で PATH に CLI を足すが、nix-darwin の /etc/zshenv が PATH を固定リストで上書きして消えるので、REX_BIN_DIR から足し直す
+if [ -n "${REX_BIN_DIR:-}" ]; then
+  export PATH="$REX_BIN_DIR:$PATH"
+fi
+
 # LayerX
 export GOPRIVATE=github.com/LayerXcom/
 
